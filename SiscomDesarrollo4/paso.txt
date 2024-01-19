@@ -1,0 +1,8 @@
+int SiscomEnviaRegistrosRespuesta(SiscomOperaciones *pSiscomOpePtrDatos,char *pchrPtrBuffer)
+{
+
+  SiscomEnviaRegistrosSocket(pSiscomOpePtrDatos->intSocket,
+  			     pchrPtrBuffer,
+			     pSiscomOpePtrDatos->SiscomRegProLPtrPrimRes);
+
+}

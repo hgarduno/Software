@@ -1,0 +1,9 @@
+#!/bin/sh 
+
+PATH=$PATH:$DirDesarrollo4/SiscomDesarrollo4 
+
+LD_LIBRARY_PATH=$DirDesarrollo4/SiscomDesarrollo4
+
+export PATH		\
+	LD_LIBRARY_PATH
+ClienteEnvio $*

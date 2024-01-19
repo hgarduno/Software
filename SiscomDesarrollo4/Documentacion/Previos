@@ -1,0 +1,102 @@
+----------------------------- Jueves 19 De Abril del 2012 ----------------------------
+
+Se requiere iniciar el desarrollo de la nueva version del soporte para
+construir aplicaciones. 
+Hay que plantear una serie de librerias que puedan incluir las experiencias
+de los programas desarrollados a lo largo de los a;os. 
+
+La construccion de las bibliotecas debera basarse en la version 4 de Qt 
+y debera poder manejar mediante la implantacion de un protocolo la 
+informacion que pueda caracterizar los distintos objetos que se requeriran
+para la construccion de las aplicaciones. Una de las limitantes mas fuertes
+de la version actual del soporte para construir aplicaciones que he desarro-
+llado tiene que ver con el hecho de no poder caracterizar los objetos de 
+manera natural.
+
+
+----------------------------- Domingo 22 de abril del 2012 ---------------------------
+
+00006				---> Longitud del nombre del registro
+Nombre				---> Nombre del registro
+00003             		---> Numero de registros
+00004             		---> Numero de campos 
+00006		  		---> Longitud del nombre del campo
+Nombre		  		---> Nombre del campo
+00004				---> Longitud del campo
+Heli				---> Campo
+1				---> Flag de sub registros 
+00006				        ---> Longitud del nombre del registro
+Apodos					---> Nombre del registro
+00003					---> Numero de registros asociados al campo
+00002					---> Numero de campos asociados al campo
+00005					---> Longitud del nombre del campo
+Apodo					---> Nombre del campo
+00004					---> Longitud del campo
+Papa					---> Campo
+0					---> Flag del sub registro
+00008				---> Longitud del nombre del campo
+APaterno			---> Nombre del campo
+00007				---> Longitud del campo
+Garduno				---> Campo
+
+
+Bueno, pues ahora que la idea general del protocolo quedo plazmada y 
+como escribire todo esto desde cero, entonces hay que definir el servicio.
+
+Para lo que hay que definir la estructura del archivo de inicializacion 
+y la forma en la que se cargara la biblioteca en la que se codificara 
+la funcionalidad de los procesos de negocio.
+
+--------------------------------  Lunes 23 de Abril 2012 -----------------------------
+Para poder manejar de una forma mas eficiente la informacion del archivo de configu-
+racion del archivo de inicializacion se deberan desarrollar una serie de rutinas que
+permitan en una estructura general con una lista simplemente ligada en formato nombre
+de variable valor, todas las variables que una implantacion requiera, y asi no 
+amarrar a un numero y nombres de variables especificas a cada proyecto.
+
+
+PuertoConfiguracion=5645
+BibliotecaServicio=libSiscomElectronica4.so 
+
+
+Las rutinas para el manejo de la informacion del Ini deberan contemplar asi mismo ma-
+nejo de variables de arreglo con el siguiente formato:
+
+Expendios[]
+	Expendios[Politecnico]=Direccion actual del IPN
+	Expendios[Ecatepec]=Av. Central Junto 
+	Expendios[Tepotzotlan]=Eva Samano de Lopez Mateos S/N
+[]Expendios
+
+En donde la manera de accesar a una de las variables del arreglo sera por medio del
+nombre que se puso entre los corchetes [], y bueno como indica el ejemplo anterior
+el inicio de la variable sera marcado por el nombre de la variable y despues []
+para indicar la terminacion de la declaracion de la varible se usara el formato de
+[] y despues el nombre de la variable.
+
+Es importante mencionar que en este punto se penso que el manejo del ini debera
+reemplazara al archivo de XML que se utiliza para configurar la interfaz, para lo
+cual entonces se debera pensar en poner en una biblioteca separada la funcionalidad
+del manejo del ini, para que se pueda integrar a la funcionalidad del la interfaz 
+de forma separada y no sea necesario incluir todas las bibliotecas del servidor.
+
+
+Durante el inicio del desarrollo de esta nueva version, se debera iniciar un control
+para el manejo de los errores para lo cual se propone la siguiente estructura en el
+valor de retorno de las funciones.
+
+0 -> no hay error 
+
+mmm, debere pensar en algo para codificar en el error el nombre del archivo y el nume-
+ro de error, se podria pensar en desarrollar una Macro que tome FILE y LINE ARC, como
+la funcion que se utiliza para escribir en el log, para generar un numero entero.
+
+Para manejar lo anterior se tendra que desarrollar el soporte para el manejo de erro-
+res, por lo que el planteamiento del manejo de los archivos ini en una biblioteca se-
+parada para poder incluirla en el manejo de la interfaz, no sera aplicable, para po--
+der continuar con el esquema de separar las aplicaciones en C++ Cliente y Servidor C.
+
+Para ese caso se debera desarrollar una version basada en Qt4 para el manejo de los
+archivos ini mediante Qt4.
+
+
