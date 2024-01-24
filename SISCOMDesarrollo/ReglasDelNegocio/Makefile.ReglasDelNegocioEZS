@@ -1,0 +1,25 @@
+#DIRP=/home/heli/SISCOMDesarrollo
+#FUNCOMUNES=$(DIRP)/FuncionesComunes/CodigoFuente
+#FUNCOMUNESRNAD=$(DIRP)/RNADComun/CodigoFuente
+#RNEGOCIO=$(DIRP)/ReglasDelNegocio
+#ADATOS=$(DIRP)/AccesoADatos
+#BINARIOS=$(DIRP)/Binarios
+#INCLUDESISCOM=-I$(DIRP)/ArchivosCabecera -I$(DIRP)/FuncionesComunes/ArchivosCabecera -I$(DIRP)/RNADComun/ArchivosCabecera -I$(DIRP)/ArchivosCabecera/PostgreSQL
+#OPCMAKE= #-s
+#OPCC=-g -DDEBUG
+#LIBEFENCE=#-lg #-lefence
+
+all:$(RNEGOCIO)/RNDllAltaVentas.so $(RNEGOCIO)/RNDllAltaVentas.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.o $(FUNCOMUNES)/EstructurasSISCOM.o $(LIBEFENCE)
+
+.SUFFIXES: .c
+.c.o:
+	cc $(OPCC)  $(INCLUDESISCOM) -c $<
+$(RNEGOCIO)/RNDllAltaVentas.so:$(RNEGOCIO)/RNDllAltaVentas.o
+	gcc -shared -g -o$(RNEGOCIO)/RNDllAltaVentas.so $(RNEGOCIO)/RNDllAltaVentas.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.o $(FUNCOMUNES)/EstructurasSISCOM.o $(LIBEFENCE)
+
+$(RNEGOCIO)/RNDllAltaVentas.o:$(RNEGOCIO)/RNDllAltaVentas.c
+	cc $(INCLUDESISCOM) $(OPCC) -c $<
+
+clean:
+	rm $(RNEGOCIO)/RNDllAltaVentas.o
+	rm $(RNEGOCIO)/RNDllAltaVentas.so

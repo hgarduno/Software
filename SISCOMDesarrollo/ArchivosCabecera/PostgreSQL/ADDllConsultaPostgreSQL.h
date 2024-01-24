@@ -1,0 +1,4 @@
+#ifndef __ADDLLCONSULTAPOSTGRESQL_H__
+#define __ADDLLCONSULTAPOSTGRESQL_H__
+
+#endif 

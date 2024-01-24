@@ -1,0 +1,15 @@
+
+AOBJSRN=RNDllAltaCompras.o RNDllAltaProductos.o RNDllAltaVentas.o RNDllManejadorConsultas.o RNDllIniciaDemonio.o RNProcesoAtiende.o\
+	RNDllConsultasHGE.o RNDllSistemaDeConsultas.o
+AOBJAD=ADDllConsultasPostgreSQL.o ADDllIniciaDemonio.o ADDllInsercionesPostgreSQL.o ADDllRealizaAltaDeProductos.o ADDllManejadorDeSistemaDeConsultas.o \
+       ADFuncionesComunesPostgreSQL.o ADProcesoAtiendeCliente.o ADDllSistemaDeConsultasHGE.o ADDllSistemaDeConsultasModificado.o		
+AOBJFC=ClienteDeConexion.o DemonioSockets.o DllCLIAltasCompras.o DllCLIAltasVentas.o \
+       DllConsultasSvrSISCOM.o DllDeConexionSvrSISCOM.o \
+       EstructurasSISCOM.o FuncionesComunes.o LanzaProcesosConexion.o ManipulacionArchivos.o
+AOBJRNAD=RNADFuncionesComunes.o
+#OPC=$(DEBUG) -c -o$(DIROBJS)/$@ $<
+
+.c.o:
+	$(CC) $(OPC) $(INCLUDESISCOM)  -o$(DIROBJS)/$@ $<
+all:$(AOBJSRN) $(AOBJAD) $(AOBJFC) $(AOBJRNAD) 
+

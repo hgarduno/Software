@@ -1,0 +1,25 @@
+all:$(FUNCOMUNES)/DemonioDeConexiones.bin $(FUNCOMUNES)/ClienteDeConexion.bin $(FUNCOMUNES)/DllEjemplo.so $(FUNCOMUNES)/LanzaProcesosConexion.bin $(FUNCOMUNES)/DllDeConexionSvrSISCOM.so $(FUNCOMUNES)/DllConsultasSvrSISCOM.so $(FUNCOMUNES)/DllCLIAltasCompras.so FuncionesEZS
+.c.o:
+	cc $(OPCC) -c $(INCLUDESISCOM) $<
+
+FuncionesEZS:
+	make -f Makefile.FuncionesComunesEZS
+
+$(FUNCOMUNES)/DemonioDeConexiones.bin:$(FUNCOMUNES)/DemonioSockets.o $(FUNCOMUNES)/EstructurasSISCOM.o
+	cc -ldl -g -o$(FUNCOMUNES)/DemonioDeConexiones.bin $(FUNCOMUNES)/DemonioSockets.o $(FUNCOMUNES)/EstructurasSISCOM.o $(LIBEFENCE)
+$(FUNCOMUNES)/ClienteDeConexion.bin:$(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNES)/ClienteDeConexion.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o  $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o
+	cc -ldl -g -o$(FUNCOMUNES)/ClienteDeConexion.bin $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNES)/ClienteDeConexion.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(LIBEFENCE)
+$(FUNCOMUNES)/DllEjemplo.so:$(FUNCOMUNES)/DllEjemplo.o
+	gcc -shared -g -o$(FUNCOMUNES)/DllEjemplo.so $(FUNCOMUNES)/DllEjemplo.o -ldl $(LIBEFENCE)
+$(FUNCOMUNES)/LanzaProcesosConexion.bin:$(FUNCOMUNES)/LanzaProcesosConexion.o
+	cc -g -o$(FUNCOMUNES)/LanzaProcesosConexion.bin $(FUNCOMUNES)/LanzaProcesosConexion.o $(LIBEFENCE)
+$(FUNCOMUNES)/DllDeConexionSvrSISCOM.so:$(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o  $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/DllDeConexionSvrSISCOM.o
+	gcc -shared -o $(FUNCOMUNES)/DllDeConexionSvrSISCOM.so $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o  $(FUNCOMUNES)/DllDeConexionSvrSISCOM.o $(LIBEFENCE)
+$(FUNCOMUNES)/DllConsultasSvrSISCOM.so:$(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o  $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/DllConsultasSvrSISCOM.o
+	 gcc -shared -o $(FUNCOMUNES)/DllConsultasSvrSISCOM.so $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o  $(FUNCOMUNES)/DllConsultasSvrSISCOM.o $(LIBEFENCE)
+$(FUNCOMUNES)/DllCLIAltasCompras.so:$(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o  $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/DllCLIAltasCompras.o
+	 gcc -shared -o $(FUNCOMUNES)/DllCLIAltasCompras.so $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o  $(FUNCOMUNES)/DllCLIAltasCompras.o $(LIBEFENCE)
+clean:
+	rm $(FUNCOMUNES)/*.o
+	rm $(FUNCOMUNES)/*.bin
+	rm $(FUNCOMUNES)/*.so

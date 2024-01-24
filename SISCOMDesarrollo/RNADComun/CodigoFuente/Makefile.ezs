@@ -1,0 +1,10 @@
+#FUNCOMUNESRNAD = /home/heli/SISCOMDesarrollo/RNADComun/CodigoFuente
+#INCLUDESISCOM  = -I /home/heli/SISCOMDesarrollo/RNADComun/ArchivosCabecera -I /home/heli/SISCOMDesarrollo/FuncionesComunes/ArchivosCabecera
+
+all:$(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.o
+$(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.o:$(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.c
+	cc $(INCLUDESISCOM) $(OPCC) -c $<
+
+clean:
+	rm $(FUNCOMUNESRNAD)/*.o
+

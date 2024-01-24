@@ -1,0 +1,17 @@
+all:$(ADATOS)/ADDllInsercionesPostgreSQLEZS.so $(ADATOS)/ADDllRealizaAltaDeProductosEZS.o
+.c.o:
+	cc $(OPCC) -c $(INCLUDESISCOM) $<
+
+$(ADATOS)/ADDllInsercionesPostgreSQLEZS.so:$(ADATOS)/ADDllInsercionesPostgreSQLEZS.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o
+	gcc -shared -g -o $(ADATOS)/ADDllInsercionesPostgreSQLEZS.so $(ADATOS)/ADDllInsercionesPostgreSQLEZS.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.o $(LIBEFENCE) $(ADATOS)/ADFuncionesComunesPostgreSQL.o -lpq
+
+$(ADATOS)/ADDllInsercionesPostgreSQLEZS.o:
+	gcc $(OPCC) -g -c -o $(ADATOS)/ADDllInsercionesPostgreSQLEZS.o $(ADATOS)/ADDllInsercionesPostgreSQLEZS.c -I $(INCLUDESISCOM)
+
+$(ADATOS)/ADDllRealizaAltaDeProductosEZS.o:
+	gcc $(OPCC) -g -c -o $(ADATOS)/ADDllRealizaAltaDeProductosEZS.o $(ADATOS)/ADDllRealizaAltaDeProductosEZS.c -I. $(INCLUDESISCOM) 
+
+clean:
+	rm *.o
+	rm *.so
+	rm *.bin

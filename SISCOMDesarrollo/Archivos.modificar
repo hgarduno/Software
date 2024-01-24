@@ -1,0 +1,16 @@
+AccesoADatos/ADFuncionesComunesPostgreSQL.c:lPGconnReg=PQsetdb(NULL,NULL,NULL,NULL,lchrArrBaseDeDatos);
+Binary file AccesoADatos/.ADDllConsultasPostgreSQL.c.swo matches
+AccesoADatos/ADDllConsultasPostgreSQL.c:conexion=PQsetdb(NULL,NULL,NULL,NULL,"Siscom");
+AccesoADatos/ADDllConsultasPostgreSQL.c:conexion=PQsetdb(NULL,NULL,NULL,NULL,"Siscom");
+AccesoADatos/ADDllConsultasPostgreSQL.c:conexion=PQsetdb(NULL,NULL,NULL,NULL,"Siscom");
+AccesoADatos/ADDllConsultasPostgreSQL.c:conexion=PQsetdb(NULL,NULL,NULL,NULL,"Siscom");
+AccesoADatos/ADDllIniciaDemonio.c:	lPGconnPtrConexion=PQsetdb(NULL,NULL,NULL,NULL,"Siscom");
+Binary file Binarios/libADDllConsultasPostgreSQL.so matches
+Binary file Binarios/libADDllInsercionesPostgreSQLEZS.so matches
+Binary file Binarios/libADDllRealizaAltaDeProductos.so matches
+Binary file Binarios/libADDllInsercionesPostgreSQL.so matches
+Binary file Binarios/libADDllIniciaDemonio.so matches
+Binary file Objetos/ADFuncionesComunesPostgreSQL.o matches
+Binary file Objetos/ADDllConsultasPostgreSQL.o matches
+Binary file Objetos/ADDllIniciaDemonio.o matches
+Binary file libSISCOMDesarrollo.1.0.a matches

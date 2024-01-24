@@ -1,0 +1,29 @@
+all: $(ADATOS)/ADProcesoAtiendeCliente.bin $(ADATOS)/ADDllInsercionesPostgreSQL.so FuncionesEZS $(ADATOS)/ADDllAltaDeProductos.so $(ADATOS)/ADDllIniciaDemonio.so $(ADATOS)/ADDllConsultasPostgreSQL.so $(ADATOS)/ADDllSistemaDeConsultas.so
+.c.o:
+	cc $(OPCC) -c $(INCLUDESISCOM) $<
+FuncionesEZS:
+	make -f Makefile.ezs
+
+$(ADATOS)/ADProcesoAtiendeCliente.bin:$(ADATOS)/ADProcesoAtiendeCliente.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o
+	cc -o$(ADATOS)/ADProcesoAtiendeCliente.bin $(ADATOS)/ADProcesoAtiendeCliente.o  $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o -ldl $(LIBEFENCE)
+$(ADATOS)/ADDllAltaDeProductos.so:$(ADATOS)/ADDllRealizaAltaDeProductos.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o
+	gcc -shared -g -o $(ADATOS)/ADDllRealizaAltaDeProductos.so $(ADATOS)/ADDllRealizaAltaDeProductos.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(LIBEFENCE) $(ADATOS)/ADDllRealizaAltaDeProductosEZS.o $(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.o
+
+$(ADATOS)/ADDllInsercionesPostgreSQL.so:$(ADATOS)/ADDllInsercionesPostgreSQL.o $(ADATOS)/ADFuncionesComunesPostgreSQL.o  $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o
+	gcc -shared -g -o $(ADATOS)/ADDllInsercionesPostgreSQL.so $(ADATOS)/ADDllInsercionesPostgreSQL.o  $(ADATOS)/ADFuncionesComunesPostgreSQL.o  $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o -lpq $(LIBEFENCE)
+
+
+
+
+$(ADATOS)/ADDllIniciaDemonio.so:$(ADATOS)/ADDllIniciaDemonio.o
+	gcc -shared -g -o$(ADATOS)/ADDllIniciaDemonio.so  $(ADATOS)/ADDllIniciaDemonio.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o -lpq $(LIBEFENCE)
+
+$(ADATOS)/ADDllConsultasPostgreSQL.so:$(ADATOS)/ADDllConsultasPostgreSQL.o  $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(ADATOS)/ADFuncionesComunesPostgreSQL.o
+	gcc -shared -g -o $(ADATOS)/ADDllConsultasPostgreSQL.so  $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(ADATOS)/ADDllConsultasPostgreSQL.o $(ADATOS)/ADFuncionesComunesPostgreSQL.o -lpq
+$(ADATOS)/ADDllSistemaDeConsultas.so:$(ADATOS)/ADDllSistemaDeConsultas.o  $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o 
+	gcc -shared -g -o $(ADATOS)/ADDllSistemaDeConsultas.so $(ADATOS)/ADDllSistemaDeConsultas.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(LIBEFENCE)
+clean:
+	rm $(ADATOS)/*.o
+	rm $(ADATOS)/*.so
+	rm $(ADATOS)/*.bin
+	

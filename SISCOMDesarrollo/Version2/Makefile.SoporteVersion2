@@ -1,0 +1,22 @@
+
+Include=-I $(DIRPOSTGRESQL)/include -I Include -I $(SISCOM_LIB_DIR)/Include
+
+Opc=$(DEBUG) -c  $(OpCSiscom)
+OpcMod=-shared $(DEBUG) $(OpCSiscom)
+
+ArchivosCBControlador=POSTGRESQLControlador.c POSTGRESQLComunes.c
+ArchivosObjBControlador=$(patsubst %.c,Obj/%.o,$(ArchivosCBControlador))
+all:$(SISCOM_LIB_DIR)/libControladorComandosSQL.so
+
+$(SISCOM_LIB_DIR)/libControladorComandosSQL.so:$(ArchivosObjBControlador)
+	@echo LDD [$@]
+	@$(GCC) $(OpcMod) -o $@ $(ArchivosObjBControlador) 
+	@echo CP [POSTGRESQLControlador.h]
+	@cp Include/POSTGRESQLControlador.h $(SISCOM_LIB_DIR)/Include
+
+Obj/%.o:Fuentes/%.c
+	@echo GCC [$<]
+	@$(GCC) $(Opc) $(Include) $< -o $@
+
+mas:
+	@echo $(ArchivosObjBControlador)

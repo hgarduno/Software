@@ -1,0 +1,21 @@
+DIRP=/home/heli/SISCOMDesarrollo
+FUNCOMUNES=$(DIRP)/FuncionesComunes/CodigoFuente
+FUNCOMUNESRNAD=$(DIRP)/RNADComun/CodigoFuente
+INCLUDESISCOM=-I$(DIRP)/ArchivosCabecera -I$(DIRP)/FuncionesComunes/ArchivosCabecera -I$(DIRP)/RNADComun/ArchivosCabecera -I$(DIRP)/ArchivosCabecera/PostgreSQL
+OPCMAKE= #-s
+OPCC=-g -DDEBUG
+LIBEFENCE=#-lg #-lefence
+
+all:$(FUNCOMUNES)/DllCLIAltasVentas.so
+.c.o:
+	cc $(OPCC) -c $(INCLUDESISCOM) $<
+
+$(FUNCOMUNES)/DllCLIAltasVentas.so:$(FUNCOMUNES)/DllCLIAltasVentas.o
+	 gcc -shared -o $(FUNCOMUNES)/DllCLIAltasVentas.so $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNESRNAD)/RNADFuncionesComunesEZS.o $(FUNCOMUNES)/DllCLIAltasVentas.o $(LIBEFENCE)
+
+$(FUNCOMUNES)/DllCLIAltasVentas.o:$(FUNCOMUNES)/DllCLIAltasVentas.c
+	cc $(INCLUDESISCOM) $(OPCC) -c $<
+
+clean:
+	rm $(FUNCOMUNES)/DllCLIAltasVentas.o
+	rm $(FUNCOMUNES)/DllCLIAltasVentas.so

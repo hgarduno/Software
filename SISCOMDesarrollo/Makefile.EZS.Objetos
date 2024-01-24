@@ -1,0 +1,11 @@
+AOBJSRN=RNDllAltaVentas.o RNADFuncionesComunes.o FuncionesComunes.o RNADFuncionesComunesEZS.o EstructurasSISCOM.o
+AOBJSAD=ADDllInsercionesPostgreSQLEZS.o FuncionesComunes.o FuncionesComunes.o RNADFuncionesComunes.o ADDllRealizaAltaDeProductosEZS.o
+AOBJSFC=DllCLIAltasVentas.o
+AOBJSRNAD=RNADFuncionesComunesEZS.o
+
+
+.c.o:
+	$(CC) $(OPC) $(INCLUDESISCOM)  -o$(DIROBJS)/$@ $<
+
+all:$(AOBJSRN) $(AOBJSAD) $(AOBJSFC) $(AOBJSRNAD)
+

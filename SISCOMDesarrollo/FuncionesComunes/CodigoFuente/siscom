@@ -1,0 +1,59 @@
+prog="siscom"
+ARGRN="-A1640 -BRNProcesoAtiende.bin -C20 -DlibRNDllIniciaDemonio.so -ECargaProcesosYDll -FIniciaMemSHM -G1641 -H127.0.0.1"
+ARGAD="-A1641 -BADProcesoAtiendeCliente.bin -C20 #-D$SISCOM/Binarios/ADDllIniciaDemonio.so -EADDllGeneraArgumentos -FADDllConexionBDYCopiaSHM"
+start()
+{
+	pid=`pidof -s DemonioDeConexiones.bin`
+	pids=`pidof DemonioDeConexiones.bin`
+	if [ $pid ]
+	then
+	echo "El servidor SISCOM esta corriendo $pids. Debe detener antes el servicio . use: siscom stop"
+	else
+	echo "Iniciando el servidor SISCOM"
+	su - hge -m -c "DemonioDeConexiones.bin $ARGRN;DemonioDeConexiones.bin $ARGAD"
+	fi
+}
+stop()
+{
+	if [ `pidof -s DemonioDeConexiones.bin` ]
+	then
+	killall -s30 DemonioDeConexiones.bin
+	else
+	echo "El servidor De SISCOM no se esta ejecutando"
+	fi
+
+}
+status()
+{
+	pids=`pidof DemonioDeConexiones.bin`
+	pid=`pidof -s DemonioDeConexiones.bin`
+	if [ $pid ]
+	then
+	echo "El servidor SISCOM se esta ejecutando $pids"
+	else
+	echo "El servidor SISCOM no esta ejecutandose"
+	fi
+
+}
+restart()
+{
+	stop;
+	start;
+}
+case "$1" in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use siscom start|stop|restart|status"
+	exit 1
+esac

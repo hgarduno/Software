@@ -1,0 +1,22 @@
+all:$(RNEGOCIO)/RNProcesoAtiende.bin $(RNEGOCIO)/RNDllIniciaDemonio.so $(RNEGOCIO)/RNDllAltaProductos.so $(RNEGOCIO)/RNDllConsultas.so $(RNEGOCIO)/RNDllAltaCompras.so FuncionesEZS
+.SUFFIXES: .c
+.c.o:
+	cc $(OPCC)  $(INCLUDESISCOM) -c $<
+
+FuncionesEZS:
+	make -f Makefile.ReglasDelNegocioEZS
+
+$(RNEGOCIO)/RNProcesoAtiende.bin:$(RNEGOCIO)/RNProcesoAtiende.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o
+	cc -ldl -g -o $(RNEGOCIO)/RNProcesoAtiende.bin $(RNEGOCIO)/RNProcesoAtiende.o $(FUNCOMUNES)/FuncionesComunes.o $(FUNCOMUNES)/EstructurasSISCOM.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(LIBEFENCE) 
+$(RNEGOCIO)/RNDllIniciaDemonio.so:$(RNEGOCIO)/RNDllIniciaDemonio.o
+	gcc -shared -g -o$(RNEGOCIO)/RNDllIniciaDemonio.so $(RNEGOCIO)/RNDllIniciaDemonio.o
+$(RNEGOCIO)/RNDllAltaProductos.so:$(RNEGOCIO)/RNDllAltaProductos.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o  $(FUNCOMUNES)/EstructurasSISCOM.o
+	gcc -shared -g -o$(RNEGOCIO)/RNDllAltaProductos.so $(RNEGOCIO)/RNDllAltaProductos.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o  $(FUNCOMUNES)/EstructurasSISCOM.o $(LIBEFENCE)
+$(RNEGOCIO)/RNDllConsultas.so:$(RNEGOCIO)/RNDllConsultas.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o  $(FUNCOMUNES)/EstructurasSISCOM.o
+	gcc -shared -g -o$(RNEGOCIO)/RNDllConsultas.so $(RNEGOCIO)/RNDllConsultas.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o  $(FUNCOMUNES)/EstructurasSISCOM.o $(LIBEFENCE)
+$(RNEGOCIO)/RNDllAltaCompras.so:$(RNEGOCIO)/RNDllAltaCompras.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o  $(FUNCOMUNES)/EstructurasSISCOM.o
+	gcc -shared -g -o$(RNEGOCIO)/RNDllAltaCompras.so $(RNEGOCIO)/RNDllAltaCompras.o $(FUNCOMUNESRNAD)/RNADFuncionesComunes.o $(FUNCOMUNES)/FuncionesComunes.o  $(FUNCOMUNES)/EstructurasSISCOM.o $(LIBEFENCE)
+clean:
+	rm $(RNEGOCIO)/*.o
+	rm $(RNEGOCIO)/*.so
+	rm $(RNEGOCIO)/*.bin

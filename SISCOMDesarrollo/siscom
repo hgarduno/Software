@@ -1,0 +1,114 @@
+#!/bin/sh
+PTORN=1640
+PTOAD=1641
+ARGRN="-A$PTORN 		  	\
+       -BRNProcesoAtiende.bin     	\
+       -C20                       	\
+       -DlibRNDllIniciaDemonio.so 	\
+       -ECargaProcesosYDll        	\
+       -FIniciaMemSHM             	\
+       -G$PTOAD                   	\
+       -H127.0.0.1"
+ARGAD="-A$PTOAD                         \
+       -BADProcesoAtiendeCliente.bin    \
+       -C20                             \
+       #-D$SISCOM/Binarios/ADDllIniciaDemonio.so -EADDllGeneraArgumentos -FADDllConexionBDYCopiaSHM;"
+DIRSVRSISCOM=/home/hgarduno/.linux/Binarios/Servidor
+LD_LIBRARY_PATH_SISCOM=$DIRSVRSISCOM:/home/hgarduno/.linux/ControlEscolarESCA/.ModulosControlEscolar
+BASESISCOM=CONTROLESCOLAR
+PATH=$DIRSVRSISCOM:/bin
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LD_LIBRARY_PATH_SISCOM:
+PATH=$PATH:DIRSVRSISCOM
+VerificaEjecucion()
+{
+
+       if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTORN ]
+       then
+       Pid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTORN`
+        VerPid=`ps -a |grep $Pid | gawk -F' ' '{print $1}'`
+         if [ $VerPid ]
+	 then 
+	   echo "El servidor SISCOM esta corriendo [RNPid `cat $DIRSVRSISCOM/DemonioDeConexiones.$PTORN`]."
+	 else
+	   rm $DIRSVRSISCOM/DemonioDeConexiones.$PTORN
+	 fi  
+	 if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD ]
+	  then
+	    Pid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD`
+	    VerPid=`ps -a |grep $Pid |gawk -F' ' '{printf $1}'`
+	     if [ $VerPid ]
+	      then
+	   	echo "El Servidor SISCOM esta corriendo [ADPid `cat $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD`]"
+	   	echo "Debe detener antes el servicio, use: siscom stop"
+	     	exit 0
+	      else
+	       rm $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD
+	      fi
+	  fi
+       fi
+}
+start()
+{
+VerificaEjecucion;
+	echo "Iniciando el servidor SISCOM"
+	 su - hgarduno -m -c "export BASESISCOM=$BASESISCOM;
+	 		      export PATH=$PATH;
+			      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH;
+			      export DIRSVRSISCOM=$DIRSVRSISCOM;
+			      DemonioDeConexiones.bin $ARGRN;
+			      DemonioDeConexiones.bin $ARGAD;"
+}
+stop()
+{
+	if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTORN ]
+	then
+	 RNPid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTORN`
+	  echo "Deteniendo El Servidor De Reglas Del Negocio [$RNPid]"
+	  kill -9 $RNPid 
+	  rm $DIRSVRSISCOM/DemonioDeConexiones.$PTORN
+	   if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD ]
+	   then
+	    ADPid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD`
+	     echo "Deteniendo El Servidor De Acceso A Datos [$ADPid]"
+	     rm $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD
+	     kill -9 $ADPid
+	   fi
+	    else
+	     echo "El Servidor SISCOM No Esta Corriendo"
+	    
+	 fi
+}
+status()
+{
+	pids=`pidof DemonioDeConexiones.bin`
+	pid=`pidof -s DemonioDeConexiones.bin`
+	if [ $pid ]
+	then
+	echo "El servidor SISCOM se esta ejecutando $pids"
+	else
+	echo "El servidor SISCOM no esta ejecutandose"
+	fi
+
+}
+restart()
+{
+	stop;
+	start;
+}
+case "$1" in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use siscom start|stop|restart|status"
+	exit 1
+esac
