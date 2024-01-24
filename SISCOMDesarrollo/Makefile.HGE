@@ -1,0 +1,34 @@
+AOBJSRN=RNDllAltaCompras.o RNDllAltaProductos.o RNDllAltaVentas.o RNDllConsultas.o RNDllIniciaDemonio.o RNProcesoAtiende.o
+AOBJAD=ADDllConsultasPostgreSQL.o ADDllIniciaDemonio.o ADDllInsercionesPostgreSQL.o ADDllRealizaAltaDeProductos.o ADDllSistemaDeConsultas.o \
+       ADFuncionesComunesPostgreSQL.o ADProcesoAtiendeCliente.o  		
+AOBJFC=ClienteDeConexion.o DemonioSockets.o DllCLIAltasCompras.o DllCLIAltasVentas.o \
+       DllConsultasSvrSISCOM.o DllDeConexionSvrSISCOM.o \
+       EstructurasSISCOM.o FuncionesComunes.o LanzaProcesosConexion.o
+AOBJRNAD=RNADFuncionesComunes.o
+BINFUNCOM=$(DIRBINARIOS)/DemonioDeConexiones.bin $(DIRBINARIOS)/ClienteDeConexion.bin $(DIRBINARIOS)/LanzaProcesosConexion.bin \
+          $(DIRBINARIOS)/DllDeConexionSvrSISCOM.so $(DIRBINARIOS)/DllConsultasSvrSISCOM.so $(DIRBINARIOS)/DllCLIAltasCompras.so
+OPC=$(DEBUG) $(OpCSiscom) -c -o$(DIROBJS)/$@ $<
+
+
+.c.o:
+	$(CC) $(OPC) $(INCLUDESISCOM)
+all:$(AOBJSRN) $(AOBJAD) $(AOBJFC) $(AOBJRNAD) $(BINFUNCOM)
+
+$(DIRBINARIOS)/DemonioDeConexiones.bin:DemonioSockets.o EstructurasSISCOM.o
+	$(CC)  $(OpCSiscom) -o $(DIRBINARIOS)/DemonioDeConexiones.bin $(DIROBJS)/DemonioSockets.o $(DIROBJS)/EstructurasSISCOM.o -ldl
+
+$(DIRBINARIOS)/ClienteDeConexion.bin:FuncionesComunes.o EstructurasSISCOM.o ClienteDeConexion.o RNADFuncionesComunes.o
+	$(CC) $(OpCSiscom) -o $(DIRBINARIOS)/ClienteDeConexion.bin $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/ClienteDeConexion.o $(DIROBJS)/RNADFuncionesComunes.o -ldl
+
+$(DIRBINARIOS)/LanzaProcesosConexion.bin:LanzaProcesosConexion.o
+	$(CC) $(OpCSiscom) -o $(DIRBINARIOS)/LanzaProcesosConexion.bin $(DIROBJS)/LanzaProcesosConexion.o 
+
+$(DIRBINARIOS)/DllDeConexionSvrSISCOM.so:FuncionesComunes.o EstructurasSISCOM.o RNADFuncionesComunes.o  DllDeConexionSvrSISCOM.o
+	$(GCC) $(OpCSiscom) -shared -o $(DIRBINARIOS)/DllDeConexionSvrSISCOM.so $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/RNADFuncionesComunes.o  $(DIROBJS)/DllDeConexionSvrSISCOM.o
+
+$(DIRBINARIOS)/DllConsultasSvrSISCOM.so:FuncionesComunes.o EstructurasSISCOM.o RNADFuncionesComunes.o  RNADFuncionesComunes.o DllConsultasSvrSISCOM.o
+	$(GCC) $(OpCSiscom) -shared -o $(DIRBINARIOS)/DllConsultasSvrSISCOM.so $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/RNADFuncionesComunes.o  $(DIROBJS)/DllConsultasSvrSISCOM.o
+
+$(DIRBINARIOS)/DllCLIAltasCompras.so:FuncionesComunes.o EstructurasSISCOM.o RNADFuncionesComunes.o  RNADFuncionesComunes.o DllCLIAltasCompras.o
+	$(GCC) $(OpCSiscom) -shared -o $(DIRBINARIOS)/DllCLIAltasCompras.so $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/RNADFuncionesComunes.o  $(DIROBJS)/DllCLIAltasCompras.o
+

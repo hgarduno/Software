@@ -1,0 +1,21 @@
+
+BibliotecaSISCOMQ=$(SISCOM_LIB_DIR)/libSISCOMDesarrolloQ++.so
+
+
+ArchivosFuentes=CQSiscomCom.cpp
+
+ArchivosObj=$(patsubst %.cpp,Objetos/%.o,$(ArchivosFuentes))
+
+Include=-I $(SISCOM_LIB_DIR)/Include -I FuncionesComunes/ArchivosCabecera -I$(QTDIR)/include -I $(DIRLIBSISCOM2)/H -I $$QtInclude
+OPC=$(DEBUG) -c  $(OpCSiscom)
+OpMod=-shared  $(OpCSiscom) $(DEBUG)
+all:$(BibliotecaSISCOMQ)
+
+$(SISCOM_LIB_DIR)/libSISCOMDesarrolloQ++.so:$(ArchivosObj) $(SISCOM_LIB_DIR)/libSISCOMDesarrollo.1.0.a
+	@echo GCC [LD] `basename $@`
+	@$(GPP) $(OpMod) -o $@ $(ArchivosObj) -L $(SISCOM_LIB_DIR) -lSISCOMDesarrollo.1.0 -ldl -L $(QTDIR)/lib -lqt-mt #-L$(DIRLIBSISCOM2) -lSiscomComunicaciones++
+	@cp FuncionesComunes/ArchivosCabecera/CQSiscomCom.h $(SISCOM_LIB_DIR)/Include
+
+Objetos/%.o:FuncionesComunes/CodigoFuente/%.cpp
+	@echo GCC `basename $@`
+	@$(GCC) $(OPC) -o $@ $< $(Include) 

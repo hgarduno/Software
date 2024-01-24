@@ -1,0 +1,9 @@
+all:$(FUNCOMUNESRNAD)/RNADFuncionesComunes.o FuncionesEZS
+$(FUNCOMUNESRNAD)/RNADFuncionesComunes.o:$(FUNCOMUNESRNAD)/RNADFuncionesComunes.c
+	cc $(INCLUDESISCOM) $(OPCC) -c $< 
+
+FuncionesEZS:
+	make -f Makefile.ezs
+
+clean:
+	rm $(FUNCOMUNESRNAD)/*.o	

@@ -1,0 +1,18 @@
+
+BibliotecaSISCOM=$(SISCOM_LIB_DIR)/libSISCOMDesarrollo++.so
+
+ArchivosFuentes=CSISCOMComunicaciones.cpp
+ArchivosObj=$(patsubst %.cpp,Objetos/%.o,$(ArchivosFuentes))
+Include=-I $(SISCOM_LIB_DIR)/Include -I FuncionesComunes/ArchivosCabecera -I $(DIRLIBSISCOM2)/H -I $$QtInclude
+OPC=$(DEBUG) -c -Woverloaded-virtual $(OpCSiscom)
+OpMod=-shared $(OpCSiscom) $(DEBUG)
+all:$(BibliotecaSISCOM)
+
+$(SISCOM_LIB_DIR)/libSISCOMDesarrollo++.so:$(ArchivosObj) $(SISCOM_LIB_DIR)/libSISCOMDesarrollo.1.0.a
+	@echo GCC [LD] `basename $@`
+	@$(GPP) $(OpMod) -o $@ $(ArchivosObj) -L $(SISCOM_LIB_DIR) -lSISCOMDesarrollo.1.0 -ldl  #-L$(DIRLIBSISCOM2) -lSiscomComunicaciones++
+	@cp FuncionesComunes/ArchivosCabecera/CSISCOMComunicaciones.h $(SISCOM_LIB_DIR)/Include
+
+Objetos/%.o:FuncionesComunes/CodigoFuente/%.cpp
+	@echo GCC `basename $@`
+	$(GCC) $(OPC) -o $@ $< $(Include) 

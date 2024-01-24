@@ -1,0 +1,23 @@
+DIRCVS:=$(shell find . -name 'CVS' )
+ARCHIVOSWP=$(shell find . -name '.*.swp')
+ARCHIVOSWP+=$(shell find . -name '*.ui~')
+DIROBJ=$(shell find . -name 'Obj*')
+DIRMODSISTEMA=$(shell find . -name 'ModDelSistema')
+all:dat swp obj modulos
+dat:
+	@for X in $(DIRCVS) ;do\
+	(echo Eliminando $$X;rm $$X -rf)\
+	done
+swp:
+	@for X in $(ARCHIVOSWP);do\
+	(echo Eliminando $$X;rm -f $$X)\
+	done
+obj:
+	@for X in $(DIROBJ);do\
+	(echo Eliminando $$X ;rm -rf $(DIROBJ))\
+	done
+modulos:
+	@for X in $(DIRMODSISTEMA) ;do\
+	(echo Eliminando $$X;rm -rf $$X)\
+	done
+	

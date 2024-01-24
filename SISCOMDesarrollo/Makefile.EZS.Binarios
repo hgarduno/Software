@@ -1,0 +1,33 @@
+BINFUNCOM = $(DIRBINARIOS)/libDllCLIAltasVentas.so
+BINRN     = $(DIRBINARIOS)/libRNDllAltaVentas.so
+BINAD     = $(DIRBINARIOS)/libADDllInsercionesPostgreSQLEZS.so
+
+
+all:$(BINFUNCOM) $(BINAD) $(BINRN)
+
+
+############################################################################################################
+##############################          Funciones Comunes           ########################################
+############################################################################################################
+
+$(DIRBINARIOS)/libDllCLIAltasVentas.so:$(DIROBJS)/DllCLIAltasVentas.o
+	$(CC) $(OpCSiscom) -shared $(OPCDEPURACION) -o $(DIRBINARIOS)/libDllCLIAltasVentas.so $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o \
+	    $(DIROBJS)/RNADFuncionesComunes.o $(DIROBJS)/RNADFuncionesComunesEZS.o $(DIROBJS)/DllCLIAltasVentas.o -lc
+
+############################################################################################################
+##############################         Reglas del Negocio           ########################################
+############################################################################################################
+
+$(DIRBINARIOS)/libRNDllAltaVentas.so:$(DIROBJS)/RNDllAltaVentas.o
+	$(CC) $(OpCSiscom) -shared $(OPCDEPURACION) -o$(DIRBINARIOS)/libRNDllAltaVentas.so $(DIROBJS)/RNDllAltaVentas.o $(DIROBJS)/RNADFuncionesComunes.o \
+	      $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/RNADFuncionesComunesEZS.o $(DIROBJS)/EstructurasSISCOM.o -lc
+
+############################################################################################################
+##############################            Acceso a Datos            ########################################
+############################################################################################################
+
+$(DIRBINARIOS)/libADDllInsercionesPostgreSQLEZS.so:$(DIROBJS)/ADDllInsercionesPostgreSQLEZS.o $(DIROBJS)/FuncionesComunes.o \
+						$(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/RNADFuncionesComunes.o
+	$(CC) $(OpCSiscom) -shared $(OPCDEPURACION) -o $(DIRBINARIOS)/libADDllInsercionesPostgreSQLEZS.so $(DIROBJS)/ADDllInsercionesPostgreSQLEZS.o \
+	      $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/RNADFuncionesComunes.o \
+	      $(DIROBJS)/RNADFuncionesComunesEZS.o $(DIROBJS)/ADFuncionesComunesPostgreSQL.o -L $(DIRPOSTGRESQL)/lib -lpq -lc

@@ -1,0 +1,27 @@
+ARCOBJ=EstructurasSISCOM.o  FuncionesComunes.o  RNADFuncionesComunes.o   ADFuncionesComunesPostgreSQL.o ManipulacionArchivos.o
+ARCH=EstructurasSISCOM.h FuncionesComunes.h OpcionesDepuracion.h RNADFuncionesComunes.h ADFuncionesComunesPostgreSQL.h ManipulacionArchivos.h
+ARCHDIR=$(shell for X in $(ARCH);do find . -name $$X;done)
+DIROBJ=Objetos
+
+VPATH=$(DIROBJ)
+all:libSISCOMDesarrollo.1.0.a Copia 
+libSISCOMDesarrollo.1.0.a:$(ARCOBJ)
+	ar rcs libSISCOMDesarrollo.1.0.a $(patsubst %,Objetos/%,$(ARCOBJ))
+CopiaArchivos:
+	@(for Y in $(ARCHDIR); do						\
+	cp -f $$Y $(SISCOM_LIB_DIR)/Include/;					\
+	done;									\
+	cp libSISCOMDesarrollo.1.0.a $(SISCOM_LIB_DIR);)
+Copia:
+	@(if [ -d $(SISCOM_LIB_DIR) ]; then 					\
+	   if [ -d $(SISCOM_LIB_DIR)/Include ]; then 				\
+	    make -f Makefile.BibliotecaSISCOM CopiaArchivos;			\
+	 else									\
+	  mkdir $(SISCOM_LIB_DIR)/Include;					\
+	  make -f Makefile.BibliotecaSISCOM CopiaArchivos;			\
+	  fi									\
+	  else									\
+	  mkdir $(SISCOM_LIB_DIR);						\
+	  mkdir $(SISCOM_LIB_DIR)/Include;					\
+	  make -f Makefile.BibliotecaSISCOM CopiaArchivos; 			\
+	fi)
