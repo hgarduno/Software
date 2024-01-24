@@ -1,0 +1,1 @@
+/home/hgarduno/SiscomDesarrollo/Software/SiscomAplicaciones/Cliente/H/QCtrlSepomexComunicas.h

@@ -1,0 +1,52 @@
+#####################
+#####################
+#####################
+#####################
+# Al momento de generar un control, es muy importante que se realice de la siguiente
+# forma:
+# Tomar como plantilla los archivos en qt-rc/tools/designer/examples/filechooser/widget y
+# qt-src/tools/designer/examples/filechooser/plugin
+# Al momento de editar estos archivos ser debera sustituir en las clases del plugin
+# y del widget FileChooser por el nombre de la clase que se debera implantar 
+# es necesario antes de hacer cualquier cosa, verificar que el nuevo control se 
+# integre al qt, ya que al desarrollar los controles de sepomex, no se tomo esta
+# precaucion, y se incurrio en el error, de que la integracion con el designer 
+# no estaba bien, lo que trajo como consecuencia que el control no se mostrara 
+# en las formas en tiempo de desarrollo.
+#
+# 2007-08-18  Queretaro
+
+
+
+
+
+
+
+
+
+#define ArchivosBibliotecaQTForma
+#Archivos_QT_$(1)=H/UIC_H_Q$(1).h \
+#		 CPP/UIC_CPP_Q$(1).cpp \
+#		 CPP/MOC_CPP_Q$(1).cpp \
+#		 CPP/MOC_CPP_IMP_Q$(1).cpp
+#Archivos_O_$(1)=O/UIC_CPP_Q$(1).o \
+#		O/MOC_CPP_Q$(1).o \
+#		O/MOC_CPP_IMP_Q$(1).o \
+#		O/IMP_Q$(1).o
+#endef 
+#define EnlaceBibliotecaQTForma
+#lib$(1).so:$(Archivos_QT_$(1)) \
+#	   $(Archivos_O_$(1)) \
+#	   $(Archivos_O_Extra_$(1)) \
+#	   $(Archivos_QT_Extra_$(1))
+#	@echo Generando lib$(1).so
+#	@$(CXX) $(OpModulos) -o lib$(1).so $(Archivos_O_$(1)) $(Archivos_O_Extra_$(1)) $(Bibliotecas)
+#endef
+
+
+define ArchivosQtControlesSiscom3
+Archivos_QT_$(1)=H/UIC_H_Qt$(1).h	\
+		 CPP/UIC_CPP_Qt$(1).cpp	\
+		 CPP/MOC_CPP_Qt$(1).cpp
+endef
+
