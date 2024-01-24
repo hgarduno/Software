@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+source ~/bin/FuncionesComunesBash 
+
+
+UltimoPdfFactura=$(BuscaUltimoArchivo /home/hgarduno/ArchivosFacturacionSiscom)
+
+
+okular /home/hgarduno/ArchivosFacturacionSiscom/$UltimoPdfFactura
+

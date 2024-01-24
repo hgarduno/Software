@@ -1,0 +1,369 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>QControlDireccion</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>QControlDireccion</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>692</width>
+            <height>116</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form2</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>layout11</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout4</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Calle</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLECalle</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>450</width>
+                                    <height>0</height>
+                                </size>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout5</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Numero</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLENumero</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>100</width>
+                                    <height>0</height>
+                                </size>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout7</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel4</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Colonia</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit">
+                    <property name="name">
+                        <cstring>QLEColonia</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>180</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="2">
+            <property name="name">
+                <cstring>layout15</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel5</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Estado</string>
+                    </property>
+                </widget>
+                <widget class="QComboBox">
+                    <item>
+                        <property name="text">
+                            <string>Estado De Mexico</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Aguascalientes</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>B.C. Norte</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>B.C. Sur.</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Coahuila</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Colima</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Durango</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Tamaulipas</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Guerrero</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Yucatan</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Chiapas</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Veracruz</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Zacatecas</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Queretaro</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>D.F.</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Jalisco</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Quintana Roo</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Campeche</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Puebla</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Nayarit</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Tlaxcala</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Morelos</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Oaxaca</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Guanajuato</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Chihuahua</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Sonora</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Durango</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Monterrey</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>QCBEstado</cstring>
+                    </property>
+                    <property name="editable">
+                        <bool>true</bool>
+                    </property>
+                    <property name="insertionPolicy">
+                        <enum>NoInsertion</enum>
+                    </property>
+                    <property name="autoCompletion">
+                        <bool>true</bool>
+                    </property>
+                    <property name="duplicatesEnabled">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="1">
+            <property name="name">
+                <cstring>layout7_2_2</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel4_2_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Municipio</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit">
+                    <property name="name">
+                        <cstring>QLEMunicipio</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>180</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="3">
+            <property name="name">
+                <cstring>layout5_2</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel3_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>0</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Codigo Postal</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit">
+                    <property name="name">
+                        <cstring>QLECP</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>100</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>100</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

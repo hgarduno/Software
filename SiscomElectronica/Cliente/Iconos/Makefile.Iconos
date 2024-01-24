@@ -1,0 +1,32 @@
+
+
+
+
+Archivos_PPM=PPM/atlantik.IconoQACtrExistencias.ppm					\
+	     PPM/kodo.IconoQACompras.ppm						\
+	     PPM/kpovmodeler.IconoQAComprasProducto.ppm					\
+	     PPM/kdeprint_printer_remote_process.IconoQAHistorialTransferencias.ppm 	\
+	     PPM/ksysv.IconoQAMaterialAExpendio.ppm					\
+	     PPM/kuser.IconoQASeguridadCajaVentas.ppm				\
+	     PPM/knotesconduit.IconoQAReportesVentasPorCaja.ppm				\
+	     PPM/xconsole.IconoQAAdministracionCajas.ppm				\
+	     PPM/clock.IconoQACorteCaja.ppm						\
+	     PPM/personal.IconoQARegistroEmpleados.ppm					\
+	     PPM/kdat_backup.IconoQASueldosEmpleados.ppm				\
+	     PPM/karm.IconoQAGanancias.ppm						\
+	     PPM/colors.IconoQAOrdenes.ppm						\
+	     PPM/LogoSiscom.ppm
+
+
+
+
+Archivos_XPM=$(patsubst PPM/%.ppm,XPM/%.xpm,$(Archivos_PPM))
+all:$(Archivos_PPM) $(Archivos_XPM)
+
+des:
+	echo $(Archivos_XPM)
+PPM/%.ppm:PNG/%.png
+	pngtopnm $< > $@
+
+XPM/%.xpm:PPM/%.ppm
+	ppmtoxpm $< > $@

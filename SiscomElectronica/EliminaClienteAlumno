@@ -1,0 +1,17 @@
+#!/bin/bash 
+
+EjecutaSql()
+{
+
+cat << SQL | psql SiscomElectronica
+
+
+delete from AlumnoEscuela where idpersona=$1;
+delete from PersonaNormalizada where idpersona=$1;
+delete from personas where idpersona=$1;
+
+SQL
+}
+
+
+EjecutaSql $1

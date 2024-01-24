@@ -1,0 +1,26 @@
+Se requiere incorporar al sistema de ventas un control de ordenes,
+tal que nos permita tener acceso a cada una de las operaciones de 
+venta que se realiza mediante el sistema.
+
+Es necesario establecer este control, para eliminar una orden, para
+recuperar los productos de una orden ya realizada.
+
+
+El escenario de control debe considerar, que el sistema trabaja en
+un ambiente multiusuario, y todas las posibilidades que se pueden
+dar en este ambiente de trabajo, es decir, se puede dar el caso
+que un cliente solicite una orden y despues, se de cuenta que no 
+va adquirir el material, o que dos vendedoresa al mismo tiempo
+solicitan una nueva venta, entonces se debe asgurar que cada uno
+reciba un numero de orden correcto.
+
+El sistema en su operacion no considera un numero de orden, sino
+un identificador de venta, el cual no conoce la interfaz grafica
+ya que se genera al momento de realizar la venta. Por tal motivo
+se debe general un control de ordenes que sea practico y accesible
+es decir, el identificador de venta es un numero que no tiene 
+ningun sentido para el usuario y menos para el cliente, que en 
+un momento dado puede acudir con su tiket de venta para hacer 
+alguna observacion sobre los productos que adquirio, entonces
+esto 
+

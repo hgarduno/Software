@@ -1,0 +1,343 @@
+---------------  Martes 20 de Agosto del 2013  --------------------------
+Con el problema de la version de la caja, se realizo el cambio 
+a las 15::27 del Martes 20 de agosto del 2013 
+
+---------------  6 de julio del 2013  --------------------------
+Para la cajas en el poli se deben habilitar usuarios con perfil 
+de caja para que las vendedoras solo puedan acceder al punto de 
+venta
+
+--------- 11 De Junio del 2013 ------------------------------------
+
+INVENTARIO A CEROS, PARA INICIO SEMESTRE
+
+
+
+
+
+
+--------- 17 De Abril 2013  ------------------------------
+Se requiere identificar los productos por clave del proveedor 
+ya que al momento de hacer una cotizacion con los proveedores
+se requiere enviar la informacion de la clave y costo al que
+se compro para que el vendedor del proveedor haga la cotizacion.
+
+Se requiere llevar doble contabilidad por lo de la facturacion 
+con el RFC de Guadalupe, que es con el que se esta llevando 
+lo de haciendo, aqui hay que considerar, que algunos productos
+que se estaran comprando con el rfc, pero cuando un cliente 
+solicite facturacion comprara productos que se adquirieron 
+con el RFC de Guadalupe , de los cuales se deberan llevar 
+un inventario y los otros productos que se compran con mi 
+RFC, algunos que se compran sin RFC.
+
+
+Yaaa debe quedar la facturacion, porque ya se terminaron 
+las facturas.
+
+Hay que retomar las cajas.
+
+Hacer el modulo de reservaciones para el laboratorio.
+
+
+--------- 2 De Febrero del 2013 ------------------------
+Es muy importante poder hacer la sincronizacion de productos en los
+expendios, se debe poder dar de alta un producto nuevo en el Poli
+y despues ejecutar el comando de sincronizacion de productos.
+
+
+---------------------------- Miercoles 19 de septiembre del 2012
+Se requiere programar un control para el material que se le da a Rafa
+para las fuentes, puntas etc.
+
+---------------------------- Martes 18 de Septiembre del 2012 
+
+Se requiere integrar un reporte de compras con totales por fecha
+Se requiere integrar lo de la facturacion --> Ya esta desarrollado
+solo probar.
+
+
+---------------------------- Lunes 17 de septiembre del 2012
+Se requiere que en la ventana de compras poder realizar el traspaso del 
+material al expendio.
+
+Se requiere clasificar los productos por escala, y de esta forma asignar
+un precio para cuando se pidan la cantidad de productos
+
+
+---------------------------- Domingo 16 de Octubre 2011   ---------
+Se requiere realizar, un modulo para llevar la contabilidad del sistema
+el cual debera incluir una base de datos separado que sea identificada 
+con la direccion de Tepotzotlan, para efectos fiscales, el sistema debera
+permitir capturar los numeros de factura de  las compras que el sistmea 
+de Tepotzotlan debera captar, y reflejar estas en el inventario, despues
+de las facturas que se emiten en el negocio el sistema debera registrar 
+estos datos para llevar la contabilidad 
+
+
+
+
+
+---------------------------- Jueves 29 De Septiembre 2011 ---------
+Al momento de dar de alta un nuevo producto en Zacatenco, se tiene que
+reflejar a todos los expendios Urge
+
+
+---------------------------- Domingo 18 De Septiembre 2011 --------
+Para darle seguimiento a los productos que no coinciden en el inventario
+y el sistema se inicia el desarrollo del modulo RastreoProducto, el cual
+mostrara la informacion almacenada en la base de datos de un producto en 
+una fecha determinada.
+
+
+
+Se ha estado reportando constantemente, que para algunos productos 
+la existencia que esta reportada en el sistema no corresponde con 
+lo que hay fisicamente en el inventario, por lo que se debe desarro-
+llar un modulo que sea capaz de reportar que es lo que pasa con 
+un producto determinado, sera necesario analizar cual es el camino
+que sigue un producto para su venta, desde la compra, actualizacion
+por inventario, transferencia para el expendio, ventas, impresion 
+de tickets, esto sera necesario a fin de poder establecer en que 
+momento se rompio el ciclo y porque hay diferencias en lo que reporta
+el sistema y lo que se encuentra fisicamente en el inventario
+
+Como parte de la revision para la instalacion de la version que incluye
+el manejo de puntos, asi mismo la correxion del error en el modulo
+del registro de venta que enviaba al log SIGPIPE, por no leer la 
+respuesta del servidor de acceso a datos, lo que traia como consecuencia
+que no se mostrara en el log de acceso a datos la insercion de la 
+venta, se observo que debe considerarse que cuando alguna de las 
+funciones que obtiene informacion de la base de datos no regresa 
+registros, se genere el error correspondiente para poder interrumpir
+el proceso o hacer algo, ya que en el caso del modulo PuntosPromocionesCliente
+se hacen varias consultas CostoPuntos, ComprasCliente etc, en algun
+caso no regresa informacion, entonces como no estoy verificando el 
+regreso de la consulta a la base de datos, y por consiguiente al no
+haber registros para hacer el calculo, entonces no se deberia realizar
+para este modulo es simple, porque en el proceso de instalacion para 
+la liberacion de esta version puedo iniciar las tablas y listo, pero 
+hay que considerar lo que pasa en estas condiciones.
+
+
+---- Viernes 19 De Agosto 2011 
+Se obervo que al registrar una cotizacion de un producto se generan
+errores en el inventario, sera necesario revisar si el concepto de
+estado de venta implementado para las cotizaciones no esta metiendo
+ruido en los inventarios, ya que observe que el modulo de orden 
+electronica segun esto se pasa el edoventa en el campo de proveedor
+...
+
+El otro problema que hay que revisar tiene que ver con el hecho
+de cuando se tiene en existencia pocos productos y un cliente 
+pide una cantidad muy cercana a la existencia y en ese momento
+llega otro cliente que pide menos como todavia no se da la alta 
+de la venta entonces deja anexar en ambos casos lo orden y al 
+registrar entonces el inventario quedara con numeros negativos 
+
+---- Jueves 11 De Agosto 2011 
+Revisar la pantalla de transferencia de bodega a expendio, porque no 
+permite borrar de la lista , al dar borrar truena
+
+El problema reportado, se soluciono el sabado 13 de agosto 2011
+
+Revisar el modulo de devolucion porque esta tronando al momento
+de ejecutar la devolucion 
+
+---- Viernes 29 Julio 2011
+
+Se requiere integrar un modulo y modificaciones en la 
+base de datos para poder manejar, los codigos de los 
+productos de los proveedores, en la actualidad en 
+el sistema de SISCOM se tienen claves que se utilizan
+para identificar el material, la cual no es la misma
+del proveedor, por tal motivo se requiere integrar un
+modulo para el manejo de esta informacion, ademas de
+poder integrar una orden de compra apartir de la existencia
+minima del producto, identificando la ultima compra 
+y haciendo una lista con los datos del proveedor.
+
+
+Se solicito integrar el manejo de cantidad de mercancia
+en las cajitas del expendio, por lo cual se debera 
+desarrollar un modulo que permita, asignar a los productos
+una cantidad en las cajitas, asi mismo se realizara
+un reporte para saber que productos hace falta poner 
+en las cajas .
+
+
+---- Domingo 24 Julio 2011
+
+En la ventana de busqueda de cliente
+se debe integrar un mecanismo de busqueda mas eficiente
+no hay que perder de vista que apartir de esta se realizara
+la busqueda de los clientes para registrar la orden.
+
+Un problema que se identifico, fue que al poner un nombre
+y seguir escribiendo si no completa el nombre y se da 
+enter truena la aplicacion.
+
+
+
+---- Lunes 18 Julio 2011
+Se require agregar la siguiente funcionalidad al 
+sistema
+
+Un modulo para iniciar a ceros el inventario y bodegas
+Un modulo para imprimir el estado del inventario y bodegas
+esto es para poder realizar la verificacion de la captura
+de los inventarios al final de cada semestre.
+
+Se require implementar el modulo de puntos por cliente 
+el cual debera contemplar la siguiente funcionalidad 
+Asignar el numero de pesos al que equivaldra cada punto
+Sumar el numero de puntos que un cliente acumula
+Se buscara enviar por correo electronico las promosiones
+que esten disponibles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jueves 24 de enero del 2008 Queretaro
+
+Se inicia el proceso de desarrollo de la
+nueva version para el sistema de adminis-
+tración de los negocios de eléctronica 
+
+El objetivo principal es poder utilizar
+la version anterior tal cual esta, esto
+para no invertir tiempo en la reprogra-
+macion de la fase de ventas sobre todo.
+
+Una cuestion importante que se buscara
+conservar en las siguientes versiones
+de trabajo sera la base de datos, esto
+por el historico de los datos apartir
+de este a;o se buscara contar con la
+informacion de cada a;o de trabajo para
+poder hacer las comparaciones necesa--
+rias de estos historicos.
+
+
+En este punto se crea un nuevo directo-
+rio SiscomElectronica2, todo lo que a-
+qui se programe a partir de este dia -
+sera con base a la nueva estructura de
+trabajo, y debido a la facilidad de -
+poder cargar los modulos de la version
+anterior en la actual se plantea como
+mejor alternativa crear una directorio
+completo nuevo para la administracion 
+del desarrollo de esta nueva version
+
+
+Sera importante para el proceso de de-
+sarrollo e integracion con la funcion-
+nalidad nueva, por ejemplo del proceso
+de normalizacion crear estas tablas, y
+para el manejo del sistema de seguridad
+se debera integrar en la base de datos
+de la aplicacion. 
+
+
+Lunes 28 De Enero 2008
+
+El primer modulo que se debera de 
+desarrollar para esta nueva version
+es el que tiene que ver con los clientes
+Para poder resolver este modulo hay que
+recordar que los clientes de Siscom
+Electronica estan referidos a una escuela
+por tal motivo se debera programar un
+control que muestre las escuelas 
+registradas en el sistema, en este
+punto se debera modificar la base
+de datos para que las escuelas sean
+asociadas a cada expendio, en este 
+punto tambien se debera modificar 
+los clientes y se deberan agrupar
+de igual forma por expendio.
+
+Martes 29 De Enero 2008
+
+En este punto se debera realizar 
+el manejo de los clientes por
+cada expendio, asi como en las 
+escuelas se debera ahora poder
+asociar a cada cliente con 
+un expendio, para lograr esto se
+anexara una tabla que contenga la
+relacion entre las personas registradas
+y el expendio al que pertenecen.
+
+Sera importante considerar en este
+punto si un cliente acude a un expendio
+diferente al que esta registrado.
+
+La tabla se denominara ClienteExpendio
+
+
+Como parte de la integracion del proceso
+de registro de los clientes de SISCOM Electronica
+(Alumnos), se requiere crear una tabla 
+para almacenar la relacion alumno/escuela
+asi como la informacion del grupo
+
+
+-------
+Viernes 26 Febrero 2010
+
+Se requiere integrar a la aplicacion un
+modulo que permita imprimir la hoja de 
+especificaciones de los dispositivos,
+lo que implicara contar con una base 
+de datos de manuales de los dispositivos
+que se venden.
+
+------- Domingo 20 Junio 2010
+
+Pagina de Siscom Electronica 
+
+Un buscador de productos.
+-- Que muestre por alguna caracteristica 
+los productos que se tengan que coincidan
+con esa caracterisca, mostrando la exiten
+cia y el precio de venta.
+
+Cuando en el buscador le den kits, los
+lleve a la pagina de siscom electronica
+
+-- Revisar si twiter es una alternativa
+de propraganda ...
+
+---- Domingo 9 Enero 2011
+
+Se requiere realizar como parte del mante-
+nimiento de los datos del producto la eli-
+miniacion y cambio de claves para lo cual
+inicio el analisis de las implicantes 
+
+Tablas que no tienen dependencias 
+
+Existencias no esta la referencia foranea
+
+
+-------- Lunes 24 Enero 2011
+
+Se requiere que para el caso de los capacitores
+de poliestes y ceramicos se pueda capturar el 
+valor el nanos es decir 100 nanos 0.1 mfd entonces
+el sistema debera de mostrar la clave del producto
+
+
+

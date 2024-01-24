@@ -1,0 +1,12 @@
+
+LD_LIBRARY_PATH=$QTDIR/lib:$SISCOM_LIB_DIR:Cliente/SO
+
+PATH=Cliente/B
+RutaIconosSiscomSeguridad3=/KDE/share/icons/hicolor/48x48/apps/
+
+export 	LD_LIBRARY_PATH		\
+	PATH			\
+	RutaIconosSiscomSeguridad3
+
+
+PruebasGUI

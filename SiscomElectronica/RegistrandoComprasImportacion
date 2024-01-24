@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+
+
+pg_dump SiscomElectronica -a -t compraimportacion
+pg_dump SiscomElectronica -a -t detallecompraimportacion
+pg_dump SiscomElectronica -t descripcioncompraimportacion

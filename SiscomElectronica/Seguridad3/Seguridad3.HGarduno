@@ -1,0 +1,6 @@
+update objetosxpantalla set valorpropiedad='false' where idobjeto=6 and idpropiedad=4;
+
+--Habilita Todos los menus a los usuarios del perfil administrador
+
+
+update objetosxpantalla set valorpropiedad='true' where idobjeto=6 and idpropiedad=4 and idpantalla=1284310117 and idperfil=1173311497;

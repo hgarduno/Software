@@ -1,0 +1,16 @@
+#!/bin/bash 
+
+
+LD_LIBRARY_PATH=$DIRDesarrolloHGE/SiscomDesarrollo4 
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomDesarrollo4/PostgresSql/
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRPOSTGRESQL/lib
+
+PATH=$PATH:$DIRDesarrolloHGE/SiscomElectronica.Produccion/Reportes.2018/Programas
+DirectorioTrabajo=$DIRDesarrolloHGE/SiscomElectronica.Produccion/Reportes.2018/Reportes
+
+export LD_LIBRARY_PATH	\
+	PATH		\
+	DirectorioTrabajo
+
+VentasExpendio "$*"
+#gdb VentasExpendio 

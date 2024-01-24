@@ -1,0 +1,187 @@
+
+
+
+
+
+
+
+<ModSistemaTiendas Sistema="SISCOMTiendasMini" >
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaRegProducto" > </Funcion>
+		<Menu    Nombre="QARegProducto"> </Menu>
+		<TextoMenu Texto="Registro De Productos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaFamilias" > </Funcion>
+		<Menu    Nombre="QAFamilias"> </Menu>
+		<TextoMenu Texto="Registro De Familias" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaActualizaProductos" > </Funcion>
+		<Menu    Nombre="QAAProductos"> </Menu>
+		<TextoMenu Texto="Actualiza Productos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaPrecios" > </Funcion>
+		<Menu    Nombre="QAAPrecios"> </Menu>
+		<TextoMenu Texto="Registro De Precios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaPrecioProducto" > </Funcion>
+		<Menu    Nombre="QAPPrecios"> </Menu>
+		<TextoMenu Texto="Asigna Precios Al Producto" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaRegistroEmpresa" > </Funcion>
+		<Menu    Nombre="QAREmmpresas"> </Menu>
+		<TextoMenu Texto="Registro De Empresas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaCompras" > </Funcion>
+		<Menu    Nombre="QACompras"> </Menu>
+		<TextoMenu Texto="Registro De Compras" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaReporteVentas" > </Funcion>
+		<Menu    Nombre="QARVentas"> </Menu>
+		<TextoMenu Texto="Reporte De Ventas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaDevoluciones" > </Funcion>
+		<Menu    Nombre="QADevoluciones"> </Menu>
+		<TextoMenu Texto="Devoluciones" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaCaja" > </Funcion>
+		<Menu    Nombre="QACaja"> </Menu>
+		<TextoMenu Texto="Caja" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="2" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Actualiza Orden" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaComprasRegistradas" > </Funcion>
+		<Menu    Nombre="QAComprasRegistradas"> </Menu>
+		<TextoMenu Texto="Compras Registradas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaReporteExistencias" > </Funcion>
+		<Menu    Nombre="QAReporteExistencias"> </Menu>
+		<TextoMenu Texto="Reporte De Existencia" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaRegistroEmpleado" > </Funcion>
+		<Menu    Nombre="QARegistroEmpleado"> </Menu>
+		<TextoMenu Texto="Registro De Empleados" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaRegistroClientes" > </Funcion>
+		<Menu    Nombre="QARegistroClientes"> </Menu>
+		<TextoMenu Texto="Registro De Clientes" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaPedidos" > </Funcion>
+		<Menu    Nombre="QAPedidos"> </Menu>
+		<TextoMenu Texto="Registro De Pedidos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaRegistrarEntrega" > </Funcion>
+		<Menu    Nombre="QAREntrega"> </Menu>
+		<TextoMenu Texto="Registror La Entrega Del Pedido" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaVentas3Qt" > </Funcion>
+		<Menu    Nombre="QAVentas3Qt"> </Menu>
+		<TextoMenu Texto="Ventas" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="0" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Registra Venta" > </Argumento>
+		<Argumento NoArgumento="12" Dato="Sistema De Ventas" > </Argumento>
+
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaVentas3Qt" > </Funcion>
+		<Menu    Nombre="QAOrdenesCaja3Qt"> </Menu>
+		<TextoMenu Texto="Ordenes Caja" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="1" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Registra Orden" > </Argumento>
+		<Argumento NoArgumento="12" Dato="Ordenes De Caja" > </Argumento>
+
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaPaquetes" > </Funcion>
+		<Menu    Nombre="QAPaquetes"> </Menu>
+		<TextoMenu Texto="Registra Paquete" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="1" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Registra Orden" > </Argumento>
+		<Argumento NoArgumento="12" Dato="Ordenes De Caja" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaPaquetesRegistrados" > </Funcion>
+		<Menu    Nombre="QAPaquetesRegistrados"> </Menu>
+		<TextoMenu Texto="Paquetes Registrados" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="1" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Registra Orden" > </Argumento>
+		<Argumento NoArgumento="12" Dato="Ordenes De Caja" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+</ModSistemaTiendas>

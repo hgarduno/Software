@@ -1,0 +1,30 @@
+#!/bin/sh
+
+### Ejecutar el script como root por lo de los descriptores 
+
+#### Eliminar 
+### DELETE FROM famproducto ;
+### DELETE FROM familia ;
+### DELETE FROM remisionfactura ;
+### DELETE FROM ventas;
+### DELETE FROM compras ; 
+### DELETE FROM proveedores ;
+###  DELETE FROM inventario ;
+###  DELETE FROM preciosproducto ;
+### DELETE FROM productoscotizando ;
+### 
+
+
+ulimit -n 8192
+DIRDesarrolloHGE=/home/hgarduno/SiscomDesarrollo2009
+DIRLIBSISCOM2=$DIRDesarrolloHGE/SISCOMDesarrollo2
+QTDIR=/QT
+LD_LIBRARY_PATH=$QTDIR/lib:$DIRDesarrolloHGE/SiscomTiendas4/Cliente/SO:$QTDIR/plugins/designer:$QTDIR/plugins/designer:$DIRLIBSISCOM2:$DIRDesarrolloHGE/GeneraValidacionCpuInfo/XPS/SO
+
+PATH=$DIRDesarrolloHGE/SiscomTiendas4/Cliente
+export PATH \
+	LD_LIBRARY_PATH
+
+echo $LD_LIBRARY_PATH
+/usr/bin/gdb InformacionSeid  $*
+##InformacionSeid  $*

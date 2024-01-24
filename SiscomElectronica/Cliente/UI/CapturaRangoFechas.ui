@@ -1,0 +1,97 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>CapturaRangoFechas</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>CapturaRangoFechas</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>298</width>
+            <height>103</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Rango De Fechas</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>layout1</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Fecha Inicio</string>
+                    </property>
+                </widget>
+                <widget class="CQControlFecha">
+                    <property name="name">
+                        <cstring>QSisContFechaIni</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="2">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Fecha Fin</string>
+                    </property>
+                </widget>
+                <widget class="CQControlFecha">
+                    <property name="name">
+                        <cstring>QSisContFechaFin</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>QPBAceptar</cstring>
+            </property>
+            <property name="text">
+                <string>Aceptar</string>
+            </property>
+            <property name="autoDefault">
+                <bool>false</bool>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="1" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>QPBCancelar</cstring>
+            </property>
+            <property name="text">
+                <string>Cancelar</string>
+            </property>
+            <property name="autoDefault">
+                <bool>false</bool>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>IMP_QControlFecha.h</includehint>
+    <includehint>IMP_QControlFecha.h</includehint>
+</includehints>
+</UI>

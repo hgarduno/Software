@@ -1,0 +1,153 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>CtrExpendios</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>CtrExpendios</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>585</width>
+            <height>475</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Controlador De Expendios</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QIconView" row="0" column="0" rowspan="1" colspan="4">
+            <property name="name">
+                <cstring>QIVExpendios</cstring>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>QPBRExpendio</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>83</height>
+                </size>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>70</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Registrar 
+Expendio</string>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="1">
+            <property name="name">
+                <cstring>layout88</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBMMatriz</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Marcar Como Matriz</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBRealizaVentas</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Realiza Ventas</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBRCompra</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Registrar Compra</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="2">
+            <property name="name">
+                <cstring>layout89</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBActualizar</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Actualizar</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBVentasExpendio</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Ventas X Expendio</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBFFechaCorte</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Fijar Fecha De Corte</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="3">
+            <property name="name">
+                <cstring>layout90</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBVentasFechaCorte</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Ventas A Fecha De Corte</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>pushButton45_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>pushButton45</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>pushButton45_2_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>pushButton45</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -1,0 +1,117 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ContPracticas</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>ContPracticas</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>348</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Controlador De Practicas</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QPushButton" row="0" column="1">
+            <property name="name">
+                <cstring>QPBConMaterias</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>200</width>
+                    <height>100</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Controlador 
+De
+Materias</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>QPBContPracticas</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>200</width>
+                    <height>100</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Controlador 
+De 
+Practicas</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="1">
+            <property name="name">
+                <cstring>QPBMatPracticas</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>200</width>
+                    <height>100</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Material
+A La
+Practica</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="0" column="0">
+            <property name="name">
+                <cstring>QPBCEscuelas</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>200</width>
+                    <height>100</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Controlador 
+De
+Escuelas</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="2" column="0">
+            <property name="name">
+                <cstring>pushButton21_3_2</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>200</width>
+                    <height>100</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>pushButton21</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="2" column="1">
+            <property name="name">
+                <cstring>pushButton21_3_2_2</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>200</width>
+                    <height>100</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>pushButton21</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

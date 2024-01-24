@@ -1,0 +1,21 @@
+--select	idPantalla,						
+--	        a.idObjeto,						
+--		idPerfil,						
+--		a.idPropiedad,						
+--		NmbPropiedad,						
+--		ValorPropiedad						
+--	from	objetosxpantalla as a inner join 			
+--		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+--		a.idPropiedad=b.IdPropiedad)				
+--	where idPantalla= (select idPantalla 				
+--		   	   from pantalla 				
+--		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+--		         	 idAplicacion=(				
+--				 	select idAplicacion		
+--			 	       	from aplicaciones		
+--				       	where NmbAplicacion='SISCOMElectronica')	
+--		   			) and				
+--       				 idPerfil=1				
+--	order by numobjeto,a.idpropiedad
+
+select b.nombre,					        b.apaterno,		b.amaterno,						'' as rfc,						idpersona,					tipopersona,						firma,							'' as password					 from firmas inner join personas as b			      using (idPersona)              			 where idexpendio=-1165857915

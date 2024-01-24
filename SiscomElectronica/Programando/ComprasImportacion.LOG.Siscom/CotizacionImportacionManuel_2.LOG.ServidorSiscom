@@ -1,0 +1,15 @@
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c EnviandoCompraImportacion 138 ) IdExpendio|IdResponsable|NumFactura|ImporteFactura|Empresa|CostoEnvio|CostoDolar|CostoAdministrativo|PonderacionCostoAdministrativo|NumPartidas|PesoCompra|Productos
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c EnviandoCompraImportacion 138 ) ||XXX|132328.56||1000|23|1000|83.333|12|69180.00|
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) CveProducto|Cantidad|Peso|PesoTotal|CostoEnvio|CostoUnitarioDolares|CostoTotalDolares|PrecioMasCostoEnvio|CostoFinalPesos|CostoFinalMasCosAdm|CostoPartida
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) ARDUINO-UNO|200|29.00|5800.000|83.839|3.4|680.000|763.839|101.90|102.32|20464.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) MODULO-ULN2003|400|40.00|16000.000|231.281|0.9|360.000|591.281|39.44|39.65|15860.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) JUMPERDUPONTH-M20CM|200|29.50|5900.000|85.285|0.35|70.000|155.285|20.72|21.14|4228.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) JUMPERDUPONTM-M20CM|200|30.00|6000.000|86.730|0.35|70.000|156.730|20.91|21.33|4266.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) KITARDUINO|200|100.00|20000.000|289.101|8|1600.000|1889.101|252.01|252.43|50486.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) RUEDALOCA|200|10.00|2000.000|28.910|0.3|60.000|88.910|11.86|12.28|2456.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) MINISERVO|200|15.00|3000.000|43.365|1.14|228.000|271.365|36.20|36.62|7324.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) SENSOR-ULTRASONICO|200|8.50|1700.000|24.574|0.46|92.000|116.574|15.55|15.97|3194.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) JGODERUEDASGDES|200|20.00|4000.000|57.820|0.6|120.000|177.820|23.72|24.14|4828.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) BLUETOOTH-HC05|200|9|1800.000|26.019|3|600.000|626.019|83.51|83.93|16786.00
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) ANTIESTATICA8X12|5|200.00|1000.000|14.455|4|20.000|34.455|183.85|200.52|1002.60
+Thu Nov 12 23:04:15 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) ANTIESTATICA6X9|11|180|1980.000|28.621|2|22.000|50.621|122.78|130.36|1433.96

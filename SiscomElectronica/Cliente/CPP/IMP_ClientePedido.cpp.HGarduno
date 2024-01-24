@@ -1,0 +1,357 @@
+#include <IMP_ClientePedido.h>
+#include <IMP_ClientesRegistrados4.h>
+#include <IMP_Cotizaciones.h>
+#include <QCtrlEscuelasSE.h>
+
+#include <zSiscomElectronica.h>
+#include <zProductoCotizar.h>
+#include <zSiscomDesarrollo4.h>
+#include <zSiscomRegistro.h>
+#include <zSiscomQt3.h>
+#include <zOrdenVenta.h>
+
+#include <zClienteSiscom.h>
+#include <zTelefono.h>
+#include <zDireccion.h>
+
+#include <qtextedit.h> 
+#include <qlineedit.h>
+#include <qlcdnumber.h>
+#include <qpushbutton.h>
+#include <qtable.h>
+#include <qmessagebox.h>
+#include <qtabwidget.h>
+
+QClientePedido::QClientePedido(char **pchrPtrArgumentos, 
+				    QWidget *pQWParent,       
+				    const char *pchrPtrName,
+				    bool pbModal,
+				    WFlags pWFlags):	      
+				ClientePedido(pQWParent,pchrPtrName,pbModal,pWFlags),
+				chrPtrArgumentos(pchrPtrArgumentos),
+				zSisConexion((zSiscomConexion *)gzSiscomConexion),
+				intAceptar(0),
+                               intRegistroPersonales(0),
+                               intRegistroCelular(0),
+                               intRegistroDireccion(0),
+                               intEntregaEn(0),
+                               zSisCliSiscom(0),
+                               zSisRegEscuela(0),
+                               zOrdVenta(0)
+
+{
+setFont(pQWParent->font());
+IniciaVariables();
+ConectaSlots();
+exec();
+}
+
+void QClientePedido::ValidandoTelefono()
+{
+char lchrArrMensajeNoIgual[256];
+zSiscomElectronica lzSisElectronica(zSisConexion,"ValidaReCaptura");
+if(!lzSisElectronica.ValidaReCaptura(zSiscomQt3::Texto(QLECelular),
+				     zSiscomQt3::Texto(QLEReCelular)))
+{
+sprintf(lchrArrMensajeNoIgual,
+	"El Numero (%s) No es igual a (%s)",
+	zSiscomQt3::Texto(QLECelular),
+	zSiscomQt3::Texto(QLEReCelular));
+  QMessageBox::information(this,"Aviso Sistema",lchrArrMensajeNoIgual);
+  zSiscomQt3::Foco(QLECelular);
+}
+zSiscomQt3::Foco(QPBRegistraCelular);
+}
+
+int QClientePedido::RegistrandoPersonales()
+{
+int lintRegistroCliente;
+  if((lintRegistroCliente=RegistraCliente())==1)
+  {
+   QLENumCliente->setText(zSisCliSiscom->IdPersona());
+  return 1;
+  }
+  else
+  if(lintRegistroCliente==2)
+  {
+  	if(MuestraClientesSimilares()==1)
+  	return 2;
+ 	else
+	return -1;
+  }
+  else
+  if(lintRegistroCliente==3)
+  {
+	zSiscomQt3::Foco(QLEAPaterno);
+  }
+  else
+  {
+    QLENumCliente->setText(zSisCliSiscom->IdPersona());
+    MuestraDatosComunicacion();
+    MuestraDireccion(); 
+    QLEEscuela->setText(zSisCliSiscom->Escuela());
+    ControlesClienteRegistrado();
+    return 0;
+  }
+}
+int QClientePedido::RegistrandoCelular()
+{
+   zSisCliSiscom->Celular(FormaCelular());
+  if(RegistraCelular())
+  return 1;
+  else
+  return 0;
+}
+
+int QClientePedido::RegistrandoDireccion()
+{
+   zSisCliSiscom->Direccion(FormaDireccion());	
+   if(RegistraDireccion())
+   return 1;
+   else
+   return 0;
+}
+int QClientePedido::RegistraCliente()
+{
+zSiscomElectronica lzSisElectronica(zSisConexion,"RegistraClientePersona");
+return lzSisElectronica.RegistraCliente((zSisCliSiscom=ClienteSiscom()),&zSisRegsClientes);
+
+}
+int QClientePedido::RegistraCelular()
+{
+zSiscomElectronica lzSisElectronica(zSisConexion,"RegistraCelularAlumno");
+ return lzSisElectronica.RegistraCelularAlumno(zSisCliSiscom);
+}
+int QClientePedido::RegistraDireccion()
+{
+zSiscomElectronica lzSisElectronica(zSisConexion,"RegistraDireccionAlumno");
+return lzSisElectronica.RegistraDireccionAlumno(zSisCliSiscom);
+}
+
+zClienteSiscom *QClientePedido::ClienteSiscom()
+{
+zClienteSiscom *lzSisCliSiscom;
+if(!zSisCliSiscom)
+{
+lzSisCliSiscom=new zClienteSiscom("",
+ 		     zSiscomQt3::Texto(QLENombre),
+		     zSiscomQt3::Texto(QLEAPaterno),
+		     zSiscomQt3::Texto(QLEAMaterno));
+lzSisCliSiscom->Escuela(zSisRegEscuela);
+return lzSisCliSiscom;
+}
+else
+{
+LogSiscom("El Cliente NO Es nulo");
+return zSisCliSiscom;
+}
+}
+
+zTelefono *QClientePedido::FormaCelular()
+{
+   return new zTelefono("",(const char *)QLECelular->text());
+}
+
+zDireccion *QClientePedido::FormaDireccion()
+{
+zDireccion *lzDirDato;
+const char *lchrPtrReferencias;
+ lzDirDato=new zDireccion("",
+ 			zSiscomQt3::Texto(QLECalle),
+			zSiscomQt3::Texto(QLENumero),
+			"",
+			zSiscomQt3::Texto(QLEDelegacion),
+			zSiscomQt3::Texto(QLEColonia),
+			zSiscomQt3::Texto(QLEEstado),
+			(const char *)QLECP->text());
+ lchrPtrReferencias=strdup((const char *)QTEReferencias->text());
+ lzDirDato->Referencias(lchrPtrReferencias);
+
+ SiscomRegistroLog2(lzDirDato);
+ return lzDirDato;
+}
+
+zClienteSiscom *QClientePedido::Cliente()
+{
+  return zSisCliSiscom;
+}
+const char *QClientePedido::IdTipoOrden()
+{
+	return "4";
+}
+void QClientePedido::HabilitaDesHabilitaRegistraPersonales()
+{
+  intSePuedeRegistrarPersonales=zSiscomQt3::TextoValido(QLENombre) &&
+		          zSiscomQt3::TextoValido(QLEAPaterno) &&
+			  zSiscomQt3::TextoValido(QLEAMaterno) ;
+if(intSePuedeRegistrarPersonales)
+{
+QPBRegistraPersonales->setText("Registra Datos Personales");
+QPBRegistraPersonales->setEnabled(false);
+QCtrEscuelas->setEnabled(intSePuedeRegistrarPersonales);
+}
+else
+if(zSiscomQt3::TextoValido(QLENombre))
+{
+ QPBRegistraPersonales->setText("Busca Alumno Por Nombre");
+ QPBRegistraPersonales->setEnabled(true);
+}
+}
+void QClientePedido::HabilitaDesHabilitaRegistraCelular()
+{
+int lintRegistraCelular=zSiscomQt3::TextoValido(QLECelular) &&
+                        zSiscomQt3::TextoValido(QLEReCelular);
+QPBRegistraCelular->setEnabled(lintRegistraCelular);
+}
+void QClientePedido::HabilitaDesHabilitaRegistraDireccion()
+{
+int lintRegistraDireccion=zSiscomQt3::TextoValido(QLECalle) &&
+			  zSiscomQt3::TextoValido(QLENumero) &&
+			  zSiscomQt3::TextoValido(QLEDelegacion) &&
+			  zSiscomQt3::TextoValido(QLEColonia) &&
+			  zSiscomQt3::TextoValido(QLEEstado) &&
+			  zSiscomQt3::TextoValido(QLECP) ;
+QPBRegistraDireccion->setEnabled(lintRegistraDireccion);
+}
+void QClientePedido::HabilitaDesHabilitaAceptar()
+{
+int lintAceptar=intRegistroPersonales &&
+                intRegistroCelular &&
+		intRegistroDireccion;
+QPBAceptar->setEnabled(lintAceptar);
+}
+void QClientePedido::MuestraDireccion()
+{
+   if(zSisCliSiscom->Direccion())
+   {
+   QLECalle->setText(zSisCliSiscom->Direccion()->Calle());
+   QLENumero->setText(zSisCliSiscom->Direccion()->Numero());
+   QLEDelegacion->setText(zSisCliSiscom->Direccion()->Delegacion());
+   QLEColonia->setText(zSisCliSiscom->Direccion()->Colonia());
+   QLEEstado->setText(zSisCliSiscom->Direccion()->Estado());
+   QLECP->setText(zSisCliSiscom->Direccion()->CP());
+   QTEReferencias->setText(zSisCliSiscom->Direccion()->Referencias());
+   intRegistroDireccion=1;
+   }
+}
+void QClientePedido::MuestraDireccion(zDireccion *pzDirEscuela)
+{
+   if(pzDirEscuela)
+   {
+   QLECalle->setText(pzDirEscuela->Calle());
+   QLENumero->setText(pzDirEscuela->Numero());
+   QLEDelegacion->setText(pzDirEscuela->Delegacion());
+   QLEColonia->setText(pzDirEscuela->Colonia());
+   QLEEstado->setText(pzDirEscuela->Estado());
+   QLECP->setText(pzDirEscuela->CP());
+   QTEReferencias->setText(pzDirEscuela->Referencias());
+   }
+   else
+   {	
+   	FocoADondeFalta();
+	QPBAceptar->setEnabled(false);
+   }
+}
+
+void QClientePedido::FocoADondeFalta()
+{
+    if(!zSisCliSiscom->Celular())
+    zSiscomQt3::Foco(QLECelular);
+    else
+    if(!zSisCliSiscom->Direccion())
+    zSiscomQt3::Foco(QLECalle);
+}
+void QClientePedido::MuestraDatosComunicacion()
+{
+   if(zSisCliSiscom->Celular())
+   {
+   QLECelular->setText(zSisCliSiscom->Celular()->Telefono());
+   intRegistroCelular=zSiscomQt3::TextoValido(QLECelular);
+   }
+   else
+   {
+	QPBAceptar->setEnabled(false);
+   }
+}
+void QClientePedido::ControlesClienteRegistrado()
+{
+QPBRegistraPersonales->setEnabled(false);
+QPBRegistraCelular->setEnabled(false);
+QPBRegistraDireccion->setEnabled(false);
+QPBAceptar->setEnabled(zSisCliSiscom->Celular() &&
+		       zSisCliSiscom->Direccion()); 
+zSiscomQt3::Foco(QPBAceptar);
+}
+int QClientePedido::MuestraClientesSimilares()
+{
+QClientesRegistrados4 lQCRegistrados(zSisRegsClientes,parentWidget());
+if(lQCRegistrados.Aceptar())
+{
+delete zSisCliSiscom;
+zSisCliSiscom=lQCRegistrados.Cliente();
+MuestraCliente();
+intRegistroPersonales=1;
+return 1;
+}
+else
+{
+LogSiscom("Se presiono cancelacion");
+return -1;
+}
+}
+void QClientePedido::MuestraGenerales()
+{
+    QLENumCliente->setText(zSisCliSiscom->IdPersona());
+    QLENombre->setText(zSisCliSiscom->Nombre());
+    QLEAPaterno->setText(zSisCliSiscom->APaterno());
+    QLEAMaterno->setText(zSisCliSiscom->AMaterno());
+
+}
+void QClientePedido::MuestraCliente()
+{
+	MuestraGenerales();
+}
+
+void QClientePedido::ObtenDireccionEscuela()
+{
+zSiscomElectronica lzSisElectronica(zSisConexion,"DireccionEscuela");
+zDirEscuela=lzSisElectronica.Escuela(zSisRegEscuela);
+}
+void QClientePedido::AsignandoDireccion()
+{
+   if(zDirEscuela && !zSisCliSiscom->Direccion())
+   {
+	LogSiscom("Registrando la direccion, porque es nula");
+	zSisCliSiscom->Direccion(zDirEscuela);
+	MuestraDireccion(zDirEscuela);
+	RegistraDireccion();
+	intRegistroDireccion=1;
+	QPBRegistraDireccion->setEnabled(false);
+   }
+}
+
+int QClientePedido::EntregaEn()
+{
+	return intEntregaEn;
+}
+
+void QClientePedido::ConsultandoDirecciones()
+{
+   ConsultaDirecciones();
+
+}
+void QClientePedido::ConsultaDirecciones()
+{
+ zSiscomElectronica lzSisDirsCliente(zSisConexion,"Direcciones");
+  lzSisDirsCliente.Direcciones(zSisCliSiscom,&zDirsCliente);
+}
+void QClientePedido::AgregaSeleccionaOrden()
+{
+   QCotsSelecciona=new QCotizaciones(zSisConexion,this,"QCotsSelecciona");
+   QTWOpciones->addTab(QCotsSelecciona,"Ventas"); 
+}
+
+zOrdenVenta *QClientePedido::Orden()
+{
+     return zOrdVenta;
+}

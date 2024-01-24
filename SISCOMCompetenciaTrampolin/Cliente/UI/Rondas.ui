@@ -1,0 +1,162 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>Rondas</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>Rondas</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>603</width>
+            <height>834</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Asignacion De Rondas</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QTabWidget" row="2" column="0">
+            <property name="name">
+                <cstring>QTWRondas</cstring>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Ronda 1</string>
+                </attribute>
+            </widget>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="0">
+            <property name="name">
+                <cstring>layout60</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBARonda</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Anexar Ronda</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBRRondas</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Registrar Rondas</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout56</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Gimnastas</string>
+                    </property>
+                </widget>
+                <widget class="QTable">
+                    <column>
+                        <property name="text">
+                            <string>Gimnasta</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Gimnasio</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Entrenador</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Clase</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Nivel</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Grupo</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Rango Edad</string>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>QTGimnastas</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>0</width>
+                            <height>200</height>
+                        </size>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>32767</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="numRows">
+                        <number>0</number>
+                    </property>
+                    <property name="numCols">
+                        <number>7</number>
+                    </property>
+                    <property name="readOnly">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

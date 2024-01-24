@@ -1,0 +1,10 @@
+int ArgumentoOrden(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[128];
+SiscomAgregaArgumentoInsercionSql("SqlOrden",
+				  pSiscomOpePtrDato->chrArrBaseDatos,
+				  pSiscomOpePtrDato->chrArrPuertoBaseDatos,
+				  lchrArrBuffer,
+				  pSiscomOpePtrDato);
+return 0;
+}

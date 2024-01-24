@@ -1,0 +1,116 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>DisponibilidadCursos</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>DisponibilidadCursos</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Disponibilidad de Cursos</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout18</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Fechas Cursos</string>
+                    </property>
+                </widget>
+                <widget class="QCtrlFechasCursos">
+                    <property name="name">
+                        <cstring>QCtrFechasCurso</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QTable" row="1" column="0">
+            <column>
+                <property name="text">
+                    <string>Fecha</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Horario Inicio</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Hora Fin</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Cupo Disponible</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Disponibilidad</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTHorariosCurso</cstring>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>5</number>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>layout28</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>pushButton5</cstring>
+                    </property>
+                    <property name="text">
+                        <string>pushButton5</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>pushButton5_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>pushButton5</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlFechasCursos.h</includehint>
+</includehints>
+</UI>

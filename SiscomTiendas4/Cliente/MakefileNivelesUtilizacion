@@ -1,0 +1,47 @@
+include $(DIRDesarrolloHGE)/SISCOMComunYUtilerias/MakefileQTSiscomDesarrollo3.mk
+
+OpCompilacion=-c $(DEBUG) $(OpCSiscom)
+OpModulos=-shared $(DEBUG) $(OpCSiscom)
+Include=	-I $(QTDIR)/include 			\
+		-I H					\
+		-I $(DIRLIBSISCOM2)/H
+	 
+Archivos_O_SisUtilizacionVentas=O/CQSisPerfilUtilizacion.o	\
+				O/UtilizacionVentas.o
+Archivos_O_SisUtilizacionVentasNivelDos=O/CQSisPerfilUtilizacion.o	\
+					O/UtilizacionNivelDos.o
+
+Archivos_O_SisUtilizacionVentasNivelDosLapDell=O/UtilizacionNivelDosLapTopDell.o \
+					O/CQSisPerfilUtilizacion.o
+
+Bibliotecas=	-L$(QTDIR)/lib			\
+		-L$(DIRLIBSISCOM2)		\
+		-lSiscomComunicaciones++	\
+		-lSiscomDesarrollo2		\
+		-lqt-mt
+		
+
+all:SO/libSiscomVentasCompletoTiendas4.so \
+    SO/libSiscomVentasNivelDos.so 	  \
+    SO/libSiscomVentasNivelDosLapTopDell.so
+
+
+SO/libSiscomVentasCompletoTiendas4.so:$(Archivos_O_SisUtilizacionVentas)
+	@echo Generando $@
+	@$(CXX) $(OpModulos) 			\
+	-o $@					\
+	$(Archivos_O_SisUtilizacionVentas) 	\
+	$(Bibliotecas)
+SO/libSiscomVentasNivelDosLapTopDell.so:$(Archivos_O_SisUtilizacionVentasNivelDosLapDell)
+	@echo Generando $@
+	@$(CXX) $(OpModulos) 					\
+	-o $@							\
+	$(Archivos_O_SisUtilizacionVentasNivelDosLapDell) 	\
+	$(Bibliotecas)
+
+SO/libSiscomVentasNivelDos.so:$(Archivos_O_SisUtilizacionVentasNivelDos)
+	@echo Generando $@
+	@$(CXX) $(OpModulos) 			\
+	-o $@					\
+	$(Archivos_O_SisUtilizacionVentasNivelDos) 	\
+	$(Bibliotecas)

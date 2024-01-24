@@ -1,0 +1,74 @@
+#include <ExistenciasProductos.h>
+#include <ReportePorExistenciaMinima.h>
+#include <SqlExistenciasProductos.h>
+
+#include <ComunElectronica2.h>
+
+SiscomOperaciones2 *OpExistenciasProductosBodega()
+{
+
+SiscomOperaciones2 *lSOpOperaciones2;
+SiscomMemoriaOperaciones2(155,&lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ComunicacionExpendioConsulta,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreAnterior,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ObtenFechaActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(SqlExistenciasProductosBodega,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(AsignaInformacionUltimaCompra,lSOpOperaciones2);
+/*
+SiscomAnexaOperacionAlArreglo2(AsignaVentasSemAnterior,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(AsignaVentasActuales,lSOpOperaciones2);
+*/
+SiscomAnexaOperacionAlArreglo2(EnviaReportePorExistenciaMinima,lSOpOperaciones2);
+return lSOpOperaciones2;
+
+}
+
+SiscomOperaciones2 *OpExistenciasExpendio()
+{
+
+SiscomOperaciones2 *lSOpOperaciones2;
+SiscomMemoriaOperaciones2(155,&lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ComunicacionExpendioConsulta,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreAnterior,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ObtenFechaActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(SqlExistenciasExpendio,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(AsignaInformacionUltimaCompra,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(EnviaReportePorExistenciaMinima,lSOpOperaciones2);
+return lSOpOperaciones2;
+
+}
+
+SiscomOperaciones2 *OpExistenciasProductos()
+{
+
+SiscomOperaciones2 *lSOpOperaciones2;
+SiscomMemoriaOperaciones2(155,&lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ComunicacionExpendioConsulta,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreAnterior,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ObtenFechaActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(SqlExistenciasProductos,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(AsignaInformacionUltimaCompra,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(EnviaReportePorExistenciaMinima,lSOpOperaciones2);
+return lSOpOperaciones2;
+
+}
+
+
+SiscomOperaciones2 *OpExistenciasProductosPorCasiClave()
+{
+
+SiscomOperaciones2 *lSOpOperaciones2;
+SiscomMemoriaOperaciones2(155,&lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ComunicacionExpendioConsulta,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreAnterior,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(FechasSemestreActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(ObtenFechaActual,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(SqlExistenciasProductosCasiClave,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(AsignaInformacionUltimaCompra,lSOpOperaciones2);
+SiscomAnexaOperacionAlArreglo2(EnviaReportePorExistenciaMinima,lSOpOperaciones2);
+return lSOpOperaciones2;
+
+}

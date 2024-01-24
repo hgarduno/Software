@@ -1,0 +1,51 @@
+ Expendio Analco | Apigallo Api Aba 40 Kgs.            | AVAAAG40    |   5.00
+ Expendio Analco | Apigallo Preparación Api Aba 5 Kgs. | AVAAGP05    |   8.00
+ Expendio Analco | Belenes 25 Kgs.                     | PEJABE25    |   1.00
+ Expendio Analco | Block de Sal Mineralizada 15 Kgs.   | SAVEBM15    |   1.00
+ Expendio Analco | Blok de Sal Triple 15 Kgs.          | SAVEBT15    |  10.00
+ Expendio Analco | Caballo Ganador 40 Kgs.             | EQAACG40    |   7.00
+ Expendio Analco | Cascarilla de Soya 40 Kgs.          | SOCACS40    |  20.00
+ Expendio Analco | Cema 1a. 30 Kgs.                    | STELC130    |   3.00
+ Expendio Analco | Cema 1a. 30 Kgs.                    | STESC130    | 220.00
+ Expendio Analco | Cema 2a. 28 Kgs.                    | STELC228    | 191.00
+ Expendio Analco | Codorniz Postura Api Aba 40 Kgs.    | AVAACP40    |   8.00
+ Expendio Analco | Conejito Engorda Api Aba 5 Kgs.     | COAACE05    |  10.00
+ Expendio Analco | Conejito Iniciación Api Aba 5 Kgs.  | COAACI05    |   9.00
+ Expendio Analco | Conejo Api Aba 40 Kgs.              | COAACO40    |  12.00
+ Expendio Analco | Creci Pork 40 Kgs.                  | CEAACP40    |  23.00
+ Expendio Analco | Crecimiento Fresno 40Kgs.           | CEFRCR40    |  55.00
+ Expendio Analco | Encilac Molido 40 Kgs.              | BOEMEM40    |  42.00
+ Expendio Analco | Engorda Ganado Fresno 40 Kgs.       | BOFREG40    |  12.00
+ Expendio Analco | Engorda Pollo Api Aba 5 Kgs.        | AVAAEP05    |   2.00
+ Expendio Analco | Engorda Pork 40 Kgs.                | CEAAEP40    |  36.00
+ Expendio Analco | Finalizador Fresno 40 Kgs.          | CEFRFI40    |  12.00
+ Expendio Analco | Gallo Reproductora Api Aba 5 Kgs.   | AVAAGR05    |   5.00
+ Expendio Analco | Gana Aves 40 Kgs.                   | AVAAGA40    |  31.00
+ Expendio Analco | Gana Aves 5 Kgs.                    | AVAAGA05    |   2.00
+ Expendio Analco | Ganacerdos 40 Kgs.                  | CEAAGC40    |  33.00
+ Expendio Analco | Iniciador Pollo Api Aba 5 Kgs.      | AVAAIP05    |   5.00
+ Expendio Analco | Lactocria Api Aba 10 Kgs.           | BOAALA10    |   7.00
+ Expendio Analco | Lechero Fresno 40 Kgs.              | BOFRLE40    |  18.00
+ Expendio Analco | Manten 30 Kgs.                      | BOEMMA30    |  90.00
+ Expendio Analco | Maíz Entero 40 Kgs.                 | MACAME40    |   6.00
+ Expendio Analco | Maíz Entero Consumo Humano 40 Kgs.  | MACACH40    | 421.00
+ Expendio Analco | Maíz Molido 40 Kgs.                 | MAFRMM40    | 366.00
+ Expendio Analco | Maíz Quebrado 40 Kgs.               | MACOMQ40    |   2.00
+ Expendio Analco | Maíz Quebrado 40 Kgs.               | MAFRMZ40    | 273.00
+ Expendio Analco | Pall 1 Kg                           | PEJAPL01    |   5.00
+ Expendio Analco | Pasta de Soya 40 Kgs.               | SOCAPS40    |  17.00
+ Expendio Analco | Pedigree Adulto 1 Kgs.              | PEJAPA01    |   1.00
+ Expendio Analco | Pedigree Cachorro 1 Kgs.            | PEJAPC01    |   1.00
+ Expendio Analco | Pell Rol 1/4 Milla 40 Kgs.          | EQAAPM40    |   1.00
+ Expendio Analco | Poder Canino 1 Kgs.                 | PEJAPO01    |  14.00
+ Expendio Analco | Poder Canino 25 Kgs.                | PEJAPO25    |   4.00
+ Expendio Analco | Pollinaza 40 Kgs.                   | BOBAPO40    | 118.00
+ Expendio Analco | Pollo Expendio 40 Kgs.              | AVAAPE40    |   1.00
+ Expendio Analco | Ponedora Api Aba 40 Kgs.            | AVAAPO40    |   2.00
+ Expendio Analco | Reproductora Gestación 40 Kgs.      | CEFRRG40    |   1.00
+ Expendio Analco | Sal Minsa  20 Kgs.                  | SAVESM20    |   2.00
+ Expendio Analco | Salvado 40 Kgs.                     | STESSA40    | 192.00
+ Expendio Analco | Sorgo Entero 40 Kgs.                | SOCOSE40    |  14.00
+ Expendio Analco | Sorgo Molido 40 Kgs.                | SOFRSM40    | 145.00
+ Expendio Analco | Wiskas 1 Kg.                        | GAJAWA01    |   5.00
+

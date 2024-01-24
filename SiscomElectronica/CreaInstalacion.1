@@ -1,0 +1,230 @@
+#!/bin/sh 
+
+LANG=es_MX.UTF-8 
+export LANG 
+Cliente()
+{
+ArchivosCliente="$1/Cliente/SISCOMTiendas3					\
+$1/Configuracion/SiscomElectronica3.xml						\
+$1/SiscomElectronica3/SO/libPantallasSiscomElectronica3.so			\
+$1/Cliente/SO/libActualizaInventario.so 					\
+$1/Cliente/SO/libAvisoNoAlcanza.so 						\
+$1/Cliente/SO/libCNSClientes.so 						\
+$1/Cliente/SO/libCapturaContacto.so 						\
+$1/Cliente/SO/libCapturaDato.so 						\
+$1/Cliente/SO/libCapturaIva.so 							\
+$1/Cliente/SO/libCapturaNoCotizacion.so 					\
+$1/Cliente/SO/libCapturaRangoFechas.so 						\
+$1/Cliente/SO/libCapturaTelefono.so 						\
+$1/Cliente/SO/libClientes.so 							\
+$1/Cliente/SO/libCompras.so 							\
+$1/Cliente/SO/libContDeLasPracticas.so 						\
+$1/Cliente/SO/libContEscuelas.so 						\
+$1/Cliente/SO/libContMaterias.so 						\
+$1/Cliente/SO/libContPracticas.so 						\
+$1/Cliente/SO/libCotizaDispositivos.so 						\
+$1/Cliente/SO/libCotizaPractica.so 						\
+$1/Cliente/SO/libCtrExistencias.so 						\
+$1/Cliente/SO/libCtrExistenciasMinimas.so 					\
+$1/Cliente/SO/libCtrExpendios.so 						\
+$1/Cliente/SO/libDatosClienteF.so 						\
+$1/Cliente/SO/libEjecutaInventario.so 						\
+$1/Cliente/SO/libEmpleadosExpendio.so 						\
+$1/Cliente/SO/libEstadoInventario.so 						\
+$1/Cliente/SO/libExtNoAlcanzan.so 						\
+$1/Cliente/SO/libFacturacion.so 						\
+$1/Cliente/SO/libFacturando.so 							\
+$1/Cliente/SO/libFamilias.so 							\
+$1/Cliente/SO/libFirmaTiendas.so 						\
+$1/Cliente/SO/libFirmateExpendio.so 						\
+$1/Cliente/SO/libInventario.so 							\
+$1/Cliente/SO/libManejadorPrecios.so 						\
+$1/Cliente/SO/libManejadorProductos.so 						\
+$1/Cliente/SO/libManejadorProveedores.so 					\
+$1/Cliente/SO/libMantenProductos.so 						\
+$1/Cliente/SO/libMaterialAExpendio.so 						\
+$1/Cliente/SO/libMaterialPractica.so 						\
+$1/Cliente/SO/libOpcionCerrar.so 						\
+$1/Cliente/SO/libOrdenCompra.so 						\
+$1/Cliente/SO/libOrdenElectronica.so 						\
+$1/Cliente/SO/libOrdenesPorFecha.so 						\
+$1/Cliente/SO/libOrdenesVendidas.so 						\
+$1/Cliente/SO/libPantallasSiscomElectronica2009.so 				\
+$1/Cliente/SO/libProdSimilares.so 						\
+$1/Cliente/SO/libProductoPractica.so 						\
+$1/Cliente/SO/libProductosInventariar.so 					\
+$1/Cliente/SO/libProgramaInventario.so 						\
+$1/Cliente/SO/libRangoPorcentaje.so 						\
+$1/Cliente/SO/libRegistroEmpleados.so 						\
+$1/Cliente/SO/libReportesVentas.so 						\
+$1/Cliente/SO/libSISCOMTiendas3.so 						\
+$1/Cliente/SO/libSelExpendios.so 						\
+$1/Cliente/SO/libSelOrden.so 							\
+$1/Cliente/SO/libSiscomElectronicaComun.so 					\
+$1/Cliente/SO/libVentasElectronica.so						\
+$1/Cliente/SO/libAccesoSiscomElectronica.so"
+
+ArchivosSiscomDesarrollo2="$DIRDesarrolloHGE/SISCOMDesarrollo2/libSISCOMComunControlesDesarrollo2.so 	\
+$DIRDesarrolloHGE/SISCOMDesarrollo2/libSepomexCliente.so 						\
+$DIRDesarrolloHGE/SISCOMDesarrollo2/libSiscomComunicaciones++.so 					\
+$DIRDesarrolloHGE/SISCOMDesarrollo2/libSiscomDesarrollo2.so 						\
+$DIRDesarrolloHGE/SISCOMDesarrollo2/libSiscomDesarrollo3Qt++.so 					\
+$DIRDesarrolloHGE/SISCOMDesarrollo2/libSiscomFirmateSistema.so 						\
+$DIRDesarrolloHGE/SISCOMDesarrollo2/libSiscomSeguridad3Prot2.so						\
+$DIRDesarrolloHGE/SiscomComunicaciones++/libSiscomComunicaciones++.so.1.0.0				\
+$DIRDesarrolloHGE/SiscomDesarrollo4++/libSiscomDesarrollo4++.so.1.0.0					\
+$DIRDesarrolloHGE/SiscomDesarrollo4Qt++/libSiscomDesarrollo4Qt++.so.1.0.0"
+
+ArchivosQt=" 								\
+$QTDIR/plugins/designer/libControlEscuelas.so 				\
+$QTDIR/plugins/designer/libControlFechaDesarrollo2.so 			\
+$QTDIR/plugins/designer/libControlSepomexComunicas.so 			\
+$QTDIR/plugins/designer/libControlSiscomElectronica3.so 		\
+$QTDIR/plugins/designer/libQCtrlServidoresSiscom.so 			\
+$QTDIR/plugins/designer/libQCtrlUsuarios.so 				\
+$QTDIR/plugins/designer/libQSiscomOperacionesPersonas.so 		\
+$QTDIR/plugins/designer/libQSiscomSepomex++.so 				\
+$QTDIR/plugins/designer/libSISCOMComunControles.so			\
+$QTDIR/plugins/designer/libSiscomSoporte.so.1.0.0" 
+
+for X in $ArchivosCliente 		\
+         $ArchivosSiscomDesarrollo2	\
+	 $ArchivosQt
+do  
+cp $X $2/Cliente; 
+done 
+
+#cp $QTDIR/lib/libqt-mt.* $1/Cliente
+
+cat << SiscomTiendas > $2/SISCOMTiendas.sh 
+
+#!/bin/sh 
+
+DirSistema=$1/Cliente
+LD_LIBRARY_PATH=$1/Cliente
+
+PATH=$1/Cliente
+DirectorioConfiguracion=$2/Cliente/
+ArchivoConfiguracionModulos=SiscomElectronica3.xml
+Aplicacion=SISCOMElectronica
+RutaIconos=$HOME/.SiscomElectronica/Cliente/Iconos
+ArchivoServidores=.SiscomTiendasComunicaciones3.txt
+
+
+IdCaja=
+
+export LD_LIBRARY_PATH
+export PATH
+export DirectorioConfiguracion
+export ArchivoConfiguracionModulos
+export Aplicacion
+export PtoComSvr2 
+export RutaIconos
+export ArchivoServidores 
+
+export IdExpendio
+export DirIpSvr
+export PtoComSvr
+export IdCaja
+ulimit -c 0
+
+SISCOMTiendas3 Maximizada
+
+SiscomTiendas
+
+chmod +x $2/SISCOMTiendas.sh
+
+}
+Servidor()
+{
+ArchivosServidor="							\
+$1/Servidor/libSiscomElectronica.so 					\
+$1/Servidor/libSiscomElectronicaMemoriaComun.so				\
+$DIRLIBSISCOM2/libSiscomAplicacionesSvr.so 				\
+$DIRLIBSISCOM2/libSiscomDesarrollo2.so 					\
+$DIRLIBSISCOM2/libSiscomDesarrolloPostgresql.so 			\
+$DIRLIBSISCOM2/libSiscomSeguridad3Prot2.so 				\
+$DIRLIBSISCOM2/libSiscomSepomex.so 					\
+$DIRLIBSISCOM2/Servidor/ServidorGeneral					\
+$DIRDesarrolloHGE/ActualizaAplicacion/Servidor/libAccesoDatos.so	\
+$1/SiscomElectronica2/Servidor/libSiscomElectronica2.so			\
+$DIRDesarrolloHGE/SiscomDesarrollo4/libSiscomDesarrollo4.so		\
+$DIRDesarrolloHGE/SiscomDesarrollo4/libSiscomOperaciones.so		\
+$DIRDesarrolloHGE/SiscomDesarrollo4/ServidorSiscom			\
+$DIRDesarrolloHGE/SiscomDesarrollo4/PostgresSql/libSiscomPostgresSql.so
+"
+
+for X in $ArchivosServidor
+do
+cp $X $2/Servidor 
+done
+}
+
+NombrePorFecha()
+{
+#Enero
+#Febrero
+#Marzo
+#Abril
+#Mayo
+#Junio
+#Julio
+#Agosto
+#Septiembre
+#Octubre
+#Noviembre
+#Diciembre
+
+Dia=`date '+%A'|  sed -e s/^l/L/g -e s/^m/M/g -e s/^j/J/g -e s/^v/V/g -e s/^s/S/g -e s/^d/D/g -e s/é/e/g -e s/á/a/g `
+	Mes=`date '+%B'|  sed -e s/^e/E/g -e s/^f/F/g -e s/^a/A/g -e s/^m/M/g -e s/^j/J/g -e s/^s/S/g -e s/^o/O/g -e s/^n/N/g -e s/^d/D/g `
+NDia=`date '+%d'`
+Anio=`date '+%Y'`
+printf "SiscomElectronica_%s_%s_%s_%s\n" $Dia $NDia $Mes $Anio 
+}
+
+CreaDirectorios()
+{
+if [ -d $1 ]
+then
+   rm -rf $1
+   mkdir $1
+else
+	mkdir $1
+fi
+
+
+if [ -d $1/Cliente  ]
+then
+	rm -rf $1/Cliente
+else
+	mkdir $1/Cliente
+fi
+
+if [ -d $1/Servidor ]
+then 
+	rm -rf $1/Servidor
+else
+	mkdir $1/Servidor 
+fi
+}
+DirectorioInstalacion=$HOME/SiscomDesarrollo/VersionesSistemas/SISCOMElectronica
+Procesador=$1
+
+DirectorioVersion=$DirectorioInstalacion/$Procesador/`NombrePorFecha`
+CreaDirectorios $DirectorioVersion
+##
+NombreArchivoSiscom=`NombrePorFecha `
+### Miercoles 1 de Julio del 2015 
+# Si se pasa en la ruta al final / se vuelve loco el script
+##echo Generando la instalacion de $DIRDesarrolloHGE/SiscomElectronica.Produccion
+Cliente $DIRDesarrolloHGE/SiscomElectronica.Produccion  $DirectorioVersion
+Servidor $DIRDesarrolloHGE/SiscomElectronica.Produccion $DirectorioVersion
+ArchivoInstalacion=$(printf "%s/%s.%s%s.tar.xz" $DirectorioInstalacion  $NombreArchivoSiscom $Procesador)
+echo $ArchivoInstalacion
+if [ -f $ArchivoInstalacion ]
+then
+ rm $ArchivoInstalacion
+fi
+(cd  $DirectorioInstalacion; 								\
+ tar cf $NombreArchivoSiscom.$Procesador.tar $Procesador/$NombreArchivoSiscom/; 	\
+ xz -z  $NombreArchivoSiscom.$Procesador.tar)

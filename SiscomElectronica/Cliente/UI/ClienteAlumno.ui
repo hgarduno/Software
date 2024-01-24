@@ -1,0 +1,497 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ClienteAlumno</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ClienteAlumno</cstring>
+    </property>
+    <property name="enabled">
+        <bool>true</bool>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>557</width>
+            <height>555</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Datos Alumno</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="4" column="0">
+            <property name="name">
+                <cstring>layout8</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBOtrosMovimientos</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Otros Movimientos</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBAceptar</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Aceptar</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBNuevaOrden</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Nueva Orden</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+N</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBCancelar</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cancelar</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout5</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout3</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1_2</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>5</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Cliente</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLECliente</cstring>
+                            </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout3_2</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1_2_2</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>5</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Escuela</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLEEscuela</cstring>
+                            </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QButtonGroup" row="3" column="0">
+            <property name="name">
+                <cstring>QBGTipoOrden</cstring>
+            </property>
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="title">
+                <string>Tipo de Orden</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>QRBApartado</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Apartado</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>2</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>QRBCotizacion</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cotizacion</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>1</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>radioButton5</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Vende Orden, Cotizacion , Apartado</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>100</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="3" column="0">
+                    <property name="name">
+                        <cstring>radioButton12</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Modificar Cotizacion</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>109</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="4" column="0">
+                    <property name="name">
+                        <cstring>QPBOrdenActual</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Orden Actual</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>103</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="5" column="0">
+                    <property name="name">
+                        <cstring>QRBCierraApartado</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Entrega Apartado</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>101</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="6" column="0">
+                    <property name="name">
+                        <cstring>radioButton4</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Estados Pedido</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>102</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="7" column="0">
+                    <property name="name">
+                        <cstring>radioButton7</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Recupera Orden Impresa</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>104</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="8" column="0">
+                    <property name="name">
+                        <cstring>radioButton8</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Programacion Placas</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>105</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="9" column="0">
+                    <property name="name">
+                        <cstring>radioButton8_2</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Entrega Placa</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>106</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="10" column="0">
+                    <property name="name">
+                        <cstring>radioButton10</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Material Area Diseno</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>107</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="11" column="0">
+                    <property name="name">
+                        <cstring>radioButton11</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Donacion</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>108</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton" row="12" column="0">
+                    <property name="name">
+                        <cstring>radioButton13</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Registrar Practica</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>111</number>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout41</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout40</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout1</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel1</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>5</hsizetype>
+                                            <vsizetype>0</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="text">
+                                        <string>Escuelas</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCtrlEscuelasSE">
+                                    <property name="name">
+                                        <cstring>QCtrEscuelas</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>7</hsizetype>
+                                            <vsizetype>0</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout8</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel1_3</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>5</hsizetype>
+                                            <vsizetype>0</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="text">
+                                        <string>Clientes Mayoreo</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCtrlClientesMayoreo">
+                                    <property name="name">
+                                        <cstring>QCtrClientesMayoreo</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>5</hsizetype>
+                                            <vsizetype>0</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout11</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1_4</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Descripcion Venta</string>
+                            </property>
+                        </widget>
+                        <widget class="QTextEdit">
+                            <property name="name">
+                                <cstring>QTEDesVenta</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>7</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QCtrlOrdenesFavoritas" row="2" column="0">
+            <property name="name">
+                <cstring>QCtrOrdenesFavoritas</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>50</height>
+                </size>
+            </property>
+            <property name="title">
+                <string></string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<tabstops>
+    <tabstop>QRBApartado</tabstop>
+    <tabstop>QRBCotizacion</tabstop>
+    <tabstop>radioButton5</tabstop>
+    <tabstop>QPBOrdenActual</tabstop>
+    <tabstop>QRBCierraApartado</tabstop>
+    <tabstop>radioButton4</tabstop>
+    <tabstop>radioButton7</tabstop>
+    <tabstop>QPBOtrosMovimientos</tabstop>
+    <tabstop>QPBAceptar</tabstop>
+    <tabstop>QPBNuevaOrden</tabstop>
+    <tabstop>QPBCancelar</tabstop>
+    <tabstop>QLECliente</tabstop>
+    <tabstop>QLEEscuela</tabstop>
+</tabstops>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlEscuelasSE.h</includehint>
+    <includehint>QCtrlClientesMayoreo.h</includehint>
+    <includehint>QCtrlOrdenesFavoritas.h</includehint>
+</includehints>
+</UI>

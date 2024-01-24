@@ -1,0 +1,37 @@
+#!/bin/bash
+
+Probando()
+{
+cat << SentenciasSql |  psql SiscomElectronica
+
+
+update estadospedido set dscedopedido = 'Pedido registrado' where idedopedido=0;
+delete from estadospedido where idedopedido in(1,2);
+
+
+
+SentenciasSql
+
+
+cat 	SQL/Tablas/EntregaPedidos.sql  	\
+	SQL/AccionEstadoPedido.sql	\
+	SQL/CambiosPedidos.sql		\
+	SQL/Tablas/JTExpress.sql	\
+| psql SiscomElectronica
+
+### Este script se debe correr como el super usuario 
+### postgresl
+
+cat << JTExpress | psql SiscomElectronica
+
+copy CoberturasJTExpress(cp,municipio,estado,cobertura,dias) 
+from '/home/hgarduno/CoberturasJTExpress.csv' 
+delimiter E'\t' 
+CSV header;
+
+JTExpress
+
+
+}	
+
+Probando 

@@ -1,0 +1,63 @@
+<ModSistemaTiendas Sistema="SISCOMTiendasMini" >
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorProveedores.so">
+		<Funcion Nombre="InstanciaManejadorProveedores" > </Funcion>
+		<Menu    Nombre="QAManejadorProveedores"> </Menu>
+		<TextoMenu Texto="Manejador De Proveedores" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorProductos.so">
+		<Funcion Nombre="InstanciaManejadorProductos" > </Funcion>
+		<Menu    Nombre="QAManejadorProductos"> </Menu>
+		<TextoMenu Texto="Manejador De Productos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libRegistroEmpleados.so">
+		<Funcion Nombre="InstanciaRegistroEmpleados" > </Funcion>
+		<Menu    Nombre="QAEmpleados"> </Menu>
+		<TextoMenu Texto="Registro De Empleados" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libCtrExpendios.so">
+		<Funcion Nombre="InstanciaCtrExpendios" > </Funcion>
+		<Menu    Nombre="QACtrExpendios"> </Menu>
+		<TextoMenu Texto="Controlador De Expendio" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorProveedores.so">
+		<Funcion Nombre="InstanciaManejadorProveedores" > </Funcion>
+		<Menu    Nombre="QAManejadorProveedores"> </Menu>
+		<TextoMenu Texto="Manejador De Proveedores" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorPrecios.so">
+		<Funcion Nombre="InstanciaManejadorPrecios" > </Funcion>
+		<Menu    Nombre="QAManejadorPrecios"> </Menu>
+		<TextoMenu Texto="Manejador De Precios" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libVentasElectronica.so">
+		<Funcion Nombre="CreaInstanciaVentasElectronica" > </Funcion>
+		<Menu    Nombre="QAVentasElectronica"> </Menu>
+		<TextoMenu Texto="Ventas Electronica" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+
+</ModSistemaTiendas>

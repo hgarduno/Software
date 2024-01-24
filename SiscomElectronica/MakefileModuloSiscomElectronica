@@ -1,0 +1,46 @@
+#Para enlazar con libSiscomComunicaciones1++ 
+# en $DIRLIBSISCOM 
+#  Se debe hacer un enlace simbolico asi 
+#  ln -s libSiscomComunicaciones++.so libSiscomComunicaciones1++.so
+
+Include=-I $(QTDIR)/include 				\
+	-I Cliente/H 					\
+	-I $(DIRDesarrolloHGE)/SiscomComunicaciones++/H \
+	-I $(DIRLIBSISCOM2)/H
+Bibliotecas=-L $(QTDIR)/lib 					\
+	    -L $(DIRDesarrolloHGE)/SiscomComunicaciones++	\
+	    -L $(DIRDesarrolloHGE)/SiscomDesarrollo4++		\
+	    -L $(DIRDesarrolloHGE)/SISCOMDesarrollo2		\
+	    -L .						\
+	    -L SiscomElectronica2/Servidor			\
+	    -L Cliente/SO					\
+	     -lqt-mt 						\
+	     -ldl						\
+	     -lSiscomComunicaciones1++				\
+	     -lSiscomDesarrollo2				\
+	     -lSiscomDesarrollo3Qt++				\
+	     -l:libSiscomComunicaciones++.so.1.0.0		\
+	     -lSiscomDesarrollo4++				\
+	     -lSiscomElectronicaComun				\
+	     -lSelExpendios					\
+	     -lAccesoSiscomElectronica				\
+	     -lFirmateExpendio					\
+	     -lFirmaTiendas
+
+Archivos_O_ModuloSiscomElectronica=Cliente/O/EjecutandoModuloSiscomElectronica.o \
+				   Cliente/O/zLineaComandosEjecutaModuloSe.o
+
+all:ModuloSiscomElectronica
+
+ModuloSiscomElectronica:$(Archivos_O_ModuloSiscomElectronica)
+	@echo G++ $@
+	@g++  -g -o$@ $(Archivos_O_ModuloSiscomElectronica) $(Bibliotecas)
+
+
+Cliente/O/%.o:Cliente/CPP/%.cpp
+	@echo G++ $<
+	@g++ -g -c -o $@  $< $(Include)
+
+clean:
+	rm $(Archivos_O_ModuloSiscomElectronica)
+	rm ModuloSiscomElectronica

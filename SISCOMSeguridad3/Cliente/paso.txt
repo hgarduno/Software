@@ -1,0 +1,5 @@
+QFileDialog *lQFDSelDirT=new QFileDialog(0,0,0);
+            lQFDSelDirT->setMode(QFileDialog::Directory);
+            lQFDSelDirT->exec();
+            QLERutaQQt->setText(lQFDSelDirT->selectedFile());    
+ 

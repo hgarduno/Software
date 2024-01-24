@@ -1,0 +1,61 @@
+/QT/lib:/home/hgarduno/SiscomDesarrollo2009/SiscomTiendas4/Cliente/SO:/QT/plugins/designer:/QT/plugins/designer:/home/hgarduno/SiscomDesarrollo2009/SISCOMDesarrollo2:/home/hgarduno/SiscomDesarrollo2009/GeneraValidacionCpuInfo/XPS/SO
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp RegistraPrecios 94 ) Analizando El Formato Seid
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Codigo cero
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:0 Menudeo (-) Mayoreo (-,0) Distribuidor (-,0) Estudiante (-)
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Alambre
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :AM_22
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Automatización
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :1SBL241001R2610
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :1SAZ211201R1051
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :S203K25
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :A7B10000001269
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :1SVR550870R9400
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :LS-12849
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :LS-05143
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :BC_4P
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :LE-LED/90
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :LTL-3140
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :IRPE
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :REJ_VENT
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :TR-588PB
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :TRS-416
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :CA-1/16
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :HG1/16
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :NC1/16
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :CLA2P_ROYER
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :CON2P_ROYER
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :CLA3P_MITZU
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :CON3P_MITZU
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :CUR2X16
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 259 ) NO Se pudo formar el Precio de :CUR3X16
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Bases sencillas para C.I. tipo DIP angostas (300 milésimas de pulgada de ancho)
+Thu Jun 23 23:53:01 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_6_300 Menudeo (2.800) Mayoreo (2.100,100) Distribuidor (1.400,300) Estudiante (2.520)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_8_300 Menudeo (1.800) Mayoreo (1.300,100) Distribuidor (0.800,300) Estudiante (1.620)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_14_300 Menudeo (1.900) Mayoreo (1.400,100) Distribuidor (0.900,300) Estudiante (1.710)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_16_300 Menudeo (2.000) Mayoreo (1.500,100) Distribuidor (1.000,300) Estudiante (1.800)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_18_300 Menudeo (2.100) Mayoreo (1.600,100) Distribuidor (1.100,300) Estudiante (1.890)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_20_300 Menudeo (2.200) Mayoreo (1.700,100) Distribuidor (1.200,300) Estudiante (1.980)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_24_300 Menudeo (2.500) Mayoreo (1.900,100) Distribuidor (1.300,300) Estudiante (2.250)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_28_300 Menudeo (3.000) Mayoreo (2.400,100) Distribuidor (1.800,300) Estudiante (2.700)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Bases sencillas para C.I. tipo DIP anchas (600 milésimas de pulgada de ancho)
+Thu Jun 23 23:53:02 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_24_600 Menudeo (2.500) Mayoreo (1.900,100) Distribuidor (1.300,300) Estudiante (2.250)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_28_600 Menudeo (2.900) Mayoreo (2.200,100) Distribuidor (1.500,300) Estudiante (2.610)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPS_40_600 Menudeo (4.000) Mayoreo (3.200,100) Distribuidor (2.400,300) Estudiante (3.600)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Bases maquinadas para C.I. tipo DIP angostas (300 milésimas de pulgada de ancho)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_6_300 Menudeo (3.500) Mayoreo (3.000,25) Distribuidor (2.700,50) Estudiante (3.150)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_8_300 Menudeo (3.900) Mayoreo (3.300,25) Distribuidor (3.000,50) Estudiante (3.510)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_14_300 Menudeo (6.000) Mayoreo (5.100,25) Distribuidor (4.700,50) Estudiante (5.400)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_16_300 Menudeo (6.900) Mayoreo (5.900,25) Distribuidor (5.400,50) Estudiante (6.210)
+Thu Jun 23 23:53:03 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_18_300 Menudeo (7.400) Mayoreo (6.400,25) Distribuidor (5.900,50) Estudiante (6.660)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_20_300 Menudeo (8.000) Mayoreo (6.900,25) Distribuidor (6.400,50) Estudiante (7.200)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Bases maquinadas para C.I. tipo DIP anchas (600 milésimas de pulgada de ancho)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_24_600 Menudeo (8.500) Mayoreo (7.500,20) Distribuidor (No aplica, No aplica ) Estudiante (7.650)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_28_600 Menudeo (10.000) Mayoreo (9.000,15) Distribuidor (No aplica, No aplica ) Estudiante (9.000)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPM_40_600 Menudeo (15.000) Mayoreo (14.000,10) Distribuidor (No aplica, No aplica ) Estudiante (13.500)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Bases cero esfuerzo para C.I. tipo DIP angostas (300 milésimas de pulgada de ancho)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPCE_18_300 Menudeo (29.000) Mayoreo (26.000,15) Distribuidor (23.000,40) Estudiante (26.100)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Bases cero esfuerzo para C.I. tipo DIP anchas (600 milésimas de pulgada de ancho)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BDIPCE_40_600 Menudeo (46.000) Mayoreo (40.000,10) Distribuidor (33.000,30) Estudiante (41.400)
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp RegistraPrecios 103 ) Familia:Baterías alcalinas
+Thu Jun 23 23:53:04 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BA_AA1 Menudeo (4.000) Mayoreo (No aplica, No aplica ) Distribuidor (No aplica, No aplica ) Estudiante (No aplica)
+Thu Jun 23 23:53:05 2011:( CPP/InformacionSeid.cpp FormaPrecio 239 ) Producto:BA_AA4 Menudeo (16.000) Mayoreo (No aplica, No aplica ) Distribuidor (No aplica, No aplica ) Estudiante (No aplica)

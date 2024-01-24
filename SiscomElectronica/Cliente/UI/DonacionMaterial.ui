@@ -1,0 +1,64 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>DonacionMaterial</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>DonacionMaterial</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>630</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Donacion Material</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLabel" row="0" column="0">
+            <property name="name">
+                <cstring>Explicacion</cstring>
+            </property>
+            <property name="text">
+                <string>textLabel1</string>
+            </property>
+        </widget>
+        <widget class="QTextEdit" row="1" column="0">
+            <property name="name">
+                <cstring>QTEExplicacion</cstring>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>layout1</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBAceptar</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Aceptar</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBCancelar</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cancelar</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

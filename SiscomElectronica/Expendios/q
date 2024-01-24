@@ -1,0 +1,470 @@
+ idcompraimportacion | idconsecutivo |     cveproducto      | cantidad | costounitario |     cveproducto      |  peso  |   cveproveedor    | idempresa  |                  razonsocial                   
+---------------------+---------------+----------------------+----------+---------------+----------------------+--------+-------------------+------------+------------------------------------------------
+          1666917777 |         26810 | BARRALEDS-R10        |     2500 |       0.21000 | BARRALEDS-R10        |   2.00 | KEM-102510-SR     | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26811 | BARRALEDS-R12        |      500 |       0.31000 | BARRALEDS-R12        |   3.50 | KEM-123010-ASR    | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26812 | DISACSV              |     1500 |       0.08000 | DISACSV              |   2.00 | KEM-5613-BSG      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26813 | DISCCSV              |     1500 |       0.08000 | DISCCSV              |   2.00 | KEM-5613-ASG      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26814 | DISACS               |     1500 |       0.08000 | DISACS               |   2.00 | KEM-5613-BSR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26815 | DISCCS               |     1500 |       0.08000 | DISCCS               |   2.00 | KEM-5613-ASR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26816 | DISCC4               |      300 |       0.26000 | DISCC4               |   8.00 | KEM-5641-ASR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26817 | DISAC4               |      300 |       0.26000 | DISAC4               |   8.00 | KEM-5641-BSR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26818 | BARRALEDS-V8         |     1000 |       0.19000 | BARRALEDS-V8         |   3.00 | KEM-B8-SG         | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26819 | MLEDSAC5x7           |      150 |       0.44000 | MLEDSAC5x7           |   9.00 | KEM-12057-BSR     | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26820 | MLEDSCC5x7           |      150 |       0.44000 | MLEDSCC5x7           |   9.00 | KEM-12057-ASR     | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26821 | MLEDSAC8X8           |      200 |       0.45000 | MLEDSAC8X8           |   9.00 | KEM-12088-BSR     | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26822 | MLEDSCC8X8           |      350 |       0.45000 | MLEDSCC8X8           |   9.00 | KEM-12088-ASR     | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26823 | MLEDSAC8X8RGB        |      100 |       2.10000 | MLEDSAC8X8RGB        |   9.00 | KEM-12088-BRGB    | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26824 | DISCC16SEG           |      300 |       0.19000 | DISCC16SEG           |   4.00 | KEM-5015-ASG      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26825 | DISAC16SEG           |      300 |       0.19000 | DISAC16SEG           |   4.00 | KEM-5015-BSG      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26826 | DISAC2               |      200 |       0.11000 | DISAC2               |   3.50 | KEM-5621-BSR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26827 | DISCC2               |      200 |       0.11000 | DISCC2               |   3.50 | KEM-5621-ASR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26828 | DISAC3               |      200 |       0.18000 | DISAC3               |   6.00 | KEM-5631-BSR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26829 | DISCC3               |      200 |       0.18000 | DISCC3               |   6.00 | KEM-5631-ASR      | 1522752619 | AUSPICIOUS INDUSTRIAL COMPANY LTD
+          1666917777 |         26497 | JGOPOSC              |      400 |       8.20000 | JGOPOSC              | 124.00 | P6100             | 1503329998 | CHANGZHOU GLOBALTONE INTL TRADE CO, LTD
+          1666917777 |         26498 | POSCILOSCOPIO        |      200 |       4.20000 | POSCILOSCOPIO        |  74.00 | P100              | 1503329998 | CHANGZHOU GLOBALTONE INTL TRADE CO, LTD
+          1666917777 |         26499 | PUNTAOSC2            |     3000 |       0.82000 | PUNTAOSC2            |  47.00 | P1011             | 1503329998 | CHANGZHOU GLOBALTONE INTL TRADE CO, LTD
+          1666917777 |         26500 | PUNTBNC/BNC          |      250 |       1.00000 | PUNTBNC/BNC          |  40.00 | P1013             | 1503329998 | CHANGZHOU GLOBALTONE INTL TRADE CO, LTD
+          1666917777 |         26501 | PUNTB/C              |     3500 |       0.30000 | PUNTB/C              |  40.00 | GT-6011           | 1503329998 | CHANGZHOU GLOBALTONE INTL TRADE CO, LTD
+          1666917777 |         26502 | 74LS73               |      500 |       0.34900 | 74LS73               |   1.69 | SN74LS73          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26503 | 74LS48               |      500 |       0.36000 | 74LS48               |   1.62 | SN74LS48N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26504 | PIC16F877A           |      100 |       3.40000 | PIC16F877A           |  10.24 | PIC16F877A-I/P    | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26505 | PIC18F4550           |      200 |      10.80000 | PIC18F4550           |  10.34 | PIC18F4550-I/P    | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26506 | TL082                |      350 |       0.23100 | TL082                |   1.00 | TL082CP           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26507 | 74LS47               |     1000 |       0.13300 | 74LS47               |   1.10 | HD74LS47P         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26508 | TIP31                |      500 |       0.14300 | TIP31                |   2.88 | TIP31C            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26509 | LM7812               |      750 |       0.16200 | LM7812               |   2.08 | MC7812CTM         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26510 | 74LS27               |      400 |       0.18600 | 74LS27               |   1.80 | SN74LS27N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26511 | 74LS283              |      250 |       0.39700 | 74LS283              |   1.80 | SN74LS283N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26512 | TL081                |      500 |       0.23000 | TL081                |   0.84 | TL081CP           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26513 | LM324                |      350 |       0.14800 | LM324                |   1.85 | LM324N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26514 | TIP32                |      300 |       0.13800 | TIP32                |   3.16 | TIP32C            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26515 | ADC0804              |      150 |       4.79000 | ADC0804              |   2.60 | ADC0804LCN/NOPB   | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26516 | DAC0808              |      100 |       0.71700 | DAC0808              |   1.94 | DAC0808LCN        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26517 | LM386                |      250 |       0.22300 | LM386                |   1.01 | LM386N-1          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26518 | LM311                |      250 |       0.22300 | LM311                |   0.87 | LM311P            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26519 | TL084                |      800 |       0.17600 | TL084                |   1.68 | TL084CN           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26520 | 74LS90               |      350 |       0.37900 | 74LS90               |   1.72 | SN74LS90N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26521 | TIP41                |      800 |       0.13100 | TIP41                |   2.93 | TIP41C            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26522 | 74LS11               |     1000 |       0.40000 | 74LS11               |   1.72 | SN74LS11N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26523 | LM317T               |      800 |       0.26700 | LM317T               |   2.14 | LM317TG           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26524 | AD620                |      250 |       1.80000 | AD620                |   0.99 | AD620ANZ          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26525 | 2N3904               |     2000 |       0.01700 | 2N3904               |   0.20 | 2N3904TA          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26526 | DAC0800              |      100 |       2.95000 | DAC0800              |   1.98 | DAC0800LCN        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26527 | 74LS193              |      200 |       0.22500 | 74LS193              |   1.65 | SN74LS193N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26528 | 4N25                 |      250 |       0.14300 | 4N25                 |   1.00 | 4N25              | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26529 | LM337T               |      500 |       0.32200 | LM337T               |   2.34 | LM337T            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26530 | 74LS138              |      150 |       0.15400 | 74LS138              |   1.74 | SN74LS138N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26531 | LM7905               |      500 |       0.17000 | LM7905               |   2.34 | MC7905CTG         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26532 | 74LS76               |      300 |       0.71700 | 74LS76               |   1.76 | SN74LS76N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26533 | TIP42                |      350 |       0.13400 | TIP42                |   2.75 | TIP42C            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26534 | LM7805               |     1000 |       0.14300 | LM7805               |   2.09 | MC7805CTG         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26535 | BC548B               |     1000 |       0.08600 | BC548B               |   0.20 | BC548B            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26536 | LM7809               |      100 |       0.28000 | LM7809               |   1.50 | MC7809CTG         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26537 | LM7909               |       50 |       0.28000 | LM7909               |   1.50 | MC7909CTG         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26538 | LM7815               |       50 |       0.28000 | LM7815               |   1.50 | MC7815CTG         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26539 | BC558B               |     1000 |       0.05600 | BC558B               |   0.20 | BC558B            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26540 | LM358                |      300 |       0.12800 | LM358                |   1.64 | LM358N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26541 | TIP141               |       50 |       0.24300 | TIP141               |   7.00 | TIP141T           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26542 | TIP142-TO220         |       50 |       0.24300 | TIP142-TO220         |   2.93 | TIP142T           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26543 | PIC16F628            |      100 |       1.77500 | PIC16F628            |   2.20 | PIC16F628A-I/P    | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26544 | MOC3010              |      150 |       0.22100 | MOC3010              |   0.95 | MOC3010           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26545 | 2N3905               |      100 |       0.26700 | 2N3905               |   0.22 | 2N3905            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26546 | ULN2003              |      100 |       0.41300 | ULN2003              |   1.79 | ULN2003AN         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26547 | 74LS93               |      150 |       0.34200 | 74LS93               |   1.66 | SN74LS93N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26548 | IRF9530              |      150 |       0.27600 | IRF9530              |   2.75 | IRF9530NPBF       | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26549 | IRF630               |      150 |       0.20200 | IRF630               |   2.83 | IRF630NPBF        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26550 | IRF530               |      150 |       0.21200 | IRF530               |   2.63 | IRF530NPBF        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26551 | 4016                 |      150 |       0.29400 | 4016                 |   1.84 | CD4016BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26552 | MOC3021              |      300 |       0.29400 | MOC3021              |   0.87 | MOC3021M          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26553 | 74LS74               |      900 |       0.23100 | 74LS74               |   2.10 | SN74LS74N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26554 | 74LS157              |      200 |       0.17900 | 74LS157              |   1.99 | SN74LS157N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26555 | 4072                 |      250 |       0.29600 | 4072                 |   1.83 | CD4072BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26556 | 4069                 |      250 |       0.24200 | 4069                 |   1.53 | CD4069BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26557 | 74LS192              |      250 |       0.18000 | 74LS192              |   1.74 | SN74192N          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26558 | 4075                 |      300 |       0.28400 | 4075                 |   1.66 | CD4075BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26559 | 74LS194              |      250 |       0.35800 | 74LS194              |   1.82 | SN74LS194N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26560 | BT136                |      200 |       0.14300 | BT136                |   2.85 | BT136-600E        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26561 | MPS2222A             |     5000 |       0.02300 | MPS2222A             |   0.22 | 2N2222A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26562 | 74LS151              |      150 |       0.19400 | 74LS151              |   1.76 | SN74LS151N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26563 | 74LS153              |      250 |       0.16200 | 74LS153              |   1.99 | SN74LS153N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26564 | 4071                 |      150 |       0.29400 | 4071                 |   1.83 | CD4071BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26565 | 4070                 |      150 |       0.29400 | 4070                 |   1.53 | CD4070BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26566 | 74LS00               |     2000 |       0.15000 | 74LS00               |   1.73 | SN74LS00N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26567 | 74LS02               |     2000 |       0.15000 | 74LS02               |   1.92 | SN74LS02N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26568 | 74LS04               |     2000 |       0.15000 | 74LS04               |   1.83 | SN74LS04N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26569 | 74LS08               |     3000 |       0.15000 | 74LS08               |   1.74 | SN74LS08N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26570 | 74LS32               |     3000 |       0.15000 | 74LS32               |   1.89 | SN74LS32N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26571 | 74LS86               |     2000 |       0.15000 | 74LS86               |   1.61 | SN74LS86N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26572 | GAL22V10-25LP        |      350 |       1.92000 | GAL22V10-25LP        |   3.16 | GAL22V10D-25LP    | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26573 | CNY70                |      500 |       0.59000 | CNY70                |   0.43 | CNY70             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26574 | L293D                |      250 |       0.64300 | L293D                |   1.60 | L293D             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26575 | LM7912               |      350 |       0.17500 | LM7912               |   2.73 | MC7912CTG         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26576 | TL071                |      350 |       0.23100 | TL071                |   0.81 | TL071CP           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26577 | LM336-2.5            |      200 |       0.45000 | LM336-2.5            |   0.19 | LM336-2.5         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26578 | BD137                |      200 |       0.07900 | BD137                |   0.55 | BD137             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26579 | LM335                |      100 |       0.30300 | LM335                |   0.19 | LM335Z            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26580 | 2N2646               |      150 |       1.78300 | 2N2646               |   0.30 | 2N2646            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26581 | 2N6344               |      150 |       0.20000 | 2N6344               |   2.87 | 2N6344            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26582 | MOC3020              |      150 |       0.20000 | MOC3020              |   0.95 | MOC3020N          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26583 | MOC3011              |      300 |       0.20000 | MOC3011              |   0.95 | MOC3011M          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26584 | BD135                |      150 |       0.13600 | BD135                |   0.55 | BD135             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26585 | BD136                |      150 |       0.13600 | BD136                |   0.55 | BD136             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26586 | BD140                |      150 |       0.13600 | BD140                |   0.55 | BD140             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26587 | BD139                |      150 |       0.10800 | BD139                |   0.55 | BD139             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26588 | 74LS266              |      350 |       0.43300 | 74LS266              |   1.65 | SN74LS266N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26589 | S9012                |      150 |       0.05600 | S9012                |   0.22 | 2SC9012           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26590 | C9015                |      150 |       0.09900 | C9015                |   0.22 | 2SC9015           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26591 | 2N5457               |      300 |       0.23900 | 2N5457               |   0.20 | 2N5457            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26592 | 2N5460               |      150 |       0.56900 | 2N5460               |   0.20 | 2N5460            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26593 | MBR1045G             |      100 |       0.19500 | MBR1045G             |   2.93 | MBR1045FCT        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26594 | 2SA1015              |      150 |       0.11800 | 2SA1015              |   0.22 | 2SA1015           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26595 | S8050                |      150 |       0.08800 | S8050                |   0.22 | SS8050            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26596 | C2073                |      100 |       0.19500 | C2073                |   0.22 | 2SC2973           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26597 | A1011                |      100 |       0.21300 | A1011                |   0.22 | 2SA1011           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26598 | LF411                |      150 |       0.33000 | LF411                |   0.96 | LF411CN           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26599 | C945                 |      200 |       0.05200 | C945                 |   0.15 | 2SC945            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26600 | Q4010L4              |      100 |       0.71700 | Q4010L4              |   2.93 | Q4010L4           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26601 | Q4010LT              |      100 |       0.71700 | Q4010LT              |   2.93 | Q4010LT           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26602 | Q4006                |      100 |       0.80800 | Q4006                |   2.93 | Q4006L4           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26603 | Q4006LT              |      100 |       0.80800 | Q4006LT              |   2.93 | Q4006LT           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26604 | 2N6071               |      150 |       0.23900 | 2N6071               |   2.01 | 2N6071            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26605 | 2N6073               |      150 |       0.23900 | 2N6073               |   1.00 | 2N6073            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26606 | 2N6075               |      150 |       0.10800 | 2N6075               |   1.00 | 2N6075B           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26607 | 74LS273              |      200 |       0.41300 | 74LS273              |   1.74 | SN74LS273N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26608 | TIP47                |      150 |       0.20200 | TIP47                |   2.93 | TIP47             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26609 | TIP147               |      150 |       0.18300 | TIP147               |   2.93 | TIP147T           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26610 | TMP36                |      100 |       1.24000 | TMP36                |   0.22 | TMP36GZ           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26611 | TIP120               |      300 |       0.16200 | TIP120               |   2.92 | TIP120G           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26612 | TIP122               |      300 |       0.16200 | TIP122               |   2.93 | TIP122G           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26613 | 2N7000               |      350 |       0.05600 | 2N7000               |   0.20 | 2N7000            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26614 | IRFZ44N              |      250 |       0.16200 | IRFZ44N              |   2.78 | IRFZ44            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26615 | INA114               |       50 |       1.80000 | INA114               |   0.82 | INA114P           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26616 | PC817                |      400 |       0.11900 | PC817                |   1.00 | PC817             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26617 | L293B                |      150 |       0.56700 | L293B                |   1.72 | L293B             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26618 | 4N26                 |      300 |       0.13300 | 4N26                 |   1.00 | 4N26N             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26619 | TIC206               |      150 |       0.25700 | TIC206               |   2.81 | TIC206M           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26620 | TIC226               |      150 |       0.23900 | TIC226               |   2.92 | TIC226D           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26621 | 2N3055               |      200 |       0.34100 | 2N3055               |  10.00 | 2N3055            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26622 | BT137                |      150 |       0.25700 | BT137                |   2.77 | BT137-800E        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26623 | 74LS181              |      150 |       1.16300 | 74LS181              |   5.93 | SN74LS181N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26624 | NE5532               |      100 |       0.16400 | NE5532               |   0.85 | NE5532P           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26625 | 2N6027               |      150 |       0.16400 | 2N6027               |   0.22 | 2N6027G           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26626 | 40106                |      150 |       0.23900 | 40106                |   1.68 | CD40106BE         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26627 | 4026                 |      150 |       0.20200 | 4026                 |   1.58 | CD4026BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26628 | 4518                 |      150 |       0.23900 | 4518                 |   1.58 | CD4518BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26629 | 4511                 |      150 |       0.20200 | 4511                 |   1.58 | CD4511BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26630 | IRF540               |      150 |       0.22100 | IRF540               |   2.00 | IRF540NPBF        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26631 | IRF640               |      150 |       0.23900 | IRF640               |   2.60 | IRF640NPBF        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26632 | IRF9640              |      150 |       0.32300 | IRF9640              |   2.70 | IRF9640NPBF       | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26633 | TIC246               |      100 |       0.30300 | TIC246               |   2.93 | TIC246M           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26634 | TIP110               |      150 |       0.16100 | TIP110               |   2.93 | TIP110            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26635 | TIP125               |      150 |       0.18300 | TIP125               |   2.70 | TIP125            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26636 | TIP127               |      150 |       0.15400 | TIP127               |   2.67 | TIP127            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26637 | TIC106               |      200 |       0.22500 | TIC106               |   2.70 | TIC106D           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26638 | TIC126               |      100 |       0.30300 | TIC126               |   2.50 | TIC126D           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26639 | MC1458               |      100 |       0.26700 | MC1458               |   1.90 | MC1458P           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26640 | BTA12                |      150 |       0.21100 | BTA12                |   3.00 | BTA12-400B        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26641 | NE565                |       50 |       8.62000 | NE565                |   1.69 | NE565N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26642 | 2N2907A              |      150 |       0.11800 | 2N2907A              |   0.56 | 2N2907            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26643 | 74LS244              |      400 |       0.29700 | 74LS244              |   2.67 | SN74LS244N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26644 | 74LS245              |      150 |       0.29400 | 74LS245              |   2.19 | SN74LS245N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26645 | 74LS279              |      150 |       0.34200 | 74LS279              |   1.85 | SN74LS279N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26646 | 74LS125              |      150 |       0.39700 | 74LS125              |   1.88 | SN74LS125N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26647 | TL072                |      150 |       0.20200 | TL072                |   0.86 | TL072CN           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26648 | BTA412Y              |      100 |       0.35800 | BTA412Y              |   2.93 | BTA412Y           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26649 | TIP100               |      100 |       0.19500 | TIP100               |   3.10 | TIP100            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26650 | TIC116               |      100 |       0.30300 | TIC116               |   2.84 | TIC116            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26651 | 74LS14               |      250 |       0.28700 | 74LS14               |   1.94 | SN74LS14N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26652 | 74LS85               |      150 |       0.39700 | 74LS85               |   1.80 | SN74LS85N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26653 | LM301                |      300 |       0.35800 | LM301                |   8.70 | LM301N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26654 | LM393N               |      300 |       0.16100 | LM393N               |   1.50 | LM393N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26655 | TDA2003              |      150 |       0.47800 | TDA2003              |   2.93 | TDA2003           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26656 | 2N3819               |      100 |       0.30300 | 2N3819               |   0.15 | 2N3819            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26657 | MC1496               |      100 |       0.80800 | MC1496               |   1.90 | MC1496BP          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26658 | 4081                 |      100 |       0.26700 | 4081                 |   1.68 | CD4081BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26659 | 4082                 |      100 |       0.35800 | 4082                 |   1.83 | CD4082BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26660 | LF398                |      100 |       0.30300 | LF398                |   0.98 | LF398N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26661 | BT151                |      150 |       0.20200 | BT151                |   1.50 | BT151-500R        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26662 | LM331                |      100 |       1.24200 | LM331                |   1.00 | LM331P            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26663 | 74LS42               |      100 |       0.32200 | 74LS42               |   1.89 | SN74LS42N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26664 | IRF9540              |      100 |       0.35800 | IRF9540              |   2.78 | IRF9540N          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26665 | DN6851A              |      150 |       0.27600 | DN6851A              |   0.22 | DN6851            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26666 | A3144E               |      150 |       0.13600 | A3144E               |   0.18 | A3144EUA          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26667 | 4N35                 |      100 |       0.26700 | 4N35                 |   0.95 | 4N35              | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26668 | TL494                |      150 |       0.20700 | TL494                |   1.74 | TL494CN           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26669 | LF356                |      150 |       0.27600 | LF356                |   0.96 | LF356N/NOPB       | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26670 | LF351                |      200 |       0.48300 | LF351                |   0.88 | LF351N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26671 | 74HC595              |      100 |       0.35800 | 74HC595              | 150.00 | SN74HC595N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26672 | 74HC00               |      100 |       0.28500 | 74HC00               |   1.94 | SN74HC00N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26673 | 74HC02               |      100 |       0.26700 | 74HC02               |   1.94 | SN74HC02N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26674 | 74HC04               |      100 |       0.26700 | 74HC04               |   1.94 | SN74HC04N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26675 | 74HC08               |      100 |       0.23200 | 74HC08               |   1.92 | SN74HC08N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26676 | 74HC32               |      100 |       0.35800 | 74HC32               |   1.20 | SN74HC32N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26677 | 74HC86               |      100 |       0.26700 | 74HC86               |   1.95 | SN74HC86N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26678 | MAC218               |      100 |       0.30300 | MAC218               |   0.96 | MAC218A8          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26679 | MAC12                |      100 |       0.30300 | MAC12                |   0.96 | MAC12DG           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26680 | MAC15                |      100 |       0.30300 | MAC15                |   0.96 | MAC15A10G         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26681 | MAC223               |      100 |       0.35800 | MAC223               |   3.00 | MAC223A10FP       | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26682 | 74LS21               |      250 |       0.28700 | 74LS21               |   1.77 | SN74LS21N         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26683 | 4066                 |      150 |       0.13600 | 4066                 |   1.53 | CD4066BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26684 | 4073                 |      100 |       0.26700 | 4073                 |   1.83 | CD4073BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26685 | 4077                 |      100 |       0.26700 | 4077                 |   1.83 | CD4077BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26686 | 2N1596               |      100 |       2.95000 | 2N1596               |   0.30 | 2N1596            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26687 | Q2015                |      100 |       0.45000 | Q2015                |   2.93 | Q2015L6           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26688 | AC127                |      200 |       1.33000 | AC127                |   1.00 | AC127             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26689 | DZ3.3V               |     1000 |       0.01300 | DZ3.3V               |   1.00 | 1N5221B           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26690 | DZ3.9V               |     1000 |       0.01200 | DZ3.9V               |   1.00 | 1N748A            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26691 | DZ5.6V               |     1000 |       0.08000 | DZ5.6V               |   1.00 | 1N5232B           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26692 | DZ5.1V               |     1000 |       0.01300 | DZ5.1V               |   1.00 | 1N5231B           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26693 | DZ9.1V               |     1000 |       0.01300 | DZ9.1V               |   1.00 | 1N5239B           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26694 | DZ2.4V               |     1000 |       0.01000 | DZ2.4V               |   1.00 | 1N5221B           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26695 | 24LC256              |     1000 |       0.45000 | 24LC256              |   0.85 | 24LC256-I/P       | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26696 | 2N2905A              |      100 |       1.33300 | 2N2905A              |   1.29 | 2N2905A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26697 | 2N3053               |      100 |       1.70000 | 2N3053               |   1.00 | 2N3053            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26698 | 2N5458               |      150 |       0.34200 | 2N5458               |   0.22 | 2N5458            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26699 | 2N5462               |      150 |       0.66100 | 2N5462               |   0.22 | 2N5462            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26700 | 4001                 |      100 |       0.34000 | 4001                 |   1.68 | CD4001BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26701 | 4051                 |      150 |       0.24800 | 4051                 |   1.68 | CD4051BE          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26702 | 74LS155              |      150 |       0.56900 | 74LS155              |   1.99 | SN74LS155N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26703 | 74LS373              |      100 |       0.48500 | 74LS373              |   2.30 | SN74LS373N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26704 | ADC0809              |       50 |       2.30000 | ADC0809              |   6.84 | ADC0809CCN        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26705 | ATMEGA8535           |       50 |       3.76700 | ATMEGA8535           |  10.00 | ATMEGA8535-16PU   | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26706 | BTA24                |       50 |       0.35300 | BTA24                |   2.90 | BTA24-600B        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26707 | IR2110               |       60 |       1.46900 | IR2110               |   1.74 | IR2110PBF         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26708 | IRF4905              |       50 |       0.42700 | IRF4905              |   2.60 | IRF4905           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26709 | BYW29E-200           |      100 |       0.21300 | BYW29E-200           |   2.93 | BYW29E-200        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26710 | CA3096               |      100 |       0.55800 | CA3096               |   1.70 | CA3096E           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26711 | IRF520               |      100 |       0.26700 | IRF520               |   2.09 | IRF520            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26712 | IRL520               |      100 |       0.26700 | IRL520               |   2.90 | IRL520PBF         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26713 | IRL640               |      100 |       0.28500 | IRL640               |   2.90 | IRL640PBF         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26714 | MBR1645              |      100 |       0.19500 | MBR1645              |   2.93 | MBR1645CT         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26715 | LD1117V33            |      150 |       0.47800 | LD1117V33            |   2.90 | LD1117AV33        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26716 | LF353                |      150 |       0.23900 | LF353                |   0.96 | LF353P            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26717 | LM2576-ADJ           |       30 |       0.49700 | LM2576-ADJ           |   2.93 | LM2576ADJ         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26718 | LM35DT               |       50 |       0.62500 | LM35DT               |   2.88 | LM35DT/NOPB       | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26719 | LM3914               |      100 |       0.55800 | LM3914               |   2.13 | LM3914N           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26720 | LM3915               |      100 |       0.71700 | LM3915               |   1.99 | LM3915N-1         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26721 | LM7824               |       50 |       0.40800 | LM7824               |   2.34 | LM7824CT          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26722 | LM7908               |       50 |       0.31700 | LM7908               |   2.90 | LM7908CT          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26723 | MAX232               |      100 |       0.45000 | MAX232               |   1.74 | MAX232N           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26724 | NE556                |      150 |       0.47800 | NE556                |   0.85 | NE556N            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26725 | TDA2009              |       50 |       2.66700 | TDA2009              |   1.00 | TDA2009A          | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26726 | LM7924               |       50 |       0.28000 | LM7924               |   2.34 | LM7924            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26727 | TIP3055              |      100 |       0.45000 | TIP3055              |   5.00 | TIP3055           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26728 | TIP2955              |      100 |       0.45000 | TIP2955              |   5.00 | TIP2955           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26729 | TL062                |      100 |       0.21300 | TL062                |   0.96 | TL062CN           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26730 | TL074                |      100 |       0.35800 | TL074                |   0.96 | TL074CN           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26731 | TL431                |      150 |       0.34200 | TL431                |   1.66 | TL431ACDR         | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26732 | BPW34                |      150 |       0.88900 | BPW34                | 100.00 | BPW34             | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26733 | TIP115               |      100 |       0.19500 | TIP115               |   2.93 | TIP115            | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26734 | 74LS374              |      350 |       0.23100 | 74LS374              |   2.34 | SN74LS374N        | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26735 | 2N2222A              |      200 |       0.13000 | 2N2222A              |   0.53 | 2N2222A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26736 | DZ3.3V1W             |     1000 |       0.01300 | DZ3.3V1W             |   1.50 | 1N4728A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26737 | DZ3.9V1W             |     1000 |       0.01300 | DZ3.9V1W             |   1.50 | 1N4730A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26738 | DZ5.1V1W             |     1000 |       0.04000 | DZ5.1V1W             |   1.50 | 1N4733A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26739 | DZ5.6V1W             |     1000 |       0.04000 | DZ5.6V1W             |   1.50 | 1N4734A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26740 | DZ9.1V1W             |     1000 |       0.04000 | DZ9.1V1W             |   1.50 | 1N4739A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26741 | DZ12V1W              |     1000 |       0.04000 | DZ12V1W              |   1.50 | 1N4742A           | 1508131702 | Chip E-GO Trading LTD
+          1666917777 |         26444 | JUMPERDUPONTM-M20CM  |     2000 |       0.35000 | JUMPERDUPONTM-M20CM  |  30.00 | AA045             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26445 | JUMPERDUPONTH-M20CM  |     1000 |       0.40000 | JUMPERDUPONTH-M20CM  |  29.50 | AA044             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26446 | ARDUINO-UNO          |      500 |       7.88000 | ARDUINO-UNO          |  60.00 | AA001-AA154       | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26447 | MODULO-PUENTEH       |      500 |       0.90000 | MODULO-PUENTEH       |  25.50 | AA034             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26448 | LCD16X2C/LUZ         |      500 |       1.25000 | LCD16X2C/LUZ         |  31.00 | AA011             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26449 | MINISERVO            |      500 |       1.26000 | MINISERVO            |  15.00 | AA020             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26450 | SENSOR-ULTRASONICO   |      200 |       0.56000 | SENSOR-ULTRASONICO   |   8.50 | AB043             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26451 | GRABADOR-PICKIT3     |       50 |      17.92000 | GRABADOR-PICKIT3     |  60.00 | AA036             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26452 | TECLADOMEM           |      300 |       0.37000 | TECLADOMEM           |   7.00 | AA084             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26453 | JUMPERDUPONTM-M10CM  |     1000 |       0.42000 | JUMPERDUPONTM-M10CM  |  19.00 | AA048             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26454 | ARDUINO-MEGA         |       50 |      15.39000 | ARDUINO-MEGA         |  60.00 | AA004+AA154       | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26455 | MODULO-DISPLAYTM1638 |      100 |       0.99000 | MODULO-DISPLAYTM1638 |  31.00 | AA212             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26456 | JOYSTICK             |      100 |       0.31000 | JOYSTICK             |  15.00 | AB001             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26457 | MODULO-ULN2003       |      150 |       0.37000 | MODULO-ULN2003       |  40.00 | AA091             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26458 | MUNIPOLAR-01         |      150 |       0.59000 | MUNIPOLAR-01         |  30.00 | AA087             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26459 | NEXTION2.4           |       20 |      20.00000 | NEXTION2.4           |  55.00 | AA292             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26460 | MODULO-REELE1C       |      100 |       0.44000 | MODULO-REELE1C       |  16.00 | AA024             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26461 | JGODERUEDASGDES      |      500 |       0.23000 | JGODERUEDASGDES      |  60.00 | AD091             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26462 | MOTOREDUCTORI        |     1000 |       0.41000 | MOTOREDUCTORI        |  35.00 | AD092             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26463 | MODULO-I2C           |      200 |       0.60000 | MODULO-I2C           |  10.00 | AA134             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26464 | BROCHEPILA           |     2000 |       0.06000 | BROCHEPILA           |   2.00 | AC040             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26465 | REEL5V               |      600 |       0.23000 | REEL5V               |   7.00 | AC077             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26466 | MICROMOTORRED100:1-C |      100 |       2.06000 | MICROMOTORRED100:1-C |   9.00 | JB271             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26467 | HEADERSEN            |     1000 |       0.04000 | HEADERSEN            |   2.00 | AC028             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26468 | SENSOR-HUMEDADYTEMP  |      100 |       0.64000 | SENSOR-HUMEDADYTEMP  |   5.50 | AB058             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26469 | RP-1K                |     1000 |       0.00300 | RP-1K                |   0.29 | KN159             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26470 | RP-1.8               |     1000 |       0.00300 | RP-1.8               |   0.15 | KN159             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26471 | RP-3.9               |     1000 |       0.00300 | RP-3.9               |   0.15 | KN159             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26472 | RP-3.9K              |     1000 |       0.00300 | RP-3.9K              |   0.29 | KN159             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26473 | RP-10K               |     1000 |       0.00300 | RP-10K               |   0.29 | KN159             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26474 | ANTIESTATICA6X9      |     2500 |       0.01540 | ANTIESTATICA6X9      |   2.00 | NC176             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26475 | ANTIESTATICA9X13     |     1000 |       0.02700 | ANTIESTATICA9X13     |   2.00 | NC176             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26476 | CC0.01µf             |     5000 |       0.00400 | CC0.01µf             |   0.06 | ZA038             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26477 | CON2TORNILLOS        |     5000 |       0.04000 | CON2TORNILLOS        |   2.00 | AC062             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26478 | CON3TORNILLOS        |     2000 |       0.06000 | CON3TORNILLOS        |   3.00 | AC240             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26479 | KY-033               |       50 |       0.38000 | KY-033               |   6.00 | AB005             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26480 | MBRUSHLESS           |       30 |       4.29000 | MBRUSHLESS           |  65.00 | WA006             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26481 | CBRUSHLESS           |       30 |       3.25000 | CBRUSHLESS           |  28.00 | WA089             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26482 | MODULO-MLED8X8       |       50 |       1.26000 | MODULO-MLED8X8       |  20.00 | AA086             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26483 | LCD20X4C/LUZ         |       40 |       2.96000 | LCD20X4C/LUZ         |  19.00 | AA015             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26484 | SENSOR-PIR           |       50 |       0.56000 | SENSOR-PIR           |  12.00 | AB039             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26485 | SENSOR-INFRARROJO    |      200 |       0.24000 | SENSOR-INFRARROJO    |  10.00 | AB072             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26486 | SERVOMG90S           |      100 |       1.28000 | SERVOMG90S           |  25.00 | AA221             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26487 | SERVOMG-995          |       50 |       3.17000 | SERVOMG-995          |  30.00 | AA022             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26488 | MODULO-TCRT5000      |      150 |       0.38000 | MODULO-TCRT5000      |  10.00 | AB070             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26489 | CC0.1µf              |     2000 |       0.00400 | CC0.1µf              |   0.08 | ZA039             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26490 | MINISERVO-360G       |       50 |       1.34000 | MINISERVO-360G       |  15.00 | AA231             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26491 | MODULO-ENCODER       |      150 |       0.32000 | MODULO-ENCODER       |   7.00 | NB076             | 1488846911 | HONGKONG KUONGSHUN ELECTRONIC.LIMITED
+          1666917777 |         26881 | 2N3906               |     1000 |       0.10000 | 2N3906               |   0.22 | 2N3906BU          | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26882 | ATMEGA328            |      250 |       4.29000 | ATMEGA328            |   3.54 | ATMEGA328P-PU     | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26883 | 4007                 |      150 |       0.29000 | 4007                 |   2.00 | CD4007UBE         | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26884 | 4017                 |      250 |       0.26000 | 4017                 |   1.58 | CD4017BE          | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26885 | 74LS83               |      300 |       1.43000 | 74LS83               |   0.91 | HD74LS83AP        | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26886 | LM339                |      300 |       0.36000 | LM339                |   1.92 | LM339N            | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26887 | NE555                |     3000 |       0.12000 | NE555                |   0.85 | NE555P            | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26888 | PIC16F648A           |      100 |       4.20000 | PIC16F648A           |   2.24 | PIC16F648A-1/P    | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26889 | PIC16F876            |       50 |       7.56000 | PIC16F876            |   3.72 | PIC16F876A-1/P    | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26890 | PIC16F886            |       50 |       4.51000 | PIC16F886            |   3.55 | PIC16F886I/SP     | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26891 | PIC16F887            |      150 |       2.54000 | PIC16F887            |  10.30 | PIC16F887-I/P     | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26892 | 74LS10               |      250 |       0.32000 | 74LS10               |   1.75 | SN74LS10N         | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26893 | 74LS112              |      500 |       0.34000 | 74LS112              |   1.92 | SN74LS112AN       | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26894 | 74LS156              |      250 |       0.41000 | 74LS156              |   1.72 | SN74LS156N        | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26895 | 74LS164              |      500 |       0.40000 | 74LS164              |   1.75 | SN74LS164N        | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26896 | 74LS20               |      200 |       0.56000 | 74LS20               |   1.64 | SN74LS20N         | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26897 | LM741                |     4000 |       0.17000 | LM741                |   0.96 | UA741CP           | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26898 | ULN2803              |      250 |       0.68000 | ULN2803              |   2.34 | ULN2803APG        | 1533726691 | Hong Kong Ri Xin International TRading Company
+          1666917777 |         26742 | R220w1/2             |    96400 |       0.00170 | R220w1/2             |   0.15 | CF1/2W-220R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26743 | R330w1/2             |    98600 |       0.00170 | R330w1/2             |   0.15 | CF1/2W-330R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26744 | R1Kw1/2              |   103500 |       0.00170 | R1Kw1/2              |   0.15 | CF1/2W-1K         | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26745 | R10Kw1/2             |    98600 |       0.00170 | R10Kw1/2             |   0.15 | CF1/2-WS-10K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26746 | R100w1/2             |    32600 |       0.00170 | R100w1/2             |   0.15 | CF1/2W-100R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26747 | R470w1/2             |    37300 |       0.00170 | R470w1/2             |   0.15 | CF1/2W-470R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26748 | R2.2Kw1/2            |    32600 |       0.00170 | R2.2Kw1/2            |   0.15 | CF1/2-WS-2.2K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26749 | R4.7Kw1/2            |    32600 |       0.00170 | R4.7Kw1/2            |   0.15 | CF1/2-WS-4.7K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26750 | R100Kw1/2            |    36600 |       0.00170 | R100Kw1/2            |   0.15 | R1/2-WS-100K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26751 | R560w1/2             |    17800 |       0.00170 | R560w1/2             |   0.15 | CF1/2W-560R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26752 | R680w1/2             |    17800 |       0.00170 | R680w1/2             |   0.15 | CF1/2W-680R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26753 | R820w1/2             |    17800 |       0.00170 | R820w1/2             |   0.15 | CF1/2W-820R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26754 | R3.3Kw1/2            |    17800 |       0.00170 | R3.3Kw1/2            |   0.15 | CF1/2-WS-3.3K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26755 | R6.8Kw1/2            |    17700 |       0.00170 | R6.8Kw1/2            |   0.15 | CF1/2-WS-6.8K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26756 | R1w1/2               |    12800 |       0.00170 | R1w1/2               |   0.15 | CF1/2WS-1R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26757 | R1.2w1/2             |    12800 |       0.00170 | R1.2w1/2             |   0.15 | CF1/2WS1.2R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26758 | R1.5w1/2             |    12600 |       0.00170 | R1.5w1/2             |   0.15 | CF1/2WS-1.8R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26759 | R1.8w1/2             |    12700 |       0.00170 | R1.8w1/2             |   0.15 | CF1/2W-1.8R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26760 | R2.2w1/2             |    12600 |       0.00170 | R2.2w1/2             |   0.15 | CF1/2WS-2.2R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26761 | R2.7w1/2             |    12500 |       0.00170 | R2.7w1/2             |   0.15 | CF1/2WS-2.7R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26762 | R3.3w1/2             |    12600 |       0.00170 | R3.3w1/2             |   0.15 | CF1/2WS-3.3R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26763 | R3.9w1/2             |    12700 |       0.00170 | R3.9w1/2             |   0.15 | CF1/2WS-3.9R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26764 | R5.6w1/2             |    12700 |       0.00170 | R5.6w1/2             |   0.15 | CF1/2WS-5.6R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26765 | R6.8w1/2             |    12700 |       0.00170 | R6.8w1/2             |   0.15 | CF1/2WS-6.8R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26766 | R8.2w1/2             |    12700 |       0.00170 | R8.2w1/2             |   0.15 | CF1/2WS-8.2R      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26767 | R10w1/2              |    12600 |       0.00170 | R10w1/2              |   0.15 | CF1/2WS-10R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26768 | R12w1/2              |    12800 |       0.00170 | R12w1/2              |   0.15 | CF1/2WS12R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26769 | R15w1/2              |    18200 |       0.00170 | R15w1/2              |   0.15 | CF1/2W-15R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26770 | R18w1/2              |    13500 |       0.00170 | R18w1/2              |   0.15 | CF1/2W-18R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26771 | R22w1/2              |    12800 |       0.00170 | R22w1/2              |   0.15 | CF1/2W-22R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26772 | R27w1/2              |    12800 |       0.00170 | R27w1/2              |   0.15 | CF1/2W-27R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26773 | R39w1/2              |    11800 |       0.00170 | R39w1/2              |   0.15 | CF1/2W-39R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26774 | R47w1/2              |    12800 |       0.00170 | R47w1/2              |   0.15 | CF1/2W-47R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26775 | R56w1/2              |    12800 |       0.00170 | R56w1/2              |   0.15 | CF1/2W-56R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26776 | R82w1/2              |    12900 |       0.00170 | R82w1/2              |   0.15 | CF1/2W-82R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26777 | R120w1/2             |    12800 |       0.00170 | R120w1/2             |   0.15 | CF1/2W-120R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26778 | R150w1/2             |    12900 |       0.00170 | R150w1/2             |   0.15 | CF1/2W-150R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26779 | R270w1/2             |    12800 |       0.00170 | R270w1/2             |   0.15 | CF1/2W-270R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26780 | R390w1/2             |    12400 |       0.00170 | R390w1/2             |   0.15 | CF1/2W-390R       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26781 | R1.2Kw1/2            |    11900 |       0.00170 | R1.2Kw1/2            |   0.15 | CF1/2W-1.2K       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26782 | R1.5Kw1/2            |    11400 |       0.00170 | R1.5Kw1/2            |   0.15 | CF1/2W-1.5K       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26783 | R1.8Kw1/2            |    12700 |       0.00170 | R1.8Kw1/2            |   0.15 | CF1/2-WS-1.8K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26784 | R2.7Kw1/2            |    12700 |       0.00170 | R2.7Kw1/2            |   0.15 | CF1/2-WS-2.7K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26785 | R3.9Kw1/2            |    12900 |       0.00170 | R3.9Kw1/2            |   0.15 | CF1/2-WS-3.9K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26786 | R5.6Kw1/2            |    12800 |       0.00170 | R5.6Kw1/2            |   0.15 | CF1/2-WS-5.6K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26787 | R8.2Kw1/2            |    14200 |       0.00170 | R8.2Kw1/2            |   0.15 | CF1/2-WS-8.2K     | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26788 | R12Kw1/2             |    21300 |       0.00170 | R12Kw1/2             |   0.15 | CF1/2-WS-12K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26789 | R15Kw1/2             |    12900 |       0.00170 | R15Kw1/2             |   0.15 | CF1/2W-15KR       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26790 | R18Kw1/2             |    12800 |       0.00170 | R18Kw1/2             |   0.15 | CF1/2-WS-18K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26791 | R22Kw1/2             |    14600 |       0.00170 | R22Kw1/2             |   0.15 | CF1/2-WS-22K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26792 | R27Kw1/2             |    12800 |       0.00170 | R27Kw1/2             |   0.15 | CF1/2-WS-27K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26793 | R39Kw1/2             |    12800 |       0.00170 | R39Kw1/2             |   0.15 | CF1/2-WS-39K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26794 | R47Kw1/2             |    17100 |       0.00170 | R47Kw1/2             |   0.15 | CF1/2-WS-47K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26795 | R56Kw1/2             |    12600 |       0.00170 | R56Kw1/2             |   0.15 | R1/2-WS-56K       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26796 | R68Kw1/2             |    12900 |       0.00170 | R68Kw1/2             |   0.15 | R1/2-WS-68K       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26797 | R82Kw1/2             |    12700 |       0.00170 | R82Kw1/2             |   0.15 | R1/2-WS-82K       | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26798 | R120Kw1/2            |    11400 |       0.00170 | R120Kw1/2            |   0.15 | R1/2-WS-120K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26799 | R150Kw1/2            |    12600 |       0.00170 | R150Kw1/2            |   0.15 | R1/2-WS-150K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26800 | R180Kw1/2            |    12700 |       0.00170 | R180Kw1/2            |   0.15 | R1/2-WS-180K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26801 | R220Kw1/2            |    12700 |       0.00170 | R220Kw1/2            |   0.15 | R1/2-WS-220K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26802 | R270Kw1/2            |    12800 |       0.00170 | R270Kw1/2            |   0.15 | R1/2-WS-270K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26803 | R330Kw1/2            |    12400 |       0.00170 | R330Kw1/2            |   0.15 | R1/2-WS-330K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26804 | R390Kw1/2            |    12800 |       0.00170 | R390Kw1/2            |   0.15 | R1/2-WS-390K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26805 | R470Kw1/2            |    12600 |       0.00170 | R470Kw1/2            |   0.15 | R1/2-WS-470K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26806 | R560Kw1/2            |    12800 |       0.00170 | R560Kw1/2            |   0.15 | R1/2-WS-560K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26807 | R680Kw1/2            |    11500 |       0.00170 | R680Kw1/2            |   0.15 | R1/2-WS-680K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26808 | R820Kw1/2            |    11500 |       0.00170 | R820Kw1/2            |   0.15 | R1/2-WS-820K      | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26809 | R33w1/2              |    12400 |       0.00170 | R33w1/2              |   0.15 | CF1/2W-33R        | 1522515016 | Jingdacheng Electronic Co. Ltd.
+          1666917777 |         26492 | PROTO-016            |     1500 |       0.96000 | PROTO-016            | 121.00 | EB-05             | 1502621669 | Ningbo Everest Enclosure Tech Co. Ltd
+          1666917777 |         26493 | PROTO-102            |     2000 |       0.85000 | PROTO-102            |  93.00 | EB-03             | 1502621669 | Ningbo Everest Enclosure Tech Co. Ltd
+          1666917777 |         26494 | PROTO-103            |     1000 |       1.10000 | PROTO-103            |  99.00 | EB-03T            | 1502621669 | Ningbo Everest Enclosure Tech Co. Ltd
+          1666917777 |         26495 | PROTO-005            |      500 |       0.63800 | PROTO-005            |  51.00 | EB-02             | 1502621669 | Ningbo Everest Enclosure Tech Co. Ltd
+          1666917777 |         26496 | MINIPROTO            |      250 |       0.33000 | MINIPROTO            |  14.00 | EB-01             | 1502621669 | Ningbo Everest Enclosure Tech Co. Ltd
+          1666917777 |         26830 | TRIM1K               |      500 |       0.11000 | TRIM1K               |   1.48 | 3296W-102         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26831 | TRIM5K               |      500 |       0.11000 | TRIM5K               |   0.13 | 3296W-502         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26832 | TRIM10K              |      900 |       0.11000 | TRIM10K              |   1.48 | 3296W-103         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26833 | TRIM50K              |      500 |       0.11000 | TRIM50K              |   1.48 | 3296W-503         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26834 | TRIM100K             |      500 |       0.11000 | TRIM100K             | 350.00 | 3296W-104         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26835 | TRIM5M               |      200 |       0.11000 | TRIM5M               |   1.49 | 3296W-505         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26836 | POT500               |      600 |       0.07000 | POT500               |   6.00 | WH148-B501        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26837 | POT1K                |     3000 |       0.07000 | POT1K                |   6.00 | WH148-B102        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26838 | POT2K                |      100 |       0.07000 | POT2K                |   6.00 | WH148-B202        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26839 | POT5K                |     5000 |       0.07000 | POT5K                |   6.00 | WH148-B502        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26840 | POT10K               |     5000 |       0.07000 | POT10K               |   6.00 | WH143-B103        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26841 | POT50K               |     2000 |       0.07000 | POT50K               |   6.00 | WH148-B503        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26842 | POT100K              |     1000 |       0.07000 | POT100K              |   6.00 | WH148-B104        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26843 | POT250K              |     1000 |       0.07000 | POT250K              |   6.00 | WH148-B254        | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26844 | R100w2               |     1000 |       0.08000 | R100w2               | 800.00 | RX27-1-2W-100     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26845 | R220w2               |      500 |       0.08000 | R220w2               |   2.02 | RX27-1-2W-220     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26846 | R330w2               |      500 |       0.08000 | R330w2               |   2.02 | RX27-1-2W-330     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26847 | R470w2               |      500 |       0.08000 | R470w2               |   2.02 | RX27-1-2W-470     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26848 | R560w2               |      500 |       0.08000 | R560w2               |   2.02 | RX27-1-2W-560     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26849 | R56Kw2               |      500 |       0.08000 | R56Kw2               |   2.02 | RX27-1-2W-56K     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26850 | R100Kw2              |      500 |       0.08000 | R100Kw2              |   2.02 | RX27-1-2W-100K    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26851 | R1.2W2               |      200 |       0.08000 | R1.2W2               |   2.02 | RX27-1-2W-1.2     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26852 | R10w2                |      200 |       0.08000 | R10w2                |   2.02 | RX27-1-2W-10      | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26853 | R56w2                |      300 |       0.08000 | R56w2                |   2.00 | RX27-1-56         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26854 | R150w2               |      300 |       0.08000 | R150w2               |   2.02 | RZ27-1-2W-150     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26855 | R10w10               |      300 |       0.15000 | R10w10               |   4.04 | RX27-1-10W-10     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26856 | R100w10              |      500 |       0.15000 | R100w10              |   4.04 | RX27-1-10W-100    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26857 | R220w10              |      300 |       0.15000 | R220w10              |   4.04 | RX27-1-10W-220    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26858 | R330w10              |      300 |       0.15000 | R330w10              |   4.04 | RX27-1-10W-330    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26859 | R22w25               |      200 |       0.25000 | R22w25               |  26.50 | RX27-1-25W-22     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26860 | R120w25              |      200 |       0.25000 | R120w25              |  26.50 | RX27-1-25W-120    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26861 | R150w25              |      200 |       0.25000 | R150w25              |  26.50 | RX27-1-25W-150    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26862 | R56w25               |      200 |       0.25000 | R56w25               |  26.50 | RX27-1-25W-56     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26863 | R8.2w25              |      200 |       0.25000 | R8.2w25              |  26.50 | RX27-1-25W-8.2    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26864 | R4.7w25              |      200 |       0.25000 | R4.7w25              |  26.50 | RX27-1-25W-4.7    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26865 | R1Kw25               |      200 |       0.25000 | R1Kw25               |  26.50 | RX27-1-25W-1K     | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26866 | MINIP50K             |      200 |       0.10000 | MINIP50K             | 200.00 | RM065-503         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26867 | MINIP5K              |      800 |       0.10000 | MINIP5K              |   0.68 | RM065-502         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26868 | MINIP10K             |     1000 |       0.10000 | MINIP10K             |   0.68 | RM065-103         | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26869 | R100w1/8             |     1000 |       0.00150 | R100w1/8             |   0.07 | 1/8WCarbonFilm100 | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26870 | R560w1/8             |      100 |       0.00150 | R560w1/8             |   0.07 | 1/8WCarbonFilm560 | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26871 | R220w1               |     1000 |       0.00500 | R220w1               |   0.41 | 1WCarbonFilm220   | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26872 | R470w1               |     1000 |       0.00500 | R470w1               |   0.41 | 1WCarbonFilm470   | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26873 | R560w1               |     1000 |       0.00500 | R560w1               |   0.41 | 1WCarbonFilm560   | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26874 | R680w1               |     1000 |       0.00500 | R680w1               |   0.41 | 1WCarbonFilm680   | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26875 | R820w1               |     1000 |       0.00500 | R820w1               |   0.41 | 1WCarbonFilm820   | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26876 | R1Kw1                |     1000 |       0.00500 | R1Kw1                |   0.41 | 1WCarbonFilm1k    | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26877 | R1.5Kw1              |     1000 |       0.00500 | R1.5Kw1              |   0.41 | 1WCarbonFilm1.5K  | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26878 | R2.2Kw1              |     1000 |       0.00500 | R2.2Kw1              |   0.41 | 1WCarbonFilm2.2K  | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26879 | R10Kw1               |     1000 |       0.00500 | R10Kw1               |   0.41 | 1WCarbonFilm10K   | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26880 | R18Kw1               |     1000 |       0.00500 | R18Kw1               |   0.41 | 1WCarbonFilm18K   | 1523194265 | OT-Sichuan Qixing Electronics Co. LTD
+          1666917777 |         26899 | INTCHI               |     2500 |       0.00930 | INTCHI               |   0.77 | SS-12F15G5        | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26900 | INTPROTO             |     3000 |       0.00900 | INTPROTO             |   0.28 | SS-12D00G5        | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26901 | PUSH2P               |    15000 |       0.01300 | PUSH2P               |   0.27 | KFC-A06B-5.0      | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26902 | PUSH4P               |     2000 |       0.00550 | PUSH4P               |   0.26 | KFC-A06-5.0       | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26903 | DIP6INTCI            |     1000 |       0.19000 | DIP6INTCI            |   1.40 | DI-R06            | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26904 | DIP8INTCI            |     5000 |       0.26000 | DIP8INTCI            |   1.75 | DI-R08            | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26905 | DIP2INTCI            |      300 |       0.15500 | DIP2INTCI            |   0.30 | DI-R02            | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26906 | DIP4INTCI            |     3500 |       0.17000 | DIP4INTCI            |   0.90 | DI-R04            | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26907 | DIP1INTCI            |      300 |       0.18000 | DIP1INTCI            |   0.20 | DI-R01            | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26908 | DIP10INTCI           |      500 |       0.34000 | DIP10INTCI           |   2.20 | DI-R10            | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+          1666917777 |         26909 | LLAVE1P-11T          |      100 |       0.40000 | LLAVE1P-11T          |  12.00 | RBS-1-112-20VS    | 1533958160 | YUEQING DAIER ELECTRON CO.,LTD
+(466 rows)
+

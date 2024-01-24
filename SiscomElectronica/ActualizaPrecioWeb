@@ -1,0 +1,22 @@
+#curl 	--location 									\
+#	--request POST 'https://api.siscomelectronicastore.com/products_update_info' 	\
+#	--header 'Content-Type: application/json' 					\
+#--data-raw '{
+#    "code": "74LS32",
+#    "price": 10.50 
+#}'
+#
+#price
+#stock
+
+curl 	--location 									\
+	--request POST 'https://api.siscomelectronicastore.com/products_update_info' 	\
+	--header 'Content-Type: application/json' 					\
+--data-raw '{
+    "code": \"$1\",
+    "price": $2
+}'
+
+#price
+#stock
+

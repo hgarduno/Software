@@ -1,0 +1,22 @@
+5 De Septiembre 2008
+
+Se retoma el proyecto, el cual se ha dejado despues de 1 a;o
+los clientes reportan multiples problemas en la utilizacion,
+el primer paso para retomarlo es ver el estatus en el que esta
+a nivel de codigo fuente, ya que desde que se inicio el desa--
+rrollo de la aplicacion al dia de hoy, las bibliotecas han 
+sufrido muchos cambios, el primer paso sera compilar la 
+aplicacion.
+
+Para compilar la aplicacion es necesario iniciar la 
+variable de ambiente LD_LIBRARY_PATH
+
+ export SISCOM_LIB_DIR=/usr/local/hgarduno/ProyectosSiscom/LibSiscom1.5/
+
+
+ /usr/local/hgarduno/ArchivosSQL/Seguridad3ElFresno20061110.sql
+
+ Para poder iniciar el sistema, en la parte de seguridad fue 
+ necesario crear el archivo ParaFuncionar.sql
+
+

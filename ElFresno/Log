@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DirTrabajo=/usr/local/hgarduno/.ElFresno/ServidorProtocolo2
+
+
+tail -f $DirTrabajo/$1/Servidor.$1.log

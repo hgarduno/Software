@@ -1,0 +1,42 @@
+#!/bin/bash 
+
+source $HOME/bin/FuncionesComunesBash 
+
+
+Expendios=$(ls $DirectorioSiscomElectronica/Expendios/ScriptsInicio/*)
+
+
+
+DetenExpendios()
+{
+   for X in $*
+    do 
+     
+    	echo $(basename $X) stop
+    	$X stop
+    done
+
+}
+
+IniciaExpendios()
+{
+   for X in $*
+    do 
+     
+    	echo $(basename $X) start
+    	$X start
+    done
+
+}
+
+case "$1" in
+	start)
+		IniciaExpendios $Expendios 
+	;;
+	stop)
+		DetenExpendios $Expendios
+	;;
+	*)
+	echo "Use $0 start|stop"
+	exit 1
+esac

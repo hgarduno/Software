@@ -1,0 +1,7 @@
+#!/bin/sh
+
+DirServidor=`pwd`/ServidorProtocolo2
+
+NmbArchivo=$DirServidor/$1/Servidor.$1.log
+
+tail -f $NmbArchivo

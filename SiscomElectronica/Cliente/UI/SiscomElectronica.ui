@@ -1,0 +1,1187 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SISCOMVentanaPrincipal</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>SISCOMVentanaPrincipal</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBarEditor</cstring>
+    </property>
+    <item text="Menu" name="PopupMenuEditor">
+
+    	<!--  Principal Ventas --> 
+        <action name="QAVentasExpendio"/>
+        <action name="QAPuntoVenta"/>
+        <action name="QAModuloVentas"/>
+        <action name="QAModuloPedido"/>
+
+	<!--  Circuitos Impresos --> 
+        <action name="QAManejadorImpresos"/>
+
+
+
+    	<!--  Bodegas --> 
+        <action name="QAMaterialBodegaExpendio"/>
+	<action name="QAInventarioBodega"/>
+
+    	<!--  Promociones Siscom --> 
+        <action name="QAPesosPPunto"/>
+        <action name="QAPromociones"/>
+        <action name="QAPAlumnos"/>
+
+    	<!--  ServiciosSiscom Siscom --> 
+        <action name="QAAlumnoALaboratorio"/>
+
+    	<!--  Controlador de Existencias --> 
+        <action name="QAExistenciasM"/>
+        <action name="QACtrExistencias"/>
+        <action name="QAFaltantes"/>
+        <action name="QAExistenciaExpendios"/>
+
+
+
+
+    	<!--  Salida de Material --> 
+        <action name="QASalidaMaterial"/>
+
+    	<!--  Compras --> 
+        <action name="QACompras"/>
+        <action name="QAComprasProducto"/>
+        <action name="QAClavesProveedores"/>
+        <action name="QAOrdenCompras"/>
+        <action name="QAComprasImportaciones"/>
+        <action name="QARegistroProductosSiscom"/>
+
+
+    	<!--  Transferencias --> 
+        <action name="QAHistorialTransferencias"/>
+        <action name="QAMaterialAExpendio"/>
+	<action name="QAPedidosExpendios"/>
+	<action name="QAPedidoMaterial"/>
+	<action name="QAPedidoMaterial4"/>
+	<action name="QARecibePedido"/>
+	<action name="QATransferenciaExpendioAExpendio"/>
+	<action name="QAPedidosOtrosExpendios"/>
+
+    	<!--  Cursos --> 
+	<action name="QAHistorialCursos"/>
+	<action name="QAAlumnosInscritosCursos"/>
+	<action name="QAReporteVentasCursos"/>
+	<action name="QAProgramandoCurso"/>
+
+    	<!--  Reportes Ventas--> 
+	<action name="QAControladorReportesVentasExpendios"/>
+        <action name="QAReporteSemestral"/>
+        <action name="QAReporteVentas"/>
+        <action name="QADispositivosVendidos"/>
+        <action name="QAReporteVentas4"/>
+        <action name="QACierreDia"/>
+        <action name="QAReportandoVentas"/>
+
+    	<!--  Administracion Cajas--> 
+        <action name="QASeguridadCajaVentas"/>
+        <action name="QAReportesVentasPorCaja"/>
+        <action name="QAAdministracionCajas"/>
+        <action name="QACorteCaja"/>
+        <action name="QACaja"/>
+        <action name="QACaja2"/>
+
+    	<!--  Administracion Siscom--> 
+        <action name="QARegistroEmpleados"/>
+        <action name="QASueldosEmpleados"/>
+        <action name="QAGanancias"/>
+        <action name="QAOrdenes"/>
+        <action name="QAClientes"/>
+        <action name="QARegistroClientes"/>
+        <action name="QAInventario"/>
+        <action name="QADatosClienteF"/>
+        <action name="QAEmpleadosExpendio"/>
+        <action name="QAContPracticas"/>
+        <action name="QAManejadorProductos"/>
+        <action name="QAManejadorKits"/>
+        <action name="QAFamilias"/>
+        <action name="QAManejadorProveedores"/>
+        <action name="QAManejadorPrecios"/>
+        <action name="QADevoluciones"/>
+        <action name="QAOrdenesVendidas"/>
+        <action name="QAOrdenCompra"/>
+        <action name="QAFacturas"/>
+        <action name="QAContabilidad"/>
+        <action name="QAFacturando3"/>
+        <action name="QAADatosAlumno"/>
+        <action name="QARastreoProducto"/>
+        <action name="QAProgramacionInventario"/>
+	<action name="QAProductosSinSincronizar"/>
+	<action name="QAActualizaExpendio"/>
+        <action name="QARegistroExpendio"/>
+	<action name="QARegistroAlumnos"/>
+	<action name="QAProgramacionPlacas"/>
+        <action name="QACtrExpendios"/>
+        <action name="QACtrExistenciasMinimas"/>
+        <action name="QAProductosInventariar"/>
+        <action name="QAEstadoInventario"/>
+        <action name="QAEjecutaInventario"/>
+
+        <action name="QAManejadorPracticas"/>
+        <action name="QAClavesSatSiscom"/>
+        <action name="QAGastosExpendio"/>
+        <action name="QACierreCaja"/>
+
+
+
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<actions>
+
+<action>
+<property name="name">
+<cstring>QAInventario</cstring>
+</property>
+<property name="text">
+<string>Captura Inventario</string>
+</property>
+<property name="menuText">
+<string>Captura Inventario</string>
+</property>
+</action>
+
+
+<action>
+<property name="name">
+<cstring>QAControladorReportesVentasExpendios</cstring>
+</property>
+<property name="text">
+<string>Monitoreo Ventas Expendios</string>
+</property>
+<property name="menuText">
+<string>Monitoreo Ventas Expendios</string>
+</property>
+</action>
+
+
+<action>
+<property name="name">
+<cstring>QAReporteVentasCursos</cstring>
+</property>
+<property name="text">
+<string>Reporte Ventas Cursos</string>
+</property>
+<property name="menuText">
+<string>Ventas Cursos</string>
+</property>
+</action>
+
+
+<action>
+<property name="name">
+<cstring>QAProductosSinSincronizar</cstring>
+</property>
+<property name="text">
+<string>Productos A Sincronizar Expendios</string>
+</property>
+<property name="menuText">
+<string>Productos A Sincronizar Expendios</string>
+</property>
+</action>
+
+<action>
+<property name="name">
+<cstring>QAInventarioBodega</cstring>
+</property>
+<property name="text">
+<string>Inventario Bodega</string>
+</property>
+<property name="menuText">
+<string>Inventario Bodegas</string>
+</property>
+</action>
+
+<action>
+<property name="name">
+<cstring>QAHistorialCursos</cstring>
+</property>
+<property name="text">
+<string>Inscribe A Los Cursos</string>
+</property>
+<property name="menuText">
+<string>Inscribe A Los Cursos</string>
+</property>
+</action>
+
+
+<action>
+<property name="name">
+<cstring>QAAlumnosInscritosCursos</cstring>
+</property>
+<property name="text">
+<string>Alumnos Inscritos A Los Cursos</string>
+</property>
+<property name="menuText">
+<string>Alumnos Inscritos A Los Cursos</string>
+</property>
+</action>
+
+
+
+
+<action>
+<property name="name">
+<cstring>QAActualizaExpendio</cstring>
+</property>
+<property name="text">
+<string>Actualiza Expendio</string>
+</property>
+<property name="menuText">
+<string>Actualiza Expendio</string>
+</property>
+</action>
+
+
+
+<action>
+        <property name="name">
+            <cstring>QAAlumnoALaboratorio</cstring>
+        </property>
+        <property name="text">
+            <string>Registra Alumnos Laboratorio</string>
+        </property>
+        <property name="menuText">
+            <string>Registra Alumnos Laboratorio</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAProgramacionInventario</cstring>
+        </property>
+        <property name="text">
+            <string>Programacion Inventario</string>
+        </property>
+        <property name="menuText">
+            <string>Programacion Inventario</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QARastreoProducto</cstring>
+        </property>
+        <property name="text">
+            <string>Rastreo Producto</string>
+        </property>
+        <property name="menuText">
+            <string>Rastreo Producto</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAADatosAlumno</cstring>
+        </property>
+        <property name="text">
+            <string>Actualiza Datos Alumnos</string>
+        </property>
+        <property name="menuText">
+            <string>Actualiza Datos Alumnos</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QACaja</cstring>
+        </property>
+        <property name="text">
+            <string>Caja</string>
+        </property>
+        <property name="menuText">
+            <string>Caja</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QASalidaMaterial</cstring>
+        </property>
+        <property name="text">
+            <string>Salida De Material</string>
+        </property>
+        <property name="menuText">
+            <string>Salida De Material</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAPAlumnos</cstring>
+        </property>
+        <property name="text">
+            <string>Puntos Alumnos</string>
+        </property>
+        <property name="menuText">
+            <string>Puntos Alumnos</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAPromociones</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Promociones</string>
+        </property>
+        <property name="menuText">
+            <string>Controlador De Promociones</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAPesosPPunto</cstring>
+        </property>
+        <property name="text">
+            <string>Pesos Por Punto</string>
+        </property>
+        <property name="menuText">
+            <string>Pesos Por Punto</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAMaterialBodegaExpendio</cstring>
+        </property>
+        <property name="text">
+            <string>Transfiere Material A Expendio</string>
+        </property>
+        <property name="menuText">
+            <string>Transfiere Material A Expendio</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAReporteVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Reporte De Ventas </string>
+        </property>
+        <property name="menuText">
+            <string>Reporte De Ventas</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAReporteSemestral</cstring>
+        </property>
+        <property name="text">
+            <string>Reporte Semestral</string>
+        </property>
+        <property name="menuText">
+            <string>Reporte Semestral</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAManejadorPrecios</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador de precios</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador de precios</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAExistenciasM</cstring>
+        </property>
+        <property name="text">
+            <string>Existencias Minimas</string>
+        </property>
+        <property name="menuText">
+            <string>Existencias Minimas</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QASeguridadCajaVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Seguridad De Cajas</string>
+        </property>
+        <property name="menuText">
+            <string>Seguridad De Cajas</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAHistorialTransferencias</cstring>
+        </property>
+        <property name="text">
+            <string>Historial De Transferencias</string>
+        </property>
+        <property name="menuText">
+            <string>Historial De Transferencias</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QASueldosEmpleados</cstring>
+        </property>
+        <property name="text">
+            <string>Sueldos Empleados</string>
+        </property>
+        <property name="menuText">
+            <string>Sueldos Empleados</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAFacturando3</cstring>
+        </property>
+        <property name="text">
+            <string>Facturando Siscom Ventas</string>
+        </property>
+        <property name="menuText">
+            <string>Facturando Siscom Ventas</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAOrdenes</cstring>
+        </property>
+        <property name="text">
+            <string>Ordenes</string>
+        </property>
+        <property name="menuText">
+            <string>Ordenes</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAContabilidad</cstring>
+        </property>
+        <property name="text">
+            <string>Contabilidad</string>
+        </property>
+        <property name="menuText">
+            <string>Contabilidad</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAFacturas</cstring>
+        </property>
+        <property name="text">
+            <string>Facturas</string>
+        </property>
+        <property name="menuText">
+            <string>Facturas</string>
+        </property>
+</action>
+
+
+
+<action>
+        <property name="name">
+            <cstring>QAGanancias</cstring>
+        </property>
+        <property name="text">
+            <string>Ganancias</string>
+        </property>
+        <property name="menuText">
+            <string>Ganancias</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAComprasProducto</cstring>
+        </property>
+        <property name="text">
+            <string>Compras Del Producto</string>
+        </property>
+        <property name="menuText">
+            <string>Compras Del Producto</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAAdministracionCajas</cstring>
+        </property>
+        <property name="text">
+            <string>Administracion De Cajas</string>
+        </property>
+        <property name="menuText">
+            <string>Administracion De Cajas</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QACorteCaja</cstring>
+        </property>
+        <property name="text">
+            <string>Corte De Caja</string>
+        </property>
+        <property name="menuText">
+            <string>Corte De Caja</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QARegistroClientes</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Clientes</string>
+        </property>
+        <property name="menuText">
+            <string>Registro De Clientes</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAReportesVentasPorCaja</cstring>
+        </property>
+        <property name="text">
+            <string>Reportes Ventas Por Caja</string>
+        </property>
+        <property name="menuText">
+            <string>Reportes Ventas Por Caja</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QADevoluciones</cstring>
+        </property>
+        <property name="text">
+            <string>Devoluciones</string>
+        </property>
+        <property name="menuText">
+            <string>Devoluciones</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAClientes</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Clientes</string>
+        </property>
+        <property name="menuText">
+            <string>Controlador De Clientes</string>
+        </property>
+    </action>
+
+    <action>
+        <property name="name">
+            <cstring>QAVentasExpendio</cstring>
+        </property>
+        <property name="text">
+            <string>Ventas</string>
+        </property>
+        <property name="menuText">
+            <string>Ventas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAEmpleadosExpendio</cstring>
+        </property>
+        <property name="text">
+            <string>Empleados Por Expendio</string>
+        </property>
+        <property name="menuText">
+            <string>Empleados Por Expendio</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QADatosClienteF</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador Datos Cliente Frecuente</string>
+        </property>
+        <property name="menuText">
+            <string>Controlador Datos Cliente Frecuente</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACompras</cstring>
+        </property>
+        <property name="text">
+            <string>Compras</string>
+        </property>
+        <property name="menuText">
+            <string>Compras</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAContPracticas</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Practicas</string>
+        </property>
+        <property name="menuText">
+            <string>Controlador De Practicas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAManejadorProductos</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Productos</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Productos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAFamilias</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Familias</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Familias</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QARegistroEmpleados</cstring>
+        </property>
+        <property name="text">
+            <string>Registro Empleados</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAMaterialAExpendio</cstring>
+        </property>
+        <property name="text">
+            <string>Material A Expendios</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QARegistroExpendios</cstring>
+        </property>
+        <property name="text">
+            <string>Registro Expendios</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACtrExpendios</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Expendios</string>
+        </property>
+    </action>
+
+    <action>
+        <property name="name">
+            <cstring>QAManejadorProveedores</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Proveedores</string>
+        </property>
+    </action>
+
+    <action>
+        <property name="name">
+            <cstring>QACtrExistencias</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador  Existencias</string>
+        </property>
+        <property name="menuText">
+            <string>Controlador  Existencias</string>
+        </property>
+    </action>
+
+    <action>
+        <property name="name">
+            <cstring>QACtrExistenciasMinimas</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Existencias Minimas</string>
+        </property>
+        <property name="menuText">
+            <string>Controlador De Existencias Minimas</string>
+        </property>
+    </action>
+	<action>
+        <property name="name">
+            <cstring>QAProductosInventariar</cstring>
+        </property>
+        <property name="text">
+            <string>Productos Del Inventario</string>
+        </property>
+        <property name="menuText">
+            <string>Productos Del Inventario</string>
+        </property>
+    </action>
+<action>
+        <property name="name">
+            <cstring>QAEstadoInventario</cstring>
+        </property>
+        <property name="text">
+            <string>Estado Del Inventario</string>
+        </property>
+        <property name="menuText">
+            <string>Estado Del Inventario</string>
+        </property>
+    </action>
+
+<action>
+        <property name="name">
+            <cstring>QAProgramaInventario</cstring>
+        </property>
+        <property name="text">
+            <string>Programacion de inventarios</string>
+        </property>
+        <property name="menuText">
+            <string>Programacion de inventarios</string>
+        </property>
+    </action>
+
+<action>
+        <property name="name">
+            <cstring>QAEjecutaInventario</cstring>
+        </property>
+        <property name="text">
+            <string>Ejecuta Inventario</string>
+        </property>
+        <property name="menuText">
+            <string>Ejecuta Inventario</string>
+        </property>
+    </action>
+
+<action>
+        <property name="name">
+            <cstring>QAOrdenesVendidas</cstring>
+        </property>
+        <property name="text">
+            <string>Ordenes Vendidas</string>
+        </property>
+        <property name="menuText">
+            <string>Ordenes Vendidas</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAOrdenCompra</cstring>
+        </property>
+        <property name="text">
+            <string>Ordenes De Compra</string>
+        </property>
+        <property name="menuText">
+            <string>Ordenes De Compra</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QARegistroAlumnos</cstring>
+        </property>
+        <property name="text">
+            <string>Registro Alumno</string>
+        </property>
+        <property name="menuText">
+            <string>Registro Alumno</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAPedidoMaterial</cstring>
+        </property>
+        <property name="text">
+            <string>Pedido de Material</string>
+        </property>
+        <property name="menuText">
+            <string>Pedido de Material</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAPedidosExpendios</cstring>
+        </property>
+        <property name="text">
+            <string>Pedidos Expendios</string>
+        </property>
+        <property name="menuText">
+            <string>Pedidos Expendios</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAProgramandoCurso</cstring>
+        </property>
+        <property name="text">
+            <string>Programando Cursos</string>
+        </property>
+        <property name="menuText">
+            <string>Programando Cursos</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAPuntoVenta</cstring>
+        </property>
+        <property name="text">
+            <string>Punto De Venta (Version 2)</string>
+        </property>
+        <property name="menuText">
+            <string>Punto de venta (version 2)</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAFaltantes</cstring>
+        </property>
+        <property name="text">
+            <string>Punto De Venta (Version 2)</string>
+        </property>
+        <property name="menuText">
+            <string>Punto de venta (version 2)</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAClavesProveedores</cstring>
+        </property>
+        <property name="text">
+            <string>Claves Proveedores</string>
+        </property>
+        <property name="menuText">
+            <string>Claves Proveedor</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAOrdenCompras</cstring>
+        </property>
+        <property name="text">
+            <string>Claves Proveedores</string>
+        </property>
+        <property name="menuText">
+            <string>Claves Proveedor</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QARecibePedido</cstring>
+        </property>
+        <property name="text">
+            <string>Recibe Pedido</string>
+        </property>
+        <property name="menuText">
+            <string>Recibe Pedido</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QADispositivosVendidos</cstring>
+        </property>
+        <property name="text">
+            <string>Dispositivos Vendidos</string>
+        </property>
+        <property name="menuText">
+            <string>Dispositivos Vendidos</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QACaja2</cstring>
+        </property>
+        <property name="text">
+            <string>Administracion de Caja 2</string>
+        </property>
+        <property name="menuText">
+            <string>Administracion de Caja 2</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAManejadorKits</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador de Kits</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador de Kits</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAProgramacionPlacas</cstring>
+        </property>
+        <property name="text">
+            <string>Programacion Placas</string>
+        </property>
+        <property name="menuText">
+            <string>Programacion Placas</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAFacturacion4</cstring>
+        </property>
+        <property name="text">
+            <string>Sistema de Facturacion</string>
+        </property>
+        <property name="menuText">
+            <string>Sistema de Facturacion</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAModuloVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Modulo Ventas</string>
+        </property>
+        <property name="menuText">
+            <string>Modulo Ventas</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAModuloPedido</cstring>
+        </property>
+        <property name="text">
+            <string>Pedidos Whats</string>
+        </property>
+        <property name="menuText">
+            <string>Pedidos Whats</string>
+        </property>
+</action>
+
+
+<action>
+        <property name="name">
+            <cstring>QAManejadorImpresos</cstring>
+        </property>
+        <property name="text">
+            <string>Circuitos Impresos</string>
+        </property>
+        <property name="menuText">
+            <string>Circuitos Impresos</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAExistenciaExpendios</cstring>
+        </property>
+        <property name="text">
+            <string>Existencia Expendios</string>
+        </property>
+        <property name="menuText">
+            <string>Existencia Expendios</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QARegistroProductosSiscom</cstring>
+        </property>
+        <property name="text">
+            <string>Registro Productos Siscom</string>
+        </property>
+        <property name="menuText">
+            <string>Registro Productos Siscom</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAComprasImportaciones</cstring>
+        </property>
+        <property name="text">
+            <string>Transfiere Expendio A Expendio</string>
+        </property>
+        <property name="menuText">
+            <string>Transfiere Expendio A Expendio</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAPedidosOtrosExpendios</cstring>
+        </property>
+        <property name="text">
+            <string>Pedidos Otros Expendios</string>
+        </property>
+        <property name="menuText">
+            <string>Pedidos Otros Expendios</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAPedidoMaterial4</cstring>
+        </property>
+        <property name="text">
+            <string>Pedido De Material (Nueva Version)</string>
+        </property>
+        <property name="menuText">
+            <string>Pedido De Material (Nueva Version)</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAReporteVentas4</cstring>
+        </property>
+        <property name="text">
+            <string>Reporte De Ventas (4)</string>
+        </property>
+        <property name="menuText">
+            <string>Reporte De Ventas (4)</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QACierreDia</cstring>
+        </property>
+        <property name="text">
+            <string>Cierre Dia</string>
+        </property>
+        <property name="menuText">
+            <string>Cierre Dia</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAReportandoVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Reportes Ventas Expendios</string>
+        </property>
+        <property name="menuText">
+            <string>Reportes Ventas Expendios</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QATransferenciaExpendioAExpendio</cstring>
+        </property>
+        <property name="text">
+            <string>Transfiere Expendio A Expendio</string>
+        </property>
+        <property name="menuText">
+            <string>Transfiere Expendio A Expendio</string>
+        </property>
+</action>
+
+
+
+<action>
+        <property name="name">
+            <cstring>QAManejadorPracticas</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador de Practicas</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador de Practicas</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAClavesSatSiscom</cstring>
+        </property>
+        <property name="text">
+            <string>Claves Sat / Siscom</string>
+        </property>
+        <property name="menuText">
+            <string>Claves Sat / Siscom</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAGastosExpendio</cstring>
+        </property>
+        <property name="text">
+            <string>Gastos Expendios</string>
+        </property>
+        <property name="menuText">
+            <string>Gastos Expendios</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QACierreCaja</cstring>
+        </property>
+        <property name="text">
+            <string>Cierre Caja</string>
+        </property>
+        <property name="menuText">
+            <string>Cierre Caja</string>
+        </property>
+</action>
+
+
+
+
+
+</actions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

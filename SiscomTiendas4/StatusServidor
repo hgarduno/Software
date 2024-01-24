@@ -1,0 +1,32 @@
+#!/usr/bin/awk -f 
+
+function ObtenServicio(pcEntrada)
+{
+
+lintNRegreso=split(pcEntrada,lcRegreso,"/");
+
+return lcRegreso[lintNRegreso];
+
+
+}
+
+BEGIN{
+
+lcComando=sprintf("ps -cafel |grep Servidor |grep SiscomTiendas4 |awk -F' ' '{printf \"%%s %%s\\n\", $4,$15 }'");
+while(lcComando |getline lcSalida)
+{
+lcServicio=ObtenServicio(lcSalida);
+split(lcSalida,lcRegreso," ");
+printf("(%s) %s\n",lcRegreso[1],lcServicio);
+
+}
+
+}
+
+
+#for X in `ps -cafel |grep Servidor |grep SiscomTiendas4 |awk -F' ' '{print $15}'`
+#do
+#    echo $X | awk -F'/' '{print $6}'
+#done
+
+#ps -cafel |grep Servidor |grep SiscomTiendas4 |awk -F' ' '{printf "[%s] %s\n" ,$4, $15}'

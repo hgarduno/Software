@@ -1,0 +1,730 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ProgramandoCurso</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>ProgramandoCurso</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>818</width>
+            <height>662</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QTable" row="1" column="0" rowspan="1" colspan="3">
+            <column>
+                <property name="text">
+                    <string>Lunes</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Martes</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Miercoles</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Jueves</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Viernes</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Sabado</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Domingo</string>
+                </property>
+            </column>
+            <row>
+                <property name="text">
+                    <string>8:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>8:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>9:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>9:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>10:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>10:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>11:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>11:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>12:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>12:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>13:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>13:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>14:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>14:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>15:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>15:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>16:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>16:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>17:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>17:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>18:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>18:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>19:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>19:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>20:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>20:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>21:00</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>21:30</string>
+                </property>
+            </row>
+            <row>
+                <property name="text">
+                    <string>22:00</string>
+                </property>
+            </row>
+            <property name="name">
+                <cstring>QTCursos</cstring>
+            </property>
+            <property name="numRows">
+                <number>29</number>
+            </property>
+            <property name="numCols">
+                <number>7</number>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>layout11</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>textLabel1</string>
+                    </property>
+                </widget>
+                <widget class="QTable">
+                    <column>
+                        <property name="text">
+                            <string>Promocion</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Costo</string>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>table2</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>32767</width>
+                            <height>100</height>
+                        </size>
+                    </property>
+                    <property name="numRows">
+                        <number>0</number>
+                    </property>
+                    <property name="numCols">
+                        <number>2</number>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="0">
+            <property name="name">
+                <cstring>layout19</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBHabilitaProgCursos</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Habilita Programacion Cursos</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBHabilitaCursos</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Habilita Cursos</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="1">
+            <property name="name">
+                <cstring>layout16</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout14</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBRegistraProgCursos</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                            <property name="text">
+                                <string>Registra Programacion Curso</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPRegistraFecha</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                            <property name="text">
+                                <string>Registra Fecha</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout15</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPEliminaHorariosSeleccionados</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>false</bool>
+                            </property>
+                            <property name="text">
+                                <string>Elimina Horarios Seleccionados</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPRegistraFecha_2_2</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>true</bool>
+                            </property>
+                            <property name="text">
+                                <string>Alguna Cosa Mas</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="2">
+            <property name="name">
+                <cstring>layout20</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBCCPorFecha</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>true</bool>
+                    </property>
+                    <property name="text">
+                        <string>Consulta Cursos Por Fecha</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPRegistraFecha_2_2_2</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>true</bool>
+                    </property>
+                    <property name="text">
+                        <string>Registra Fecha</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>layout40</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout36</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout8</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLayoutWidget">
+                                    <property name="name">
+                                        <cstring>layout7</cstring>
+                                    </property>
+                                    <vbox>
+                                        <property name="name">
+                                            <cstring>unnamed</cstring>
+                                        </property>
+                                        <widget class="QLabel">
+                                            <property name="name">
+                                                <cstring>textLabel1</cstring>
+                                            </property>
+                                            <property name="sizePolicy">
+                                                <sizepolicy>
+                                                    <hsizetype>5</hsizetype>
+                                                    <vsizetype>0</vsizetype>
+                                                    <horstretch>0</horstretch>
+                                                    <verstretch>0</verstretch>
+                                                </sizepolicy>
+                                            </property>
+                                            <property name="text">
+                                                <string>Programacion Curso</string>
+                                            </property>
+                                        </widget>
+                                        <widget class="QCtrlProgramacionCursos">
+                                            <property name="name">
+                                                <cstring>QCtrProgramacionC</cstring>
+                                            </property>
+                                            <property name="sizePolicy">
+                                                <sizepolicy>
+                                                    <hsizetype>5</hsizetype>
+                                                    <vsizetype>0</vsizetype>
+                                                    <horstretch>0</horstretch>
+                                                    <verstretch>0</verstretch>
+                                                </sizepolicy>
+                                            </property>
+                                        </widget>
+                                    </vbox>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>QPBAgregaProgramacion</cstring>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy>
+                                            <hsizetype>5</hsizetype>
+                                            <vsizetype>5</vsizetype>
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>0</width>
+                                            <height>40</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Agregar 
+Programacion</string>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout33</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLayoutWidget">
+                                    <property name="name">
+                                        <cstring>layout4</cstring>
+                                    </property>
+                                    <vbox>
+                                        <property name="name">
+                                            <cstring>unnamed</cstring>
+                                        </property>
+                                        <widget class="QLabel">
+                                            <property name="name">
+                                                <cstring>textLabel2</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>Cursos</string>
+                                            </property>
+                                        </widget>
+                                        <widget class="QCtrlCursos">
+                                            <property name="name">
+                                                <cstring>QCtrCursos</cstring>
+                                            </property>
+                                        </widget>
+                                    </vbox>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pushButton1</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>0</width>
+                                            <height>40</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Agregar 
+Curso</string>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout34</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLayoutWidget">
+                                    <property name="name">
+                                        <cstring>layout11</cstring>
+                                    </property>
+                                    <hbox>
+                                        <property name="name">
+                                            <cstring>unnamed</cstring>
+                                        </property>
+                                        <widget class="QLayoutWidget">
+                                            <property name="name">
+                                                <cstring>layout11</cstring>
+                                            </property>
+                                            <vbox>
+                                                <property name="name">
+                                                    <cstring>unnamed</cstring>
+                                                </property>
+                                                <widget class="QLabel">
+                                                    <property name="name">
+                                                        <cstring>textLabel3</cstring>
+                                                    </property>
+                                                    <property name="sizePolicy">
+                                                        <sizepolicy>
+                                                            <hsizetype>0</hsizetype>
+                                                            <vsizetype>5</vsizetype>
+                                                            <horstretch>0</horstretch>
+                                                            <verstretch>0</verstretch>
+                                                        </sizepolicy>
+                                                    </property>
+                                                    <property name="text">
+                                                        <string>Fecha Inicio</string>
+                                                    </property>
+                                                </widget>
+                                                <widget class="CQControlFecha">
+                                                    <property name="name">
+                                                        <cstring>QCtrFechaInicio</cstring>
+                                                    </property>
+                                                    <property name="enabled">
+                                                        <bool>true</bool>
+                                                    </property>
+                                                    <property name="sizePolicy">
+                                                        <sizepolicy>
+                                                            <hsizetype>0</hsizetype>
+                                                            <vsizetype>5</vsizetype>
+                                                            <horstretch>0</horstretch>
+                                                            <verstretch>0</verstretch>
+                                                        </sizepolicy>
+                                                    </property>
+                                                </widget>
+                                            </vbox>
+                                        </widget>
+                                        <widget class="QLayoutWidget">
+                                            <property name="name">
+                                                <cstring>layout10</cstring>
+                                            </property>
+                                            <vbox>
+                                                <property name="name">
+                                                    <cstring>unnamed</cstring>
+                                                </property>
+                                                <widget class="QLabel">
+                                                    <property name="name">
+                                                        <cstring>textLabel1_3</cstring>
+                                                    </property>
+                                                    <property name="sizePolicy">
+                                                        <sizepolicy>
+                                                            <hsizetype>0</hsizetype>
+                                                            <vsizetype>5</vsizetype>
+                                                            <horstretch>0</horstretch>
+                                                            <verstretch>0</verstretch>
+                                                        </sizepolicy>
+                                                    </property>
+                                                    <property name="text">
+                                                        <string>Hora Inicio / Hora Termino</string>
+                                                    </property>
+                                                </widget>
+                                                <widget class="QCtrlRangoHora">
+                                                    <property name="name">
+                                                        <cstring>QCtrRangoHora</cstring>
+                                                    </property>
+                                                    <property name="enabled">
+                                                        <bool>true</bool>
+                                                    </property>
+                                                    <property name="sizePolicy">
+                                                        <sizepolicy>
+                                                            <hsizetype>0</hsizetype>
+                                                            <vsizetype>0</vsizetype>
+                                                            <horstretch>0</horstretch>
+                                                            <verstretch>0</verstretch>
+                                                        </sizepolicy>
+                                                    </property>
+                                                </widget>
+                                            </vbox>
+                                        </widget>
+                                    </hbox>
+                                </widget>
+                                <widget class="QPushButton">
+                                    <property name="name">
+                                        <cstring>pushButton1_2</cstring>
+                                    </property>
+                                    <property name="minimumSize">
+                                        <size>
+                                            <width>0</width>
+                                            <height>40</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Registra Fecha 
+De 
+Inicio del Curso</string>
+                                    </property>
+                                </widget>
+                            </hbox>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout38</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1_4</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>0</hsizetype>
+                                    <vsizetype>0</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Instrucciones de registro</string>
+                            </property>
+                        </widget>
+                        <widget class="QTextEdit">
+                            <property name="name">
+                                <cstring>textEdit2</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>7</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>0</width>
+                                    <height>0</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32767</width>
+                                    <height>32767</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;/head&gt;&lt;body style="font-size:5pt;font-family:Fixed"&gt;
+&lt;p&gt;&lt;span style="font-weight:600"&gt;Fecha de Inicio&lt;/span&gt; &lt;br /&gt;&lt;br /&gt;Se debe colocar la fecha del inicio de la semana en la que Iniciara el curso.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</string>
+                            </property>
+                            <property name="wordWrap">
+                                <enum>WidgetWidth</enum>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlProgramacionCursos.h</includehint>
+    <includehint>QCtrlCursos.h</includehint>
+    <includehint>IMP_QControlFecha.h</includehint>
+    <includehint>QCtrlRangoHora.h</includehint>
+</includehints>
+</UI>

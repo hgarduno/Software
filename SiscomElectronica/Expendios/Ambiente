@@ -1,0 +1,38 @@
+#!/bin/bash 
+
+source ~/bin/FuncionesComunesBash 
+
+PATH=$PATH:~/bin
+
+
+export PATH
+
+
+printf "Preparando ambiente Desarrollo\n"
+printf "Restaurando la ultima base\n "
+CreaExpendios 	-RestauraBaseDatos 			\
+		-Base SiscomElectronica 		\
+	      	-UltimoArchivo -Prefijo Zacatenco
+CreaExpendios -DejaSoloMatriz -Base SiscomElectronica
+printf "Registrando Expendio_100\n"
+
+CreaExpendios -RegistroExpendio  		\
+		-BaseMatriz SiscomElectronica 	\
+		-BaseExpendio Expendio_100 	\
+		-Expendio Expendio_100 		\
+		-IdExpendio 100 		\
+		-PuertoAdExpendio 6546 		\
+		-DirIp 127.0.0.1
+
+printf "Registrando Expendio_200\n"
+
+CreaExpendios -RegistroExpendio  		\
+		-BaseMatriz SiscomElectronica 	\
+		-BaseExpendio Expendio_200 	\
+		-Expendio Expendio_200 		\
+		-IdExpendio 200 		\
+		-PuertoAdExpendio 7546 		\
+		-DirIp 127.0.0.1
+
+echo 'update ambienteactivotimbrado set idambiente=2' |psql SiscomElectronica
+echo "update ambientesfacturacionphp set binariophp='/usr/bin/php'"|psql SiscomElectronica

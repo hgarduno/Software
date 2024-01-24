@@ -1,0 +1,305 @@
+<ModSistemaTiendas Sistema="SISCOMTiendasMini" >
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libVentasElectronica.so">
+		<Funcion Nombre="CreaInstanciaVentasElectronica" > </Funcion>
+		<Menu    Nombre="QAVentasExpendio"> </Menu>
+		<TextoMenu Texto="Ventas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libEmpleadosExpendio.so">
+		<Funcion Nombre="InstanciaEmpleadosExpendio" > </Funcion>
+		<Menu    Nombre="QAEmpleadosExpendio"> </Menu>
+		<TextoMenu Texto="Empleados Por Expendio" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libDatosClienteF.so">
+		<Funcion Nombre="InstanciaDatosClienteF" > </Funcion>
+		<Menu    Nombre="QADatosClienteF"> </Menu>
+		<TextoMenu Texto="Controlador Datos Cliente Frecuente" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libCompras.so">
+		<Funcion Nombre="InstanciaCompras" > </Funcion>
+		<Menu    Nombre="QACompras"> </Menu>
+		<TextoMenu Texto="Compras" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libInventario.so">
+		<Funcion Nombre="InstanciaInventario" > </Funcion>
+		<Menu    Nombre="QAInventario"> </Menu>
+		<TextoMenu Texto="Captura Inventario" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libContPracticas.so">
+		<Funcion Nombre="InstanciaContPracticas" > </Funcion>
+		<Menu    Nombre="QAContPracticas"> </Menu>
+		<TextoMenu Texto="Controlador De Practicas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorProductos.so">
+		<Funcion Nombre="InstanciaManejadorProductos" > </Funcion>
+		<Menu    Nombre="QAManejadorProductos"> </Menu>
+		<TextoMenu Texto="Manejador De Productos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libFamilias.so">
+		<Funcion Nombre="InstanciaFamilias" > </Funcion>
+		<Menu    Nombre="QAFamilias"> </Menu>
+		<TextoMenu Texto="Manejador De Familias" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorProveedores.so">
+		<Funcion Nombre="InstanciaManejadorProveedores" > </Funcion>
+		<Menu    Nombre="QAManejadorProveedores"> </Menu>
+		<TextoMenu Texto="Manejador De Proveedores" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libReportesVentas.so">
+		<Funcion Nombre="InstanciaReportesVentas" > </Funcion>
+		<Menu    Nombre="QAReportesVentas"> </Menu>
+		<TextoMenu Texto="Reportes Ventas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaVentasPorCaja" > </Funcion>
+		<Menu    Nombre="QAReportesVentasPorCaja"> </Menu>
+		<TextoMenu Texto="Reportes Ventas Por Caja" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaHistorialTransferencias" > </Funcion>
+		<Menu    Nombre="QAHistorialTranferencias"> </Menu>
+		<TextoMenu Texto="Historial Transferencias" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaReporteSemestral" > </Funcion>
+		<Menu    Nombre="QAHistorialTranferencias"> </Menu>
+		<TextoMenu Texto="Reporte Semestral" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaDevoluciones" > </Funcion>
+		<Menu    Nombre="QADevoluciones"> </Menu>
+		<TextoMenu Texto="Devoluciones" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaCorteCaja" > </Funcion>
+		<Menu    Nombre="QACorteCaja"> </Menu>
+		<TextoMenu Texto="Corte De Caja" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaAdministracionCajas" > </Funcion>
+		<Menu    Nombre="QAAdministracionCajas"> </Menu>
+		<TextoMenu Texto="Administracion Cajas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaSeguridadCajaVentas" > </Funcion>
+		<Menu    Nombre="QASeguridadCajaVentas"> </Menu>
+		<TextoMenu Texto="Seguridad Cajas Ventas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorPrecios.so">
+		<Funcion Nombre="InstanciaManejadorPrecios" > </Funcion>
+		<Menu    Nombre="QAManejadorPrecios"> </Menu>
+		<TextoMenu Texto="Manejador Precios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libRegistroEmpleados.so">
+		<Funcion Nombre="InstanciaRegistroEmpleados" > </Funcion>
+		<Menu    Nombre="QARegistroEmpleados"> </Menu>
+		<TextoMenu Texto="Registro Empleados" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libMaterialAExpendio.so">
+		<Funcion Nombre="InstanciaMaterialAExpendio" > </Funcion>
+		<Menu    Nombre="QAMaterialAExpendio"> </Menu>
+		<TextoMenu Texto="Material A Expendios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libRegistroExpendios.so">
+		<Funcion Nombre="InstanciaRegistroExpendios" > </Funcion>
+		<Menu    Nombre="QARegistroExpendios"> </Menu>
+		<TextoMenu Texto="Registro Expendios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libCtrExpendios.so">
+		<Funcion Nombre="InstanciaCtrExpendios" > </Funcion>
+		<Menu    Nombre="QACtrExpendios"> </Menu>
+		<TextoMenu Texto="Controlador Expendios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libCtrExistencias.so">
+		<Funcion Nombre="InstanciaCtrExistencias" > </Funcion>
+		<Menu    Nombre="QACtrExistencias"> </Menu>
+		<TextoMenu Texto="Controlador Existencias" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libClientes.so">
+		<Funcion Nombre="InstanciaClientes" > </Funcion>
+		<Menu    Nombre="QAClientes"> </Menu>
+		<TextoMenu Texto="Controlador De Clientes" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libCtrExistenciasMinimas.so">
+		<Funcion Nombre="InstanciaCtrExistenciasMinimas" > </Funcion>
+		<Menu    Nombre="QACtrExistenciasMinimas"> </Menu>
+		<TextoMenu Texto="Controlador Existencias Miminas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libProductosInventariar.so">
+		<Funcion Nombre="InstanciaProductosInventariar" > </Funcion>
+		<Menu    Nombre="QAProductosInventariar"> </Menu>
+		<TextoMenu Texto="Productos Del Inventario" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libEstadoInventario.so">
+		<Funcion Nombre="InstanciaEstadoInventario" > </Funcion>
+		<Menu    Nombre="QAEstadoInventario"> </Menu>
+		<TextoMenu Texto="Estado del inventario" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libProgramaInventario.so">
+		<Funcion Nombre="InstanciaProgramaInventario" > </Funcion>
+		<Menu    Nombre="QAProgramaInventario"> </Menu>
+		<TextoMenu Texto="Programacion de inventarios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libEjecutaInventario.so">
+		<Funcion Nombre="InstanciaEjecutaInventario" > </Funcion>
+		<Menu    Nombre="QAEjecutaInventario"> </Menu>
+		<TextoMenu Texto="Ejecuta Inventario" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libOrdenesVendidas.so">
+		<Funcion Nombre="InstanciaOrdenesVendidas" > </Funcion>
+		<Menu    Nombre="QAOrdenesVendidas"> </Menu>
+		<TextoMenu Texto="Ordenes Vendidas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libOrdenCompra.so">
+		<Funcion Nombre="InstanciaOrdenCompra" > </Funcion>
+		<Menu    Nombre="QAOrdenCompra"> </Menu>
+		<TextoMenu Texto="Ordenes De Compra" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaRegistroClientes" > </Funcion>
+		<Menu    Nombre="QARegistroClientes"> </Menu>
+		<TextoMenu Texto="Registro De Clientes" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica3.so">
+		<Funcion Nombre="InstanciaComprasProducto" > </Funcion>
+		<Menu    Nombre="QAComprasProducto"> </Menu>
+		<TextoMenu Texto="Compras Del Producto" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica3.so">
+		<Funcion Nombre="InstanciaSueldosEmpleados" > </Funcion>
+		<Menu    Nombre="QASueldosEmpleados"> </Menu>
+		<TextoMenu Texto="Sueldos Empleados" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaGanancias" > </Funcion>
+		<Menu    Nombre="QAGanancias"> </Menu>
+		<TextoMenu Texto="Ganancias" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaFacturas" > </Funcion>
+		<Menu    Nombre="QAFacturas"> </Menu>
+		<TextoMenu Texto="Facturas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaContabilidad" > </Funcion>
+		<Menu    Nombre="QAContabilidad"> </Menu>
+		<TextoMenu Texto="Contabilidad" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaOrdenes" > </Funcion>
+		<Menu    Nombre="QAOrdenes"> </Menu>
+		<TextoMenu Texto="Ordenes" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomElectronica2009.so">
+		<Funcion Nombre="InstanciaFacturando3" > </Funcion>
+		<Menu    Nombre="QAFacturando3"> </Menu>
+		<TextoMenu Texto="Facturando Siscom Ventas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+</ModSistemaTiendas>

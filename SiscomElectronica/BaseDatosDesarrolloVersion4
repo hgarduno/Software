@@ -1,0 +1,287 @@
+#!/bin/sh 
+
+# Se pasa como argumento el nombre de la base de datos
+# donde se aplicaran los scripts
+# el segundo Argumento se pasa el id del expendio sin el menos
+# para eliminar las existencias y productos de otros expendios
+
+# Archivos para actualizar la base de datos
+# de produccion
+
+Archivos="SQL/Tablas/TipoProductos.sql 
+	  SQL/Tablas/OrdenCliente.sql 
+	  SQL/Tablas/TicketsImpresos4.sql
+	  SQL/Tablas/Practicas.sql
+	  SQL/Tablas/Faltantes.sql
+	  SQL/ModificacionesImporteOrden.sql
+	  SQL/ProductosPorTipoProducto.sql
+	  SQL/ModificacionesPedidosNoviembre2015.sql
+	  SQL/Faltantes.sql" 
+
+
+
+ObtenParametroEntrada()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-$Parametro")
+	      	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+
+}
+
+EstaLaOpcion()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-$OpcionABuscar" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+EjecutaScriptsActualizacion()
+{
+cat << Sql |psql $1 
+delete from existencias where idexpendio != -$2 | psql $1
+
+
+Sql
+
+
+}
+
+EjecutaActualizacionArchivosSql()
+{
+
+for X in $1/$Archivos
+do
+printf "Ejecutando $X \n"
+cat $X |psql $2 > /dev/null
+done
+
+}
+
+EsEjecutaActualizacion()
+{
+ OpcionABuscar=Actualiza
+ echo $(EstaLaOpcion $*)
+}
+EsGeneraArchivoActualizacionExpendio()
+{
+  OpcionABuscar=GeneraArchivoActualizacion
+  echo $(EstaLaOpcion $*)
+}
+EstaDirectorioTrabajo()
+{
+  OpcionABuscar=DirectorioTrabajo
+  echo $(EstaLaOpcion $*)
+}
+EstaBaseDatos()
+{
+  OpcionABuscar=BaseDatos
+  echo $(EstaLaOpcion $*)
+}
+EstaEliminaOtrosExpendios()
+{
+  OpcionABuscar=EliminaOtrosExpendios
+  echo $(EstaLaOpcion $*)
+}
+EstaMatriz()
+{
+  OpcionABuscar=Matriz
+  echo $(EstaLaOpcion $*)
+
+}
+EstaRestauraBase()
+{
+  OpcionABuscar=RestauraBase
+  echo $(EstaLaOpcion $*)
+}
+
+EstaArchivoXZ()
+{
+  OpcionABuscar=ArchivoXZ
+  echo $(EstaLaOpcion $*)
+}
+EstaArchivoSalida()
+{
+  OpcionABuscar=ArchivoSalida
+  echo $(EstaLaOpcion $*)
+}
+ObtenDirectorioTrabajo()
+{
+   Parametro=DirectorioTrabajo
+   echo $(ObtenParametroEntrada $*)
+}
+ObtenBaseDatos()
+{
+   Parametro=BaseDatos
+   echo $(ObtenParametroEntrada $*)
+}
+ObtenMatriz()
+{
+   Parametro=Matriz
+   echo $(ObtenParametroEntrada $*)
+}
+ObtenArchivoXZ()
+{
+   Parametro=ArchivoXZ
+   echo $(ObtenParametroEntrada $*)
+}
+ObtenArchivoSalida()
+{
+   Parametro=ArchivoSalida
+   echo $(ObtenParametroEntrada $*)
+}
+
+### Ejecuta la opcion de actualizacion de la base de datos
+### de produccion, a la version de liberacion 
+### -Actualiza -DirectorioTrabajo $DirSiscomElectronica  -BaseDatos SiscomElectronica.Mezclando.Produccion
+CorriendoActualizacionBase()
+{
+    if [ "$(EstaDirectorioTrabajo $*)" == "1" ]
+    then
+	   Directorio=$(ObtenDirectorioTrabajo $*)
+	   if [ "$(EstaBaseDatos $*)" == "1" ]
+	   then
+	   	BaseDatos=$(ObtenBaseDatos $*)
+		EjecutaActualizacionArchivosSql $Directorio $BaseDatos
+	    else
+	        echo 'No esta la opcion -BaseDatos '
+	    fi
+    else
+    	echo 'NO esta la opcion -DirectorioTrabajo'
+    fi
+}
+### Elimina Otros Expendios 
+## -EliminaOtrosExpendios -BaseDatos SiscomElectronica.Mezclando.Produccion -Matriz 1165857915 
+CorriendoEliminaOtrosExpendios()
+{
+ for X in $(echo 'select idempresa from expendios' |psql $1 -t)
+ do
+    Expendio=$(echo $X  |sed s/-//g)
+ if [ "$Expendio" != "$2" ]
+ then
+ 	printf "Eliminando el Expendio -%s\n" $Expendio
+	CreaExpendios -EliminaOtrosExpendios -Base $1 -IdExpendio $Expendio
+ fi
+
+ done
+}
+EliminandoBaseDatos()
+{
+ ### Se redireccion el error estandar a nada ..
+ dropdb $1  2> /dev/null
+ RegreoDropDb=$(echo $?)
+ if [ "$RegresoDropDb" == "1" ]
+ then
+ 	echo Se elimino $1
+ fi
+}
+CreandoBaseDatos()
+{
+  createdb $1
+}
+EliminandoPsqlActivos()
+{
+ killall -9 psql 2>  /dev/null
+}
+### -RestauraBase -BaseDatos SiscomElectronica.Mezclando.Produccion -ArchivoXZ $HOME/SiscomElectronica.Sabado.21.Enero.2017.sql.xz
+CorriendoRestauraBase()
+{
+ printf "Corriendo Restaura Base:%s ArchivoXZ:%s\n" $1 $2
+  EliminandoPsqlActivos
+  EliminandoBaseDatos $1 
+  CreandoBaseDatos $1
+  xzcat $2 |psql $1 1> /dev/null 2> /dev/null
+  RegresoRestauracion=$(echo $?)
+  if [ "$RegresoRestauracion" == "0" ]
+  then
+  	echo Se restauro la base $1
+  else
+  	echo Error al restaurar la base de datos $1
+  fi
+}
+
+# BaseDatosDesarrolloVersion4 -GeneraArchivoActualizacion -DirectorioTrabajo $DirSiscomElectronica -ArchivoSalida ActualizacionVersion4.sql
+
+CorriendoGeneracionArchivoActualizacionExpendio()
+{
+   cat /dev/null > $2
+  for X in $Archivos
+  do
+  	cat $1/$X   >>  $2
+  done
+}
+if [ "$(EsEjecutaActualizacion $*)" == "1" ]
+then
+	CorriendoActualizacionBase $
+fi
+
+if [ "$(EstaEliminaOtrosExpendios $*)" == "1" ]
+then
+	   if [ "$(EstaBaseDatos $*)" == "1" ]
+	   then
+	   	BaseDatos=$(ObtenBaseDatos $*)
+	   	if [ "$(EstaMatriz $*)" == "1" ]
+		then
+		ExpendioMatriz=$(ObtenMatriz $*)
+		CorriendoEliminaOtrosExpendios $BaseDatos  $ExpendioMatriz
+		else
+			echo 'Se debe pasar la -Matriz'
+		fi
+	    else
+	        echo 'No esta la opcion -BaseDatos '
+	    fi
+fi
+if [ "$(EstaRestauraBase $*)" == "1" ]
+then
+	if [ "$(EstaBaseDatos $*)" == "1" ]
+	then
+		if [ "$(EstaArchivoXZ $*)" == "1" ]
+		then
+			ArchivoXZ=$(ObtenArchivoXZ $*)
+			BaseDatos=$(ObtenBaseDatos $*)	
+     			CorriendoRestauraBase  $BaseDatos $ArchivoXZ
+		else
+			echo Se debe paras -ArchivoXZ 
+		fi
+	else
+		echo Se debe pasar -BaseDatos
+	fi
+fi
+
+if [ "$(EsGeneraArchivoActualizacionExpendio $*)" == "1" ]
+then
+	if [ "$(EstaDirectorioTrabajo $*)" == "1" ]
+	then
+		DirectorioTrabajo=$(ObtenDirectorioTrabajo $*)	
+	  if [ "$(EstaArchivoSalida $*)" == "1" ]
+	  then
+	  	ArchivoSalida=$(ObtenArchivoSalida $*)
+       		CorriendoGeneracionArchivoActualizacionExpendio  $DirectorioTrabajo $ArchivoSalida
+	  else
+	  	echo 'Se debe Pasar -DirectorioTrabajo'
+	  fi
+       else
+       	 printf "Se debe pasar la opcion -DirectorioTrabajo\n"
+       fi
+fi
+

@@ -1,0 +1,196 @@
+Martes 15 De Enero del 2008
+Queretaro
+
+El proceso de desarrollo para el sistema de tiendas
+version 4 debera contener las siguientes posibili
+dades.
+
+La version de la linea principal de desarrollo
+debe de permitir genera el concepto de venta que
+he estado pensano, es decir debera poder crearse
+un paquete de modulos capaces de resolver la 
+mayoria de las necesidades de clientes que 
+requieran realizar una inversion minima.
+
+Para este caso el sistema debera de poder con-
+figurarse desde una biblioteca que habilite 
+en cada una de las ventanas las opciones que
+correspondan al precio que el cliente puede
+pagar. Por ejemplo, el sistema basico debera
+contemplar el manejo de un solo cliente 
+(Publico en general) un solo precio y no contara
+con el esquema de seguridad, es decir que no 
+tendra la capacidad de poder firmarse mediante
+distintos usuarios.
+
+Las opciones anterirormente descritas se deben
+controlar mediante bibliotecas de enlace dinamico
+es decir si un cliente requiere y puede pagar 
+el manejo de varios precios, varios clientes 
+el sistema se instalara con la biblioteca de 
+enlace dinamico que habilite los controles 
+tanto en la interfaz principal como en cada
+una de las ventanas que en las que se manipula
+esta informacion. 
+
+
+Lo antarior esta practicamente terminado solo
+es necesario realizar una serie de pruebas
+para asegurar que el sistema funciona 
+adecuadamente.
+
+
+Paralelo a las correcciones de la linea principal
+de desarrollo se debera crear un Branch del pro-
+yecto para integrar el manejo de los productos 
+cotizando y el manejo de los expendios.
+
+Para los productos cotizando ya se tiene contemplado
+la linea de desarrollo, en esa misma se debera de
+manejar el proceso de los expendios. En este 
+apartado ya se tiene programado algo sobre los 
+expendios, pero en la manera en la que esta programado
+no esta bien, para lograr una mejor integracion 
+a este proceso se debera agregar al manejo de las
+al protocolo un encabezado de configuracion, 
+en el cual se coloque toda la informacion necesaria
+que en este caso sera solo el Id Del expendio, 
+el Id del vendedor. Para esto se tendra que crear
+una funcion que SiscomLeeEntradaOperaciones2A
+
+que tenga como parametros de salida ademas de 
+los registros con la informacion, un parametro en
+el cual se guarde la lista con la informacion de
+configuracion, para esto esta funcion debera de
+leer en primer lugar la informacion de la 
+configuracion. Se debera buscar la forma de integrar
+la informacion de configuracion en los objetos
+de la tienda, que en una primera instancia podriamos
+pensar en colocar un parametro en que contenga 
+el Id del vendedor y del expendio.
+
+En el servidor se debera agregar a la informacion
+de la estructura de Argumentos SArgsSiscom
+una variable que almacene una lista con la informacion
+de la configuracion que esta en el protocolo.
+
+Jueves 17 De Enero del 2008
+
+Programa para la generacion del la biblioteca
+De utilizacion
+
+ Se debera crear un programa para que compile
+ y enlace las bibliotecas que crearan el 
+ perfil de utilizacion dentro del sistema
+
+ Esta aplicacion debera tomar como argumentos
+ de entrada las distintas variables que se
+ toman en cuenta para la generacion de la
+ biblioteca, debera permitir desde algun
+ control seleccionar si la biblioteca debera
+ incluir el sporte mulitusuario, si se incluye
+ la caja, debera tomar el archivo del CPUInfo
+ asi como la Mac Address de la tarjeta de 
+ Red
+
+ La base de este programa debera ser el 
+ codigo fuente de esta biblioteca.
+
+ El programa debera tomar como plantilla
+ el codigo que aqui se muestra, compilar 
+ y enlazar apartir de la configuracion que
+ se realice.
+
+ El codigo al que se hace referencia es 
+
+ el del archivo Cliente/CPP/UtilizacionNivelDos.cpp
+
+ El program tambien debera generar el 
+ Script de inicio para el cliente de 
+ la aplicacion.
+
+ En este momento no se tiene considerado
+ realizar la fase de validacion en el 
+ servidor, la cual se debera realizar
+ tambien
+
+
+
+En cuanto a la funcionalidad de la carga 
+que se realiza en la clase SiscomTiendas4
+que es derivada de la clase SISCOMVentanaPrincipal
+
+se deberan pasar a la clase SISCOMVentanaPrincipal
+
+En este punto se inicia este proceso con 
+la funcion que valida si es un sistema multiusuario.
+
+SiscomEsSistemaMultiUsuario
+
+Para los casos que las funciones que se incluyan
+en la biblioteca del nivel de Utilizacion se deberan
+considerar fijos los nombres que contengan el 
+prefijo Siscom
+
+Lo anterior creo que no es buena idea, ya que 
+en esta biblioteca se encuentran referencias 
+a funciones propias de la configuracion del
+objeto de Nivel de utilizacion que es propio
+de la aplicacion de SiscomTiendas4.
+
+Por lo tanto se desechara la posibilidad, 
+expresada en el punto anterior
+
+
+*
+Se identico que era mejor incluir el proceso
+de firma al sistema en el codigo de la aplicacion
+principal, no en el de la biblioteca
+de las pantallas de la aplicacion, esto nos 
+permitira simplificar el proceso de carga 
+ya que se podra realizar dentro del mismo 
+espacio de direcciones de la aplicacion 
+principal, por lo tanto no requerira de 
+escribirse una interfaz para la carga 
+de la pantalla para la firma en el sistema
+como anteriormente se tenia pensado.
+
+En caso contrario se inician los datos del 
+sistema de seguridad desde las variables de 
+ambiente
+
+
+Martes 22 De enero 2008
+
+Se observo que para el proeceso de integracion
+de la biblioteca de Aplicaciones, se necesitara
+realizar una funcion de soporte para que
+se puedan agregar mas argumentos a las operaciones
+es decir, por ejemplo para el proceso de inicio 
+se carga la funcion general que genera el espacio
+para los argumentos, en este caso el del registro
+de personas, que son en este punto 2 las SisNormalizado
+y SisSQLPersona, si se requiere anexar una argumento
+para la aplicacion del sistema, no se tiene manera 
+al dia de hoy de hacerlo, por tal motivo se 
+tendra que desarrollar la funcion que permita
+agregar a la lista de argumentos una vez inicializada
+otro argumento
+
+
+Jueves 18 De Septiembre 2008
+
+
+Para el prototipo de las gaseras, se agrega la
+pantalla que permita registrar clientes en el sistema
+Por alguna reazon esto no lo considere para la version,
+en fin, como mencione antes, se debera agregar 
+la pantalla para registrar los clientes al sistema,
+en la funcionalidad actual el sistema permite
+capturar como clientes a empresas, pero no a personas
+fisicas. En lo que respecta al prototipo para las
+gaseras se tomara como base el sistema de tiendas, pero
+es indispensable realizar la pantalla para el registro
+de clientes (Personas fisicas).
+
+

@@ -1,0 +1,129 @@
+include $(DIRDesarrolloHGE)/SISCOMComunYUtilerias/MakefileQTSiscomDesarrollo3.mk
+
+OpCompilacion=	-c 			\
+		-pipe			\
+		-W			\
+		-O2			\
+		-D_REENTRANT		\
+		-fPIC			\
+		-DQT_NO_DEBUG		\
+		-DQT_THREAD_SUPPORT	\
+		-DQT_PLUGIN 		\
+		-DQT_SHARED		\
+		$(DEBUG)
+	
+Include=-I $(QTDIR)/include		\
+	-I.				\
+	-I H				\
+	-I $(SISCOM_LIB_DIR)/Include  	\
+	-I $(DIRLIBSISCOM2)/H 		\
+	-I $(HOME)/SiscomTiendas4/Cliente/H
+
+OpModulos=-shared  $(DEBUG)
+OpEnlace=$(DEBUG)
+
+Siscom_ElFresno=ElFresno
+
+Archivos_QT_ElFresno=					\
+	$(call ArchivosQTSistema,$(Siscom_ElFresno))		
+
+Archivos_O_ElFresno=						\
+	$(call ArchivosOSistema,$(Siscom_ElFresno))
+
+Pantallas_ElFresno=ManEmpleados					
+
+			 
+
+
+Archivos_O_ControlElFresnoExtra=
+Archivos_QT_ControlElFresnoExtra=
+ControlesElFresno=ElFresno
+
+Archivos_QT_PantallasElFresno=						\
+	$(call ArchivosQTSistemaFormas,$(Pantallas_ElFresno))
+
+Archivos_O_PantallasElFresno=						\
+	$(call ArchivosOSistemaFormas,$(Pantallas_ElFresno)) 		\
+	O/CQSisPersFresno.o						\
+	O/CQSisObjetosFresno.o
+
+
+
+#Archivos_ControlesExtra=						\
+
+
+Archivos_ControlesElFresno=					\
+	$(call ArchivosControlQT,$(ControlesElFresno))		\
+	$(Archivos_O_ControlesExtra)
+
+
+Binarios=$(Archivos_ControlesElFresno) 				\
+	 $(call DependenciaControles,$(ControlesElFresno))	\
+	  SO/libPantallasElFresno.so				
+	  
+
+
+Bibliotecas=	-L$(QTDIR)/lib 			\
+		-L$(QTDIR)/plugins/designer	\
+	    	-L$(DIRLIBSISCOM2)		\
+	    	-lqt-mt				\
+	    	-lSiscomDesarrollo2		\
+	    	-lSepomexCliente		\
+	    	-lSiscomComunicaciones++	\
+	    	-lQSiscomSepomex++		\
+		-lControlSepomexComunicas	\
+		-lControlFechaDesarrollo2	\
+		-lControlElFresno
+
+
+BibliotecasControles=				\
+		-L$(QTDIR)/lib 			\
+	    	-L$(DIRLIBSISCOM2)		\
+	    	-lqt-mt				\
+	    	-lSiscomComunicaciones++	\
+	    	-lSiscomDesarrollo2
+
+BibliotecasAplicacion=-L $(DIRLIBSISCOM2)		\
+		      -L $(QTDIR)/lib			\
+		      -L $(QTDIR)/plugins/designer 	\
+			-lSiscomFirmateSistema		\
+			-lqt-mt
+Archivos_H_Controles=
+
+
+all:$(Binarios) #Copia
+
+
+Copia:$(Archivos_H_Controles)
+	@for X in $(Archivos_H_Controles) ;	\
+	do					\
+ 	ln -fs $$X $(DIRLIBSISCOM2)/H;		\
+ 	done
+
+Prueba:
+	@echo $(Archivos_QT_ElFresno)
+	@echo $(Archivos_O_ElFresno)
+ElFresno:$(Archivos_QT_ElFresno)	\
+	       $(Archivos_O_ElFresno)
+	@echo Generando $@			
+	@$(CXX) $(OpEnlace) -o$@ 		\
+	$(Archivos_O_ElFresno) 		\
+	$(BibliotecasAplicacion)
+SO/libPantallasElFresno.so:$(Archivos_QT_PantallasElFresno) \
+				     $(Archivos_O_PantallasElFresno)
+	@echo 'Generando $@'
+	@$(CXX) $(OpModulos) -o $@ 				\
+		$(Archivos_O_PantallasElFresno) 	\
+		$(Bibliotecas)
+
+$(eval $(call GeneraControles,$(ControlesElFresno)))
+
+clean:
+	@echo 'Eliminando archivos'
+	@-rm CPP/MOC_*.cpp
+	@-rm CPP/MOC_CPP_*.cpp
+	@-rm CPP/UIC_CPP_*.cpp
+	@-rm UI/*.ui~
+	@-rm H/UIC_H_*.h
+	@-rm O/*.o
+	@-rm SO/*.so

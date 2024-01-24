@@ -1,0 +1,51 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>CtrExpendios</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>CtrExpendios</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>438</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Controlador De Expendios</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QIconView" row="0" column="0">
+            <property name="name">
+                <cstring>QIVExpendios</cstring>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>QPBCEEActual</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>70</height>
+                </size>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>70</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Crea Espacio  Para El Expendio
+Actual</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

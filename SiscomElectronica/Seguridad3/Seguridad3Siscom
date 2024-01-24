@@ -1,0 +1,12 @@
+#!/bin/bash 
+
+
+LD_LIBRARY_PATH=$DirDesarrollo4/SiscomDesarrollo4 
+
+
+export LD_LIBRARY_PATH
+
+
+#gdb VentasExpendio 
+#valgrind VentasExpendio -FechaInicio 2018/01/01 -FechaFin 2018/12/30 -Base SiscomElectronica -Base SiscomAzcapotzalco
+Seguridad3 "$*"

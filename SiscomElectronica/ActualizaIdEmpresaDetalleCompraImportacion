@@ -1,0 +1,39 @@
+#!/bin/bash 
+
+
+cat << SQL |psql SiscomElectronica -t -A |awk -F'|' '{printf "update detallecompraimportacion set idempresa=%s where idconsecutivo= %s;\n" , $1,$2}'
+
+select distinct
+	a.idempresa,
+	idconsecutivo
+--	cveproducto,
+--	cveproveedor,
+--	cantidad,
+--	costounitario
+from proveedorescompraimportacion as a inner join
+	empresas as b using (idempresa) inner join
+	clavesproveedores as c using(idempresa) inner join
+	detallecompraimportacion as d using(cveproducto)
+where d.idcompraimportacion=1680097393 
+order by idconsecutivo
+
+
+
+SQL
+
+## Actualiza la compra de importacion 
+## COMPRASAGOSTO2022 , voy a buscar actualizar las compras que se hayan traido por 
+## contenedor
+### Esto es lo que escribi en el archivo Algo.sql
+#select a.cveproducto,
+#	b.idempresa,
+#	a.idconsecutivo
+#from detallecompraimportacion as a inner join
+#	clavesproveedores as b using(cveproducto)
+#where idcompraimportacion=1666917777  and 
+#	b.idempresa in(select idempresa 
+#			from proveedorescompraimportacion
+#			where idcompraimportacion=1666917777)
+#
+
+##cat SQL/Algo.sql |psql SiscomElectronica -t -A |awk -F'|' '{printf "update detallecompraimportacion set idempresa=%s where idconsecutivo=%s;\n", $2,$3}'  |psql SiscomElectronica

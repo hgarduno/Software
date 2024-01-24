@@ -1,0 +1,188 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SiscomTiendas4Menus</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>SiscomTiendas4Menus</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBar</cstring>
+    </property>
+    <item text="&amp;File" name="fileMenu">
+        <separator/>
+        <separator/>
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>QARegProducto</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Productos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAFamilias</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Familias</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAAProductos</cstring>
+        </property>
+        <property name="text">
+            <string>Actualiza Informacion Productos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAAPrecios</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Precios</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAPPrecios</cstring>
+        </property>
+        <property name="text">
+            <string>Action</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAREmpresas</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Empresas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACompras</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Compras</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Ventas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAOrdenesCaja</cstring>
+        </property>
+        <property name="text">
+            <string>Registra Ordenes Caja</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QARVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Reporte De Ventas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QADevoluciones</cstring>
+        </property>
+        <property name="text">
+            <string>Sistema Devoluciones</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACaja</cstring>
+        </property>
+        <property name="text">
+            <string>Caja</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAComprasRegistradas</cstring>
+        </property>
+        <property name="text">
+            <string>Compras Registradas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAReporteExistencias</cstring>
+        </property>
+        <property name="text">
+            <string>Reporte De Existencias</string>
+        </property>
+    </action>
+<action>
+        <property name="name">
+            <cstring>QARegistroEmpleado</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Empleados</string>
+        </property>
+    </action>
+<action>
+        <property name="name">
+            <cstring>QAOrdenesCaja3Qt</cstring>
+        </property>
+        <property name="text">
+            <string>Ordenes De Caja</string>
+        </property>
+    </action>
+
+<action>
+        <property name="name">
+            <cstring>QAVentas3Qt</cstring>
+        </property>
+        <property name="text">
+            <string>Ventas</string>
+        </property>
+    </action>
+
+<action>
+        <property name="name">
+            <cstring>QARegistroClientes</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Clientes</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QARegistroClientes2</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Clientes 2</string>
+        </property>
+</action>
+</actions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

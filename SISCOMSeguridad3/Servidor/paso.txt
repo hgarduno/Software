@@ -1,0 +1,25 @@
+StcLtaRegComSISCOM *lSLRCSisPtrPrimReg=0,
+		   *lSLRCSisPtrActualReg=0;
+int lintNRegistrosBD;
+int lintContador=0;	
+char lchrArrCadInsercion[256];
+	      while(pSLRCSisDat)
+	      {
+		if(lintContador)
+		{
+		   sprintf(lchrArrCadInsercion,
+			   "insert int aplicaciones values(%s,'%s','%s','%s')",
+			   pSLRCSisDat->chrPtrRegistro[0], 
+			   pSLRCSisDat->chrPtrRegistro[1], 
+			   pSLRCSisDat->chrPtrRegistro[2], 
+			   pSLRCSisDat->chrPtrRegistro[3]);
+		   SISCOMAnexaRegistroLEnvio(&lSLRCSisPtrPrimReg,
+					     &lSLRCSisPtrActualReg,
+					     1,
+					     "%s",
+					     lchrArrCadInsercion);
+		}	
+		 lintContador++;
+		 pSLRCSisDat=pSLRCSisDat->LSRCSISCOMPtrSig;
+	      }
+			

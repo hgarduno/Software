@@ -1,0 +1,72 @@
+#SqlRegistraPedidoEntregado!/bin/sh
+
+ConsultaDisparadorAsterisk()
+{
+cat << ConsultaSql |  psql Tiendas4
+
+SELECT	a.*, 
+	b.*,
+	d.*,
+	e.idventa, 
+	e.fecha as VentaFechaRegistro,
+	f.fecha as PedidoFechaEntrega, 
+	f.observaciones, 
+	g.Nombre as NombreEntrego, 
+	g.APaterno as APaternoEntrego, 
+	g.AMaterno as AMaternoEntrego
+from	personas  as a inner join       
+	Seguimiento as b on a.idpersona=idcliente inner join 
+	Asesores    as c on idAsesor=c.idpersona  inner join                    
+	Estaciones  as d using(idEstacion) inner join
+	Ventas      as e on a.idpersona=e.idcliente inner join
+	Pedidos     as f on e.idventa=f.idventa inner join 
+	Personas    as g on f.identrego=g.idpersona 
+where a.idpersona = (select idpersona 
+		     from comunicacionpersona 
+		     where idmedio=1 and dato='$1') 
+order by e.fecha desc 
+limit 1
+ConsultaSql
+
+}
+
+ConsultaPorTabla()
+{
+cat << PorTablaSql | psql Tiendas4
+select 'Pedios',* 
+from pedidos
+where idventa=$1 ;
+
+select 'Seguimiento',*
+from seguimiento
+where idpedido=$1;
+
+
+
+PorTablaSql
+}
+
+ModoUso()
+{
+
+cat << Uso	
+
+VerificaPedido Con cualquiera de las siguientes
+opciones:
+	1.- PorTabla 
+	2.- Disparador
+Uso
+
+}
+
+case "$1" in
+	PorTabla)
+		ConsultaPorTabla  $2
+	;;
+	Disparador)
+		ConsultaDisparadorAsterisk $2
+	;;
+	*)
+	ModoUso
+	exit 1
+esac

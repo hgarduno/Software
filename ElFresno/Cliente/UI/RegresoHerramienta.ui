@@ -1,0 +1,152 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>RegresoHerramienta</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>RegresoHerramienta</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>528</width>
+            <height>453</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form4</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QTable" row="0" column="0" rowspan="1" colspan="5">
+            <column>
+                <property name="text">
+                    <string>Herramienta</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Cantidad</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Responsable Taller</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Responsable Herramienta</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Fecha Salida</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Fecha Entrega [Estimada]</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Fecha De Entrega</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Comentarios</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>table2</cstring>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>8</number>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>pushButton9</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>80</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Responsable
+Herramienta</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="4">
+            <property name="name">
+                <cstring>pushButton9_2_2_2</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>80</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Registrar
+Entrada 
+Al Taller</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="3">
+            <property name="name">
+                <cstring>pushButton9_2_2</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>80</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Fecha De 
+Salida</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="2">
+            <property name="name">
+                <cstring>pushButton9_2</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>80</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Fecha
+De Entrega</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="1">
+            <property name="name">
+                <cstring>pushButton9_2_2_3</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>80</height>
+                </size>
+            </property>
+            <property name="text">
+                <string>Por
+Herramienta</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -1,0 +1,855 @@
+#!/bin/bash 
+
+# En el primer argumento se pasara la ruta
+# donde se realizara la instalacion
+
+
+
+EstructuraDirectorio()
+{
+printf "Creando %s %s\n" $1 $2
+	if [ -d $1 ]
+	then
+	 DirInstalacion="Si"
+	else
+	 DirInstalacion="No"
+	fi
+
+	if [ "$DirInstalacion" == "Si" ]
+	then
+	 if [ ! -d $1/$2 ]
+	 then
+	 mkdir $1/$2
+	 fi
+	else
+	  mkdir $1
+	  mkdir $1/$2
+	fi
+}
+Cliente()
+{
+   EstructuraDirectorio $1 Cliente
+}
+CopiaArchivosCliente()
+{
+Archivos_SO=\
+"$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/SO/libSISCOMActualizaPantalla.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/SO/libSISCOMAplicacionSeguridad3.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/SO/libSISCOMControladorDeFormasYObj.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/SO/libSISCOMFirmas.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/SO/libSISCOMPerfiles.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/SO/libSISCOMSoporteAplicacionSeguridad.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/SO/libSISCOMUsuarios.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/B/SistemaDeSeguridad3"
+
+printf "\tCopiando Bibliotecas Del Cliente Cliente\n"
+for X in $Archivos_SO
+do
+ cp $X  $1/Cliente
+done
+}
+CopiaQT()
+{
+printf "\tCopiando qt-mt\n"
+cp $QTDIR/lib/libqt-mt* $1/Cliente
+cp $QTDIR/lib/libqui* $1/Cliente
+}
+CopiaSiscomDesarrollo1-5()
+{
+printf "\tCopiando Bibliioteca Siscom Desarrollo 1.5\n"
+Archivos_SO=\
+"$SISCOM_LIB_DIR/libSISCOMDesarrollo++.so
+$SISCOM_LIB_DIR/libSISCOMSeguridad3Q++.so 
+$SISCOM_LIB_DIR/libSISCOMDesarrolloQ++.so"
+for X in $Archivos_SO
+do
+	cp $X $1/Cliente
+done
+}
+CreaScriptCliente()
+{
+printf "\tCreando Script Del Cliente\n"
+cat << EOF > $1/SiscomSeguridad3
+#!/bin/sh
+
+DirInstalacion=$1
+LD_LIBRARY_PATH=\$DirInstalacion/Cliente
+
+PATH=\$DirInstalacion/Cliente
+RutaIconosSiscomSeguridad3=/KDE/share/icons/hicolor/48x48/apps/
+
+export 	LD_LIBRARY_PATH		\\
+	PATH			\\
+	RutaIconosSiscomSeguridad3
+
+SistemaDeSeguridad3
+
+EOF
+chmod +x $1/SiscomSeguridad3
+}
+Servidor()
+{
+	EstructuraDirectorio $1 Servidor
+}
+BinariosSiscomDesarrollo1-5()
+{
+Archivos_BIN=\
+"$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/RNProcesoAtiende.bin 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/ADProcesoAtiendeCliente.bin 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/DemonioDeConexiones.bin"
+printf "\tCopiando Binarios Siscom Desarrollo 1-5\n"
+for X in $Archivos_BIN
+do
+  cp $X $1/Servidor
+done
+}
+ModulosServidorSiscomDesarrollo1-5()
+{
+Archivos_SO=\
+"$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libADDllConsultasPostgreSQL.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libADDllIniciaDemonio.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libADDllInsercionesPostgreSQL.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libADDllInsercionesPostgreSQLEZS.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libADDllRealizaAltaDeProductos.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libADDllSistemaDeConsultas.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libADDllSistemaDeConsultasModificado.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libDllCLIAltasCompras.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libDllCLIAltasVentas.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libDllConsultasSvrSISCOM.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libDllDeConexionSvrSISCOM.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libRNDllAltaCompras.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libRNDllAltaProductos.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libRNDllAltaVentas.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libRNDllConsultas.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libRNDllIniciaDemonio.so 
+$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor/libRNDllSistemaDeConsultas.so 
+$SISCOM_LIB_DIR/libControladorComandosSQL.so"
+printf "\tCopiando Modulos Servidor Siscom Desarrollo 1-5\n"
+for  X in $Archivos_SO
+do
+  cp $X $1/Servidor
+done
+}
+PostgresPQ()
+{
+printf "\tCopiando Bibliotecas PostgresSQL\n"
+cp $DIRPOSTGRESQL/lib/libpq.so* $1/Servidor
+}
+
+### Argumentos para esta funcion
+
+# 1 Directorio Instalacion
+# 2 Puerto Reglas Negocio
+# 3 Puerto Acceso Datos
+# 4 Base de datos
+# 5 Usuario De instalacion
+ScriptIniciaServidor()
+{
+printf "\tCreando El Script Para Iniciar El Servidor\n"
+
+cat << EOF > $1/ServidorSiscom-1.5
+
+#!/bin/sh
+PTORN=$2
+PTOAD=$3
+ARGRN="-A\$PTORN 		  	\\
+       -BRNProcesoAtiende.bin     	\\
+       -C20                       	\\
+       -DlibRNDllIniciaDemonio.so 	\\
+       -ECargaProcesosYDll        	\\
+       -FIniciaMemSHM             	\\
+       -G\$PTOAD                   	\\
+       -H127.0.0.1"
+ARGAD="-A\$PTOAD                         \\
+       -BADProcesoAtiendeCliente.bin    \\
+       -C20" 
+DIRSVRSISCOM=$1/Servidor
+LD_LIBRARY_PATH_SISCOM=$1/Servidor
+
+######### Este escrip inicia, el servidor solo para que el cliente del sistema de seguridad pueda realizar 
+######## La actualizacion de los controles de la aplicacion
+BASESISCOM=$4
+PATHSVRSISCOM=\$DIRSVRSISCOM
+LD_LIBRARY_PATH=\$DIRSVRSISCOM
+PATH=\$PATH:\$DIRSVRSISCOM
+##Se debera, incluir en los scripts del servidor una variable de ambiente 
+##para el cliente frecuente 
+###INFOCLIFRECUENTE
+INFOCLIFRECUENTE=Si
+##############################33 ???????????????????????????????????????
+#######
+export PATH				\\
+	DIRSVRSISCOM			\\
+	LD_LIBRARY_PATH 		\\
+	INFOCLIFRECUENTE
+
+######## esta variable de ambiente se usa para habilitar el sistema de remplazos en caso de que la existencia
+####### de un producto sea cero se consulta en la tabla de remplazos para validar que exista alguno
+### que se pueda utilizar y este se pone en la lista
+
+VerificaEjecucion()
+{
+
+       if [ -f \$DIRSVRSISCOM/DemonioDeConexiones.\$PTORN ]
+       then
+       Pid=\`cat \$DIRSVRSISCOM/DemonioDeConexiones.\$PTORN\`
+        VerPid=\`ps -a |grep \$Pid | gawk -F' ' '{print \$1}'\`
+         if [ \$VerPid ]
+	 then 
+	   echo "El servidor SISCOM esta corriendo [RNPid \`cat \$DIRSVRSISCOM/DemonioDeConexiones.\$PTORN\`]."
+	 else
+	   rm \$DIRSVRSISCOM/DemonioDeConexiones.\$PTORN
+	 fi  
+	 if [ -f \$DIRSVRSISCOM/DemonioDeConexiones.\$PTOAD ]
+	  then
+	    Pid=\`cat \$DIRSVRSISCOM/DemonioDeConexiones.\$PTOAD\`
+	    VerPid=\`ps -a |grep \$Pid |gawk -F' ' '{printf \$1}'\`
+	     if [ \$VerPid ]
+	      then
+	   	echo "El Servidor SISCOM esta corriendo [ADPid \`cat \$DIRSVRSISCOM/DemonioDeConexiones.\$PTOAD\`]"
+	   	echo "Debe detener antes el servicio, use: siscom stop"
+	     	exit 0
+	      else
+	       rm \$DIRSVRSISCOM/DemonioDeConexiones.\$PTOAD
+	      fi
+	  fi
+       fi
+}
+start()
+{
+VerificaEjecucion;
+	echo "Iniciando el servidor SISCOM"
+	 su - $5 -m -c "export BASESISCOM=\$BASESISCOM;
+	 		      export PATH=\$PATHSVRSISCOM;
+			      export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH;
+			      export DIRSVRSISCOM=\$DIRSVRSISCOM;
+			      export INFOCLIFRECUENTE=Si;
+			      export FechaRefCalculoGan=2006-01-01;
+			      DemonioDeConexiones.bin \$ARGRN;
+			      DemonioDeConexiones.bin \$ARGAD;"
+}
+stop()
+{
+	if [ -f \$DIRSVRSISCOM/DemonioDeConexiones.\$PTORN ]
+	then
+	 RNPid=\`cat \$DIRSVRSISCOM/DemonioDeConexiones.\$PTORN\`
+	  echo "Deteniendo El Servidor De Reglas Del Negocio [\$RNPid]"
+	  kill -9 \$RNPid 
+	  rm \$DIRSVRSISCOM/DemonioDeConexiones.\$PTORN
+	   if [ -f \$DIRSVRSISCOM/DemonioDeConexiones.\$PTOAD ]
+	   then
+	    ADPid=\`cat \$DIRSVRSISCOM/DemonioDeConexiones.\$PTOAD\`
+	     echo "Deteniendo El Servidor De Acceso A Datos [\$ADPid]"
+	     rm \$DIRSVRSISCOM/DemonioDeConexiones.\$PTOAD
+	     kill -9 \$ADPid
+	   fi
+	    else
+	     echo "El Servidor SISCOM No Esta Corriendo"
+	    
+	 fi
+}
+status()
+{
+	pids=\`pidof DemonioDeConexiones.bin\`
+	pid=\`pidof -s DemonioDeConexiones.bin\`
+	if [ \$pid ]
+	then
+	echo "El servidor SISCOM se esta ejecutando \$pids"
+	else
+	echo "El servidor SISCOM no esta ejecutandose"
+	fi
+
+}
+restart()
+{
+	stop;
+	start;
+}
+case "\$1" in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use siscom start|stop|restart|status"
+	exit 1
+esac
+
+
+EOF
+chmod +x $1/ServidorSiscom-1.5
+}
+ModulosSeguridadSiscomDesarrollo1-5()
+{
+Archivos_SO=\
+"
+$DIRDesarrolloHGE/SISCOMSeguridad3/Servidor/SO/libADAltaGenericaSeguridad3.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Servidor/SO/libADConsultaGenericaSeguridad3.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Servidor/SO/libRNAltaGenericaSeguridad3.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Servidor/SO/libRNAltaGenericaSeguridad3SinAD.so 
+$DIRDesarrolloHGE/SISCOMSeguridad3/Servidor/SO/libRNConsultaGenericaSeguridad3.so"
+printf "\tCopiando Modulos Seguridad Siscom Desarrollo 1-5\n"
+for X in $Archivos_SO
+do
+  cp $X $1/Servidor
+done
+}
+IniciaBaseSeguridad()
+{
+cat << DatosSeguridad | psql $1 > /dev/null
+
+
+insert into Objeto values(1,'QComboBox');
+insert into Objeto values(2,'QLineEdit');
+insert into Objeto values(3,'QLabel');
+insert into Objeto values(4,'QTable');
+insert into Objeto values(5,'QPushButton');
+insert into Objeto values(6,'QAction');
+insert into Objeto values(7,'Entero');
+insert into Objeto values(8,'QIconView');
+insert into Objeto values(9,'QIconViewItem');
+
+
+insert into Propiedades values(1,0,'IniciaControl');
+insert into Propiedades values(1,1,'name');
+insert into Propiedades values(1,2,'enabled');
+insert into Propiedades values(1,3,'font');
+
+
+
+insert into Propiedades values(2,0,'IniciaControl');
+insert into Propiedades values(2,1,'name');
+insert into Propiedades values(2,2,'enabled');
+insert into Propiedades values(2,3,'readOnly');
+insert into Propiedades values(2,4,'font');
+
+
+
+insert into Propiedades values(3,0,'IniciaControl');
+insert into Propiedades values(3,1,'name');
+insert into Propiedades values(3,2,'text');
+insert into Propiedades values(3,3,'font');
+
+
+
+insert into Propiedades values(4,0,'IniciaControl');
+insert into Propiedades values(4,1,'name');
+insert into Propiedades values(4,2,'readOnly');
+insert into Propiedades values(4,3,'font');
+
+
+insert into Propiedades values(5,0,'IniciaControl');
+insert into Propiedades values(5,1,'name');
+insert into Propiedades values(5,2,'text');
+insert into Propiedades values(5,3,'iconSet');
+insert into Propiedades values(5,4,'enabled');
+insert into Propiedades values(5,5,'font');
+
+
+insert into Propiedades values(6,0,'IniciaControl');
+insert into Propiedades values(6,1,'name');
+insert into Propiedades values(6,2,'text');
+insert into Propiedades values(6,3,'enabled');
+insert into Propiedades values(6,4,'visible');
+insert into Propiedades values(6,5,'iconSet');
+insert into Propiedades values(6,6,'font');
+
+
+insert into Propiedades values(7,0,'IniciaControl');
+insert into Propiedades values(7,1,'name');
+insert into Propiedades values(7,2,'Valor');
+
+insert into Propiedades values(8,0,'IniciaControl');
+insert into Propiedades values(8,1,'name');
+insert into Propiedades values(8,2,'font');
+
+insert into Propiedades values(9,0,'IniciaControl');
+insert into Propiedades values(9,1,'name');
+insert into Propiedades values(9,2,'font');
+
+DatosSeguridad
+
+}
+CreaSchema()
+{
+cat << Schema | psql $1 > /dev/null
+
+
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'SQL_ASCII';
+SET standard_conforming_strings = off;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET escape_string_warning = off;
+
+--
+-- Name: plpgsql; Type: PROCEDURAL LANGUAGE; Schema: -; Owner: postgres900
+--
+
+CREATE OR REPLACE PROCEDURAL LANGUAGE plpgsql;
+
+
+ALTER PROCEDURAL LANGUAGE plpgsql OWNER TO postgres900;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: aplicaciones; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE aplicaciones (
+    idaplicacion integer NOT NULL,
+    nmbaplicacion character varying(50),
+    dscaplicacion character varying(256),
+    dirarchivosqt character varying(256)
+);
+
+
+ALTER TABLE public.aplicaciones OWNER TO hgarduno;
+
+--
+-- Name: firmas; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE firmas (
+    idusuario integer,
+    firma character varying(30) NOT NULL,
+    password character varying(30) NOT NULL,
+    edofirma integer
+);
+
+
+ALTER TABLE public.firmas OWNER TO hgarduno;
+
+--
+-- Name: objeto; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE objeto (
+    idobjeto integer NOT NULL,
+    nmbclase character varying(30)
+);
+
+
+ALTER TABLE public.objeto OWNER TO hgarduno;
+
+--
+-- Name: objetosxpantalla; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE objetosxpantalla (
+    idpantalla integer,
+    idobjeto integer,
+    idperfil integer,
+    idpropiedad integer,
+    valorpropiedad character varying(256),
+    numobjeto integer
+);
+
+
+ALTER TABLE public.objetosxpantalla OWNER TO hgarduno;
+
+--
+-- Name: pantalla; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE pantalla (
+    idpantalla integer NOT NULL,
+    idaplicacion integer,
+    nmbclase character varying(30),
+    archivo character varying(30)
+);
+
+
+ALTER TABLE public.pantalla OWNER TO hgarduno;
+
+--
+-- Name: perfiles; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE perfiles (
+    idperfil integer,
+    idaplicacion integer NOT NULL,
+    nmbperfil character varying(30) NOT NULL,
+    dscperfil character varying(128)
+);
+
+
+ALTER TABLE public.perfiles OWNER TO hgarduno;
+
+--
+-- Name: propiedades; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE propiedades (
+    idobjeto integer NOT NULL,
+    idpropiedad integer NOT NULL,
+    nmbpropiedad character varying(30)
+);
+
+
+ALTER TABLE public.propiedades OWNER TO hgarduno;
+
+--
+-- Name: usuarios; Type: TABLE; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+CREATE TABLE usuarios (
+    idusuario integer NOT NULL,
+    idaplicacion integer,
+    idperfil integer,
+    nmbusuario character varying(30),
+    apaterno character varying(30),
+    amaterno character varying(30)
+);
+
+
+ALTER TABLE public.usuarios OWNER TO hgarduno;
+
+--
+-- Name: aplicaciones_pkey; Type: CONSTRAINT; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+ALTER TABLE ONLY aplicaciones
+    ADD CONSTRAINT aplicaciones_pkey PRIMARY KEY (idaplicacion);
+
+
+--
+-- Name: objeto_pkey; Type: CONSTRAINT; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+ALTER TABLE ONLY objeto
+    ADD CONSTRAINT objeto_pkey PRIMARY KEY (idobjeto);
+
+
+--
+-- Name: pantalla_pkey; Type: CONSTRAINT; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+ALTER TABLE ONLY pantalla
+    ADD CONSTRAINT pantalla_pkey PRIMARY KEY (idpantalla);
+
+
+--
+-- Name: perfiles_pkey; Type: CONSTRAINT; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+ALTER TABLE ONLY perfiles
+    ADD CONSTRAINT perfiles_pkey PRIMARY KEY (idaplicacion, nmbperfil);
+
+
+--
+-- Name: propiedades_pkey; Type: CONSTRAINT; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+ALTER TABLE ONLY propiedades
+    ADD CONSTRAINT propiedades_pkey PRIMARY KEY (idobjeto, idpropiedad);
+
+
+--
+-- Name: usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: hgarduno; Tablespace: 
+--
+
+ALTER TABLE ONLY usuarios
+    ADD CONSTRAINT usuarios_pkey PRIMARY KEY (idusuario);
+
+
+--
+-- Name: firmas_idusuario_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hgarduno
+--
+
+ALTER TABLE ONLY firmas
+    ADD CONSTRAINT firmas_idusuario_fkey FOREIGN KEY (idusuario) REFERENCES usuarios(idusuario);
+
+
+--
+-- Name: objetosxpantalla_idobjeto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hgarduno
+--
+
+ALTER TABLE ONLY objetosxpantalla
+    ADD CONSTRAINT objetosxpantalla_idobjeto_fkey FOREIGN KEY (idobjeto) REFERENCES objeto(idobjeto);
+
+
+--
+-- Name: objetosxpantalla_idpantalla_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hgarduno
+--
+
+ALTER TABLE ONLY objetosxpantalla
+    ADD CONSTRAINT objetosxpantalla_idpantalla_fkey FOREIGN KEY (idpantalla) REFERENCES pantalla(idpantalla);
+
+
+--
+-- Name: pantalla_idaplicacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hgarduno
+--
+
+ALTER TABLE ONLY pantalla
+    ADD CONSTRAINT pantalla_idaplicacion_fkey FOREIGN KEY (idaplicacion) REFERENCES aplicaciones(idaplicacion);
+
+
+--
+-- Name: perfiles_idaplicacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hgarduno
+--
+
+ALTER TABLE ONLY perfiles
+    ADD CONSTRAINT perfiles_idaplicacion_fkey FOREIGN KEY (idaplicacion) REFERENCES aplicaciones(idaplicacion);
+
+
+--
+-- Name: propiedades_idobjeto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hgarduno
+--
+
+ALTER TABLE ONLY propiedades
+    ADD CONSTRAINT propiedades_idobjeto_fkey FOREIGN KEY (idobjeto) REFERENCES objeto(idobjeto);
+
+
+--
+-- Name: usuarios_idaplicacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hgarduno
+--
+
+ALTER TABLE ONLY usuarios
+    ADD CONSTRAINT usuarios_idaplicacion_fkey FOREIGN KEY (idaplicacion) REFERENCES aplicaciones(idaplicacion);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres900
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres900;
+GRANT ALL ON SCHEMA public TO postgres900;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+Schema
+
+
+}
+IniciaBase()
+{
+printf "\tIniciando la base de datos\n"
+printf "\t\tCreando El Schema\n"
+CreaSchema $1
+printf "\t\tIniciando la base de datos\n"
+IniciaBaseSeguridad $1
+}
+CreaBaseDeDatos()
+{
+printf "\tVerificando La Base de datos %s\n" $2
+BasesDisponibles=` psql -l -t |awk -F'|' '{print $1}'`
+for X in $BasesDisponibles
+do 
+   if [ "$X" == "$2" ]
+   then
+     printf "\t\tLa Base de datos %s Ya Existe\n" $2
+     SiEsta="Si"
+   fi
+done
+ if [ "$SiEsta" == "Si" ]
+ then
+  IniciaBase $2
+ else
+  printf "\t\tLa base No Existe"
+  createdb $2
+  IniciaBase $2
+ fi
+}
+ModoUso()
+{
+
+cat << EOF
+
+-a Directorio De Instalacion
+-b Puerto Del servidor de reglas del negocio
+-c Puerto del servidor de acceso a datos
+-d Nombre de la base de datos
+-e Usuario que iniciara el servicio
+-f Directorio Con los archivos UI De La aplicacion
+-g Nombre de la aplicacion [Sin Espacios]
+-h Se Crea el proceso de instalacion para el servidor [Si]
+-i Se crea el proceso de instalacion para la GUI [Si]
+
+EOF
+}
+###  Viernes 8 Febrero del 2008
+###  Queretaro
+### /home/hgarduno/Seguridad3Inst 2000 2001 Clinicas3 hgarduno
+### los parametro anteriores se pasan de forma posicional. El  
+### script de instalacion debera de modificarse para que acepte
+### los argumentos de ejecucion como se explican en ModoUso,
+### ademas debera iniciar la base de datos con el usuario hgarduno
+### y registrar para la aplicacion el perfil de "Programador", 
+### a su vez debera registrar la aplicacion para la que se 
+### realizara la instalacion del sistema de seguridad, esto nos
+### permitira iniciar las aplicaciones sin necesidad de realizar
+### el registro de un empleado
+
+### Martes 12 De Febrero del 2008
+### Queretaro
+
+### Se la integracio al script del paso de argumentos conforme
+### se indica en la funcion ModoUso
+### Para poder crear los scripts del cliente y del servidor se
+### debera de validar los argumentos para poder ejecutar estas
+### dos operaciones.
+
+
+#Cliente $1
+#CopiaArchivosCliente $1
+#CopiaQT $1
+#CopiaSiscomDesarrollo1-5 $1
+#CreaScriptCliente $1
+
+#Servidor $1
+#BinariosSiscomDesarrollo1-5 $1
+#ModulosServidorSiscomDesarrollo1-5 $1
+#PostgresPQ $1
+#ScriptIniciaServidor $1 $2 $3 $4 $5
+#
+#ModulosSeguridadSiscomDesarrollo1-5 $1
+#CreaBaseDeDatos $1 $4
+RegistraAplicacionSeguridad()
+{
+printf "RegistraAplicacionSeguridad\n"
+cat << EOF  | psql $3 > /dev/null 
+
+insert into aplicaciones values(1,'$1','$1','$2');
+insert into perfiles values(1,1,'Programador','Programador');
+insert into usuarios values(1,1,1,'Heli','Garduno','Esquivel');
+insert into firmas values(1,'hgarduno','heligardunoesquivel');
+insert into personas values(1,'Heli','Garduno','Esquivel');
+
+
+EOF
+
+}
+CreaBaseDatosAplicaciones()
+{
+Personas=`psql $1 -t -c"SELECT tablename from pg_tables where  tablename='personas'"`;
+if [ -z $Personas ]
+then
+cat $HOME/SISCOMClasesGenerales/SQL/TablasClasesGenerales.sql |psql $1 > /dev/null
+fi
+
+}
+CorreInstalacionServidor()
+{
+printf "CorreInstalacionServidor\n" 
+Servidor $1
+BinariosSiscomDesarrollo1-5 $1
+ModulosServidorSiscomDesarrollo1-5 $1
+PostgresPQ $1
+ScriptIniciaServidor $1 $2 $3 $4 $5
+ModulosSeguridadSiscomDesarrollo1-5 $1
+CreaBaseDeDatos $1 $4
+CreaBaseDatosAplicaciones $4
+Aplicacion=`psql $4 -t -c 'select idaplicacion from aplicaciones'`
+if [ -z $Aplicacion ]
+then
+RegistraAplicacionSeguridad $6 $7 $4
+fi
+}
+CorreInstalacionCliente()
+{
+printf "CorreInstalacionCliente %s\n" $1
+Cliente $1
+CopiaArchivosCliente $1
+CopiaQT $1
+CopiaSiscomDesarrollo1-5 $1
+CreaScriptCliente $1
+
+}
+while getopts "a:b:c:d:e:f:g:h:i:" opcion
+do
+	case "${opcion}"
+	in
+	a)
+	    DirInstalando=$OPTARG
+	;;
+	b)
+	    PtoRN=$OPTARG
+	;;
+	c)
+	   PtoAD=$OPTARG
+	;;
+	d)
+	   NmbBD=$OPTARG
+	;;
+	e)
+	   UsuarioA=$OPTARG
+	;;
+	f)
+	   DirUI=$OPTARG
+	;;
+	g)
+	   NmbAplicacion=$OPTARG	
+	;;
+	h)
+	   Servidor=$OPTARG	
+	 ;;
+	i)
+		Cliente=$OPTARG
+	;;
+	*)
+		ModoUso
+	;;
+	esac
+done
+if [ "$Servidor" == "Si" ]
+then
+	if [ -z $DirInstalando]
+	then
+	  printf "No Se ha introducido una ruta valida para la instalacion\n"
+	  printf "-a Ruta\n"
+	  exit 0 
+	fi
+	if [ -z $PtoRN ]
+	then
+	  printf "No Se ha introducido un dato valido para el Puerto RN\n"
+	  printf "-b Puerto\n"
+	  exit 0
+	fi
+	if [ -z $PtoAD ]
+	then
+	  printf "No Se ha introducido un dato valido para el Puerto AD\n"
+	  printf "-c Puerto\n"
+	  exit 0
+	fi
+	if [ -z $NmbBD ]
+	then
+	  printf "No Se ha introducido un dato valido para el nombre de la base de datos\n"
+	  printf "-d Base\n"
+	  exit 0
+	fi
+	if [ -z $UsuarioA ]
+	then
+	 printf "No Se ha introducido un dato valido para el usuario que iniciara el servidor\n"
+	 printf "\-e Usuario\n"
+	 exit 0
+	fi
+	CorreInstalacionServidor $DirInstalando $PtoRN $PtoAD $NmbBD $UsuarioA $NmbAplicacion $DirUI
+fi
+
+if [ "$Cliente" == "Si" ]
+then
+	CorreInstalacionCliente $DirInstalando
+fi

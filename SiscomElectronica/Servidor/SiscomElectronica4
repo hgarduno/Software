@@ -1,0 +1,38 @@
+#!/bin/sh 
+
+
+PATH=$PATH:$DirDesarrollo4/SiscomDesarrollo4
+
+DirectorioConfiguracion=$DIRDesarrolloHGE/SISCOMElectronica/Servidor
+
+LD_LIBRARY_PATH=$DirDesarrollo4/SiscomDesarrollo4:$DirDesarrollo4/SiscomDesarrollo4/PostgresSql:$DIRPOSTGRESQL/lib
+
+echo $LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH 		\
+	PATH			\
+	DirectorioConfiguracion
+PuertoAD=7346
+start()
+{
+$DirDesarrollo4/SiscomDesarrollo4/ServidorSiscom $DirectorioConfiguracion/SiscomElectronica$PuertoAD\Ini
+}
+
+stop()
+{
+PidAccesoDatos=`cat $DirectorioConfiguracion/ServidorSiscom$PuertoAD\Pid`
+if [ $PidAccesoDatos ]
+then
+kill -9 $PidAccesoDatos 
+fi
+rm $DirectorioConfiguracion/ServidorSiscom$PuertoAD\Pid
+}
+
+case "$1" in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+esac

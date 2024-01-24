@@ -1,0 +1,9 @@
+#!/bin/sh
+
+
+for X in `ps -u $USER |grep SiscomTiendas4|awk -F' ' '{print $1}'`
+do
+echo $X
+done
+
+gdb Cliente/SiscomTiendas4 $X

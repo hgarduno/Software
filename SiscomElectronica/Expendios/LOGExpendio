@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+
+tail -f $DirectorioSiscomElectronica/Expendios/LOGs/ServidorSiscom$1Log

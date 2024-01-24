@@ -1,0 +1,39 @@
+#!/sbin/runscript
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+DirServidorBinarios=/home/hgarduno/SistemaIntegralSiscom3/Servidor
+VersionPostgres=9.1.4
+LD_LIBRARY_PATH=$LD_LIBARY_PATH:/home/postgres/$VersionPostgres/lib:$DirServidorBinarios:
+PATH=$PATH:$DirServidorBinarios
+HomeHge=/home/hgarduno
+
+export  LD_LIBRARY_PATH \
+        PATH
+
+
+
+depend() {
+	need postgres
+}
+
+start() {
+	   su - hgarduno -c "export PATH=$PATH
+	   		     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+			     export HomeHge=$HomeHge
+			     ServidorGeneral $HomeHge/ConfiguracionSiscomElectronica/Configuracion.5646.ini
+			     ServidorGeneral $HomeHge/ConfiguracionSiscomElectronica/Configuracion.5645.ini"
+}
+MataProceso()
+{
+  Pid=`cat /home/hgarduno/ConfiguracionSiscomElectronica/ServidorSiscom.$1.pid`
+  kill -9 $Pid
+}
+stop() {
+
+
+	MataProceso 5646
+	MataProceso 5645
+}
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+Pid=`ps -u hgarduno |grep SiscomTiendas4 |awk -F' ' '{print $1}'`
+
+
+for X in $Pid
+do
+echo $X > /dev/null
+done
+
+
+top -p $X

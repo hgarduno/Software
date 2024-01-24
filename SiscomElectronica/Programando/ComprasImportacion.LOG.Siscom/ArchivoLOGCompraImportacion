@@ -1,0 +1,13 @@
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c EnviandoCompraImportacion 138 ) IdExpendio|IdResponsable|NumFactura|ImporteFactura|Empresa|CostoEnvio|CostoDolar|CostoAdministrativo|PonderacionCostoAdministrativo|NumPartidas|PesoCompra|Productos
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c EnviandoCompraImportacion 138 ) ||KEM20191221|21397.50||236|19.50|150|15.000|10|14700.00|
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) CveProducto|Cantidad|Peso|PesoTotal|CostoEnvio|CostoUnitarioDolares|CostoTotalDolares|PrecioMasCostoEnvio|CostoFinalPesos|CostoFinalMasCosAdm|CostoPartida
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISACS|1500|2.00|3000.000|48.163|0.07|105.000|153.163|2.31|2.32|3480.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISCCS|1500|2.00|3000.000|48.163|0.07|105.000|153.163|2.31|2.32|3480.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISCC4|250|8.00|2000.000|32.109|0.26|65.000|97.109|8.79|8.85|2212.50
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISAC3|150|6.00|900.000|14.449|0.17|25.500|39.949|6.02|6.12|918.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISCC3|150|6.00|900.000|14.449|0.17|25.500|39.949|6.02|6.12|918.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISAC2|200|3.50|700.000|11.238|0.11|22.000|33.238|3.76|3.84|768.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISCC2|200|3.50|700.000|11.238|0.11|22.000|33.238|3.76|3.84|768.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) BARRALEDS-V8|500|3.00|1500.000|24.082|0.19|95.000|119.082|5.39|5.42|2710.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) BARRALEDS-V10|500|2.00|1000.000|16.054|0.34|170.000|186.054|8.42|8.45|4225.00
+Thu Mar 19 14:32:04 2020:( C/CompraImportacion.c CalculandoCompraImportacion 130 ) DISAC4-MINI|200|5.00|1000.000|16.054|0.34|68.000|84.054|9.51|9.59|1918.00

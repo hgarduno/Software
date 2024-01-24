@@ -1,0 +1,43 @@
+ Alimentos Balanceados El Fresno S.A. De C.V. | Apigallo Preparación Api Aba 5 Kgs. | AVAAGP05    |    90.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Caballito Corona Junior 22.6 Kgs.   | EQAACJ22    |    20.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Caballo Ganador 40 Kgs.             | EQAACG40    |   100.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Cema 1a. 30 Kgs.                    | STESC130    |  1630.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Cema 2a. 28 Kgs.                    | STELC228    | 14300.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Codorniz Inicio Api Aba 40 Kgs.     | AVAACI40    |    50.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Codorniz Postura Api Aba 40 Kgs.    | AVAACP40    |    35.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Conejito Engorda Api Aba 5 Kgs.     | COAACE05    |    90.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Conejo Api Aba 40 Kgs.              | COAACO40    |    30.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Creci Pork 40 Kgs.                  | CEAACP40    |   200.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Encilac Molido 40 Kgs.              | BOEMEM40    |   250.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Engorda Borrego 40 Kgs.             | BOAAEB40    |    15.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Engorda Pork 40 Kgs.                | CEAAEP40    |   200.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Gana Aves 40 Kgs.                   | AVAAGA40    |   450.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Ganacerdos 40 Kgs.                  | CEAAGC40    |   300.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Lactocria Api Aba 10 Kgs.           | BOAALA10    |    45.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Manten 30 Kgs.                      | BOEMMA30    |   525.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Maíz Entero Consumo Humano 40 Kgs.  | MACACH40    |   600.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Maíz Entero Consumo Humano 40 Kgs.  | MASACH40    |  4200.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Maíz Molido 40 Kgs.                 | MAFRMM40    |  4813.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Maíz Quebrado 40 Kgs.               | MACOMQ40    |   530.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Maíz Quebrado 40 Kgs.               | MAFRMZ40    | 28758.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Pall 25 Kgs.                        | PEJAPL25    |    10.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Pasta de Coco 40 Kgs.               | BOIAPC40    |   465.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Pedigree Adulto 25 Kgs.             | PEJAPA25    |     4.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Pedrigree Cachorro 25 Kgs.          | PEJAPC25    |     4.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Pell Rol 1/4 Milla 40 Kgs.          | EQAAPM40    |   150.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Pell Rol Clásico 40 Kgs.            | EQAAPC40    |    50.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Poder Canino 25 Kgs.                | PEAAPC25    |    30.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Pollo Expendio 40 Kgs.              | AVAAPE40    |   150.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Ponedora Api Aba 40 Kgs.            | AVAAPO40    |    30.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Salvado 40 Kgs.                     | STELSA40    |  4732.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Salvado 40 Kgs.                     | STESSA40    |  1242.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Salvado 40 Kgs.                     | STMISA40    |   800.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Salvado 40 Kgs.                     | STPISA40    |  1650.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Sorgo Molido 40 Kgs.                | SOFRSM40    |  4382.00
+ Alimentos Balanceados El Fresno S.A. De C.V. | Wiskas 20 Kgs.                      | GAJAWA20    |     4.00
+ Expendio Analco                              | Cema 2a. 28 Kgs.                    | STELC228    |  1043.00
+ Expendio Analco                              | Maíz Entero 40 Kgs.                 | MACAME40    |     6.00
+ Expendio Analco                              | Maíz Molido 40 Kgs.                 | MAFRMM40    |    68.00
+ Expendio Analco                              | Salvado 40 Kgs.                     | STELSA40    |   700.00
+ Expendio Analco                              | Salvado 40 Kgs.                     | STPISA40    |   700.00
+

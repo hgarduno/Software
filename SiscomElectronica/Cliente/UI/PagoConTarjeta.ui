@@ -1,0 +1,25 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>PagoConTarjeta</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>PagoConTarjeta</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>436</width>
+            <height>261</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -1,0 +1,125 @@
+<ModSistemaTiendas Sistema="SISCOMClinicas" >
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libAutorizacionPedidos.so">
+		<Funcion Nombre="InstanciaAutorizacionPedidos" > </Funcion>
+		<Menu    Nombre="QAAutorizaPedidos"> </Menu>
+		<TextoMenu Texto="Autoriza Pedidos" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorPrecios.so">
+		<Funcion Nombre="InstanciaManejadorPrecios" > </Funcion>
+		<Menu    Nombre="QAManejadorPrecios"> </Menu>
+		<TextoMenu Texto="Manejador De Precios" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorProveedores.so">
+		<Funcion Nombre="InstanciaManejadorProveedores" > </Funcion>
+		<Menu    Nombre="QAManejadorProveedores"> </Menu>
+		<TextoMenu Texto="Manejador De Proveedores" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libFamilias.so">
+		<Funcion Nombre="InstanciaFamilias" > </Funcion>
+		<Menu    Nombre="QAFamilias"> </Menu>
+		<TextoMenu Texto="Manejador De Familias" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libUnidades.so">
+		<Funcion Nombre="InstanciaUnidades" > </Funcion>
+		<Menu    Nombre="QAUnidades"> </Menu>
+		<TextoMenu Texto="Manejador De Unidades" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libTiposPrecios.so">
+		<Funcion Nombre="InstanciaTiposPrecios" > </Funcion>
+		<Menu    Nombre="QATiposPrecios"> </Menu>
+		<TextoMenu Texto="Manejador De Tipos De Precio" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libManejadorProductos.so">
+		<Funcion Nombre="InstanciaManejadorProductos" > </Funcion>
+		<Menu    Nombre="QAManejadorProductos"> </Menu>
+		<TextoMenu Texto="Manejador De Productos" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libRegistroEmpleados.so">
+		<Funcion Nombre="InstanciaRegistroEmpleados" > </Funcion>
+		<Menu    Nombre="QARegistroEmpleados"> </Menu>
+		<TextoMenu Texto="Registro De Empleados" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libVehiculos.so">
+		<Funcion Nombre="InstanciaVehiculos" > </Funcion>
+		<Menu    Nombre="QAVehiculos"> </Menu>
+		<TextoMenu Texto="Manejador Vehiculos" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libCtrExpendios.so">
+		<Funcion Nombre="InstanciaCtrExpendios" > </Funcion>
+		<Menu    Nombre="QACtrExpendios"> </Menu>
+		<TextoMenu Texto="Controlador De Expendios" > </TextoMenu>
+	</Modulo>
+
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libFacturacion.so">
+		<Funcion Nombre="InstanciaFacturacion" > </Funcion>
+		<Menu    Nombre="QAFacturacion"> </Menu>
+		<TextoMenu Texto="Facturacion" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPedidos.so">
+		<Funcion Nombre="InstanciaPedidos" > </Funcion>
+		<Menu    Nombre="QAPedidos"> </Menu>
+		<TextoMenu Texto="Pedidos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libClientes.so">
+		<Funcion Nombre="InstanciaClientes" > </Funcion>
+		<Menu    Nombre="QAClientes"> </Menu>
+		<TextoMenu Texto="Manejador De Clientes" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasElFresno.so">
+		<Funcion Nombre="InstanciaManEmpleados" > </Funcion>
+		<Menu    Nombre="QAManEmpleados"> </Menu>
+		<TextoMenu Texto="Actualiza Datos Empleados" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+</ModSistemaTiendas>

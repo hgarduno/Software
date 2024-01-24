@@ -1,0 +1,109 @@
+#!/bin/bash 
+
+source $HOME/bin/FuncionesComunesBash
+
+
+EstaOpcionPrefijo()
+{
+OpcionABuscar=Prefijo
+echo $(EstaLaOpcion $*)
+}
+EstaOpcionBase()
+{
+  OpcionABuscar=Base
+  echo $(EstaLaOpcion $*)
+
+}
+EstaOpcionDir()
+{
+   OpcionABuscar=Dir
+   echo $(EstaLaOpcion $*)
+}
+ObtenBase()
+{
+  Parametro=Base
+  echo $(ObtenParametroEntrada $*)
+}
+ObtenDir()
+{
+  Parametro=Dir
+  echo $(ObtenParametroEntrada $*)
+}
+ObtenPrefijo()
+{
+  Parametro=Prefijo
+  echo $(ObtenParametroEntrada $*)
+}
+MataPsql()
+{
+   killall -9 psql 2>/dev/null
+}
+BorraBaseDatos()
+{
+  dropdb $1
+}
+CreaBaseDatos()
+{
+   createdb $1
+}
+
+UltimoArchivoRespaldo()
+{
+   Archivo=$(BuscaUltimoArchivo $1 $2)
+   echo $Archivo
+}
+ModoUso()
+{
+cat <<  Modo | more
+
+RetaurandoBase 
+	Script que permite tomar un archivo de respaldo 
+	de base de datos, si hay instancias de psql corriendo
+	las mata y restaura el archivo sql.xz 
+
+	-Dir Ruta donde busca los archivos sql.xz
+	-Prefijo El nombre de los archivos, regularmente 
+		 los respaldos se trabajan con SiscomElectronica.Fecha.sql.xz 
+		 es comun usar el nombre del local
+	-Base  Nombre de la base de datos que se eliminara
+		y se creara
+	
+
+Ejemplo
+RestaurandoBase -Dir /home/hgarduno/HGarduno/SiscomElectronica.SQL.XZ \ 
+		-Prefijo SiscomElectronica \
+		-Base SiscomElectronica
+
+Modo
+
+}
+if [ $# == 0 ]
+then
+	ModoUso 
+else
+
+if [ "$(EstaOpcionBase $*)" == "1" ]
+then
+    BaseTrabajo=$(ObtenBase $*)
+    if [[ "$(EstaOpcionDir $*)" == "1"  &&
+          "$(EstaOpcionPrefijo $*)" == "1" ]]
+    then
+    	 Directorio=$(ObtenDir $*)
+	 PrefijoB=$(ObtenPrefijo $*)
+    	 UltimoR=$(UltimoArchivoRespaldo $Directorio "*$PrefijoB*.sql.xz")
+	 if [ "$UltimoR" != "" ]
+	 then
+	 	MataPsql 
+		BorraBaseDatos $BaseTrabajo
+		CreaBaseDatos $BaseTrabajo
+		printf "Restaurando %s en %s\n" $UltimoR $BaseTrabajo
+		xzcat $UltimoR |psql $BaseTrabajo 2>1 > /dev/null
+
+	  else
+	  	printf "No se encontro archivo\n"
+	  fi
+    else
+    	printf "NO Se Paso -Dir y -Prefijo\n" 
+    fi
+fi
+fi

@@ -1,0 +1,371 @@
+#!/bin/sh  -e
+
+DirControles=$QTDIR/plugins/designer
+DirSiscomTiendas4=$DIRDesarrolloHGE/SiscomTiendas4
+
+
+
+Controles=\
+"$DirControles/libControlTiendas4s.so
+$DirControles/libControlFechaDesarrollo2.so 
+$DirControles/libQCtrlPerfiles.so	
+$DirControles/libQCtrlServidoresSiscom.so 
+$DirControles/libQCtrlUsuarios.so 
+$DirControles/libQSiscomSepomex++.so 
+$DirControles/libControlSepomexComunicas.so 
+$DirControles/libControlNombres.so
+$DirControles/libSISCOMComunControles.so"
+
+
+
+ArchivosSiscomTiendas4=\
+"$DirSiscomTiendas4/Cliente/SiscomTiendas4 
+$DirSiscomTiendas4/Cliente/SO/libPantallasSiscomTiendas4.so 
+$DirSiscomTiendas4/Configuracion/SiscomTiendas4.xml"
+
+
+BibliotecasSiscom=\
+"$DIRLIBSISCOM2/libSISCOMComunControlesDesarrollo2.so 
+$DIRLIBSISCOM2/libSepomexCliente.so 
+$DIRLIBSISCOM2/libSiscomComunicaciones++.so 
+$DIRLIBSISCOM2/libSiscomDesarrollo2.so 	
+$DIRLIBSISCOM2/libSiscomFirmateSistema.so
+$DIRLIBSISCOM2/libSiscomDesarrollo3Qt++.so"
+
+
+NivelDeUtilizacion=\
+"$DirSiscomTiendas4/Cliente/SO/libSiscomVentasCompletoTiendas4.so 
+$DirSiscomTiendas4/Cliente/SO/libSiscomVentasNivelDos.so 
+$DirSiscomTiendas4/Cliente/SO/libSiscomVentasNivelDosLapTopDell.so"
+
+#ArchivosQT=\
+#"$QTDIR/lib/libqt-mt.la 
+#$QTDIR/lib/libqt-mt.prl 
+#$QTDIR/lib/libqt-mt.so 
+#$QTDIR/lib/libqt-mt.so.3 
+#$QTDIR/lib/libqt-mt.so.3.3 
+#$QTDIR/lib/libqt-mt.so.3.3.6"
+
+##################### Servidor 
+##SiscomTiendas4Svr
+
+ArchivosServidor=\
+"$DIRLIBSISCOM2/Servidor/ServidorGeneral 
+$DIRDesarrolloHGE/ActualizaAplicacion/Servidor/libAccesoDatos.so 
+$DIRLIBSISCOM2/libSiscomAplicacionesSvr.so 
+$DIRLIBSISCOM2/libSiscomDesarrollo2.so 
+$DIRLIBSISCOM2/libSiscomDesarrolloPostgresql.so 
+$DIRLIBSISCOM2/libSiscomSeguridad3Prot2.so 
+$DIRLIBSISCOM2/libSiscomSepomex.so 
+$DIRDesarrolloHGE/SiscomTiendas4/Servidor/libSiscomTiendas4.so 
+$DIRPOSTGRESQL/lib/libpq.so
+$DIRPOSTGRESQL/lib/libpq.so.5"
+
+
+IniciaServidor()
+{
+cat << EOF > $1/Servidor/SiscomTiendas4
+
+#!/bin/sh
+
+DirServidor=$1/Servidor
+
+LD_LIBRARY_PATH=$1/Servidor
+PATH=$1/Servidor:/usr/bin/cat:/bin/
+BDSeguridad3=$4
+export	LD_LIBRARY_PATH \
+	PATH		\
+	BDSeguridad3
+
+start()
+{
+
+		ServidorGeneral \$DirServidor/Configuracion.$2.ini	
+		ServidorGeneral \$DirServidor/Configuracion.$3.ini	
+}
+stop()
+{
+	kill -9 \`cat \$DirServidor/$2/ServidorSiscom.$2.pid\`
+	kill -9 \`cat \$DirServidor/$3/ServidorSiscom.$3.pid\`
+}
+case "\$1" in
+	start)
+		start		
+
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac
+EOF
+chmod +x $1/Servidor/SiscomTiendas4
+}
+ArchivoIniAD()
+{
+cat << EOF > $1/Servidor/Configuracion.$3.ini
+
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   =  $3
+
+PtoAccesoDatos= 5000
+DirIpAccesoDatos=127.0.0.1
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libAccesoDatos.so
+FuncionLibServidor = AccesoDatos
+
+DirTrabajo=$1/Servidor
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   = $4
+
+
+	#Informacion para los comentarios del archivo
+
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+
+ClienteFrecuente=Si
+EOF
+}
+ArchivoIniRN()
+{
+
+cat << EOF > $1/Servidor/Configuracion.$2.ini
+
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   = $2
+
+PtoAccesoDatos= $3
+DirIpAccesoDatos=127.0.0.1
+#DirIpAccesoDatos=201.163.187.112
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libSiscomTiendas4.so
+FuncionLibServidor = Principal
+
+DirTrabajo=$1/Servidor
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   =  $4
+
+
+	#Informacion para los comentarios del archivo
+
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+
+
+#LibMemoriaComun=libSiscomTrampolinMemoriaComun.so
+
+#FuncionLibMemoriaComun=IniciaMemoriaComun
+#ClienteFrecuente=Si
+
+
+# Para este caso el nombre de las bibliotecas se forman de dos partes
+# separadas por @:
+# la primera es un identificador
+# la segunda el nombre de la biblioteca
+
+#BibliotecasServidor[]
+#		BibliotecasServidor[0]=0@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=1@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=2@libSeguridad3Expendios.so
+#[]BibliotecasServidor
+
+
+# Los nombres de las funciones se forman por el identificador de la
+# biblioteca y el nombre de la funcion, el identificador de la biblioteca
+# es el numero mediante el cual se va a relacionar la biblioteca y 
+# la funcion 
+#FuncionesServidor[]
+		FuncionesServidor[0]=0@ConsultaSeguridad3Pro2Version2
+#[]FuncionesServidor
+
+EOF
+
+}
+
+CopiaArchivosServidor()
+{
+for X in $ArchivosServidor 
+do
+  cp $X $1/Servidor;
+done
+}
+Servidor()
+{
+CopiaArchivosServidor $1
+ArchivoIniAD $1 $2 $3 $4
+ArchivoIniRN $1 $2 $3 $4
+IniciaServidor $1 $2 $3 $4
+
+}
+CreaDirectorios()
+{
+if [ -d $1 ]
+then
+	if [ -d $1/Cliente ]	  
+	then
+	echo 'Ya Existe'
+	else
+		mkdir $1/Cliente
+	fi
+	if [ -d $1/Servidor ]
+	then
+	echo 'Ya Existe'
+	else
+	mkdir $1/Servidor
+	fi	
+else
+mkdir $1
+
+mkdir $1/Cliente
+mkdir $1/Servidor
+fi
+
+}
+CopiaArchivos()
+{
+for X in $Controles $ArchivosSiscomTiendas4 $BibliotecasSiscom $ArchivosQT $NivelDeUtilizacion
+do
+cp $X $1/Cliente
+done
+cp $QTDIR/lib/libqt-mt* $1/Cliente
+}
+CreaScriptCliente()
+{
+
+cat << EOF > $1/SiscomTiendas4.sh
+########## Sabado 2 De Febrero 2008
+#!/bin/sh 
+LD_LIBRARY_PATH=$1/Cliente
+PATH=$1/Cliente
+DirectorioConfiguracion=$1/Cliente
+ArchivoConfiguracionModulos=SiscomTiendas4.xml
+Aplicacion=$2
+ArchivoServidores=$HOME/.SiscomTiendas4Comunicaciones.txt
+
+UtilizacionVentas=libSiscomVentasNivelDosLapTopDell.so
+FuncionUtilizacionVentas=UtilizacionNivelDos
+FuncionUtilizacionPrincipal=NivelDosPrincipal
+
+export UtilizacionVentas
+export FuncionUtilizacionVentas
+export FuncionUtilizacionPrincipal
+
+
+DirIpSvr=127.0.0.1
+PtoComSvr=5650
+
+export LD_LIBRARY_PATH
+export PATH
+export DirectorioConfiguracion
+export ArchivoConfiguracionModulos
+export Aplicacion
+export PtoComSvr2 
+export RutaIconos
+export ArchivoServidores 
+export IdExpendio
+export DirIpSvr
+export PtoComSvr
+
+
+#ulimit -c 0
+
+#SiscomSiscomTiendas4  Maximizada
+
+SiscomTiendas4  $*
+EOF
+chmod +x $1/SiscomTiendas4.sh
+}
+#Esta funcion debera crear
+#el archivo Makefile y el codigo fuentes
+#del la biblioteca de utilizacion compilar
+#y enlazar el modulo
+#
+#
+#
+#
+#
+
+BibliotecasUtilizacion()
+{
+echo 'BibliotecaUtilizacion:En Desarrollo'
+
+}
+Cliente()
+{
+CreaDirectorios $1
+CopiaArchivos $1
+CreaScriptCliente $1 $2
+}
+
+
+
+
+
+
+###
+### Parametros
+### Directorio Instalacion
+### Pto Reglas del negocio
+### Pto Acceso Datos
+### Base De Datos
+### Nombre de la aplicacion
+
+
+Cliente $1 $5
+Servidor $1 $2 $3 $4
+

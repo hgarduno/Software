@@ -1,0 +1,218 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SiscomClinicas3</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>SiscomClinicas3</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+</widget>
+<toolbars>
+</toolbars>
+<actions>
+
+<action>
+        <property name="name">
+            <cstring>QARegMedicos</cstring>
+        </property>
+        <property name="text">
+            <string>Registra Medicos</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAPreciosServicios</cstring>
+        </property>
+        <property name="text">
+            <string>Precios Servicios</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAServicios</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Servicios</string>
+        </property>
+</action>
+
+<action>
+        <property name="name">
+            <cstring>QAServiciosMedico</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Servicios Del Medico</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAPerfilConsultaMedico</cstring>
+        </property>
+        <property name="text">
+            <string>Perfil De La Consulta</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QARecepcion</cstring>
+        </property>
+        <property name="text">
+            <string>Recepcion</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QACentroMedico</cstring>
+        </property>
+        <property name="text">
+            <string>Centro Del Medico</string>
+        </property>
+</action>
+<action>
+        <property name="name">
+            <cstring>QAVentasMedico</cstring>
+        </property>
+        <property name="text">
+            <string>Reporte De Ventas Por Medico</string>
+        </property>
+</action>
+
+    <action>
+        <property name="name">
+            <cstring>QARegProducto</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Productos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAFamilias</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Familias</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAAProductos</cstring>
+        </property>
+        <property name="text">
+            <string>Actualiza Informacion Productos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAAPrecios</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Precios</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAPPrecios</cstring>
+        </property>
+        <property name="text">
+            <string>Action</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAREmmpresas</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Empresas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACompras</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Compras</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Ventas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAOrdenesCaja</cstring>
+        </property>
+        <property name="text">
+            <string>Registra Ordenes Caja</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QARVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Action</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QADevoluciones</cstring>
+        </property>
+        <property name="text">
+            <string>Sistema Devoluciones</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACaja</cstring>
+        </property>
+        <property name="text">
+            <string>Caja</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAComprasRegistradas</cstring>
+        </property>
+        <property name="text">
+            <string>Compras Registradas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAReporteExistencias</cstring>
+        </property>
+        <property name="text">
+            <string>Reporte De Existencias</string>
+        </property>
+    </action>
+<action>
+        <property name="name">
+            <cstring>QARegistroEmpleado</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Empleados</string>
+        </property>
+    </action>
+
+
+
+
+</actions>
+
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

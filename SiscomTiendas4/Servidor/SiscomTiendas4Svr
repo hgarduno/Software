@@ -1,0 +1,44 @@
+#!/bin/sh
+
+DirServidor=$HOME/SiscomTiendas4/Servidor
+
+LD_LIBRARY_PATH=$LD_LIBARY_PATH:$DIRPOSTGRESQL/lib:$DirServidor:$DIRDesarrolloHGE/ActualizaAplicacion/Servidor:$DIRLIBSISCOM2:
+PATH=$PATH:$DIRDesarrolloHGE/SISCOMDesarrollo2/Servidor
+BDSeguridad3=Tiendas4
+#BDSeguridad3=SiscomVdys
+export	LD_LIBRARY_PATH \
+	PATH		\
+	BDSeguridad3
+
+start()
+{
+
+		ServidorGeneral $DirServidor/Configuracion.5651.ini	
+		ServidorGeneral $DirServidor/Configuracion.5650.ini	
+}
+stop()
+{
+	for X in `find $DirServidor -name '*.pid'` 
+	do
+	     kill -16 `cat $X`
+	     rm $X
+	done	
+}
+case "$1" in
+	start)
+		start		
+
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac

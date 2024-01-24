@@ -1,0 +1,15 @@
+#!/bin/bash 
+
+
+cat << Sql  |psql SiscomElectronica
+
+
+
+insert into bodegas values($1,'$2') ;
+
+insert into materialbodega select $1,cveproducto,0,0 from productos
+
+
+
+
+Sql

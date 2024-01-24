@@ -1,0 +1,18 @@
+/*! \file ProductosI.cpp
+ *
+ * Archivo que contiene la informacion de los datos
+ * que se utilizaran, en el control de inventarios
+ *
+ * Autor: Heli Garduno Esquivel
+ * Fecha: 2007-05-30
+ *
+ */
+
+
+/*! \class ProductoI
+ *  \brief Objeto que contiene la informacion de un producto
+ *  	   para el manejo, en el control de inventarios
+ *  \author Heli Garduno Esquivel
+ *  \version 1.0
+ *  \date 2007-05-30
+ */

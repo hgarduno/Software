@@ -1,0 +1,82 @@
+#!/bin/bash 
+
+
+source $HOME/bin/FuncionesComunesBash 
+
+
+
+EstaFechaInicio()
+{
+ OpcionABuscar=FechaInicio
+ echo $(EstaLaOpcion $*)
+}
+
+EstaFechaFin()
+{
+  OpcionABuscar=FechaFin
+  echo $(EstaLaOpcion $*)
+}
+
+
+EstaBaseDatos()
+{
+
+  OpcionABuscar=BaseDatos 
+  echo $(EstaLaOpcion $*)
+}
+# $1 Base de datos
+# $2 Fecha Inicio 
+# $3 Fecha Fin
+
+EnviaSentenciaBusqueda() 
+{
+
+cat << SentenciaSql | psql -t  $1 
+
+select sum(cantidad),
+	cveproducto 
+from ventas 
+where fechahora::date>='$2' and 
+      fechahora::date<='$3' 
+group by cveproducto 
+order by 1 desc;
+
+SentenciaSql
+
+
+
+}
+ObtenFechaInicio()
+{
+  Parametro=FechaInicio
+  echo $(ObtenParametroEntrada $*)
+}
+
+ObtenFechaFin()
+{
+
+  Parametro=FechaFin
+  echo $(ObtenParametroEntrada $*)
+
+}
+
+ObtenBaseDatos()
+{
+ Parametro=BaseDatos
+ echo $(ObtenParametroEntrada $*)
+}
+EstanFechas()
+{
+    if [[ "$(EstaFechaInicio $*)" == "1"  &&
+          "$(EstaFechaFin $*)"    == "1" ]]
+     then
+ 	echo 1 
+      else
+      	echo 0
+     fi
+}
+
+if [[ "$(EstanFechas  $*)" == "1" && "$(EstaBaseDatos $*)" ]]
+then
+	 EnviaSentenciaBusqueda $(ObtenBaseDatos $*) $(ObtenFechaInicio $*) $(ObtenFechaFin $*) |awk -F'|' '{ printf "**%s**\t**%s**\n", $1, $2}'
+fi

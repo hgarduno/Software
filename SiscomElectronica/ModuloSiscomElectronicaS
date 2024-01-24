@@ -1,0 +1,169 @@
+#!/bin/bash 
+
+source ~/bin/FuncionesComunesBash
+ServidoresAccesoSistema=$HOME/SiscomTiendasComunicaciones3.txt
+Aplicacion=SISCOMElectronica
+
+Binario=ModuloSiscomElectronica 
+ArchivoConfiguracion=$DirectorioSiscomElectronica/Configuracion/SiscomElectronica.hgarduno
+
+
+
+export ServidoresAccesoSistema	\
+	Aplicacion		\
+	Binario
+
+ModuloVentas()
+{
+	echo -Modulo InstanciaModuloVentas
+}
+ModuloPedidos()
+{
+    echo -Modulo InstanciaModuloPedido
+}
+EstaPedidos()
+{
+ OpcionABuscar=Pedidos
+ echo $(EstaLaOpcion $*)
+
+}
+EstaVentas()
+{
+ OpcionABuscar=Ventas
+ echo $(EstaLaOpcion $*)
+}
+EstaDebug()
+{
+ OpcionABuscar=Debug
+ echo $(EstaLaOpcion $*)
+}
+EstaBuscaModulo()
+{
+    OpcionABuscar=BuscaModulo
+    echo $(EstaLaOpcion $*) 
+}
+BibliotecaSiscomElectronica()
+{
+echo -Biblioteca libPantallasSiscomElectronica2009.so
+}
+EstaModuloDebug()
+{
+ OpcionABuscar=ModuloDebug
+ echo $(EstaLaOpcion $*)
+}
+ObtenModuloDebug()
+{
+  Paremetro=ModuloDebug
+  echo $(ObtenParametroEntrada $*)
+}
+ObtenBuscaModulo()
+{
+   Parametro=BuscaModulo 
+   echo $(ObtenParametroEntrada $*)
+}
+ModuloACargar()
+{
+ echo $(grep ${1} $ArchivoConfiguracion|grep Instancia |awk -F'=' '{print $2}')
+}
+CargandoModulo()
+{
+ printf "Cargando el modulo %s\n" $(ModuloACargar $1)
+ 
+ $Binario $(BibliotecaSiscomElectronica ) -Modulo $(ModuloACargar $1)
+}
+Ejecutando()
+{
+#   if [ "$(EstaDebug $*)" == "1" ]
+#   then 
+#   	# CDMX a Domingo 14 Agosto del 2022 
+#	# Estoy esperando a que instalen el internet , el cambio 
+#	# a total Play  :)
+#   	# Estoy intentando pasar el nombre del Modulo a gdb ,
+#	# con ObtenModuloDebug , pero no fufa 
+#   	#gdb --args ModuloSiscomElectronica  \
+#	#           -Biblioteca libPantallasSiscomElectronica2009.so  \
+#	#	   -Modulo 
+#   	#gdb --args ModuloSiscomElectronica  \
+#	#           -Biblioteca libPantallasSiscomElectronica2009.so  \
+#	#	   -Modulo InstanciaAdministradorPedidos
+#
+#   	gdb --args ModuloSiscomElectronica  \
+#	           -Biblioteca libPantallasSiscomElectronica2009.so  \
+#		   -Modulo InstanciaOrdenesRegistradas 
+#   else
+#   if [ "$(EstaVentas $*)" == "1" ]
+#   then
+#     ModuloSiscomElectronica $*					\
+#     		     -Biblioteca $(BibliotecaSiscomElectronica)  \
+#     		     -Modulo InstanciaModuloVentas
+#   else
+#   if [ "$(EstaPedidos $*)" == "1" ]
+#   then
+#     ModuloSiscomElectronica $*					\
+#     		     -Biblioteca $(BibliotecaSiscomElectronica)  \
+#     		     -Modulo InstanciaModuloPedido
+#     else
+#        ModuloSiscomElectronica  -Biblioteca $(BibliotecaSiscomElectronica) $*
+#     fi
+#   fi
+
+    if [ "$(EstaVentas $*)" == "1" ]
+    then
+	$Binario $(BibliotecaSiscomElectronica )  $(ModuloVentas)
+    else
+    if [ "$(EstaPedidos $*)" == "1" ]
+    then
+	$Binario $(BibliotecaSiscomElectronica )  $(ModuloPedidos)
+    else
+    if [ "$(EstaBuscaModulo $*)" == "1" ]
+    then
+        printf "Aqui\n";
+	  CargandoModulo $(ObtenBuscaModulo $*)
+    else
+    	printf "Otra opcion\n"
+	if [ "$(EstaDebug $*)" == "1" ]
+	then
+    		gdb --args $Binario $(BibliotecaSiscomElectronica )  $*
+	else
+		$Binario $(BibliotecaSiscomElectronica ) $*
+	fi
+    fi
+    fi
+    fi
+    
+}
+EstaLetra()
+{
+  OpcionABuscar=Letra
+  echo $(EstaLaOpcion $*) 
+}
+EstaTamanoLetra()
+{
+  OpcionABusar=TamanoLetra
+  echo $(EstaLaOpcion $*)
+}
+TipoLetra()
+{
+  if [[ "$(EstaLetra $*)" == "0" && "$(EstaTamanoLetra $*)" == "0" ]]
+  then
+  	echo -Letra Fixed -TamanoLetra  8
+   else
+   	echo ''
+   fi
+}
+
+
+LD_LIBRARY_PATH=$QTDIR/lib
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Cliente/SO
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:SiscomElectronica3/SO/
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QTDIR/plugins/designer
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomComunicaciones++
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomDesarrollo4++
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomDesarrollo4Qt++
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SISCOMDesarrollo2
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:SiscomElectronica2/Servidor
+export LD_LIBRARY_PATH
+# MuestraLdLibraryPath 
+
+Ejecutando $(TipoLetra $*)  $*

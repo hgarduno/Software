@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ps -cafel |grep ServidorGeneral |awk -F' ' '{printf("Pid[%s] %s %s\n"), $4, $14,$15 }' 
+
+
+

@@ -1,0 +1,51 @@
+#!/bin/bash 
+
+
+
+# Se pasa como primer argumento desde la linea de 
+# comandos el ctid , de la empresa
+# que se desea eliminar
+
+EjecutaSql()
+{
+
+cat << SQL   |psql SiscomElectronica
+
+delete from bodegaaexpendio where idexpendio=$1;
+delete from clienteexpendio where idempresa=$1;
+delete from cuentasporpagar where idexpendio=$1;
+delete from escuelas where idexpendio=$1;
+delete from matriz where  idempresa=$1;
+delete from puertosservidorad4 where idempresa=$1;
+delete from servidoressiscom4 where idempresa=$1;
+delete from transferencias where idexpendio=$1;
+delete from ventas where idexpendio=$1;
+delete from escuelaprincipalexpendio where idexpendio=$1;
+delete from compraimportacion where idempresa=$1;
+delete from cotizacionimportacion where idproveedor=$1;
+delete from productoexpendionosincronizado where idexpendio=$1;
+delete from productoproveedorimportacion where  idproveedor=$1;
+delete from clavesproveedores where idempresa=$1;
+delete from detallecompraimportacion where idempresa=$1;
+
+delete from correos where idempresa=$1;
+delete from direcciones where idempresa =$1;
+delete from empresas where idempresa=$1;
+SQL
+
+}
+
+ObtenIdEmpresa()
+{
+
+cat << SQL | psql SiscomElectronica -tA
+select idempresa
+from empresas
+where ctid='$1'
+SQL
+
+}
+
+IdEmpresa=$(ObtenIdEmpresa "$1")
+
+EjecutaSql $IdEmpresa

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tail -f Servidor/$1/Servidor.$1.log

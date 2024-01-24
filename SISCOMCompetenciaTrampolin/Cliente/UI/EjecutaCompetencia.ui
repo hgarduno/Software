@@ -1,0 +1,46 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>EjecutaCompetencia</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>EjecutaCompetencia</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>595</width>
+            <height>527</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Ejecuta Competencia</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>QPBRotacion</cstring>
+            </property>
+            <property name="text">
+                <string>Ejecuta Rotacion</string>
+            </property>
+        </widget>
+        <widget class="QTabWidget" row="0" column="0">
+            <property name="name">
+                <cstring>QTWRondas</cstring>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Tab 1</string>
+                </attribute>
+            </widget>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

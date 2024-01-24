@@ -1,0 +1,20 @@
+#!/bin/bash 
+
+
+BuscaArchivoPrefijo()
+{
+
+for X in $(ls -ltr $1|awk -F' ' '{print $9}') 
+do
+  if [[ "$X" == *"$2"* ]]
+  then
+	ArchivoX=$X
+   fi
+done
+
+echo $ArchivoX
+
+}
+
+
+BuscaArchivoPrefijo $1 $2

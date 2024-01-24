@@ -1,0 +1,203 @@
+#!/bin/bash 
+
+source ~/bin/FuncionesComunesBash 
+
+DirectorioPostgres=/home/postgres/Versiones/12.1.0
+
+EstaBaseMatriz()
+{
+OpcionABuscar=BaseMatriz
+echo $(EstaLaOpcion $*)
+}
+
+EstaNombre()
+{
+OpcionABuscar=Nombre
+echo $(EstaLaOpcion $*)
+}
+
+
+EstaIdBodega()
+{
+
+OpcionABuscar=IdBodega
+echo $(EstaLaOpcion $*)
+}
+
+EstaDirIpExpendio()
+{
+OpcionABuscar=DirIpExpendio
+echo $(EstaLaOpcion $*)
+
+
+}
+EstaBaseExpendio()
+{
+OpcionABuscar=BaseExpendio
+echo $(EstaLaOpcion $*)
+}
+EstaRegistroExpendio()
+{
+OpcionABuscar=RegistroExpendio
+echo $(EstaLaOpcion $*)
+}
+EstaRegistroMatriz()
+{
+OpcionABuscar=RegistroMatriz
+echo $(EstaLaOpcion $*)
+}
+ObtenIdBodega()
+{
+Parametro=IdBodega
+echo $(ObtenParametroEntrada $*)
+}
+ObtenNombre()
+{
+Parametro=Nombre
+echo $(ObtenParametroEntrada $*)
+}
+ObtenDirIpExpendio()
+{
+Parametro=DirIpExpendio
+echo $(ObtenParametroEntrada $*)
+}
+ObtenUsuario()
+{
+
+Parametro=Usuario
+echo $(ObtenParametroEntrada $*)
+
+}
+ObtenBaseExpendio()
+{
+Parametro=BaseExpendio
+echo $(ObtenParametroEntrada $*) 
+}
+ObtenBaseMatriz()
+{
+Parametro=BaseMatriz
+echo $(ObtenParametroEntrada $*)
+}
+ObtenDirPostgres()
+{
+Parametro=DirPostgres
+echo $(ObtenParametroEntrada $*)
+}
+OpcionesCompletasRegistroMatriz()
+{
+
+if [[ $(EstaRegistroMatriz $*) == 1 &&
+      $(EstaIdBodega $*)       == 1 && 
+      $(EstaNombre $*)         == 1 &&
+      $(EstaBaseMatriz $*)     == 1 ]]
+then
+	echo 1
+else
+	echo 0
+fi
+}
+ModoUsoRegistroBodega()
+{
+cat << ModoUso |more
+
+RegistraBodega , es un script que permite registrar en la matriz y en el expendio
+remoto una nueva bodega
+
+Modo de Uso
+
+RegistraBodega  -RegistroMatriz  	#Se le indica para realizar el registro de la
+				 	#bodega en matriz
+		
+		-IdBodega 		#Identificador consecutivo de la bodega
+
+		-Nombre   		#Nombre de la bodega, no se pueden usar espacios 
+			  		#en lugar de espacio se pude poner un guion bajo
+					
+		-BaseMatriz 	 	#Nombre de la base de datos en la matriz
+
+Las opciones anteriores son necesarias para realizar el registro de la bodega en la matriz.
+
+Ademas se deben agregar las siguientes opciones, para realizar el registro en el expendio
+
+		-Usuario              
+		-DirIpExpendio         #Direccion Ip del expendio 
+		-BaseExpendio	       #Base de datos del expendio
+
+ModoUso
+
+}
+####### Argumentos 
+##### IdBodega
+##### Nombre 
+##### Base de datos 
+RegistraBodegaMatriz()
+{
+cat << RegMatriz  | $DirectorioPostgres/bin/psql $3
+insert into Bodegas values($1,'$2');
+RegMatriz
+}
+
+OpcionesCompletasRegistroExpendio()
+{
+ if [ $(EstaRegistroExpendio $*) == 1 ]
+ then
+ 	echo 1
+  else
+  	echo 0
+fi
+}
+#### Argumentos
+## IdBodega 
+## Base Expendio
+RegistraBodegaEnElExpendio()
+{
+printf "Datos para registro IdBodega (%s) Base Expendio (%s)\n" $1 $2
+cat << BodegaEnElExpendio  | $DirectorioPostgres/bin/psql $2
+insert into materialbodega select $1,
+	           cveproducto,
+		   0,
+		   0
+	    from productos 
+BodegaEnElExpendio
+}
+###### Argumentos 
+# Usuario 
+# DirIpExpendio
+# IdBodega
+# Nombre
+# Base Expendio
+
+RegistrandoEnElExpendio()
+{
+ssh $1@$2 ~/bin/RegistraBodega 	-RegistroExpendio 				\
+			     	-IdBodega $3 					\
+				-Nombre $4					\
+				-BaseExpendio $5
+					
+}
+
+if [ $(OpcionesCompletasRegistroMatriz $*) == 1 ]
+then
+      RegistraBodegaMatriz $(ObtenIdBodega $*) $(ObtenNombre $*) $(ObtenBaseMatriz $*)
+    	printf "Registrando en el expendio Direccion Ip (%s) Base Datos (%s) \n"  \
+	      $(ObtenDirIpExpendio $*) 						  \
+	      $(ObtenBaseExpendio $*)
+      RegistrandoEnElExpendio 	$(ObtenUsuario $*) 		\
+      				$(ObtenDirIpExpendio $*) 	\
+				$(ObtenIdBodega $*)		\
+				$(ObtenNombre $*)		\
+				$(ObtenBaseExpendio $*)
+else
+   if [ $(EstaRegistroExpendio $*) == 1 ]
+   then
+   	printf "Registrando en el expendio \n"	
+   else
+   ModoUsoRegistroBodega $*
+   fi
+fi
+
+if [ $(OpcionesCompletasRegistroExpendio $*) == 1 ]
+then
+    RegistraBodegaMatriz $(ObtenIdBodega $*) $(ObtenNombre $*) $(ObtenBaseExpendio $*) 
+    RegistraBodegaEnElExpendio $(ObtenIdBodega $*) $(ObtenBaseExpendio $*) 
+fi

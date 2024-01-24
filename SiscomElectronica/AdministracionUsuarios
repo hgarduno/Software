@@ -1,0 +1,43 @@
+#!/bin/bash 
+
+source ~/bin/FuncionesComunesBash
+
+
+ObtenUsuario()
+{
+Parametro=Usuario
+echo $(ObtenParametroEntrada $*)
+}
+
+
+
+EliminaFirmaSeguridad()
+{
+
+cat << Eliminando |more 
+
+delete from usuarios where idusuario=$1 ;
+delete from firmas where idusuario=$1;
+
+Eliminando
+
+
+}
+
+#### $1 firma 
+
+IdUsuario()
+{
+
+IdUsuario=$(echo "select idusuario from firmas where firma='$1'" |psql -At Seguridad3) 
+echo $IdUsuario
+
+}
+
+
+
+
+
+IdUsuarioF=$(IdUsuario $(ObtenUsuario $*))
+
+EliminaFirma $IdUsuarioF

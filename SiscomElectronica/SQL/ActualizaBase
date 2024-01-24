@@ -1,0 +1,12 @@
+#!/bin/bash 
+
+#### ArchivosSqlParaActualizar.HGarduno 
+#### Incluye los cambios hasta Julio 2019, para
+
+for X in $(cat $1)
+do
+
+  cat $X 
+
+done
+

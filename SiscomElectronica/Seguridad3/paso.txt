@@ -1,0 +1,8 @@
+int lintSocket;
+if((lintSocket=Conectate(pStcPtrSisOpciones,
+			 "libSiscomElectronica4.so",
+			 "RegistraUsuario")))
+{
+LogSiscom("Registrando al usuario");
+
+}

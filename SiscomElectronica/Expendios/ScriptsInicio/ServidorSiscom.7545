@@ -1,0 +1,61 @@
+#!/bin/sh
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/postgres/Versiones/12.1.0/lib
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DirectorioSiscomElectronica/Servidor
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/ActualizaAplicacion/Servidor
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRLIBSISCOM2:
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DirectorioSiscomElectronica/SiscomElectronica2/Servidor
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomDesarrollo4
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomDesarrollo4/PostgresSql
+
+PATH=$PATH:$DIRDesarrolloHGE/SISCOMDesarrollo2/Servidor
+PATH=$PATH:$DIRDesarrolloHGE/SiscomDesarrollo4/
+DirectorioConfiguracion=$DirectorioSiscomElectronica/Expendios
+export	LD_LIBRARY_PATH \
+	PATH		\
+	DirectorioConfiguracion
+
+MataProceso()
+{
+ ArchivoPid=$DirectorioSiscomElectronica/Expendios/PIDs/ServidorSiscom$1\Pid
+  if [ -f $ArchivoPid ]
+  then
+  Pid=$(cat $ArchivoPid)
+  kill -9 $Pid
+  rm $ArchivoPid
+  else
+     printf "No esta el archivo %s\n" $ArchivoPid
+  fi
+
+}
+
+start()
+{
+	ServidorGeneral $DirectorioSiscomElectronica/Expendios/INIs/Configuracion.7546.ini	
+	ServidorGeneral $DirectorioSiscomElectronica/Expendios/INIs/Configuracion.7545.ini	
+	$DIRDesarrolloHGE/SiscomDesarrollo4/ServidorSiscom $DirectorioSiscomElectronica/Expendios/INIs/SiscomElectronica7547Ini
+}
+stop()
+{
+	MataProceso 7547
+	MataProceso 7546
+	MataProceso 7545
+}
+case "$1" in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac
+

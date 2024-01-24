@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+
+
+cat /dev/null > ActualizacionBaseDatos.sql
+
+for X in $(cat $1) 
+do 
+printf "Agregando %s\n" $X
+cat $X  >> ActualizacionBaseDatos.sql 
+done

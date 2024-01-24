@@ -1,0 +1,13 @@
+delete from productos;
+delete from familias;
+delete from unidades;
+delete from firmas;
+delete from personas;
+delete from tipospersona;
+delete from expendios;
+delete from matriz;
+delete from empresas;
+delete from tipoprecio;
+delete from existencias;
+delete from tipoprecio;
+delete from precios;

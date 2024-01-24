@@ -1,0 +1,28 @@
+#!/bin/bash 
+
+
+
+
+cat << Sqls |psql SiscomElectronica
+
+select *
+from TicketImpreso
+where idventa=$1 ;
+
+select * 
+from ImpresionesTicket
+where idventa=$1;
+
+select * 
+from ImpresionTicketHistorial
+where idimpresion in(select idimpresion
+		     from ImpresionesTicket 
+		     where idventa= $1) ;
+select * 
+from ImpresionTicketTotal
+where idimpresion in(select idimpresion
+		     from ImpresionesTicket
+		     where idventa=$1)
+
+
+Sqls

@@ -1,0 +1,55 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>RecetasConsulta</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>RecetasConsulta</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Recetas De La Consulta</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QCtrlRecetas" row="0" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>QCtrRecetas</cstring>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="1">
+            <property name="name">
+                <cstring>QPBTerminar</cstring>
+            </property>
+            <property name="text">
+                <string>Terminar</string>
+            </property>
+            <property name="autoDefault">
+                <bool>false</bool>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>QPBOFolio</cstring>
+            </property>
+            <property name="text">
+                <string>Otro Folio</string>
+            </property>
+            <property name="autoDefault">
+                <bool>false</bool>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlRecetas.h</includehint>
+</includehints>
+</UI>

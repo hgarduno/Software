@@ -1,0 +1,155 @@
+<ModSistemaTiendas Sistema="SISCOMTiendasMini" >
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaGimnasio" > </Funcion>
+		<Menu    Nombre="QARegGimnasio"> </Menu>
+		<TextoMenu Texto="Registro De Gimnasios" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaEntrenadores" > </Funcion>
+		<Menu    Nombre="QARegEntrenadores"> </Menu>
+		<TextoMenu Texto="Registro De Entrenadores" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaGimnastas" > </Funcion>
+		<Menu    Nombre="QARegGimnastas"> </Menu>
+		<TextoMenu Texto="Registro De Gimnastas" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaJuez" > </Funcion>
+		<Menu    Nombre="QARegJuez"> </Menu>
+		<TextoMenu Texto="Registro De Jueces" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaCompetencia" > </Funcion>
+		<Menu    Nombre="QACompetencia"> </Menu>
+		<TextoMenu Texto="Registro De Competencias" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaGimnastaCompetencia" > </Funcion>
+		<Menu    Nombre="QAGimnastaCompetencia"> </Menu>
+		<TextoMenu Texto="Gimnastas A La Competencia" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaGimnastasCompetencia" > </Funcion>
+		<Menu    Nombre="QAGimnastaCompetencia"> </Menu>
+		<TextoMenu Texto="Gimnastas Compitiendo" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaResultados" > </Funcion>
+		<Menu    Nombre="QAResultados"> </Menu>
+		<TextoMenu Texto="Resultados De La Competencia" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaResultadosA" > </Funcion>
+		<Menu    Nombre="QAResultadosA"> </Menu>
+		<TextoMenu Texto="Resultados De La Competencia (A)" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaGimnastasXCompetencia" > </Funcion>
+		<Menu    Nombre="QAGimXCompetencia"> </Menu>
+		<TextoMenu Texto="Gimnastas Por Competencia" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaRondas" > </Funcion>
+		<Menu    Nombre="QARondas"> </Menu>
+		<TextoMenu Texto="Asinga Rondas De Paso" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaCompetenciasAparatos" > </Funcion>
+		<Menu    Nombre="QARondas"> </Menu>
+		<TextoMenu Texto="Asinga Rondas De Paso 00" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaSinMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaSoloAparatos" > </Funcion>
+		<Menu    Nombre="QARondas"> </Menu>
+		<TextoMenu Texto="Solo Aparatos 00" > </TextoMenu>
+		<Argumento NoArgumento="97" Dato="1" > </Argumento>
+		<Argumento NoArgumento="98" Dato="IniciaSinMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaOperacionesGenerales" > </Funcion>
+		<Menu    Nombre="QARondas"> </Menu>
+		<TextoMenu Texto="Solo Aparatos 00" > </TextoMenu>
+		<Argumento NoArgumento="97" Dato="1" > </Argumento>
+		<Argumento NoArgumento="98" Dato="IniciaSinMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaEjecutaCompetencia" > </Funcion>
+		<Menu    Nombre="QAEjecutaCompetencia"> </Menu>
+		<TextoMenu Texto="Ejecuta Competencia" > </TextoMenu>
+		<Argumento NoArgumento="97" Dato="Todos" > </Argumento>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaActualizaPersonales" > </Funcion>
+		<Menu    Nombre="QAActualizaPersonales"> </Menu>
+		<TextoMenu Texto="Actualiza Datos Personales" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomTrampolin.so">
+		<Funcion Nombre="InstanciaTablaResultados" > </Funcion>
+		<Menu    Nombre="QATablaResultados"> </Menu>
+		<TextoMenu Texto="Tabla De Resultados" > </TextoMenu>
+		<Argumento NoArgumento="98" Dato="IniciaMenu" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+</ModSistemaTiendas>

@@ -1,0 +1,100 @@
+Se requiere realizar un programa que permita manejar las propiedades
+de los  objetos de QT que se utlizan para desarrollar los distintos
+sistemas.
+
+El programa debe considerar, el almacenamiento de las propiedades 
+mas representativas de cada objeto en una base de datos, para que
+estas se puedan manipular a traves del programa, y a su vez permitan
+crear perfiles de uso, el programa debe considerar el manejo de los
+distintos perfiles para los objetos almacenados en la base de datos.
+
+Despues de revisar las versiones anteriores, del Sistema de seguri-
+dad, se llego a la conclusion de que la interfaz debe manipular la
+creacion de usuarios, de perfiles, registro de aplicaciones, ademas
+por los procesos de programacion de las aplicaciones se debe consi-
+derar ademas de los objetos en tiempo de diseno de las formas, objetos
+en tiempo de ejecucion que pueden ser simples banderas u objetos --
+de QT.
+
+La forma en la que se deberan manejar los objetos de cada forma --
+sera mediante un QListView, donde la raiz mas externa sera el nombre
+de la clase de la forma, despues cada uno de los objetos que se 
+asociaran a esa forma, despues las propiedades de cada uno de los
+objetos y los valores que podran asignarse a los objetos.
+
+Se cambiara el estandar de trabajo para este proyecto, de la s
+siguiente forma:
+
+los nombres de las formas se formaran de la siguiente manera
+
+UI_NombreDeLaClase, el prefijo UI_, indicara que es un archivo
+ui, despues el nombre de la clase, con la notacion del cameyo,
+
+El nombre de la clase que se debe colocar a la forma sera el
+que se encuentra despues del prefijo UI_.
+
+Los archivos generados por el uic y moc se nombraran de la 
+siguiente forma
+
+UIC_H_NombreDeLaForma.h
+UIC_CPP_NombreDeLaForma.cpp
+MOC_CPP_NombreDeLaForma.cpp
+
+Los archivos de implementacion de las clases se nombraran
+de la siguiente forma:
+
+IMP_NombreDeLaForma.cpp
+IMP_NombreDeLaForma.h
+
+MOC_CPP_IMP_NombreDeLaForma.cpp
+
+
+En cuanto a los detalles de la base de datos que se debera
+considerar para la construccion de esta aplicacion, se tomaran
+lo siguiente:
+
+
+Aplicacion
+	idAplicacion
+	Nombre
+	Descripcion
+	DirectorioAUI
+Objeto
+	idObjeto
+	NmbClase
+	TipoDeObjeto
+	Ambito
+	
+Ambitos
+	idAmbito
+	TipoAmbito
+
+El Tipo De ambito puede ser 
+	Diseno
+	Ejecucion
+
+
+TipoDeObjeto
+	idTipoObjeto
+	NmbTipoObjeto
+
+El tipo de objeto puede ser
+	Forma
+	
+	
+Propiedades
+	idPropiedad
+	idObjeto
+	NmbPropiedad
+	Valor
+
+Usuarios
+	idUsuario
+	NmbUsuario
+		
+	
+	
+
+
+
+

@@ -1,0 +1,199 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SISCOMVentanaPrincipal</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>SISCOMVentanaPrincipal</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form2</string>
+    </property>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBarEditor</cstring>
+    </property>
+    <item text="Menu" name="PopupMenuEditor">
+        <action name="QAAutorizaPedidos"/>
+        <action name="QACompras"/>
+        <action name="QAManejadorPrecios"/>
+        <action name="QAManejadorProveedores"/>
+        <action name="QAFamilias"/>
+        <action name="QAUnidades"/>
+        <action name="QATiposPrecios"/>
+        <action name="QAManejadorProductos"/>
+        <action name="QARegistroEmpleados"/>
+        <action name="QAVehiculos"/>
+        <action name="QAVentas"/>
+        <action name="QAClientes"/>
+        <action name="QAPedidos"/>
+        <action name="QACtrExpendios"/>
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>QAAutorizaPedidos</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador Pedidos</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador Pedidos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACompras</cstring>
+        </property>
+        <property name="text">
+            <string>Compras</string>
+        </property>
+        <property name="menuText">
+            <string>Compras</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAManejadorPrecios</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Precios</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Precios</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAManejadorProveedores</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Proveedores</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Proveedores</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAFamilias</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Familias</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Familias</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAUnidades</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Unidades</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Unidades</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QATiposPrecios</cstring>
+        </property>
+        <property name="text">
+            <string>Tipos De Precios</string>
+        </property>
+        <property name="menuText">
+            <string>Tipos De Precios</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAManejadorProductos</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Productos</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Productos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QARegistroEmpleados</cstring>
+        </property>
+        <property name="text">
+            <string>Registro De Empleados</string>
+        </property>
+        <property name="menuText">
+            <string>Registro De Empleados</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAVehiculos</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Vehiculos</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Vehiculos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAVentas</cstring>
+        </property>
+        <property name="text">
+            <string>Ventas</string>
+        </property>
+        <property name="menuText">
+            <string>Ventas</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAClientes</cstring>
+        </property>
+        <property name="text">
+            <string>Manejador De Clientes</string>
+        </property>
+        <property name="menuText">
+            <string>Manejador De Clientes</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QAPedidos</cstring>
+        </property>
+        <property name="text">
+            <string>Pedidos</string>
+        </property>
+        <property name="menuText">
+            <string>Pedidos</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>QACtrExpendios</cstring>
+        </property>
+        <property name="text">
+            <string>Controlador De Expendios</string>
+        </property>
+        <property name="menuText">
+            <string>Controlador De Expendios</string>
+        </property>
+    </action>
+</actions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

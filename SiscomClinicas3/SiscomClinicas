@@ -1,0 +1,31 @@
+#!/bin/sh 
+
+DirSistema=$DIRDesarrolloHGE/SiscomClinicas3
+LD_LIBRARY_PATH=$QTDIR/lib:$DirSistema/Cliente/SO:$QTDIR/plugins/designer:$DIRLIBSISCOM2:$QTDIR/plugins/designer:$HOME/SiscomTiendas4/Cliente/SO
+
+PATH=$DirSistema/Cliente/
+DirectorioConfiguracion=$DirSistema/
+ArchivoConfiguracionModulos=SiscomClinicas3.xml
+Aplicacion=SiscomClinicas3
+PtoComSvr2=2645
+RutaIconos=/Cliente/Iconos
+ArchivoServidores=$HOME/.SiscomClinicas3Comunicaciones.txt
+DirIpSvr=127.0.0.1
+PtoComSvr=5650
+export LD_LIBRARY_PATH
+export PATH
+export DirectorioConfiguracion
+export ArchivoConfiguracionModulos
+export Aplicacion
+export PtoComSvr2 
+export RutaIconos
+export ArchivoServidores 
+export IdExpendio
+export DirIpSvr
+export PtoComSvr
+if [ $2 ]
+then
+DISPLAY=:0.$2
+fi
+
+SiscomClinicas  $*

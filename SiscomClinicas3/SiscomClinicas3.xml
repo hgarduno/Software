@@ -1,0 +1,250 @@
+<ModSistemaTiendas Sistema="SISCOMTiendasMini" >
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaRegistroPersonas" > </Funcion>
+		<Menu    Nombre="QARegMedicos"> </Menu>
+		<TextoMenu Texto="Registra Medicos" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="Medico" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Registra De Medicos" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaServicios" > </Funcion>
+		<Menu    Nombre="QAServicios"> </Menu>
+		<TextoMenu Texto="Controlador De Servicios" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="RegistraServicioGeneral" > </Argumento>
+		<Argumento NoArgumento="11" Dato="ServiciosGenerales" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaServicios" > </Funcion>
+		<Menu    Nombre="QAServiciosMedico"> </Menu>
+		<TextoMenu Texto="Controlador De Servicios Del Medico" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="RegistraServicioMedico" > </Argumento>
+		<Argumento NoArgumento="11" Dato="ServiciosMedico" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaPerfilConsultaMedico" > </Funcion>
+		<Menu    Nombre="QAPerfilConsultaMedico"> </Menu>
+		<TextoMenu Texto="Perfil De La Consulta" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaRecepcion" > </Funcion>
+		<Menu    Nombre="QARecepcion"> </Menu>
+		<TextoMenu Texto="Recepcion" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaManDatPersonales" > </Funcion>
+		<Menu    Nombre="QAManDatPersonales"> </Menu>
+		<TextoMenu Texto="Mantenimiento De Datos Generales" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaCentroMedico2" > </Funcion>
+		<Menu    Nombre="QACentroMedico"> </Menu>
+		<TextoMenu Texto="Centro Del Medico" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaPreciosServicios" > </Funcion>
+		<Menu    Nombre="QAPreciosServicios"> </Menu>
+		<TextoMenu Texto="Precios Servicios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaHospitalizacion" > </Funcion>
+		<Menu    Nombre="QAHospitalizacion"> </Menu>
+		<TextoMenu Texto="Hospitalizacion" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMAplicacion">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaHojaEnfermeria" > </Funcion>
+		<Menu    Nombre="QAHojaEnfermeria"> </Menu>
+		<TextoMenu Texto="Hoja de Enfermeria" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaRegProducto" > </Funcion>
+		<Menu    Nombre="QARegProducto"> </Menu>
+		<TextoMenu Texto="Registro De Productos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaFamilias" > </Funcion>
+		<Menu    Nombre="QAFamilias"> </Menu>
+		<TextoMenu Texto="Registro De Familias" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaActualizaProductos" > </Funcion>
+		<Menu    Nombre="QAAProductos"> </Menu>
+		<TextoMenu Texto="Actualiza Productos" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaPrecios" > </Funcion>
+		<Menu    Nombre="QAAPrecios"> </Menu>
+		<TextoMenu Texto="Registro De Precios" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaPrecioProducto" > </Funcion>
+		<Menu    Nombre="QAPPrecios"> </Menu>
+		<TextoMenu Texto="Asigna Precios Al Producto" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaRegistroEmpresa" > </Funcion>
+		<Menu    Nombre="QAREmmpresas"> </Menu>
+		<TextoMenu Texto="Registro De Empresas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaCompras" > </Funcion>
+		<Menu    Nombre="QACompras"> </Menu>
+		<TextoMenu Texto="Registro De Compras" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaVentas" > </Funcion>
+		<Menu    Nombre="QAVentas"> </Menu>
+		<TextoMenu Texto="Realiza Ventas" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="0" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Registra Venta" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaVentas" > </Funcion>
+		<Menu    Nombre="QAOrdenesCaja"> </Menu>
+		<TextoMenu Texto="Ordenes De Caja" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="1" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Registra Orden" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaReporteVentas" > </Funcion>
+		<Menu    Nombre="QARVentas"> </Menu>
+		<TextoMenu Texto="Reporte De Ventas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaDevoluciones" > </Funcion>
+		<Menu    Nombre="QADevoluciones"> </Menu>
+		<TextoMenu Texto="Devoluciones" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaCaja" > </Funcion>
+		<Menu    Nombre="QACaja"> </Menu>
+		<TextoMenu Texto="Caja" > </TextoMenu>
+		<Argumento NoArgumento="10" Dato="2" > </Argumento>
+		<Argumento NoArgumento="11" Dato="Actualiza Orden" > </Argumento>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaComprasRegistradas" > </Funcion>
+		<Menu    Nombre="QAComprasRegistradas"> </Menu>
+		<TextoMenu Texto="Compras Registradas" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomTiendas4.so">
+		<Funcion Nombre="InstanciaReporteExistencias" > </Funcion>
+		<Menu    Nombre="QAReporteExistencias"> </Menu>
+		<TextoMenu Texto="Reporte De Existencia" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaVentasMedico" > </Funcion>
+		<Menu    Nombre="QAVentasMedico"> </Menu>
+		<TextoMenu Texto="Reporte De Ventas Por Medico" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+
+<MenuGeneral Nombre="QPMEstadisticas">
+	<Modulo NombreModulo="libPantallasSiscomClinicas3.so">
+		<Funcion Nombre="InstanciaMovimientosRecepcion" > </Funcion>
+		<Menu    Nombre="QAMovimientosRecepcion"> </Menu>
+		<TextoMenu Texto="MovimientosRecepcion" > </TextoMenu>
+	</Modulo>
+</MenuGeneral>
+
+</ModSistemaTiendas>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ModSistemaTiendas>

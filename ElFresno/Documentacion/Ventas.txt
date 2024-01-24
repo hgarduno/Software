@@ -1,0 +1,82 @@
+Los pedidos pueden ser levantados por agentes y via telefonica.
+
+Los datos que se piden son:
+
+	Nombre completo del cliente
+	Direccion completa
+	Referencias de ubicacion
+	Apodo
+	Pedido, listado del producto requerido y precio. 
+
+La politica de precios, es la siguiente:
+
+	Dentro de teoloyucan es un precio base. 
+
+	Aqui se debera crear el concepto de precio base	.
+
+	Se manejan precios para foraneos que se aumenta 1 o dos pesos por el transporte
+	
+	Despues se tienen precios por cada cliente. en este punto practicamente cada cliente
+	tiene una lista de precios.
+
+	Fecha de entrega.
+
+Una vez que se registra el pedido se pasa a autorizacion.
+
+Una vez que se autoriza el pedido, se actualizan los datos, es decir
+precio, existencia del producto y estas modificaciones solo pueden
+ser realizadas por el administrador general.
+
+Como parte del proceso de autorizacion se asigna el pedido a un chofer.
+y el numero de vehiculo
+
+Se requiere que el pedido se imprima, en las notas de remision de el
+Fresno
+
+En este punto se asigna el numero de remision que se asignara al pedido
+
+
+
+
+Para el proceso se consideran las siguientes tablas:
+
+	TiposDePersona
+			los cuales pueden ser 
+			Vendedores de expendio
+			Clientes
+			Agentes
+			Choferes
+			Clientes
+
+En este punto se identifica que se requiere ver cual es el estatus
+del pedido, los cuales se almacenaran en un catalogo, los valores
+posibles identificados al momento son :
+
+
+		Ingresado
+		Autorizado
+		Cargando
+		
+Para llevar el control puntual del estado del pedido se creara
+la tabla EstadoDelPedido, en la cual se registrara cada uno de
+los estados que tendra el pedido asi como la fecha y hora de
+cada estado, esto nos permitira llevar un control puntual de 
+cada pedido.
+
+Por ejemplo si el pedido se levanto a la 10:00 
+
+Se insertara en esta tabla el id correspondiente a ingresado
+y la fecha con hora.
+
+En el momento que se autorice se ingresara otro
+registro con el id de autorizado y la fecha y hora
+
+Cuando el pedido se este cargando se ingresara otro
+registro a la tabla, y asi sucesivamente.
+	
+
+En cuanto a los precios, se tomara un precio por cada cliente
+y un precio base, el cual se identificara por idPrecio =0,
+precio foraneo con idPrecio=1 
+
+

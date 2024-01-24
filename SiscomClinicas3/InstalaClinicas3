@@ -1,0 +1,325 @@
+#!/bin/sh -e
+
+
+
+
+CorreScriptsAplicacionesComunes()
+{
+Seguridad3 $1 $2 $3 $4 $5 $6
+Tiendas4 $1 $2 $4
+}
+Seguridad3()
+{
+
+if [ -d $1 ]
+then
+  if [ -d $1/Seguridad3 ]
+  then
+   printf "El directorio %s/Seguridad3 Existe" $1 ;
+   else
+   mkdir $1/Seguridad3
+   fi
+
+else
+ mkdir $1
+ mkdir $1/Seguridad3
+fi
+
+$DIRDesarrolloHGE/SISCOMSeguridad3/InstalaSeguridad3 -a $1/Seguridad3 -b $2 -c $3 -d $4 -e $5 -f $6 -gSiscomClinicas3 -hSi -i Si
+
+
+}
+
+Tiendas4()
+{
+$DIRDesarrolloHGE/SiscomTiendas4/InstalaSistema $1/ $PtoRN $PtoAD $3
+$DIRDesarrolloHGE/SiscomTiendas4/CreaBaseDatos.sh $3
+mkdir $1/Servidor/$PtoRN
+mkdir $1/Servidor/$PtoAD
+
+}
+CopiaArchivos()
+{
+ArchivosClienteClinicas3=\
+"$DIRDesarrolloHGE/SiscomClinicas3/SiscomClinicas3.xml
+$DIRDesarrolloHGE/SiscomClinicas3/Cliente/SiscomClinicas
+$DIRDesarrolloHGE/SiscomClinicas3/Cliente/SO/libPantallasSiscomClinicas3.so
+$QTDIR/plugins/designer/libControlServicios.so
+$QTDIR/plugins/designer/libControlRecetas.so
+$QTDIR/plugins/designer/libControlEstadisticaMedicos.so
+$QTDIR/plugins/designer/libControlClinicas.so
+$QTDIR/plugins/designer/libControlPersonas.so
+$QTDIR/plugins/designer/libControlSepomexComunicas.so"
+
+for X in $ArchivosClienteClinicas3 
+do
+cp $X $1/Cliente ;
+done
+
+
+}
+
+ArchivoIniAD()
+{
+cat << EOF > $1/Servidor/Configuracion.$3.ini
+
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   =  $3
+
+PtoAccesoDatos= 5000
+DirIpAccesoDatos=127.0.0.1
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libAccesoDatos.so
+FuncionLibServidor = AccesoDatos
+
+DirTrabajo=$1/Servidor
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   = $4
+
+
+	#Informacion para los comentarios del archivo
+
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+
+ClienteFrecuente=Si
+EOF
+}
+ArchivoIniRN()
+{
+
+cat << EOF > $1/Servidor/Configuracion.$2.ini
+
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   = $2
+
+PtoAccesoDatos= $3
+DirIpAccesoDatos=127.0.0.1
+#DirIpAccesoDatos=201.163.187.112
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libSiscomClinicas3.so
+FuncionLibServidor = Principal
+
+DirTrabajo=$1/Servidor
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   =  $4
+
+
+	#Informacion para los comentarios del archivo
+
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+
+
+#LibMemoriaComun=libSiscomTrampolinMemoriaComun.so
+
+#FuncionLibMemoriaComun=IniciaMemoriaComun
+#ClienteFrecuente=Si
+
+
+# Para este caso el nombre de las bibliotecas se forman de dos partes
+# separadas por @:
+# la primera es un identificador
+# la segunda el nombre de la biblioteca
+
+#BibliotecasServidor[]
+#		BibliotecasServidor[0]=0@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=1@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=2@libSeguridad3Expendios.so
+#[]BibliotecasServidor
+
+
+# Los nombres de las funciones se forman por el identificador de la
+# biblioteca y el nombre de la funcion, el identificador de la biblioteca
+# es el numero mediante el cual se va a relacionar la biblioteca y 
+# la funcion 
+#FuncionesServidor[]
+		FuncionesServidor[0]=0@ConsultaSeguridad3Pro2Version2
+#[]FuncionesServidor
+
+EOF
+
+}
+
+CreaScriptCliente()
+{
+echo '?>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+cat << EOF > $1/SiscomClinicas3.sh
+#!/bin/sh 
+LD_LIBRARY_PATH=$1/Cliente
+PATH=$1/Cliente
+DirectorioConfiguracion=$1/Cliente
+ArchivoConfiguracionModulos=SiscomClinicas3.xml
+Aplicacion=SiscomClinicas3
+ArchivoServidores=/home/$2/.SiscomClinicas3Comunicaciones.txt
+
+export LD_LIBRARY_PATH
+export PATH
+export DirectorioConfiguracion
+export ArchivoConfiguracionModulos
+export Aplicacion
+export ArchivoServidores 
+export IdExpendio
+
+SiscomClinicas $*
+EOF
+echo 'Si Termino el Scrip Del Cliente'
+chmod +x $1/SiscomClinicas3.sh
+}
+
+VeLog()
+{
+cat << EOF > $1/VeLog
+#!/bin/sh
+
+tail -f Servidor/\$1/Servidor.\$1.log
+EOF
+chmod +x $1/VeLog
+}
+
+IniciaServidor()
+{
+cat << EOF > $1/Servidor/SiscomClinicas3
+
+#!/bin/sh
+
+DirServidor=$1/Servidor
+
+LD_LIBRARY_PATH=$1/Servidor
+PATH=$1/Servidor:/usr/bin/cat:/bin/
+BDSeguridad3=$4
+export	LD_LIBRARY_PATH \
+	PATH		\
+	BDSeguridad3
+
+start()
+{
+
+		ServidorGeneral \$DirServidor/Configuracion.$2.ini	
+		ServidorGeneral \$DirServidor/Configuracion.$3.ini	
+}
+stop()
+{
+	kill -9 \`cat \$DirServidor/$2/ServidorSiscom.$2.pid\`
+	kill -9 \`cat \$DirServidor/$3/ServidorSiscom.$3.pid\`
+}
+case "\$1" in
+	start)
+		start		
+
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac
+EOF
+chmod +x $1/Servidor/SiscomClinicas3
+}
+EliminaArchivosTiendas()
+{
+rm $1/Servidor/Configuracion*
+rm $1/Servidor/SiscomTiendas4
+
+}
+CopiaArchivosServidor()
+{
+ArchivosServidor=\
+"$DIRDesarrolloHGE/SiscomClinicas3/Servidor/SiscomClinicasSvr
+$DIRDesarrolloHGE/SiscomClinicas3/Servidor/libSiscomClinicas3.so"
+for X in $ArchivosServidor 
+do
+  cp $X $1/Servidor;
+done
+}
+Servidor()
+{
+CopiaArchivosServidor $1
+ArchivoIniAD $1 $2 $3 $4
+ArchivoIniRN $1 $2 $3 $4
+IniciaServidor $1 $2 $3 $4
+
+}
+
+SQLClinicas3()
+{
+psql $2 < $DIRDesarrolloHGE/SiscomClinicas3/SQL/Tablas.sql
+pg_dump $2 > $1/SiscomClinicas3BaseInicio.sql
+
+}
+#Argumentos 
+#1.-Directorio Instalacion
+#2.-Pto Reglas Negocio Seguridad
+#3.-Pto Acceso Datos Seguridad
+#4.-Base De Datos
+#5.-Usuario que inicia el servicio
+#6.-Directorio con los archivos UI De la aplicacion
+
+
+PtoRN=$(( $2+2 ))
+PtoAD=$(( $2+3 ))
+
+CorreScriptsAplicacionesComunes $1 $2 $3 $4 $5 $6
+CopiaArchivos $1
+CreaScriptCliente $1 $5
+VeLog $1
+
+EliminaArchivosTiendas $1
+Servidor $1 $PtoRN $PtoAD $4
+SQLClinicas3 $1 $4
+
+

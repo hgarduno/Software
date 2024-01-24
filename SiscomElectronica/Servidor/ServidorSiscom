@@ -1,0 +1,54 @@
+#!/bin/sh
+DirCodigoFuente=SISCOMElectronica
+DirServidor=$DIRDesarrolloHGE/$DirCodigoFuente/Servidor
+
+LD_LIBRARY_PATH=$LD_LIBARY_PATH:$DIRPOSTGRESQL/lib:$DirServidor:$DIRDesarrolloHGE/ActualizaAplicacion/Servidor:$DIRLIBSISCOM2:$DIRDesarrolloHGE/$DirCodigoFuente/SiscomElectronica2/Servidor:$DirDesarrollo4/SiscomDesarrollo4
+PATH=$PATH:$DIRDesarrolloHGE/SISCOMDesarrollo2/Servidor
+
+export	LD_LIBRARY_PATH \
+	PATH
+
+start()
+{
+
+		ServidorGeneral $DirServidor/Configuracion.5646.ini	
+		ServidorGeneral $DirServidor/Configuracion.5645.ini	
+}
+stop()
+{
+		if [ -f $DirServidor/ServidorSiscom.5645.pid ]
+		then
+		Pid5645=`cat $DirServidor/ServidorSiscom.5645.pid` 
+		kill -16 $Pid5645
+		rm -f $DirServidor/ServidorSiscom.5645.pid
+		else
+		echo 'No esta corriendo el Servidor en el puerto 5645'
+		fi
+		if [ -f $DirServidor/ServidorSiscom.5646.pid ]
+		then
+		Pid5646=`cat $DirServidor/ServidorSiscom.5646.pid` 
+		kill -16 $Pid5646
+		rm -f $DirServidor/ServidorSiscom.5646.pid
+		else
+		echo 'No esta corriendo el Servidor en el puerto 5646'
+		fi
+
+}
+case "$1" in
+	start)
+		start		
+
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac

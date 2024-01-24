@@ -1,0 +1,627 @@
+# Para trabajar con las variables del archivo Ini
+# debemos considerar que se tomaran 2 tipos de variables
+# 
+####  
+# Al momento de estar distribuyendo las opciones 
+# generales observo que se generaran varias categorias
+# con lo que la barra de menu practicamente se llena
+# por tal motivo sera necesario encontrar la menear 
+# para que se creen sub menus 
+# Por ejemplo Administracion Siscom
+#   Empleados
+#            Registro de Empleados
+#            Sueldos Empleados 
+#   Clientes 
+#   	    
+#   	    ....
+
+IconoAplicacion.Icono=IconoAplicacion
+
+MenuPrincipal.QPopupMenuPuntoVenta.Texto=Principal Ventas
+MenuPrincipal.QPopupMenuPuntoVenta.Icono=Dibujo.png
+#{
+	QPopupMenuPuntoVenta.QAVentasExpendio.Texto=Ventas
+	QPopupMenuPuntoVenta.QAVentasExpendio.Icono=IconoQAVentasExpendio
+	PopupMenuPuntoVenta.QAVentasExpendio.Modulo=libVentasElectronica.so
+	QPopupMenuPuntoVenta.QAVentasExpendio.Funcion=CreaInstanciaVentasElectronica
+
+	QPopupMenuPuntoVenta.QAPuntoVenta.Texto=Punto Venta (Version 2)
+	QPopupMenuPuntoVenta.QAPuntoVenta.Icono=IconoQAPuntoVenta
+	QPopupMenuPuntoVenta.QAPuntoVenta.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPuntoVenta.QAPuntoVenta.Funcion=InstanciaPuntoVenta
+
+	QPopupMenuPuntoVenta.QAModuloVentas.Texto=Modulo Ventas
+	QPopupMenuPuntoVenta.QAModuloVentas.Icono=IconoQAModuloVentas
+	QPopupMenuPuntoVenta.QAModuloVentas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPuntoVenta.QAModuloVentas.Funcion=InstanciaModuloVentas
+
+	QPopupMenuPuntoVenta.QAModuloPedido.Texto=Pedidos
+	QPopupMenuPuntoVenta.QAModuloPedido.Icono=IconoQAModuloPedidos
+	QPopupMenuPuntoVenta.QAModuloPedido.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPuntoVenta.QAModuloPedido.Funcion=InstanciaModuloPedido
+
+	QPopupMenuPuntoVenta.QAOrdenesRegistradas.Texto=Ordenes Registradas
+	QPopupMenuPuntoVenta.QAOrdenesRegistradas.Icono=IconoQAModuloOrgenesRegistradas
+	QPopupMenuPuntoVenta.QAOrdenesRegistradas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPuntoVenta.QAOrdenesRegistradas.Funcion=InstanciaOrdenesRegistradas
+
+	QPopupMenuPuntoVenta.QAOrdenesFavoritas.Texto=Ordenes Favoritas
+	QPopupMenuPuntoVenta.QAOrdenesFavoritas.Icono=IconoQAModuloOrgenesRegistradas
+	QPopupMenuPuntoVenta.QAOrdenesFavoritas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPuntoVenta.QAOrdenesFavoritas.Funcion=InstanciaOrdenesFavoritas
+
+#}
+
+#{
+
+MenuPrincipal.QPopupMenuAdministradorPedidos.Texto=Administrador de Pedidos
+MenuPrincipal.QPopupMenuAdministradorPedidos.Icono=Dibujo.png
+
+
+	QPopupMenuAdministradorPedidos.QAAdministradorPedidos.Texto=Administrador De Pedidos
+	QPopupMenuAdministradorPedidos.QAAdministradorPedidos.Icono=IconoQAModuloOrgenesRegistradas
+	QPopupMenuAdministradorPedidos.QAAdministradorPedidos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministradorPedidos.QAAdministradorPedidos.Funcion=InstanciaAdministradorPedidos
+
+#}
+
+MenuPrincipal.QPopupMenuPuntosEntrega.Texto=Puntos de Entrega Siscom
+MenuPrincipal.QPopupMenuPuntosEntrega.Icono=Dibujo.png
+
+	QPopupMenuPuntosEntrega.QAPuntosEntrega.Texto=Puntos de entrega
+	QPopupMenuPuntosEntrega.QAPuntosEntrega.Icono=IconoQAPuntosEntrega
+	QPopupMenuPuntosEntrega.QAPuntosEntrega.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPuntosEntrega.QAPuntosEntrega.Funcion=InstanciaPuntosEntrega
+
+MenuPrincipal.QPopupMenuOperacionesExpendios.Texto=Operaciones Expendios
+MenuPrincipal.QPopupMenuOperacionesExpendios.Icono=Dibujo.png
+
+	QPopupMenuOperacionesExpendios.QASincronizaExpendio.Texto=Sincroniza Expendio
+	QPopupMenuOperacionesExpendios.QASincronizaExpendio.Icono=IconoQAPuntosEntrega
+	QPopupMenuOperacionesExpendios.QASincronizaExpendio.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuOperacionesExpendios.QASincronizaExpendio.Funcion=InstanciaSincronizaExpendio
+
+
+MenuPrincipal.QPopupMenuImpresos.Texto=Circuitos Impresos
+MenuPrincipal.QPopupMenuImpresos.Icono=Dibujo.png
+
+	QPopupMenuImpresos.QAManejadorImpresos.Texto=Circuitos Impresos
+	QPopupMenuImpresos.QAManejadorImpresos.Icono=IconoQAManejadorImpresos
+	QPopupMenuImpresos.QAManejadorImpresos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuImpresos.QAManejadorImpresos.Funcion=InstanciaManejadorImpresos
+
+
+MenuPrincipal.QPopupMenuBodegas.Texto=Bodegas
+MenuPrincipal.QPopupMenuBodegas.Icono=Dibujo.png
+
+	QPopupMenuBodegas.QAMaterialBodegaExpendio.Texto=Transfiere Material A Expendio
+	QPopupMenuBodegas.QAMaterialBodegaExpendio.Icono=IconoQAMaterialBodegaExpendio
+	QPopupMenuBodegas.QAMaterialBodegaExpendio.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuBodegas.QAMaterialBodegaExpendio.Funcion=InstanciaMaterialBodegaExpendio
+
+	QPopupMenuBodegas.QAInventarioBodega.Texto=Captura Inventario Bodega
+	QPopupMenuBodegas.QAInventarioBodega.Icono=IconoQAInventarioBodega
+	QPopupMenuBodegas.QAInventarioBodega.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuBodegas.QAInventarioBodega.Funcion=InstanciaInventarioBodega
+
+
+	QPopupMenuBodegas.QAModuloBodegas.Texto=Modulo Bodegas
+	QPopupMenuBodegas.QAModuloBodegas.Icono=IconoQAModuloBodegas
+	QPopupMenuBodegas.QAModuloBodegas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuBodegas.QAModuloBodegas.Funcion=InstanciaModuloBodegas
+
+
+MenuPrincipal.QPopupMenuPromociones.Texto=Promociones Siscom
+MenuPrincipal.QPopupMenuPromociones.Icono=Dibujo.png
+
+	QPopupMenuPromociones.QAPesosPPunto.Texto=Pesos Por Punto
+	QPopupMenuPromociones.QAPesosPPunto.Icono=Dibujo.png
+	QPopupMenuPromociones.QAPesosPPunto.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPromociones.QAPesosPPunto.Funcion=InstanciaActualizaPesosPPunto
+
+	QPopupMenuPromociones.QAPromociones.Texto=Controlador Promociones
+	QPopupMenuPromociones.QAPromociones.Icono=Dibujo.png
+	QPopupMenuPromociones.QAPromociones.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPromociones.QAPromociones.Funcion=InstanciaPromocionesElectronica
+
+	QPopupMenuPromociones.QAPAlumnos.Texto=Puntos Alumnos
+	QPopupMenuPromociones.QAPAlumnos.Icono=Dibujo.png
+	QPopupMenuPromociones.QAPAlumnos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPromociones.QAPAlumnos.Funcion=InstanciaPuntosAlumnos
+
+
+
+MenuPrincipal.QPopupMenuServiciosSiscom.Texto=ServiciosSiscom Siscom
+MenuPrincipal.QPopupMenuServiciosSiscom.Icono=Dibujo.png
+
+	QPopupMenuServiciosSiscom.QAAlumnoALaboratorio.Texto=Registra Alumnos Laboratorio
+	QPopupMenuServiciosSiscom.QAAlumnoALaboratorio.Icono=Dibujo.png
+	QPopupMenuServiciosSiscom.QAAlumnoALaboratorio.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuServiciosSiscom.QAAlumnoALaboratorio.Funcion=InstanciaRegistroAlumnoServicio
+
+
+MenuPrincipal.QPopupMenuPrecios.Texto=Precios
+MenuPrincipal.QPopupMenuPrecios.Icono=Dibujo.png
+
+	QPopupMenuPrecios.QAPreciosExpendios.Texto=Precios Expendios
+	QPopupMenuPrecios.QAPreciosExpendios.Icono=Dibujo.png
+	QPopupMenuPrecios.QAPreciosExpendios.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuPrecios.QAPreciosExpendios.Funcion=InstanciaPreciosExpendios
+
+
+MenuPrincipal.QPopupMenuExistencias.Texto=Controlador De Existencias
+MenuPrincipal.QPopupMenuExistencias.Icono=Dibujo.png
+#{
+	QPopupMenuExistencias.QAExistenciasM.Texto=Existencias Minimas
+	QPopupMenuExistencias.QAExistenciasM.Icono=IconoQAExistenciasM
+	QPopupMenuExistencias.QAExistenciasM.Modulo=libCtrExistenciasMinimas.so
+	QPopupMenuExistencias.QAExistenciasM.Funcion=InstanciaCtrExistenciasMinimas
+
+	QPopupMenuExistencias.QACtrExistencias.Texto=Controlador De Existencias
+	QPopupMenuExistencias.QACtrExistencias.Icono=IconoQACtrExistencias
+	QPopupMenuExistencias.QACtrExistencias.Modulo=libCtrExistencias.so
+	QPopupMenuExistencias.QACtrExistencias.Funcion=InstanciaCtrExistencias
+
+	QPopupMenuExistencias.QAFaltantes.Texto=Faltantes Expendio
+	QPopupMenuExistencias.QAFaltantes.Icono=IconoQAFaltantes
+	QPopupMenuExistencias.QAFaltantes.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuExistencias.QAFaltantes.Funcion=InstanciaProductosFaltantes
+
+	QPopupMenuExistencias.QAExistenciaExpendios.Texto=Existencia Expendios
+	QPopupMenuExistencias.QAExistenciaExpendios.Icono=IconoQAExistenciaExpendios
+	QPopupMenuExistencias.QAExistenciaExpendios.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuExistencias.QAExistenciaExpendios.Funcion=InstanciaExistenciaExpendios
+
+
+#}
+
+
+MenuPrincipal.QPopupMenuSalidaMaterial.Texto=Salida De Material
+MenuPrincipal.QPopupMenuSalidaMaterial.Icono=Dibujo.png
+#{
+	QPopupMenuSalidaMaterial.QASalidaMaterial.Texto=Salida De Material
+	QPopupMenuSalidaMaterial.QASalidaMaterial.Icono=IconoQASalidaMaterial
+	QPopupMenuSalidaMaterial.QASalidaMaterial.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuSalidaMaterial.QASalidaMaterial.Funcion=InstanciaSalidaMaterial
+
+#}
+
+MenuPrincipal.QPopupMenuCompras.Texto=Compras
+MenuPrincipal.QPopupMenuCompras.Icono=Dibujo.png
+#{
+	QPopupMenuCompras.QACompras.Texto=Compras 
+	QPopupMenuCompras.QACompras.Icono=IconoQACompras
+	QPopupMenuCompras.QACompras.Modulo=libCompras.so
+	QPopupMenuCompras.QACompras.Funcion=InstanciaCompras
+
+	QPopupMenuCompras.QAComprasProducto.Texto=Compras  Del Producto
+	QPopupMenuCompras.QAComprasProducto.Icono=IconoQAComprasProducto
+	QPopupMenuCompras.QAComprasProducto.Modulo=libPantallasSiscomElectronica3.so
+	QPopupMenuCompras.QAComprasProducto.Funcion=InstanciaComprasProducto
+
+	QPopupMenuCompras.QAClavesProveedores.Texto=Claves Proveedores
+	QPopupMenuCompras.QAClavesProveedores.Icono=IconoQAClavesProveedores
+	QPopupMenuCompras.QAClavesProveedores.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QAClavesProveedores.Funcion=InstanciaClavesProveedores
+
+	QPopupMenuCompras.QAClavesProveedores4.Texto=Claves Proveedores ( Nueva )
+	QPopupMenuCompras.QAClavesProveedores4.Icono=IconoQAClavesProveedores
+	QPopupMenuCompras.QAClavesProveedores4.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QAClavesProveedores4.Funcion=InstanciaClavesProveedor4
+
+	QPopupMenuCompras.QAOrdenCompras.Texto=Orden Compra
+	QPopupMenuCompras.QAOrdenCompras.Icono=IconoQAOrdenCompras
+	QPopupMenuCompras.QAOrdenCompras.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QAOrdenCompras.Funcion=InstanciaOrdenCompras
+
+	QPopupMenuCompras.QAOrdenCompraImportacion.Texto=Orden Compra Importacion
+	QPopupMenuCompras.QAOrdenCompraImportacion.Icono=IconoQAOrdenCompraImportacion
+	QPopupMenuCompras.QAOrdenCompraImportacion.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QAOrdenCompraImportacion.Funcion=InstanciaOrdenCompraImportacion
+
+
+	QPopupMenuCompras.QAComprasImportaciones.Texto=Compras Importaciones
+	QPopupMenuCompras.QAComprasImportaciones.Icono=IconoQAComprasImportaciones
+	QPopupMenuCompras.QAComprasImportaciones.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QAComprasImportaciones.Funcion=InstanciaComprasImportaciones
+
+	QPopupMenuCompras.QACompraContenedor.Texto=Compras Contenedor
+	QPopupMenuCompras.QACompraContenedor.Icono=IconoQACompraContenedor
+	QPopupMenuCompras.QACompraContenedor.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QACompraContenedor.Funcion=InstanciaCompraContenedor
+
+	QPopupMenuCompras.QACompraContenedor2.Texto=Compras Contenedor (Otra)
+	QPopupMenuCompras.QACompraContenedor2.Icono=IconoQACompraContenedor2
+	QPopupMenuCompras.QACompraContenedor2.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QACompraContenedor2.Funcion=InstanciaCompraContenedor2
+
+
+	QPopupMenuCompras.QARegistroProductosSiscom.Texto=Registro Productos Siscom
+	QPopupMenuCompras.QARegistroProductosSiscom.Icono=IconoQARegistroProductosSiscom
+	QPopupMenuCompras.QARegistroProductosSiscom.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QARegistroProductosSiscom.Funcion=InstanciaRegistroProductosSiscom
+
+
+	QPopupMenuCompras.QACotizaImportacion.Texto=Cotiza Importacion
+	QPopupMenuCompras.QACotizaImportacion.Icono=IconoQACotizaImportacion
+	QPopupMenuCompras.QACotizaImportacion.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCompras.QACotizaImportacion.Funcion=InstanciaCotizaImportacion
+
+#}
+#
+MenuPrincipal.QPopupMenuTransferencias.Texto=Transferencias
+MenuPrincipal.QPopupMenuTransferencias.Icono=Dibujo.png
+#{
+	QPopupMenuTransferencias.QAHistorialTransferencias.Texto=Historial De Transferencias
+	QPopupMenuTransferencias.QAHistorialTransferencias.Icono=IconoQAHistorialTransferencias
+	QPopupMenuTransferencias.QAHistorialTransferencias.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuTransferencias.QAHistorialTransferencias.Funcion=InstanciaHistorialTransferencias
+
+	QPopupMenuTransferencias.QAMaterialAExpendio.Texto=Material A Expendios
+	QPopupMenuTransferencias.QAMaterialAExpendio.Icono=IconoQAMaterialAExpendio
+	QPopupMenuTransferencias.QAMaterialAExpendio.Modulo=libMaterialAExpendio.so
+	QPopupMenuTransferencias.QAMaterialAExpendio.Funcion=InstanciaMaterialAExpendio
+
+	QPopupMenuTransferencias.QAPedidoMaterial.Texto=Pedido De Material
+	QPopupMenuTransferencias.QAPedidoMaterial.Icono=IconoQAPedidoMaterial
+	QPopupMenuTransferencias.QAPedidoMaterial.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuTransferencias.QAPedidoMaterial.Funcion=InstanciaPedidoMaterial
+
+	QPopupMenuTransferencias.QAPedidoMaterial4.Texto=Pedido De Material (Nueva Version)
+	QPopupMenuTransferencias.QAPedidoMaterial4.Icono=IconoQAPedidoMaterial4
+	QPopupMenuTransferencias.QAPedidoMaterial4.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuTransferencias.QAPedidoMaterial4.Funcion=InstanciaPedidoMaterial4
+
+
+	QPopupMenuTransferencias.QAPedidosExpendios.Texto=Pedidos Expendios
+	QPopupMenuTransferencias.QAPedidosExpendios.Icono=IconoQAPedidosExpendios
+	QPopupMenuTransferencias.QAPedidosExpendios.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuTransferencias.QAPedidosExpendios.Funcion=InstanciaPedidosExpendios
+
+	QPopupMenuTransferencias.QARecibePedido.Texto=Recibe Pedido
+	QPopupMenuTransferencias.QARecibePedido.Icono=IconoQARecibePedido
+	QPopupMenuTransferencias.QARecibePedido.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuTransferencias.QARecibePedido.Funcion=InstanciaRecibePedido
+
+	QPopupMenuTransferencias.QATransferenciaExpendioAExpendio.Texto=Tranfiere Expendio A Expendio
+	QPopupMenuTransferencias.QATransferenciaExpendioAExpendio.Icono=IconoTransferenciaExpendioAExpendio
+	QPopupMenuTransferencias.QATransferenciaExpendioAExpendio.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuTransferencias.QATransferenciaExpendioAExpendio.Funcion=InstanciaTransferenciaExpendioAExpendio
+
+	QPopupMenuTransferencias.QAPedidosOtrosExpendios.Texto=Pedidos Otros Expendios
+	QPopupMenuTransferencias.QAPedidosOtrosExpendios.Icono=IconoPedidosOtrosExpendios
+	QPopupMenuTransferencias.QAPedidosOtrosExpendios.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuTransferencias.QAPedidosOtrosExpendios.Funcion=InstanciaPedidosOtrosExpendios
+
+
+
+#}
+
+#
+MenuPrincipal.QPopupMenuCursos.Texto=Cursos
+MenuPrincipal.QPopupMenuCursos.Icono=Dibujo.png
+#{
+	QPopupMenuCursos.QAHistorialCursos.Texto=Inscripcion Al Curso
+	QPopupMenuCursos.QAHistorialCursos.Icono=IconoQAHistorialCursos
+	QPopupMenuCursos.QAHistorialCursos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCursos.QAHistorialCursos.Funcion=InstanciaRegistroAlumnoCurso
+
+	QPopupMenuCursos.QAAlumnosInscritosCursos.Texto=Alumnos Inscritos
+	QPopupMenuCursos.QAAlumnosInscritosCursos.Icono=IconoQAAlumnosInscritosCursos
+	QPopupMenuCursos.QAAlumnosInscritosCursos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCursos.QAAlumnosInscritosCursos.Funcion=InstanciaAlumnosInscritosCurso
+
+	QPopupMenuCursos.QAReporteVentasCursos.Texto=Reportes Ventas Cursos
+	QPopupMenuCursos.QAReporteVentasCursos.Icono=IconoQAReporteVentasCursos
+	QPopupMenuCursos.QAReporteVentasCursos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCursos.QAReporteVentasCursos.Funcion=InstanciaReporteVentasCursos
+
+	QPopupMenuCursos.QAProgramandoCurso.Texto=Programando Cursos
+	QPopupMenuCursos.QAProgramandoCurso.Icono=IconoQAProgramandoCurso
+	QPopupMenuCursos.QAProgramandoCurso.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCursos.QAProgramandoCurso.Funcion=InstanciaProgramandoCurso
+
+#}
+
+
+MenuPrincipal.QPopupMenuReportes.Texto=Reportes Ventas
+MenuPrincipal.QPopupMenuReportes.Icono=Dibujito.png
+
+
+#{
+
+	QPopupMenuReportes.QAControladorReportesVentasExpendios.Texto=Reportes Ventas Expendios
+	QPopupMenuReportes.QAControladorReportesVentasExpendios.Icono=Dibujo.png 
+	QPopupMenuReportes.QAControladorReportesVentasExpendios.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuReportes.QAControladorReportesVentasExpendios.Funcion=InstanciaControladorReportesVentasExpendios
+
+	QPopupMenuReportes.QAReporteSemestral.Texto=Reporte Semestral
+	QPopupMenuReportes.QAReporteSemestral.Icono=Dibujo.png 
+	QPopupMenuReportes.QAReporteSemestral.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuReportes.QAReporteSemestral.Funcion=InstanciaReporteSemestral
+
+	QPopupMenuReportes.QAReporteVentas.Texto=Reporte De Ventas
+	QPopupMenuReportes.QAReporteVentas.Icono=Dibujo.png 
+	QPopupMenuReportes.QAReporteVentas.Modulo=libReportesVentas.so
+	QPopupMenuReportes.QAReporteVentas.Funcion=InstanciaReportesVentas
+
+	QPopupMenuReportes.QAReporteVentas4.Texto=Reporte De Ventas (4)
+	QPopupMenuReportes.QAReporteVentas4.Icono=Dibujo.png 
+	QPopupMenuReportes.QAReporteVentas4.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuReportes.QAReporteVentas4.Funcion=InstanciaReporteVentas4
+
+	QPopupMenuReportes.QACierreDia.Texto=Cierre Dia
+	QPopupMenuReportes.QACierreDia.Icono=Dibujo.png 
+	QPopupMenuReportes.QACierreDia.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuReportes.QACierreDia.Funcion=InstanciaCierreDia
+
+	QPopupMenuReportes.QAReportandoVentas.Texto=Reportes Ventas Expendios
+	QPopupMenuReportes.QAReportandoVentas.Icono=Dibujo.png 
+	QPopupMenuReportes.QAReportandoVentas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuReportes.QAReportandoVentas.Funcion=InstanciaReportandoVentas
+
+
+
+	QPopupMenuReportes.QADispositivosVendidos.Texto=Dispositivos Vendidos
+	QPopupMenuReportes.QADispositivosVendidos.Icono=Dibujo.png 
+	QPopupMenuReportes.QADispositivosVendidos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuReportes.QADispositivosVendidos.Funcion=InstanciaDispositivosVendidos
+
+	QPopupMenuReportes.CorteCajaSucursal.Texto=Corte Caja Sucursal
+	QPopupMenuReportes.CorteCajaSucursal.Icono=Dibujo.png 
+	QPopupMenuReportes.CorteCajaSucursal.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuReportes.CorteCajaSucursal.Funcion=InstanciaCorteCajaSucursal
+
+
+
+#}
+
+
+MenuPrincipal.QPopupMenuCajas.Texto=Administracion Cajas
+MenuPrincipal.QPopupMenuCajas.Icono=Dibujito.png
+
+	QPopupMenuCajas.QASeguridadCajaVentas.Texto=Seguridad Caja Ventas
+	QPopupMenuCajas.QASeguridadCajaVentas.Icono=IconoQASeguridadCajaVentas
+	QPopupMenuCajas.QASeguridadCajaVentas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCajas.QASeguridadCajaVentas.Funcion=InstanciaSeguridadCajaVentas
+
+	QPopupMenuCajas.QAReportesVentasPorCaja.Texto=Ventas Por Caja
+	QPopupMenuCajas.QAReportesVentasPorCaja.Icono=IconoQAReportesVentasPorCaja
+	QPopupMenuCajas.QAReportesVentasPorCaja.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCajas.QAReportesVentasPorCaja.Funcion=InstanciaVentasPorCaja
+
+
+	QPopupMenuCajas.QAAdministracionCajas.Texto=Cajas
+	QPopupMenuCajas.QAAdministracionCajas.Icono=IconoQAAdministracionCajas
+	QPopupMenuCajas.QAAdministracionCajas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCajas.QAAdministracionCajas.Funcion=InstanciaAdministracionCajas
+
+	QPopupMenuCajas.QACorteCaja.Texto=Corte De Caja
+	QPopupMenuCajas.QACorteCaja.Icono=IconoQACorteCaja
+	QPopupMenuCajas.QACorteCaja.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCajas.QACorteCaja.Funcion=InstanciaCorteCaja
+
+	QPopupMenuCajas.QACaja.Texto=Caja
+	QPopupMenuCajas.QACaja.Icono=IconoQACaja
+	QPopupMenuCajas.QACaja.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCajas.QACaja.Funcion=InstanciaCaja
+
+	QPopupMenuCajas.QACaja2.Texto=Administracion de Caja 2
+	QPopupMenuCajas.QACaja2.Icono=IconoQACaja2
+	QPopupMenuCajas.QACaja2.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuCajas.QACaja2.Funcion=InstanciaCaja2
+
+
+MenuPrincipal.QPopupMenuAdministracion.Texto=Administracion SISCOM
+MenuPrincipal.QPopupMenuAdministracion.Icono=Dibujito.png
+
+
+
+
+#{
+
+	QPopupMenuAdministracion.QARegistroEmpleados.Texto=Registro De Empleados
+	QPopupMenuAdministracion.QARegistroEmpleados.Icono=IconoQARegistroEmpleados
+	QPopupMenuAdministracion.QARegistroEmpleados.Modulo=libRegistroEmpleados.so
+	QPopupMenuAdministracion.QARegistroEmpleados.Funcion=InstanciaRegistroEmpleados
+
+	QPopupMenuAdministracion.QASueldosEmpleados.Texto=Sueldos Empleados
+	QPopupMenuAdministracion.QASueldosEmpleados.Icono=IconoQASueldosEmpleados
+	QPopupMenuAdministracion.QASueldosEmpleados.Modulo=libPantallasSiscomElectronica3.so
+	QPopupMenuAdministracion.QASueldosEmpleados.Funcion=InstanciaSueldosEmpleados
+
+	QPopupMenuAdministracion.QAGanancias.Texto=Ganancias
+	QPopupMenuAdministracion.QAGanancias.Icono=IconoQAGanancias
+	QPopupMenuAdministracion.QAGanancias.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAGanancias.Funcion=InstanciaGanancias
+
+	QPopupMenuAdministracion.QAOrdenes.Texto=Ordenes
+	QPopupMenuAdministracion.QAOrdenes.Icono=IconoQAOrdenes
+	QPopupMenuAdministracion.QAOrdenes.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAOrdenes.Funcion=InstanciaOrdenes
+
+       QPopupMenuAdministracion.QAClientes.Texto=Controlador De Clientes
+       QPopupMenuAdministracion.QAClientes.Icono=Dibujo.png
+       QPopupMenuAdministracion.QAClientes.Modulo=libClientes.so
+       QPopupMenuAdministracion.QAClientes.Funcion=InstanciaClientes 
+
+       QPopupMenuAdministracion.QARegistroClientes.Texto=Registro De Clientes
+       QPopupMenuAdministracion.QARegistroClientes.Icono=Dibujo.png
+       QPopupMenuAdministracion.QARegistroClientes.Modulo=libPantallasSiscomElectronica2009.so
+       QPopupMenuAdministracion.QARegistroClientes.Funcion=InstanciaRegistroClientes
+
+
+
+
+
+	QPopupMenuAdministracion.QAInventario.Texto=Captura Inventario
+	QPopupMenuAdministracion.QAInventario.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAInventario.Modulo=libInventario.so
+	QPopupMenuAdministracion.QAInventario.Funcion=InstanciaInventario
+
+	QPopupMenuAdministracion.QADatosClienteF.Texto=Datos Cliente Frecuente
+	QPopupMenuAdministracion.QADatosClienteF.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QADatosClienteF.Modulo=libDatosClienteF.so
+	QPopupMenuAdministracion.QADatosClienteF.Funcion=InstanciaDatosClienteF
+
+	
+	QPopupMenuAdministracion.QAEmpleadosExpendio.Texto=Empleados Por Expendio
+	QPopupMenuAdministracion.QAEmpleadosExpendio.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAEmpleadosExpendio.Modulo=libEmpleadosExpendio.so
+	QPopupMenuAdministracion.QAEmpleadosExpendio.Funcion=InstanciaEmpleadosExpendio
+
+	QPopupMenuAdministracion.QAContPracticas.Texto=Controlador De Practicas
+	QPopupMenuAdministracion.QAContPracticas.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAContPracticas.Modulo=libContPracticas.so
+	QPopupMenuAdministracion.QAContPracticas.Funcion=InstanciaContPracticas
+
+	QPopupMenuAdministracion.QAManejadorProductos.Texto=Manejador De Productos
+	QPopupMenuAdministracion.QAManejadorProductos.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAManejadorProductos.Modulo=libManejadorProductos.so
+	QPopupMenuAdministracion.QAManejadorProductos.Funcion=InstanciaManejadorProductos
+
+	QPopupMenuAdministracion.QAManejadorProductos4.Texto=Manejador De Productos4
+	QPopupMenuAdministracion.QAManejadorProductos4.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAManejadorProductos4.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAManejadorProductos4.Funcion=InstanciaManejadorProductos4
+
+
+	QPopupMenuAdministracion.QAManejadorKits.Texto=Manejador De Kits 
+	QPopupMenuAdministracion.QAManejadorKits.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAManejadorKits.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAManejadorKits.Funcion=InstanciaManejadorKits
+
+	QPopupMenuAdministracion.QAManejadorPracticas.Texto=Manejador De Practicas
+	QPopupMenuAdministracion.QAManejadorPracticas.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAManejadorPracticas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAManejadorPracticas.Funcion=InstanciaManejadorPracticas
+
+
+
+
+	QPopupMenuAdministracion.QAFamilias.Texto=Manejador Familias
+	QPopupMenuAdministracion.QAFamilias.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAFamilias.Modulo=libFamilias.so
+	QPopupMenuAdministracion.QAFamilias.Funcion=InstanciaFamilias
+
+
+	QPopupMenuAdministracion.QAManejadorProveedores.Texto=Manejador De Proveedores
+	QPopupMenuAdministracion.QAManejadorProveedores.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAManejadorProveedores.Modulo=libManejadorProveedores.so
+	QPopupMenuAdministracion.QAManejadorProveedores.Funcion=InstanciaManejadorProveedores
+
+
+#	QPopupMenuAdministracion.QAReporteVentas.Texto=Reporte De Ventas
+#	QPopupMenuAdministracion.QAReporteVentas.Icono=Dibujo.png 
+#	QPopupMenuAdministracion.QAReporteVentas.Modulo=libReportesVentas.so
+#	QPopupMenuAdministracion.QAReporteVentas.Funcion=InstanciaReportesVentas
+
+
+	QPopupMenuAdministracion.QAManejadorPrecios.Texto=Manejador de precios
+	QPopupMenuAdministracion.QAManejadorPrecios.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAManejadorPrecios.Modulo=libManejadorPrecios.so
+	QPopupMenuAdministracion.QAManejadorPrecios.Funcion=InstanciaManejadorPrecios
+
+	QPopupMenuAdministracion.QAActualizaPrecioExpendios.Texto=Actualiza Precio Expendios
+	QPopupMenuAdministracion.QAActualizaPrecioExpendios.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAActualizaPrecioExpendios.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAActualizaPrecioExpendios.Funcion=InstanciaActualizaPrecioExpendios
+
+
+
+	QPopupMenuAdministracion.QADevoluciones.Texto=Devoluciones
+	QPopupMenuAdministracion.QADevoluciones.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QADevoluciones.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QADevoluciones.Funcion=InstanciaDevoluciones
+
+	QPopupMenuAdministracion.QAOrdenesVendidas.Texto=Ordenes Vendidas
+	QPopupMenuAdministracion.QAOrdenesVendidas.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAOrdenesVendidas.Modulo=libOrdenesVendidas.so
+	QPopupMenuAdministracion.QAOrdenesVendidas.Funcion=InstanciaOrdenesVendidas
+
+	QPopupMenuAdministracion.QAOrdenCompra.Texto=Ordenes De Compras
+	QPopupMenuAdministracion.QAOrdenCompra.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAOrdenCompra.Modulo=libOrdeneCompra.so
+	QPopupMenuAdministracion.QAOrdenCompra.Funcion=InstanciaOrdenCompra
+
+	QPopupMenuAdministracion.QAFacturas.Texto=Facturas
+	QPopupMenuAdministracion.QAFacturas.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAFacturas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAFacturas.Funcion=InstanciaFacturas
+
+	QPopupMenuAdministracion.QAContabilidad.Texto=Contabilidad
+	QPopupMenuAdministracion.QAContabilidad.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAContabilidad.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAContabilidad.Funcion=InstanciaContabilidad
+
+	QPopupMenuAdministracion.QAFacturando3.Texto=Facturando Siscom
+	QPopupMenuAdministracion.QAFacturando3.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAFacturando3.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAFacturando3.Funcion=InstanciaFacturando3
+
+
+	QPopupMenuAdministracion.QAADatosAlumno.Texto=Actualiza Datos Alumnos
+	QPopupMenuAdministracion.QAADatosAlumno.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAADatosAlumno.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAADatosAlumno.Funcion=InstanciaActualizaDatosAlumno
+
+	QPopupMenuAdministracion.QARastreoProducto.Texto=Rastrea Producto
+	QPopupMenuAdministracion.QARastreoProducto.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QARastreoProducto.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QARastreoProducto.Funcion=InstanciaRastreoProducto
+
+	QPopupMenuAdministracion.QAProgramacionInventario.Texto=Programacion Inventario
+	QPopupMenuAdministracion.QAProgramacionInventario.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAProgramacionInventario.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAProgramacionInventario.Funcion=InstanciaProgramacionInventario
+
+	QPopupMenuAdministracion.QAProductosSinSincronizar.Texto=Productos Sin Sincronizar
+	QPopupMenuAdministracion.QAProductosSinSincronizar.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAProductosSinSincronizar.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAProductosSinSincronizar.Funcion=InstanciaProductosSinSincronizar
+
+
+	QPopupMenuAdministracion.QAActualizaExpendio.Texto=Actualiza Expendio
+	QPopupMenuAdministracion.QAActualizaExpendio.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAActualizaExpendio.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAActualizaExpendio.Funcion=InstanciaActualizaExpendio
+
+	QPopupMenuAdministracion.QARegistroAlumnos.Texto=Registro Alumno
+	QPopupMenuAdministracion.QARegistroAlumnos.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QARegistroAlumnos.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QARegistroAlumnos.Funcion=InstanciaRegistroAlumno
+
+	QPopupMenuAdministracion.QAProgramacionPlacas.Texto=Programacion Placas
+	QPopupMenuAdministracion.QAProgramacionPlacas.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAProgramacionPlacas.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAProgramacionPlacas.Funcion=InstanciaProgramacionPlacas
+
+	QPopupMenuAdministracion.QAFacturacion4.Texto=Sistema de Facturacion
+	QPopupMenuAdministracion.QAFacturacion4.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAFacturacion4.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAFacturacion4.Funcion=InstanciaFacturando4
+
+	QPopupMenuAdministracion.QAClavesSatSiscom.Texto=Claves Sat / Siscom
+	QPopupMenuAdministracion.QAClavesSatSiscom.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAClavesSatSiscom.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAClavesSatSiscom.Funcion=InstanciaClavesSatSiscom
+
+	QPopupMenuAdministracion.QAGastosExpendio.Texto=Gastos Expendio
+	QPopupMenuAdministracion.QAGastosExpendio.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QAGastosExpendio.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QAGastosExpendio.Funcion=InstanciaGastosExpendio
+
+	QPopupMenuAdministracion.QACierreCaja.Texto=Cierre Caja
+	QPopupMenuAdministracion.QACierreCaja.Icono=Dibujo.png 
+	QPopupMenuAdministracion.QACierreCaja.Modulo=libPantallasSiscomElectronica2009.so
+	QPopupMenuAdministracion.QACierreCaja.Funcion=InstanciaCierreCaja
+
+#}
+
+DatosExpendios.Zacatenco.Encargado.Comunicacion.Telefono=1
+DatosExpendios.Zacatenco.Encargado.Comunicacion.Correo=1
+DatosExpendios.Zacatenco.Encargado.Comunicacion.Nextel=1
+DatosExpendios.Zacatenco.Comunicaciones.DireccionIp=2
+DatosExpendios.Zacatenco.Comunicaciones.Puerto=3
+
+

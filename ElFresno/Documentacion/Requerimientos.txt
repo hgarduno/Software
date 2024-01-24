@@ -1,0 +1,112 @@
+
+En pantalla de captura de productos, se debe verificar que al no seleccionar 
+las unidades el sistema truena, se requiere que despues de anexar el producto
+el foco se pase al combo de familia
+
+
+Se requiere traer otro raton porque no funciono uno
+
+Verificar, al seleccionar las funciones que utilizan el realloc, en el nopix
+esta enviando un error en el log de servidor y truena el servidor, por lo que
+seguramente la funcion SISCOMCopiaACharCharDeComunicaciones2 esta mal.
+
+
+Se requiere que en las claves por default se cambie a mayusculas
+
+
+2006-07-24
+
+Para el apartado de proveedores se debera asignar un nombre corto con
+el que se debera identificar al proveedor.
+
+
+
+
+2006-08-04
+
+
+Se requiere que desde la ventana de registrar el pedido, se pueda cambiar el
+precio de venta, ya que es comun que al estar negociando con el cliente el 
+pedido este diga que el precio al que compra es tal, tons se debe cambiar.
+
+
+Se debe integrar al manejo de los proveedores un nombre corto y se pueda
+buscar su informacion por nombres cortos, esto requiere que se debe hacer
+igual que para clientes la busqueda para proveedores, por nombre corto
+y que se pueda recuperar 
+
+
+Se necesita que al momento de que un pedido estaba en un estatus por ejemplo
+en entregado, o revisado si se selecciona y se registra nuevamente pues
+lo repite
+
+Se requiere que en el manejador de precios se despliegue el nombre completo
+del cliente y que al momento de actualizar un precio se refresque despues
+de realizar esta operacion
+
+
+Se debe revisar la pantalla de captura de precios ya que no es funcional
+a la hora de refrescar la informacion si se esta capturando un precio, se 
+modifica y si el precio fue el ultimo al refrescar se vuelve al principio
+tons para volver a llegar el precio que se requiere hay que recorrer toda
+la lista y esto es un problema
+
+En la ventana de asignacion de chofer y vehiculo, activar el enter 
+para seleccionar y deshabilitar el boton de asingacion sino se a
+asignado o el chofer o el vehiculo, ya que si no se ha realizado
+esta operacion y se aprita asignar chofer y vehiculo truena el 
+programa 
+
+2006-08-11
+
+Se requiere, que al levantar el pedido, se requiere que se pueda almacenar
+la persona que hablo para levantar el pedido, ya que el pedido puede
+ser para algun cliente, pero puede ser que algun secretario del cliente
+sea el que habla para realizar el pedido;
+
+
+En la ventana de manejador de pedidos, se requiere que en el caption 
+se visualice la informacion que tenga activada en el grid, por ejemplo
+si son los pedidos autorizados, pedidos en ruta, pedidos en carga
+para saber a que corresponde esa informacion 
+
+
+Un problema que presento la aplicacion hoy es que un medido esta 
+en dos estatus, es decir como en ruta y como revisado al chofer
+y bueno pues esta mal
+
+R.- Este problema seguramente es por la falta de la 
+validacion en la interfaz, es decir la version anterior a la 
+actual no contemplaba la validacion de la habilitacion de los
+botones que cambian el estado del pedido, entonces en esa fase
+se podia combiar el estado del pedido en cualquier otra linea
+
+
+
+2006-08-14
+
+
+Se requiere que se pueda fijar, la fecha de trabajo
+para que se puedan autorizar los pedidos que no son del 
+dia de hoy.
+
+A la hora de levantar el pedido se requiere poder 
+capturar la fecha de entrega, 
+
+
+En el boton de pedidos en ruta, se debe eliminar la 
+posibilidad de cambiar el contenido del pedido.
+
+
+Se requiere que se muestre en algun lado la suma total
+de los pedidos revisados al chofer
+
+Se requiere que se puedan imprimir desde pedidos autorizados
+los 4 juegos de impresiones, despues se requiere que 
+se pueden imprimir los pedidos revisados al chofer.
+
+Se debe de imprimir la hora a la que se recibio el
+
+pedido
+
+  

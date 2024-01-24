@@ -1,0 +1,17 @@
+void ReporteVentas(StcSiscomOpciones *pStcPtrSisOpciones)
+{
+char lchrArrBuffer[256];
+char lchrArrFechaInicio[28],
+	lchrArrFechaFin[28];
+SiscomRegistroProL *lSisRegProLPtrBases=0,
+		   *lSisRegProLPtrDatos=0,
+		   *lSisRegProLPtrAgrupados=0,
+		   *lSisRegProLPtrExisMatriz=0;
+   ObtenBasesExpendios(lchrArrBuffer,pStcPtrSisOpciones,&lSisRegProLPtrBases);
+   ObtenFechas(pStcPtrSisOpciones,lchrArrFechaInicio,lchrArrFechaFin);
+   ConsultaExistenciaMatriz(&lSisRegProLPtrExisMatriz);
+   ConsultaBases(lchrArrFechaInicio,lchrArrFechaFin,lSisRegProLPtrBases,&lSisRegProLPtrDatos);
+   AgrupaInformacion(lSisRegProLPtrDatos,&lSisRegProLPtrAgrupados);
+   SumaVentasSiscom(lSisRegProLPtrExisMatriz,lSisRegProLPtrAgrupados);
+   GeneraReporte(lSisRegProLPtrAgrupados,pStcPtrSisOpciones);
+}

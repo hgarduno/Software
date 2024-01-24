@@ -1,0 +1,134 @@
+#!/bin/sh
+PTORN=2000
+PTOAD=2001
+ARGRN="-A$PTORN 		  	\
+       -BRNProcesoAtiende.bin     	\
+       -C20                       	\
+       -DlibRNDllIniciaDemonio.so 	\
+       -ECargaProcesosYDll        	\
+       -FIniciaMemSHM             	\
+       -G$PTOAD                   	\
+       -H127.0.0.1"
+ARGAD="-A$PTOAD                         \
+       -BADProcesoAtiendeCliente.bin    \
+       -C20                             \
+       #-D$SISCOM/Binarios/ADDllIniciaDemonio.so -EADDllGeneraArgumentos -FADDllConexionBDYCopiaSHM;"
+VERSIONGCC=/Informacion/Instalaciones/GCC402/
+DIRSVRSISCOM=$DIRDesarrolloHGE/SISCOMDesarrollo/Servidor
+LD_LIBRARY_PATH_SISCOM=$DIRSVRSISCOM:$DIRDesarrolloHGE/SISCOMSeguridad/ModulosSeguridad/:$SISCOM_LIB_DIR:$VERSIONGCC/lib:$DIRDesarrolloHGE/SISCOMSeguridad3/Servidor/SO:$DIRDesarrolloHGE/SISCOMTiendasConSeguridadVersion3/ModulosSistemaTiendas:$DIRPOSTGRESQL/lib:/hgarduno/.ProyectosSISCOM/SISCOMClinicas/CodigoFuente/Servidor/SO/:$HOME/.ElFresno/Servidor/SO
+BASESISCOM=ElFresno
+#BASESISCOM=SiscomElectronica
+#BASESISCOM=Pruebas
+PATHSVRSISCOM=$DIRSVRSISCOM:/bin
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LD_LIBRARY_PATH_SISCOM:$DIRDesarrolloHGE/SISCOMSegurida2/Sistema:$HOME/ElFresno/Servidor/SO
+PATH=$PATH:DIRSVRSISCOM
+##Se debera, incluir en los scripts del servidor una variable de ambiente 
+##para el cliente frecuente 
+###INFOCLIFRECUENTE
+INFOCLIFRECUENTE=Si
+##############################33 ???????????????????????????????????????
+#######
+export PATH	\
+	DIRSVRSISCOM			\
+	LD_LIBRARY_PATH \
+	INFOCLIFRECUENTE
+
+######## esta variable de ambiente se usa para habilitar el sistema de remplazos en caso de que la existencia
+####### de un producto sea cero se consulta en la tabla de remplazos para validar que exista alguno
+### que se pueda utilizar y este se pone en la lista
+
+VerificaEjecucion()
+{
+
+       if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTORN ]
+       then
+       Pid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTORN`
+        VerPid=`ps -a |grep $Pid | gawk -F' ' '{print $1}'`
+         if [ $VerPid ]
+	 then 
+	   echo "El servidor SISCOM esta corriendo [RNPid `cat $DIRSVRSISCOM/DemonioDeConexiones.$PTORN`]."
+	 else
+	   rm $DIRSVRSISCOM/DemonioDeConexiones.$PTORN
+	 fi  
+	 if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD ]
+	  then
+	    Pid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD`
+	    VerPid=`ps -a |grep $Pid |gawk -F' ' '{printf $1}'`
+	     if [ $VerPid ]
+	      then
+	   	echo "El Servidor SISCOM esta corriendo [ADPid `cat $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD`]"
+	   	echo "Debe detener antes el servicio, use: siscom stop"
+	     	exit 0
+	      else
+	       rm $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD
+	      fi
+	  fi
+       fi
+}
+start()
+{
+VerificaEjecucion;
+	echo "Iniciando el servidor SISCOM"
+	 su - hgarduno -m -c "export BASESISCOM=$BASESISCOM;
+	 		      export PATH=$PATHSVRSISCOM;
+			      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH;
+			      export DIRSVRSISCOM=$DIRSVRSISCOM;
+			      export INFOCLIFRECUENTE=Si;
+			      export FechaRefCalculoGan=2006-01-01;
+			      DemonioDeConexiones.bin $ARGRN;
+			      DemonioDeConexiones.bin $ARGAD;"
+}
+stop()
+{
+	if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTORN ]
+	then
+	 RNPid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTORN`
+	  echo "Deteniendo El Servidor De Reglas Del Negocio [$RNPid]"
+	  kill -9 $RNPid 
+	  rm $DIRSVRSISCOM/DemonioDeConexiones.$PTORN
+	   if [ -f $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD ]
+	   then
+	    ADPid=`cat $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD`
+	     echo "Deteniendo El Servidor De Acceso A Datos [$ADPid]"
+	     rm $DIRSVRSISCOM/DemonioDeConexiones.$PTOAD
+	     kill -9 $ADPid
+	   fi
+	    else
+	     echo "El Servidor SISCOM No Esta Corriendo"
+	    
+	 fi
+}
+status()
+{
+	pids=`pidof DemonioDeConexiones.bin`
+	pid=`pidof -s DemonioDeConexiones.bin`
+	if [ $pid ]
+	then
+	echo "El servidor SISCOM se esta ejecutando $pids"
+	else
+	echo "El servidor SISCOM no esta ejecutandose"
+	fi
+
+}
+restart()
+{
+	stop;
+	start;
+}
+case "$1" in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use siscom start|stop|restart|status"
+	exit 1
+esac

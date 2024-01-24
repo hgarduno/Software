@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+
+Archivos="SQL/Tablas/CatalogosSat.sql \
+	 SQL/CatalogosSat.sql"
+
+for X in $Archivos 
+do 
+	cat $X  |psql SiscomElectronica
+done

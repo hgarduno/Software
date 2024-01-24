@@ -1,0 +1,1089 @@
+Sun May  2 20:14:28 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun May  2 20:14:28 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun May  2 20:14:28 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun May  2 20:14:28 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun May  2 20:14:28 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun May  2 20:14:28 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun May  2 20:14:28 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun May  2 20:14:28 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sun May  2 20:21:20 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun May  2 20:21:20 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun May  2 20:21:20 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun May  2 20:21:20 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun May  2 20:21:20 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun May  2 20:21:20 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun May  2 20:21:20 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun May  2 20:21:20 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue May  4 16:30:11 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Tue May  4 16:30:11 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Tue May  4 16:30:11 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Tue May  4 16:30:11 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Tue May  4 16:30:11 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Tue May  4 16:30:11 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Tue May  4 16:30:11 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Tue May  4 16:30:11 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Jul 14 15:43:48 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Jul 14 15:43:48 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Jul 14 15:43:48 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Jul 14 15:43:48 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Jul 14 15:43:48 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Jul 14 15:43:48 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Jul 14 15:43:48 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Jul 14 15:43:48 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Jul 16 21:06:47 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri Jul 16 21:06:47 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri Jul 16 21:06:47 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri Jul 16 21:06:47 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri Jul 16 21:06:47 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri Jul 16 21:06:47 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri Jul 16 21:06:47 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri Jul 16 21:06:47 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Jul 16 22:05:01 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaEmpresas)
+Fri Jul 16 22:05:02 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Fri Jul 16 22:05:02 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Fri Jul 16 22:05:02 2021: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Fri Jul 16 22:05:02 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Fri Jul 16 22:05:02 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Fri Jul 16 22:05:02 2021:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Fri Jul 16 22:05:11 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Fri Jul 16 22:05:11 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Fri Jul 16 22:05:11 2021: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Fri Jul 16 22:05:11 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Fri Jul 16 22:05:11 2021: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Fri Jul 16 22:05:11 2021: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Fri Jul 16 22:05:11 2021: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Fri Jul 16 22:05:11 2021: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Fri Jul 16 22:05:11 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Fri Jul 16 22:05:11 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaSeguridad3Pro2)
+Fri Jul 16 22:05:11 2021:( RN/C/RNSiscomSeguridad3Prot2.c FormaConsultaSeguridad3Pro2 120 ) select	idPantalla,						
+	        a.idObjeto,						
+		idPerfil,						
+		a.idPropiedad,						
+		NmbPropiedad,						
+		ValorPropiedad						
+	from	objetosxpantalla as a inner join 			
+		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+		a.idPropiedad=b.IdPropiedad)				
+	where idPantalla= (select idPantalla 				
+		   	   from pantalla 				
+		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+		         	 idAplicacion=(				
+				 	select idAplicacion		
+			 	       	from aplicaciones		
+				       	where NmbAplicacion='SISCOMElectronica')	
+		   			) and				
+       				 idPerfil=1173311497				
+	order by numobjeto,a.idpropiedad
+Mon Jul 19 22:24:09 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Jul 19 22:24:09 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Jul 19 22:24:09 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Jul 19 22:24:09 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Jul 19 22:24:09 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Jul 19 22:24:09 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Jul 19 22:24:09 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Jul 19 22:24:09 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue Jul 20 14:06:23 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Tue Jul 20 14:06:23 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Tue Jul 20 14:06:23 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Tue Jul 20 14:06:23 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Tue Jul 20 14:06:23 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Tue Jul 20 14:06:23 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Tue Jul 20 14:06:23 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Tue Jul 20 14:06:23 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue Jul 20 14:06:36 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaEmpresas)
+Tue Jul 20 14:06:37 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Tue Jul 20 14:06:37 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Tue Jul 20 14:06:37 2021: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Tue Jul 20 14:06:37 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Tue Jul 20 14:06:37 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Tue Jul 20 14:06:37 2021:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Tue Jul 20 14:06:42 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Tue Jul 20 14:06:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Tue Jul 20 14:06:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Tue Jul 20 14:06:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Tue Jul 20 14:06:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Tue Jul 20 14:06:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Tue Jul 20 14:06:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) heligarduneosquivel|
+Tue Jul 20 14:06:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Tue Jul 20 14:06:42 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Tue Jul 20 14:06:42 2021:( C/SiscomProtocolo2.c SiscomObtenDato 188 ) SiscomObtenDato:(Campo edofirma) Lista Nula
+Tue Jul 20 14:06:42 2021:( C/SiscomProtocolo2.c SiscomObtenDato 188 ) SiscomObtenDato:(Campo idusuario) Lista Nula
+Tue Jul 20 14:06:47 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Tue Jul 20 14:06:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Tue Jul 20 14:06:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Tue Jul 20 14:06:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Tue Jul 20 14:06:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Tue Jul 20 14:06:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Tue Jul 20 14:06:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Tue Jul 20 14:06:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Tue Jul 20 14:06:47 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Tue Jul 20 14:06:47 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaSeguridad3Pro2)
+Tue Jul 20 14:06:47 2021:( RN/C/RNSiscomSeguridad3Prot2.c FormaConsultaSeguridad3Pro2 120 ) select	idPantalla,						
+	        a.idObjeto,						
+		idPerfil,						
+		a.idPropiedad,						
+		NmbPropiedad,						
+		ValorPropiedad						
+	from	objetosxpantalla as a inner join 			
+		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+		a.idPropiedad=b.IdPropiedad)				
+	where idPantalla= (select idPantalla 				
+		   	   from pantalla 				
+		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+		         	 idAplicacion=(				
+				 	select idAplicacion		
+			 	       	from aplicaciones		
+				       	where NmbAplicacion='SISCOMElectronica')	
+		   			) and				
+       				 idPerfil=1173311497				
+	order by numobjeto,a.idpropiedad
+Tue Jul 20 14:06:52 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:06:52 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:06:52 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|ProductosSE
+Tue Jul 20 14:06:52 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|EscuelasSE
+Tue Jul 20 14:06:53 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|ClientesMayoreo
+Tue Jul 20 14:06:53 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:06:53 2021:( C/Clientes4.c EnviaClientesMayoreo 283 ) 
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:06:53 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|PublicoEnGeneral
+Tue Jul 20 14:06:53 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:06:53 2021:( C/Clientes4.c EnviaPublicoEnGeneral 277 ) 
+Tue Jul 20 14:06:55 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:06:55 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:06:55 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|ObtenIdOrden
+Tue Jul 20 14:06:55 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:06:55 2021:( C/Cotizando4.c ObteniendoIdOrden 71 ) Se Inicia la Orden ****** 1626920253   **** 
+Tue Jul 20 14:10:22 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Tue Jul 20 14:10:22 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Tue Jul 20 14:10:22 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Tue Jul 20 14:10:22 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Tue Jul 20 14:10:22 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Tue Jul 20 14:10:22 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Tue Jul 20 14:10:22 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Tue Jul 20 14:10:22 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue Jul 20 14:10:37 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaEmpresas)
+Tue Jul 20 14:10:38 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Tue Jul 20 14:10:38 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Tue Jul 20 14:10:38 2021: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Tue Jul 20 14:10:38 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Tue Jul 20 14:10:38 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Tue Jul 20 14:10:38 2021:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Tue Jul 20 14:10:43 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Tue Jul 20 14:10:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Tue Jul 20 14:10:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Tue Jul 20 14:10:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Tue Jul 20 14:10:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Tue Jul 20 14:10:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Tue Jul 20 14:10:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Tue Jul 20 14:10:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Tue Jul 20 14:10:43 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Tue Jul 20 14:10:43 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaSeguridad3Pro2)
+Tue Jul 20 14:10:43 2021:( RN/C/RNSiscomSeguridad3Prot2.c FormaConsultaSeguridad3Pro2 120 ) select	idPantalla,						
+	        a.idObjeto,						
+		idPerfil,						
+		a.idPropiedad,						
+		NmbPropiedad,						
+		ValorPropiedad						
+	from	objetosxpantalla as a inner join 			
+		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+		a.idPropiedad=b.IdPropiedad)				
+	where idPantalla= (select idPantalla 				
+		   	   from pantalla 				
+		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+		         	 idAplicacion=(				
+				 	select idAplicacion		
+			 	       	from aplicaciones		
+				       	where NmbAplicacion='SISCOMElectronica')	
+		   			) and				
+       				 idPerfil=1173311497				
+	order by numobjeto,a.idpropiedad
+Tue Jul 20 14:10:47 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:10:47 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:10:47 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|ProductosSE
+Tue Jul 20 14:10:47 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:11:42 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaEmpresas)
+Tue Jul 20 14:11:43 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Tue Jul 20 14:11:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Tue Jul 20 14:11:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Tue Jul 20 14:11:43 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Tue Jul 20 14:11:43 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Tue Jul 20 14:11:43 2021:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Tue Jul 20 14:11:48 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Tue Jul 20 14:11:48 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Tue Jul 20 14:11:48 2021: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Tue Jul 20 14:11:48 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Tue Jul 20 14:11:48 2021: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Tue Jul 20 14:11:48 2021: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Tue Jul 20 14:11:48 2021: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Tue Jul 20 14:11:48 2021: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Tue Jul 20 14:11:48 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Tue Jul 20 14:11:48 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaSeguridad3Pro2)
+Tue Jul 20 14:11:48 2021:( RN/C/RNSiscomSeguridad3Prot2.c FormaConsultaSeguridad3Pro2 120 ) select	idPantalla,						
+	        a.idObjeto,						
+		idPerfil,						
+		a.idPropiedad,						
+		NmbPropiedad,						
+		ValorPropiedad						
+	from	objetosxpantalla as a inner join 			
+		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+		a.idPropiedad=b.IdPropiedad)				
+	where idPantalla= (select idPantalla 				
+		   	   from pantalla 				
+		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+		         	 idAplicacion=(				
+				 	select idAplicacion		
+			 	       	from aplicaciones		
+				       	where NmbAplicacion='SISCOMElectronica')	
+		   			) and				
+       				 idPerfil=1173311497				
+	order by numobjeto,a.idpropiedad
+Tue Jul 20 14:11:52 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:11:52 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:11:52 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|ProductosSE
+Tue Jul 20 14:11:52 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:11:54 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:11:54 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:11:54 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|CotizandoProductos4
+Tue Jul 20 14:11:54 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:11:55 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       
+Tue Jul 20 14:11:55 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) 127.0.0.1      (null)      0           0           CIRCUITOIMPRESO10X10  1         80.00        
+Tue Jul 20 14:11:55 2021:( C/Cotizando4.c EnviandoCotizacion 116 )                                                                            Importe  80.00
+Tue Jul 20 14:12:20 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaFamilias)
+Tue Jul 20 14:12:20 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaUnidades)
+Tue Jul 20 14:12:27 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaProductos)
+Tue Jul 20 14:12:27 2021: (C/RNProductos.c ConsultaProductos 413 ) Parametro|
+Tue Jul 20 14:12:27 2021: (C/RNProductos.c ConsultaProductos 413 ) ProductosExpendio|
+Tue Jul 20 14:12:27 2021: (C/RNProductos.c ConsultaProductos 413 ) |
+Tue Jul 20 14:12:27 2021: (C/RNProductos.c ConsultaProductos 413 ) |
+Tue Jul 20 14:12:27 2021: (C/RNProductos.c ConsultaProductos 413 ) |
+Tue Jul 20 14:12:27 2021: (C/RNProductos.c ConsultaProductos 413 ) -200|
+Tue Jul 20 14:12:27 2021:( C/RNProductos.c AnalizaConsultaProductos 392 ) 1
+Tue Jul 20 14:12:27 2021:( C/RNProductos.c FormaConsultaProductos 244 ) La Consulta:select a.*,							
+			'' as nmbUnidad,					
+			'' as abreviatura,					
+			'' as nmbfamilia,					
+			'' as precio,						
+			b.existencia,						
+			b.eximinima,						
+			c.idtipoproducto					
+		from productos as a inner join					
+		     existencias as b using(cveproducto) left outer  join	
+		     productoportipoproducto as c using(cveproducto) 		
+		where b.idexpendio=-200						
+		order by cveproducto
+Tue Jul 20 14:12:28 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultasSiscomElectronica2)
+Tue Jul 20 14:12:28 2021:( C/SiscomElectronica.c Principal 89 ) (ConsultasSiscomElectronica2)
+Tue Jul 20 14:12:28 2021:( C/SiscomModuloOperaciones.c SiscomOperaciones2Ejecuta 138 ) Algo .... 
+Tue Jul 20 14:12:28 2021:( C/SiscomModuloOperaciones.c SiscomOperaciones2Ejecuta 143 ) 0
+Tue Jul 20 14:12:28 2021: (C/Consultas.c ConsultasElectronica2 53 ) Parametro|
+Tue Jul 20 14:12:28 2021: (C/Consultas.c ConsultasElectronica2 53 ) MotivoInventario|
+Tue Jul 20 14:12:28 2021: (C/Consultas.c ConsultasElectronica2 53 ) -200|
+Tue Jul 20 14:12:28 2021:( C/SiscomModuloOperaciones.c SiscomOperaciones2Ejecuta 138 ) Algo .... 
+Tue Jul 20 14:12:28 2021:( C/SiscomModuloOperaciones.c SiscomOperaciones2Ejecuta 143 ) 0
+Tue Jul 20 14:12:28 2021:( C/SiscomModuloOperaciones.c SiscomOperaciones2Ejecuta 143 ) 1
+Tue Jul 20 14:12:28 2021:( C/SiscomModuloOperaciones.c SiscomOperaciones2Ejecuta 143 ) 2
+Tue Jul 20 14:12:28 2021:( C/ServidorGeneral.c ControladorSIGSEGV 306 ) ControladorSIGSEGV:El Sistema Trono
+Tue Jul 20 14:12:35 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (RegistraInventario)
+Tue Jul 20 14:12:35 2021:RegistraInventario
+Tue Jul 20 14:12:35 2021:CveProducto|DscProducto|IdUnidad|IdFamilia|Precio|NmbPrecio|Cantidad|Existencia|IdCliente|IdExpendio|Importe|SePuedeVender|NumJuegos|IdProveedor|Proveedor|NumFactura|FechaPago|EdoRegistro|IdPractica|NmbUnidad|Abreviatura|NmbFamilia|PrecioIVA|ClienteFrecuente|PorDescuento|RFC|ExistenciaMinima|IdCaja|Recibi|Cambio|IdEscuela|IdBodega|ExisBodega|PorDescuentoCaja|PorDescuentoCajaOrden|OrdenACaja|CantidadValida|IdOrigenCompra|EsKit|ClaveKit|TipoCotizacion|IdProductoKit|CantidadKit|ImporteKit|IdTipoProducto|CantidadTransfiereZacatenco|
+Tue Jul 20 14:12:35 2021:CIRCUITOIMPRESO10X10|Trabajo de Impresion en Papel Couche y Elaboracion de Circuito Impreso(PCB) En Placa de 10x10 cms.|0|0|||100|0.00|1180535225|-200||||||0|100||||||||||||||||||||||||||||3|1|
+Tue Jul 20 14:12:35 2021:ComandoSQL|
+Tue Jul 20 14:12:35 2021:insert into DesajusteInventario values(		
+				'CIRCUITOIMPRESO10X10',				
+				100,				
+				(select existencia 		
+	 from  existencias 		
+	 where cveproducto='CIRCUITOIMPRESO10X10' and 	
+	       idexpendio=-200),				
+				100,				
+				'2021-07-20',				
+				'14:12:35');|
+Tue Jul 20 14:12:35 2021:insert into inventario values('CIRCUITOIMPRESO10X10',100,1180535225,-200,'2021-07-20','14:12:35',0);|
+Tue Jul 20 14:12:35 2021:update existencias set Existencia=100 		 where CveProducto='CIRCUITOIMPRESO10X10' and			 		       idExpendio=-200|
+Tue Jul 20 14:12:37 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:12:37 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:12:37 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|CotizandoProductos4
+Tue Jul 20 14:12:37 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:12:37 2021:( C/Cotizando4.c SePuedeVender 592 ) Es un producto Siscom , no se valida la existencia de la definicion
+Tue Jul 20 14:12:37 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       
+Tue Jul 20 14:12:37 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) 127.0.0.1      (null)      0           0           CIRCUITOIMPRESO10X10  1         80.00        
+Tue Jul 20 14:12:37 2021:( C/Cotizando4.c EnviandoCotizacion 116 )                                                                            Importe  80.00
+Tue Jul 20 14:12:38 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Se tienen 1 Registros
+Tue Jul 20 14:12:38 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) Modulo|Funcion
+Tue Jul 20 14:12:38 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 195 ) libSiscomElectronica4.so|CotizandoProductos4
+Tue Jul 20 14:12:38 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Tue Jul 20 14:12:38 2021:( C/Cotizando4.c SePuedeVender 592 ) Es un producto Siscom , no se valida la existencia de la definicion
+Tue Jul 20 14:12:38 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       
+Tue Jul 20 14:12:38 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) 127.0.0.1      (null)      0           0           CIRCUITOIMPRESO10X10  1         80.00        
+Tue Jul 20 14:12:38 2021:( C/Cotizando4.c EnviandoCotizacion 116 )                                                                            Importe  80.00
+Sun Jul 25 18:11:37 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun Jul 25 18:11:37 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun Jul 25 18:11:37 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun Jul 25 18:11:37 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun Jul 25 18:11:37 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun Jul 25 18:11:37 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun Jul 25 18:11:37 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun Jul 25 18:11:37 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sun Jul 25 18:11:41 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaEmpresas)
+Sun Jul 25 18:11:42 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Sun Jul 25 18:11:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Sun Jul 25 18:11:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Sun Jul 25 18:11:42 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Sun Jul 25 18:11:42 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Sun Jul 25 18:11:42 2021:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Sun Jul 25 18:11:47 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaPersonas)
+Sun Jul 25 18:11:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Sun Jul 25 18:11:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Sun Jul 25 18:11:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Sun Jul 25 18:11:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Sun Jul 25 18:11:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Sun Jul 25 18:11:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Sun Jul 25 18:11:47 2021: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Sun Jul 25 18:11:47 2021:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Sun Jul 25 18:11:47 2021:( C/SiscomElectronica.c Principal 74 ) La Operacion (ConsultaSeguridad3Pro2)
+Sun Jul 25 18:11:47 2021:( RN/C/RNSiscomSeguridad3Prot2.c FormaConsultaSeguridad3Pro2 120 ) select	idPantalla,						
+	        a.idObjeto,						
+		idPerfil,						
+		a.idPropiedad,						
+		NmbPropiedad,						
+		ValorPropiedad						
+	from	objetosxpantalla as a inner join 			
+		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+		a.idPropiedad=b.IdPropiedad)				
+	where idPantalla= (select idPantalla 				
+		   	   from pantalla 				
+		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+		         	 idAplicacion=(				
+				 	select idAplicacion		
+			 	       	from aplicaciones		
+				       	where NmbAplicacion='SISCOMElectronica')	
+		   			) and				
+       				 idPerfil=1173311497				
+	order by numobjeto,a.idpropiedad
+Sun Jul 25 18:11:51 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Se tienen 1 Registros
+Sun Jul 25 18:11:51 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Modulo|Funcion
+Sun Jul 25 18:11:51 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) libSiscomElectronica4.so|ProductosSE
+Sun Jul 25 18:11:51 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Sun Jul 25 18:11:57 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Se tienen 1 Registros
+Sun Jul 25 18:11:57 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Modulo|Funcion
+Sun Jul 25 18:11:57 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) libSiscomElectronica4.so|CotizandoProductos4
+Sun Jul 25 18:11:57 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Sun Jul 25 18:11:57 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       
+Sun Jul 25 18:11:57 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) 127.0.0.1      (null)      0           0           74LS00                1         8.00         
+Sun Jul 25 18:11:57 2021:( C/Cotizando4.c EnviandoCotizacion 116 )                                                                            Importe   8.00
+Sun Jul 25 18:12:03 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Se tienen 1 Registros
+Sun Jul 25 18:12:03 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Modulo|Funcion
+Sun Jul 25 18:12:03 2021:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) libSiscomElectronica4.so|CotizandoProductos4
+Sun Jul 25 18:12:03 2021:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Sun Jul 25 18:12:03 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       
+Sun Jul 25 18:12:03 2021:( C/Cotizando4.c EnviandoCotizacion 116 ) 127.0.0.1      (null)      0           0           74LS04                1         8.00         
+Sun Jul 25 18:12:03 2021:( C/Cotizando4.c EnviandoCotizacion 116 )                                                                            Importe   8.00
+Mon Jul 26 21:37:47 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Jul 26 21:37:47 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Jul 26 21:37:47 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Jul 26 21:37:47 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Jul 26 21:37:47 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Jul 26 21:37:47 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Jul 26 21:37:47 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Jul 26 21:37:47 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue Aug  3 19:22:54 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Tue Aug  3 19:22:54 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Tue Aug  3 19:22:54 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Tue Aug  3 19:22:54 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Tue Aug  3 19:22:54 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Tue Aug  3 19:22:54 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Tue Aug  3 19:22:54 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Tue Aug  3 19:22:54 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sat Aug  7 13:44:04 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sat Aug  7 13:44:04 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sat Aug  7 13:44:04 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sat Aug  7 13:44:04 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sat Aug  7 13:44:04 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sat Aug  7 13:44:04 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sat Aug  7 13:44:04 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sat Aug  7 13:44:04 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Aug 20 15:44:22 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri Aug 20 15:44:22 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri Aug 20 15:44:22 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri Aug 20 15:44:22 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri Aug 20 15:44:22 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri Aug 20 15:44:22 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri Aug 20 15:44:22 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri Aug 20 15:44:22 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue Sep 14 00:54:56 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Tue Sep 14 00:54:56 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Tue Sep 14 00:54:56 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Tue Sep 14 00:54:56 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Tue Sep 14 00:54:56 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Tue Sep 14 00:54:56 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Tue Sep 14 00:54:56 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Tue Sep 14 00:54:56 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue Sep 14 00:56:39 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Tue Sep 14 00:56:39 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Tue Sep 14 00:56:39 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Tue Sep 14 00:56:39 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Tue Sep 14 00:56:39 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Tue Sep 14 00:56:39 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Tue Sep 14 00:56:39 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Tue Sep 14 00:56:39 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Tue Sep 14 02:18:16 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Tue Sep 14 02:18:16 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Tue Sep 14 02:18:16 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Tue Sep 14 02:18:16 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Tue Sep 14 02:18:16 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Tue Sep 14 02:18:16 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Tue Sep 14 02:18:16 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Tue Sep 14 02:18:16 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Sep 17 23:37:22 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri Sep 17 23:37:22 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri Sep 17 23:37:22 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri Sep 17 23:37:22 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri Sep 17 23:37:22 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri Sep 17 23:37:22 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri Sep 17 23:37:22 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri Sep 17 23:37:22 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sat Oct 16 16:16:53 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sat Oct 16 16:16:53 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sat Oct 16 16:16:53 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sat Oct 16 16:16:53 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sat Oct 16 16:16:53 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sat Oct 16 16:16:53 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sat Oct 16 16:16:53 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sat Oct 16 16:16:53 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Oct 27 16:30:42 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Oct 27 16:30:42 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Oct 27 16:30:42 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Oct 27 16:30:42 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Oct 27 16:30:42 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Oct 27 16:30:42 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Oct 27 16:30:42 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Oct 27 16:30:42 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Thu Oct 28 14:04:19 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Thu Oct 28 14:04:19 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Thu Oct 28 14:04:19 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Thu Oct 28 14:04:19 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Thu Oct 28 14:04:19 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Thu Oct 28 14:04:19 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Thu Oct 28 14:04:19 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Thu Oct 28 14:04:19 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Nov 10 14:34:41 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Nov 10 14:34:41 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Nov 10 14:34:41 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Nov 10 14:34:41 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Nov 10 14:34:41 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Nov 10 14:34:41 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Nov 10 14:34:41 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Nov 10 14:34:41 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Thu Nov 11 14:09:44 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Thu Nov 11 14:09:44 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Thu Nov 11 14:09:44 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Thu Nov 11 14:09:44 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Thu Nov 11 14:09:44 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Thu Nov 11 14:09:44 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Thu Nov 11 14:09:44 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Thu Nov 11 14:09:44 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Dec  1 19:19:36 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Dec  1 19:19:36 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Dec  1 19:19:36 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Dec  1 19:19:36 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Dec  1 19:19:36 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Dec  1 19:19:36 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Dec  1 19:19:36 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Dec  1 19:19:36 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sun Dec 19 22:26:42 2021:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun Dec 19 22:26:42 2021:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun Dec 19 22:26:42 2021:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun Dec 19 22:26:42 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun Dec 19 22:26:42 2021:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun Dec 19 22:26:42 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun Dec 19 22:26:42 2021:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun Dec 19 22:26:42 2021:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sun Apr 17 19:25:05 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun Apr 17 19:25:05 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun Apr 17 19:25:05 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun Apr 17 19:25:05 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun Apr 17 19:25:05 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun Apr 17 19:25:05 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun Apr 17 19:25:05 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun Apr 17 19:25:05 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sun Apr 24 21:09:26 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun Apr 24 21:09:26 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun Apr 24 21:09:26 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun Apr 24 21:09:26 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun Apr 24 21:09:26 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun Apr 24 21:09:26 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun Apr 24 21:09:26 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun Apr 24 21:09:26 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Mon Apr 25 19:00:26 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Apr 25 19:00:26 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Apr 25 19:00:26 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Apr 25 19:00:26 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Apr 25 19:00:26 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Apr 25 19:00:26 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Apr 25 19:00:26 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Apr 25 19:00:26 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri May 13 08:28:48 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri May 13 08:28:48 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri May 13 08:28:48 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri May 13 08:28:48 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri May 13 08:28:48 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri May 13 08:28:48 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri May 13 08:28:48 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri May 13 08:28:49 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Mon Jun 20 13:37:57 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Jun 20 13:37:57 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Jun 20 13:37:57 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Jun 20 13:37:57 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Jun 20 13:37:57 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Jun 20 13:37:57 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Jun 20 13:37:57 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Jun 20 13:37:57 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Mon Jun 20 14:01:50 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Jun 20 14:01:50 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Jun 20 14:01:50 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Jun 20 14:01:50 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Jun 20 14:01:50 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Jun 20 14:01:50 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Jun 20 14:01:50 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Jun 20 14:01:50 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Mon Jun 20 14:15:23 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaEmpresas)
+Mon Jun 20 14:15:24 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaPersonas)
+Mon Jun 20 14:15:24 2022: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Mon Jun 20 14:15:24 2022: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Mon Jun 20 14:15:24 2022: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Mon Jun 20 14:15:24 2022:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Mon Jun 20 14:15:24 2022:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Mon Jun 20 14:15:29 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaPersonas)
+Mon Jun 20 14:15:29 2022: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Mon Jun 20 14:15:29 2022: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Mon Jun 20 14:15:29 2022: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Mon Jun 20 14:15:29 2022: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Mon Jun 20 14:15:29 2022: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Mon Jun 20 14:15:29 2022: (C/RNPersonas.c ConsultaPersonas 46 ) HELIGARDUNOESQUIVEL|
+Mon Jun 20 14:15:29 2022: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Mon Jun 20 14:15:29 2022:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Mon Jun 20 14:15:29 2022:( C/SiscomProtocolo2.c SiscomObtenDato 188 ) SiscomObtenDato:(Campo edofirma) Lista Nula
+Mon Jun 20 14:15:29 2022:( C/SiscomProtocolo2.c SiscomObtenDato 188 ) SiscomObtenDato:(Campo idusuario) Lista Nula
+Mon Jun 20 14:15:34 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaPersonas)
+Mon Jun 20 14:15:34 2022: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Mon Jun 20 14:15:34 2022: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Mon Jun 20 14:15:34 2022: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Mon Jun 20 14:15:34 2022: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Mon Jun 20 14:15:34 2022: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Mon Jun 20 14:15:34 2022: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Mon Jun 20 14:15:34 2022: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Mon Jun 20 14:15:34 2022:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Mon Jun 20 14:15:34 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaSeguridad3Pro2)
+Mon Jun 20 14:15:34 2022:( RN/C/RNSiscomSeguridad3Prot2.c FormaConsultaSeguridad3Pro2 120 ) select	idPantalla,						
+	        a.idObjeto,						
+		idPerfil,						
+		a.idPropiedad,						
+		NmbPropiedad,						
+		ValorPropiedad						
+	from	objetosxpantalla as a inner join 			
+		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+		a.idPropiedad=b.IdPropiedad)				
+	where idPantalla= (select idPantalla 				
+		   	   from pantalla 				
+		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+		         	 idAplicacion=(				
+				 	select idAplicacion		
+			 	       	from aplicaciones		
+				       	where NmbAplicacion='SISCOMElectronica')	
+		   			) and				
+       				 idPerfil=1173311497				
+	order by numobjeto,a.idpropiedad
+Mon Jun 20 14:15:41 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Se tienen 1 Registros
+Mon Jun 20 14:15:41 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Modulo|Funcion
+Mon Jun 20 14:15:41 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) libSiscomElectronica4.so|ProductosSE
+Mon Jun 20 14:15:41 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Mon Jun 20 14:15:41 2022:( C/ProductosSE.c EnviandoProductosSE 89 ) ---
+Mon Jun 20 14:15:49 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Se tienen 1 Registros
+Mon Jun 20 14:15:49 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) Modulo|Funcion
+Mon Jun 20 14:15:49 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 196 ) libSiscomElectronica4.so|CotizandoProductos4
+Mon Jun 20 14:15:49 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Mon Jun 20 14:15:49 2022:( C/Cotizando4.c ValidandoDatosCotizacion 93 ) 
+Mon Jun 20 14:15:49 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 211 ) 
+Mon Jun 20 14:15:49 2022:( C/Cotizando4.c EnviandoCotizacion 118 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       
+Mon Jun 20 14:15:49 2022:( C/Cotizando4.c EnviandoCotizacion 118 ) 127.0.0.1      (null)      0           0           74LS00-Prueba         1         8.00         
+Mon Jun 20 14:15:49 2022:( C/Cotizando4.c EnviandoCotizacion 118 )                                                                            Importe   8.00
+Wed Aug 10 07:16:47 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Aug 10 07:16:47 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Aug 10 07:16:47 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Aug 10 07:16:47 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Aug 10 07:16:47 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Aug 10 07:16:47 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Aug 10 07:16:47 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Aug 10 07:16:47 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Aug 10 09:32:46 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Aug 10 09:32:46 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Aug 10 09:32:46 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Aug 10 09:32:46 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Aug 10 09:32:46 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Aug 10 09:32:46 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Aug 10 09:32:46 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Aug 10 09:32:46 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Aug 12 09:04:08 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri Aug 12 09:04:08 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri Aug 12 09:04:08 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri Aug 12 09:04:08 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri Aug 12 09:04:08 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri Aug 12 09:04:08 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri Aug 12 09:04:08 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri Aug 12 09:04:08 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Aug 12 10:55:23 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri Aug 12 10:55:23 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri Aug 12 10:55:23 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri Aug 12 10:55:23 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri Aug 12 10:55:23 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri Aug 12 10:55:23 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri Aug 12 10:55:23 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri Aug 12 10:55:23 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Sep  7 19:46:44 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Sep  7 19:46:44 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Sep  7 19:46:44 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Sep  7 19:46:44 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Sep  7 19:46:44 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Sep  7 19:46:44 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Sep  7 19:46:44 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Sep  7 19:46:44 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sat Sep 10 15:19:28 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sat Sep 10 15:19:28 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sat Sep 10 15:19:28 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sat Sep 10 15:19:28 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sat Sep 10 15:19:28 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sat Sep 10 15:19:28 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sat Sep 10 15:19:28 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sat Sep 10 15:19:28 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sat Sep 10 16:24:36 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sat Sep 10 16:24:36 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sat Sep 10 16:24:36 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sat Sep 10 16:24:36 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sat Sep 10 16:24:36 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sat Sep 10 16:24:36 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sat Sep 10 16:24:36 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sat Sep 10 16:24:37 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Sep 14 11:36:03 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Sep 14 11:36:03 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Sep 14 11:36:03 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Sep 14 11:36:03 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Sep 14 11:36:03 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Sep 14 11:36:03 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Sep 14 11:36:03 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Sep 14 11:36:03 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Sep 16 16:04:40 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri Sep 16 16:04:40 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri Sep 16 16:04:40 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri Sep 16 16:04:40 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri Sep 16 16:04:40 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri Sep 16 16:04:40 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri Sep 16 16:04:40 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri Sep 16 16:04:40 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Sep 16 16:09:12 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaEmpresas)
+Fri Sep 16 16:09:13 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaPersonas)
+Fri Sep 16 16:09:13 2022: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Fri Sep 16 16:09:13 2022: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Fri Sep 16 16:09:13 2022: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Fri Sep 16 16:09:13 2022:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Fri Sep 16 16:09:13 2022:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Fri Sep 16 16:09:17 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaPersonas)
+Fri Sep 16 16:09:17 2022: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Fri Sep 16 16:09:17 2022: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Fri Sep 16 16:09:17 2022: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Fri Sep 16 16:09:17 2022: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Fri Sep 16 16:09:17 2022: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Fri Sep 16 16:09:17 2022: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Fri Sep 16 16:09:17 2022: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Fri Sep 16 16:09:17 2022:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Fri Sep 16 16:09:17 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaSeguridad3Pro2)
+Fri Sep 16 16:09:17 2022:( RN/C/RNSiscomSeguridad3Prot2.c FormaConsultaSeguridad3Pro2 120 ) select	idPantalla,						
+	        a.idObjeto,						
+		idPerfil,						
+		a.idPropiedad,						
+		NmbPropiedad,						
+		ValorPropiedad						
+	from	objetosxpantalla as a inner join 			
+		propiedades as b on (a.idObjeto=b.IdObjeto and 		
+		a.idPropiedad=b.IdPropiedad)				
+	where idPantalla= (select idPantalla 				
+		   	   from pantalla 				
+		   	   where NmbClase='SISCOMVentanaPrincipal' and			
+		         	 idAplicacion=(				
+				 	select idAplicacion		
+			 	       	from aplicaciones		
+				       	where NmbAplicacion='SISCOMElectronica')	
+		   			) and				
+       				 idPerfil=1173311497				
+	order by numobjeto,a.idpropiedad
+Fri Sep 16 16:09:23 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 204 ) Se tienen 1 Registros
+Fri Sep 16 16:09:23 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 204 ) Modulo|Funcion
+Fri Sep 16 16:09:23 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 204 ) libSiscomElectronica4.so|ProductosSE
+Fri Sep 16 16:09:23 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Fri Sep 16 16:09:23 2022:( C/ProductosSE.c EnviandoProductosSE 89 ) ---
+Fri Sep 16 16:09:26 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 204 ) Se tienen 1 Registros
+Fri Sep 16 16:09:26 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 204 ) Modulo|Funcion
+Fri Sep 16 16:09:26 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 204 ) libSiscomElectronica4.so|CotizandoProductos4
+Fri Sep 16 16:09:26 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 27 ) Cliente conectado 127.0.0.1
+Fri Sep 16 16:09:26 2022:( C/Cotizando4.c ValidandoDatosCotizacion 111 ) 
+Fri Sep 16 16:09:26 2022:( C/Cotizando4.c EnviandoCotizacion 136 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       Se Puede Vender
+Fri Sep 16 16:09:26 2022:( C/Cotizando4.c EnviandoCotizacion 136 ) 127.0.0.1      (null)      0           0           CURIOSITY             1         575.00       0            
+Fri Sep 16 16:09:26 2022:( C/Cotizando4.c EnviandoCotizacion 136 )                                                                            Importe 575.00
+Mon Sep 26 18:54:05 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Sep 26 18:54:05 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Sep 26 18:54:05 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Sep 26 18:54:05 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Sep 26 18:54:05 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Sep 26 18:54:05 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Sep 26 18:54:05 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Sep 26 18:54:05 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Thu Oct 13 13:26:38 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Thu Oct 13 13:26:38 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Thu Oct 13 13:26:38 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Thu Oct 13 13:26:38 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Thu Oct 13 13:26:38 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Thu Oct 13 13:26:38 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Thu Oct 13 13:26:38 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Thu Oct 13 13:26:38 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Fri Oct 14 17:25:31 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Fri Oct 14 17:25:31 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Fri Oct 14 17:25:31 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Fri Oct 14 17:25:31 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Fri Oct 14 17:25:31 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Fri Oct 14 17:25:31 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Fri Oct 14 17:25:31 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Fri Oct 14 17:25:31 2022:( C/SiscomProtocolo2.c SiscomAnexaRegistroPro2 592 ) Aqui 1 
+Fri Oct 14 17:25:31 2022:( C/SiscomProtocolo2.c SiscomAnexaRegistroPro2 598 ) ConsultaSQL
+Fri Oct 14 17:25:31 2022:( C/SiscomProtocolo2.c SiscomAnexaRegistroPro2 606 ) Siiii
+Fri Oct 14 17:25:31 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sun Nov 20 22:20:39 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun Nov 20 22:20:39 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun Nov 20 22:20:39 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun Nov 20 22:20:39 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun Nov 20 22:20:39 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun Nov 20 22:20:39 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun Nov 20 22:20:39 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun Nov 20 22:20:39 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sun Nov 27 14:30:34 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sun Nov 27 14:30:34 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sun Nov 27 14:30:34 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sun Nov 27 14:30:34 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sun Nov 27 14:30:34 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sun Nov 27 14:30:34 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sun Nov 27 14:30:34 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sun Nov 27 14:30:34 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Thu Dec  1 19:46:20 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Thu Dec  1 19:46:20 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Thu Dec  1 19:46:20 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Thu Dec  1 19:46:20 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Thu Dec  1 19:46:20 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Thu Dec  1 19:46:20 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Thu Dec  1 19:46:20 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+BIND:Address already in use
+Thu Dec  1 19:46:20 2022:( C/ServidorGeneral.c main 60 ) IniciaServidorComunicaciones:
+Sat Dec 31 08:34:12 2022:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sat Dec 31 08:34:12 2022:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sat Dec 31 08:34:12 2022:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sat Dec 31 08:34:12 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sat Dec 31 08:34:12 2022:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sat Dec 31 08:34:12 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sat Dec 31 08:34:12 2022:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sat Dec 31 08:34:12 2022:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sat Dec 31 16:12:52 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaEmpresas)
+Sat Dec 31 16:13:00 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaPersonas)
+Sat Dec 31 16:13:00 2022: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Sat Dec 31 16:13:00 2022: (C/RNPersonas.c ConsultaPersonas 46 ) EmpleadosExpendio|
+Sat Dec 31 16:13:00 2022: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Sat Dec 31 16:13:00 2022:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Sat Dec 31 16:13:00 2022:( C/RNPersonas.c FormaConsultaEmpleadosExpendio 246 ) select b.nombre,			
+		        b.apaterno,			
+			b.amaterno,			
+			'' as rfc,			
+			idpersona,			
+			tipopersona,			
+			firma,				
+			'' as password			
+		 from firmas inner join personas as b	
+		      using (idPersona)              	
+		 where idexpendio=-200
+Sat Dec 31 16:13:05 2022:( C/SiscomElectronica.c Principal 82 ) La Operacion (ConsultaPersonas)
+Sat Dec 31 16:13:05 2022: (C/RNPersonas.c ConsultaPersonas 46 ) Parametro|
+Sat Dec 31 16:13:05 2022: (C/RNPersonas.c ConsultaPersonas 46 ) ValidaFirmaEmpleado|
+Sat Dec 31 16:13:05 2022: (C/RNPersonas.c ConsultaPersonas 46 ) -200|
+Sat Dec 31 16:13:05 2022: (C/RNPersonas.c ConsultaPersonas 46 ) 1180535225|
+Sat Dec 31 16:13:05 2022: (C/RNPersonas.c ConsultaPersonas 46 ) hgarduno|
+Sat Dec 31 16:13:05 2022: (C/RNPersonas.c ConsultaPersonas 46 ) heligardunoesquivel|
+Sat Dec 31 16:13:05 2022: (C/RNPersonas.c ConsultaPersonas 46 ) SISCOMElectronica|
+Sat Dec 31 16:13:05 2022:( C/RNPersonas.c ConsultaPersonas 56 ) Consultando 127.0.0.1:7546
+Sat Dec 31 16:13:05 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:13:05 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:13:05 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:13:05 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:13:05 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:13:05 2022:( C/ServidorGeneral.c ControladorSIGSEGV 306 ) ControladorSIGSEGV:El Sistema Trono
+Sat Dec 31 16:13:20 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:13:20 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:13:20 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:13:20 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:13:20 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:13:20 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) Lista NULA
+Sat Dec 31 16:13:38 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:13:38 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:13:38 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:13:38 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:13:38 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:13:38 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) Lista NULA
+Sat Dec 31 16:13:54 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:13:54 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:13:54 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|PublicoEnGeneral
+Sat Dec 31 16:13:54 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:13:54 2022:( C/Clientes4.c EnviaPublicoEnGeneral 291 ) 
+Sat Dec 31 16:13:54 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:13:54 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:13:54 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|EntregaEscuela
+Sat Dec 31 16:13:54 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:14:04 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:14:04 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:14:04 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|ObtenIdOrden
+Sat Dec 31 16:14:04 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:14:04 2022:( C/Cotizando4.c ObteniendoIdOrden 90 ) Se Inicia la Orden ****** 1672708757   **** 
+Sat Dec 31 16:14:04 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:14:04 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:14:04 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:14:04 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:14:04 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:14:04 2022:( C/ServidorGeneral.c ControladorSIGSEGV 306 ) ControladorSIGSEGV:El Sistema Trono
+Sat Dec 31 16:14:08 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:14:08 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:14:08 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:14:08 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:14:08 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:14:08 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) Lista NULA
+Sat Dec 31 16:17:36 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:17:36 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:17:36 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:17:36 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:17:36 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:17:36 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) Lista NULA
+Sat Dec 31 16:21:23 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:21:23 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:21:23 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:21:23 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) Se tienen 2 Registros
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) cveproducto|idpersona|idempresa|idprecio|precio|nmbtipoprecio|idexpendio|existencia|exbodegas|idtipoproducto|idproducto
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) LM35|1153257207|0|1165859791|27.50|DEFAULT|-200|0.00|0.00||
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) PROTO-102|1153257207|0|0|79.50|DEFAULT|-200|0.00|375.00||
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       Se Puede Vender
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) 127.0.0.1      1672708757  1           0           74LS00                1         10.00        1            
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) 127.0.0.1      1672708757  1           1           PROTO-102             1         79.50        1            
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) 127.0.0.1      1672708757  1           2           LM35                  1         27.50        1            
+Sat Dec 31 16:21:23 2022:( C/Cotizando4.c EnviandoCotizacion 139 )                                                                            Importe-2147483648.00
+Sat Dec 31 16:21:32 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:21:32 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:21:32 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|EntregaEscuela
+Sat Dec 31 16:21:32 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:21:34 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Se tienen 1 Registros
+Sat Dec 31 16:21:34 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) Modulo|Funcion
+Sat Dec 31 16:21:34 2022:( C/SiscomElectronica4.c SiscomProtocoloVersion4 213 ) libSiscomElectronica4.so|CotizandoProductos4
+Sat Dec 31 16:21:34 2022:( C/ComunSiscomElectronica4.c AccesoDatosSiscomElectronica4 105 ) Cliente conectado 127.0.0.1
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c ValidandoDatosCotizacion 112 ) 
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) Se tienen 2 Registros
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) cveproducto|idpersona|idempresa|idprecio|precio|nmbtipoprecio|idexpendio|existencia|exbodegas|idtipoproducto|idproducto
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) LM35|1153257207|0|1165859791|27.50|DEFAULT|-200|0.00|0.00||
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c ArmaRespuestaCotizacion 213 ) PROTO-102|1153257207|0|0|79.50|DEFAULT|-200|0.00|375.00||
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) Punto de venta IdOrden     IdTipoOrden Consecutivo Producto              Cantidad  Precio       Se Puede Vender
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) 127.0.0.1      1672708757  1           0           74LS00                1         10.00        1            
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) 127.0.0.1      1672708757  1           1           PROTO-102             1         79.50        1            
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c EnviandoCotizacion 139 ) 127.0.0.1      1672708757  1           2           LM35                  1         27.50        1            
+Sat Dec 31 16:21:34 2022:( C/Cotizando4.c EnviandoCotizacion 139 )                                                                            Importe-2147483648.00
+Mon Jan  2 18:27:36 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Jan  2 18:27:36 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Jan  2 18:27:36 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Jan  2 18:27:36 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Jan  2 18:27:36 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Jan  2 18:27:36 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Jan  2 18:27:36 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Jan  2 18:27:36 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Apr 26 20:39:03 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Apr 26 20:39:03 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Apr 26 20:39:03 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Apr 26 20:39:03 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Apr 26 20:39:03 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Apr 26 20:39:03 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Apr 26 20:39:03 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Apr 26 20:39:03 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Thu Apr 27 08:07:48 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Thu Apr 27 08:07:48 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Thu Apr 27 08:07:48 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Thu Apr 27 08:07:48 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Thu Apr 27 08:07:48 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Thu Apr 27 08:07:48 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Thu Apr 27 08:07:48 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Thu Apr 27 08:07:48 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sat Apr 29 16:41:57 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sat Apr 29 16:41:57 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sat Apr 29 16:41:57 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sat Apr 29 16:41:57 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sat Apr 29 16:41:57 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sat Apr 29 16:41:57 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sat Apr 29 16:41:57 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sat Apr 29 16:41:57 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Mon Jul  3 12:42:31 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Jul  3 12:42:31 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Jul  3 12:42:31 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Jul  3 12:42:31 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Jul  3 12:42:31 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Jul  3 12:42:31 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Jul  3 12:42:31 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Jul  3 12:42:31 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Jul  5 18:44:36 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Jul  5 18:44:36 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Jul  5 18:44:36 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Jul  5 18:44:36 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Jul  5 18:44:36 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Jul  5 18:44:36 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Jul  5 18:44:36 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Jul  5 18:44:36 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Mon Aug  7 16:28:04 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Aug  7 16:28:04 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Aug  7 16:28:04 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Aug  7 16:28:04 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Aug  7 16:28:04 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Aug  7 16:28:04 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Aug  7 16:28:04 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Aug  7 16:28:04 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Aug  9 12:22:58 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Aug  9 12:22:58 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Aug  9 12:22:58 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Aug  9 12:22:58 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Aug  9 12:22:58 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Aug  9 12:22:58 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Aug  9 12:22:58 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+BIND:Address already in use
+Wed Aug  9 12:22:58 2023:( C/ServidorGeneral.c main 60 ) IniciaServidorComunicaciones:
+Wed Aug  9 12:24:51 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Aug  9 12:24:51 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Aug  9 12:24:51 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Aug  9 12:24:51 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Aug  9 12:24:51 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Aug  9 12:24:51 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Aug  9 12:24:51 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+BIND:Address already in use
+Wed Aug  9 12:24:51 2023:( C/ServidorGeneral.c main 60 ) IniciaServidorComunicaciones:
+Wed Aug  9 12:28:04 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Aug  9 12:28:04 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Aug  9 12:28:04 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Aug  9 12:28:04 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Aug  9 12:28:04 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Aug  9 12:28:04 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Aug  9 12:28:04 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Aug  9 12:28:04 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Aug  9 17:13:11 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Aug  9 17:13:11 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Aug  9 17:13:11 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Aug  9 17:13:11 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Aug  9 17:13:11 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Aug  9 17:13:11 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Aug  9 17:13:11 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Aug  9 17:13:11 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Sat Aug 19 16:29:50 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Sat Aug 19 16:29:50 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Sat Aug 19 16:29:50 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Sat Aug 19 16:29:50 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Sat Aug 19 16:29:50 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Sat Aug 19 16:29:50 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Sat Aug 19 16:29:50 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Sat Aug 19 16:29:50 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Mon Aug 21 11:52:37 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Mon Aug 21 11:52:37 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Mon Aug 21 11:52:37 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Mon Aug 21 11:52:37 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Mon Aug 21 11:52:37 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Mon Aug 21 11:52:37 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Mon Aug 21 11:52:37 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Mon Aug 21 11:52:37 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones
+Wed Oct 11 19:18:33 2023:( C/ServidorGeneral.c AbreArchivoLog 266 ) Servidor SISCOM Version2 Iniciando Operacion
+Wed Oct 11 19:18:33 2023:( C/ServidorGeneral.c AbreArchivoLog 267 ) El Servidor SISCOM Es Propiedad Intelectual De
+Wed Oct 11 19:18:33 2023:( C/ServidorGeneral.c AbreArchivoLog 268 ) Heli Garduno Esquivel
+Wed Oct 11 19:18:33 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 320 ) IniciaMemoriaComunServidor
+Wed Oct 11 19:18:33 2023:( C/ServidorGeneral.c IniciaMemoriaComunServidor 324 ) Iniciando Area De Memoria Comun ServidorSiscom:{libSiscomElectronicaMemoriaComun.so->IniciaMemoriaComun}
+Wed Oct 11 19:18:33 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 9 ) Se Cargara la funcion para Iniciar La Memoria Comun
+Wed Oct 11 19:18:33 2023:( C/SiscomElectronicaMemoriaComun.c IniciaMemoriaComun 10 ) Datos Servidor AD:7546,127.0.0.1
+Wed Oct 11 19:18:33 2023:( C/ServidorGeneral.c main 95 ) Servidor Atendiento peticiones

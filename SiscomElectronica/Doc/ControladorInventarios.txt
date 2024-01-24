@@ -1,0 +1,371 @@
+
+El objetivo de este modulo es poder hacer que eel sistema cuente con 	 
+la funcionalidad que permita, controlar las actividades de los inventarios   
+que tendra que realizar el empleado de cada uno de los expendios.	     
+     									 
+Para iniciar se necesita que, el sistema pueda almacenar los productos a     
+inventariar, se propone no hacer inventario de todos los productos, esto  
+como primera aproximacion. Partiendo de que el vendedor de expendio no podra 
+ver la existencia de los producto, este solo podra decir si se puede o no ven
+der, se debe contemplar que al dia de corte todos los productos que se vendie-
+ron en la semana, se deberan inventariar. Ademas el sistema debera contener  
+interfaz para capturar los producto que siempre se deberan de inventariar.   
+     									 
+El proceso se desarrollara de la siguiente forma:			     
+     									 
+El empleado abrira una ventana que le mostrara todos los productos que debera
+contar, y en esta misma ventana se debera capturar la cantidad de productos  
+que dio como resultado.							  
+Cuando ejecute la orden registrar cambios, el sistema actualizara la informa-
+cion en la base de datos, que contendra el historico de inventarios	     
+
+El administrador del negocio, debera contar con una pantalla la cual le permi
+tira seleccionar los productos que se incorporaran al inventario que se reali
+zara, esta interfaz debera permitir seleccionar varios productos para anexar 
+
+
+Por ultimo el administrador debera contar con una pantalla que le permita, --
+revisar el estado del inventario realizado, es decir, esta pantalla debera --
+mostrar los productos que cuandraron y los productos que se encontraron con -
+diferencias en la base de datos, esta validacion se realizara comparando con-
+la informacion capturada por el empleado, y la informacion que se encuentra -
+almacenada en la base de datos en la tabla de exitencias para el expendio.
+
+Solucion.-
+
+Se debera almacenar la informacion de los productos que el administrador sele-
+ccione para el inventario, aqui seria bueno considerar un historico de los 
+productos que se han estado seleccionando para el inventario, ademas se debe
+encontrar la forma de hacer que los productos que se han vendido en la semana
+de ejecucion del inventario se deberan incluir
+
+Para simplificar el proceso de ejcucion de la actividad se programara la 
+ejecucion del inventario por semana, por lo que la informacion de productos
+que contenga en la tabla debera estar considerada de forma automatica por 
+la fecha de esa semana, considerando que la semana inicia el dia lunes y 
+termina el Viernes, por lo que el inventario sera programado para el Sabado
+de esa semana.
+
+
+Se propone, que los productos que el administrador ha seleccionado para el
+inventario, se conserven con las semanas, es decir al momento de seleccionar
+la ejecucion del inventario, se deberan insertar los productos que el admini-
+strador selecciono la semana anterior, con esto se creara un historio de los
+productos que el administrador ha estado considerando para esta actividad, y
+en cualquier momento se podran anexar o eliminar productos por parte del admi-
+nistrador.
+
+
+Para el case de un producto que se desea eliminiar del inventario, no se borra
+ra de la tabla solo se le cambiara el estatus (EstadoProducto).
+
+Al momento de  iniciar el proceso de inventario se insertaran en la base de 
+datos los productos que se vendieron esa semana, con esto quedara completa la
+lista de productos que se deberan considerar en el inventario de esa semana.
+
+La siguiente informacion es la que se debera considerar para poder ejecutar 
+el inventario de productos a realizar.
+
+
+CveProducto
+Fecha
+TipoProducto
+EstadoProducto
+IdExpendio
+
+Donde:
+
+CveProducto es la clave del producto del cual se debera realizar el 
+inventario.
+
+Fecha Es la fecha en la que se registro el producto en la tabla.
+
+TipoProducto, es un campo que permitira saber si el producto es asignado
+por el administrador del sistema o se incluye automaticamente, por el 
+proceso de ventas.
+
+Los valores que podran asignarse a este campo son los siguientes:
+
+	0 Producto asignado por el administrador
+	1 Producto registrado como parte de la venta de la semana.
+
+EstadoProducto, este campo permitira, saber si el producto se ha conside-
+rado como borrado o esta activo, los posibles valores de esta campo son 
+los siguientes:
+
+	0 Eliminado.
+	1 Activo.
+
+IdExpendio, el identificador del expendio el cual se lleva el control
+
+
+La informacion anterior se debera almacenar en una tabla que tenga como 
+llave la clave del producto y la fecha.
+
+
+Ahora, se requiere llevar un registro de los inventarios semanales que 
+se estaran realizando asi como el estado que cada uno de los productos
+que participan en el proceso tiene. Ademas se debe considerar al emple-
+ado que realiza el proceso de inventario.
+
+Para lo anterior se debe considerar la siguiente informacion:
+
+
+CveProducto
+FechaInventario
+Empleado
+Cantidad
+EstadoProducto
+IdExpendio
+
+El estado del inventario lo voy a obtener de comparar la cantidad registrada
+en la tabla anterior y la existencia de ese producto.
+
+El campo estado de producto indicara si ya se ha contado o no, si este campo
+tiene informacion entonces se considerara como que ya se conto sino tiene 
+asignado ningun valor, se debera consierar como no contado.
+
+
+
+Considerarcion adicionales:
+
+
+Al momento de estar disenando la interfaz de usuario se observa lo siguiente:
+
+Para llevar el control del estado de cada uno de los registros que se contem-
+plan en el proceso de invetario se debera considerar que al momento de reali-
+zar la consulta que mostrara los registros se anexara el EdoRegistro, que re-
+presentara un valor de insertado, si se tiene informaacion en la cantiad de 
+este producto, con lo que al momento de ejecutar el registro de inventario -
+y no se modifico este valor por parte del usuario entonces el estatus sera
+insertado, con lo que el servidor no ejecutara la cadena de insercion para 
+este producto, si no se tiene informacion al momento de seleccionar el re-
+porte en este campo, entonces el EdoRegistro sera noinsertado, con lo que 
+al momento de enviar esta informacion al servidor se debera forma la cade-
+na de insercion, el ultimo caso de este punto sera, si el registro estaba
+con EdoRegistro igual a Registrado y el usuario modifico el valor del campo
+de cantiad, en este caso al detectar esta accion el servidor debera de 
+generar la cadena de actualizacion para dicho campo.
+
+En este punto se consiera que la informacion que debera contener el objeto
+de interfaz sera la siguiente:
+
+Un objeto Producto (ProductosE.cpp)
+Un objeto Persona (Personas.cpp)
+Mas el EdoRegistro
+Fecha
+EstadoProducto
+* Para realizar un solo objeto entre los productos del administrador
+  y los productos que el empleado usa se agregan los siguientes 
+  campos.
+
+TipoProducto
+EstadoProducto
+
+
+Para el caso de la fecha se debera consierar que para el caso del registro
+del producto en la tabla de productos a inventariar.
+
+
+Al momento de realizar la consulta al servidor se eleccionara tomara el 
+expendio.
+
+:)
+
+Se debe buscar crear un solo objeto de interfaz para controlar las operaciones
+en el servidor, como podemos observar, en este proceso de analisis, la infor-
+macion de los productos que se deberan considerar para el inventario y los pro
+ductos que el empleado debera de contar son practicamente los mismos, hasta es
+te momento.
+
+:)
+
+EjecutaInventario
+
+Esta pantalla servira para que el empleado pueda saber los productos de los 
+cuales se desea realizar inventario, al presionar el raton en la columna
+cantidad, se mostrara una ventana para capturar la cantidad, en este caso se 
+se ve si el campo EdoRegistro tiene informacion, se cambia a Modificado, para
+general la cadena de actualizacion de la informacion para este producto.
+
+Al momento de pulsar el boton Registrar inventario, se envia toda la infor-
+macion al servidor y se generan las cadenas de insercion o actualizacion se-
+gun corresponda.
+
+
+ProductosInventariar
+
+En esta pantalla, se mostrara en el grid superior la lista completa de pro-
+ductos disponibles para el expendio, el administrador podra seleleccionar 
+varios producto y anexar a la tabla inferior para visualizar que son esos 
+productos los que se insertaran para el inventario.
+
+Como podemos observar en la Pantalla se tiene un campo Estado Registro, este
+campo nos permitira, generar la cadena adecuada para la operacion en la base
+de datos, si el registro esta marcado como registrado, no se genera cadena
+alguna para la insercion, para el caso de la informacion en la base de datos
+de los productos a inventarior, no se pueden borrar, esto para fines histori-
+cos, en el caso de que se seleccione de la interfaz como eliminado, el servi-
+dor debera generar una cadena de insercion con la fecha y el estado del produ-
+cto como eliminado.
+
+El usuario podra seleccionar varios productos, a eliminar. como se menciono
+lineas atras no se borrara fisicamente de la interfaz ni de la base de datos.
+
+
+En esta misma pantalla, se observa que se tiene un control con una lista de 
+productos, el cual se podra utilizar como en las pantallas de compras, 
+cotizacion etc.
+
+Al seleccionar anexar, si se tienen seleccionados productos en la tabla 
+superior, se anexaran estos al control de la tabla inferior, si no se tiene
+informacion seleccionada, y se selecciono un producto en el combo, entonces
+se anexara el producto del combo.
+
+Solo se podran eliminar registros de la tabla inferior, para el caso de que
+el estado del registro no tenga un valor.
+
+Al seleccionar registrar, se envia la informacion al servidor, y este la 
+analiza para generar las respectivas cadenas de insercion.
+
+
+EstadoInventario
+
+
+Esta ventana permitira visualizar la informacion referente al proceso de -
+ejecucion del inventario, la informacion que se podra visualizar en esta -
+pantalla es la siguiente:
+
+	CveProducto
+	Descripcion
+	Inventario ( cantidad del producto registrada por el empleado al
+		     momento de realizar la cuenta del producto)
+	Existencia ( La cantidad del producto almacenada en la tabla exis-
+		     tencias )
+	Ventas  ( La cantidad de producto, que se vendio en la semana en 
+		  la que se ejecuto el inventario )
+	CostoUnitario (El costo del producto )
+	ImporteTotal ( Importe de la diferencia entre el inventario realizado
+		       y la cantidad que se encuentra almacenada en la tabla
+		       de existencias )
+	Empleado ( El nombre del empleado que realiza el inventario )
+
+
+
+
+Para poder construir los elementos para resolver la funcionalidad anterior-
+mente descrita se propone lo siguiente:
+
+
+La clase ProductoE, tiene mucha informacion, que no sera util, para este --
+proceso, por lo que se desarrollara una nueva clase que contenga solo la --
+informacion que se va a trabajar, en este modulo.
+
+la clase sera 
+
+ProductoI
+
+Y la informacion que contendra es la siguiente:
+
+CveProducto
+Descripcion
+EstdoProducto
+EstadoRegistro
+Cantidad
+Inventario
+Existencia
+PrecioVenta
+CostoUnitario
+Total
+Expendio
+FechaRegistro ( Fecha Registro del producto al control de inventarios )
+
+
+Se debera ademas tener la informacion de los inventarios programados 
+
+InventarioDia
+
+Fecha
+IdEmpleado
+Nombre
+APaterno
+AMaterno
+
+:) Para el caso de la informacion del empleado, se utilizara el objeto Persona
+   que se tiene ya definido
+
+Para el control de los productos asignados al empleado
+
+ProductosEmpleado
+
+InventarioDia
+Lista ProductosI
+
+
+
+
+
+
+
+Ahora las tablas que se deberan de anexar a la base de datos
+
+
+Como parte de la gestion del proceso de analisis se determino que se debe in--
+corporar, una nueva pantalla para la programacion de los inventario.
+
+ProgramaInventario (ProgramaInventario.ui)
+
+Como podemos observar esta pantalla, debera mostrar los datos del ultimo in---
+ventario, es decir el empleado asignado y la fecha en la que se realizo.
+
+Ademas esta ventana debera permitir seleccionar el empleado que realizara la -
+cuenta del material y la fecha en la que se debera realizar esta actividad.
+
+A su vez en esta pantalla se mostrara un historico de los inventarios que se
+han programado y que no se ha realizado, mostrando la fecha y el empleado.
+
+El estado del registro indicara si se el usuario ha modificado, algun dato
+del inventario programado, pudiendo ser la actualizacion de algun dato o la
+eliminacion de esta actividad.
+
+:) 
+
+En este punto se observo que, en el caso de que una tienda tenga varios em--
+pleados, se podra asignar los productos que un empleado debera de contar.
+
+Para esto se debera tener un caso generico de productos vendidos a la fecha
+del ultimo inventario, para que estos productos puedan ser asignados a otro
+empleado.
+
+
+En cuanto a la base de datos, se deberan crear las tablas que permitan alma-
+cenar la informacion.
+
+SQL 
+
+ProgramacionInventario
+
+ IdInventario
+ Fecha
+ IdPersona
+
+Productos a inventariar (Productos que cada empleado debera contar)
+
+  IdInventario
+  CveProducto
+
+Con las dos tablas anteriores podemos llevar el control de  la programacion 
+de los inventarios.
+
+Productos del inventario
+
+CveProducto
+Fecha
+TipoProducto
+EstadoProducto
+IdExpendio
+
+
+
+
+  

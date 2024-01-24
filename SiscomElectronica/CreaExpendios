@@ -1,0 +1,1991 @@
+#!/bin/bash
+
+echo 
+DirectorioRespaldos=$HOME/SiscomDesarrollo/RespaldosBaseDatos/SiscomElectronica
+
+### $1 Puerto Reglas del Negocio
+### $2 Base de datos
+
+BuscaUltimoArchivo()
+{
+ for X in $(ls -ltr $1/$2 |awk -F ' ' '{print $9}')
+ do
+ 	UltimoArchivo=$X 
+ done
+echo $UltimoArchivo
+}
+
+BuscaUltimoArchivoPrefijo()
+{
+for X in $(ls -ltr $1|awk -F' ' '{print $9}')
+do
+  if [[ "$X" == *"$2"* ]]
+  then
+        ArchivoX=$X
+   fi
+done
+
+echo $ArchivoX
+
+}
+
+CambiaCaracteres()
+{
+echo $1 |sed s/_/\ /g
+}
+
+
+
+CreaArchivoIniReglas()
+{
+##{cat << ArchivoIni >   Configuracion/Configuracion.$1.ini
+cat << ArchivoIni >   $DirectorioSiscomElectronica/Expendios/INIs/Configuracion.$1.ini
+
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   = $1
+
+PtoAccesoDatos= $2
+DirIpAccesoDatos=127.0.0.1
+DirIpAccesoDatos4=127.0.0.1
+PtoAccesoDatos4=$4
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libSiscomElectronica.so
+FuncionLibServidor = Principal
+
+DirTrabajo=$DirectorioSiscomElectronica/Expendios
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   =  $3
+
+#Informacion para los comentarios del archivo
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+
+
+LibMemoriaComun=libSiscomElectronicaMemoriaComun.so
+
+FuncionLibMemoriaComun=IniciaMemoriaComun
+ClienteFrecuente=Si
+
+
+# Para este caso el nombre de las bibliotecas se forman de dos partes
+# separadas por @:
+# la primera es un identificador
+# la segunda el nombre de la biblioteca
+
+#BibliotecasServidor[]
+#		BibliotecasServidor[0]=0@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=1@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=2@libSeguridad3Expendios.so
+#[]BibliotecasServidor
+
+
+# Los nombres de las funciones se forman por el identificador de la
+# biblioteca y el nombre de la funcion, el identificador de la biblioteca
+# es el numero mediante el cual se va a relacionar la biblioteca y 
+# la funcion 
+#FuncionesServidor[]
+		FuncionesServidor[0]=0@ConsultaSeguridad3Pro2Version2
+#[]FuncionesServidor
+ArchivoIni
+
+##}
+}
+
+CreaArchivoIniDesarrollo4()
+{
+#{cat << ArchivoIniDes4 > Configuracion/SiscomElectronica$1Ini
+cat << ArchivoIniDes4 > $DirectorioSiscomElectronica/Expendios/INIs/SiscomElectronica$1Ini
+########
+########
+########
+Puerto=$1
+ModuloSistema=libSiscomPostgresSql.so
+FuncionModuloSistema=ServidorAccesoDatos
+
+GestionEstatica=1
+
+
+CargaMemoria=0
+
+FuncionGestionEstatica[]
+FuncionGestionEstatica[EjecutaConsulta]=SiscomConsultaBD
+FuncionGestionEstatica[EjecutaOperacion]=SiscomOperacionBD
+FuncionGestionEstatica[EjecutaOperacionBinario]=SiscomOperacionBinarioBD
+FuncionGestionEstatica[EjecutaConsultaArchivos]=SiscomConsultaArchivosBD
+[]FuncionGestionEstatica
+
+LogServidor[]
+LogServidor[SocketProtocolo]=0
+[]LogServidor
+
+ArchivoIniDes4
+#}
+}
+CreaArchivoIniReglasProduccion()
+{
+##{cat << ArchivoIni >   Configuracion/Configuracion.$1.ini
+cat << ArchivoIni >   Expendios/Configuracion/Configuracion.$1.ini
+
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   = $1
+
+PtoAccesoDatos= $2
+DirIpAccesoDatos=127.0.0.1
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libSiscomElectronica.so
+FuncionLibServidor = Principal
+
+DirTrabajo=/home/hgarduno/ConfiguracionSiscomElectronica/Expendios
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   =  $3
+
+#Informacion para los comentarios del archivo
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+
+
+LibMemoriaComun=libSiscomElectronicaMemoriaComun.so
+
+FuncionLibMemoriaComun=IniciaMemoriaComun
+ClienteFrecuente=Si
+
+
+# Para este caso el nombre de las bibliotecas se forman de dos partes
+# separadas por @:
+# la primera es un identificador
+# la segunda el nombre de la biblioteca
+
+#BibliotecasServidor[]
+#		BibliotecasServidor[0]=0@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=1@libSeguridad3Expendios.so
+#		BibliotecasServidor[0]=2@libSeguridad3Expendios.so
+#[]BibliotecasServidor
+
+
+# Los nombres de las funciones se forman por el identificador de la
+# biblioteca y el nombre de la funcion, el identificador de la biblioteca
+# es el numero mediante el cual se va a relacionar la biblioteca y 
+# la funcion 
+#FuncionesServidor[]
+		FuncionesServidor[0]=0@ConsultaSeguridad3Pro2Version2
+#[]FuncionesServidor
+ArchivoIni
+
+##}
+}
+
+
+
+CreaArchivoIniAccesoDatos()
+{
+cat << ArchivoIni >   $DirectorioSiscomElectronica/Expendios/INIs/Configuracion.$1.ini
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   =  $1
+
+PtoAccesoDatos=4547
+DirIpAccesoDatos=127.0.0.1
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libAccesoDatos.so
+FuncionLibServidor = AccesoDatos
+
+DirTrabajo=$DirectorioSiscomElectronica/Expendios
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   = $2
+
+
+	#Informacion para los comentarios del archivo
+
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+ClienteFrecuente=Si
+
+ArchivoIni
+}
+
+CreaArchivoIniAccesoDatosProduccion()
+{
+cat << ArchivoIni >   Expendios/Configuracion/Configuracion.$1.ini
+### Archivo De Configuracion para el Servidor
+### Siscom Protocolo 2 
+
+### Puerto En que atendera peticiones el servidor
+
+PtoComunicaciones   =  $1
+
+PtoAccesoDatos=4547
+DirIpAccesoDatos=127.0.0.1
+
+Demonio=No
+				
+#### Biblioteca que contine la funcionalidad del servidor
+
+LibServidor  =  libAccesoDatos.so
+FuncionLibServidor = AccesoDatos
+
+DirTrabajo=/home/hgarduno/ConfiguracionSiscomElectronica/Expendios
+
+
+### base de datos a la que se conectara ,
+### este parametro se debera pasar como parte
+### de las operaciones a la base de datos.
+
+BaseDatos   = $2
+
+
+	#Informacion para los comentarios del archivo
+
+# Se debe considerar este caso 	Informacion="Cualquier otro Dato que se Necesita"
+
+
+# Ademas se debe considerar el echo de trabajar con variables como:
+# Ambiente[]
+#	     Ambiente[0]=LD_LIBRARY_PATH=/home/hgarduno/SISCOM:/QT/lib:
+#	     Ambiente[1]=PATH=/home/hgarduno/Sistema
+# []Ambiente
+
+
+# La variable anterior se agrupara en una matriz de apuntadores a
+# caracteres
+ClienteFrecuente=Si
+
+ArchivoIni
+}
+
+
+CreaArchivoInicioSistema()
+{
+##{cat << IniciaSistema  > $DirectorioSiscomElectronica/Expendios/ScriptsInicio/ServidorSiscom.$1 
+cat << IniciaSistema  > $DirectorioSiscomElectronica/Expendios/ScriptsInicio/ServidorSiscom.$1 
+#!/bin/sh
+
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:$DIRPOSTGRESQL/lib
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$DirectorioSiscomElectronica/Servidor
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$DIRDesarrolloHGE/ActualizaAplicacion/Servidor
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$DIRLIBSISCOM2:
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$DirectorioSiscomElectronica/SiscomElectronica2/Servidor
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$DIRDesarrolloHGE/SiscomDesarrollo4
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$DIRDesarrolloHGE/SiscomDesarrollo4/PostgresSql
+
+PATH=\$PATH:\$DIRDesarrolloHGE/SISCOMDesarrollo2/Servidor
+PATH=\$PATH:\$DIRDesarrolloHGE/SiscomDesarrollo4/
+DirectorioConfiguracion=\$DirectorioSiscomElectronica/Expendios
+export	LD_LIBRARY_PATH \\
+	PATH		\\
+	DirectorioConfiguracion
+
+MataProceso()
+{
+ ArchivoPid=\$DirectorioSiscomElectronica/Expendios/PIDs/ServidorSiscom\$1\Pid
+  if [ -f \$ArchivoPid ]
+  then
+  Pid=\$(cat \$ArchivoPid)
+  kill -9 \$Pid
+  rm \$ArchivoPid
+  else
+     printf "No esta el archivo %s\n" \$ArchivoPid
+  fi
+
+}
+
+start()
+{
+	ServidorGeneral \$DirectorioSiscomElectronica/Expendios/INIs/Configuracion.$2.ini	
+	ServidorGeneral \$DirectorioSiscomElectronica/Expendios/INIs/Configuracion.$1.ini	
+	\$DIRDesarrolloHGE/SiscomDesarrollo4/ServidorSiscom \$DirectorioSiscomElectronica/Expendios/INIs/SiscomElectronica$4Ini
+}
+stop()
+{
+	MataProceso $4
+	MataProceso $2
+	MataProceso $1
+}
+case "\$1" in
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac
+
+IniciaSistema
+##}
+chmod +x $DirectorioSiscomElectronica/Expendios/ScriptsInicio/ServidorSiscom.$1
+}
+
+
+CreaArchivoInicioSistemaProduccion()
+{
+##{cat << IniciaSistema  > ServidorSiscom.$1 
+
+cat << IniciaSistema  > ServidorSiscom.$1 
+#!/bin/sh
+DirServidor=/home/hgarduno/ConfiguracionSiscomElectronica/Expendios/Configuracion
+
+LD_LIBRARY_PATH=/home/postgres/9.4.5/lib:/home/hgarduno/SistemaIntegralSiscom3/Servidor:
+PATH=\$PATH:/home/hgarduno/SistemaIntegralSiscom3/Servidor
+
+export	LD_LIBRARY_PATH \
+	PATH
+
+start()
+{
+		ServidorGeneral \$DirServidor/Configuracion.$2.ini	
+		ServidorGeneral \$DirServidor/Configuracion.$1.ini	
+}
+stop()
+{
+		Pid5645=\$(cat /home/hgarduno/ConfiguracionSiscomElectronica/Expendios/LOGs/ServidorSiscom.$2.pid)
+		Pid5646=\$(cat /home/hgarduno/ConfiguracionSiscomElectronica/Expendios/LOGs/ServidorSiscom.$1.pid)
+		kill -16 \$Pid5645
+		kill -16 \$Pid5646
+		rm -f \$DirServidor/ServidorSiscom.$2.pid
+		rm -f \$DirServidor/ServidorSiscom.$1.pid
+}
+case "\$1" in
+	start)
+		start		
+
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac
+
+IniciaSistema
+##}
+chmod +x ServidorSiscom.$1
+}
+
+##{ Tepotzotlan Mexico a 23 de Octubre del 2015
+## Al Script se la pasa en el primer argumento
+## el numero de puerto, si se pasa 5880, el 
+## script Generara dos archivos Ini, el que 
+## corresponde al Servidor de reglas del negocio
+## y al archivo que corresponde al servidor de 
+## Acceso a datos, el servidor de acceso a datos
+## se generara con el numero del servidor de 
+## reglas del negocio sumando 1, con lo que
+## se generaran dos archivos de la siguiente
+## forma 
+## Configuracion.$1.ini y
+## Configuracion.$1+1.ini
+## En el segundo Archivo se pasara el nombre de la 
+## base de datos 
+## El script buscara en el directorio actual un 
+## Directorio Llamado Configuracion y ahi generara
+##} los archivos ini 
+
+CreaArchivosInicioSistema()
+{
+CreaArchivoIniReglas $1 $2 $3 $4
+CreaArchivoIniAccesoDatos $2 $3
+CreaArchivoInicioSistema $1 $2 $3 $4
+CreaArchivoIniDesarrollo4  $4
+}
+
+CreaArchivosInicioSistemaProduccion()
+{
+CreaArchivoIniReglasProduccion $1 $2 $3
+CreaArchivoIniAccesoDatosProduccion $2 $3
+CreaArchivoInicioSistemaProduccion $1 $2 $3
+
+
+}
+
+# Jueves 10 de Mayo del 2018
+# Se agregan las rutinas generales para 
+# buscar en los argumentos de la linea 
+# de comandos , Parametros y evalular si 
+# esta la opcion
+
+ObtenParametroEntrada()
+{
+while [[ $# -gt 0 ]]
+do
+	case "$1" in
+	 "-$Parametro")
+	 	  shift
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+
+}
+
+EstaLaOpcion()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-$OpcionABuscar" )
+		lintRegreso=1
+	;;
+    esac
+	shift
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+
+
+
+EstaCreaBase()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-CreaBase" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+##Opciones Registro Expendio {
+EstaRegistroExpendio()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-RegistroExpendio" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+ObtenBaseMatrizRegistro()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-BaseMatriz")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenBaseExpendioRegistro()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-BaseExpendio")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenExpendioRegistro()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-Expendio")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenIdExpendioRegistro()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-IdExpendio")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenPuertoAdExpendioRegistro()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-PuertoAdExpendio")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenDirIpAdExpendioRegistro()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-DirIpAdExpendio")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+CreandoRegistroExpendio()
+{
+ echo $#
+
+}
+CreaScriptSqlRegistroExpendio()
+{
+
+
+PuertoAD=$(expr "$5" + "1")
+cat << SqlInsertandoExpendio  | psql $1
+
+insert into empresas values('$3',-$4,'');
+insert into expendios values(-$4,$5,'$6','$2');
+insert into puertosservidorad4 values(-$4,$PuertoAD);
+insert into servidoressiscom4 values(-$4,$PuertoAD);
+
+SqlInsertandoExpendio
+
+}
+SeCreaRegistroExpendio()
+{
+BaseMatrizRegistro=$(ObtenBaseMatrizRegistro $*)
+BaseExpendioRegistro=$(ObtenBaseExpendioRegistro $*)
+ExpendioRegistro=$(ObtenExpendioRegistro $*)
+IdExpendioRegistro=$(ObtenIdExpendioRegistro $*)
+PuertoAdExpendioRegistro=$(ObtenPuertoAdExpendioRegistro $*)
+DirIpAdExpendioRegistro=$(ObtenDirIpAdExpendioRegistro $*)
+### Queretaro a 29 de Octubre del 2015 
+### Validar todos los Argumentos necesarios 
+if [ $# == 13 ]
+then 
+	if [[ "$BaseMatrizRegistro" != ""  	&& 			\
+	      "$BaseExpendioRegistro" != ""	&&			\
+	      "$ExpendioRegistro" != "" 	&&			\
+	      "$IdExpendioRegistro" != ""	&&			\
+	      "$PuertoAdExpendio != ""		&&			\
+	      "$DirIpAdExpendio != "" ]]
+	 then
+		CreaScriptSqlRegistroExpendio 			\
+			      $BaseMatrizRegistro 		\
+			      $BaseExpendioRegistro 		\
+			      $ExpendioRegistro			\
+			      $IdExpendioRegistro		\
+			      $PuertoAdExpendioRegistro		\
+			      $DirIpAdExpendioRegistro
+	 else
+		echo Algo Falto
+	 fi
+
+	      
+else 
+ModoUsoCreaExpendio 
+fi
+
+
+}
+
+ModoUsoCreaExpendio()
+{
+cat << UsoCreaExpendio |more 
+
+-RegistroExpendio
+Agrega a la base de datos de la matriz el expendio 
+	-BaseMatriz 
+	-BaseExpendio
+	-Expendio Nombre del expendio
+		El nombre del expendio no puede llevar espacios, para separador 
+		se debera utilizar un guion bajo
+	-IdExpendio
+	-PuertoAdExpendio
+	-DirIpAdExpendio
+
+
+UsoCreaExpendio
+}
+### }
+EstaCreaInicioSistema()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-CreaInicioSistema" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+
+EstaSeEliminaOtrosExpendios()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-EliminaOtrosExpendios" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+EstaDejaSoloMatriz()
+{
+ OpcionABuscar=DejaSoloMatriz
+ echo $(EstaLaOpcion $*)
+}
+
+EstaDireccionAEscuela()
+{
+ OpcionABuscar=DireccionAEscuela
+ echo $(EstaLaOpcion $*)
+}
+
+EstaGeneraRespaldoBaseExpendio()
+{
+ OpcionABuscar=GeneraRespaldoBaseExpendio
+ echo $(EstaLaOpcion $*)
+}
+EstaRestauraBaseDatos()
+{
+OpcionABuscar=RestauraBaseDatos
+echo $(EstaLaOpcion $*)
+}
+EstaSeIniciaExpendioNuevo()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-IniciaExpendioNuevo" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+EstaCalle()
+{
+OpcionABuscar=Calle
+echo $(EstaLaOpcion $*)
+}
+EstaNumero()
+{
+OpcionABuscar=Numero
+echo $(EstaLaOpcion $*)
+}
+EstaNumeroInt()
+{
+OpcionABuscar=NumInt
+echo $(EstaLaOpcion $*)
+}
+EstaColonia()
+{
+OpcionABuscar=Colonia
+echo $(EstaLaOpcion $*)
+}
+
+EstaCp()
+{
+OpcionABuscar=Cp
+echo $(EstaLaOpcion $*)
+}
+EstaMunicipio()
+{
+OpcionABuscar=Municipio
+echo $(EstaLaOpcion $*)
+}
+EstaEstado()
+{
+OpcionABuscar=Estado
+echo $(EstaLaOpcion $*)
+}
+EstaReferencias()
+{
+OpcionABuscar=Referencias
+echo $(EstaLaOpcion $*)
+}
+EstaPuerto()
+{
+ OpcionABuscar=Puerto
+ echo $(EstaLaOpcion $*)
+}
+EstaDirIpMatriz()
+{
+OpcionABuscar=DirIpMatriz
+echo $(EstaLaOpcion $*)
+}
+ObtenPuerto()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-Puerto")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenBase()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-Base")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenBaseDatosServidor()
+{
+  echo $1|awk -F'@' '{print $1}' 
+
+}
+ObtenBaseDatosBase()
+{
+  echo $1|awk -F'@' '{print $2}' 
+}
+BaseDatosEnFormatoServidorBase()
+{
+if [[ $1 == [@] ]]
+then
+	echo 1
+else
+	echo 0
+fi
+
+}
+
+ObtenNombreExpendio()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-NombreExpendio")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+}
+
+ObtenIdExpendioInicio()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-IdExpendio")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+
+}
+ObtenEscuela()
+{
+Parametro=Escuela
+echo $(ObtenParametroEntrada $*)
+}
+
+ObtenIdRegistro()
+{
+Parametro=IdRegistro
+echo $(ObtenParametroEntrada $*)
+}
+ObtenDirIpMatriz()
+{
+ Parametro=DirIpMatriz
+echo $(ObtenParametroEntrada $*)
+}
+ObtenParametroEntradaPrueba()
+{
+while [[ $# -gt 0 ]]
+do 
+        case "$1" in
+         "-$Parametro")
+                  shift
+                        echo $1
+                  ;;
+        esac
+         shift
+done
+
+}
+
+
+
+ObtenCalle()
+{
+Parametro=Calle
+echo $(ObtenParametroEntrada $*)
+}
+ObtenNumero()
+{
+Parametro=Numero
+echo $(ObtenParametroEntrada $*)
+}
+ObtenNumInt()
+{
+Parametro=NumInt
+echo $(ObtenParametroEntrada $*)
+}
+ObtenColonia()
+{
+Parametro=Colonia
+echo $(ObtenParametroEntrada $*)
+}
+ObtenCp()
+{
+Parametro=Cp
+echo $(ObtenParametroEntrada $*)
+}
+
+ObtenMunicipio()
+{
+Parametro=Municipio
+echo $(ObtenParametroEntrada $*)
+}
+
+ObtenEstado()
+{
+Parametro=Estado
+echo $(ObtenParametroEntrada $*)
+}
+
+ObtenReferencias()
+{
+Parametro=Referencias
+echo $(ObtenParametroEntrada $*)
+}
+
+VerificaSistemaConfigurado() 
+{
+PuertoAD=$(expr "$1" + "1")
+  if [[ -f Configuracion/Configuracion.$1.ini && -f Configuracion/Configuracion.$PuertoAD.ini ]]
+  then
+	echo 1
+  else
+  	echo 0
+  fi
+}
+CreandoSistemaInicioProduccion()
+{
+   CreaArchivosInicioSistemaProduccion $1 $2 $3
+}
+CreandoSistemaInicio()
+{
+		CreaArchivosInicioSistema $1 $2 $3 $4
+}
+
+UltimaBaseDisponible()
+{
+
+Archivos=$(ls -ltr $DirectorioRespaldos|awk -F' ' '{print  $9}')
+
+for X in $Archivos
+do
+    echo $X > /dev/null;
+done
+
+echo $X
+}
+
+CreandoBaseDatos()
+{
+killall -9 psql  > /dev/null 2> /dev/null
+dropdb $1
+createdb $1
+}
+## UltimoArchivo Base de datos $1 
+## IdExpendio  $2
+## Base de datos $3
+## Puerto AD $4
+CargandoBaseExpendio()
+{
+xzcat $DirectorioRespaldos/$1  |sed s/-1165857915/-$4/g  |psql $3 > /dev/null 2> /dev/null
+}
+
+## Base de datos $1
+## PuertoAd $2
+## IdExpendio $3
+## Nombre Expendio $4
+ 
+ActualizaRegistrosExpendio()
+{
+cat << SqlActualizaExpendio | psql $1  > /dev/null
+
+update expendios set ptocomad = $2 where idempresa=$3;
+update expendios set basedatos = '$1' where idempresa=$3;
+update empresas set razonsocial='$4' where idempresa=$3;
+insert into empresas values('SISCOM Electronica',-1165857915,'SISCOM');
+update matriz set idempresa=-1165857915 ;
+insert into expendios values(-1165857915,5646,'127.0.0.1','SiscomElectronica');
+SqlActualizaExpendio
+}
+## Base de datos $2 
+
+CreandoBaseExpendio()
+{
+PuertoAD=$(expr "$1" + "1")
+UltimaBase=$(UltimaBaseDisponible )
+CreandoBaseDatos $2 
+CargandoBaseExpendio $UltimaBase $1 $2 $4
+ActualizaRegistrosExpendio $2 $PuertoAD -$4 $3
+}
+##### Sabado 31 de Octubre del 2015 
+# Se deber revisar lo relativo al IdExpendio,
+# Estoy tratando de generar los expendios ....
+# de Siscom y ...
+SeCreaBaseDatos()
+{
+if [ $# == 9 ]
+then
+	BaseDatos=$(ObtenBase $*)
+	NombreExpendio=$(ObtenNombreExpendio $*)
+	Puerto=$(ObtenPuerto $*)
+	IdExpendio=$(ObtenIdExpendioInicio $*)
+	if [[ "$BaseDatos" != "" && "$Puerto" != ""  && "$NombreExpendio" != ""  && "$IdExpendio" != "" ]]
+	then
+		CreandoBaseExpendio $Puerto $BaseDatos $NombreExpendio  $IdExpendio
+	else
+    	if [ "$BaseDatos" == "" ]
+    	then
+		echo Se debe pasar el nombre de la base de datos
+    	fi
+    	if [ "$Puerto" == "" ]
+    	then
+    		echo Se debe pasar el puerto del servicio
+    	fi
+    	if [ "$NombreExpendio" == "" ]
+    	then
+    		echo 'Se debe pasar el nombre del expendio'
+    	fi
+	if [ "$IdExpendio" == "" ]
+	 then
+	 	echo Se debe pasar el IdExpendio
+	fi
+fi
+else 
+
+cat << ModoUsoSeCreaBase | more 
+         parametros que se requieren
+	 	-Base
+		-Puerto
+		-NombreExpendio
+		-IdExpendio
+
+ModoUsoSeCreaBase
+
+exit 0
+fi
+}
+
+
+#### Miercoles 11 de Noviembre del 2015 
+## Se agrega la funcionalidad que permite de una
+## base de datos eliminar toda la informacion de los
+## expendios
+## Opciones:
+##	-Base Base de datos del expendio
+##	-IdExpendio
+
+
+## $1 Base de datos
+ObtenIdsExpendios()
+{
+Condicion="							\
+select idempresa						\
+from empresas 							\
+where idempresa!=(select idempresa from matriz) and  		\
+	idempresa < 0 and 					\
+	idempresa = $2" 
+cat << SqlIdsExpendios | psql $1  > /dev/null
+
+-- Ciudad de Mexico a 9 de agosto del 2023 
+-- al correr Deja solo empresa, no se eliminan todos los expendios
+-- En este punto, elimino todo lo de las transferencias del material
+-- no tiene sentido, tenerlo para estas pruebas
+
+delete from bodegaexpendio;
+delete from expendioabierto;
+
+delete from productoexpendionosincronizado ;
+delete from transfierematerial ;
+delete from transferencias;
+--- No se porque no se borra .....
+
+delete from empresas where idempresa=-5;
+
+-- Transferencia que causan error 
+
+
+--delete from transfierematerial where idtransferencia = 1528006710;
+--delete from transferencias where idtransferencia = 1528006710;
+--delete from transfierematerial where idtransferencia = 1447293656;
+--delete from transferencias where idtransferencia = 1447293656;
+--delete from transfierematerial where idtransferencia = 1466078456;
+--delete from transferencias where idtransferencia = 1466078456;
+
+
+delete from puertosservidorad4 where idempresa=$2;
+delete from servidoressiscom4 where idempresa=$2;
+delete from transfierematerial where idempresaorigen=$2;
+delete from transfierematerial where idempresadestino=$2;
+delete from transferencias where idexpendio=$2;
+delete from ventas where idexpendio in($Condicion);
+delete from bodegaaexpendio where idexpendio in ($Condicion);
+delete from expendios where idempresa in ($Condicion);
+delete from clienteexpendio where idempresa in($Condicion);
+delete from empresas where idempresa in ($Condicion);
+delete from estadospedidomaterial where idpedido in(select idpedido
+						    from pedidosmaterial
+						     where idexpendio=$2);
+delete from ultimoestadopedido where idpedido in(select idpedido 
+						 from pedidosmaterial
+						 where idexpendio=$2);
+delete from detallepedidomaterial where idpedido in(select idpedido
+						    from pedidosmaterial
+						    where idexpendio=$2);
+delete from pedidosmaterial where idexpendio=$2;
+SqlIdsExpendios
+}
+
+ModoUsoEliminaOtrosExpendios()
+{
+
+cat << ModoUsoEliminandoOtrosExpendios |more 
+  -EliminaOtrosExpendio 
+  	-Base
+	-IdExpendio 
+
+
+ModoUsoEliminandoOtrosExpendios
+
+
+}
+# Jueves 23 de Agosto del 2018 CDMx
+# DejaSoloMatriz 
+# Al restaurar una base de datos tomada 
+# de produccion se requiere eliminar toda
+# la informacion de los expendios, por
+# lo que esta opcion realizara dicha 
+# funcion.
+# -Base 
+
+ObtenIdsTodosMenosMatriz()
+{
+
+cat << CadenaSql | psql $1 -t
+select idempresa					
+from expendios					
+where idempresa != (select idempresa from matriz)
+CadenaSql
+}
+DejandoSoloMatriz()
+{
+   if [ "$(EstaBase $*)" == "1" ]
+   then
+   	BaseDatos=$(ObtenBase $*)
+	printf "Dejando solo matriz en %s\n" $BaseDatos 
+	for X in $(ObtenIdsTodosMenosMatriz $BaseDatos) 
+	do 
+		IdExpendio=$(echo $X  |cut -d'-' -f2)
+		ObtenIdsExpendios $BaseDatos  -$IdExpendio
+	
+  	done	
+   else
+   	ModoUsoDejaSoloMatriz 
+   fi
+
+}
+SeEliminanOtrosExpendios()
+{
+  if [ $# != 5 ]
+  then
+  	echo $#
+  	ModoUsoEliminaOtrosExpendios
+	exit 0
+  else
+	BaseDatos=$(ObtenBase $*)
+	IdExpendio=$(ObtenIdExpendioInicio $*)
+	ObtenIdsExpendios $BaseDatos -$IdExpendio
+   fi
+}
+EstaBase()
+{
+ OpcionABuscar=Base
+ echo $(EstaLaOpcion $*)
+}
+EstaEscuela()
+{
+ OpcionABuscar=Escuela
+ echo $(EstaLaOpcion $*)
+}
+
+EstaIdRegistro()
+{
+ OpcionABuscar=IdRegistro
+ echo $(EstaLaOpcion $*)
+}
+EstaNmbExpendio()
+{
+   OpcionABuscar=NmbExpendio
+   echo $(EstaLaOpcion $*)
+}
+
+EstaIdExpendio()
+{
+  OpcionABuscar=IdExpendio
+  echo $(EstaLaOpcion $*)
+}
+EstaBaseExpendio()
+{
+  OpcionABuscar=BaseExpendio
+  echo $(EstaLaOpcion $*)
+}
+EstaRazonSocial()
+{
+
+  OpcionABuscar=RazonSocial
+  echo $(EstaLaOpcion $*)
+}
+ObtenNmbExpendio()
+{
+ Parametro=NmbExpendio
+ echo $(ObtenParametroEntrada $*)
+}
+ObtenIdExpendio()
+{
+  Parametro=IdExpendio
+  echo $(ObtenParametroEntrada $*)
+}
+ObtenBaseExpendio()
+{
+   Parametro=BaseExpendio
+  echo $(ObtenParametroEntrada $*)
+}
+ObtenRazonSocial()
+{
+   Parametro=RazonSocial
+   echo $(ObtenParametroEntrada $*)
+
+}
+ActualizaRegistrosNuevoExpendio()
+{
+### $1 -> BaseExpendio 
+### $2 -> NmbExpendio
+### $3 -> IdExpendio
+### $4 -> Puerto Ad
+### $5 -> DirIpMatriz
+### $6 -> Base Base
+PuertoAd4=$(expr "$4" + "1")
+cat << SQL |psql $1 > /dev/null
+delete from existencias where idexpendio not in(select idempresa from expendios where basedatos='$6');
+delete from ordencliente where idventa in (select idventa from importeorden );
+delete from escuelaorden where idventa in( select idventa from importeorden );
+delete from ventas ;
+delete from importeorden ;
+insert into empresas values('Siscom Electronica',-1165857915,'SISCOM');
+insert into expendios values(-1165857915,5646,'$5','SiscomElectronica');
+insert into puertosservidorad4 values(-1165857915,5647);
+insert into puertosservidorad4 values(-$3,$4);
+insert into servidoressiscom4  values(-1165857915,5647);
+update matriz set idempresa=-1165857915;
+update empresas set RazonSocial='$2' where idempresa=-$3;
+update expendios set BaseDatos='$1',diripsvrad='127.0.0.1' where idempresa=-$3;
+update existencias set idexpendio=-$3;
+
+delete from clavesproveedores;
+delete from expendios where idempresa not in(-$3,-1165857915);
+delete from bodegaaexpendio;
+delete from puertosservidorad4 where idempresa not in(-$3,-1165857915);
+delete from servidoressiscom4 where idempresa not in(-$3,-1165857915);
+delete from transfierematerial;
+delete from alumnoescuela where idescuela in(select idescuela 
+					     from escuelas 
+					     where idempresa is not null);
+delete from escuelaorden where idescuela in(select idescuela
+					    from escuelas
+					    where idempresa is not null);
+delete from escuelas where idempresa is not null;
+delete from transferencias;
+
+delete from empresas where idempresa not in(-$3,-1165857915);
+update expendios set ptocomad=$4 where idempresa=-$3;
+update puertosservidorad4 set puerto=$PuertoAd4 where idempresa=-$3;
+update servidoressiscom4 set puerto=$PuertoAd4 where idempresa=-$3;
+update firmas set idexpendio = -$3 ;
+SQL
+}
+CreaBaseDatosExpendioNuevo()
+{
+ BaseBase=$(ObtenBase $*)
+ NmbExpendio=$(ObtenNmbExpendio $*)
+ IdExpendio=$(ObtenIdExpendio $*)
+ BaseExpendio=$(ObtenBaseExpendio $*)
+ Puerto=$(ObtenPuerto $*)
+ DirIpMatriz=$(ObtenDirIpMatriz $*)
+ printf "La Base %s Expendio %s IdExpendio %s BaseExpendio %s \n" $BaseBase $NmbExpendio $IdExpendio $BaseExpendio 
+  dropdb $BaseExpendio > /dev/null 2>Error.log
+  createdb $BaseExpendio > /dev/null 2>>Error.log
+  pg_dump $BaseBase |sed s/-1165857915/-$IdExpendio/g |psql $BaseExpendio > /dev/null 2>>Error.log
+  ActualizaRegistrosNuevoExpendio $BaseExpendio $NmbExpendio $IdExpendio $Puerto $DirIpMatriz $BaseBase  > /dev/null 2>>Error.log
+}
+
+CreandoExpendioNuevo()
+{
+   CreaBaseDatosExpendioNuevo $*
+}
+ValidandoArgumentosExpendioNuevo()
+{
+   BaseDatos=$(EstaBase $*)
+   NmbExpendio=$(EstaNmbExpendio $*)
+   IdExpendio=$(EstaIdExpendio $*)
+   BaseExpendio=$(EstaBaseExpendio $*)
+   PuertoAd=$(EstaPuerto $*)
+   DirIpMatriz=$(EstaDirIpMatriz $*)
+   if [[ "$BaseDatos" == "1"  	&& 
+         "$NmbExpendio" == "1" 	&&
+	 "$IdExpendio"  == "1"  &&
+	 "$BaseExpendio" == "1" &&
+	 "$PuertoAd" == "1"     &&
+	 "$DirIpMatriz" == "1" ]]
+   then
+       CreandoExpendioNuevo $*
+   fi
+}
+IniciandoExpendioNuevo()
+{
+    if [ $# != 13 ]
+    then
+    	echo $#
+	ModoUsoIniciaExpendioNuevo
+	exit 0
+    else
+        ValidandoArgumentosExpendioNuevo $*	  
+    fi
+
+}
+
+AgregaDireccionAEscuela()
+{
+    if [ $# != 23 ]
+    then
+	ModoUsoDireccionAEscuela
+	exit 0
+     else
+     	AgregandoDireccionAEscuela  $*
+     fi
+
+}
+RespaldandoBaseExpendio()
+{
+      if [[ "$(EstaBase $*)"    == "1" &&
+            "$(EstaPrefijo $*)" == "1" &&
+	    "$(EstaDirIp $*)"   == "1" ]]
+	then
+		if [ "$(EstaUltimoArchivo $*)" == "0" ]
+		then
+		ssh $(ObtenDirIp $*) bin/RespaldoBaseSiscom -Base $(ObtenBase $*) -Prefijo $(ObtenPrefijo $*)
+		printf "\n"
+		fi
+		UltimoArchivoRespaldo=$(ssh $(ObtenDirIp $*) cat UltimoArchivoRespaldoBase.HGarduno)
+		#printf "Enviando el archivo de respaldo %s\n" $UltimoArchivoRespaldo
+		scp $USER@$(ObtenDirIp $*):$UltimoArchivoRespaldo $HOME/SiscomDesarrollo/RespaldosBaseDatos/SiscomElectronica/
+	fi
+
+}
+GeneraRespaldoBaseExpendio()
+{
+ 
+   if [[ $# == 7 || $# == 8 ]]
+   then
+        RespaldandoBaseExpendio $*
+   else
+   	ModoUsoGeneraRespaldoBaseExpendio 
+   fi
+}
+ModoUsoGeneraRespaldoBaseExpendio()
+{
+cat << UsoGeneraRespaldoBaseExpendio | more
+
+	Invoca via ssh de forma remota el Script $HOME/bin/RespaldoBaseSiscom 
+	
+	Al script se le pasan los siguientes argumentos
+
+						-Base
+
+						-Prefijo Zacatenco
+
+	-Base
+	-Prefijo
+		Se pasa el nombre que se concatenara al nombre
+		generado con base a SiscomElectronica nombre del dia, dia mes a;o y prefijo
+		al nombre final con extension sql.xz
+	-DirIp 
+		Direccion ip del expendio
+	-UltimoArchivo
+		Si se pasa esta opcion, el script no ejecuta la generacion del
+		respaldo de la base de datos, busca el ultimo archivo generado y 
+		lo transmite
+	
+
+UsoGeneraRespaldoBaseExpendio
+
+}
+EstaUltimoArchivo()
+{
+ OpcionABuscar=UltimoArchivo
+ echo $(EstaLaOpcion $*)
+}
+EstaPrefijo()
+{
+OpcionABuscar=Prefijo 
+echo $(EstaLaOpcion $*)
+}
+
+EstaDirIp()
+{
+OpcionABuscar=DirIp
+echo $(EstaLaOpcion $*)
+}
+ObtenDirIp()
+{
+Parametro=DirIp
+echo $(ObtenParametroEntrada $*)
+}
+ObtenPrefijo()
+{
+Parametro=Prefijo 
+echo $(ObtenParametroEntrada $*)
+}
+EstaRespaldos()
+{
+ OpcionABuscar=Respaldos
+ echo $(EstaLaOpcion $*)
+}
+GeneraRestauraBaseDatos()
+{
+  if [ $# == 6 ]
+  then
+       if [ "$(EstaUltimoArchivo $*)" == "1" ]
+       then
+           VerificaEjecucionPsql 
+	   EliminandoBase=$(dropdb $(ObtenBase $*) 2>/dev/null)
+	   createdb $(ObtenBase $*) 
+  	   UltimoRespaldo=$(BuscaUltimoArchivoPrefijo 					\
+	   		    $HOME/SiscomDesarrollo/RespaldosBaseDatos/SiscomElectronica \
+			    $(ObtenPrefijo $*))
+	   if [ "$UltimoRespaldo" != "" ]
+	   then
+	   printf "Restaurando %s\n" $UltimoRespaldo
+	   xzcat $HOME/SiscomDesarrollo/RespaldosBaseDatos/SiscomElectronica/$UltimoRespaldo |psql $(ObtenBase $*) 2>/dev/null 1>/dev/null
+	   else
+	   	printf "No se encontro archivo con el Prefijo %s\n" $(ObtenPrefijo $*)
+		exit 1
+	   fi
+       fi
+  else
+  	ModoUsoRestauraBaseDatos 
+	exit 0
+  fi
+  
+}
+VerificaEjecucionPsql()
+{
+PidsPsql=$(pidof psql)
+if [ "$PidsPsql" ]
+then
+	printf "Deteniendo Psql's"
+	kill -9 $PidsPsql 
+fi
+
+}
+ModoUsoRestauraBaseDatos()
+{
+cat  << UsoRestauraBaseDatos |more 
+
+Toma un archivo de respaldo de base de datos y lo restaura 
+
+	-Base
+	-Archivo 
+	-UltimoArchivo 
+		Busca en $HOME/SiscomDesarrollo/RespaldosBaseDatos/SiscomElectronica 
+		y toma el ultimo archivo para restaurar
+	-Prefijo
+		Los respaldo se identifican con TESE, Casco, Zacatenco
+		se podra pasar la el prefijo que se requiere tomar 
+
+UsoRestauraBaseDatos
+}
+
+ObtenIdEscuela()
+{
+echo "select * from escuelas where nombre='$1'"  |psql $2 -t |awk -F'|' '{print $1}'
+}
+InsertandoDatosDireccion()
+{
+
+echo $* 
+
+cat << SQLDireccionAEscuela |psql $1 
+
+insert into Direcciones values(0,$2,'$6','$7','$9',$4,'${10}','${11}','${12}');
+insert into Empresas values('$5',$3,'$3');
+update escuelas set idempresa=$3 where idescuela=$2;
+
+
+SQLDireccionAEscuela
+
+}
+ValidandoDatosDireccion()
+{
+SiCalle=$(EstaCalle $*)
+SiNumero=$(EstaNumero $*)
+SiNumInt=$(EstaNumeroInt $*)
+SiColonia=$(EstaColonia $*)
+SiCp=$(EstaCp $*)
+SiMunicipio=$(EstaMunicipio $*)
+SiEstado=$(EstaEstado $*)
+SiReferencias=$(EstaReferencias $*)
+if [[ "$SiCalle" == "1" &&
+      "$SiNumero" == "1" &&
+      "$SiNumInt" == "1" &&
+      "$SiColonia" == "1" &&
+      "$SiCp" == "1"      &&
+      "$SiMunicipio" == "1" &&
+      "$SiEstado" == "1"  &&
+      "$SiReferencias" == "1" ]]
+then
+      echo 1
+ else
+ 	echo 0
+ fi
+}
+AgregandoDireccionAEscuela()
+{
+OpcionBaseDatos=$(EstaBase $*)
+OpcionEscuela=$(EstaEscuela $*)
+OpcionIdRegistro=$(EstaIdRegistro $*)
+
+if [[ "$OpcionEscuela" == "1"   &&
+      "$OpcionBaseDatos" == "1" &&
+      "$OpcionIdRegistro" == "1" ]]
+then
+	BaseDatos=$(ObtenBase $*)
+	Escuela=$(ObtenEscuela $*)
+	EscuelaSin=$(CambiaCaracteres $Escuela)
+
+	BaseDatosEnFormatoServidorBase $BaseDatos
+        IdEscuela=$(ObtenIdEscuela "$EscuelaSin" $BaseDatos )
+	IdRegistro=$(ObtenIdRegistro $*)
+    if [ "$(ValidandoDatosDireccion $*)" == "1" ]
+    then
+       LaEscuela=$(ObtenEscuela $*)
+       LaCalle=$(ObtenCalle $*)
+       ElNumero=$(ObtenNumero $*)
+       ElNumInt=$(ObtenNumInt $*)
+       LaColonia=$(ObtenColonia $*)
+       ElCp=$(ObtenCp $*)
+       ElMunicipio=$(ObtenMunicipio $*)
+       ElEstado=$(ObtenEstado $*)
+       LasReferencias=$(ObtenReferencias $*)
+
+       LaCalleSin=$(CambiaCaracteres $LaCalle)
+       NumeroSin=$(CambiaCaracteres $ElNumero)
+       NumeroIntSin=$(CambiaCaracteres $ElNumInt)
+       ColoniaSin=$(CambiaCaracteres  $LaColonia)
+       MunicipioSin=$(CambiaCaracteres $ElMunicipio)
+       EstadoSin=$(CambiaCaracteres $ElEstado)
+       ReferenciasSin=$(CambiaCaracteres $LasReferencias)
+
+       	
+       InsertandoDatosDireccion $BaseDatos 	\
+       				$IdEscuela 	\
+       				$IdRegistro 	\
+				$ElCp 		\
+				"$EscuelaSin"  	\
+				"$LaCalleSin" 	\
+				"$NumeroSin" 	\
+				"$NumeroIntSin" \
+				"$ColoniaSin" 	\
+				"$MunicipioSin" \
+				"$EstadoSin"	\
+				"$ReferenciasSin"
+    fi
+	
+else
+	echo 'Falta algo ...'	
+fi
+}
+## { Se Crea Inicio Sistema
+# Lunes 2 de Noviembre 2015
+#
+# 
+ObtenTipoScript()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-Tipo")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+
+}
+
+
+
+
+SeCreaInicioSistema()
+{
+if [ $# == 7 ]
+then
+	TipoScript=$(ObtenTipoScript $*)
+ 	if [ "$TipoScript" == "Produccion" ]
+ 	then
+		Puerto=$(ObtenPuerto $*)
+		PuertoAD=$(expr "$Puerto" + "1")
+		BaseDatos=$(ObtenBase $*)
+		SistemaYaConfigurado=$(VerificaSistemaConfigurado $Puerto)	
+		if [[ "$SistemaYaConfigurado" == "0" && 
+		      "$Puerto" != "" && 
+		      "$PuertoAD" != ""  && 
+		      "$BaseDatos" != "" ]]
+		then
+			CreandoSistemaInicioProduccion $Puerto $PuertoAD $BaseDatos
+		else
+			if [ "$SistemaYaConfigurado" == "1" ]
+			then
+				echo 'El Sistema ya esta configurado'
+			else
+				if [ "$Puerto" == "" ]
+				then
+					 echo 'Se necesita pasar -Puerto XXX'
+				fi	
+				if [ "$BaseDatos" == "" ]
+				then
+					echo 'Se debe pasar -Base XXX'
+				fi
+			fi
+		fi
+
+ 	fi
+ 	if [ "$TipoScript" == "Desarrollo" ]
+ 	then
+		Puerto=$(ObtenPuerto $*)
+		PuertoAD=$(expr "$Puerto" + "1")
+		PuertoAdDes4=$(expr "$Puerto" + "2")
+		BaseDatos=$(ObtenBase $*)
+		SistemaYaConfigurado=$(VerificaSistemaConfigurado $Puerto)	
+		if [ "$SistemaYaConfigurado" == "0" ]
+		then
+			if [[ "$SistemaYaConfigurado" == "0" && 
+			      "$Puerto" != ""                && 
+			      "$PuertoAD" != ""              && 
+			      "$BaseDatos" != "" ]]
+			then
+				CreandoSistemaInicio $Puerto $PuertoAD $BaseDatos $PuertoAdDes4
+			fi
+		else
+					
+			if [ "$SistemaYaConfigurado" == "1" ]
+			then
+				echo 'El Sistema ya esta configurado'
+			else
+				if [ "$Puerto" == "" ]
+				then
+					 echo 'Se necesita pasar -Puerto XXX'
+				fi	
+				if [ "$BaseDatos" == "" ]
+				then
+					echo 'Se debe pasar -Base XXX'
+				fi
+			fi
+		fi
+
+	 fi
+else
+ModoUsoCreaSistemaInicio 
+fi
+
+
+
+}
+ModoUsoCreaSistemaInicio()
+{
+cat << ModoUsoCreaSistemaInicio | more 
+
+	-CreaInicioSistema
+	Se deben pasar los siguientes argumentos:
+		-Tipo  
+		 	Desarrollo :Scripts con referencia a rutas de desarrollo
+			Produccion :Scripts con referencia a rutas de produccion
+		-Puerto Puerto de Reglas del negocio, internamente se incrementara para
+			obtener el puerto de AD
+		-Base Base de datos del sistema
+		
+
+ModoUsoCreaSistemaInicio
+
+
+}
+
+####}
+
+SeIniciaExpendioNuevo()
+{
+		
+    if [ $# == 7 ]
+    then
+    		echo 'Iniciando el Expendio Nuevo'
+    else
+    	ModoUsoIniciaExpendioNuevo 
+   fi
+}
+Respaldos()
+{
+
+   ls -ltr $DirectorioRespaldos
+
+}
+ModoUsoIniciaExpendioNuevo()
+{
+cat << ModoUsoExpendioNuevo | more 
+
+	-IniciaExpendioNuevo
+	Se deben pasar los siguientes argumentos:
+		-Base  
+			 Base de datos Referencia 
+		-NmbExpendio 
+			El nombre del expendio
+		-IdExpendio 
+			Id para identificar el expendio
+			el numero entero se debe pasar 
+			sin signo
+		-BaseExpendio
+			Nombre de la base de datos del expendio
+		-Puerto 
+			Puerto de comunicacion de Ad 
+			con base a este dato se calcula
+			el puerto Desarrollo4 sumando uno
+		-DirIpMatriz 
+			Se envia la direccion ip del servicio 
+			que se ejeuctara como matriz 
+
+			El puerto para la matriz por default es el 5645
+		
+
+ModoUsoExpendioNuevo
+
+
+}
+ModoUsoDejaSoloMatriz()
+{
+cat << ModoUsoDejaSoloMatriz |more
+
+-DejaSoloMatriz 
+	Opciones:
+		-Base 
+	Donde:
+		Se pasa el nombre de la base de datos
+		
+
+
+ModoUsoDejaSoloMatriz
+
+}
+
+ModoUsoDireccionAEscuela()
+{
+cat << ModoUsoDirAEscuela
+
+Script que permite agregar la direccion a una escuela 
+para utilizarla en el modulo de pedidos de entrega a
+escuela
+
+Nota ** 
+	Los datos que lleven espacios se deben 
+	capturar con _ en lugar del espacio, el 
+	script de manera interna realizara la 
+	sustitucion del caracter para que se registre
+	de forma correcta en la base.
+
+ -Base SiscomElectronica 
+ -DireccionAEscuela 
+ -Escuela ESIMEA 
+ -Calle Av_De_Las_Granjas 
+ -Numero 682
+ -NumInt 0 
+ -Colonia Santa_Catarina 
+ -Cp 02250 
+ -Municipio Azapotzalco 
+ -Estado CDMX 
+ -Referencias ESIMEA
+ -IdRegistro 
+
+
+ModoUsoDirAEscuela
+
+}
+ModoUso()
+{
+cat << ModoUsoCrea | more
+
+Script que permite crear la base de datos y scripts de 
+inicio para expendios Siscom Electronica, inicialmente
+se usa para probar la funcionalidad que tiene que ver 
+con la matriz y un expendio
+
+Opciones:
+	  -CreaBase 
+	  -CreaInicioSistema 
+	  -RegistroExpendio 
+	  -EliminaOtrosExpendios
+	  -DejaSoloMatriz
+	  -IniciaExpendioNuevo
+	  -DireccionAEscuela
+	  -GeneraRespaldoBaseExpendio
+	  -RestauraBaseDatos
+	  -Respaldos
+
+ModoUsoCrea
+
+}
+
+
+if [ $# == 0 ]
+then
+	ModoUso 
+	exit 
+fi
+
+
+SeCreaBase=$(EstaCreaBase $*)
+SeCreaInicioSistema=$(EstaCreaInicioSistema $*)
+SeRegistraExpendio=$(EstaRegistroExpendio $*)
+SeEliminaOtrosExpendios=$(EstaSeEliminaOtrosExpendios $*)
+SeIniciaExpendioNuevo=$(EstaSeIniciaExpendioNuevo $*)
+SeDejaSoloMatriz=$(EstaDejaSoloMatriz $*)
+# CDMX a 26 de Octubre del 2018
+# Se agrega la opcion para agregar a una escuela 
+# su direccion, y asi poder usarla en la entrega a 
+# en el modulo de peidos a escuela
+SeDireccionAEscuela=$(EstaDireccionAEscuela $*)
+SeGeneraRespaldoBaseExpendio=$(EstaGeneraRespaldoBaseExpendio $*)
+SeGeneraRestauraBaseDatos=$(EstaRestauraBaseDatos $*)
+EstaRespaldos=$(EstaRespaldos $*)
+if [ "$SeDejaSoloMatriz" == "1" ]
+then
+	DejandoSoloMatriz $*
+	exit 0
+fi
+
+if [ "$SeEliminaOtrosExpendios" == "1" ]
+then
+	SeEliminanOtrosExpendios $*
+	exit 0
+fi
+
+if [ "$SeRegistraExpendio" == "1" ]
+then
+	SeCreaRegistroExpendio  $*
+	exit 0 
+fi
+if [ "$SeCreaBase" == "1" ]
+then
+	SeCreaBaseDatos $*
+	exit 0
+fi
+
+if [ "$SeCreaInicioSistema" == "1" ]
+then
+	SeCreaInicioSistema $*
+	exit 0
+fi
+if [ "$SeIniciaExpendioNuevo" == "1" ]
+then
+	IniciandoExpendioNuevo $*
+	exit 0
+fi
+if [ "$SeDireccionAEscuela" == "1" ]
+then
+	AgregaDireccionAEscuela $*
+	exit 0
+fi
+if [ "$SeGeneraRespaldoBaseExpendio" == "1" ]
+then
+	GeneraRespaldoBaseExpendio $*
+	exit 0
+fi
+if [ "$SeGeneraRestauraBaseDatos" == "1" ]
+then
+	GeneraRestauraBaseDatos $*
+fi
+
+if [ "$EstaRespaldos" == "1" ]
+then
+	Respaldos $*
+fi

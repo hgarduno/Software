@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gdb Cliente/ElFresno `ps -u hgarduno  |grep ElFresno |awk -F' ' '{print $1}'`
