@@ -1,0 +1,41 @@
+#!/bin/sh
+
+DirServidor=/home/hgarduno/.HGEDesarrollos/ActualizaAplicacion/ServidorEstacion
+
+LD_LIBRARY_PATH=$DIRDesarrolloHGE/SISCOMDesarrollo2:$DIRPOSTGRESQL/lib:$DirServidor
+PATH=$PATH:$DIRDesarrolloHGE/SISCOMDesarrollo2/Servidor
+
+
+start()
+{
+
+		ServidorGeneral $DirServidor/ConfiguracionSiscom.4590.ini	
+		ServidorGeneral $DirServidor/ConfiguracionSiscom.4591.ini	
+		ServidorGeneral $DirServidor/ConfiguracionSiscom.4592.ini	
+}
+stop()
+{
+	for X in `find $DirServidor -name '*.pid'` 
+	do
+	     kill -16 `cat $X`
+	     rm $X
+	done	
+}
+case "$1" in
+	start)
+		start		
+
+	;;
+	stop)
+		stop
+	;;
+	status)
+		status
+	;;
+	restart)
+		restart
+	;;
+	*)
+	echo "Use ServidorSiscom start|stop|restart|status"
+	exit 1
+esac

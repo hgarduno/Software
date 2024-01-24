@@ -1,0 +1,477 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>Cliente</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>Cliente</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>851</width>
+            <height>797</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form4</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="1" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>layout103</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout92</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel5</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Direccion IP</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLEDirIpSvr</cstring>
+                            </property>
+                            <property name="text">
+                                <string>127.0.0.1</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout92_2</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel5_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Puerto</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLEPto</cstring>
+                            </property>
+                            <property name="text">
+                                <string>4546</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout92_3</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel5_3</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Directorio Trabajo</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLEDTrabajo</cstring>
+                            </property>
+                            <property name="text">
+                                <string>SISCOMClinicas2Cliente</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout92_3_2</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel5_3_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Directorio Servidor</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>QLEServidor</cstring>
+                            </property>
+                            <property name="text">
+                                <string>ServidorClinicas2</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QTable" row="4" column="1">
+            <column>
+                <property name="text">
+                    <string>Modulo Servidor</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>table15</cstring>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>120</height>
+                </size>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>1</number>
+            </property>
+        </widget>
+        <widget class="QTable" row="3" column="1">
+            <column>
+                <property name="text">
+                    <string>Aplicaciones Servidor</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTAplicaciones_2</cstring>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>120</height>
+                </size>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>1</number>
+            </property>
+        </widget>
+        <widget class="QTable" row="2" column="1">
+            <column>
+                <property name="text">
+                    <string>Modulo Cliente</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTMCliente</cstring>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>120</height>
+                </size>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>1</number>
+            </property>
+        </widget>
+        <widget class="QTable" row="5" column="1">
+            <column>
+                <property name="text">
+                    <string>Configuracion Cliente</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTConfiguracion</cstring>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>120</height>
+                </size>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>1</number>
+            </property>
+        </widget>
+        <widget class="QTable" row="6" column="1">
+            <column>
+                <property name="text">
+                    <string>Direccion IP</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Pto Com</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Directorio Trabajo</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Home</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTEstaciones</cstring>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>120</height>
+                </size>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>4</number>
+            </property>
+        </widget>
+        <widget class="QTable" row="1" column="1">
+            <column>
+                <property name="text">
+                    <string>Aplicaciones Cliente</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTAplicaciones</cstring>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>120</height>
+                </size>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>1</number>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="2" rowspan="6" colspan="1">
+            <property name="name">
+                <cstring>layout106</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QToolBox">
+                    <property name="name">
+                        <cstring>QTBEscripts</cstring>
+                    </property>
+                    <property name="currentIndex">
+                        <number>0</number>
+                    </property>
+                    <widget class="QWidget">
+                        <property name="name">
+                            <cstring>page1</cstring>
+                        </property>
+                        <property name="backgroundMode">
+                            <enum>PaletteBackground</enum>
+                        </property>
+                        <attribute name="label">
+                            <string>Page 1</string>
+                        </attribute>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QTextEdit" row="0" column="0">
+                                <property name="name">
+                                    <cstring>textEdit6</cstring>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer11</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>40</height>
+                        </size>
+                    </property>
+                </spacer>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="6" colspan="1">
+            <property name="name">
+                <cstring>layout24</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout23</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBConfiguracion</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Configuracion</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBAAplicacion</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Selecciona Aplicaciones</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBAMCliente</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Anexa Modulos Cliente</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPCDirectorio</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Crea Directorio Trabajo</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBAnexaEstacion</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Anexa Estacion</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBTServidor</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>0</width>
+                                    <height>78</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32767</width>
+                                    <height>78</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string>Tranfiere Cliente 
+Al Servidor</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBAEstaciones</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Actualiza Estaciones</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBAEscript</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Anexa Escript</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>QPBTAEstaciones</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>0</width>
+                                    <height>78</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32767</width>
+                                    <height>78</height>
+                                </size>
+                            </property>
+                            <property name="text">
+                                <string>Transfiere Archivos
+A La Estacion</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer10</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>260</height>
+                        </size>
+                    </property>
+                </spacer>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
