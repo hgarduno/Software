@@ -1,0 +1,65 @@
+.\" Manual para la Estructura SArgsSiscom Heli
+.\" Siscom Electronica, Mexico 2013
+.TH man 1 "14 Enero 2013" "1.0" "Manual de SArgsSiscom"
+.SH Estructura 
+SArgsSiscom, contiene la informacion para comunicarse con las distintas funciones
+.SH Resumen
+La estructura se encuentra definida en SiscomModuloOperaciones.h
+.SH Descripcion
+La estructura contiene la informacion .....
+.SH Campos 
+LCamposSiscomPro2 *LCSiscomPro2Dat
+.br
+LCamposSiscomPro2ConSubReg *LCSiscomPro2SREntrada;
+.br
+LCamposSiscomPro2 *LCSiscomPro2DatUltimo
+.br
+LCamposSiscomPro2 *LCSiscomPro2DatConfig;
+.br
+LCamposSiscomPro2 *LCSiscomPro2Actual;
+.br
+LCamposSiscomPro2 *LCSiscomPro2Prim;
+.br
+LCamposSiscomPro2 *LCSiscomPro2SQLInsercion;
+.br
+LCamposSiscomPro2 *LCSiscomPro2Argumentos
+.br
+LCamposSiscomPro2 *LCSiscomPro2Regreso;
+.br
+LCamposSiscomPro2 *LCSiscomPro2RegAct
+.br
+int intNumRegRegreso;
+.br
+int intCodigoRetorno
+.br
+void (*SiscomError[100])(struct ArgOperaciones2 *);
+.br
+
+void (*ComunicacionAccesoDatos)(struct ArgOperaciones2 *);
+.br
+SArgumentoOperacion *SArgOperacion;
+.br
+int intNRegistrosDat;
+.br
+int intNRegistrosRes;
+.br
+void **vidPtrArgumentos;
+.br
+int intSocketCliente;
+.br
+int intSocketAccesoDatos;
+.br
+char **chrPtrArgConsulta;
+.br
+int intPtoComAD;
+.br
+char chrArrDirIpAD[25];
+.br
+const char *(*Condicion)(struct ArgOperaciones2 *);
+.br
+LCamposSiscomPro2 *(*CondicionRegistro)(struct ArgOperaciones2 *);
+.br
+const char *(*AAlArgumento)(struct ArgOperaciones2 *);
+
+.SH AUTHOR
+Heli Garduno Esquivel (hgarduno@gmail.com)

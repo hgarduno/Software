@@ -1,0 +1,141 @@
+.\" Manual para la Estructura SArgsSiscom
+.\" Siscom Electronica, Mexico 2013
+.TH man 1 "14 Enero 2013" "1.0" "Manual de SArgsSiscom"
+.SH Archivo Cabecera SiscomModuloOperaciones.h
+SArgsSiscom, contiene la informacion para comunicarse con las distintas funciones
+.SH Funciones
+.br
+void SiscomIniciaOperaciones(int, SSiscomOperaciones **);
+.br
+void SiscomAnexaOperacion(const char *, void (*Operacion)(int,int), SSiscomOperaciones **);
+.br
+void SiscomAnexaOperacionesAlFinal(SSiscomOperaciones *, SSiscomOperaciones **);
+.br
+void SiscomAnexaOperacion2(const char *pchrPtrOperacion, void (**Operaciones)(SArgsSiscom *), SSiscomOperaciones2 **pSSOperaciones2);
+.br
+SiscomOperaciones2 *SiscomOperaciones2CualEjecuta(const char *pchrPtrOperacion, SSiscomOperaciones2 *pSSOperaciones2, SiscomOperaciones2 pSOperaciones2Error, SArgsSiscom *pSArgsSiscom);
+.br
+void SiscomOperaciones2Ejecuta(SiscomOperaciones2 *pSOperaciones2, SArgsSiscom *pSArgsSiscom);
+.br
+void SiscomLeeEntradaOperaciones2(SArgsSiscom *);
+.br
+void SiscomLeeEntradaOperaciones2ConConfiguracion(SArgsSiscom *);
+.br
+void SiscomCopiaArgumentosConsulta(SArgsSiscom *);
+.br
+void SiscomCopiaArgumentosConsultaSubRegistros(SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomAnexaArgumentoConsulta(const char *,SArgsSiscom *);
+.br
+void SiscomAnexaOperacionAlArreglo(SiscomOperaciones2 pSisOp, SiscomOperaciones2 **pSisOps2);
+				   .br
+void SiscomAnexaOperacionAlArreglo2(SiscomOperaciones2 ,SiscomOperaciones2 *);
+.br
+void SiscomAsignaMemoriaArgumentosOperaciones(int ,SArgsSiscom *);
+.br
+void SiscomIniciaMemoriaArgumentoOperacion(int,const char *,SArgsSiscom *);
+.br
+LCamposSiscomPro2 *SiscomArgumentoOperacionPrim(const char *,SArgsSiscom *);
+.br
+LCamposSiscomPro2 *SiscomArgumentoOperacionAct(const char *,SArgsSiscom *);
+.br
+int SiscomArgumentosNumeroRegistros(const char *,SArgsSiscom *);
+.br
+void SiscomAsignaArgumentoOperacionPrim(const char *,LCamposSiscomPro2 *,SArgsSiscom *);
+.br
+void SiscomAsignaArgumentoOperacionAct(const char *,LCamposSiscomPro2 *,SArgsSiscom *);
+.br
+void SiscomAsignaArgumentoNumeroRegistros(const char *,int ,SArgsSiscom *);
+.br
+void SiscomEjecutaRegistroInformacion(SArgsSiscom *, const char *, LCamposSiscomPro2 **, int *);
+.br
+char *SiscomEjecutaRegistroInformacion2(int pintPtoComAD, const char *pchrPtrDirIpSvrAd, SArgsSiscom *, const char *, LCamposSiscomPro2 **, int *);
+.br
+void SiscomObtenInformacionArgumento(const char *, SArgsSiscom *, LCamposSiscomPro2 **, LCamposSiscomPro2 **, int *);
+.br
+void SiscomAsignaInformacionArgumento(const char *, SArgsSiscom *, LCamposSiscomPro2 *, LCamposSiscomPro2 *, int);
+.br
+const char *SiscomObtenCampoArgumento(const char *pchrPtrArgumento, const char *pchrPtrCampo, SArgsSiscom *pSAgsSiscom); 
+.br
+float SiscomObtenCampoArgumentoFloat2(const char *pchrPtrArgumento, const char *pchrPtrCampo, SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomPonPrimerRegistroArgumento(const char *pchrPtrArgumento, SArgsSiscom *pSAgsSiscom);
+.br
+LCamposSiscomPro2 *SiscomSiguienteRegistroArgumento(const char *pchrPtrArgumento, SArgsSiscom *pSAgsSiscom);
+.br
+float SiscomObtenCampoArgumentoFloat(const char *pchrPtrArgumento, const char *pchrPtrCampo, SArgsSiscom *pSAgsSiscom);
+.br
+const char *SiscomCampoDatosEntrada(const char *pchrPtrCampo, SArgsSiscom *pSAgsSiscom);
+.br
+float SiscomCampoDatosEntradaFloat(const char *pchrPtrCampo, SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomEjecutaConsultaYResponde(SArgsSiscom *,const char *); 
+.br
+void SiscomGeneraInsercionActualizacion(SArgsSiscom *pSAgsSiscom, const char *pchrPtrArgumento, void (*GeneraSQL)(LCamposSiscomPro2 *, LCamposSiscomPro2 **, LCamposSiscomPro2 **, int *));
+.br
+void SiscomGeneraInsercionActualizacionCiclo(SArgsSiscom *pSAgsSiscom, const char *pchrPtrArgumento, void (*GeneraSQL)(LCamposSiscomPro2 *, LCamposSiscomPro2 **, LCamposSiscomPro2 **, int *));
+.br
+void SiscomGeneraInsercionActualizacion2(SArgsSiscom *pSAgsSiscom, const char *pchrPtrArgumento, void (*GeneraSQL)(LCamposSiscomPro2 *, LCamposSiscomPro2 *, LCamposSiscomPro2 **, LCamposSiscomPro2 **, int *));
+.br
+void SiscomGeneraInsercionActualizacion2A(SArgsSiscom *pSAgsSiscom, const char *pchrPtrArgumentoEnt, const char *pchrPtrArgumentoSal, void (*GeneraSQL)(LCamposSiscomPro2 *, LCamposSiscomPro2 **, LCamposSiscomPro2 **, int *));
+.br
+void SiscomGeneraInsercionActualizacionReCorreArgEntrada(SArgsSiscom *pSAgsSiscom, const char *pchrPtrArgumentoEnt, const char *pchrPtrArgumentoSal, char *pchrPtrBufferSql, void (*GeneraSQL)(SArgsSiscom *, LCamposSiscomPro2 *, char *));
+.br
+void SiscomEnviaServidorArgumento(SArgsSiscom *pSAgsSiscom,const char *pchrPtrArgumento);
+.br
+void SiscomEnviaArgumentosCliente(SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomMemoriaOperaciones2(int ,SiscomOperaciones2 **);
+.br
+void SiscomGeneraIdRegistro(SArgsSiscom *,const char *);
+.br
+void SiscomConsultaBaseSinEnvio(const char *pchrPtrSql, SArgsSiscom *pSAgsSiscom, int *pintPtrNRegRespuesta, LCamposSiscomPro2 **pLCSiscomPro2Reg);
+.br
+void SiscomConsultaBaseSinEnvio2(const char *pchrPtrSql, SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomConsultaBaseDatos2(const char *pchrPtrBase, const char *pchrPtrPuertoBD, const char *pchrPtrSql, SArgsSiscom *pSAgsSiscom);
+
+.br
+void SiscomEnviaRegreso(SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomEnviaRegreso2(SArgsSiscom *pSAgsSiscom,const char *pchrPtrRespuesta);
+.br
+void SiscomConsultaBaseAsignaArgumento(const char *pchrPtrArgumento, const char *pchrPtrSql, SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomAnexaRegistroRegreso(SArgsSiscom *,const char *,...);
+.br
+void SiscomAnexaRegistroRegreso2(SArgsSiscom *,LCamposSiscomPro2 *pLCSiscomPro2Dat);
+.br
+void SiscomAnexaRegistroArgumento(const char *pchrPtrArgumento, SArgsSiscom *, const char *,...);
+.br
+void SiscomEnviaArgumentoCliente(const char *pchrPtrArgumento, SArgsSiscom *);
+.br
+int SiscomRegistrosTotalesEnArgumentos(SArgsSiscom *pSAgsSiscom);
+.br
+void SiscomRegistrosTAAsignaRegreso(SArgsSiscom *pSAgsSiscom);
+.br
+.SH
+void SiscomCopiaArgumentosAArgumento(const char *pchrPtrArgSalida,int pintNArgumentosACopiar,SArgsSiscom *pSAgsSiscom) 
+
+.br 
+SiscomCopiaArgumentosAArgumentos, toma pintNArgumentosACopiar de la lista de argumentos 
+.br 
+almacenados en pSAgsSiscom, recorre cada una de las listas del argumento y lo copia 
+.br 
+pchrPtrArgSalida. Si pintNArgumentosACopiar se pasa como 0, se copiaran todos los 
+.br 
+argumentos de la lista, de forma secuencial empezando por el cero y hasta llegar al 
+.br 
+indicado por pintNArgumentosACopiar
+
+.SH Macros
+.br 
+SiscomImprimeArgumento(pchrPtrArgumento,pSAgsSiscom)
+.br
+SiscomImprimeArgumentosConsulta(pSAgsSiscom)
+.SH Variables Externas
+.br 
+extern FILE *gPtrFleArchivoLog;
+
+.SH AUTHOR
+Heli Garduno Esquivel (hgarduno@gmail.com)

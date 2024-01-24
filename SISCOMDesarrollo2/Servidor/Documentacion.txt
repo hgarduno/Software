@@ -1,0 +1,12 @@
+Se disenar protoco de comunicaciones que contenga la siguiente informacion
+
+
+0015RespaldaArchivo0003
+0008CampoNo1000100010004Heli
+0008CampoNo2000100020007Garduno
+0008CampoNo3000100030008Esquivel
+
+0021RespaldaArchivoInicia0003
+0013ModuloCliente000400000047/home/hgarduno/.Clinicas/Cliente/SO/libCitas.so
+0019DireccionIpEstacion000400010009127.0.0.1
+0020PuertoComunicaciones0004000200044545
