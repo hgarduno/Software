@@ -1,0 +1,216 @@
+#!/bin/bash
+
+
+
+
+Tiendas="Mixquiahula|12.0.0.6
+	 Huichapan|12.0.0.4
+	 Actopan|12.0.0.2
+	 Servidor|12.0.0.1
+	 Puebla51|12.0.0.48
+	 OficinaHector|12.0.0.200"
+
+DirectorioVersiones=$HOME/SiscomDesarrollo/VersionesSistemas/ServiSNTE
+
+ObtenParametroEntrada()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-$Parametro")
+	      	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+
+}
+
+EstaLaOpcion()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-$OpcionABuscar" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+EstaUltimaVersion()
+{
+OpcionABuscar=UltimaVersion
+echo $(EstaLaOpcion $*)
+
+}
+EstaArchivo()
+{
+OpcionABuscar=Archivo
+echo $(EstaLaOpcion $*)
+}
+
+
+Es64Bits()
+{
+OpcionABuscar=64.Bits
+echo $(EstaLaOpcion $*)
+}
+
+Es32Bits()
+{
+OpcionABuscar=32.Bits
+echo $(EstaLaOpcion $*)
+}
+
+EstaTienda()
+{
+OpcionABuscar=Tienda
+echo $(EstaLaOpcion $*)
+}
+EstaTiendas()
+{
+OpcionABuscar=Tiendas
+echo $(EstaLaOpcion $*)
+
+}
+ObtenTiendaEnvio()
+{
+Parametro=Tienda
+echo $(ObtenParametroEntrada $*)
+}
+
+ObtenArchivoEnvio()
+{
+Parametro=Archivo
+echo $(ObtenParametroEntrada $*)
+}
+
+DirIpTienda()
+{
+
+for X in $Tiendas 
+do 
+   Tienda=$(echo $X |awk -F'|' '{print $1}')
+   if [ "$Tienda" == "$1" ]
+   then
+   	 DirIp=$(echo $X |awk -F'|' '{print  $2}')
+         echo $DirIp 
+   fi
+done
+
+}
+
+ArchivoMasReciente()
+{
+ for X in $(ls -ltr $DirectorioVersiones/*$1*.tar.xz|awk -F' ' '{print $9}')
+ do
+	UltimoArchivo=$X 
+ done
+ echo $UltimoArchivo
+}
+TiendasDisponibles()
+{
+
+  for X in $Tiendas 
+  do
+	Tienda=$(echo $X |awk -F'|' '{print $1}')
+	DireccionIp=$(echo $X |awk -F'|' '{print $2}')
+	printf "%- 10s\t\t\t%- s\n" $Tienda $DireccionIp
+  done
+}
+
+
+EnviandoUltimaVersionServiSNTE()
+{
+if [ "$(EstaTienda $*)" == "1" ]
+then
+	TiendaAEnviar=$(ObtenTiendaEnvio $*)
+else
+	echo 'Se Requiere pasar el nombre de la Tienda'
+	exit 1
+fi
+
+DireccionIpTienda=$(DirIpTienda  $TiendaAEnviar)
+
+	if [ "$(Es64Bits $*)" == "1" ]
+	then 
+		ArchivoAEnviar=$(ArchivoMasReciente 64.Bits)
+	else	
+	if [ "$(Es32Bits $*)" == "1" ]
+	then 
+		ArchivoAEnviar=$(ArchivoMasReciente 32.Bits)
+	else
+		printf "Se debe pasar -32.Bits | -64.Bits "
+	fi
+	fi
+printf "Archivo:%s\n" $ArchivoAEnviar
+scp $ArchivoAEnviar hgarduno@$DireccionIpTienda:
+}
+
+EnviandoArchivo()
+{
+	ArchivoAEnviar=$(ObtenArchivoEnvio $*)	
+	if [ "$(EstaTienda $*)" == "1" ]
+	then
+		TiendaAEnviar=$(ObtenTiendaEnvio $*)
+	else
+		echo 'Se Requiere pasar el nombre de la Tienda'
+		exit 1
+	fi	
+	DireccionIpTienda=$(DirIpTienda  $TiendaAEnviar)
+	scp $ArchivoAEnviar hgarduno@$DireccionIpTienda: 
+}
+ModoUso()
+{
+cat << Uso |more 
+
+Programa para enviar un archivo desde la maquina local
+a una tienda o maquina conectada a la vpn del ServiSNTE,
+ademas se pueden tener acciones de transferencia especificas
+como el envio del archivo con la ultima version del 
+sistema, ...
+
+SCPServiSNTE 
+		-UltimaVersion 
+			-Tienda 
+			-32.Bits | -64.Bits 
+		-Tiendas
+		-Archivo
+			-Tienda
+Uso
+}
+
+OperacionARealizar()
+{
+if [ "$(EstaUltimaVersion $*)" == "1" ]
+then
+	EnviandoUltimaVersionServiSNTE $*	
+else
+if [ "$(EstaTiendas $*)" == "1" ]
+then
+	TiendasDisponibles 
+else
+if [ "$(EstaArchivo $*)" == "1" ]
+then 
+	EnviandoArchivo $*
+fi
+fi
+fi
+}
+if [ $# == 0 ]
+then
+	ModoUso
+else
+	OperacionARealizar $*
+fi

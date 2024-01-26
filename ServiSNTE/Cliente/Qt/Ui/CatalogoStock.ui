@@ -1,0 +1,224 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>CatalogoStock</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>CatalogoStock</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>661</width>
+            <height>546</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Catalogo Stock </string>
+    </property>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>11</x>
+                <y>105</y>
+                <width>639</width>
+                <height>401</height>
+            </rect>
+        </property>
+        <vbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QLabel">
+                <property name="name">
+                    <cstring>textLabel1</cstring>
+                </property>
+                <property name="text">
+                    <string>Productos</string>
+                </property>
+            </widget>
+            <widget class="QTable">
+                <column>
+                    <property name="text">
+                        <string>Proveedor</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Producto</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Modelo</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Codigo Barras</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Stock</string>
+                    </property>
+                    <property name="pixmap">
+                        <pixmap></pixmap>
+                    </property>
+                </column>
+                <property name="name">
+                    <cstring>QTProductos</cstring>
+                </property>
+                <property name="numRows">
+                    <number>0</number>
+                </property>
+                <property name="numCols">
+                    <number>5</number>
+                </property>
+            </widget>
+        </vbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout8</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>11</x>
+                <y>512</y>
+                <width>639</width>
+                <height>23</height>
+            </rect>
+        </property>
+        <hbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>PushButton1</cstring>
+                </property>
+                <property name="text">
+                    <string>PushButton1</string>
+                </property>
+                <property name="toolTip" stdset="0">
+                    <string>Se realizara la impresion en toda la hoja del producto seleccionado en la tabla</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>PushButton2</cstring>
+                </property>
+                <property name="text">
+                    <string>PushButton2</string>
+                </property>
+                <property name="toolTip" stdset="0">
+                    <string>Se realizara la impresion de cada uno de los codigos mostrados en la hoja</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>PushButton3</cstring>
+                </property>
+                <property name="text">
+                    <string>PushButton3</string>
+                </property>
+                <property name="toolTip" stdset="0">
+                    <string>Se realizara la impresion de los productos mostrados en tabla en grupos de (x8)</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>PushButton4</cstring>
+                </property>
+                <property name="text">
+                    <string>PushButton4</string>
+                </property>
+            </widget>
+        </hbox>
+    </widget>
+    <widget class="QTabWidget">
+        <property name="name">
+            <cstring>tabWidget2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>11</x>
+                <y>11</y>
+                <width>639</width>
+                <height>88</height>
+            </rect>
+        </property>
+        <property name="sizePolicy">
+            <sizepolicy>
+                <hsizetype>7</hsizetype>
+                <vsizetype>0</vsizetype>
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+            </sizepolicy>
+        </property>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>Stock Por  Tienda</string>
+            </attribute>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget" row="0" column="0">
+                    <property name="name">
+                        <cstring>layout6</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Tiendas</string>
+                            </property>
+                        </widget>
+                        <widget class="QCtrlTiendasEntrega">
+                            <property name="name">
+                                <cstring>CtrTiendas</cstring>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>Stock Por Producto</string>
+            </attribute>
+        </widget>
+    </widget>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlTiendasEntrega.h</includehint>
+</includehints>
+</UI>

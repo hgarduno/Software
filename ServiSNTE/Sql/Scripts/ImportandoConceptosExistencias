@@ -1,0 +1,21 @@
+#!/bin/sh 
+
+mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into ConceptosExistencias values(%s,\"%s\",\"%s\",%s,\"%s\",\"%s\",\"%s\",\"%s\");\n", $1,$2, $3, $4, $5, $8, $7, $6}' |sed s/\"/\'/g
+#mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into EstatusConceptosExistencias values(%s,\"%s\");\n", $1,$9}' |sed s/\"/\'/g
+
+#mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into EntradaSalida values(, %s , %s);\n", $1, $4}' |sed s/\"/\'/g
+
+#mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into afectastock values(,%s,\"%s\");\n", $1, $5}' |sed s/\"/\'/g
+
+#mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into facturafinanciadora values(,%s,\"%s\");\n", $1, $8}' |sed s/\"/\'/g
+
+#mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into cuentaporcobrar values(,%s,\"%s\");\n", $1, $7}' |sed s/\"/\'/g
+
+#mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into cuentaporpagar values(,%s,\"%s\");\n", $1, $6}' |sed s/\"/\'/g
+
+#mdb-export -H  $HOME/ServiSNTE.mdb TECCon |sed s/\"//g |awk -F',' '{printf "insert into estatusconceptosexistencias values(,%s,\"%s\");\n", $1, $9}' |sed s/\"/\'/g
+
+
+
+
+

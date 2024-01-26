@@ -1,0 +1,118 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>RepListaPreciosComprador</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>RepListaPreciosComprador</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>647</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Lista Precios Comprador (3)</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout38</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Proveedores</string>
+                    </property>
+                </widget>
+                <widget class="QCtrlProveedoresSS">
+                    <property name="name">
+                        <cstring>QCtrProveedores</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QTable" row="1" column="0">
+            <column>
+                <property name="text">
+                    <string>Clave</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Razon Social</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Clave Producto</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Producto</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Modelo</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Precio Mexico</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTListaPrecios</cstring>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>6</number>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBConsulta</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Consulta</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBImprimir</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Imprimir</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlProveedoresSS.h</includehint>
+</includehints>
+</UI>

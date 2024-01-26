@@ -1,0 +1,6 @@
+#!/bin/sh 
+
+
+mdb-export -H  $HOME/ServiSNTEActual.mdb TBMPrv |sed s/\"//g |awk -F',' '{printf "insert into empresas values(%s,\"%s\",\"%s\");\n", $1,$2, $3}' |sed s/\"/\'/g
+mdb-export -H  $HOME/ServiSNTEActual.mdb TBMPrv |sed s/\"//g |awk -F',' '{printf "insert into proveedores values(%s);\n", $1}' |sed s/\"/\'/g
+

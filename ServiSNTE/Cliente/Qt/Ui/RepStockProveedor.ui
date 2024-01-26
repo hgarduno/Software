@@ -1,0 +1,130 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>RepStockProveedor</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>RepStockProveedor</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>811</width>
+            <height>594</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Reporte de Stock Por Proveedor</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Proveedor</string>
+                    </property>
+                </widget>
+                <widget class="QCtrlProveedoresSS">
+                    <property name="name">
+                        <cstring>QCtrProveedor</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QPushButton" row="2" column="0">
+            <property name="name">
+                <cstring>QPBConsulta</cstring>
+            </property>
+            <property name="text">
+                <string>Consulta</string>
+            </property>
+        </widget>
+        <widget class="QTable" row="1" column="0">
+            <column>
+                <property name="text">
+                    <string>Producto</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Importe</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Cju</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Tly</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Zkt</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Tln</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>6</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>7</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>8</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>9</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>10</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>11</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>table3</cstring>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>12</number>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlProveedoresSS.h</includehint>
+</includehints>
+</UI>

@@ -1,0 +1,14 @@
+delete from existencia;
+delete from stock;
+delete from productostock;
+delete from existenciaalmacen;
+delete from ultimoprecioforaneo;
+delete from precioforaneo;
+delete from ultimopreciogeneral;
+delete from preciogeneral;
+delete from ultimocosto;
+delete from costobruto;
+delete from estatusproducto;
+delete from ProductoProveedor;
+delete from ProductoCodigoBarras;
+delete from Productos;

@@ -1,0 +1,11 @@
+#!/bin/sh 
+
+LD_LIBRARY_PATH=$HOME/SiscomComunicaciones++:$HOME/SiscomDesarrollo4++ 
+
+PATH=$HOME/SiscomComunicaciones++/ClienteEnvioProtocolo
+
+export LD_LIBRARY_PATH
+
+
+ClienteEnvioProtocolo $*
+		

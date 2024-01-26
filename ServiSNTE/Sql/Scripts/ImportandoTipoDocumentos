@@ -1,0 +1,4 @@
+#!/bin/sh 
+
+mdb-export -H  $HOME/ServiSNTE.mdb TECTDc |sed s/\"//g |awk -F',' '{printf "insert into  TipoDocumentos values(%s,%s,\"%s\",\"%s\",\"%s\",\"%s\");\n",FNR, $1, $2, $3, $4, $5}' |sed s/\"/\'/g
+

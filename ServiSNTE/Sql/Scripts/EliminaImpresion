@@ -1,0 +1,31 @@
+#!/bin/bash 
+
+
+
+
+EliminaImpresion()
+{
+cat << ComandoSql  |psql ServiSNTE
+
+
+delete from camposregistro where idmoduloimpresion=$1;
+delete from nombrescamporegistro where idmoduloimpresion=$1;
+delete from posicionescampo where idmoduloimpresion=$1;
+delete from tipocampo where idmoduloimpresion=$1;
+delete from impresiones where idmoduloimpresion=$1;
+delete from moduloimpresion where idmoduloimpresion=$1;
+
+ComandoSql
+
+}
+
+CargaArchivoImpresion()
+{
+
+cat $1 | psql ServiSNTE
+
+}
+
+EliminaImpresion $1
+
+#CargaArchivoImpresion $2

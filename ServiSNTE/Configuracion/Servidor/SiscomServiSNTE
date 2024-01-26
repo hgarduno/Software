@@ -1,0 +1,72 @@
+#!/bin/sh 
+
+
+PATH=$PATH:$DirDesarrollo4/SiscomDesarrollo4
+
+DirectorioConfiguracion=$DirDesarrollo4/ServiSNTE/Configuracion/Servidor
+ArchivosNomina=$HOME/TransferenciasArchivosNomina
+
+LD_LIBRARY_PATH=$DirDesarrollo4/SiscomDesarrollo4:$DirDesarrollo4/SiscomDesarrollo4/PostgresSql:$DirDesarrollo4/ServiSNTE/Servidor:$DIRPOSTGRESQL/lib
+
+echo $LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH 		\
+	PATH			\
+	DirectorioConfiguracion	\
+	ArchivosNomina
+
+PuertoRN=6345
+PuertoAD=6346
+start()
+{
+ServidorSiscom $DirectorioConfiguracion/SiscomServiSNTE$PuertoAD\Ini
+ServidorSiscom $DirectorioConfiguracion/SiscomServiSNTE$PuertoRN\Ini
+}
+
+stop()
+{
+PidReglasNegocio=`cat $DirectorioConfiguracion/ServidorSiscom$PuertoRN\Pid` 
+PidAccesoDatos=`cat $DirectorioConfiguracion/ServidorSiscom$PuertoAD\Pid`
+if [ $PidAccesoDatos ]
+then
+kill -9 $PidAccesoDatos 
+fi
+if [ $PidReglasNegocio ]
+then
+kill -9 $PidReglasNegocio
+fi
+
+
+rm $DirectorioConfiguracion/ServidorSiscom$PuertoRN\Pid
+rm $DirectorioConfiguracion/ServidorSiscom$PuertoAD\Pid
+}
+
+DetenAccesoDatos()
+{
+PidAccesoDatos=`cat $DirectorioConfiguracion/ServidorSiscom$PuertoAD\Pid`
+if [ $PidAccesoDatos ]
+then
+kill -9 $PidAccesoDatos 
+fi
+ 
+rm $DirectorioConfiguracion/ServidorSiscom$PuertoAD\Pid
+}
+IniciaAccesoDatos()
+{
+ServidorSiscom $DirectorioConfiguracion/SiscomServiSNTE$PuertoAD\Ini
+}
+case "$1" in
+
+	start)
+		start
+	;;
+	stop)
+		stop
+	;;
+	DetenAccesoDatos)
+		DetenAccesoDatos
+	;;
+	IniciaAccesoDatos)
+		IniciaAccesoDatos 
+	;;
+esac

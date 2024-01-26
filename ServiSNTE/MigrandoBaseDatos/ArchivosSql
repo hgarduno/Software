@@ -1,0 +1,128 @@
+######## Para inicializar la base de datos
+
+## Si esta variable esta puesta a 1 
+## se procesan los querys resultantes
+## si esta puesta a cero, se muestran
+## en la pantalla
+Ejecuta=1
+EjecucionSilencio=1
+ContadorSentencias=5000
+
+DirServiSNTE=/home/hgarduno/ServiSNTE
+DirSqlTablas=Sql/Tablas
+DirSqlScripts=Sql/Scripts
+Tablas[]
+Tablas[]=Departamentos.sql
+Tablas[]=Telefonos.sql
+Tablas[]=Empresas.sql
+Tablas[]=TipoViviendas.sql
+Tablas[]=Correos.sql
+Tablas[]=FrecuenciaPagos.sql
+Tablas[]=FrecuenciaTransaccional.sql
+Tablas[]=CargosPublicos.sql
+Tablas[]=Direccion.sql
+Tablas[]=Estatus.sql
+Tablas[]=ConceptosExistencias.sql
+Tablas[]=ReferenciasPersonales.sql
+Tablas[]=Tiendas.sql
+Tablas[]=Vendedores.sql
+Tablas[]=Productos.sql
+Tablas[]=Financiadoras.sql
+Tablas[]=Existencias.sql
+Tablas[]=Plazos.sql
+Tablas[]=Credito.sql
+Tablas[]=Camiones.sql
+Tablas[]=Choferes.sql
+Tablas[]=Servidores.sql
+Tablas[]=Estados.sql
+Tablas[]=TipoDocumentos.sql
+Tablas[]=TipoVentas.sql
+Tablas[]=Maquinas.sql
+Tablas[]=FormasEntrega.sql
+Tablas[]=Clientes.sql
+Tablas[]=Almacenistas.sql
+Tablas[]=Transferencia.sql
+Tablas[]=Ventas.sql
+Tablas[]=Compras.sql
+Tablas[]=Almacen.sql
+Tablas[]=AbonosApartado.sql
+Tablas[]=FijaFechaCompra.sql
+Tablas[]=ArquitecturaMaquinas.sql
+Tablas[]=AdministracionUsuarios.sql
+Tablas[]=ActualizaSistema.sql
+Tablas[]=DatosGenerales.sql
+Tablas[]=CargosPublicos.sql
+Tablas[]=DatosCasa.sql
+Tablas[]=GeneralesContratoBeneficios.sql
+Tablas[]=DatosEmpleo.sql
+Tablas[]=Referencias.sql
+Tablas[]=CentroTrabajo.sql
+Tablas[]=Facturas.sql
+Tablas[]=CamposImpresiones.sql
+Tablas[]=Creditos.sql
+Tablas[]=Folios.sql
+Tablas[]=CancelacionFolios.sql
+Tablas[]=RFCBaseDatos.sql
+Tablas[]=SaldosMovimientos.sql
+[]Tablas
+
+Scripts00[]
+Scripts00[]=Estatus.sql
+[]Scripts00
+
+Scripts[]
+Scripts[]=TiposVentas.sql
+Scripts[]=Financieras.sql
+Scripts[]=FormasEntrega.sql
+Scripts[]=ActualizaDatosProductos.sql
+Scripts[]=IniciaExistenciasProductos.sql
+Scripts[]=IniciaExistenciasAlmacenProductos.sql
+Scripts[]=MotivosInventario.sql
+Scripts[]=Plazas.sql
+Scripts[]=Maquinas.sql
+Scripts[]=Credito.sql
+Scripts[]=Choferes.sql
+Scripts[]=Camiones.sql
+Scripts[]=Almacenistas.sql
+Scripts[]=FrecuenciaPagos.sql
+Scripts[]=TiposViviendas.sql
+Scripts[]=FrecuenciaTransaccional.sql
+Scripts[]=ArquitecturaMaquinas.sql
+Scripts[]=PruebasUsuarios.sql
+Scripts[]=TiposTransferencia.sql
+Scripts[]=ImpresionPuntoVenta.sql
+Scripts[]=ImpresionReciboAbono.sql
+Scripts[]=ImpresionTransferencia.sql
+Scripts[]=ImpresionRepStockDepartamentoProveedor.sql
+Scripts[]=ImpresionRepStockProveedorCosto.sql
+Scripts[]=ImpresionRepCuentasPagar.sql
+Scripts[]=ImpresionRelacionChequesPagar.sql
+Scripts[]=ImpresionRepStockTienda.sql
+Scripts[]=ImpresionRepPreciosProducto.sql
+Scripts[]=ImpresionRepListaPreciosComprador.sql
+Scripts[]=ImpresionRepExistenciaProveedor.sql
+Scripts[]=ImpresionSoporteCompras.sql
+Scripts[]=ImpresionDatosCompra.sql
+Scripts[]=ImpresionRepExistenciaTiendaProveedor.sql
+Scripts[]=ImpresionRepProveedores.sql
+Scripts[]=TiposFolio.sql
+Scripts[]=UsuariosVentas.sql
+Scripts[]=SaldosMovimientos.sql
+
+[]Scripts
+Operaciones[]
+	Operaciones[Tablas]=Si
+	Operaciones[Scripts00]=Si
+	Operaciones[InsertandoDepartamentos]=Si
+	Operaciones[InsertandoTiposDocumentos]=Si
+	Operaciones[InsertandoConceptosExistencias]=Si
+	Operaciones[InsertandoEmpresas]=Si
+	Operaciones[AsignandoProductosDepartamentos]=Si
+	Operaciones[InsertandoProductos]=Si
+	Operaciones[InsertandoTiendas]=Si
+	Operaciones[InsertandoVendedores]=Si
+	Operaciones[Scripts]=Si
+	Operaciones[ActualizandoExistencias]=Si
+	Operaciones[InsertandoCreditosMaestros]=Si
+	Operaciones[InsertandoRFCs]=Si
+[]Operaciones

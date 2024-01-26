@@ -1,0 +1,56 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>CargaNominaEmpleados</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>CargaNominaEmpleados</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>495</width>
+            <height>90</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>CargaNominaEmpleados</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Archivo</string>
+                    </property>
+                </widget>
+                <widget class="QLineEdit">
+                    <property name="name">
+                        <cstring>QLEArchivoNomina</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QPushButton" row="1" column="0">
+            <property name="name">
+                <cstring>QPBSelArchivo</cstring>
+            </property>
+            <property name="text">
+                <string>Selecciona Archivo</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

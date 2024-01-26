@@ -1,0 +1,501 @@
+#!/bin/bash
+
+PATH=$PATH:/home/postgres/9.4.6/bin
+export PATH
+
+ObteniendoDistribucion()
+{
+
+Distribucion=$(grep -i ubuntu /etc/issue)
+if [[ "$Distribucion" != "" ]]
+then
+	echo 'Ubuntu' 
+else
+	echo 'Otra'
+fi
+}
+
+DescomprimeArchivos()
+{
+cd /home/hgarduno
+for X in $(ls *.tar.xz)
+do
+if [ "$X" == "InstalacionServiSNTE.$1.tar.xz" ]
+then
+	echo 'No se descomprime'	
+else
+	xzcat $X |tar xvf -
+fi
+done
+cd
+
+}
+ConfigurandoQt()
+{
+su - hgarduno -c"mkdir /home/hgarduno/Qt 
+		 mv  3.3.8-CXX-4.8.4-$1 /home/hgarduno/Qt
+		 chmod o+rx /home/hgarduno/Qt -R
+		 (cd  SoporteQt-3.3.8
+     		 ln -s libqui.so.1.0.0 libqui.so.1
+     		 ln -s libqt-mt.so.3.3.8 libqt-mt.so.3)
+		 (cd /home/hgarduno/Qt/3.3.8-CXX-4.8.4-$1/plugins/designer
+ 		 ln -s /home/hgarduno/ServiSNTE/Cliente/libServiSNTEPlugin.so .)"
+}
+ConfigurandoServiSNTE()
+{
+ echo 'Configurando el ServiSNTE'  
+DirectorioTrabajo 
+su - hgarduno -c"if [ -d ServiSNTE_*_32.Bits ]
+		 then
+			ln -s ServiSNTE_*_32.Bits ServiSNTE
+ 		 elif [ -d ServiSNTE_*_64.Bits ]
+  		 then
+			ln -s ServiSNTE_*_64.Bits ServiSNTE
+  		 fi"
+
+}
+EnlacesBibliotecas()
+{
+(cd /home/hgarduno/SoporteSiscomDesarrollo/Cliente
+ 		for X in $(ls )
+ 		do
+     			ln -s   $X $(basename -s so.1.0.0  $X)so.1
+ 		done    
+)
+}
+BaseDatos()
+{
+su - hgarduno -c"
+		export PATH=$PATH:/home/hgarduno/9.4.6/bin
+		export PGDATA=/home/postgres/Bases
+		createdb ServiSNTE 
+		xzcat *.sql.xz |psql ServiSNTE "
+}
+ActualizaServidores()
+{
+su - hgarduno -c"
+		export PATH=$PATH:/home/hgarduno/9.4.6/bin
+		export PGDATA=/home/postgres/Bases
+		cat << SentenciasSql |psql ServiSNTE
+update maquinas set dirip='12.0.0.1' where idmaquina=5;
+
+SentenciasSql
+		"
+}
+ObtenIdTienda()
+{
+su - hgarduno -c"
+		export PATH=$PATH:/home/hgarduno/9.4.6/bin
+		export PGDATA=/home/postgres/Bases
+		cat << Sql |psql -t ServiSNTE 
+		select idtienda
+		from tiendas 
+		where siglas='$1'
+	
+Sql
+		" 
+}
+ActualizaIdTienda()
+{
+IdTienda=$(ObtenIdTienda $1) 
+
+sleep 1s
+su - hgarduno -c"
+		export PATH=$PATH:/home/hgarduno/9.4.6/bin
+		export PGDATA=/home/postgres/Bases
+		cat << Sql |psql ServiSNTE 
+	
+	
+Sql
+"
+}
+Instala()
+{
+su - hgarduno -c"xzcat $1 |tar xvf -"
+		 echo "fin de compresion"
+		 sleep 2s
+		 DescomprimeArchivos $3
+		 echo "fin de DescomprimeArchivos"
+		 sleep 2s 
+		 ConfigurandoQt $3 
+		 echo "fin de Configurando Qt"
+		 sleep 2s
+		 ConfigurandoServiSNTE
+		 echo "fin de ConfigurandoServiSNTE "
+                 sleep 2s
+		 EnlacesBibliotecas
+		 echo "fin de EnlacesBibliotecas"
+                 sleep 2s
+		 BaseDatos
+		 echo "fin de BaseDatos "
+                 sleep 2s
+		 ActualizaServidores
+		 echo "fin de Actualiza Servidores"
+                 sleep 2s
+		 ActualizaIdTienda $2
+		 echo "fin"
+}
+DirectorioTrabajo()
+{ 
+  Directorio=ServiSNTE_*_32.Bits
+  echo $Directorio
+}
+EliminaDirectorios()
+{
+  cd /home/hgarduno
+  for X in $(ls ) 
+  do
+	if [ "$X" == "InstalacionServiSNTE.$1.$2.tar.xz" ]
+	then
+		echo $X no se elimina
+	 elif [ "$X" == "InstalaServiSNTE" ]
+	 then
+              echo $X No se elimina
+	 elif [ "$X" == "ScriptsIntalacion" ]
+	 then
+	     echo $X No se Elimina
+	 else
+	    rm -rf $X 
+	  fi
+  done  
+  cd
+
+}
+EliminaBaseDatos()
+{
+
+su - hgarduno -c"export PATH=$PATH:/home/hgarduno/9.4.6/bin
+                export PGDATA=/home/postgres/Bases
+		dropdb ServiSNTE"
+
+}
+Elimina()
+{
+  EliminaDirectorios $1 $2
+  EliminaBaseDatos
+}
+
+CreaArchivoInstalacion()
+{
+### En el parametro 2 se pasa el IdTienda 
+###
+  cd /home/hgarduno
+  if [ "$1" == "32.Bits" ]
+  then
+  	if [ -f InstalacionServiSNTE.32.Bits.tar.xz ]
+	then
+		rm InstalacionServiSNTE.32.Bits.tar.xz
+	fi
+  	if [ "$2" != "" ]
+	then
+       		tar cvf InstalacionServiSNTE.32.Bits.$2.tar 	\
+       	       		3.3.8-CXX-4.8.4-32.Bits.tar.xz 		\
+	       		ServiSNTE_*_32.Bits.tar.xz		\
+	       		ServiSNTE_*.$2.sql.xz			\
+	       		ConfiguracionServiSNTE.32.Bits.tar.xz	\
+	       		CreaEnlaces.32.Bits
+		if [ -f InstalacionServiSNTE.32.Bits.$2.tar.xz ]
+		then
+			rm InstalacionServiSNTE.32.Bits.$2.tar.xz
+		fi
+		xz -z InstalacionServiSNTE.32.Bits.$2.tar
+	else
+       		tar cvf InstalacionServiSNTE.32.Bits.tar 	\
+       	       		3.3.8-CXX-4.8.4-32.Bits.tar.xz 		\
+	       		ServiSNTE_*_32.Bits.tar.xz		\
+	       		ServiSNTE.*.sql.xz			\
+	       		ConfiguracionServiSNTE.32.Bits.tar.xz	\
+	       		CreaEnlaces.32.Bits
+		if [ -f InstalacionServiSNTE.32.Bits.tar.xz ]
+		then
+		  rm InstalacionServiSNTE.32.Bits.tar.xz 
+		fi
+		xz -z InstalacionServiSNTE.32.Bits.tar
+
+
+	fi
+
+  elif [ "$1" == "64.Bits" ]
+  then
+  	if [ -f InstalacionServiSNTE.64.Bits.tar.xz ]
+	then
+		rm InstalacionServiSNTE.64.Bits.tar.xz
+	fi
+	if [ "$2" != "" ]
+	then
+  	tar cvf InstalacionServiSNTE.64.Bits.$2.tar 	\
+		3.3.8-CXX-4.8.4-64.Bits.tar.xz		\
+	       ServiSNTE_*_64.Bits.tar.xz		\
+	       ServiSNTE_*.$2.sql.xz			\
+	       ConfiguracionServiSNTE.64.Bits.tar.xz	\
+	       CreaEnlaces
+	xz -z InstalacionServiSNTE.64.Bits.$2.tar
+	else
+  	tar cvf InstalacionServiSNTE.64.Bits.tar 	\
+		3.3.8-CXX-4.8.4-64.Bits.tar.xz		\
+	       ServiSNTE_*_64.Bits.tar.xz		\
+	       ServiSNTE.*.sql.xz			\
+	       ConfiguracionServiSNTE.64.Bits.tar.xz	\
+	       CreaEnlaces
+	xz -z InstalacionServiSNTE.64.Bits.tar
+	fi
+
+   else
+   	echo 'Se debe pasar la arquitectura'	
+  fi
+  cd
+}
+
+
+EstaLaOpcion()
+{
+lintRegreso=0
+ while [[ $# -gt 0 ]]
+  do
+   argumento="$1"
+	case "$argumento" in
+	"-$OpcionABuscar" )
+		lintRegreso=1
+	;; 
+    esac
+	shift 
+		done
+		if [ $lintRegreso == 1 ]
+		then
+			echo 1
+		else
+			echo 0
+		fi
+}
+
+ObtenParametroEntrada()
+{
+while [[ $# -gt 0 ]]	
+do 
+	case "$1" in
+	 "-$Parametro")
+	 	  shift 
+		  	echo $1
+		  ;;
+	esac
+	 shift
+done
+
+}
+
+SeInstala()
+{
+ OpcionABuscar=Instala
+ echo $(EstaLaOpcion $*)
+}
+
+SeCreaArchivo()
+{
+ OpcionABuscar=ArchivoInstalacion
+ echo $(EstaLaOpcion $*)
+}
+SeElimina()
+{
+OpcionABuscar=Elimina
+echo $(EstaLaOpcion $*)
+}
+SeExtraeCreaEnlaces()
+{
+OpcionABuscar=ExtraeCreaEnlaces
+echo $(EstaLaOpcion $*)
+}
+SeInicializaBaseDatos()
+{
+OpcionABuscar=IniciaBaseDatos
+echo $(EstaLaOpcion $*)
+}
+ObtenArchivo()
+{
+ Parametro=Archivo
+ echo $(ObtenParametroEntrada $*)
+}
+ObtenTienda()
+{
+  Parametro=Tienda
+  echo $(ObtenParametroEntrada $*)
+}
+ObtenArquitectura()
+{
+  Parametro=Arquitectura
+  echo $(ObtenParametroEntrada $*)
+
+}
+Instalando()
+{
+  Archivo=$(ObtenArchivo $*) 
+  Tienda=$(ObtenTienda $*) 
+  Arquitectura=$(ObtenArquitectura $*)
+
+  if [[ "$Archivo" != "" && "$Tienda" != "" && "$Arquitectura" != ""  ]]
+  then
+  	Instala $Archivo $Tienda $Arquitectura
+	#echo Probando la instalacion $Archivo $Tienda $Arquitectura
+  else
+  	ModoUsoInstalando
+  fi
+}
+
+CreandoArchivoInstalacion()
+{
+  Arquitectura=$(ObtenArquitectura $*)
+  IdTienda=$(ObtenTienda $*)
+  if [[ "$Arquitectura" != "" ]]
+  then
+  	CreaArchivoInstalacion $Arquitectura $IdTienda
+  else
+  	ModoUsoArchivoInstalacion 
+  fi
+
+}
+Eliminando()
+{
+
+  Arquitectura=$(ObtenArquitectura $*)
+  Tienda=$(ObtenTienda $*)
+  
+  if [[ "$Arquitectura" != "" ]]
+  then
+  	Elimina $Arquitectura $Tienda
+  fi
+
+}
+ExtrayendoCreaEnlaces()
+{
+  Tienda=$(ObtenTienda $*) 
+  Arquitectura=$(ObtenArquitectura $*)
+  if [[ "$Tienda" != "" && "$Arquitectura" != "" ]]
+  then
+ 	cd /home/hgarduno 
+  	if [[ "$Arquitectura" == "32.Bits" ]]
+  	then
+		xzcat InstalacionServiSNTE.$Arquitectura.$Tienda.tar.xz |tar --extract CreaEnlaces.32.Bits
+  		cp CreaEnlaces.32.Bits $HOME	
+	elif [[ "$Arquitectura" == "64.Bits" ]]
+  	then
+		xzcat InstalacionServiSNTE.$Arquitectura.$Tienda.tar.xz |tar --extract CreaEnlaces
+		cp CreaEnlaces	$HOME
+  	fi
+	cd
+  else 
+	ModoUsoExtraEnlaces
+  fi
+}
+InicializandoBaseDatos()
+{
+if [[ "$(pidof postgres)" != "" ]]
+then
+  echo 'El Postgres esta corriendo'
+su - postgres -c"export PATH=$PATH:/home/postgres/9.4.6/bin
+		 export PGDATA=/home/postgres/Bases 
+		 export LC_ALL="POSIX"
+	         pg_ctl -w -t 10 stop
+		 rm -rf /home/postgres/Bases
+		 initdb
+		 pg_ctl -w -t 10 start
+		 createuser -d hgarduno"
+else
+su - postgres -c"export PATH=/home/postgres/9.4.6/bin 
+		 export PGDATA=/home/postgres/Bases 
+		 export LC_ALL="POSIX"
+		 initdb 
+	          pg_ctl -w -t 10 start 
+		createuser -d hgarduno"	
+fi
+}
+ModoUsoExtraEnlaces()
+{
+cat << TextoModoUsoCreaEnlaces
+
+	-Arquitectura 
+		32.Bits | 64.Bits 
+	-Tienda  Numero de tienda
+TextoModoUsoCreaEnlaces
+}
+ModoUsoArchivoInstalacion()
+{
+cat << TextoModoUsoArchivoInstalacion
+
+  -ArchivoInstalacion 
+	-Arquitectura
+TextoModoUsoArchivoInstalacion
+
+
+}
+ModoUsoInstalando()
+{
+cat << TextoModoUsoInstalando
+
+  -Instala 
+  	-Archivo
+	-Tienda
+	-Arquitectura
+TextoModoUsoInstalando
+}
+ModoUso()
+{
+cat << TextoModoUso |more 
+
+InstalaServiSNTE 
+		-ArchivoInstalacion
+			-Arquitectura
+				Donde -Arquitectura
+						32.Bits | 64.Bits
+		-Instala 
+			-Arquitectura 
+		-Elimina
+			-Arquitectura
+			-Tienda 
+		-ExtraeCreaEnlaces
+			-Arquitectura
+			-Tienda 
+		-IniciaBaseDatos
+
+		-Instala
+			-Archivo
+			-Tienda 
+				Siglas de la tienda 
+			-Arquitectura
+
+TextoModoUso
+}
+if [[ $# == 0 ]]
+then
+ModoUso
+else
+		if [ "$(SeInstala $*)" == "1" ]
+		then
+			if [[ "$(ObteniendoDistribucion $*)" == "Ubuntu" ]]
+			then
+			Instalando $*
+			else
+			    echo 'Se requiere una distribucion basada en Ubuntu'
+			fi
+		elif [ "$(SeCreaArchivo $*)" == "1" ]
+		then
+			   CreandoArchivoInstalacion $*
+		elif [ "$(SeElimina $*)" == "1" ]
+		then
+			if [[ "$(ObteniendoDistribucion $*)" == "Ubuntu" ]]
+			then
+				Eliminando $*
+			else
+				echo 'Se requiere una distribucion basada en Ubuntu'
+			fi
+		elif [ "$(SeExtraeCreaEnlaces $*)" == "1" ]
+		then
+			
+			ExtrayendoCreaEnlaces $*
+		elif [ "$(SeInicializaBaseDatos $*)" == "1" ]
+		then
+			InicializandoBaseDatos $*
+		fi
+fi
+
+
+
+

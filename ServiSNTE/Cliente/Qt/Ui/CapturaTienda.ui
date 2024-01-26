@@ -1,0 +1,460 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>CapturaTienda</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>CapturaTienda</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>528</width>
+            <height>515</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Captura de Tiendas</string>
+    </property>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout311</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>12</x>
+                <y>79</y>
+                <width>504</width>
+                <height>61</height>
+            </rect>
+        </property>
+        <hbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QLayoutWidget">
+                <property name="name">
+                    <cstring>layout306</cstring>
+                </property>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel13</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Nombre:</string>
+                        </property>
+                    </widget>
+                    <widget class="QLineEdit">
+                        <property name="name">
+                            <cstring>lineEdit75</cstring>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QLayoutWidget">
+                <property name="name">
+                    <cstring>layout307</cstring>
+                </property>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel14</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Abreviatura:</string>
+                        </property>
+                    </widget>
+                    <widget class="QLineEdit">
+                        <property name="name">
+                            <cstring>lineEdit76</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>0</hsizetype>
+                                <vsizetype>0</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QLayoutWidget">
+                <property name="name">
+                    <cstring>layout308</cstring>
+                </property>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel15</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Siglas</string>
+                        </property>
+                    </widget>
+                    <widget class="QLineEdit">
+                        <property name="name">
+                            <cstring>lineEdit77</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>0</hsizetype>
+                                <vsizetype>0</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+        </hbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout136</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>12</x>
+                <y>146</y>
+                <width>504</width>
+                <height>33</height>
+            </rect>
+        </property>
+        <hbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QLabel">
+                <property name="name">
+                    <cstring>textLabel16</cstring>
+                </property>
+                <property name="text">
+                    <string>Responsable:</string>
+                </property>
+            </widget>
+            <widget class="QLineEdit">
+                <property name="name">
+                    <cstring>lineEdit78</cstring>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton46</cstring>
+                </property>
+                <property name="text">
+                    <string>Captura Responsable</string>
+                </property>
+            </widget>
+        </hbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout24</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>12</x>
+                <y>185</y>
+                <width>504</width>
+                <height>117</height>
+            </rect>
+        </property>
+        <vbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QLabel">
+                <property name="name">
+                    <cstring>textLabel18</cstring>
+                </property>
+                <property name="text">
+                    <string>Dirección:</string>
+                </property>
+            </widget>
+            <widget class="QTable">
+                <column>
+                    <property name="text">
+                        <string>Calle</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>No. Ext.</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>No. Int.</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Colonia</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Deleg/Munic</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Estado</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Código Postal</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Referencias</string>
+                    </property>
+                </column>
+                <property name="name">
+                    <cstring>table1</cstring>
+                </property>
+                <property name="numRows">
+                    <number>0</number>
+                </property>
+                <property name="numCols">
+                    <number>8</number>
+                </property>
+            </widget>
+        </vbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout25</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>12</x>
+                <y>308</y>
+                <width>504</width>
+                <height>117</height>
+            </rect>
+        </property>
+        <vbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QLabel">
+                <property name="name">
+                    <cstring>textLabel17</cstring>
+                </property>
+                <property name="text">
+                    <string>Teléfonos:</string>
+                </property>
+            </widget>
+            <widget class="QTable">
+                <column>
+                    <property name="text">
+                        <string>Telefono</string>
+                    </property>
+                </column>
+                <column>
+                    <property name="text">
+                        <string>Descripción</string>
+                    </property>
+                </column>
+                <property name="name">
+                    <cstring>table2</cstring>
+                </property>
+                <property name="numRows">
+                    <number>0</number>
+                </property>
+                <property name="numCols">
+                    <number>2</number>
+                </property>
+            </widget>
+        </vbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout146</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>12</x>
+                <y>431</y>
+                <width>504</width>
+                <height>33</height>
+            </rect>
+        </property>
+        <hbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton40</cstring>
+                </property>
+                <property name="text">
+                    <string>Captura Dirección</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton41</cstring>
+                </property>
+                <property name="text">
+                    <string>Captura Teléfonos</string>
+                </property>
+            </widget>
+        </hbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout145</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>12</x>
+                <y>470</y>
+                <width>504</width>
+                <height>33</height>
+            </rect>
+        </property>
+        <hbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton39</cstring>
+                </property>
+                <property name="text">
+                    <string>Crear</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton50</cstring>
+                </property>
+                <property name="text">
+                    <string>Consultar</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton51</cstring>
+                </property>
+                <property name="text">
+                    <string>Actualizar</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton42</cstring>
+                </property>
+                <property name="text">
+                    <string>Cancelar</string>
+                </property>
+            </widget>
+        </hbox>
+    </widget>
+    <widget class="QLayoutWidget">
+        <property name="name">
+            <cstring>layout13</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>477</width>
+                <height>61</height>
+            </rect>
+        </property>
+        <hbox>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <widget class="QLayoutWidget">
+                <property name="name">
+                    <cstring>layout309</cstring>
+                </property>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>textLabel12</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Tienda:</string>
+                        </property>
+                    </widget>
+                    <widget class="QLineEdit">
+                        <property name="name">
+                            <cstring>lineEdit74</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>0</hsizetype>
+                                <vsizetype>0</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QLayoutWidget">
+                <property name="name">
+                    <cstring>layout12</cstring>
+                </property>
+                <hbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer9</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>80</width>
+                                <height>16</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QCtrlTipoVentas">
+                        <property name="name">
+                            <cstring>QCtrTipoVentas</cstring>
+                        </property>
+                    </widget>
+                    <widget class="QCtrlFinanciadoras">
+                        <property name="name">
+                            <cstring>QCtrFinanciadoras</cstring>
+                        </property>
+                    </widget>
+                </hbox>
+            </widget>
+        </hbox>
+    </widget>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlTipoVentas.h</includehint>
+    <includehint>QCtrlFinanciadoras.h</includehint>
+</includehints>
+</UI>

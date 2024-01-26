@@ -1,0 +1,150 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>RepStockDepartamentoProveedor</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>RepStockDepartamentoProveedor</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>965</width>
+            <height>493</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Reporte Por Departamento Proveedor</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>layout1</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Tiendas</string>
+                    </property>
+                </widget>
+                <widget class="QCtrlTiendasEntrega">
+                    <property name="name">
+                        <cstring>QCtrTiendas</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QTable" row="2" column="0" rowspan="1" colspan="2">
+            <column>
+                <property name="text">
+                    <string># Producto</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Producto</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Modelo</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Stock</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Costo Unitario</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Costo Total</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Precio Venta</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Total Venta</string>
+                </property>
+            </column>
+            <column>
+                <property name="text">
+                    <string>Margen</string>
+                </property>
+            </column>
+            <property name="name">
+                <cstring>QTReporte</cstring>
+            </property>
+            <property name="numRows">
+                <number>0</number>
+            </property>
+            <property name="numCols">
+                <number>9</number>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Proveedor</string>
+                    </property>
+                </widget>
+                <widget class="QCtrlProveedoresSS">
+                    <property name="name">
+                        <cstring>QCtrProveedor</cstring>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QPushButton" row="3" column="0">
+            <property name="name">
+                <cstring>QPBConsulta</cstring>
+            </property>
+            <property name="text">
+                <string>Consulta</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="3" column="1">
+            <property name="name">
+                <cstring>QPBImprimir</cstring>
+            </property>
+            <property name="text">
+                <string>Imprimir</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>QCtrlTiendasEntrega.h</includehint>
+    <includehint>QCtrlProveedoresSS.h</includehint>
+</includehints>
+</UI>

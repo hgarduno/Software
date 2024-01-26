@@ -1,0 +1,7 @@
+#!/bin/sh 
+
+mdb-export -H  $HOME/ServiSNTE.mdb TGCVen |sed s/\"//g |awk -F',' '{printf "insert into  Vendedores values(%s,\"%s\",\"%s\");\n",FNR, $1, $3}' |sed s/\"/\'/g
+
+mdb-export -H  $HOME/ServiSNTE.mdb TGCVen |sed s/\"//g |awk -F',' '{printf "insert into  PersonaVendedor values(%s,%s);\n",FNR,FNR}' |sed s/\"/\'/g
+
+#mdb-export -H  $HOME/ServiSNTE.mdb TGCVen |sed s/\"//g |awk -F',' '{printf "insert into EstatusVendedor values(%s,%s);\n",FNR, $1, $3, $2}' |sed s/\"/\'/g

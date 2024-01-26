@@ -1,0 +1,68 @@
+#!/bin/sh 
+
+
+DirHomePostgres=/home/postgres 
+
+VersionPostgres=9.4.6
+
+PGDATA=$DirHomePostgres/Bases
+
+PATH=$PATH:$DirHomePostgres/$VersionPostgres/bin 
+
+
+export PGDATA
+export PATH
+start()
+{
+
+echo 'Iniciando el Demonio Postgres SQL'
+
+su - postgres  -c  "export PATH=$PATH  ;		\
+		   export PGDATA=$PGDATA ;		\
+		   pg_ctl -w -t 10 start "
+
+}
+
+stop()
+{
+echo 'Deteniendo el Demonio del Postgres SQL'
+
+su - postgres  -c  "export PATH=$PATH  ;		\
+		   export PGDATA=$PGDATA ;		\
+		   pg_ctl  -t 10 stop "
+
+}
+
+
+restart()
+{
+
+echo 'Reiniciando el Demonio Postgres SQL'
+
+}
+status()
+{
+
+echo 'el status del Demonio del Postgres SQL'
+
+}
+
+
+
+case "$1" in
+start)
+
+	start
+	;;
+stop)
+	stop
+	;;
+restart)
+	restart
+	;;
+status)
+	status
+	;;
+esac
+
+

@@ -1,0 +1,466 @@
+#!/bin/sh 
+
+# para poder cambiar los acentos , se tendra que abrir el archivo
+# desde la linea de comandos  com 
+# LANG=es_MX.UTF-8 vi Instalando/Instalacion, esto para poder 
+# poner las sentencias los simbolos ? ? etc, sin que se agreguen
+# caracteres raros
+
+
+LANG=es_MX.UTF-8
+
+
+Procesador=64Bits
+
+export LANG 
+
+DirectorioInstalacion=$HOME/SiscomDesarrollo/VersionesSistemas/ServiSNTE
+
+
+Cliente()
+{
+
+echo Cliente
+
+}
+
+NombrePorFecha()
+{
+#Enero
+#Febrero
+#Marzo
+#Abril
+#Mayo
+#Junio
+#Julio
+#Agosto
+#Septiembre
+#Octubre
+#Noviembre
+#Diciembre
+
+Dia=$(date '+%A'|  sed -e s/^l/L/g -e s/^m/M/g -e s/^j/J/g -e s/^v/V/g -e s/^s/S/g -e s/^d/D/g -e s/á/a/g -e s/é/e/g)
+Mes=$(date '+%B'|  sed -e s/^e/E/g -e s/^f/F/g -e s/^a/A/g -e s/^m/M/g -e s/^j/J/g -e s/^s/S/g -e s/^o/O/g -e s/^n/N/g -e s/^d/D/g )
+NDia=`date '+%d'`
+Anio=`date '+%Y'`
+printf "ServiSNTE_%s_%s_%s_%s_%s\n" $Dia $NDia $Mes $Anio $Procesador
+}
+
+CreaDirectorio()
+{
+Directorio=$DirectorioInstalacion/$1
+if [ -d $Directorio  ]
+then
+printf "El Directorio ya %s\n" $Directorio
+else
+printf "El directorio %s NO Existe\n" $Directorio
+mkdir $Directorio
+fi
+
+}
+CreaDirectorios()
+{
+CreaDirectorio `NombrePorFecha`
+CreaDirectorio `NombrePorFecha`/Cliente 
+CreaDirectorio `NombrePorFecha`/Servidor
+CreaDirectorio SoporteQt-3.3.8
+CreaDirectorio SoporteSiscomDesarrollo
+CreaDirectorio SoporteSiscomDesarrollo/Cliente
+CreaDirectorio SoporteSiscomDesarrollo/Servidor
+}
+CopiaArchivos()
+{
+ for X in $1
+ do
+        printf "%s %s/%s/%s\n" $X $DirectorioInstalacion $2 $3
+ 	cp $X $DirectorioInstalacion/$2/$3
+ done
+}
+CopiaArchivosCliente()
+{
+ListaArchivosCliente="$DirDesarrollo4/ServiSNTE/Cliente/libServiSNTEPlugin.so  \
+		      $DirDesarrollo4/ServiSNTE/Cliente/ServiSNTEApp"
+
+CopiaArchivos "$ListaArchivosCliente" `NombrePorFecha` Cliente
+}
+CopiaArchivosServidor()
+{
+ListaArchivosServidor="$DirDesarrollo4/ServiSNTE/Servidor/libSiscomServiSNTEMemoria.so \
+		       $DirDesarrollo4/ServiSNTE/Servidor/libSiscomServiSNTE.so"
+
+CopiaArchivos "$ListaArchivosServidor" `NombrePorFecha` Servidor
+}
+CopiaSoporteQt()
+{
+ArchivosSoporteQt="$QTDIR/lib/libqt-mt.so.3.3.8 \
+		   $QTDIR/lib/libqui.so.1.0.0"
+
+CopiaArchivos "$ArchivosSoporteQt" SoporteQt-3.3.8 ""
+}
+CopiaArchivosSiscomDesarrolloCliente()
+{
+ArchivosSiscomDesarrolloCliente="$DirDesarrollo4/SiscomComunicaciones++/libSiscomComunicaciones++.so.1.0.0  	\
+				 $DirDesarrollo4/SiscomDesarrollo4Qt++/libSiscomDesarrollo4Qt++.so.1.0.0	\
+				 $DirDesarrollo4/SiscomDesarrollo4++/libSiscomDesarrollo4++.so.1.0.0		\
+				 $DirDesarrollo4/SiscomControles/libSiscomControles.so"
+CopiaArchivos "$ArchivosSiscomDesarrolloCliente" SoporteSiscomDesarrollo Cliente
+
+}
+ScriptLinksQt3()
+{
+cat << LinksQt3 |sh 
+
+ls -ltr 
+
+LinksQt3
+
+}
+
+CopiaArchivosSiscomDesarrolloServidor()
+{
+ArchivosSiscomDesarrolloServidor="$DirDesarrollo4/SiscomDesarrollo4/libSiscomOperaciones.so 		\
+				  $DirDesarrollo4/SiscomDesarrollo4/libSiscomDesarrollo4.so		\
+				  $DirDesarrollo4/SiscomDesarrollo4/PostgresSql/libSiscomPostgresSql.so \
+				  $DirDesarrollo4/SiscomDesarrollo4/ServidorSiscom"
+CopiaArchivos "$ArchivosSiscomDesarrolloServidor" SoporteSiscomDesarrollo Servidor
+}
+
+
+GeneraArchivosInstalacion()
+{
+CreaDirectorios 
+CopiaArchivosCliente
+CopiaArchivosServidor
+# Miercoles 6 de Mayo del 2015
+# Se requiere colocar una condicion para que se pueda 
+# distinguir de cuando se esta generando una version nueva
+# y cuando una actualizacion
+CopiaSoporteQt
+ScriptLinksQt3
+CopiaArchivosSiscomDesarrolloCliente
+CopiaArchivosSiscomDesarrolloServidor
+(cd  $DirectorioInstalacion ; tar cvf `NombrePorFecha`.tar SoporteQt-3.3.8 SoporteSiscomDesarrollo `NombrePorFecha`/; rm `NombrePorFecha`.tar.xz ;xz -z  `NombrePorFecha`.tar) ;
+
+}
+
+
+
+DirectorioConfiguracionMaquinaServiSNTE()
+{
+cat << ConfiguracionServiSNTE| ssh $1   'bash -s  ' 
+
+
+CreaArchivoIni()
+{
+printf "(%s) (%s)\n" \$1 \$2
+cat << ArchivoINI >  $HOME/ConfiguracionServiSNTE/Servidor/SiscomServiSNTE\$1Ini
+
+########
+########
+########
+Puerto=\$1
+ModuloSistema=libSiscomServiSNTE.so
+FuncionModuloSistema=ServidorSiscomServiSNTE
+
+CargaMemoria=1
+ModuloMemoria=libSiscomServiSNTEMemoria.so
+FuncionModuloMemoria=MemoriaSiscomServiSNTE
+
+GestionEstatica=0
+
+DirIpSvrAccesoDatos=127.0.0.1
+PuertoSvrAccesoDatos=\$2
+
+BaseDatos=ServiSNTE
+PuertoBD=5432
+
+
+LogServidor[]
+LogServidor[SocketProtocolo]=0
+[]LogServidor
+
+
+ArchivoINI
+
+cat << ArchivoINI >  $HOME/ConfiguracionServiSNTE/Servidor/SiscomServiSNTE\$2Ini
+
+
+########
+########
+########
+Puerto=\$2
+ModuloSistema=libSiscomPostgresSql.so
+FuncionModuloSistema=ServidorAccesoDatos
+
+
+GestionEstatica=1
+
+
+CargaMemoria=0
+
+FuncionGestionEstatica[]
+FuncionGestionEstatica[EjecutaConsulta]=SiscomConsultaBD
+FuncionGestionEstatica[EjecutaOperacion]=SiscomOperacionBD
+FuncionGestionEstatica[EjecutaOperacionBinario]=SiscomOperacionBinarioBD
+FuncionGestionEstatica[EjecutaConsultaArchivos]=SiscomConsultaArchivosBD
+[]FuncionGestionEstatica
+
+LogServidor[]
+LogServidor[SocketProtocolo]=0
+[]LogServidor
+
+
+ArchivoINI
+
+
+
+}
+
+GeneraScriptsMaquinaServiSNTE()
+{
+ printf "Generando scripts Maquina ServiSNTE (%s) (%s)\n" \$1 \$2
+ CreaArchivoIni \$1 \$2
+}
+
+mkdir $HOME/ConfiguracionServiSNTE
+
+if [ -d $HOME/ConfiguracionServiSNTE ]
+then
+	if [ -d $HOME/ConfiguracionServiSNTE/Servidor ]
+	then
+		GeneraScriptsMaquinaServiSNTE 6345 6346
+	else
+		mkdir $HOME/ConfiguracionServiSNTE/Servidor 
+		GeneraScriptsMaquinaServiSNTE 6345 6346
+	fi
+else
+   printf "El directorio no existe\n"
+fi
+
+
+ConfiguracionServiSNTE
+
+
+}
+GeneraScriptsMaquinaServiSNTE()
+{
+ printf "Generando scripts Maquina ServiSNTE (%s) (%s)\n" \$1 \$2
+ CreaArchivoIni \$1 \$2
+}
+
+
+
+AmbienteMaquinaServiSNTE()
+{
+printf "Generando en %s\n" $1
+  DirectorioConfiguracionMaquinaServiSNTE  $1
+}
+
+GeneraScriptInicioServicioServiSNTE()
+{
+
+cat << ArchivoINI | ssh root@$1   'cat > /etc/init.d/SiscomServiSNTE'
+#!/sbin/runscript
+
+Home=/home/hgarduno 
+DIRPOSTGRESQL=/home/postgres/9.4.1
+PATH=\$PATH:\$Home/SoporteSiscomDesarrollo/Servidor/
+
+DirectorioConfiguracion=\$Home/ConfiguracionServiSNTE/Servidor/
+ArchivosNomina=\$Home/TransferenciasArchivosNomina
+
+LD_LIBRARY_PATH=\$Home/SoporteSiscomDesarrollo/Servidor:\$DIRPOSTGRESQL/lib:\$Home/ServiSNTE/Servidor/
+
+
+export LD_LIBRARY_PATH 		\\
+	PATH			\\
+	DirectorioConfiguracion	\\
+	ArchivosNomina		\\
+	DIRPOSTGRESQL
+
+PuertoRN=$2
+PuertoAD=$3
+start() {
+ebegin "Iniciando el sistema ServiSNTE (Cabeza Juarez)"
+su - hgarduno -c "
+		export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH
+		export PATH=\$PATH
+		export DirectorioConfiguracion=\$DirectorioConfiguracion
+		export ArchivosNomina=\$ArchivosNomina
+		export DIRPOSTGRESQL=\$DIRPOSTGRESQL
+		ServidorSiscom \$DirectorioConfiguracion/SiscomServiSNTE\$PuertoAD\Ini
+		ServidorSiscom \$DirectorioConfiguracion/SiscomServiSNTE\$PuertoRN\Ini"
+ebegin "Se Inicio de forma correcta el servidor"
+}
+
+stop() {
+PidReglasNegocio=\`cat \$DirectorioConfiguracion/ServidorSiscom\$PuertoRN\Pid\` 
+PidAccesoDatos=\`cat \$DirectorioConfiguracion/ServidorSiscom\$PuertoAD\Pid\`
+if [ \$PidAccesoDatos ]
+then
+ebegin "Deteniendo el proceso de acceso a datos (\$PidAccesoDatos)"
+kill -9 \$PidAccesoDatos 
+fi
+if [ \$PidReglasNegocio ]
+then
+ebegin "Deteniendo el proceso de Reglas del negocio (\$PidReglasNegocio)"
+kill -9 \$PidReglasNegocio
+fi
+
+rm \$DirectorioConfiguracion/ServidorSiscom\$PuertoRN\Pid
+rm \$DirectorioConfiguracion/ServidorSiscom\$PuertoAD\Pid
+
+}
+
+depend()
+{
+   need postgres
+}
+
+ArchivoINI
+}
+
+
+GeneraScriptInicioPostgres()
+{
+cat << ArchivoINI | ssh root@$1   'cat > /etc/init.d/postgres'
+#!/sbin/runscript
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+DirPostgres=/home/postgres 
+Version=9.4.4
+PATH=\$PATH:\$DirPostgres/\$Version/bin
+PGDATA=\$DirPostgres/Bases
+Usuario=postgres
+
+export PGDATA	\\
+	PATH	\\
+	Usuario
+start() {
+	ebegin Iniciando Postgres \$Version
+	if [ -f \$PGDATA/postmaster.pid ]
+	then
+		stop
+	fi
+	su - \$Usuario -c "export PATH=\$PATH
+			  export PGDATA=\$PGDATA
+			  pg_ctl start > \$DirPostgres/PostgresSQL.log"
+
+}
+
+stop()
+{
+
+	ebegin Deteniendo Postgres \$Version
+	su - \$Usuario -c "export PATH=\$PATH 
+			  export PGDATA=\$PGDATA
+			  pg_ctl stop"
+}
+
+ArchivoINI
+}
+
+GeneraEnlacesSimbolicosUsuario()
+{
+
+cat << EnlacesSimbolicos | ssh $1 'bash -s '
+
+printf "Creando %s\n" $2
+rm  $HOME/ServiSNTE  2> /dev/null ; echo $?
+ln -s $HOME/$2 $HOME/ServiSNTE
+EnlacesSimbolicos
+}
+DescomprimeYCambiaEnlace()
+{
+printf "%s %s\n", $1 $2
+cat << DetenServicio | ssh root@$1 'bash -s '
+/etc/init.d/SiscomServiSNTE stop
+DetenServicio
+
+cat << Descomprime | ssh $1 'bash -s '
+
+rm ServiSNTE 
+xzcat $2 |tar xf - 
+ln -s $3 ServiSNTE
+
+Descomprime
+}
+ReIniciaServicio()
+{
+cat << ReIniciando | ssh root@$1 'bash -s '
+/etc/init.d/SiscomServiSNTE restart
+ReIniciando
+echo '00000000000000'
+}
+ActualizaVersion()
+{
+CreaDirectorios 
+CopiaArchivosCliente
+CopiaArchivosServidor
+CopiaArchivosSiscomDesarrolloCliente
+CopiaArchivosSiscomDesarrolloServidor
+(cd  $DirectorioInstalacion ; 				\
+ tar cvf `NombrePorFecha`.tar 				\
+ SoporteSiscomDesarrollo `NombrePorFecha`; 		\
+ rm  `NombrePorFecha`.tar.xz;				\
+ xz -z  `NombrePorFecha`.tar ;)
+(cd  $DirectorioInstalacion ; rm -rf  `NombrePorFecha` ;rm -rf SoporteQt-3.3.8; rm -rf SoporteSiscomDesarrollo)
+(cd $DirectorioInstalacion ; scp `NombrePorFecha`.tar.xz hgarduno@$1:) 
+DescomprimeYCambiaEnlace $1 `NombrePorFecha`.tar.xz `NombrePorFecha`
+ReIniciaServicio $1
+}
+
+MaquinasServiSNTE()
+{
+
+cat << Maquinas | psql -t ServiSNTE
+
+
+select idmaquina,
+	arquitectura,
+	descripcion,
+	dirip,
+	puerto,
+	nombre
+from arquitecturamaquinas as a inner join
+	maquinas as b using(idmaquina) left outer join
+	tiendas as c on a.idmaquina=c.idtienda
+order by idmaquina
+Maquinas
+
+}
+ActualizaMaquinas()
+{
+MaquinasServiSNTE  |awk -F'|' '{print $2}'
+
+
+}
+
+#### Argumentos 1 Plataforma 32Bits o 64Bits 
+### Segundo argumento la ip en la vpn
+
+Procesador=$1
+
+# Miercoles 7 de mayo del 2015
+# Hay que revisar esta parte, ya que se tienen 
+# errores al pasar los argumentos del puerto en la 
+# funcion GeneraScriptsMaquinaServiSNTE, eso lo 
+# realizaremos manual ahorita
+# Martes 01 de septiembre del 2015 
+# Falta agregar al script que inicia la interfaz 
+# grafica de usuario la variable 
+# TAMANIO_FONT_IMPRESION=11
+
+#AmbienteMaquinaServiSNTE $2 
+#GeneraScriptInicioServicioServiSNTE $2 6345 6346
+#GeneraScriptInicioPostgres $2
+#GeneraEnlacesSimbolicosUsuario $2 `NombrePorFecha`
+
+echo $DirectorioInstalacion `NombrePorFecha`
+
+GeneraArchivosInstalacion 
+
+#ActualizaVersion  $2
+

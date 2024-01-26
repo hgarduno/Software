@@ -1,0 +1,26 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ImprimiendoRepStockDepartamentoProveedor</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ImprimiendoRepStockDepartamentoProveedor</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>800</width>
+            <height>600</height>
+        </rect>
+    </property>
+    <property name="minimumSize">
+        <size>
+            <width>800</width>
+            <height>600</height>
+        </size>
+    </property>
+    <property name="caption">
+        <string>Stock Deparamento Provedor</string>
+    </property>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

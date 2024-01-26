@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo  $DirDesarrollo4/ServiSNTE/Configuracion/Servidor/ServidorSiscom$1Log
+
+tail -f $DirDesarrollo4/ServiSNTE/Configuracion/Servidor/ServidorSiscom$1Log

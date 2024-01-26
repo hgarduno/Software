@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+
+LD_LIBRARY_PATH=$DirDesarrollo4/SiscomDesarrollo4++:$DirDesarrollo4/SiscomDesarrollo4Qt++:$DirDesarrollo4/SiscomComunicaciones++:$DirDesarrollo4/SiscomControles/:$DirDesarrollo4/ServiSNTE/Cliente:$QTDIR/lib
+
+DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH
+PATH=$DirDesarrollo4/ServiSNTE/Cliente
+IpServidor=127.0.0.1
+#IpServidor=10.8.1.50
+PuertoServidor=6345
+Maximizada=1
+TAMANIO_FONT_IMPRESION=11
+export LD_LIBRARY_PATH 	\
+    DYLD_LIBRARY_PATH   \
+	PATH		\
+	IpServidor	\
+	PuertoServidor	
+
+export Maximizada 
+echo $DL_LIBRARY_PATH
+
+
+Corre()
+{
+ServiSNTEApp $*
+}
+
+Depura()
+{
+/usr/bin/gdb $DirDesarrollo4/ServiSNTE/Cliente/ServiSNTEApp
+}
+echo $#
+if [ $# == 0 ] 
+then
+	Corre 
+else
+ 
+ while [[ $# -gt 0 ]]
+ do
+	argumento="$1"
+	case "$argumento" in
+		"-debug" )
+			Depura 
+		;; 
+	esac
+	shift 
+ done
+fi
+
+
+

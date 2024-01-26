@@ -1,0 +1,5 @@
+#!/bin/sh 
+
+mdb-export -H  $HOME/ServiSNTE/ServiSNTE11082015.mdb TBMPrd |sed s/\"//g |awk -F',' '{printf "insert into Productos values(%s,%s,\"%s\",\"%s\");\n",FNR,$2, $3, $4}' |sed s/\"/\'/g
+mdb-export -H  $HOME/ServiSNTEActual.mdb TBMPrd |sed s/\"//g |awk -F',' '{printf "insert into ProductoProveedor values(%s,%s);\n",$1,FNR}' |sed s/\"/\'/g
+

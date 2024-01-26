@@ -1,0 +1,63 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ActualizandoSistema</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ActualizandoSistema</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>613</width>
+            <height>380</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Actualizacion Disponible</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTextEdit" row="1" column="0">
+                    <property name="name">
+                        <cstring>textEdit1</cstring>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget" row="0" column="0">
+                    <property name="name">
+                        <cstring>layout1</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel1</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Se a detectado una actualizacion disponible</string>
+                            </property>
+                        </widget>
+                        <widget class="QProgressBar">
+                            <property name="name">
+                                <cstring>progressBar1</cstring>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </grid>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

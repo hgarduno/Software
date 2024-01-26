@@ -1,0 +1,503 @@
+
+### Se inicia el desarrollo de ServiSNTE Martes 24 de Febrero 2015
+
+CONFIG+=plugin thread debug
+
+UI_HEADERS_DIR=Qt/Uic
+UI_SOURCES_DIR=Qt/Uic
+SRCMOC=Qt/Moc
+MOC_DIR=Qt/Moc
+OBJECTS_DIR=O
+INCLUDEPATH=Qt/H 					\
+	    H/						\
+  	    $(DIRDesarrolloHGE)/SiscomComunicaciones++/H	\
+	    $(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++/H 	\
+	    $(DIRDesarrolloHGE)/SiscomDesarrollo4++/H	\
+	    $(DIRDesarrolloHGE)/SiscomControles/H
+FORMS=Qt/Ui/Proveedores.ui				\
+      Qt/Ui/CapturaDireccion.ui				\
+      Qt/Ui/CapturaProductos.ui				\
+      Qt/Ui/CapturaCliente.ui				\
+      Qt/Ui/CapturaCamiones.ui				\
+      Qt/Ui/CapturaChoferes.ui				\
+      Qt/Ui/CapturaVendedores.ui			\
+      Qt/Ui/CapturaDepartamentos.ui			\
+      Qt/Ui/CapturaConceptosExistencias.ui		\
+      Qt/Ui/CapturaTienda.ui				\
+      Qt/Ui/CargaNominaEmpleados.ui			\
+      Qt/Ui/PuntoDeVenta.ui				\
+      Qt/Ui/SeleccionaProducto.ui			\
+      Qt/Ui/CapturaCantidad.ui				\
+      Qt/Ui/ImpresionCodigoBarras.ui			\
+      Qt/Ui/CapturaInventario.ui            		\
+      Qt/Ui/CapturaInventarioAlmacen.ui            	\
+      Qt/Ui/TransferenciaAlmacen.ui			\
+      Qt/Ui/CambioPrecio.ui				\
+      Qt/Ui/ReporteVentas.ui            		\
+      Qt/Ui/VisorTransferencias.ui      		\
+      Qt/Ui/CargaBaseDeDatosMaestros.ui			\
+      Qt/Ui/AbonosApartado.ui				\
+      Qt/Ui/BeneficiosIntegrales.ui         		\
+      Qt/Ui/RecibirTransferencias.ui        		\
+      Qt/Ui/ControlReplicas.ui              		\
+      Qt/Ui/TransferenciaParcial.ui          		\
+      Qt/Ui/InventarioEnCurso.ui         		\
+      Qt/Ui/SeleccionaCredito.ui            		\
+      Qt/Ui/CapturaDatosGenerales.ui           		\
+      Qt/Ui/CapturaDireccionParticular.ui		\
+      Qt/Ui/CapturaDatosEmpleo.ui           		\
+      Qt/Ui/CapturaDatosComplementarios.ui  		\
+      Qt/Ui/CapturaDatosComunicacion.ui			\
+      Qt/Ui/CatalogoStock.ui				\
+      Qt/Ui/FijaFechaCompra.ui				\
+      Qt/Ui/CapturaPrecioIva.ui				\
+      Qt/Ui/PosicionesBeneficios.ui			\
+      Qt/Ui/CapturaGeneralesContratoBeneficios.ui	\
+      Qt/Ui/VolteaContrato.ui				\
+      Qt/Ui/CapturaCentroTrabajo.ui			\
+      Qt/Ui/CreditosBeneficiosIntegrales.ui		\
+      Qt/Ui/ExistenciasTienda.ui			\
+      Qt/Ui/ExistenciasAlmacen.ui			\
+      Qt/Ui/ReporteCompras.ui				\
+      Qt/Ui/TransferenciasEnviadas.ui			\
+      Qt/Ui/ConsultaVentas.ui				\
+      Qt/Ui/CapturaAbonoApartado.ui			\
+      Qt/Ui/FolioApartado.ui				\
+      Qt/Ui/CancelarFolio.ui				\
+      Qt/Ui/FoliosCancelados.ui                         \
+      Qt/Ui/CancelarFolioAbono.ui			\
+      Qt/Ui/ActualizaStock.ui				\
+      Qt/Ui/RepStockDepartamentoProveedor.ui		\
+      Qt/Ui/RepExistenciaProveedor.ui			\
+      Qt/Ui/RepPreciosProducto.ui			\
+      Qt/Ui/RepStockTienda.ui				\
+      Qt/Ui/RepStockProveedorCosto.ui			\
+      Qt/Ui/RepCompras.ui				\
+      Qt/Ui/ActivaServidor.ui				\
+      Qt/Ui/ImprimiendoRepStockDepartamentoProveedor.ui	\
+      Qt/Ui/RegistroUsuarios.ui				\
+      Qt/Ui/RepListaPreciosComprador.ui			\
+      Qt/Ui/MultiApoyos.ui				\
+      Qt/Ui/CapturaDescuentos.ui			\
+      Qt/Ui/MantenimientoProductos.ui			\
+      Qt/Ui/SaldosMovimientos.ui			\
+      Qt/Ui/SoporteVentas.ui				\
+      Qt/Ui/SoporteCompras.ui				\
+      Qt/Ui/SoporteTransferencias.ui			\
+      Qt/Ui/RepExistenciaTiendaProveedor.ui		\
+      Qt/Ui/RegistroInventario.ui			\
+      Qt/Ui/PagosDocumentosPagar.ui			\
+      Qt/Ui/DiferenciasInventario.ui			\
+      Qt/Ui/RegistroLibro.ui				\
+      Qt/Ui/DesajusteInventario.ui			\
+      Qt/Ui/RepProveedores.ui
+
+HEADERS=Qt/H/QtImpProveedores.h						\
+	Qt/H/QtImpCapturaProductos.h					\
+	Qt/H/QtImpCapturaDireccion.h					\
+	Qt/H/QtImpCapturaCliente.h					\
+	Qt/H/QtImpCapturaCamiones.h					\
+	Qt/H/QtImpCapturaChoferes.h					\
+	Qt/H/QtImpCapturaVendedores.h					\
+	Qt/H/QtImpCapturaDepartamentos.h				\
+	Qt/H/QtImpCapturaConceptosExistencias.h				\
+	Qt/H/QtImpCapturaTienda.h					\
+	Qt/H/QtImpCargaNominaEmpleados.h 				\
+	Qt/H/QtImpCargaBaseDeDatosMaestros.h 				\
+	Qt/H/QtImpPuntoDeVenta.h					\			
+	Qt/H/QtImpSeleccionaProducto.h					\
+	Qt/H/QtImpCapturaCantidad.h					\
+	Qt/H/QtImpImpresionCodigoBarras.h				\
+    	Qt/H/QtImprimeFactura.h                 			\
+    	Qt/H/QtImprimeRecibo.h                 				\
+	Qt/H/QtImpCapturaInventario.h					\
+	Qt/H/QtImpCapturaInventarioAlmacen.h				\
+	Qt/H/QtImpTransferenciaAlmacen.h				\
+	Qt/H/QtImprimeTransferencia.h					\
+	Qt/H/QtImpHistorialCompras.h					\
+	Qt/H/QtImpCambioPrecio.h					\
+	Qt/H/QtImpReporteVentas.h					\
+	Qt/H/QtImpVisorTransferencias.h					\
+	Qt/H/QtImpAbonosApartado.h					\
+	Qt/H/QtImpBeneficiosIntegrales.h				\
+	Qt/H/QtImpRecibirTransferencias.h				\
+	Qt/H/QtImpControlReplicas.h					\
+	Qt/H/QtImpTransferenciaParcial.h				\
+	Qt/H/QtImpInventarioEnCurso.h					\
+	Qt/H/QtImpSeleccionaCredito.h					\
+	Qt/H/QtImpCapturaDatosGenerales.h				\
+	Qt/H/QtImpCapturaDireccionParticular.h				\
+	Qt/H/QtImpCapturaDatosEmpleo.h					\
+	Qt/H/QtImpCapturaDatosComplementarios.h				\
+	Qt/H/QtImpCapturaDatosComunicacion.h				\
+	Qt/H/QtImpCatalogoStock.h   					\
+	Qt/H/QtImpFijaFechaCompra.h   					\
+	Qt/H/QtImpCapturaPrecioIva.h					\
+	Qt/H/QtImprimeBeneficiosIntegrales.h				\
+	Qt/H/QtImpPosicionesBeneficios.h				\
+	Qt/H/QtImpCapturaGeneralesContratoBeneficios.h			\
+	Qt/H/QtImpVolteaContrato.h					\			
+	Qt/H/QtImpCapturaCentroTrabajo.h				\
+	Qt/H/QtImpCreditosBeneficiosIntegrales.h			\
+	Qt/H/QtImpCapturaAbonoApartado.h				\
+	Qt/H/QtImpExistenciasTienda.h					\
+	Qt/H/QtImpExistenciasAlmacen.h					\
+	Qt/H/QtImpReporteCompras.h					\
+	Qt/H/QtImpTransferenciasEnviadas.h				\
+	Qt/H/QtImpActualizaStock.h					\
+	Qt/H/QtBaseMedidas.h						\
+	Qt/H/QtImprimePuntoVenta.h					\
+	Qt/H/QtImprimeReciboApartado.h					\
+	Qt/H/QtImprimeTransferencia2.h					\
+	Qt/H/QtImprimeRepStockDepartamentoProveedor.h			\
+	Qt/H/QtImprimeRepPreciosProducto.h				\
+	Qt/H/QtImprimeRepListaPreciosComprador.h			\			
+	Qt/H/QtImprimeRepStockTienda.h					\
+	Qt/H/QtImprimeRepExistenciaProveedor.h				\
+	Qt/H/QtImprimeRepExistenciaTiendaProveedor.h			\
+	Qt/H/QtImprimeRelacionChequesPagar.h				\
+	Qt/H/QtImprimeSoporteCompras.h					\
+	Qt/H/QtImprimeSoporteVentas.h					\
+	Qt/H/QtImprimeSoporteTransferencias.h				\
+	Qt/H/QtImprimeRepStockProveedorCosto.h				\
+	Qt/H/QtImprimeRepStockProveedorCosto.h				\
+	Qt/H/QtImprimeRepCuentasPagar.h					\
+	Qt/H/QtImprimeRepDatosCompra.h					\
+	Qt/H/QtImprimeRepProveedores.h					\
+	Qt/H/QtImpConsultaVentas.h					\
+	Qt/H/QtImpFolioApartado.h					\
+	Qt/H/QtImpCancelarFolio.h					\
+	Qt/H/QtImpFoliosCancelados.h                    		\
+	Qt/H/QtImpCancelarFolioAbono.h					\
+	Qt/H/QtImpRepStockDepartamentoProveedor.h			\
+	Qt/H/QtImpRepExistenciaProveedor.h				\
+	Qt/H/QtImpRepPreciosProducto.h					\
+	Qt/H/QtImpRepStockTienda.h					\
+	Qt/H/QtImpRepStockProveedorCosto.h				\
+	Qt/H/QtImpRepCompras.h						\
+	Qt/H/QtImpActivaServidor.h					\
+	Qt/H/QtImprimeReporte.h						\
+	Qt/H/QtImprimiendoReporte.h					\
+	Qt/H/QtImprimiendoRepStockDepartamentoProveedor.h		\
+	Qt/H/QtImprimiendoRepPreciosProducto.h				\
+	Qt/H/QtImprimiendoRepListaPreciosComprador.h			\
+	Qt/H/QtImprimiendoRepStockTienda.h				\
+	Qt/H/QtImprimiendoRepExistenciaProveedor.h			\
+	Qt/H/QtImprimiendoRepExistenciaTiendaProveedor.h		\
+	Qt/H/QtImprimiendoRelacionChequesPagar.h			\
+	Qt/H/QtImprimiendoSoporteCompras.h				\
+	Qt/H/QtImprimiendoSoporteVentas.h				\
+	Qt/H/QtImprimiendoSoporteTransferencias.h			\
+	Qt/H/QtImprimiendoRepStockProveedorCosto.h			\
+	Qt/H/QtImprimiendoRepCuentasPagar.h				\
+	Qt/H/QtImprimiendoRepDatosCompra.h				\
+	Qt/H/QtImprimiendoRepProveedores.h				\
+	Qt/H/QtImpRegistroUsuarios.h					\
+	Qt/H/QtImpSoporteVentas.h					\
+	Qt/H/QtImpSoporteCompras.h					\
+	Qt/H/QtImpSoporteTransferencias.h				\
+	Qt/H/QtImpRepExistenciaTiendaProveedor.h			\
+	Qt/H/QtImpRegistroInventario.h					\
+	Qt/H/QtImpPagosDocumentosPagar.h				\
+	Qt/H/QtImpDiferenciasInventario.h				\
+	Qt/H/QtImpRegistroLibro.h					\
+	Qt/H/QtImpRepListaPreciosComprador.h				\
+	Qt/H/QtImpMultiApoyos.h						\
+	Qt/H/QtImpCapturaDescuentos.h					\
+	Qt/H/QtImpMantenimientoProductos.h				\
+	Qt/H/QtImpSaldosMovimientos.h					\
+	Qt/H/QtImpDesajusteInventario.h					\
+	Qt/H/QtImpRepProveedores.h					\
+	Qt/H/QCtrlConceptosExistencias.h				\
+	Qt/H/QCtrlConceptosExistencias.h				\
+	Qt/H/QCtrlTiendasEntrega.h					\
+	Qt/H/QCtrlVendedores.h						\
+	Qt/H/QCtrlProveedoresSS.h					\
+	Qt/H/QCtrlProductosSS.h						\
+	Qt/H/QCtrlPlazos.h  						\
+	Qt/H/QCtrlCamiones.h  						\
+	Qt/H/QCtrlDepartamentosSS.h					\
+	Qt/H/QCtrlTipoDocumentos.h					\
+	Qt/H/QCtrlTipoVentas.h  					\
+	Qt/H/QCtrlFormasEntrega.h  					\
+	Qt/H/QCtrlFinanciadoras.h					\
+	Qt/H/QCtrlEstados.h                 				\		 
+	Qt/H/QCtrlCodigoBarras.h					\
+	Qt/H/QCtrlTipoViviendaSS.h					\
+	Qt/H/QCtrlFrecuenciaPagosSS.h					\
+	Qt/H/QCtrlFrecuenciaTransaccionalSS.h				\
+	Qt/H/QCtrlTiposFolio.h						\
+	Qt/H/QCtrlPerfilesSS.h						\
+	Qt/H/QCtrlStock.h						\
+	Qt/H/QCtrlExistenciaProveedor.h					\
+	Qt/H/QCtrlSaldosMovimientosMes.h				\
+	Qt/H/QCtrlSoporteVentas.h					\
+	Qt/H/QCtrlInventarioProgramado.h				\
+	Qt/H/QCtrlEstadoInventario.h					\
+	Qt/H/QCtrlConceptosSaldosMovimientos.h
+
+
+
+SOURCES=Qt/Cpp/QtPluginSiscomServiSNTE.cpp				\
+	Qt/Cpp/QtImpProveedores.cpp					\
+	Qt/Cpp/QtImpCapturaDireccion.cpp				\
+	Qt/Cpp/QtImpCapturaProductos.cpp				\
+	Qt/Cpp/QtImpCapturaCliente.cpp					\
+	Qt/Cpp/QtImpCapturaCamiones.cpp					\
+	Qt/Cpp/QtImpCapturaChoferes.cpp					\
+	Qt/Cpp/QtImpCapturaVendedores.cpp				\
+	Qt/Cpp/QtImpCapturaDepartamentos.cpp				\
+	Qt/Cpp/QtImpCapturaConceptosExistencias.cpp			\
+	Qt/Cpp/QtImpCapturaTienda.cpp					\
+	Qt/Cpp/QtImpCargaNominaEmpleados.cpp				\
+	Qt/Cpp/QtImpCargaBaseDeDatosMaestros.cpp			\
+	Qt/Cpp/QtImpPuntoDeVenta.cpp					\
+	Qt/Cpp/QtImpSeleccionaProducto.cpp				\
+	Qt/Cpp/QtImpCapturaCantidad.cpp					\
+	Qt/Cpp/QtImpImpresionCodigoBarras.cpp				\
+	Qt/Cpp/QtImprimeFactura.cpp		        		\
+	Qt/Cpp/QtImprimeRecibo.cpp		        		\
+	Qt/Cpp/QtImpCapturaInventario.cpp				\
+	Qt/Cpp/QtImpCapturaInventarioAlmacen.cpp			\
+	Qt/Cpp/QtImpTransferenciaAlmacen.cpp				\
+	Qt/Cpp/QtImprimeTransferencia.cpp				\
+	Qt/Cpp/QtImpHistorialCompras.cpp				\
+	Qt/Cpp/QtImpCambioPrecio.cpp					\
+	Qt/Cpp/QtImpReporteVentas.cpp					\
+	Qt/Cpp/QtImpVisorTransferencias.cpp				\
+	Qt/Cpp/QtImpAbonosApartado.cpp					\
+	Qt/Cpp/QtImpBeneficiosIntegrales.cpp				\
+	Qt/Cpp/QtImpRecibirTransferencias.cpp				\
+	Qt/Cpp/QtImpControlReplicas.cpp					\
+	Qt/Cpp/QtImpSeleccionaCredito.cpp				\
+	Qt/Cpp/QtImpTransferenciaParcial.cpp				\
+	Qt/Cpp/QtImpInventarioEnCurso.cpp				\
+	Qt/Cpp/QtImpCapturaDatosGenerales.cpp				\
+	Qt/Cpp/QtImpCapturaDireccionParticular.cpp			\
+	Qt/Cpp/QtImpCapturaDatosEmpleo.cpp				\
+	Qt/Cpp/QtImpCapturaDatosComplementarios.cpp			\
+	Qt/Cpp/QtImpCapturaDatosComunicacion.cpp			\
+	Qt/Cpp/QtImpCatalogoStock.cpp       				\
+	Qt/Cpp/QtImpFijaFechaCompra.cpp       				\
+	Qt/Cpp/QtImpCapturaPrecioIva.cpp				\
+	Qt/Cpp/QtImpPosicionesBeneficios.cpp				\
+	Qt/Cpp/QtImprimeBeneficiosIntegrales.cpp			\
+	Qt/Cpp/QtImpCapturaGeneralesContratoBeneficios.cpp 		\
+	Qt/Cpp/QtImpVolteaContrato.cpp					\
+	Qt/Cpp/QtImpCapturaCentroTrabajo.cpp				\
+	Qt/Cpp/QtImpCreditosBeneficiosIntegrales.cpp			\
+	Qt/Cpp/QtImpExistenciasTienda.cpp				\
+	Qt/Cpp/QtImpExistenciasAlmacen.cpp				\
+	Qt/Cpp/QtImpReporteCompras.cpp					\
+	Qt/Cpp/QtImpTransferenciasEnviadas.cpp				\
+	Qt/Cpp/QtImpActualizaStock.cpp				\
+	Qt/Cpp/QtImpConsultaVentas.cpp					\
+	Qt/Cpp/QtImpCapturaAbonoApartado.cpp				\
+	Qt/Cpp/QtImpActivaServidor.cpp					\
+	Qt/Cpp/QtImpRegistroUsuarios.cpp				\
+	Qt/Cpp/QtImpSoporteVentas.cpp					\
+	Qt/Cpp/QtImpSoporteCompras.cpp					\
+	Qt/Cpp/QtImpSoporteTransferencias.cpp				\
+	Qt/Cpp/QtImpRepExistenciaTiendaProveedor.cpp			\
+	Qt/Cpp/QtImpRegistroInventario.cpp				\
+	Qt/Cpp/QtImpPagosDocumentosPagar.cpp				\
+	Qt/Cpp/QtImpDiferenciasInventario.cpp				\
+	Qt/Cpp/QtImpRegistroLibro.cpp					\
+	Qt/Cpp/QtBaseMedidas.cpp					\
+	Qt/Cpp/QCtrlTiposFolio.cpp					\
+	Qt/Cpp/QtImprimePuntoVenta.cpp					\
+	Qt/Cpp/QtImprimeReciboApartado.cpp				\
+	Qt/Cpp/QtImprimeTransferencia2.cpp				\
+	Qt/Cpp/QtImprimeRepStockDepartamentoProveedor.cpp		\
+	Qt/Cpp/QtImprimeRepPreciosProducto.cpp				\
+	Qt/Cpp/QtImprimeRepListaPreciosComprador.cpp			\
+	Qt/Cpp/QtImprimeRepStockTienda.cpp				\
+	Qt/Cpp/QtImprimeRepExistenciaProveedor.cpp				\
+	Qt/Cpp/QtImprimeRepExistenciaTiendaProveedor.cpp				\
+	Qt/Cpp/QtImprimeRelacionChequesPagar.cpp				\
+	Qt/Cpp/QtImprimeSoporteCompras.cpp				\
+	Qt/Cpp/QtImprimeSoporteVentas.cpp				\
+	Qt/Cpp/QtImprimeSoporteTransferencias.cpp				\
+	Qt/Cpp/QtImprimeRepStockProveedorCosto.cpp				\
+	Qt/Cpp/QtImprimeRepCuentasPagar.cpp				\
+	Qt/Cpp/QtImprimeRepDatosCompra.cpp				\
+	Qt/Cpp/QtImprimeRepProveedores.cpp				\
+	Qt/Cpp/QtImpFolioApartado.cpp					\
+	Qt/Cpp/QtImpCancelarFolio.cpp					\
+	Qt/Cpp/QtImpFoliosCancelados.cpp				\
+	Qt/Cpp/QtImpCancelarFolioAbono.cpp				\
+	Qt/Cpp/QtImpRepStockDepartamentoProveedor.cpp			\
+	Qt/Cpp/QtImpRepExistenciaProveedor.cpp				\
+	Qt/Cpp/QtImpRepPreciosProducto.cpp				\
+	Qt/Cpp/QtImpRepStockTienda.cpp		         		\
+	Qt/Cpp/QtImpRepStockProveedorCosto.cpp				\
+	Qt/Cpp/QtImpRepCompras.cpp					\
+	Qt/Cpp/QtImprimeReporte.cpp					\
+	Qt/Cpp/QtImprimiendoReporte.cpp					\
+	Qt/Cpp/QtImprimiendoRepStockDepartamentoProveedor.cpp		\
+	Qt/Cpp/QtImprimiendoRepPreciosProducto.cpp			\
+	Qt/Cpp/QtImprimiendoRepStockTienda.cpp				\
+	Qt/Cpp/QtImprimiendoRepExistenciaProveedor.cpp				\
+	Qt/Cpp/QtImprimiendoRepExistenciaTiendaProveedor.cpp				\
+	Qt/Cpp/QtImprimiendoRelacionChequesPagar.cpp			\
+	Qt/Cpp/QtImprimiendoSoporteCompras.cpp			\
+	Qt/Cpp/QtImprimiendoSoporteVentas.cpp			\
+	Qt/Cpp/QtImprimiendoSoporteTransferencias.cpp			\
+	Qt/Cpp/QtImprimiendoRepStockProveedorCosto.cpp				\
+	Qt/Cpp/QtImprimiendoRepListaPreciosComprador.cpp		\
+	Qt/Cpp/QtImprimiendoRepCuentasPagar.cpp				\
+	Qt/Cpp/QtImprimiendoRepProveedores.cpp				\
+	Qt/Cpp/QtImprimiendoRepDatosCompra.cpp				\
+	Qt/Cpp/QtImpRepListaPreciosComprador.cpp			\
+	Qt/Cpp/QtImpMultiApoyos.cpp					\
+	Qt/Cpp/QtImpCapturaDescuentos.cpp					\
+	Qt/Cpp/QtImpMantenimientoProductos.cpp					\
+	Qt/Cpp/QtImpSaldosMovimientos.cpp					\
+	Qt/Cpp/QtImpDesajusteInventario.cpp					\
+	Qt/Cpp/QtImpRepProveedores.cpp					\
+	Qt/Cpp/QCtrlConceptosExistencias.cpp				\
+	Qt/Cpp/QCtrlTiendasEntrega.cpp					\
+	Qt/Cpp/QCtrlVendedores.cpp					\
+	Qt/Cpp/QCtrlProveedoresSS.cpp					\
+	Qt/Cpp/QCtrlProductosSS.cpp					\
+	Qt/Cpp/QCtrlPlazos.cpp  					\
+	Qt/Cpp/QCtrlCamiones.cpp  					\
+	Qt/Cpp/QCtrlDepartamentosSS.cpp					\
+	Qt/Cpp/QCtrlTipoDocumentos.cpp					\
+	Qt/Cpp/QCtrlEstados.cpp 					\
+	Qt/Cpp/QCtrlTipoVentas.cpp 					\
+	Qt/Cpp/QCtrlFormasEntrega.cpp 					\
+	Qt/Cpp/QCtrlFinanciadoras.cpp 					\
+	Qt/Cpp/QCtrlCodigoBarras.cpp 					\
+	Qt/Cpp/QCtrlTipoViviendaSS.cpp					\
+	Qt/Cpp/QCtrlFrecuenciaPagosSS.cpp				\
+	Qt/Cpp/QCtrlFrecuenciaTransaccionalSS.cpp			\
+	Qt/Cpp/QCtrlPerfilesSS.cpp					\
+	Qt/Cpp/QCtrlStock.cpp						\
+	Qt/Cpp/QCtrlSoporteVentas.cpp					\
+	Qt/Cpp/QCtrlInventarioProgramado.cpp				\
+	Qt/Cpp/QCtrlEstadoInventario.cpp				\
+	Qt/Cpp/QCtrlExistenciaProveedor.cpp				\
+	Qt/Cpp/QCtrlSaldosMovimientosMes.cpp				\
+	Qt/Cpp/QCtrlConceptosSaldosMovimientos.cpp				\
+	Cpp/zOperacionesServiSNTE.cpp					\
+	Cpp/zReportesServiSNTE.cpp					\
+	Cpp/zAdministracionServiSNTE.cpp 				\
+	Cpp/zOperacionesSaldosMovimientos.cpp				\
+	Cpp/zPersona.cpp						\
+	Cpp/zDireccion.cpp						\
+	Cpp/zCamion.cpp							\
+	Cpp/zDepartamento.cpp						\
+	Cpp/zCosto.cpp							\
+	Cpp/zCostos.cpp							\
+	Cpp/zDescuento.cpp						\
+	Cpp/zDescuentos.cpp						\
+	Cpp/zCostoDescuento.cpp						\
+	Cpp/zProducto.cpp						\
+	Cpp/zProductos.cpp						\
+	Cpp/zOrden.cpp							\
+	Cpp/zVenta.cpp							\
+	Cpp/zCompra.cpp							\
+	Cpp/zReciboApartado.cpp						\
+	Cpp/zTransferencia.cpp          				\
+    	Cpp/zInventario.cpp						\
+	Cpp/zCredito.cpp						\
+	Cpp/zCreditosCliente.cpp        				\
+	Cpp/zContratoBeneficios.cpp					\
+	Cpp/zTelefonos.cpp						\
+	Cpp/zDireccionComunicacion.cpp					\
+	Cpp/zEmpleo.cpp							\
+	Cpp/zEmpresa.cpp						\
+	Cpp/zCargoPublico.cpp						\
+	Cpp/zAportacionTercero.cpp					\
+	Cpp/zBeneficioTercero.cpp					\
+	Cpp/zDatosGenerales.cpp						\
+	Cpp/zOtrosIngresos.cpp						\
+	Cpp/zDatosComunicacion.cpp					\
+	Cpp/zCorreo.cpp							\
+	Cpp/zGeneralesBeneficios.cpp					\
+	Cpp/zReferenciasPersonales.cpp					\
+	Cpp/zParentesco.cpp						\
+	Cpp/zCliente.cpp						\
+	Cpp/zCentroTrabajo.cpp						\
+	Cpp/zProductoTransferencia.cpp					\
+	Cpp/zVentas.cpp							\
+	Cpp/zFolio.cpp							\
+	Cpp/zPrecio.cpp							\
+	Cpp/zPreciosProducto.cpp					\
+	Cpp/zListaPrecios.cpp						\
+	Cpp/zListaPreciosComprador.cpp					\
+	Cpp/zStockTienda.cpp						\
+	Cpp/zStockProveedorCosto.cpp					\
+	Cpp/zRelacionChequesPagar.cpp					\
+	Cpp/zSoporteCompras.cpp						\
+	Cpp/zSoporteVentas.cpp						\
+	Cpp/zSoporteTransferencias.cpp						\
+	Cpp/zCuentasPagar.cpp						\
+	Cpp/zExistenciaTiendaProveedor.cpp						\
+	Cpp/zUsuario.cpp						\
+	Cpp/zExistenciaProveedor.cpp					\
+	Cpp/zDatosCompra.cpp						\
+	Cpp/zProveedores.cpp						\
+	Cpp/zImpresion.cpp						\
+	Cpp/zImpresionPuntoVenta.cpp					\
+	Cpp/zImpresionApartado.cpp					\
+	Cpp/zImpresionTransferencia.cpp					\
+	Cpp/zImpresionListaPrecios.cpp					\
+	Cpp/zImpresionListaPreciosComprador.cpp				\
+	Cpp/zImpresionStockTienda.cpp					\
+	Cpp/zImpresionExistenciaProveedor.cpp				\
+	Cpp/zImpresionRelacionChequesPagar.cpp				\
+	Cpp/zImpresionSoporteCompras.cpp				\
+	Cpp/zImpresionSoporteVentas.cpp				\
+	Cpp/zImpresionSoporteTransferencias.cpp				\
+	Cpp/zImpresionStockProveedorCosto.cpp				\
+	Cpp/zImpresionCuentasPagar.cpp					\
+	Cpp/zImpresionDatosCompra.cpp					\
+	Cpp/zImpresionExistenciaTiendaProveedor.cpp					\
+	Cpp/zImpresionProveedores.cpp					\
+
+
+unix:!linux{
+
+LIBS+=-L$(DIRDesarrolloHGE)/SiscomComunicaciones++ 	\
+	   -L$(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++ 	\
+	   -L$(DIRDesarrolloHGE)/SiscomDesarrollo4++	\
+	   -lSiscomComunicaciones++			\
+	   -lSiscomDesarrollo4++			\
+	   -lSiscomDesarrollo4Qt++			\
+	   -lqui
+  
+
+
+SOURCES+=Qt/Cpp/QtImpRegistroCompras.cpp 					\
+        $(DIRDesarrolloHGE)/SiscomControles/Cpp/QBarCode.cpp               
+	
+HEADERS+=Qt/H/QtImpRegistroCompras.h			\
+         $(DIRDesarrolloHGE)/SiscomControles/H/QBarCode.h
+FORMS+=Qt/Ui/RegistroCompras.ui
+}
+unix:linux{
+
+
+LIBS+=-L$(DIRDesarrolloHGE)/SiscomComunicaciones++ 	\
+	   -L$(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++ 	\
+	   -L$(DIRDesarrolloHGE)/SiscomDesarrollo4++	\
+	   -L$(DIRDesarrolloHGE)/SiscomControles		\
+	   -lSiscomComunicaciones++			\
+	   -lSiscomDesarrollo4++			\
+	   -lSiscomDesarrollo4Qt++			\
+       	   -lSiscomControles            		\
+	   -lqui
+SOURCES+=Qt/Cpp/QtImpRegistroCompras.cpp 	
+HEADERS+=Qt/H/QtImpRegistroCompras.h
+FORMS+=Qt/Ui/RegistroCompras.ui
+}
+
+
+
+
+
+TEMPLATE=lib
+TARGET=ServiSNTEPlugin
+

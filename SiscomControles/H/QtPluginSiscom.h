@@ -1,0 +1,6 @@
+#ifndef __QTPLUGINSISCOMCONTROLES_H__
+#define __QTPLUGINSISCOMCONTROLES_H__
+
+
+
+#endif

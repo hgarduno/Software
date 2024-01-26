@@ -1,0 +1,6 @@
+#!/bin/sh 
+
+$QTDIR/bin/qmake -o MakefileApp ServiSNTEApp.pro
+$QTDIR/bin/qmake -o MakefilePlugin ServiSNTE.pro
+make -f MakefileApp 
+make -f MakefilePlugin

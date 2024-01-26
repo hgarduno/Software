@@ -1,0 +1,66 @@
+#!/bin/sh 
+$DROPDB ServiSNTE
+$CREATEDB ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Direccion.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Telefonos.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Estatus.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Empresas.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/ConceptosExistencias.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Tiendas.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Vendedores.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Departamentos.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Productos.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Camiones.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Choferes.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Servidores.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Estados.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/TipoDocumentos.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/TipoVentas.sql | $PSQL ServiSNTE|
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Financiadoras.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Maquinas.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/FormasEntrega.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Clientes.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Ventas.sql | $PSQL ServiSNTE
+cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/Compras.sql | $PSQL ServiSNTE
+echo "insert into Estatus values(1,'A','Activo');" | $PSQL ServiSNTE
+echo "insert into Estatus values(2,'I','Inactivo');" | $PSQL ServiSNTE
+echo "insert into Estatus values(3,'D','Descontinuado');" | $PSQL ServiSNTE
+echo "insert into Estatus values(4,'V','Vendido');" | $PSQL ServiSNTE
+echo "insert into Estatus values(5,'P','Apartado');" | $PSQL ServiSNTE
+echo "insert into Estatus values(6,'E','Devuelto');" | $PSQL ServiSNTE
+echo "insert into Estatus values(7,'B','Baja');" | $PSQL ServiSNTE
+echo "insert into Estatus values(8,'N','Dañado');" | $PSQL ServiSNTE
+echo "insert into Estatus values(9,'L','Liquidacion');" | $PSQL ServiSNTE
+$DirDesarrollo4/ServiSNTE/Sql/Scripts/ImportandoTipoDocumentos | $PSQL ServiSNTE
+$DirDesarrollo4/ServiSNTE/Sql/Scripts/ImportandoConceptosExistencias | $PSQL ServiSNTE
+$DirDesarrollo4/ServiSNTE/Sql/Scripts/ImportandoEmpresas | $PSQL ServiSNTE
+$DirDesarrollo4/ServiSNTE/Sql/Scripts/ImportandoTiendas | $PSQL ServiSNTE
+echo "insert into Personas values(1,'DULCE JAZMIN','VELAZQUEZ','');" | $PSQL ServiSNTE
+echo "insert into Personas values(2,'EDGAR','','');" | $PSQL ServiSNTE
+echo "insert into Personas values(3,'EVA MARIA','MONTOYA','OJEDA');" | $PSQL ServiSNTE
+echo "insert into Personas values(4,'HECTOR','MARTINEZ','OJEDA');" | $PSQL ServiSNTE
+echo "insert into Personas values(5,'JAZMIN','HERNANDEZ','');" | $PSQL ServiSNTE
+echo "insert into Personas values(6,'JOVANNA','','');" | $PSQL ServiSNTE
+echo "insert into Personas values(7,'CHAVEZ','ESPECIAL','');" | $PSQL ServiSNTE
+echo "insert into Personas values(8,'NADIA','RUIZ','');" | $PSQL ServiSNTE
+echo "insert into Personas values(9,'VALERIO','LOPES','');" | $PSQL ServiSNTE
+echo "insert into Estados values(1,'Aguascalientes');" | $PSQL ServiSNTE
+echo "insert into Estados values(2,'Baja California Sur');" | $PSQL ServiSNTE
+echo "insert into Estados values(3,'Coahuila');" | $PSQL ServiSNTE
+#
+echo "insert into TipoVentas values(1,'Contado');" | $PSQL ServiSNTE
+echo "insert into TipoVentas values(2,'Credito');" | $PSQL ServiSNTE
+echo "insert into TipoVentas values(3,'Apartado');" | $PSQL ServiSNTE
+#
+echo "insert into Financiadoras values(1,'Ninguna');" | $PSQL ServiSNTE
+echo "insert into Financiadoras values(2,'Inbursa');" | $PSQL ServiSNTE
+echo "insert into Financiadoras values(3,'MultiApoyos');" | $PSQL ServiSNTE
+echo "insert into Financiadoras values(4,'Beneficios Integrales');" | $PSQL ServiSNTE
+echo "insert into FormasEntrega values(1,'Entrega Tienda')" | $PSQL ServiSNTE
+echo "insert into FormasEntrega values(2,'Bodega General')" | $PSQL ServiSNTE
+echo "insert into FormasEntrega values(3,'Transporte del Ciente')" | $PSQL ServiSNTE
+echo "insert into FormasEntrega values(4,'Compañia')" | $PSQL ServiSNTE
+$DirDesarrollo4/ServiSNTE/Sql/Scripts/ImportandoVendedores | $PSQL ServiSNTE
+$DirDesarrollo4/ServiSNTE/Sql/Scripts/ImportandoProductosPorEstatus | $PSQL ServiSNTE
+$DirDesarrollo4/ServiSNTE/Sql/Scripts/ImportandoDepartamentos | $PSQL ServiSNTE
+#cat $DirDesarrollo4/ServiSNTE/Sql/Tablas/LlenaProductos.sql | $PSQL ServiSNTE

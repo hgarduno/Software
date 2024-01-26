@@ -1,0 +1,128 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>MultiApoyos</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>MultiApoyos</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>857</width>
+            <height>460</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>MultiApoyos</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QTextEdit" row="0" column="0">
+            <property name="name">
+                <cstring>QTEFormato</cstring>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout32</cstring>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton" row="0" column="5" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>QPBImprimeAArchivo</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Imprime A Archivo</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="6">
+                    <property name="name">
+                        <cstring>QPBImprimeFrente</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Imprime Frente</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="1">
+                    <property name="name">
+                        <cstring>QPBDomicilioParticular</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Domicilio Particular</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="3">
+                    <property name="name">
+                        <cstring>QPBImprimir</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Imprimir</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="3" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>QPBReferenciasPersonales</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Referencias Personales</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="4" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>QPBImprimeAtras</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Imprime Atras</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>QPBDatosGenerales</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Datos Generales</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="1">
+                    <property name="name">
+                        <cstring>QPBDatosEmpleo</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Datos de Empleo</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="2">
+                    <property name="name">
+                        <cstring>QPBIngresosMensuales</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Ingresos Mensuales</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>QPBRFCCliente</cstring>
+                    </property>
+                    <property name="text">
+                        <string>RFC Cliente</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="2">
+                    <property name="name">
+                        <cstring>QPBDomicilioEmpleo</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Domicilio de Empleo</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
