@@ -1,0 +1,30 @@
+
+
+
+
+all:SiscomDesarrollo4.hgarduno 		\
+	SiscomComunicaciones++.hgarduno	\
+	SiscomDesarrollo4++.hgarduno	\
+	SiscomDesarrollo4Qt++.hgarduno	\
+	SiscomControles.hgarduno	\
+	ServiSNTE.hgarduno
+
+SiscomDesarrollo4++.hgarduno:
+	@(cd SiscomDesarrollo4++ ; $(QTDIR)/bin/qmake SiscomDesarrollo4++.pro ;make)	
+SiscomDesarrollo4.hgarduno:
+	@(cd SiscomDesarrollo4 ; make )
+SiscomDesarrollo4Qt++.hgarduno:
+	@(cd SiscomDesarrollo4Qt++ ;$(QTDIR)/bin/qmake SiscomDesarrollo4Qt++.pro ; make )
+SiscomComunicaciones++.hgarduno:
+	@(cd SiscomComunicaciones++ ;$(QTDIR)/bin/qmake SiscomComunicaciones++.pro ; make )
+SiscomControles.hgarduno:
+	@(cd SiscomControles ;$(QTDIR)/bin/qmake SiscomControles.pro;make)
+ServiSNTE.hgarduno:
+	@(cd ServiSNTE ;make)
+clean:
+	-@(cd SiscomDesarrollo4; make clean)
+	-@(cd SiscomComunicaciones++; make distclean)
+	-@(cd SiscomDesarrollo4++; make distclean)
+	-@(cd SiscomDesarrollo4Qt++;make distclean)
+	-@(cd SiscomControles;make distclean)
+	-@(cd ServiSNTE; make clean)
