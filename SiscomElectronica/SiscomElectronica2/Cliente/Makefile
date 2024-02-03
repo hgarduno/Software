@@ -70,7 +70,7 @@ BibliotecasControles=				\
 		-lSiscomDesarrollo3Qt++
 
 Archivos_H_Controles=\
-$(DIRDesarrolloHGE)/SiscomElectronica.Produccion/SiscomElectronica2/Cliente/H/QCtrlEscuelas.h 
+$(DIRDesarrolloHGE)/SiscomElectronica/SiscomElectronica2/Cliente/H/QCtrlEscuelas.h 
 
 
 #all:$(Binarios) Copia
