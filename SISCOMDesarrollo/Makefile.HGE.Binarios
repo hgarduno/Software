@@ -13,7 +13,7 @@ all:$(BINFUNCOM) $(BINAD) $(BINRN)
 $(DIRBINARIOS)/DemonioDeConexiones.bin:DemonioSockets.o EstructurasSISCOM.o
 	$(CC) $(OpCSiscom) -o $(DIRBINARIOS)/DemonioDeConexiones.bin $(DIROBJS)/DemonioSockets.o $(DIROBJS)/EstructurasSISCOM.o -ldl
 $(DIRBINARIOS)/ClienteDeConexion.bin:FuncionesComunes.o EstructurasSISCOM.o ClienteDeConexion.o RNADFuncionesComunes.o
-	$(CC) $(OpCSiscom) -o $(DIRBINARIOS)/ClienteDeConexion.bin $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/ClienteDeConexion.o $(DIROBJS)/RNADFuncionesComunes.o -ldl  $(DIROBJS)/ManipulacionArchivos.o
+	$(CC) $(OpCSiscom) -o $(DIRBINARIOS)/ClienteDeConexion.bin $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/ClienteDeConexion.o $(DIROBJS)/RNADFuncionesComunes.o  $(DIROBJS)/ManipulacionArchivos.o -ldl
 $(DIRBINARIOS)/LanzaProcesosConexion.bin:LanzaProcesosConexion.o
 	$(CC) $(OpCSiscom) -o $(DIRBINARIOS)/LanzaProcesosConexion.bin $(DIROBJS)/LanzaProcesosConexion.o
 $(DIRBINARIOS)/libDllDeConexionSvrSISCOM.so:FuncionesComunes.o EstructurasSISCOM.o RNADFuncionesComunes.o  DllDeConexionSvrSISCOM.o
@@ -27,7 +27,7 @@ $(DIRBINARIOS)/libDllCLIAltasCompras.so:FuncionesComunes.o EstructurasSISCOM.o R
 ######################################Reglas Del Negocio#################################################################################
 
 $(DIRBINARIOS)/RNProcesoAtiende.bin:RNProcesoAtiende.o FuncionesComunes.o EstructurasSISCOM.o RNADFuncionesComunes.o
-	$(CC) $(OpCSiscom) -ldl $(OPCDEPURACION) -o $(DIRBINARIOS)/RNProcesoAtiende.bin $(DIROBJS)/RNProcesoAtiende.o $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/RNADFuncionesComunes.o $(DIROBJS)/ManipulacionArchivos.o
+	$(CC) $(OpCSiscom)  $(OPCDEPURACION) -o $(DIRBINARIOS)/RNProcesoAtiende.bin $(DIROBJS)/RNProcesoAtiende.o $(DIROBJS)/FuncionesComunes.o $(DIROBJS)/EstructurasSISCOM.o $(DIROBJS)/RNADFuncionesComunes.o $(DIROBJS)/ManipulacionArchivos.o -ldl
 
 $(DIRBINARIOS)/libRNDllIniciaDemonio.so:RNDllIniciaDemonio.o
 	$(GCC) $(OpCSiscom) -shared $(OPCDEPURACION) -o$(DIRBINARIOS)/libRNDllIniciaDemonio.so $(DIROBJS)/RNDllIniciaDemonio.o -lc
