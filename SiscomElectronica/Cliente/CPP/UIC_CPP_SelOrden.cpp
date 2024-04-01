@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/SelOrden.ui'
 **
-** Created: Thu Dec 21 13:55:25 2023
+** Created: Wed Jan 31 10:57:37 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/ProductoPractica.ui'
 **
-** Created: Thu Dec 21 13:55:52 2023
+** Created: Wed Jan 31 10:58:03 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

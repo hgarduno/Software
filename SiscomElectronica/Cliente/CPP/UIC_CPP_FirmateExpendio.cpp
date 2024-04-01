@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/FirmateExpendio.ui'
 **
-** Created: Thu Dec 21 13:54:49 2023
+** Created: Wed Jan 31 10:57:03 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

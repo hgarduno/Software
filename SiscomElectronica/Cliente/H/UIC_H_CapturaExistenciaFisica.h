@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/CapturaExistenciaFisica.ui'
 **
-** Created: Thu Dec 21 12:53:39 2023
+** Created: Wed Jan 31 10:48:06 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

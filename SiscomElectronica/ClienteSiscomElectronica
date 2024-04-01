@@ -266,7 +266,8 @@ CreandoDirectorioInstalacion()
 
 if [  "$(DirectorioInstalacion $1)" == "1" ]
 then 
-     printf "Ya esta el directorio de instalacion\n"
+  
+     rm $(DirectorioInstalacion $1)
  else
      printf "No esta el directorio de instalacion\n"
      mkdir $1
@@ -313,6 +314,17 @@ EstaInstalandoQt3()
   OpcionABuscar=InstalandoQt3 
   echo $(EstaLaOpcion $*)
 }
+EstaUsaEsteArchivo()
+{
+  
+  OpcionABuscar=UsaEsteArchivo
+  echo $(EstaLaOpcion $*)
+}
+EstaDirectorioPasando()
+{
+  OpcionABuscar=DirectorioPasando
+  echo $(EstaLaOpcion $*)
+}
 ObtenDirInstalacion()
 {
 Parametro=DirInstalacion
@@ -322,7 +334,11 @@ EstaOtraOpcion()
 {
    echo 1
 }
-
+ObtenUsaEsteArchivo()
+{
+Parametro=UsaEsteArchivo
+echo $(ObtenParametroEntrada $*)
+}
 ObtenDirIp()
 {
 Parametro=DirIp
@@ -333,6 +349,13 @@ ObtenUsuario()
 Parametro=Usuario
 echo $(ObtenParametroEntrada $*)
 }
+
+ObtenDirectorioPasando()
+{
+Parametro=DirectorioPasando
+echo $(ObtenParametroEntrada $*)
+}
+
 VerificandoParametrosInstalacion()
 {
     if [[ "$(EstaDirInstalacion $*)" == "1" &&
@@ -349,22 +372,22 @@ printf "Falta algo ....\n"
 }
 CopiandoQt3()
 {
- cp $QTDIR/lib/libqt-mt.so.3.3.8 $DirectorioSiscomElectronica/Pasando/
- cp $QTDIR/lib/libqui.so.1.0.0 $DirectorioSiscomElectronica/Pasando
+ cp $QTDIR/lib/libqt-mt.so.3.3.8 $DirectorioPasando
+ cp $QTDIR/lib/libqui.so.1.0.0 $DirectorioPasando
 }
 EmpaquetaArchivosQt3()
 {
-if [ -f $DirectorioSiscomElectronica/Pasando/ArchivosQt3.tar.xz ] 
+if [ -f $DirectorioPasando/ArchivosQt3.tar.xz ] 
 then 
-	rm $DirectorioSiscomElectronica/Pasando/ArchivosQt3.tar.xz
+	rm $DirectorioPasando/ArchivosQt3.tar.xz
 fi
-(cd $DirectorioSiscomElectronica/Pasando ; \
+(cd $DirectorioPasando; \
  tar cf ArchivosQt3.tar libqt-mt.so.3.3.8 libqui.so.1.0.0; \
  xz -z ArchivosQt3.tar)
 }
 TransfiriendoArchivosQt3()
 {
-ArchivoATransferir=$DirectorioSiscomElectronica/Pasando/ArchivosQt3.tar.xz
+ArchivoATransferir=$DirectorioPasando/ArchivosQt3.tar.xz
 ConexionDestino="$(ObtenUsuario $*)@$(ObtenDirIp $*):$(ObtenDirInstalacion $*)"
 printf "Enviando scp %s %s\n" $ArchivoATransferir $ConexionDestino
 scp $ArchivoATransferir $ConexionDestino 
@@ -397,9 +420,23 @@ CreandoLosDirectoriosEnElCliente()
 }
 TransfiriendoVersionSiscomElectronica()
 {
+
+if [ $(EstaUsaEsteArchivo $*) == 1 ]
+then
+
+SCPVersionSiscomElectronica -64.Bits 			\
+			    -DirIp $(ObtenDirIp $*) 	\
+			    -Usuario $(ObtenUsuario $*)	\
+			    -UsaEsteArchivo $(ObtenUsaEsteArchivo $*)
+
+
+else
+
 SCPVersionSiscomElectronica -64.Bits 			\
 			    -DirIp $(ObtenDirIp $*) 	\
 			    -Usuario $(ObtenUsuario $*)
+fi
+
 }
 CorreInstalacionCliente()
 {
@@ -421,7 +458,6 @@ DirInstalacionX=$(ObtenDirInstalacion $*)
 }
 CorriendoInstalacionQt3()
 {
-printf "%s@%s\n" $(ObtenUsuario $*) $(ObtenDirIp $*)
  ssh $(ObtenUsuario $*)@$(ObtenDirIp $*) bin/ClienteSiscomElectronica \
  	 -InstalandoQt3 -DirInstalacion $(ObtenDirInstalacion $*)
 }
@@ -429,8 +465,8 @@ CreandoEnlacesSimbolicosQt3()
 {
 DirectorioX=$(ObtenDirInstalacion $*)
 (cd $DirectorioX/BibliotecasQt3.3.8 ; 
- ln -s libqt-mt.so.3.3.8 libqt-mt.so.3 ;
- ln -s libqui.so.1.0.0 libqui.so.1)
+ ln -fs libqt-mt.so.3.3.8 libqt-mt.so.3 ;
+ ln -fs libqui.so.1.0.0 libqui.so.1)
 }
 InstalandoQt3()
 {
@@ -450,13 +486,30 @@ VersionSiscom=$(basename $UltimoArchivoS .64.Bits.tar.xz)
 EnlaceSoporte4=$DirectorioX/64.Bits/$VersionSiscom/Cliente
 (cd $DirectorioX  ;								    \
  ln -s 64.Bits/$VersionSiscom SiscomElectronica.Liberacion;			    \
- #cd $DirectorioX/SoporteSiscomElectronica4;					    \
  cd SoporteSiscomElectronica4;					    			\
  ln -s $EnlaceSoporte4/libSiscomDesarrollo4++.so.1.0.0 libSiscomDesarrollo4++.so.1; 	\
  ln -s $EnlaceSoporte4/libSiscomComunicaciones++.so.1.0.0 libSiscomComunicaciones++.so.1;\
  ln -s $EnlaceSoporte4/libSiscomDesarrollo4Qt++.so.1.0.0 libSiscomDesarrollo4Qt++.so.1; \
  ln -s $EnlaceSoporte4/libSiscomSoporte.so.1.0.0 libSiscomSoporte.so.1 )
 }
+ModoUso()
+{
+cat << Usando |more
+
+Hola hola hola 
+
+Usando
+
+}
+if [ $# == 0 ]
+then
+
+  ModoUso $* 
+
+else
+
+DirectorioPasando=$(ObtenDirectorioPasando $*)
+
 if [ "$(EstaEnviaInstalacion $*)" == "1" ]
 then 
 	EnviandoInstalacion $*
@@ -478,4 +531,6 @@ fi
 if [ "$(EstaInstalando $*)" == "1" ]
 then
 	InstalandoEnCliente $*	
+fi
+
 fi

@@ -1,1 +1,1 @@
-/home/hgarduno/SiscomDesarrollo/Software/SiscomAplicaciones/Cliente/H/QSisTelefonos.h
+/home/hgarduno/SiscomElectronica.Git/Software/SiscomAplicaciones/Cliente/H/QSisTelefonos.h

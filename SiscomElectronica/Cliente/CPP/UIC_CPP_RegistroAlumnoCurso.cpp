@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/RegistroAlumnoCurso.ui'
 **
-** Created: Thu Dec 21 12:53:42 2023
+** Created: Wed Jan 31 10:48:09 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,0 @@
-#include <SiscomDesarrolloMacros.h>
-#include <SiscomCamposProtocolo.h>
-#include <SiscomDesarrolloMacros.h>
-#include <SiscomMacrosOperaciones.h>
-#include <SiscomConfiguracionServidor.h>
-#include <SiscomProtocoloComunicaciones.h>
-#include <ComunSiscomElectronica4.h>

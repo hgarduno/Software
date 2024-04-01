@@ -97,7 +97,7 @@ clean:
 	@-cd SISCOMClasesGenerales; make clean
 	@-cd SISCOMSeguridad3; make clean
 	@-cd SiscomAplicaciones; make clean
-	@-cd SISCOMElectronica; make clean
+	@-cd SiscomElectronica; make clean
 	@-cd SiscomClinicas3;make clean
 	@-cd SiscomTiendas4;make clean
 	@-cd ElFresno;make clean

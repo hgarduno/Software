@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/OrdenCompraImportacion.ui'
 **
-** Created: Thu Dec 21 12:53:40 2023
+** Created: Wed Jan 31 10:48:07 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

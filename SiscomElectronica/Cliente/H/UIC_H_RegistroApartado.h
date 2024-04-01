@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/RegistroApartado.ui'
 **
-** Created: Tue Jan 2 18:09:26 2024
+** Created: Wed Jan 31 10:48:06 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

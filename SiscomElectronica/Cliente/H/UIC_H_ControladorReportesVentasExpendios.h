@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ControladorReportesVentasExpendios.ui'
 **
-** Created: Thu Dec 21 12:53:16 2023
+** Created: Wed Jan 31 10:47:43 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/Facturando.ui'
 **
-** Created: Thu Dec 21 13:54:34 2023
+** Created: Wed Jan 31 10:56:48 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

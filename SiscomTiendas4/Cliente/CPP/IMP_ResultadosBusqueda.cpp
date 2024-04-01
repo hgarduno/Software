@@ -50,7 +50,7 @@ void QResultadosBusqueda::IniciaVariables()
 }
 void QResultadosBusqueda::MuestraResultados()
 {
-char *lchrPtrCampos[]={"clave",
+const char *lchrPtrCampos[]={"clave",
 			     "dsc",
 			     "existencia",
 			     "precio",

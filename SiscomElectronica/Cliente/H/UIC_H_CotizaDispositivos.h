@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/CotizaDispositivos.ui'
 **
-** Created: Thu Dec 21 13:55:27 2023
+** Created: Wed Jan 31 10:57:39 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

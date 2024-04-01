@@ -1,1 +1,1 @@
-/home/hgarduno/SiscomDesarrollo/Software/SISCOMControles2/H/QCtrlRangoHora.h
+/home/hgarduno/SiscomElectronica.Git/Software/SISCOMControles2/H/QCtrlRangoHora.h

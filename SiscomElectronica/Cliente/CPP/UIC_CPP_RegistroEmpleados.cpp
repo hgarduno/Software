@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/RegistroEmpleados.ui'
 **
-** Created: Thu Dec 21 13:56:28 2023
+** Created: Wed Jan 31 10:58:37 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** SISCOMVentanaPrincipal meta object code from reading C++ file 'SISCOMVentanaPrincipal3.h'
 **
-** Created: Sun Feb 9 02:52:29 2020
+** Created: Sat Jan 27 16:34:28 2024
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

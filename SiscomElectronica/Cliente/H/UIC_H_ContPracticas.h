@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ContPracticas.ui'
 **
-** Created: Thu Dec 21 13:56:06 2023
+** Created: Wed Jan 31 10:58:16 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

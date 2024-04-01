@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/AvisoNoAlcanza.ui'
 **
-** Created: Thu Dec 21 12:53:21 2023
+** Created: Wed Jan 31 10:47:47 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

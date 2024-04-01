@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ProgramaInventario.ui'
 **
-** Created: Thu Dec 21 13:56:56 2023
+** Created: Wed Jan 31 10:59:02 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

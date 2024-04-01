@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/QControlNombres.ui'
 **
-** Created: Tue Oct 22 13:33:01 2019
+** Created: Sat Jan 27 17:40:05 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

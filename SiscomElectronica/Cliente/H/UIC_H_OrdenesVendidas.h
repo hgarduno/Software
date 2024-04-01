@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/OrdenesVendidas.ui'
 **
-** Created: Thu Dec 21 13:57:01 2023
+** Created: Wed Jan 31 10:59:07 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

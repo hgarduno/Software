@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/FormaPago.ui'
 **
-** Created: Thu Dec 21 13:53:32 2023
+** Created: Wed Jan 31 10:56:09 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

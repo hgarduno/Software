@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/RegistroClientes.ui'
 **
-** Created: Fri Aug 4 21:21:10 2023
+** Created: Wed Jan 31 10:35:27 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

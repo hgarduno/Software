@@ -1,1 +1,1 @@
-/home/hgarduno/SiscomDesarrollo/Software/SiscomAplicaciones/Cliente/H/UIC_H_BuscaPersonas.h
+/home/hgarduno/SiscomElectronica.Git/Software/SiscomAplicaciones/Cliente/H/UIC_H_BuscaPersonas.h

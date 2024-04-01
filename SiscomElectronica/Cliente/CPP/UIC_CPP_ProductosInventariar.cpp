@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/ProductosInventariar.ui'
 **
-** Created: Thu Dec 21 13:56:51 2023
+** Created: Wed Jan 31 10:58:57 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

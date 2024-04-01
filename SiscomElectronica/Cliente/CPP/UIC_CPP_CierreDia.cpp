@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/CierreDia.ui'
 **
-** Created: Thu Dec 21 12:53:45 2023
+** Created: Wed Jan 31 10:48:12 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

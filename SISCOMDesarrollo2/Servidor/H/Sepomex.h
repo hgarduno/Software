@@ -1,1 +1,1 @@
-/home/hgarduno/SiscomDesarrollo/Software/Sepomex/Servidor/H/Sepomex.h
+/home/hgarduno/SiscomElectronica.Git/Software/Sepomex/Servidor/H/Sepomex.h

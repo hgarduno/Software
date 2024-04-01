@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ManejadorProveedores.ui'
 **
-** Created: Thu Dec 21 13:56:23 2023
+** Created: Wed Jan 31 10:58:32 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

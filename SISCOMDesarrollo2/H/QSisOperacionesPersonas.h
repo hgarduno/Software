@@ -1,1 +1,1 @@
-/home/hgarduno/SiscomDesarrollo/Software/SISCOMControles2/H/QSisOperacionesPersonas.h
+/home/hgarduno/SiscomElectronica.Git/Software/SISCOMControles2/H/QSisOperacionesPersonas.h

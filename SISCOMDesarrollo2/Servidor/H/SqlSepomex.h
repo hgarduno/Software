@@ -1,1 +1,1 @@
-/home/hgarduno/SiscomDesarrollo/Software/Sepomex/Servidor/H/SqlSepomex.h
+/home/hgarduno/SiscomElectronica.Git/Software/Sepomex/Servidor/H/SqlSepomex.h

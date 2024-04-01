@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ContMaterias.ui'
 **
-** Created: Thu Dec 21 13:55:58 2023
+** Created: Wed Jan 31 10:58:08 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

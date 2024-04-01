@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/QControlDireccion.ui'
 **
-** Created: Tue Oct 22 13:32:52 2019
+** Created: Sat Jan 27 17:40:00 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

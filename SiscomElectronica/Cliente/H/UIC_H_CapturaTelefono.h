@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/CapturaTelefono.ui'
 **
-** Created: Thu Dec 21 13:56:17 2023
+** Created: Wed Jan 31 10:58:27 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

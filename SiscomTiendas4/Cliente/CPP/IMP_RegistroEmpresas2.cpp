@@ -207,7 +207,7 @@ SiscomDesarrollo3Qt::AjustaColumnas(QTMedComunicacion);
 }
 void QRegistroEmpresas2::MuestraContactos()
 {
-char *lchrPtrConcatena[]={"nombre",
+const char *lchrPtrConcatena[]={"nombre",
 			  "apaterno",
 			  "amaterno",
 			  0};
@@ -225,7 +225,7 @@ void QRegistroEmpresas2::MuestraRazonSocial()
 }
 void QRegistroEmpresas2::MuestraDirecciones()
 {
-char *lchrPtrCampos[]={"direccion",
+const char *lchrPtrCampos[]={"direccion",
 			0
 			};
 SiscomDesarrollo3Qt::RegistrosALaTabla(lchrPtrCampos,

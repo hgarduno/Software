@@ -1,1 +1,1 @@
-/home/hgarduno/SiscomDesarrollo/Software/SiscomAplicaciones/Servidor/H/SiscomFirmasSQL.h
+/home/hgarduno/SiscomElectronica.Git/Software/SiscomAplicaciones/Servidor/H/SiscomFirmasSQL.h
