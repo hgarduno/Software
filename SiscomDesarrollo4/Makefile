@@ -37,7 +37,7 @@ Binarios=libSiscomDesarrollo4.so 		\
 	 Pruebas				\
 	 ClienteEnvio
 
-all:$(Binarios)  ModuloPostgres
+all:DirectorioO $(Binarios)  ModuloPostgres
 
 libSiscomOperaciones.so:$(Archivos_O_SiscomOperaciones)
 	$(CC) $(OpShared) -o $@ $(Archivos_O_SiscomOperaciones)
@@ -60,4 +60,7 @@ O/%.o:C/%.c
 clean:
 	-rm -rf O/*.o 
 	-rm $(Binarios)
+
+DirectorioO:
+	 -mkdir O
 
