@@ -247,7 +247,13 @@ void QtTransfiereBodegaBodega::HabilitaDesHabilita(bool pbModal)
 {
 QCmbBodegasD->setEnabled(pbModal);
 QCtrProductos->setEnabled(pbModal);
+/* Siscom Zacatenco  
+ * Miercoles 3 de abril del 2024 
+ * Revisar la funcionalidad que deshabilita estos controles 
+ * en particular el de cantidad 
 QLECantidad->setEnabled(pbModal);
+
+*/
 QPBTransfiere->setEnabled(pbModal);
 }
 void QtTransfiereBodegaBodega::HabilitaProductos()
