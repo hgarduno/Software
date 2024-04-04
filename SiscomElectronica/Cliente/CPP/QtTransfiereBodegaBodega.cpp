@@ -73,8 +73,8 @@ void QtTransfiereBodegaBodega::SlotTransfiere()
   Transfiriendo();
   AsignandoTransferencias();
   MuestraRegistro();
-  HabilitaDesHabilita(false);
-  zSiscomQt3::Foco(QCmbBodegasD);
+  //HabilitaDesHabilita(false);
+  zSiscomQt3::Foco(QCtrProductos);
 }
 void QtTransfiereBodegaBodega::SlotFocoAActualiza()
 {
