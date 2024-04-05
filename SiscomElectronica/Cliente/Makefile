@@ -692,7 +692,8 @@ $(eval $(call ArchivosBibliotecaQTForma,OrdenCompra))
 
 #}}
 
-all:    GeneraCabecerasPrevias				\
+all:    DirectorioO					\
+	GeneraCabecerasPrevias				\
 	SO/libCapturaRangoFechas.so			\
 	SO/libCapturaDato.so				\
 	SO/libAvisoNoAlcanza.so				\
@@ -751,7 +752,6 @@ all:    GeneraCabecerasPrevias				\
 	SO/libOrdenCompra.so				\
 	SISCOMTiendas3
 	
-
 
 #{{{ Modulos Siscom Electronica
 
@@ -812,6 +812,9 @@ $(eval $(call EnlaceBibliotecaQTForma,OrdenCompra))
 
 # }}
 
+DirectorioO:
+	-mkdir O
+	-mkdir SO
 InsertaProductosSaberElectronica:$(Archivos_O_InsertaProductosSaberElectronica)
 	@echo $@
 	@$(CXX) $(OpEnlace) -o $@ $(Archivos_O_InsertaProductosSaberElectronica) \
