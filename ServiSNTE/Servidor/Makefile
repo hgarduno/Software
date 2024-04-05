@@ -84,7 +84,7 @@ OpcionesShared=-shared $(DEBUG) -fPIC -flat_namespace -undefined suppress
 endif
 Bibliotecas=-L$(DIRDesarrolloHGE)/SiscomDesarrollo4 -lSiscomOperaciones  -lSiscomDesarrollo4
 
-all:libSiscomServiSNTE.so libSiscomServiSNTEMemoria.so 
+all:DirectorioO libSiscomServiSNTE.so libSiscomServiSNTEMemoria.so 
 
 
 libSiscomServiSNTE.so:$(Archivos_O_SiscomServiSNTE)
@@ -103,3 +103,5 @@ O/%.o:C/%.c
 clean:	
 	-rm *.so
 	-rm O/*
+DirectorioO:
+	-mkdir O
