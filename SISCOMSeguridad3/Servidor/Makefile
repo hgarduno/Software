@@ -76,3 +76,6 @@ clean:
 	@-rm O/*.o
 	@echo RM SO
 	@-rm SO/*.so
+DirectoriosO:
+	-mkdir O
+	-mkdir SO
