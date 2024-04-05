@@ -239,7 +239,11 @@ Archivos_H_Controles=\
 $(DIRDesarrolloHGE)/SISCOMElectronica/SiscomElectronica2/Cliente/H/QCtrlEscuelas.h 
 
 Archivos_O_InformacionSeid=O/InformacionSeid.o
-all:$(Binarios) Copia
+all:DirectorioO $(Binarios) Copia
+
+
+DirectorioO:
+	-mkdir O 
 
 Copia:$(Archivos_H_Controles)
 	@for X in $(Achivos_H_Controles);	\
