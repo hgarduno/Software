@@ -18,9 +18,11 @@ Binarios= \
 	 libSiscomSepomex.so    
 	 	
 
-all: $(Binarios)  Copia
+all:DirectorioO $(Binarios)  Copia
 
 
+DirectorioO:
+	-mkdir O
 Copia:
 	ln -fs $(DIRDesarrolloHGE)/Sepomex/Servidor/libSiscomSepomex.so $(DIRLIBSISCOM2)/
 	ln -fs $(DIRDesarrolloHGE)/Sepomex/Servidor/H/*.h $(DIRLIBSISCOM2)/Servidor/H
