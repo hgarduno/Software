@@ -137,7 +137,7 @@ $(eval $(call ArchivosBibliotecaQTForma,ControlNombres))
 #	PruebaControl #\
 #	Copia
 
-all:\
+all:DirectorioO 							\
 	$(DIRLIBSISCOM2)/libSISCOMComunControlesDesarrollo2.so 		\
 	$(QTDIR)/plugins/designer/libControlFechaDesarrollo2.so 	\
 	$(QTDIR)/plugins/designer/libQSiscomSepomex++.so 	 	\
@@ -148,7 +148,8 @@ all:\
 $(eval $(call EnlaceBibliotecaQTForma,ControlDireccion))
 $(eval $(call EnlaceBibliotecaQTForma,QControlNombres))
 
-
+DirectorioO:
+	-mkdir O
 Copia:
 	@echo Copiando Archivos Cabecera
 	@ln -sf $(DIRDesarrolloHGE)/SISCOMControles2/H/IMP_QControl*.h $(DIRLIBSISCOM2)/H
