@@ -181,7 +181,7 @@ BibliotecasControles=-L $(DIRLIBSISCOM2) 		\
 			#-lSiscomSeguridad3Prot2++	\
 #######################################################################
 
-all:$(SISCOM_LIB_DIR)/libSISCOMSeguridad3Q++.so  	\
+all:DirectorioO $(SISCOM_LIB_DIR)/libSISCOMSeguridad3Q++.so  	\
     SO/libSISCOMControladorDeFormasYObj.so 		\
     SO/libSISCOMAplicacionSeguridad3.so 		\
     SO/libSISCOMSoporteAplicacionSeguridad.so		\
@@ -194,7 +194,9 @@ all:$(SISCOM_LIB_DIR)/libSISCOMSeguridad3Q++.so  	\
     $(QTDIR)/plugins/designer/libQCtrlPerfiles.so	\
     $(QTDIR)/plugins/designer/libQCtrlUsuarios.so	\
     Copia
-
+DirectorioO:
+	-mkdir O
+	-mkdir SO
 Copia:
 	#ln -sf $(DIRDesarrolloHGE)/SISCOMSeguridad3/Cliente/H/Seguridad3Protocolo2.h $(DIRLIBSISCOM2)/H/Seguridad3Protocolo2.h
 	ln -sf $(DIRDesarrolloHGE)/SISCOMSeguridad3/Cliente/H/QCtrlPerfiles.h $(DIRLIBSISCOM2)/H/QCtrlPerfiles.h
