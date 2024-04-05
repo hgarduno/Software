@@ -150,7 +150,11 @@ Binarios= 						\
 	 libSiscomElectronicaMemoriaComun.so
 	 	
 
-all: $(Binarios) 
+all:DirectorioO $(Binarios) 
+
+
+DirectorioO:
+	-mkdir O
 
 libSiscomElectronica.so:$(Archivos_SiscomElectronica) ../SiscomElectronica2/Servidor/libSiscomElectronica2.so
 	@echo Generando $@
