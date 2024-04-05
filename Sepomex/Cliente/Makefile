@@ -24,7 +24,7 @@ Archivos_O_PruebasSepomex=O/PruebasSepomex.o
 Binarios=SO/libSepomexCliente.so #\
 	 PruebaSepomex
 
-all:$(Binarios) Copia
+all:DirectorioO $(Binarios) Copia
 
 
 Copia:SO/libSepomexCliente.so
@@ -43,3 +43,6 @@ PruebaSepomex:$(Archivos_O_PruebasSepomex)
 clean:
 	@-rm SO/*.so
 	@-rm O/*.o
+DirectorioO:
+	-mkdir O
+	-mkdir SO
