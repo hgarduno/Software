@@ -25,7 +25,7 @@ export DIRFUNCOMUNES DIRBINARIOS DIRRN DIRAD MAKE CC INCLUDESISCOM DIROBJS DIRFU
 #######################################     REGLAS     ###########################################
 ##################################################################################################
 
-all:HGEOBJS EZSOBJS HGEBINARIOS EZSBINARIOS #COPIA_LIB_Y_BIN
+all:creadir HGEOBJS EZSOBJS HGEBINARIOS EZSBINARIOS #COPIA_LIB_Y_BIN
 
 HGEOBJS:
 	@echo MAKE [Makefile.HGE.Objetos]
@@ -70,5 +70,5 @@ clean:
 ##################################################################################################
 
 creadir:
-	mkdir $(DIROBJS)
-	mkdir $(DIRBINARIOS)
+	-mkdir $(DIROBJS)
+	-mkdir $(DIRBINARIOS)
