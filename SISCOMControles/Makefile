@@ -57,7 +57,8 @@ $(eval $(call ArchivosBibliotecaQTForma,ControlDireccion))
 $(eval $(call ArchivosBibliotecaQTForma,ControlNombres))
 
 
-all:libSISCOMComunControles.so \
+all:DirectorioO 			\
+	libSISCOMComunControles.so \
 	QControlFecha.so \
 	libControlFecha2.so \
 	libControlDireccion.so \
@@ -65,6 +66,8 @@ all:libSISCOMComunControles.so \
 	PruebaControl \
 	Copia
 
+DirectorioO:
+	-mkdir O
 $(eval $(call EnlaceBibliotecaQTForma,ControlDireccion))
 $(eval $(call EnlaceBibliotecaQTForma,ControlNombres))
 
