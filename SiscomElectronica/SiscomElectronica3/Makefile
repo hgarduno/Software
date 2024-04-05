@@ -151,8 +151,11 @@ BibliotecasControles=						\
 		-lSiscomDesarrollo4++
 
 
-all:$(Binarios) 
+all:DirectoriosO $(Binarios) 
 
+DirectoriosO:
+	-mkdir O
+	-mkdir SO
 Muestra:
 	echo $(Binarios)
 	echo $(Archivos_O_ControlSiscomElectronica3Extra)
