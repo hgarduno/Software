@@ -15,9 +15,11 @@ Archivos_O_Servidor=			\
 	O/SQLMediosComunicacion.o	
 
 
-all: $(DIRLIBSISCOM2)/libSiscomAplicacionesSvr.so  Copia
+all:DirectorioO $(DIRLIBSISCOM2)/libSiscomAplicacionesSvr.so  Copia
 
 
+DirectorioO:
+	-mkdir O
 $(DIRLIBSISCOM2)/libSiscomAplicacionesSvr.so:$(Archivos_O_Servidor)
 	@echo Generando $@
 	@$(CC) $(OpEnlace) $(Bibliotecas) -o$@ $(Archivos_O_Servidor)
