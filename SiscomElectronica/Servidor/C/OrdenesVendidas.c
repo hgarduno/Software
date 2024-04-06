@@ -333,7 +333,8 @@ int InformacionPagoTransferencia(SiscomRegistroProL *pSiscomRegProLOrdenes,
 {
 char lchrArrEdoTransferencia[256];
 const char *lchrPtrObs=SiscomObtenCampoRegistroProLChar("observaciones",pSiscomRegProLOrdenes);
-  LogSiscom("Viendo lo del pago con transferencia");
+  LogSiscom("Viendo lo del pago con transferencia %s",
+  SiscomObtenCampoRegistroProLChar("idventa",pSiscomRegProLOrdenes));
 if(!lchrPtrObs) 
 {
   if(SiscomObtenCampoRegistroProLInt("sereflejo",pSiscomRegProLOrdenes))
@@ -344,7 +345,6 @@ if(!lchrPtrObs)
 		"No se ha reflejado la transferencia\n\nNumero de contacto: %s",
 		SiscomObtenCampoRegistroProLChar("telefonotra",pSiscomRegProLOrdenes));
   }
-
  
 }
 SiscomActualizaCampoAsignaMemoria2("observaciones",lchrArrEdoTransferencia,pSiscomRegProLOrdenes);
