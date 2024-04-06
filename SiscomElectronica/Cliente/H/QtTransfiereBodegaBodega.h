@@ -31,6 +31,7 @@ private:
 	zExistenciaBodega *zExistenciaBO;
 	zExistenciaBodega *zExistenciaBD;
 	zTransferenciasBodegaBodega zTransBodBod;
+	int intNTransferencia;
 private:
 	const char *Producto();
 	void IniciaControles();

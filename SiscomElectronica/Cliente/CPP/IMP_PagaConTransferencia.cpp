@@ -19,7 +19,8 @@ QPagaConTransferencia::QPagaConTransferencia(
 				PagaConTransferencia(pQWParent,pchrPtrName,pbModal,pWFlags),
 				zOVenta(pzOrdenVenta),
 				lEdoTrans(NoSeReflejo),
-				zFrmPgoT(0)
+				zFrmPgoT(0),
+				intAceptar(0)
 
 {
 IniciaVariables();
@@ -31,17 +32,23 @@ QPagaConTransferencia::~QPagaConTransferencia()
 {
 
 }
-
+int QPagaConTransferencia::Aceptar()
+{
+   return intAceptar;
+}
 void QPagaConTransferencia::ConectaSlots()
 {
 connect(QPBAceptar,SIGNAL(clicked()),SLOT(SlotAceptar()));
 connect(QLETelefono,SIGNAL(returnPressed()),SLOT(SlotFocoASeReflejo()));
+connect(QLETelefono,SIGNAL(textChanged(const QString &)),SLOT(SlotCapturandoTelefono(const QString &)));
 connect(QBGEdoTransferencia,SIGNAL(clicked(int)),SLOT(SlotEstadoTransferencia(int)));
-
+}
+void QPagaConTransferencia::SlotCapturandoTelefono(const QString &)
+{
+  QPBAceptar->setEnabled(QLETelefono->text().length()>=12);
 }
 void QPagaConTransferencia::SlotEstadoTransferencia(int pintEstado)
 {
-  QPBAceptar->setEnabled(true);
   zSiscomQt3::Foco(QPBAceptar);
      if(pintEstado==0)
      {
@@ -57,6 +64,7 @@ void QPagaConTransferencia::SlotEstadoTransferencia(int pintEstado)
 }
 void QPagaConTransferencia::SlotAceptar()
 {
+  intAceptar=1;
    done(1); 
 }
 void QPagaConTransferencia::SlotFocoASeReflejo()
@@ -66,14 +74,10 @@ void QPagaConTransferencia::SlotFocoASeReflejo()
 }
 void QPagaConTransferencia::IniciaVariables()
 {
-LogSiscom("La orden %x",Orden()->FormaPago());
 if(Orden()->FormaPago())
 {
   if(!Orden()->FormaPago()->Transferencia())
-  {
-   LogSiscom("Iniciando la transferencia");
   Orden()->FormaPago()->Transferencia(IniciaTransferencia());
-  }
   MostrandoDatos();
 }
 }
@@ -100,4 +104,8 @@ zFormaPagoTransferencia *QPagaConTransferencia::Transferencia()
 zFormaPagoTransferencia *QPagaConTransferencia::IniciaTransferencia()
 {
    return new zFormaPagoTransferencia;
+}
+void QPagaConTransferencia::reject()
+{
+  done(0);
 }

@@ -21,7 +21,8 @@ QtTransfiereBodegaBodega::QtTransfiereBodegaBodega(QWidget *pQWParent,
 				TransfiereBodegaBodega(pQWParent,pchrPtrName,pWFlags),
 				zBodegaD(0),
 				zBodegaO(0),
-				zSisRegProducto(0)
+				zSisRegProducto(0),
+				intNTransferencia(0)
 {
  setFocus();
 }
@@ -127,7 +128,7 @@ void QtTransfiereBodegaBodega::Transfiriendo()
 {
    FormaBodegaBodega();
    Transfiere();
-	zSiscomQt3::Foco(QCtrProductos);
+   zSiscomQt3::Foco(QCtrProductos);
 }
 void QtTransfiereBodegaBodega::Transfiere()
 {
@@ -215,6 +216,7 @@ void QtTransfiereBodegaBodega::AsignandoTransferencias()
 {
   Transferencias().Agrega(new zExistenciaBodegaOriDes(BodegaExistenciaO(),
   						      BodegaExistenciaD()));
+
 }
 zExistenciaBodega *QtTransfiereBodegaBodega::BodegaExistenciaO()
 {

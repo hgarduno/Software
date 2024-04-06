@@ -99,6 +99,9 @@
                     <property name="name">
                         <cstring>QPBAceptar</cstring>
                     </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
                     <property name="text">
                         <string>&amp;Aceptar</string>
                     </property>

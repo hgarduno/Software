@@ -17,6 +17,7 @@ public:
 	~QPagaConTransferencia();
 	zOrdenVenta *Orden();
 	zFormaPagoTransferencia *Transferencia();
+	int Aceptar();
 public:
 	enum EdoTransferencia
 	{
@@ -29,15 +30,18 @@ private:
 	zOrdenVenta *zOVenta;
 	EdoTransferencia lEdoTrans;
 	zFormaPagoTransferencia *zFrmPgoT;
+	int intAceptar;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
 	void Telefono();
 	void MostrandoDatos();
 	zFormaPagoTransferencia *IniciaTransferencia();
+	void reject();
 private slots:
 	void SlotAceptar();
 	void SlotFocoASeReflejo();
 	void SlotEstadoTransferencia(int);
+	void SlotCapturandoTelefono(const QString &);
 };
 #endif
