@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/CambiaEdoControlCaja.ui'
 **
-** Created: Wed Jan 31 10:48:05 2024
+** Created: lun abr 1 18:57:46 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

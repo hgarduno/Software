@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/VentasPorCaja.ui'
 **
-** Created: Wed Jan 31 10:48:07 2024
+** Created: lun abr 1 18:57:48 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

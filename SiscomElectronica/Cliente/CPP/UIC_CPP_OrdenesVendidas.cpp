@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/OrdenesVendidas.ui'
 **
-** Created: Wed Jan 31 10:59:07 2024
+** Created: lun abr 1 19:07:56 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

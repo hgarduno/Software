@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/Ventas3Qt.ui'
 **
-** Created: Sun Jan 28 16:00:49 2024
+** Created: lun abr 1 19:11:21 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/ManejadorProductos.ui'
 **
-** Created: Wed Jan 31 10:58:21 2024
+** Created: lun abr 1 19:07:05 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/OrdenesRegistradas.ui'
 **
-** Created: Wed Jan 31 10:48:12 2024
+** Created: lun abr 1 18:57:55 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

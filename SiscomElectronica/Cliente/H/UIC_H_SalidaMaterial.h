@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/SalidaMaterial.ui'
 **
-** Created: Wed Jan 31 10:48:06 2024
+** Created: lun abr 1 18:57:47 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

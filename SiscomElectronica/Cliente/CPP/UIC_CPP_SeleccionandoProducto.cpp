@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/SeleccionandoProducto.ui'
 **
-** Created: Wed Jan 31 10:48:11 2024
+** Created: lun abr 1 18:57:53 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

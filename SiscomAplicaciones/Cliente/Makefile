@@ -86,11 +86,13 @@ Archivos_O_SiscomFirmateSistema=		\
 	O/CQSisBuscaPersonas.o
 
 
-all:$(DIRLIBSISCOM2)/libSiscomFirmateSistema.so 		\
+all:DirectorioO $(DIRLIBSISCOM2)/libSiscomFirmateSistema.so 		\
     $(Archivos_ControlesAplicaciones)				\
     $(call DependenciaControles,$(ControlesAplicaciones))	\
     Copia
 
+DirectorioO:
+	-mkdir O
 
 
 $(DIRLIBSISCOM2)/libSiscomFirmateSistema.so:$(Archivos_QT_SiscomFirmateSistema) \

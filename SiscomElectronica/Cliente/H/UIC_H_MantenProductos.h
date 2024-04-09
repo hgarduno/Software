@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/MantenProductos.ui'
 **
-** Created: Wed Jan 31 10:58:19 2024
+** Created: lun abr 1 19:07:02 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/CapturaDato.ui'
 **
-** Created: Wed Jan 31 10:47:45 2024
+** Created: lun abr 1 18:57:24 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

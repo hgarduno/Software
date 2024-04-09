@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/RangoPorcentaje.ui'
 **
-** Created: Wed Jan 31 10:58:44 2024
+** Created: lun abr 1 19:07:31 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

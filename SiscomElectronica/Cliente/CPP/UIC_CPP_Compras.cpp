@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/Compras.ui'
 **
-** Created: Wed Jan 31 10:57:55 2024
+** Created: lun abr 1 19:06:36 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

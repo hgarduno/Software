@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/CtrExpendios.ui'
 **
-** Created: Wed Jan 31 10:58:46 2024
+** Created: lun abr 1 19:07:33 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

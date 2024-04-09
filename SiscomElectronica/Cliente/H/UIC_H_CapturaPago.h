@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/CapturaPago.ui'
 **
-** Created: Wed Jan 31 10:47:55 2024
+** Created: lun abr 1 18:57:35 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

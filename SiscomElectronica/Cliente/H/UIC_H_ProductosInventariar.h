@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ProductosInventariar.ui'
 **
-** Created: Wed Jan 31 10:58:57 2024
+** Created: lun abr 1 19:07:45 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

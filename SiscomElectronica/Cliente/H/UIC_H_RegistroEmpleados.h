@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/RegistroEmpleados.ui'
 **
-** Created: Wed Jan 31 10:58:37 2024
+** Created: lun abr 1 19:07:23 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

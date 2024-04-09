@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/DatosClienteF.ui'
 **
-** Created: Wed Jan 31 10:57:53 2024
+** Created: lun abr 1 19:06:33 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/EjecutaInventario.ui'
 **
-** Created: Wed Jan 31 10:59:04 2024
+** Created: lun abr 1 19:07:53 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
