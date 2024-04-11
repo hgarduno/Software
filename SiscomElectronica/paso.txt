@@ -1,0 +1,19 @@
+int QManejadorOrden::HabilitaImpresionRegistro()
+{
+/*
+int lintRegreso=SePuedeHabilitarRegistro();
+LogSiscom("Habilitando el boton de impresion\n");
+LogSiscom("# Productos cotizados %d",zOrdVenta->ProductosCotizados());
+LogSiscom("Cliente %x",Orden()->Cliente());
+LogSiscom("Cliente Escuela %x",Orden()->Cliente()->Escuela());
+LogSiscom("Se puede vender %d",Orden()->SePuedeVender());
+*/
+/*
+QPBImprime->setEnabled(lintRegreso);
+
+*/
+/*
+QPBImprime->setEnabled(true);
+return lintRegreso;
+*/
+return 0;
