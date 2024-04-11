@@ -1,1 +1,0 @@
-cat SQL/Tablas/FormaPago.sql  |psql SiscomElectronica
