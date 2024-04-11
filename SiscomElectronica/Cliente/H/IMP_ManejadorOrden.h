@@ -48,7 +48,6 @@ public:
 	void EliminaOrden();
 	void ReIniciaInterfaz();
 	void ReCotizandoOrden();
-	int HabilitaImpresionRegistro();
 	int SePuedeHabilitarRegistro();
 	void AgregandoOrden();
 	void EliminaOrdenLista();
@@ -162,6 +161,7 @@ private:
 	void DescuentoProducto(const char *pchrPtrDescuentoProducto);
 	void SeleccionandoOrden();
 	int EsCantidadValida();
+	int HabilitaImpresionRegistro();
 	int SeHabilitaPagoConTarjeta();
 	void ConsultandoExistenciaExpendios();
 	int SeMuestraDefinicionProducto(zProductoCotizar *pzProdCotizar);

@@ -79,6 +79,7 @@ LogSiscom("El tipo de Aceptar %d",lintAceptar);
  *   1  -> Envio Punto de entrega Siscom
  *   2  -> Envio a domicilio cliente
  */
+
 if(lintAceptar)
 {
 	PedidoDesdeCero(&lQClientePed);

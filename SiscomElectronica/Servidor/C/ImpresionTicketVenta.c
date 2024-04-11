@@ -328,13 +328,17 @@ return lfltRestaPago;
 const char *ObtenCelularCliente(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];
+const char *lchrPtrTelefono;
 SiscomRegistroProL *lSiscomRegProLPtrTelefono;
 lSiscomRegProLPtrTelefono=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio",
 								 "Cliente",
 								 "Celular",
 								 pSiscomOpePtrDato);
-SiscomRegistroProtocoloLog(lchrArrBuffer,lSiscomRegProLPtrTelefono);
-return SiscomObtenCampoRegistroProLChar("Telefono",lSiscomRegProLPtrTelefono);
+if(lSiscomRegProLPtrTelefono && 
+  (lchrPtrTelefono=SiscomObtenCampoRegistroProLChar("Telefono",lSiscomRegProLPtrTelefono)))
+ return lchrPtrTelefono;
+else
+return "Sin Telefono";
 
 }
 const char *ObtenObservacionesApartado(SiscomOperaciones *pSiscomOpePtrDato)
@@ -428,7 +432,7 @@ void AgregaTextoPedido(SiscomOperaciones *pSiscomOpePtrDato,
 char lchrArrBuffer[256],
 	lchrArrDireccion[512];
 const char *lchrPtrObservaciones;
-SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato); 
 FormaTextoDireccionEntrega(pSiscomOpePtrDato,lchrArrDireccion);
 
 lchrPtrObservaciones=SiscomCampoAsociadoAsociadoEntradaOperacion("Envio",
@@ -443,6 +447,7 @@ sprintf(pchrPtrTextoPedido,
 	"Celular %s\n"
 	"Correo  %s\n"
 	"Se Paga Con %s\n"
+	"%s\n"
 	"Observaciones %s\n",
 	SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato),
 	SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Cliente","Nombre",pSiscomOpePtrDato),
@@ -451,7 +456,9 @@ sprintf(pchrPtrTextoPedido,
 	ObtenCelularCliente(pSiscomOpePtrDato),
 	ObtenCorreoCliente(pSiscomOpePtrDato),
 	SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Pedido","SePagaCon",pSiscomOpePtrDato),
+	lchrArrDireccion,
 	lchrPtrObservaciones ? lchrPtrObservaciones : "");
+
 }
 void AgregaTextoRegistroImpreso(SiscomOperaciones *pSiscomOpePtrDato,
 			char *pchrPtrTextoPedido)

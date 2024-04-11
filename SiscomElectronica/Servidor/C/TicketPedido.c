@@ -22,6 +22,9 @@ SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrPedido);
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrPEntrega);
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrCliente);
 SiscomRegistroProtocoloLog(lchrArrBuffer,DireccionEntregaPedido(pSisOpePtrDato));
+sprintf(pchrPtrDireccion,
+	"Se entrega en: %s",
+	SiscomObtenCampoRegistroProLChar("PuntoEntrega",lSisRegProLPtrPEntrega));
 }
 
 

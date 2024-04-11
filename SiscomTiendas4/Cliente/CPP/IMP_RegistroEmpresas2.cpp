@@ -199,7 +199,7 @@ char *lchrPtrCampos[]={"dato",
 		       "descripcion",
 		       0
 		       };
-SiscomDesarrollo3Qt::RegistrosALaTabla(lchrPtrCampos,
+SiscomDesarrollo3Qt::RegistrosALaTabla((const char **)lchrPtrCampos,
 				       QTMedComunicacion,
 				       CQSEmpresa2.RegistrosSubGrupo(0,3));
 SiscomDesarrollo3Qt::AjustaFilas(QTMedComunicacion);

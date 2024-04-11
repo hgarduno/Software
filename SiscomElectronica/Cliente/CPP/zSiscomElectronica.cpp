@@ -290,7 +290,10 @@ void zSiscomElectronica::AsignaDatosPedido(zSiscomRegistro *pzSisRegOrden,
 					   zOrdenVenta *pzOrdenVenta)
 {
 zClienteSiscom *lzCliSiscom=new zClienteSiscom(pzSisRegOrden);
+/*
+SiscomRegistroLog2(pzSisRegOrden);
 SiscomRegistroLog2(pzSisRegOrden->AsociadoDelCampo("Pedido"));
+*/
 zPedido *lzPedido=new zPedido(pzSisRegOrden->AsociadoDelCampo("Pedido"));
  pzOrdenVenta->Cliente(lzCliSiscom);
  pzOrdenVenta->Pedido(lzPedido);
@@ -458,6 +461,7 @@ zSiscomRegistro *lzSisRegRegreso,
 		pzSisCliSiscom->Nombre((const char *)lzSisRegRegreso->CampoAsociado("Persona","nombre"));
 		pzSisCliSiscom->APaterno((const char *)lzSisRegRegreso->CampoAsociado("Persona","apaterno"));
 		pzSisCliSiscom->AMaterno((const char *)lzSisRegRegreso->CampoAsociado("Persona","amaterno"));
+		pzSisCliSiscom->Escuela(new zEscuela(lzSisRegRegreso->AsociadoDelCampo("Persona")));
 
 		if((lzSisRegDireccion=lzSisRegRegreso->AsociadoDelCampo("Direccion")))
 		pzSisCliSiscom->Direccion(new zDireccion(lzSisRegDireccion));
@@ -466,9 +470,7 @@ zSiscomRegistro *lzSisRegRegreso,
 		if((lzSisRegCorreo=lzSisRegRegreso->AsociadoDelCampo("Correos")))
 		pzSisCliSiscom->Correo(new zCorreo(lzSisRegCorreo));
 
-		SiscomRegistroLog2(lzSisRegTelefono);
-
-
+		LogSiscom("La Escuela %s",pzSisCliSiscom->Escuela());
 	    	return 0;
 	    }
 	    else
