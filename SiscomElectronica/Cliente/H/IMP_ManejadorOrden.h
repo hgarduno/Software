@@ -102,6 +102,7 @@ public:
 	int SoloDescripcion();
 	void SoloDescripcion(int);
 	void CambiandoAlExpendio(int);
+	int HabilitaImpresionRegistro();
 private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;
@@ -161,7 +162,6 @@ private:
 	void DescuentoProducto(const char *pchrPtrDescuentoProducto);
 	void SeleccionandoOrden();
 	int EsCantidadValida();
-	int HabilitaImpresionRegistro();
 	int SeHabilitaPagoConTarjeta();
 	void ConsultandoExistenciaExpendios();
 	int SeMuestraDefinicionProducto(zProductoCotizar *pzProdCotizar);

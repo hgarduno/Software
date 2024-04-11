@@ -20,7 +20,8 @@ QPagaConTransferencia::QPagaConTransferencia(
 				zOVenta(pzOrdenVenta),
 				lEdoTrans(NoSeReflejo),
 				zFrmPgoT(0),
-				intAceptar(0)
+				intAceptar(0),
+				intYaFormaPago(0)
 
 {
 IniciaVariables();
@@ -45,11 +46,12 @@ connect(QBGEdoTransferencia,SIGNAL(clicked(int)),SLOT(SlotEstadoTransferencia(in
 }
 void QPagaConTransferencia::SlotCapturandoTelefono(const QString &)
 {
-  QPBAceptar->setEnabled(QLETelefono->text().length()>=12);
+  HabilitandoAceptar();
 }
 void QPagaConTransferencia::SlotEstadoTransferencia(int pintEstado)
 {
   zSiscomQt3::Foco(QPBAceptar);
+  intYaFormaPago=1;
      if(pintEstado==0)
      {
      lEdoTrans=YaSeReflejo;
@@ -61,6 +63,9 @@ void QPagaConTransferencia::SlotEstadoTransferencia(int pintEstado)
      Orden()->FormaPago()->Transferencia()->YaSeReflejo("0");
      lEdoTrans=NoSeReflejo;
      }
+
+     HabilitandoAceptar();
+     zSiscomQt3::Foco(QPBAceptar);
 }
 void QPagaConTransferencia::SlotAceptar()
 {
@@ -108,4 +113,13 @@ zFormaPagoTransferencia *QPagaConTransferencia::IniciaTransferencia()
 void QPagaConTransferencia::reject()
 {
   done(0);
+}
+int QPagaConTransferencia::SeHabilitaAceptar()
+{
+  return QLETelefono->text().length()>=12 && 
+  	intYaFormaPago;
+}
+void QPagaConTransferencia::HabilitandoAceptar()
+{
+   QPBAceptar->setEnabled(SeHabilitaAceptar()); 
 }
