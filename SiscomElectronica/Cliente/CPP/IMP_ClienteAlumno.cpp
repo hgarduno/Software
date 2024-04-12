@@ -112,7 +112,10 @@ void QClienteAlumno::SlotModificaCotizacion(zOrdenVenta *pzOrdenVenta)
 {
   zOrdVenta->IdVenta(pzOrdenVenta->IdVenta());
   zOrdVenta->AgregandoProductos(pzOrdenVenta->Productos());
-  zOrdVenta->Cotizacion(pzOrdenVenta->Cotizacion()); intAceptar=110;
+  zOrdVenta->Cotizacion(pzOrdenVenta->Cotizacion()); 
+  Orden()->IdTipoOrden("1");
+  intAceptar=110;
+  LogSiscom("El Tipo de Orden %d", Orden()->IdTipoOrden());
 }
 void QClienteAlumno::SlotClienteMayoreo(zSiscomRegistro *pzSisRegCliente)
 {
@@ -452,7 +455,7 @@ if(lQMDonacionM.Aceptar())
 }
 void QClienteAlumno::ModificaOrden()
 {
-QSelOrden=new QSeleccionaOrden(Orden()->Expendio(),parentWidget());
+QSelOrden=new QSeleccionaOrden(Orden()->Expendio());
 connect(QSelOrden,
 	SIGNAL(SignalVendeOrden(zOrdenVenta *)),
 	SLOT(SlotModificaCotizacion(zOrdenVenta *)));

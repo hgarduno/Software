@@ -715,7 +715,12 @@ zSiscomRegistro *lzSisRegRegreso;
       		{
       			SiscomRegistroLog2(lzSisRegRegreso);
       		    if(lzSisRegRegreso->AsociadosDelCampo("Productos"))
-      		    return new zOrdenVenta(lzSisRegRegreso);
+		    /* Siscom Ecatepec 
+		     * Viernes 12 de abril del 2024 
+		     *
+      		    return new zOrdenVenta(lzSisRegRegreso); 
+		    */
+		    return zOrdenVenta().OrdenPorId(lzSisRegRegreso);
       		    else
       		  return 0;
       		}

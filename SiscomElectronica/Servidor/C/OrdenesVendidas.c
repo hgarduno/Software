@@ -449,6 +449,7 @@ int EnviandoOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];
 LogSiscom("Enviando la orden vendida");
+SiscomRegistroRegresoLog(lchrArrBuffer,pSiscomOpePtrDato);
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
 }
 int SiVieneIdTipoOrden(SiscomOperaciones *pSiscomOpePtrDato,int *pintPtrIdTipoOrden)
