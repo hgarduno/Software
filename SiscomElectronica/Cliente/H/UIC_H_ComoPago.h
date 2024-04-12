@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ComoPago.ui'
 **
-** Created: lun abr 1 18:57:48 2024
+** Created: mar abr 9 08:38:10 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

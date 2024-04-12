@@ -42,12 +42,15 @@ void QComoPago::SlotComoPago(int pintOpcion)
   {
    case 0:
     	FrmPago=Efectivo;
+	QPBAceptar->setEnabled(true);
 	zSiscomQt3::Foco(QPBAceptar);
    break;
    case 1:
+   	QPBAceptar->setEnabled(false);
    	Pagando(Transferencia);
    break;
    case 2:
+   	QPBAceptar->setEnabled(false);
    	Pagando(Tarjeta);
    break;
    }
@@ -77,8 +80,14 @@ void QComoPago::reject()
 void QComoPago::Pagando(QComoPago::FormaDePago pQFPago)
 {
 QPagaConTransferencia lQPCTransferencia(Orden());
+if(lQPCTransferencia.Aceptar())
+{
  FrmPago=Transferencia;
+ QPBAceptar->setEnabled(true);
  zSiscomQt3::Foco(QPBAceptar);
+}
+ else
+ FrmPago=Cancelar;
 }
 
 zFormaPago *QComoPago::FormaPago()

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/ComoPago.ui'
 **
-** Created: lun abr 1 18:57:56 2024
+** Created: mar abr 9 08:38:10 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
@@ -47,6 +47,7 @@ ComoPago::ComoPago( QWidget* parent, const char* name, bool modal, WFlags fl )
     layout43 = new QHBoxLayout( 0, 0, 6, "layout43"); 
 
     QPBAceptar = new QPushButton( this, "QPBAceptar" );
+    QPBAceptar->setEnabled( FALSE );
     layout43->addWidget( QPBAceptar );
 
     QPBCancelar = new QPushButton( this, "QPBCancelar" );
