@@ -703,7 +703,7 @@ void QDatosFacturacion::RegistrandoRegimenFiscal()
     * Para el caso de una empresa que no esta registrada ?????
    zSiscomQt3::Foco(QCtrFormaPagoSat);
    */
-
+ zEmpresaC->RegimenFiscal((const char *)(*zSisRegRegimenFiscal)["regimen"]);
 }
 void QDatosFacturacion::RegistraRegimenFiscal()
 {

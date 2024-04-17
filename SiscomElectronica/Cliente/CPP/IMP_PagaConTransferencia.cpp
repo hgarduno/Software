@@ -117,7 +117,8 @@ void QPagaConTransferencia::reject()
 int QPagaConTransferencia::SeHabilitaAceptar()
 {
   return QLETelefono->text().length()>=12 && 
-  	intYaFormaPago;
+  	intYaFormaPago                    &&
+	Orden()->FormaPago()->Telefono();
 }
 void QPagaConTransferencia::HabilitandoAceptar()
 {

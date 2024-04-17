@@ -1,1 +1,0 @@
-/home/hgarduno/SiscomElectronica.Git/Software/SiscomAplicaciones/Servidor/H/SiscomMediosComunicacion.h

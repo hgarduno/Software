@@ -105,7 +105,7 @@ QString lQStrCliente=QString(Cliente()->Nombre()) +
 setCaption(lQStrCliente);
 emit SignalActualizaMenu(lQStrCliente);
 */
-/*		   
+/*
  //{{QTECliente->setText(QString("Nombre del Cliente\n")			+
  QTECliente->setText(QString("Nombre del Cliente\n")			+
  			     Cliente()->Nombre()  			+ 
@@ -143,8 +143,8 @@ emit SignalActualizaMenu(lQStrCliente);
 			     "Referencias"				+
 			     "\n"					+
 			     Cliente()->Direccion()->Referencias());
-//}}
 */
+//}}
 /*
 QTECliente->setText(QString("Enviando a ") 	+
 		    Orden()->Pedido()->Calle()	+

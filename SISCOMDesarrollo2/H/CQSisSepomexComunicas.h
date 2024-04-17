@@ -1,1 +1,0 @@
-/home/hgarduno/SiscomElectronica.Git/Software/SiscomAplicaciones/Cliente/H/CQSisSepomexComunicas.h

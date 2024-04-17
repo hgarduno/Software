@@ -115,7 +115,7 @@ void QClienteAlumno::SlotModificaCotizacion(zOrdenVenta *pzOrdenVenta)
   zOrdVenta->Cotizacion(pzOrdenVenta->Cotizacion()); 
   Orden()->IdTipoOrden("1");
   intAceptar=110;
-  LogSiscom("El Tipo de Orden %d", Orden()->IdTipoOrden());
+  zSiscomQt3::Foco(QPBAceptar);
 }
 void QClienteAlumno::SlotClienteMayoreo(zSiscomRegistro *pzSisRegCliente)
 {
