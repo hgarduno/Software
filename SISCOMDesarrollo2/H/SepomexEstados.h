@@ -1,1 +1,0 @@
-/home/hgarduno/SiscomDesarrollo/Software/Sepomex/Cliente/H/SepomexEstados.h

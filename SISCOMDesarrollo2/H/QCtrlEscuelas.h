@@ -1,1 +1,0 @@
-/home/hgarduno/SiscomDesarrollo/Software/SiscomElectronica.Produccion/SiscomElectronica2/Cliente/H/QCtrlEscuelas.h

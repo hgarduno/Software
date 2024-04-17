@@ -1,1 +1,0 @@
-/home/hgarduno/SiscomDesarrollo/Software/SiscomAplicaciones/Servidor/H/SiscomAplicaciones.h
