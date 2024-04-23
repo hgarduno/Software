@@ -12,6 +12,7 @@
 #include <qobjectlist.h>
 #include <qevent.h>
 #include <qworkspace.h>
+#include <qapplication.h>
 #include <EmpresasN.h>
 #include <Personas.h>
 
@@ -31,7 +32,8 @@ void *gzSiscomConexion;
 SiscomElectronica::SiscomElectronica(zManejadorEjecucion *pzMnEjecucion,
 			             QApplication *pQAppPrincipal):
 			 SiscomVentanaPrincipal(pQAppPrincipal),
-			 zMnEjecucion(pzMnEjecucion)
+			 zMnEjecucion(pzMnEjecucion),
+			 QAppPrincipal(pQAppPrincipal)
 {
 IniciaVariables();
 setName("SISCOMVentanaPrincipal");
@@ -173,16 +175,43 @@ void SiscomElectronica::SeleccionandoExpendio()
 QExpendiosSE lQExsSiscom;
 
 }
+void SiscomElectronica::MasGrandeLetra()
+{
+QFont lQFTLetra=QAppPrincipal->font();
+int lintTamano=lQFTLetra.pointSize();
+ lQFTLetra.setPointSize(++lintTamano);
+
+ QAppPrincipal->setFont(lQFTLetra);
+}
 void SiscomElectronica::keyPressEvent(QKeyEvent *pQKEvent)
 {
+
 	if(pQKEvent->state()==Qt::AltButton)
 	{
 	  if(pQKEvent->key()==Qt::Key_Tab)
 	  {
 	    SiscomEscribeLog3Qt("Cambiando de expendio");
+	    /*
 	    SeleccionandoExpendio();
+
+	    */
 	  }
 
+	}
+	else
+	if(pQKEvent->state()==Qt::ControlButton)
+	{
+	   if(pQKEvent->key()==Qt::Key_Equal)
+	   {
+	        MasGrandeLetra(); 
+		SiscomEscribeLog3Qt("Mas grande la letra");
+	   }
+	   else
+	  if(pQKEvent->key()==Qt::Key_Minus)
+	  {
+		SiscomEscribeLog3Qt("Mas chica la letra");
+	  }
+		
 	}
 }
 void SiscomElectronica::resizeEvent(QResizeEvent *pQResizeEvent)

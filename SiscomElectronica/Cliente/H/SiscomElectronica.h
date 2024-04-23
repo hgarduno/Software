@@ -34,6 +34,7 @@ protected:
 	void keyPressEvent(QKeyEvent *pQKEvent);
 	void resizeEvent(QResizeEvent *);
 	void PosicionVentana(QWidget *,zXY *);
+	void MasGrandeLetra();
 private:
 	Persona *Empleado;
 	EmpresaN *Expendio;
@@ -42,6 +43,7 @@ private:
 	zXY zXYPedido;
 	zXY zXYVenta;
 	zManejadorEjecucion *zMnEjecucion;
+	QApplication *QAppPrincipal;
 
 	
 private slots:
