@@ -131,7 +131,7 @@ MuestraDirecciones();
 void QRegistroClientes2::MuestraDirecciones()
 {
 char *lchrPtrCampos[]={"direccion",0};
-SiscomDesarrollo3Qt::RegistrosALaTabla(lchrPtrCampos,
+SiscomDesarrollo3Qt::RegistrosALaTabla((const char **)lchrPtrCampos,
 					QTDirecciones,
 					&SisReg3LstDirecciones);
 SiscomDesarrollo3Qt::AjustaColumnas(QTDirecciones);

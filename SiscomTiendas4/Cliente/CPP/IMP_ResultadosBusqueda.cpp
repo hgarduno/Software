@@ -58,7 +58,7 @@ char *lchrPtrCampos[]={"clave",
 			     "cantidad",
 			     0
 			     };
-SiscomDesarrollo3Qt::RegistrosALaTabla(lchrPtrCampos,
+SiscomDesarrollo3Qt::RegistrosALaTabla((const char **)lchrPtrCampos,
 				 	QTDatos,
 					SisReg3LstRegreso);
 SiscomDesarrollo3Qt::AjustaColumnas(QTDatos);

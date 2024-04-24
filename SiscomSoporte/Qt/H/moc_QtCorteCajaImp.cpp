@@ -1,7 +1,7 @@
 /****************************************************************************
 ** QtCorteCajaImp meta object code from reading C++ file 'QtCorteCajaImp.h'
 **
-** Created: Thu Jul 28 19:43:54 2022
+** Created: Tue Mar 26 12:12:44 2024
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!
