@@ -34,5 +34,5 @@ CreaExpendios -RegistroExpendio  		\
 		-PuertoAdExpendio 7546 		\
 		-DirIp 127.0.0.1
 
-echo 'update ambienteactivotimbrado set idambiente=2' |psql SiscomElectronica
-echo "update ambientesfacturacionphp set binariophp='/usr/bin/php'"|psql SiscomElectronica
+#echo 'update ambienteactivotimbrado set idambiente=2' |psql SiscomElectronica
+#echo "update ambientesfacturacionphp set binariophp='/usr/bin/php'"|psql SiscomElectronica

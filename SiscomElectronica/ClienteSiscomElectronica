@@ -515,11 +515,13 @@ then
 	EnviandoInstalacion $*
 fi
 
-##  ClienteSiscomElectronica -EnviaInstalacion -DirIp 10.8.1.83 -DirInstalacion SiscomElectronica -Usuario hgarduno
+##  ClienteSiscomElectronica -EnviaInstalacion -DirIp 10.8.1.83 -DirInstalacion SiscomElectronica -Usuario hgarduno \
+#  -DirectorioPasando 
 
 if [ "$(EstaInstalandoQt3 $*)" == "1" ] ## Cambiar a InstalandoSiscom o algo asi
 then 
     printf "Instalando el Qt3 \n"
+
     InstalandoQt3 $*
     InstalandoSiscomElectronica $*
     CreandoEnlacesSoporteSiscomElectronica4 $*

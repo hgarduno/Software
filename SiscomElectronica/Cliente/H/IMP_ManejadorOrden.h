@@ -48,7 +48,6 @@ public:
 	void EliminaOrden();
 	void ReIniciaInterfaz();
 	void ReCotizandoOrden();
-	int HabilitaImpresionRegistro();
 	int SePuedeHabilitarRegistro();
 	void AgregandoOrden();
 	void EliminaOrdenLista();
@@ -103,6 +102,7 @@ public:
 	int SoloDescripcion();
 	void SoloDescripcion(int);
 	void CambiandoAlExpendio(int);
+	int HabilitaImpresionRegistro();
 private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;

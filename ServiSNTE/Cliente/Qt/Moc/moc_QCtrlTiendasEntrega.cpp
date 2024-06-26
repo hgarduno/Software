@@ -1,7 +1,11 @@
 /****************************************************************************
 ** QCtrlTiendasEntrega meta object code from reading C++ file 'QCtrlTiendasEntrega.h'
 **
+<<<<<<< HEAD
 ** Created: Mon Apr 1 17:30:58 2024
+=======
+** Created: Thu Apr 11 21:09:03 2024
+>>>>>>> d8559e8a5b2006215346761b79004c9434166dbc
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

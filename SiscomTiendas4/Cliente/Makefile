@@ -236,7 +236,7 @@ Binarios=									\
 		SiscomTiendas4							\
 		#InformacionSeid 
 Archivos_H_Controles=\
-$(DIRDesarrolloHGE)/SISCOMElectronica/SiscomElectronica2/Cliente/H/QCtrlEscuelas.h 
+$(DIRDesarrolloHGE)/SiscomElectronica/SiscomElectronica2/Cliente/H/QCtrlEscuelas.h 
 
 Archivos_O_InformacionSeid=O/InformacionSeid.o
 all:DirectorioO $(Binarios) Copia

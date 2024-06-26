@@ -1,1 +1,0 @@
-/home/hgarduno/SiscomElectronica.Git/Software/SISCOMSeguridad3/Cliente/H/QCtrlPerfiles.h

@@ -79,6 +79,7 @@ LogSiscom("El tipo de Aceptar %d",lintAceptar);
  *   1  -> Envio Punto de entrega Siscom
  *   2  -> Envio a domicilio cliente
  */
+
 if(lintAceptar)
 {
 	PedidoDesdeCero(&lQClientePed);
@@ -104,7 +105,7 @@ QString lQStrCliente=QString(Cliente()->Nombre()) +
 setCaption(lQStrCliente);
 emit SignalActualizaMenu(lQStrCliente);
 */
-/*		   
+/*
  //{{QTECliente->setText(QString("Nombre del Cliente\n")			+
  QTECliente->setText(QString("Nombre del Cliente\n")			+
  			     Cliente()->Nombre()  			+ 
@@ -142,8 +143,8 @@ emit SignalActualizaMenu(lQStrCliente);
 			     "Referencias"				+
 			     "\n"					+
 			     Cliente()->Direccion()->Referencias());
-//}}
 */
+//}}
 /*
 QTECliente->setText(QString("Enviando a ") 	+
 		    Orden()->Pedido()->Calle()	+

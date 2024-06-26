@@ -1,1 +1,0 @@
-/home/hgarduno/SiscomElectronica.Git/Software/SiscomAplicaciones/Cliente/H/IMP_Firmate.h

@@ -98,6 +98,19 @@ public:
 	int EsCotizacion();
 	int SePagoConTransferencia();
 	zFormaPago *FormaPago();
+	/* Siscom Ecatepec 
+	 * Viernes 12 de Abril del 2024 
+	 *
+	 * Cuando se consulta una orden por IdOrden, se regresa 
+	 * un registro con el formato 
+	 *
+	 * ImporteOrden|Productos|Cliente|Cotizacion
+	 *
+	 * Por lo que se escribe una funcion que tome este registro 
+	 * arme una zOrdenVenta , y lo regrese 
+	 *
+	 */
+	static zOrdenVenta *OrdenPorId(zSiscomRegistro *);
 private:
 	void ActualizaDatosProductos(zSiscomRegistros *pzSisRegsProdsRespuesta);
 	void ActualizaProducto(zSiscomRegistro *pzSisRegProducto);

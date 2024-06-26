@@ -674,3 +674,19 @@ zSiscomDesarrollo4::Log(pchrPtrArchivo,pchrPtrFuncion,pintNoLinea,"%s",lchrArrCa
 else
 zSiscomDesarrollo4::Log(pchrPtrArchivo,pchrPtrFuncion,pintNoLinea,"Error Cliente Nulo");
 }
+
+
+zOrdenVenta *zOrdenVenta::OrdenPorId(zSiscomRegistro *pzSisRegRespuesta)
+{
+ zOrdenVenta *lzOrdenVenta=new zOrdenVenta; 
+
+lzOrdenVenta->IdVenta((const char *)pzSisRegRespuesta->CampoAsociado("Cotizacion","idventa"));
+lzOrdenVenta->AsignaProductos(pzSisRegRespuesta->AsociadosDelCampo("Productos"));
+if(pzSisRegRespuesta->AsociadoDelCampo("Cotizacion"))
+lzOrdenVenta->Cotizacion(new zCotizacion(pzSisRegRespuesta->AsociadoDelCampo("Cotizacion")));
+
+
+return lzOrdenVenta;
+
+
+}

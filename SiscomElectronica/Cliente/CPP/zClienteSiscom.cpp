@@ -31,7 +31,7 @@ zClienteSiscom::zClienteSiscom(const char *pchrPtrIdPersona,
 zClienteSiscom::zClienteSiscom(zSiscomRegistro *pzSisRegPersona):
 			zPersona(pzSisRegPersona)
 {
-
+int lintTelefonos;
  (*this) 								<<
  new zSiscomCampo("TipoCliente",(const unsigned char *)"General")	<<
  new zSiscomCampo("Escuela")						<<
@@ -40,8 +40,13 @@ zClienteSiscom::zClienteSiscom(zSiscomRegistro *pzSisRegPersona):
  new zSiscomCampo("Direccion")						<<
  new zSiscomCampo("RFC");
  EscuelaCliente(pzSisRegPersona);
- if(TraeTelefonosCliente(pzSisRegPersona))
+ LogSiscom("Ahora viendo los telefonos");
+ if((lintTelefonos=TraeTelefonosCliente(pzSisRegPersona))==1)
  Telefonos(pzSisRegPersona->AsociadosDelCampo("telefonos"));
+ else
+ if(lintTelefonos==2)
+ Celular(new zTelefono(pzSisRegPersona));
+
  ActualizaCampo("RFC",(*pzSisRegPersona)["rfc"]);
 }
 zClienteSiscom::zClienteSiscom(const char *,
@@ -61,6 +66,7 @@ zDirecciones *lzDirecciones;
  Direcciones(pzSisRegPersona->AsociadosDelCampo("direcciones"));
  if(TraeTelefonosCliente(pzSisRegPersona))
  Telefonos(pzSisRegPersona->AsociadosDelCampo("telefonos"));
+ 
 }
 
 zClienteSiscom::zClienteSiscom()
@@ -110,7 +116,7 @@ void zClienteSiscom::Celular(zSiscomRegistro *pzSisRegPersona)
 {
 zTelefono *lzCliEscuela;
 SiscomRegistroLog2(pzSisRegPersona);
-/* if(TelefonoValido(pzSisRegPersona)) */
+ if(TelefonoValido(pzSisRegPersona)) 
  {
    lzCliEscuela=new zTelefono("",pzSisRegPersona->CampoConstChar("telefonos")); 
    ActualizaCampo("Celular",lzCliEscuela);
@@ -197,8 +203,10 @@ int zClienteSiscom::TraeTelefonosCliente(zSiscomRegistro *pzSisRegCliente)
   if(pzSisRegCliente->AsociadosDelCampo("telefonos"))
   return 1;
   else
+  if(pzSisRegCliente->Campo("telefono"))
+    return 2;
+  else
   return 0;
-
 }
 zTelefonos *zClienteSiscom::Telefonos()
 {

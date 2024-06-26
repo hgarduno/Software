@@ -31,6 +31,7 @@ private:
 	EdoTransferencia lEdoTrans;
 	zFormaPagoTransferencia *zFrmPgoT;
 	int intAceptar;
+	int intYaFormaPago;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
@@ -38,6 +39,8 @@ private:
 	void MostrandoDatos();
 	zFormaPagoTransferencia *IniciaTransferencia();
 	void reject();
+	int SeHabilitaAceptar();
+	void HabilitandoAceptar();
 private slots:
 	void SlotAceptar();
 	void SlotFocoASeReflejo();

@@ -163,7 +163,6 @@ void QCotizaciones::ConsultandoPorRangoFechas()
   MuestraConsultaPorRangoFechas();
   else
   QMessageBox::information(this,"Aviso del Sistema","NO Se encontro la cotizacion");
-
 }
 int QCotizaciones::Consulta()
 {
