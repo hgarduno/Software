@@ -2411,3 +2411,21 @@ else
 return 0;
 
 }
+
+int zSiscomElectronica::ClavesProveedor(const char *pchrPtrCveProducto,	
+					const char *pchrPtrIdProveedor,
+					zClavesProveedor *pzCvesProvedor)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio(zSiscomRegistro().Registro("%s [CveProducto] %s [IdProveedor] ",
+				   pchrPtrCveProducto,
+				   pchrPtrIdProveedor));
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+ return 1;
+}
+else
+return 0;
+}
+

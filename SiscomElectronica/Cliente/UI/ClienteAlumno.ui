@@ -171,7 +171,7 @@
                 <cstring>QBGTipoOrden</cstring>
             </property>
             <property name="enabled">
-                <bool>false</bool>
+                <bool>true</bool>
             </property>
             <property name="title">
                 <string>Tipo de Orden</string>
@@ -184,6 +184,9 @@
                     <property name="name">
                         <cstring>QRBApartado</cstring>
                     </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
                     <property name="text">
                         <string>Apartado</string>
                     </property>
@@ -195,6 +198,9 @@
                     <property name="name">
                         <cstring>QRBCotizacion</cstring>
                     </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
                     <property name="text">
                         <string>Cotizacion</string>
                     </property>
@@ -204,7 +210,10 @@
                 </widget>
                 <widget class="QRadioButton" row="2" column="0">
                     <property name="name">
-                        <cstring>radioButton5</cstring>
+                        <cstring>QRBVendeOrdenCA</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Vende Orden, Cotizacion , Apartado</string>
@@ -215,7 +224,10 @@
                 </widget>
                 <widget class="QRadioButton" row="3" column="0">
                     <property name="name">
-                        <cstring>radioButton12</cstring>
+                        <cstring>QRBModificaC</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>true</bool>
                     </property>
                     <property name="text">
                         <string>Modificar Cotizacion</string>
@@ -227,6 +239,9 @@
                 <widget class="QRadioButton" row="4" column="0">
                     <property name="name">
                         <cstring>QPBOrdenActual</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Orden Actual</string>
@@ -250,6 +265,9 @@
                     <property name="name">
                         <cstring>radioButton4</cstring>
                     </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
                     <property name="text">
                         <string>Estados Pedido</string>
                     </property>
@@ -261,6 +279,9 @@
                     <property name="name">
                         <cstring>radioButton7</cstring>
                     </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
                     <property name="text">
                         <string>Recupera Orden Impresa</string>
                     </property>
@@ -271,6 +292,9 @@
                 <widget class="QRadioButton" row="8" column="0">
                     <property name="name">
                         <cstring>radioButton8</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Programacion Placas</string>
@@ -295,7 +319,10 @@
                 </widget>
                 <widget class="QRadioButton" row="10" column="0">
                     <property name="name">
-                        <cstring>radioButton10</cstring>
+                        <cstring>QRBMaterilAD</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Material Area Diseno</string>
@@ -306,7 +333,10 @@
                 </widget>
                 <widget class="QRadioButton" row="11" column="0">
                     <property name="name">
-                        <cstring>radioButton11</cstring>
+                        <cstring>QRBDonacion</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Donacion</string>
@@ -318,6 +348,9 @@
                 <widget class="QRadioButton" row="12" column="0">
                     <property name="name">
                         <cstring>radioButton13</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Registrar Practica</string>
@@ -476,7 +509,7 @@
 <tabstops>
     <tabstop>QRBApartado</tabstop>
     <tabstop>QRBCotizacion</tabstop>
-    <tabstop>radioButton5</tabstop>
+    <tabstop>QRBVendeOrdenCA</tabstop>
     <tabstop>QPBOrdenActual</tabstop>
     <tabstop>QRBCierraApartado</tabstop>
     <tabstop>radioButton4</tabstop>

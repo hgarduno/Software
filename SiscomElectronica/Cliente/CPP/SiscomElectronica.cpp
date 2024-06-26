@@ -180,7 +180,6 @@ void SiscomElectronica::MasGrandeLetra()
 QFont lQFTLetra=QAppPrincipal->font();
 int lintTamano=lQFTLetra.pointSize();
  lQFTLetra.setPointSize(++lintTamano);
-
  QAppPrincipal->setFont(lQFTLetra);
 }
 void SiscomElectronica::keyPressEvent(QKeyEvent *pQKEvent)

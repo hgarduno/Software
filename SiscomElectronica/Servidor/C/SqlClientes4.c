@@ -575,10 +575,11 @@ void InsertToEmpresa4(SiscomOperaciones *pSiscomOpePtrDato,
 		      char *pchrPtrSql)
 {
 sprintf(pchrPtrSql,
-	"insert into empresas values('%s',%s,'%s');",
+	"insert into empresas values('%s',%s,'%s',%s);",
 	SiscomObtenCampoRegistroProLChar("RazonSocial",pSiscomRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("IdEmpresa",pSiscomRegProLPtrDato),
-	SiscomCampoAsociadoEntradaOperacion("Envio","RFC",pSiscomOpePtrDato));
+	SiscomCampoAsociadoEntradaOperacion("Envio","RFC",pSiscomOpePtrDato),
+	SiscomObtenCampoRegistroProLChar("RegimenFiscal",pSiscomRegProLPtrDato));
 }
 
 void InsertToDireccionFisica4(SiscomOperaciones *pSiscomOpePtrDato,

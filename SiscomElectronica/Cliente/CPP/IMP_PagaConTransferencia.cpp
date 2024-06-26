@@ -33,9 +33,9 @@ QPagaConTransferencia::~QPagaConTransferencia()
 {
 
 }
-int QPagaConTransferencia::Aceptar()
+QPagaConTransferencia::EdoTransferencia QPagaConTransferencia::Aceptar()
 {
-   return intAceptar;
+   return lEdoTrans;
 }
 void QPagaConTransferencia::ConectaSlots()
 {
@@ -43,6 +43,12 @@ connect(QPBAceptar,SIGNAL(clicked()),SLOT(SlotAceptar()));
 connect(QLETelefono,SIGNAL(returnPressed()),SLOT(SlotFocoASeReflejo()));
 connect(QLETelefono,SIGNAL(textChanged(const QString &)),SLOT(SlotCapturandoTelefono(const QString &)));
 connect(QBGEdoTransferencia,SIGNAL(clicked(int)),SLOT(SlotEstadoTransferencia(int)));
+connect(QPBCancelar,SIGNAL(clicked()),SLOT(SlotCancelar()));
+}
+void QPagaConTransferencia::SlotCancelar()
+{
+lEdoTrans=Cancelar;
+done(0);
 }
 void QPagaConTransferencia::SlotCapturandoTelefono(const QString &)
 {
@@ -112,7 +118,7 @@ zFormaPagoTransferencia *QPagaConTransferencia::IniciaTransferencia()
 }
 void QPagaConTransferencia::reject()
 {
-  done(0);
+  
 }
 int QPagaConTransferencia::SeHabilitaAceptar()
 {

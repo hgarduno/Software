@@ -86,6 +86,7 @@ private:
 	void DatosPractica();
 	void IniciaControlesOtrosMovimientos();
 	void ConectaSlotsOtrosMovimientos();
+	void HabilitaBotonesOtrosMovimientos(bool);
 private slots:
 	void SlotEscuela(zSiscomRegistro *pzSisRegEscuela);
 	void SlotFocoAAceptar();

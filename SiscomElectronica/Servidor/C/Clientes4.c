@@ -575,9 +575,17 @@ if(ClientesPorNombre(pSiscomOpePtrDato))
 {
 SqlBuscandoClienteRegistrado(pSiscomOpePtrDato);
 lSiscomRegProLPtrCliente=SiscomObtenRegistrosCampoRespuesta("SqlPersona",pSiscomOpePtrDato);
+if(lSiscomRegProLPtrCliente)
+{
 CompletandoDatosPersona(lSiscomRegProLPtrCliente,pSiscomOpePtrDato);
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSiscomRegProLPtrCliente);
 return lSiscomRegProLPtrCliente->intNRegistros;
+}
+else
+{
+  LogSiscom("Nombre no registrado ");
+  return 0;
+}
 }
 else
 return 0;

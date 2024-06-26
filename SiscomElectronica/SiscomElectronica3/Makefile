@@ -78,7 +78,8 @@ Archivos_ClasesSiscomElectronica3=Alumnos 			\
 				  EstadosPedidosClienteSE	\
 				  RegimenFiscal			\
 				  Bodegas4			\
-				  CmbBodegas4
+				  CmbBodegas4			\
+				  ClavesProveedores
 
 
 Archivos_QT_PantallasSiscomElectronica3=		\

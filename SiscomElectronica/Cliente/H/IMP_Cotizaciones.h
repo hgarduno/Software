@@ -5,6 +5,7 @@
 class zSiscomConexion;
 class zOrdenVenta;
 class zOrdenes;
+class zClienteSiscom;
 
 class QCotizaciones:public QtCotizaciones
 {
@@ -59,6 +60,8 @@ private:
 	void reject();
 	void AsignandoMuestraOrdenes();
 	/*void keyPressEvent(QKeyEvent *); */
+
+	void VieneSoloUnaOrden();
 
 
 private slots:

@@ -93,6 +93,7 @@ private:
 	int ValidaRegimenFiscal();
 	void RegistraRegimenFiscal();
 	void RegistrandoRegimenFiscal();
+
 	//}}
 private slots:
 	//{ Slots Foco A Capturando 

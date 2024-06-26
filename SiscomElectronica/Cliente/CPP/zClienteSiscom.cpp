@@ -40,7 +40,6 @@ int lintTelefonos;
  new zSiscomCampo("Direccion")						<<
  new zSiscomCampo("RFC");
  EscuelaCliente(pzSisRegPersona);
- LogSiscom("Ahora viendo los telefonos");
  if((lintTelefonos=TraeTelefonosCliente(pzSisRegPersona))==1)
  Telefonos(pzSisRegPersona->AsociadosDelCampo("telefonos"));
  else

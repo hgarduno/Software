@@ -11,6 +11,7 @@
 #include <zCotizacion.h>
 #include <zOrdenes.h>
 #include <zProductoCotizar.h>
+#include <zClienteSiscom.h>
 
 #include <qpushbutton.h>
 #include <qtextedit.h>
@@ -160,16 +161,28 @@ int lintEdoConsulta;
 void QCotizaciones::ConsultandoPorRangoFechas()
 {
   if(ConsultaPorRangoFechas())
+  {
   MuestraConsultaPorRangoFechas();
+  VieneSoloUnaOrden();
+  }
   else
   QMessageBox::information(this,"Aviso del Sistema","NO Se encontro la cotizacion");
+}
+void QCotizaciones::VieneSoloUnaOrden()
+{
+  if(zOrdsVentas->NNodos()==1)
+  {
+  MuestraProductosOrden(0);
+  QPBAceptar->setEnabled(true);
+  zSiscomQt3::Foco(QPBAceptar);
+  }
+
 }
 int QCotizaciones::Consulta()
 {
 int lintNNodosReg;
 const char *lchrPtrIdOrden=strdup((const char *)QLEIdOrden->text());
 
-LogSiscom("%s",lchrPtrIdOrden);
 zSiscomElectronica lzSisElectronica(zSisConexion,"ConsultaOrden");
 if(!(zOrdVenta=lzSisElectronica.ConsultaOrden(lchrPtrIdOrden,
 					 ObtenIdTipoOrden(),
@@ -258,7 +271,6 @@ for(lzOrdenVenta=(zOrdenVenta *)zOrdsVentas->Primer(),
 {
   QTOrdenes->setText(lintContador,0,lzOrdenVenta->IdVenta());
   QTOrdenes->setText(lintContador,1,lzOrdenVenta->ImporteOrden());
-  LogSiscom("El IdTipo Orden %d",lzOrdenVenta->IdTipoOrdenInt());
   (this->*MuestraPorTipoOrden[lzOrdenVenta->IdTipoOrdenInt()])(lintContador,lzOrdenVenta);
 }
 zSiscomQt3::AjustaColumnasTabla(QTOrdenes);
@@ -270,6 +282,7 @@ int lintContador;
 zOrdVenta=zOrdsVentas->Orden(pintNOrden);
 QLCDNImporte->display(zOrdVenta->ImporteOrden());
 zOrdVenta->NumProductos(zOrdVenta->Productos()->NNodos()); 
+SiscomRegistroLog2(zOrdVenta->Cliente()->EscuelaReg());
 QTProductos->setNumRows(zOrdVenta->Productos()->NNodos());
 for(lintContador=0,
     lzProdOrden=(zProductoCotizar *)zOrdVenta->Productos()->Primer();

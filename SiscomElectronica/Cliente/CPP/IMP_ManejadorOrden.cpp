@@ -542,6 +542,7 @@ return 0;
 }
 void QManejadorOrden::ReCotizandoOrden()
 {
+LogSiscom("000");
 if(!ReCotizaOrden()) 
 {
 MuestraOrdenCotizada(zOrdVenta);
@@ -812,9 +813,9 @@ return lintRegreso;
 }
 int QManejadorOrden::SePuedeHabilitarRegistro()
 {
-  return zOrdVenta->ProductosCotizados() &&
-         Orden()->Cliente()		 &&
-	 Orden()->Cliente()->Escuela()	 &&
+  return zOrdVenta->ProductosCotizados() 	&&
+         Orden()->Cliente()		 	&&
+	 Orden()->Cliente()->EscuelaReg()	&&
 	 Orden()->SePuedeVender();
 }
 void QManejadorOrden::SePuedeAnexarProducto(zProductoCotizar *pzProdCotizar)

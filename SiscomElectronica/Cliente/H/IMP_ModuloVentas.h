@@ -18,6 +18,17 @@ private:
 	zProductoCotizar *zProdCotNoAlcanza;
 	zSiscomRegistros *zSisRegsProdEnApartados;
 	int intVendiendo;
+	/*  Tepotzotlan Mexico 
+	 *  1 de mayo del 2024 
+	 *
+	 *  Con la integracion de la forma de pago, resulta 
+	 *  que al cerrar o hacer registro de donacion, area de diseno
+	 *  tambien se pone la ventanita para captuar la forma de pago
+	 *  lo que esta mal :(
+	 *
+	 */
+
+	int intPorqueSeRegistra;
 private:
 	void ConectaSlots();
 	void Vendiendo();
@@ -47,7 +58,8 @@ private:
 	void CapturandoDescripcion(const char *);
 	void RegistrandoRapidoCotizacion(const char *);
 	void EliminaBotonesQueNoUso();
-	
+
+	int PorqueSeRegistra();
 
 private slots:
 	void SlotNoSePuedeVender(zProductoCotizar *);

@@ -41,9 +41,14 @@ EstaRegistroExpendio()
 OpcionABuscar=RegistroExpendio
 echo $(EstaLaOpcion $*)
 }
-EstaRegistroMatriz()
+EstaRegistroBodega()
 {
-OpcionABuscar=RegistroMatriz
+OpcionABuscar=RegistroBodega
+echo $(EstaLaOpcion $*)
+}
+EstaRegistroBodegaMatriz()
+{
+OpcionABuscar=RegistroBodegaMatriz
 echo $(EstaLaOpcion $*)
 }
 ObtenIdBodega()
@@ -83,10 +88,10 @@ ObtenDirPostgres()
 Parametro=DirPostgres
 echo $(ObtenParametroEntrada $*)
 }
-OpcionesCompletasRegistroMatriz()
+OpcionesCompletasRegistroBodega()
 {
 
-if [[ $(EstaRegistroMatriz $*) == 1 &&
+if [[ $(EstaRegistroBodega $*) == 1 &&
       $(EstaIdBodega $*)       == 1 && 
       $(EstaNombre $*)         == 1 &&
       $(EstaBaseMatriz $*)     == 1 ]]
@@ -105,7 +110,7 @@ remoto una nueva bodega
 
 Modo de Uso
 
-RegistraBodega  -RegistroMatriz  	#Se le indica para realizar el registro de la
+RegistraBodega  -RegistroBodega 	#Se le indica para realizar el registro de la
 				 	#bodega en matriz
 		
 		-IdBodega 		#Identificador consecutivo de la bodega
@@ -134,6 +139,13 @@ RegistraBodegaMatriz()
 {
 cat << RegMatriz  | $DirectorioPostgres/bin/psql $3
 insert into Bodegas values($1,'$2');
+insert into MaterialBodega select $1,
+				         cveproducto,
+					 0,
+					 0
+				  from productos ;
+
+insert into bodegaexpendio values((select * from matriz),$1);
 RegMatriz
 }
 
@@ -176,24 +188,20 @@ ssh $1@$2 ~/bin/RegistraBodega 	-RegistroExpendio 				\
 					
 }
 
-if [ $(OpcionesCompletasRegistroMatriz $*) == 1 ]
+if [ $(OpcionesCompletasRegistroBodega $*) == 1 ]
 then
       RegistraBodegaMatriz $(ObtenIdBodega $*) $(ObtenNombre $*) $(ObtenBaseMatriz $*)
-    	printf "Registrando en el expendio Direccion Ip (%s) Base Datos (%s) \n"  \
-	      $(ObtenDirIpExpendio $*) 						  \
-	      $(ObtenBaseExpendio $*)
-      RegistrandoEnElExpendio 	$(ObtenUsuario $*) 		\
-      				$(ObtenDirIpExpendio $*) 	\
-				$(ObtenIdBodega $*)		\
-				$(ObtenNombre $*)		\
-				$(ObtenBaseExpendio $*)
+      # 	printf "Registrando en el expendio Direccion Ip (%s) Base Datos (%s) \n"  \
+   #	      $(ObtenDirIpExpendio $*) 						  \
+   #	      $(ObtenBaseExpendio $*)
+     # RegistrandoEnElExpendio 	$(ObtenUsuario $*) 		\
+     # 				$(ObtenDirIpExpendio $*) 	\
+     #				$(ObtenIdBodega $*)		\
+     # 				$(ObtenNombre $*)		\
+     #				$(ObtenBaseExpendio $*)
 else
-   if [ $(EstaRegistroExpendio $*) == 1 ]
-   then
-   	printf "Registrando en el expendio \n"	
-   else
-   ModoUsoRegistroBodega $*
-   fi
+ ModoUsoRegistroBodega 
+  
 fi
 
 if [ $(OpcionesCompletasRegistroExpendio $*) == 1 ]

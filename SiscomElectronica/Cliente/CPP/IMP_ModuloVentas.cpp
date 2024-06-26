@@ -60,7 +60,8 @@ QModuloVentas::QModuloVentas(SiscomDatCom *pSisDatCom,
 					     pQWParent,
 					     pchrPtrName,
 					     pWFlags),
-				intVendiendo(0)
+				intVendiendo(0),
+				intPorqueSeRegistra(0)
 {
 TextoBotonRegistro("Vende Orden");
 TextoBotonNuevaOrden("Nueva Orden");
@@ -175,6 +176,7 @@ else
 if(lintAceptar==108) //Material para donacion
 {
 	LogSiscom("Se Registra Material de donacion");
+
     	Orden()->Cliente(lQCAlumno.Cliente());
     	ObtenIdOrden();
     	QPBImprime->setEnabled(false);
@@ -184,11 +186,8 @@ if(lintAceptar==108) //Material para donacion
 else
 if(lintAceptar==110)  //Modificando una cotizacion
 {
- 	Orden()->Cliente(lQCAlumno.Cliente()); 
- 	Orden()->IdTipoOrden(lQCAlumno.IdTipoOrden());
         IncrementaConsecutivo(Orden()->NumProductos()); 
  	ReCotizandoOrden();  
- 	HabilitaImpresionRegistro();
         QPBRegistrar->setText(TextoTipoOrdenBoton());
 }
 else
@@ -308,6 +307,7 @@ lzSisElectronica.RegistraOrden(Orden());
 }
 void QModuloVentas::closeEvent(QCloseEvent *)
 {
+intPorqueSeRegistra=5;
 if(Orden()->NumProductos()>=1 && 
    !Orden()->EsCotizacion())
 {
@@ -417,4 +417,15 @@ void QModuloVentas::EliminaBotonesQueNoUso()
    delete QPBImprimePdf;
    QPBDatosPedido=0;
    QPBImprimePdf=0;
+}
+
+int QModuloVentas::PorqueSeRegistra()
+{
+   if(intPorqueSeRegistra==5) 
+    return 0;
+    else
+    return 1;
+   return 1;
+
+
 }

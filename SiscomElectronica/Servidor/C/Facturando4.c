@@ -662,7 +662,7 @@ SiscomCampoAsociadoEntradaOperacion("Envio","Iva",pSiscomOpePtrDato));
 void EncabezadoXML_4(SiscomOperaciones *pSiscomOpePtrDato,char *pchrPtrXML)
 {
 sprintf(pchrPtrXML,
-	"<?xml version=\"1.0\" encoding=\"ISO-8859-8\"?>\n"
+	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 	"<cfdi:Comprobante"
 	"\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
 	"\tMoneda=\"MXN\"\n"
@@ -768,7 +768,7 @@ for(;
   lfltImpuesto=SiscomObtenCampoRegistroProLFloat("importe",lSiscomRegProLPtrProductos)*0.16;
  sprintf(lchrArrConcepto,
       "\n <cfdi:Concepto "
-      " ClaveProdServ=\"32131012\""
+      " ClaveProdServ=\"32131000\""
       " Cantidad=\"%s\""
       " ClaveUnidad=\"H87\""
       " Unidad=\"Pieza\""

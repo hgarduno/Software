@@ -29,6 +29,7 @@
 #include <qbuttongroup.h>
 #include <qlineedit.h>
 #include <qtextedit.h>
+#include <qradiobutton.h>
 
 QClienteAlumno::QClienteAlumno(const char *pchrPtrTipoPersona,
 			       zOrdenVenta *pzOrdenVenta,
@@ -72,7 +73,7 @@ QCtrOrdenesFavoritas->IniciaControl();
 QCtrOrdenesFavoritas->ModoControl(1);
 zSiscomQt3::Foco(QCtrEscuelas);
 QPBNuevaOrden->setEnabled(!strcmp(chrPtrTipoPersona,"1173311497"));
-
+ConectaSlotsOtrosMovimientos();
 }
 void QClienteAlumno::IniciaControlesOtrosMovimientos()
 {
@@ -113,6 +114,8 @@ void QClienteAlumno::SlotModificaCotizacion(zOrdenVenta *pzOrdenVenta)
   zOrdVenta->IdVenta(pzOrdenVenta->IdVenta());
   zOrdVenta->AgregandoProductos(pzOrdenVenta->Productos());
   zOrdVenta->Cotizacion(pzOrdenVenta->Cotizacion()); 
+  SiscomRegistroLog2(pzOrdenVenta->Cliente()->EscuelaReg());
+  zOrdVenta->Cliente(pzOrdenVenta->Cliente());
   Orden()->IdTipoOrden("1");
   intAceptar=110;
   zSiscomQt3::Foco(QPBAceptar);
@@ -166,8 +169,19 @@ void QClienteAlumno::SlotOtroMovimiento()
 {
 	QPBOtrosMovimientos->setEnabled(false);
 //	IniciaControlesOtrosMovimientos();
+/* Siscom Zacatenco 
+ * Jueves 23 Mayo del 2024 
+ *
+ * En esta parte se observo que al estar cargando cotizaciones para modificarse 
+ * se debe capturar de nuevo la escuela  y dar otros movimientos, pero para el 
+ * caso de modificar cotizacion esa informacion ya eta registrada, solo se debe
+ * cargar por numero de cotizacion y ya viene la informacion de escuela etc
+ */
+/*
 	ConectaSlotsOtrosMovimientos();
+*/
 	QBGTipoOrden->setEnabled(zCliSiscom && zCliSiscom->Escuela() ? 1 : 0);
+	HabilitaBotonesOtrosMovimientos(zCliSiscom && zCliSiscom->Escuela() ? 1 : 0);
 
 }
 void QClienteAlumno::SlotCotizacion(zCotizacion *pzCotizacion)
@@ -267,7 +281,6 @@ zClienteSiscom *QClienteAlumno::Cliente()
 }
 int QClienteAlumno::Aceptar()
 {
-LogSiscom("El Tipo de Aceptar %d",intAceptar);
   return intAceptar;
 }
 
@@ -290,7 +303,7 @@ void QClienteAlumno::reject()
 }
 void QClienteAlumno::CapturaDatosApartado()
 {
-QRApartado=new QRegistroApartado(parentWidget());
+QRApartado=new QRegistroApartado();
 connect(QRApartado,SIGNAL(SignalAceptar()),SLOT(SlotAceptarApartado()));
 connect(QRApartado,SIGNAL(SignalCancelar()),SLOT(SlotCanceloRegistroApartado()));
 HabilitaDesHabilitaAceptarCancelar(false);
@@ -300,7 +313,7 @@ intTipoOrden=2;
 }
 void QClienteAlumno::CapturaDescripcionCotizacion()
 {
- QDCotizacion=new QDescripcionCotizacion(zCotOrden,parentWidget());
+ QDCotizacion=new QDescripcionCotizacion(zCotOrden);
  LogSiscom("La Cotizacion %x",zCotOrden);
 connect(QDCotizacion,
 	 SIGNAL(SignalCotizacion(zCotizacion *)),
@@ -401,7 +414,7 @@ void QClienteAlumno::OrdenActual()
 }
 void QClienteAlumno::ConsultandoEstadosPedido()
 {
-QEstadosPedido lQEstadoPedidos(Orden()->Expendio(),parentWidget());
+QEstadosPedido lQEstadoPedidos(Orden()->Expendio());
 }
 void QClienteAlumno::HabilitaDesHabilitaAceptarCancelar(bool pbHabilita)
 {
@@ -410,7 +423,7 @@ void QClienteAlumno::HabilitaDesHabilitaAceptarCancelar(bool pbHabilita)
 }
 void QClienteAlumno::RegistrandoPlaca()
 {
-   QRPlaca=new QRegistroPlaca(Orden()->Expendio(),parentWidget());
+   QRPlaca=new QRegistroPlaca(Orden()->Expendio());
   zOrdVenta->IdTipoOrden("6"); 
   QRPlaca->Orden(zOrdVenta);
   QRPlaca->Escuela(zSisRegEscuela); 
@@ -429,7 +442,7 @@ int QClienteAlumno::YaSeImprimio()
 }
 void QClienteAlumno::MaterialAreaDiseno()
 {
-QMaterialAreaDiseno lQMAreaDiseno(parentWidget());
+QMaterialAreaDiseno lQMAreaDiseno;
 
 if(lQMAreaDiseno.Aceptar())
 {
@@ -444,7 +457,7 @@ if(lQMAreaDiseno.Aceptar())
 
 void QClienteAlumno::DonacionMaterial()
 {
-QDonacionMaterial lQMDonacionM(parentWidget());
+QDonacionMaterial lQMDonacionM;
 if(lQMDonacionM.Aceptar())
 {
 	intAceptar=108;
@@ -462,6 +475,8 @@ connect(QSelOrden,
 QSelOrden->Ejecutando();
 intAceptar=110;
 intTipoOrden=1;
+QPBAceptar->setEnabled(QSelOrden->Orden() ? 1 : 0);
+zSiscomQt3::Foco(QPBAceptar);
 delete QSelOrden;
 }
 
@@ -476,5 +491,15 @@ void QClienteAlumno::SeAgregaDescripcionVenta()
 }
 void QClienteAlumno::DatosPractica()
 {
-QDatosPractica lQDatosP(Orden()->Expendio(),zSisRegEscuela,parentWidget());
+QDatosPractica lQDatosP(Orden()->Expendio(),zSisRegEscuela);
+}
+void QClienteAlumno::HabilitaBotonesOtrosMovimientos(bool pbEstado)
+{
+QRBApartado->setEnabled(pbEstado);
+QRBVendeOrdenCA->setEnabled(pbEstado);
+QPBOrdenActual->setEnabled(pbEstado);
+QRBCierraApartado->setEnabled(pbEstado);
+QRBMaterilAD->setEnabled(pbEstado);
+QRBDonacion->setEnabled(pbEstado);
+QRBCotizacion->setEnabled(pbEstado);
 }
