@@ -214,7 +214,7 @@ const char *lchrPtrConcatena[]={"nombre",
 
 SiscomDesarrollo3Qt::RegistrosALaTabla(QTContactos,
 				       CQSEmpresa2.RegistrosSubGrupo(0,2),
-				       lchrPtrConcatena,
+				       (const char **)lchrPtrConcatena,
 				       0);
 SiscomDesarrollo3Qt::AjustaFilas(QTContactos);
 SiscomDesarrollo3Qt::AjustaColumnas(QTContactos);
@@ -228,7 +228,7 @@ void QRegistroEmpresas2::MuestraDirecciones()
 const char *lchrPtrCampos[]={"direccion",
 			0
 			};
-SiscomDesarrollo3Qt::RegistrosALaTabla(lchrPtrCampos,
+SiscomDesarrollo3Qt::RegistrosALaTabla((const char **)lchrPtrCampos,
 				       QTDirecciones,
 				       CQSEmpresa2.RegistrosSubGrupo(0,1));
 SiscomDesarrollo3Qt::AjustaFilas(QTDirecciones);
