@@ -35,6 +35,7 @@
 #include <QCtrlRegimenFiscal.h>
 #include <QCtrlBodegas4.h>
 #include <QCtrlCmbBodegas4.h>
+#include <QCtrlClavesProveedores.h>
 
 
 #include <SiscomDesarrollo3Qt++.h>
@@ -103,6 +104,7 @@ QStringList QCtrlPluginSiscomElectronica3::keys() const
     "QCtrlExplicacionPromocion"		<<
     "QCtrlOrigenCompra"			<<
     "QCtrlProductosSE"			<<
+    "QCtrlClavesProveedores"			<<
     "QCtrlEscuelasSE"			<<
     "QCtrlEstadosImpresosSE" 		<<
     "QCtrlTiposProductoSE"  		<<
@@ -164,6 +166,11 @@ QWidget* QCtrlPluginSiscomElectronica3::create( const QString &key, QWidget* par
 
     if ( key == "QCtrlProductosSE" )
 	return new QCtrlProductosSE( parent, name );
+
+    if ( key == "QCtrlClavesProveedores" )
+	return new QCtrlClavesProveedores( parent, name );
+
+
 
     if ( key == "QCtrlEscuelasSE" )
 	return new QCtrlEscuelasSE( parent, name );
@@ -261,6 +268,10 @@ QString QCtrlPluginSiscomElectronica3::group( const QString& feature ) const
 	return "Siscom Electronica3";
     if ( feature == "QCtrlProductosSE" )
 	return "Siscom Electronica3";
+
+    if ( feature == "QCtrlClavesProveedores" )
+	return "Siscom Electronica3";
+
     if ( feature == "QCtrlEscuelasSE" )
 	return "Siscom Electronica3";
     if ( feature == "QCtrlEstadosImpresosSE" )
@@ -363,6 +374,12 @@ QString QCtrlPluginSiscomElectronica3::includeFile( const QString& feature ) con
 	return "QCtrlOrigenCompra.h";
     if ( feature == "QCtrlProductosSE" )
 	return "QCtrlProductosSE.h";
+    if ( feature == "QCtrlProductosSE" )
+	return "QCtrlProductosSE.h";
+
+    if ( feature == "QCtrlClavesProveedores" )
+	return "QCtrlClavesProveedores.h";
+
     if ( feature == "QCtrlEscuelasSE" )
 	return "QCtrlEscuelasSE.h";
     if ( feature == "QCtrlEstadosImpresosSE" )
@@ -461,6 +478,10 @@ QString QCtrlPluginSiscomElectronica3::toolTip( const QString& feature ) const
     if ( feature == "QCtrlProductosSE" )
 	return "Selecciona un producto";
 
+    if ( feature == "QCtrlClavesProveedores" )
+	return "Claves Proveedores";
+
+
     if ( feature == "QCtrlEscuelasSE" )
 	return "Selecciona un producto";
     if ( feature == "QCtrlEstadosImpresosSE" )
@@ -532,6 +553,9 @@ QString QCtrlPluginSiscomElectronica3::whatsThis( const QString& feature ) const
 	return "Selecciona una estadistica";
     if ( feature == "QCtrlProductosSE" )
 	return "Selecciona una estadistica";
+
+    if ( feature == "QCtrlClavesProveedores" )
+	return "Claves proveedores";
 
     if ( feature == "QCtrlEscuelasSE" )
 	return "Selecciona una estadistica";

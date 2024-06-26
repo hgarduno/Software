@@ -191,6 +191,8 @@ void QDatosFacturacion::SlotRegimenFiscal(zSiscomRegistro *pzSisRegRegimenFiscal
     zSisRegRegimenFiscal=pzSisRegRegimenFiscal;
     if(intEmpresaRegistrada)
     RegistrandoRegimenFiscal();
+    else
+    zSiscomQt3::Foco(QLECalle);
 }
 void QDatosFacturacion::SlotFocoARegimenFiscal()
 {
@@ -505,12 +507,13 @@ void QDatosFacturacion::DatosCliente()
 	zCorreosC<<zCorreoC;
   	zCorreoActivo=zCorreoC;
 	zTelefonosC << zTelefonoC;
+ 	zEmpresaC->RegimenFiscal((const char *)(*zSisRegRegimenFiscal)["regimen"]);
 	FormaCliente();
 }
 void QDatosFacturacion::FormaCliente()
 {
   zClienteC=new zCliente;
- zClienteC->RFC(zSiscomQt3::Texto(QCtrRFCs->RFC())); 
+  zClienteC->RFC(zSiscomQt3::Texto(QCtrRFCs->RFC())); 
   zClienteC->Persona(zPersonaC);
   zClienteC->Empresa(zEmpresaC);
   zClienteC->Correos(&zCorreosC);
@@ -711,3 +714,4 @@ zSiscomElectronica lzSisElectronica(zSisConexion,"RegistraRegimenFiscal");
  lzSisElectronica.RegistraRegimenFiscal(zClienteC->RFC(),
  					(const char *)(*zSisRegRegimenFiscal)["regimen"]);
 }
+

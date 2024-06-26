@@ -239,6 +239,11 @@ public:
 
 	int Devolucion(zDevolucion *pzDevolucion);
 	int RegistraClavesProveedor(zClavesProveedor *);
+
+	int ClavesProveedor(const char *pchrPtrCveProducto,
+			    const char *pchrPtrIdProveedor,
+			    zClavesProveedor *);
+
 	int ValidaClaveRegistrada(zSiscomRegistro *pzSisRegProducto,
 				  zSiscomRegistro *,
 				  zClaveProveedor **pzClaveProveedor);
