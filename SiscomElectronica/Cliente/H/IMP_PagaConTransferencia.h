@@ -24,7 +24,7 @@ public:
 		NoSeReflejo=1,
 		Cancelar=-1
 	};
-	EdoTransferencia Aceptar();
+	int Aceptar();
 public:
 	QPagaConTransferencia::EdoTransferencia EstadoTransferencia();
 private:
@@ -42,6 +42,8 @@ private:
 	void reject();
 	int SeHabilitaAceptar();
 	void HabilitandoAceptar();
+	void YaSeReflejoTransferencia();
+	void NoSeReflejoTransferencia();
 private slots:
 	void SlotAceptar();
 	void SlotCancelar();
