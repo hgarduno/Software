@@ -217,15 +217,9 @@ CreaDirectorios $DirectorioVersion
 NombreArchivoSiscom=`NombrePorFecha `
 ### Miercoles 1 de Julio del 2015 
 # Si se pasa en la ruta al final / se vuelve loco el script
-<<<<<<< HEAD
-##echo Generando la instalacion de $DIRDesarrolloHGE/SiscomElectronica
-Cliente $DIRDesarrolloHGE/SiscomElectronica  $DirectorioVersion
-Servidor $DIRDesarrolloHGE/SiscomElectronica $DirectorioVersion
-=======
 ##echo Generando la instalacion de $DIRDesarrolloHGE/$DirectorioCodigoFuente
 Cliente $DIRDesarrolloHGE/$DirectorioCodigoFuente  $DirectorioVersion
 Servidor $DIRDesarrolloHGE/$DirectorioCodigoFuente $DirectorioVersion
->>>>>>> 6b065b5a3969ca4817d7f18dc9e1e7523459e675
 ArchivoInstalacion=$(printf "%s/%s.%s%s.tar.xz" $DirectorioInstalacion  $NombreArchivoSiscom $Procesador)
 echo $ArchivoInstalacion
 if [ -f $ArchivoInstalacion ]
