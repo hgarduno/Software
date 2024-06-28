@@ -33,15 +33,18 @@ QPagaConTransferencia::~QPagaConTransferencia()
 {
 
 }
-QPagaConTransferencia::EdoTransferencia QPagaConTransferencia::Aceptar()
+int QPagaConTransferencia::Aceptar()
 {
-   return lEdoTrans;
+ return  lEdoTrans == YaSeReflejo ||
+         lEdoTrans == NoSeReflejo;
 }
 void QPagaConTransferencia::ConectaSlots()
 {
 connect(QPBAceptar,SIGNAL(clicked()),SLOT(SlotAceptar()));
 connect(QLETelefono,SIGNAL(returnPressed()),SLOT(SlotFocoASeReflejo()));
-connect(QLETelefono,SIGNAL(textChanged(const QString &)),SLOT(SlotCapturandoTelefono(const QString &)));
+connect(QLETelefono,
+	SIGNAL(textChanged(const QString &)),
+	SLOT(SlotCapturandoTelefono(const QString &)));
 connect(QBGEdoTransferencia,SIGNAL(clicked(int)),SLOT(SlotEstadoTransferencia(int)));
 connect(QPBCancelar,SIGNAL(clicked()),SLOT(SlotCancelar()));
 }
@@ -59,19 +62,10 @@ void QPagaConTransferencia::SlotEstadoTransferencia(int pintEstado)
   zSiscomQt3::Foco(QPBAceptar);
   intYaFormaPago=1;
      if(pintEstado==0)
-     {
-     lEdoTrans=YaSeReflejo;
-     Orden()->FormaPago()->Transferencia()->YaSeReflejo("1");
-     }
+     YaSeReflejoTransferencia();
      else
      if(pintEstado==1)
-     {
-     Orden()->FormaPago()->Transferencia()->YaSeReflejo("0");
-     lEdoTrans=NoSeReflejo;
-     }
-
-     HabilitandoAceptar();
-     zSiscomQt3::Foco(QPBAceptar);
+     NoSeReflejoTransferencia();
 }
 void QPagaConTransferencia::SlotAceptar()
 {
@@ -82,6 +76,20 @@ void QPagaConTransferencia::SlotFocoASeReflejo()
 {
    Telefono();
    QRBSeReflejo->setFocus(); 
+}
+void QPagaConTransferencia::NoSeReflejoTransferencia()
+{
+     Orden()->FormaPago()->Transferencia()->YaSeReflejo("0");
+     lEdoTrans=NoSeReflejo;
+     HabilitandoAceptar();
+     zSiscomQt3::Foco(QPBAceptar);
+}
+void QPagaConTransferencia::YaSeReflejoTransferencia()
+{
+     Orden()->FormaPago()->Transferencia()->YaSeReflejo("1");
+     lEdoTrans=YaSeReflejo;
+     QPBAceptar->setEnabled(true);
+     zSiscomQt3::Foco(QPBAceptar);
 }
 void QPagaConTransferencia::IniciaVariables()
 {
