@@ -206,6 +206,11 @@ fi
 
 if [ $(OpcionesCompletasRegistroExpendio $*) == 1 ]
 then
-    RegistraBodegaMatriz $(ObtenIdBodega $*) $(ObtenNombre $*) $(ObtenBaseExpendio $*) 
-    RegistraBodegaEnElExpendio $(ObtenIdBodega $*) $(ObtenBaseExpendio $*) 
+    	RegistraBodegaMatriz $(ObtenIdBodega $*) $(ObtenNombre $*) $(ObtenBaseMatriz  $*) 
+      RegistrandoEnElExpendio 	$(ObtenUsuario $*) 		\
+      				$(ObtenDirIpExpendio $*) 	\
+     				$(ObtenIdBodega $*)		\
+      				$(ObtenNombre $*)		\
+     				$(ObtenBaseExpendio $*)
+
 fi
