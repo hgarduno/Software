@@ -48,6 +48,7 @@ private slots:
 	void SlotAceptar();
 	void SlotCancelar();
 	void SlotFocoASeReflejo();
+	void SlotFocoAAceptar();
 	void SlotEstadoTransferencia(int);
 	void SlotCapturandoTelefono(const QString &);
 };
