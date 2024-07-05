@@ -13,6 +13,8 @@
 #include <qlineedit.h>
 #include <qtable.h>
 #include <qpushbutton.h>
+
+
 QRastreoProducto *InstanciaRastreoProducto(void *pSisDatCom,
                  char **pchrPtrArgumentos,
                  void *pQWParent,
@@ -69,6 +71,7 @@ MuestraActualizoInventario();
 MuestraComprasProducto();
 MuestraTransferenciasBodegasExpendio();
 MuestraTransferenciasExpendioExpendio();
+MuestraTransferenciaBodegaBodega();
 SiscomDesarrollo3Qt::AjustaColumnas(QTDatos);
 SiscomDesarrollo3Qt::AjustaFilas(QTDatos);
 }
@@ -101,6 +104,10 @@ QTDatos->setCellWidget(5,0,new QTransferenciasBodegasExpendio(CQSRastreoProducto
 void QRastreoProducto::MuestraTransferenciasExpendioExpendio()
 {
 QTDatos->setCellWidget(5,1,new QTransferenciasExpendioExpendio(CQSRastreoProducto));
+}
+void QRastreoProducto::MuestraTransferenciaBodegaBodega()
+{
+QTDatos->setCellWidget(7,0,TransferenciaBodegaBodega());
 }
 void QRastreoProducto::MuestraActualizoInventario()
 {
@@ -135,7 +142,6 @@ SiscomDesarrollo3Qt::PasaFocoControl(QCtrFechaFin);
 }
 void QRastreoProducto::SlotProducto(SiscomRegistro3 *pSisReg3Producto)
 {
-SiscomContenidoRegistro3(pSisReg3Producto);
 SiscomEscribeLog3Qt("Iniciando El rastreo de:%s",
 		    (*pSisReg3Producto)["cveproducto"]);
 RastreaProducto(pSisReg3Producto);
@@ -153,6 +159,7 @@ QCtrProductos->IniciaControl();
 QCtrFechaIni->ColocaFechaHoy();
 QCtrFechaFin->ColocaFechaHoy();
 SiscomDesarrollo3Qt::PasaFocoControl(QCtrFechaIni);
+QTDatos->setNumRows(8);
 }
 
 void QRastreoProducto::closeEvent(QCloseEvent *)
@@ -205,6 +212,31 @@ SiscomDesarrollo3Qt::AjustaColumnas(lQTable);
 }
 return lQTable;
 }
+QTable *QRastreoProducto::TransferenciaBodegaBodega()
+{
+QTable *lQTable=new QTable(0,0,this);
+const char *lchrPtrCampos[]={"fecha",
+			"bodegaorigen",
+			"bodegadestino",
+			"cantidad",
+			"cveproducto",
+			0};
+lQTable->setNumCols(5);
+lQTable->horizontalHeader()->setLabel(0,"Fecha");
+lQTable->horizontalHeader()->setLabel(1,"Bodega Origen");
+lQTable->horizontalHeader()->setLabel(2,"Bodega Destino");
+lQTable->horizontalHeader()->setLabel(3,"Cantidad");
+lQTable->horizontalHeader()->setLabel(4,"Producto");
+if(!CQSRastreoProducto->EdoConsultaActualizoInventario())
+{
+SiscomRegistro3LstContenido(CQSRastreoProducto->TransferenciaBodegaBodega());
+SiscomDesarrollo3Qt::RegistrosALaTabla(lchrPtrCampos,
+				       lQTable,
+				       CQSRastreoProducto->TransferenciaBodegaBodega());
+SiscomDesarrollo3Qt::AjustaColumnas(lQTable);
+}
+return lQTable;
+}
 void QRastreoProducto::MuestraEncabezados()
 {
    QTDatos->setText(0,0,"Existencia Bodegas"); 
@@ -213,6 +245,7 @@ void QRastreoProducto::MuestraEncabezados()
    QTDatos->setText(2,1,"Actualizacion Inventario");
    QTDatos->setText(4,0,"Transferencias Bodega A Expendio");
    QTDatos->setText(4,1,"Transferencias Expendio A Expendio");
+   QTDatos->setText(6,0,"Transferencias Bodega A Bodega");
 
 
 }

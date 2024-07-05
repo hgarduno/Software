@@ -23,6 +23,7 @@ void ValidaTransferenciaBodegaExpendio(SArgsSiscom *pSAgsSiscom);
 void ValidaTransferenciaExpendioExpendio(SArgsSiscom *pSAgsSiscom);
 void ValidaTotalTransferenciaBodegaExpendio(SArgsSiscom *pSAgsSiscom);
 void ValidaTotalTransferenciaExpendioExpendio(SArgsSiscom *pSAgsSiscom);
+void ValidaTransferenciaBodegaBodega(SArgsSiscom *pSAgsSiscom);
 
 void ValidaActualizoInventario(SArgsSiscom *pSAgsSiscom);
 #endif

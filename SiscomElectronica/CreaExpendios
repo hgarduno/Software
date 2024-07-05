@@ -661,7 +661,7 @@ CreaScriptSqlRegistroExpendio()
 
 
 PuertoAD=$(expr "$5" + "1")
-cat << SqlInsertandoExpendio  | psql $1
+cat << SqlInsertandoExpendio  | psql $1 > /dev/null 2 > /dev/null 
 
 insert into empresas values('$3',-$4,'');
 insert into expendios values(-$4,$5,'$6','$2');
@@ -1071,7 +1071,7 @@ xzcat $DirectorioRespaldos/$1  |sed s/-1165857915/-$4/g  |psql $3 > /dev/null 2>
  
 ActualizaRegistrosExpendio()
 {
-cat << SqlActualizaExpendio | psql $1  > /dev/null
+cat << SqlActualizaExpendio | psql $1  > /dev/null 2> /dev/null
 
 update expendios set ptocomad = $2 where idempresa=$3;
 update expendios set basedatos = '$1' where idempresa=$3;
@@ -1158,7 +1158,7 @@ from empresas 							\
 where idempresa!=(select idempresa from matriz) and  		\
 	idempresa < 0 and 					\
 	idempresa = $2" 
-cat << SqlIdsExpendios | psql $1  > /dev/null
+cat << SqlIdsExpendios | psql $1  > /dev/null 2> /dev/null
 
 -- Ciudad de Mexico a 9 de agosto del 2023 
 -- al correr Deja solo empresa, no se eliminan todos los expendios
@@ -1338,7 +1338,7 @@ ActualizaRegistrosNuevoExpendio()
 ### $5 -> DirIpMatriz
 ### $6 -> Base Base
 PuertoAd4=$(expr "$4" + "1")
-cat << SQL |psql $1 > /dev/null
+cat << SQL |psql $1 > /dev/null 2> /dev/null 
 delete from existencias where idexpendio not in(select idempresa from expendios where basedatos='$6');
 delete from ordencliente where idventa in (select idventa from importeorden );
 delete from escuelaorden where idventa in( select idventa from importeorden );
@@ -1587,7 +1587,7 @@ InsertandoDatosDireccion()
 
 echo $* 
 
-cat << SQLDireccionAEscuela |psql $1 
+cat << SQLDireccionAEscuela |psql $1  >/dev/null 2>/dev/null
 
 insert into Direcciones values(0,$2,'$6','$7','$9',$4,'${10}','${11}','${12}');
 insert into Empresas values('$5',$3,'$3');

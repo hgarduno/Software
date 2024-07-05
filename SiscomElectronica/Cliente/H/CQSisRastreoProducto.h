@@ -21,6 +21,7 @@ public:
 	SiscomRegistro3Lst *TransferenciasBodegasExpendio();
 	SiscomRegistro3Lst *TransferenciasExpendioExpendio();
 	SiscomRegistro3Lst *ActualizoInventario();
+	SiscomRegistro3Lst *TransferenciaBodegaBodega();
 
 	const char *TotalVentas();
 	const char *TotalCompras();

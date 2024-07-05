@@ -9,6 +9,7 @@ int SqlExistenciaBodega4(SiscomOperaciones *pSisOpePtrDatos);
 int SqlActualizaExistenciaBodega4(SiscomOperaciones *pSisOpePtrDatos);
 
 int SqlActualizaBodegaOrigenDestino(SiscomOperaciones *pSisOpePtrDato);
+int SqlEnviandoSqlTransferenciasBodegaBodega(SiscomOperaciones *pSisOpePtrDatos);
 
 
 
@@ -25,4 +26,9 @@ void UpdateExistenciaBodegaDestino(SiscomOperaciones *pSisOpePtrDato,
 			          SiscomRegistroProL *pSisRegProLPtrDato,
 			          char *pchrPtrSql);
 
+void InsertToTransferenciaBodegaBodega(SiscomOperaciones *pSisOpePtrDato,
+				       SiscomRegistroProL *pSisRegProLPtrDato,
+				       char *pchrPtrSql);
+
+int SqlSentenciasMatriz(SiscomOperaciones *pSisOpePtrDatos);
 #endif

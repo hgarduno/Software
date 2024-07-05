@@ -13,6 +13,8 @@ void SqlTotalTransBodExp(SArgsSiscom *pSAgsSiscom);
 void SqlTransferenciasBodegasExpendio(SArgsSiscom *pSAgsSiscom);
 void SqlTotalTransExpExp(SArgsSiscom *pSAgsSiscom);
 
+void SqlTransferenciaBodegaBodega(SArgsSiscom *pSAgsSiscom);
+
 void SqlActualizoInventario(SArgsSiscom *pSAgsSiscom);
 
 #endif
