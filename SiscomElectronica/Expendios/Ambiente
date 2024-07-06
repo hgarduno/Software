@@ -44,7 +44,7 @@ CreaExpendios -RegistroExpendio  		\
 		-Expendio Expendio_100 		\
 		-IdExpendio 100 		\
 		-PuertoAdExpendio 6546 		\
-		-DirIp 127.0.0.1
+		-DirIpAdExpendio 127.0.0.1
 
 printf "Registrando Expendio_200\n"
 
@@ -54,7 +54,7 @@ CreaExpendios -RegistroExpendio  		\
 		-Expendio Expendio_200 		\
 		-IdExpendio 200 		\
 		-PuertoAdExpendio 7546 		\
-		-DirIp 127.0.0.1
+		-DirIpAdExpendio 127.0.0.1
 
 
 CosasQueFaltanExpendios 

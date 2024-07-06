@@ -1,8 +1,33 @@
 #include <SqlBodegas.h>
 #include <SiscomInsercionesSql.h>
+
+#include <SiscomDesarrollo4/H/SiscomFuncionesComunes.h>
 #include <Bodegas4.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <SiscomDesarrolloMacros.h>
+int SqlEnviandoSqlTransferenciasBodegaBodega(SiscomOperaciones *pSisOpePtrDatos)
+{
+char lchrArrBuffer[1024];
+ SiscomEnviaRegistrosAlServidorBD("SqlLocal",
+                                  lchrArrBuffer,
+                                  pSisOpePtrDatos);
+return 0;
+}
+int SqlSentenciasMatriz(SiscomOperaciones *pSisOpePtrDatos)
+{
+char lchrArrBuffer[256],
+	lchrArrSql[256];
+SiscomAgregaSentenciasSqlDelAsociado("SqlLocal",
+				     "Envio",
+				     lchrArrBuffer,
+				     lchrArrSql,
+				     pSisOpePtrDatos,
+				     InsertToTransferenciaBodegaBodega);
+
+return 0;
+}
 int SqlBodegasExpendios(SiscomOperaciones *pSisOpePtrDatos)
 {
 char lchrArrBuffer[512],
@@ -68,6 +93,8 @@ SiscomEnviaRegistrosBD(DatoBodegaExpendio("DirIp",pSisOpePtrDatos),
 return 0;
 }
 
+
+
 int SqlActualizaBodegaOrigenDestino(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[256],
@@ -103,6 +130,8 @@ SiscomEnviaRegistrosBD(ObtenDirIpExpendioBodegaD(pSisOpePtrDato),
 return 0;
 }
 
+
+
 void UpdateExistenciaBodega4(SiscomOperaciones *pSisOpePtrDato,
 			     SiscomRegistroProL *pSisRegProLPtrDato,
 			     char *pchrPtrSql)
@@ -137,4 +166,19 @@ sprintf(pchrPtrSql,
 	SiscomObtenCampoRegistroProLChar("Cantidad",pSisRegProLPtrDato),
 	ObtenIdBodegaD(pSisOpePtrDato),
 	SiscomObtenCampoRegistroProLChar("CveProducto",pSisRegProLPtrDato));
+}
+
+void InsertToTransferenciaBodegaBodega(SiscomOperaciones *pSisOpePtrDato,
+				       SiscomRegistroProL *pSisRegProLPtrDato,
+				       char *pchrPtrSql)
+{
+char lchrArrFechaHora[21];
+SiscomObtenFechaHoraActualAAAADDMM(lchrArrFechaHora);
+sprintf(pchrPtrSql,
+	"insert into TransferenciaBodegaBodega values('%s',%s,%s,'%s',%s);",
+	lchrArrFechaHora,
+	ObtenIdBodegaO(pSisOpePtrDato),
+	ObtenIdBodegaD(pSisOpePtrDato),
+	SiscomObtenCampoRegistroProLChar("CveProducto",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("Cantidad",pSisRegProLPtrDato));
 }

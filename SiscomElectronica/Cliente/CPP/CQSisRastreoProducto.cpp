@@ -9,9 +9,7 @@ CQSisRastreoProducto::CQSisRastreoProducto(SiscomRegistro3 *pSisReg3Expendio,
   Expendio(pSisReg3Expendio);
   Producto(pSisReg3Producto);
   SiscomAgregaRegistro(2,RangoRastreo(pchrPtrFechaIni,pchrPtrFechaFin));
-  /*
-  SiscomContenidoRegistro4Log(this);
-  */
+
 }
 SiscomRegistro3 *CQSisRastreoProducto::RangoRastreo(const char *pchrPtrFechaIni,
 						    const char *pchrPtrFechaFin)
@@ -65,6 +63,11 @@ SiscomRegistro3Lst *CQSisRastreoProducto::ActualizoInventario()
 {
 return SisReg4Rastreo->RegistrosSubGrupo(0,7);
 }
+SiscomRegistro3Lst *CQSisRastreoProducto::TransferenciaBodegaBodega()
+{
+return SisReg4Rastreo->RegistrosSubGrupo(0,8);
+}
+
 const char *CQSisRastreoProducto::TotalVentas()
 {
 return SisReg4Rastreo->CampoRegistroSubGrupo(0,0,0,"TotalVentas");
@@ -111,7 +114,12 @@ SiscomEnvia("RastreaProducto",
 	    pCQSRastreoProducto,
 	    lSisReg4Regreso);
 
-SiscomContenidoRegistro4Log(lSisReg4Regreso);
+SiscomRegistro3LstContenido(lSisReg4Regreso->RegistrosSubGrupo(0,3));
+SiscomRegistro3LstContenido(lSisReg4Regreso->RegistrosSubGrupo(0,4));
+SiscomRegistro3LstContenido(lSisReg4Regreso->RegistrosSubGrupo(0,5));
+SiscomRegistro3LstContenido(lSisReg4Regreso->RegistrosSubGrupo(0,6));
+SiscomRegistro3LstContenido(lSisReg4Regreso->RegistrosSubGrupo(0,7));
+SiscomRegistro3LstContenido(lSisReg4Regreso->RegistrosSubGrupo(0,8));
 
 pCQSRastreoProducto->first();
 lSisReg4Regreso->first();

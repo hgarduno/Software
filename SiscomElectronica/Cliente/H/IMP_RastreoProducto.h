@@ -34,8 +34,10 @@ private:
 	void MuestraTransferenciasBodegasExpendio();
 	void MuestraTransferenciasExpendioExpendio();
 	void MuestraActualizoInventario();
+	void MuestraTransferenciaBodegaBodega();
 	QTable *ExistenciaBodegas();
 	QTable *ActualizoInventario();
+	QTable *TransferenciaBodegaBodega();
 	void MuestraEncabezados();
 private slots:
 

@@ -235,3 +235,28 @@ if(SiscomConsultaBaseAsignaArgumento(
 		pSAgsSiscom))
 SiscomPonPrimerRegistroArgumento("SqlActualizoInventario",pSAgsSiscom);
 }
+
+void SqlTransferenciaBodegaBodega(SArgsSiscom *pSAgsSiscom)
+{
+char lchrArrSql[512];
+sprintf(lchrArrSql,
+	"select a.*,								\n\
+		b.bodega as BodegaOrigen,					\n\
+		c.bodega as BodegaDestino					\n\
+	from 	transferenciabodegabodega as a inner join			\n\
+        	bodegas as b on a.idbodegaorigen=b.idbodega   inner join	\n\
+        	bodegas as c on a.idbodegadestino=c.idbodega			\n\
+	where fecha::date>='%s' and						\n\
+        	fecha::date<='%s' and						\n\
+		cveproducto='%s';",
+	SiscomCampoSubRegistroArgs(1,"FechaIni",pSAgsSiscom),
+	SiscomCampoSubRegistroArgs(1,"FechaFin",pSAgsSiscom),
+	SiscomCampoSubRegistroArgs(0,"CveProducto",pSAgsSiscom));
+
+if(SiscomConsultaBaseAsignaArgumento(
+		"SqlTransferenciaBodegaBodega",
+		lchrArrSql,
+		pSAgsSiscom))
+SiscomPonPrimerRegistroArgumento("SqlTransferenciaBodegaBodega",pSAgsSiscom);
+
+}

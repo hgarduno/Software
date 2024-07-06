@@ -32,6 +32,9 @@ SiscomIniciaDatosOperacion(pintSocket,
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoBodegaOrigen,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoBodegaDestino,&lSiscomProDat);
+SiscomAgregaOperacion(ArgumentoSqlLocal,&lSiscomProDat);
+SiscomAgregaOperacion(SqlSentenciasMatriz,&lSiscomProDat);
+SiscomAgregaOperacion(SqlEnviandoSqlTransferenciasBodegaBodega,&lSiscomProDat);
 SiscomAgregaOperacion(SqlActualizaBodegaOrigenDestino,&lSiscomProDat);
 SiscomAgregaOperacion(TransfiriendoBodegaBodega,&lSiscomProDat);
 SiscomAgregaOperacion(0,&lSiscomProDat);
@@ -158,6 +161,18 @@ char lchrArrBuffer[128];
 LogSiscom("La Base de la bodega origen %s",
 	ObtenBaseBodegaO(pSisOpePtrDato));
 SiscomAgregaArgumentoInsercionSql("SqlBodegaO",
+				  ObtenBaseBodegaO(pSisOpePtrDato),
+				  0,
+				  lchrArrBuffer,
+				  pSisOpePtrDato);
+
+return 0;
+}
+
+int ArgumentoSqlLocal(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[128];
+SiscomAgregaArgumentoInsercionSql("SqlLocal",
 				  ObtenBaseBodegaO(pSisOpePtrDato),
 				  0,
 				  lchrArrBuffer,

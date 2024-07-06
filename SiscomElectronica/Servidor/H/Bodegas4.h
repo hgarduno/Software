@@ -29,6 +29,7 @@ int ArgumentoActualizaExistencia(SiscomOperaciones *pSisOpePtrDato);
 
 int ArgumentoBodegaOrigen(SiscomOperaciones *pSisOpePtrDatos);
 int ArgumentoBodegaDestino(SiscomOperaciones *pSisOpePtrDatos);
+int ArgumentoSqlLocal(SiscomOperaciones *pSisOpePtrDato);
 
 
 

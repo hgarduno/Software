@@ -129,6 +129,7 @@ void QtTransfiereBodegaBodega::Transfiriendo()
    FormaBodegaBodega();
    Transfiere();
    zSiscomQt3::Foco(QCtrProductos);
+   QPBTransfiere->setEnabled(false);
 }
 void QtTransfiereBodegaBodega::Transfiere()
 {

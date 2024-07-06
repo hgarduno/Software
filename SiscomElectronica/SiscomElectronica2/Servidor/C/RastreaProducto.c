@@ -16,6 +16,7 @@ SiscomAnexaOperacionAlArreglo2(SqlVentasProductoAnterior,lSOpOperaciones);
 SiscomAnexaOperacionAlArreglo2(SqlComprasProductoAnterior,lSOpOperaciones);
 SiscomAnexaOperacionAlArreglo2(SqlTransferenciasExpendioExpendio,lSOpOperaciones);
 SiscomAnexaOperacionAlArreglo2(SqlTransferenciasBodegasExpendio,lSOpOperaciones);
+SiscomAnexaOperacionAlArreglo2(SqlTransferenciaBodegaBodega,lSOpOperaciones);
 SiscomAnexaOperacionAlArreglo2(SqlTotalVentasAnterior,lSOpOperaciones);
 SiscomAnexaOperacionAlArreglo2(SqlTotalComprasAnterior,lSOpOperaciones);
 SiscomAnexaOperacionAlArreglo2(SqlTotalTransBodExp,lSOpOperaciones);
@@ -27,18 +28,31 @@ SiscomAnexaOperacionAlArreglo2(RastreaProducto,lSOpOperaciones);
 return lSOpOperaciones;
 }
 
-
 void RastreaProducto(SArgsSiscom *pSAgsSiscom)
 {
-SiscomContenidoSubRegistrosLog(pSAgsSiscom->LCSiscomPro2SREntrada);
 /*
-SiscomImprimeArgumento("SqlExistencia",pSAgsSiscom);
-SiscomImprimeArgumento("SqlExBodegas",pSAgsSiscom);
-SiscomImprimeArgumento("SqlVentas",pSAgsSiscom);
-SiscomImprimeArgumento("SqlTransBodegaExpendio",pSAgsSiscom);
-SiscomImprimeArgumento("SqlTransExpendioExpendio",pSAgsSiscom);
-SiscomImprimeArgumento("SqlActualizoInventario",pSAgsSiscom);
+SiscomContenidoSubRegistrosLog(pSAgsSiscom->LCSiscomPro2SREntrada);
+
 */
+
+SiscomLog("SqlExistencia");
+SiscomImprimeArgumento("SqlExistencia",pSAgsSiscom);
+SiscomLog("SqlExBodegas");
+SiscomImprimeArgumento("SqlExBodegas",pSAgsSiscom);
+SiscomLog("SqlVentas");
+SiscomImprimeArgumento("SqlVentas",pSAgsSiscom);
+SiscomLog("SqlCompras");
+SiscomImprimeArgumento("SqlCompras",pSAgsSiscom);
+SiscomLog("SqlTransBodegaExpendio");
+SiscomImprimeArgumento("SqlTransBodegaExpendio",pSAgsSiscom);
+SiscomLog("SqlTransExpendioExpendio");
+SiscomImprimeArgumento("SqlTransExpendioExpendio",pSAgsSiscom);
+SiscomLog("SqlActualizoInventario");
+SiscomImprimeArgumento("SqlActualizoInventario",pSAgsSiscom);
+SiscomLog("SqlTransferenciaBodegaBodega");
+SiscomImprimeArgumento("SqlTransferenciaBodegaBodega",pSAgsSiscom);
+
+
 
 SiscomSumaListas(pSAgsSiscom->LCSiscomPro2Regreso,
 		  SiscomArgumentoOperacionPrim("SqlExistencia",pSAgsSiscom));
@@ -54,22 +68,21 @@ SiscomSumaListas(pSAgsSiscom->LCSiscomPro2Regreso,
 		 SiscomArgumentoOperacionPrim("SqlTransExpendioExpendio",pSAgsSiscom));
 SiscomSumaListas(pSAgsSiscom->LCSiscomPro2Regreso,
 		 SiscomArgumentoOperacionPrim("SqlActualizoInventario",pSAgsSiscom));
-
+SiscomSumaListas(pSAgsSiscom->LCSiscomPro2Regreso,
+		 SiscomArgumentoOperacionPrim("SqlTransferenciaBodegaBodega",pSAgsSiscom));
 pSAgsSiscom->intNumRegRegreso=
-	SiscomArgumentosNumeroRegistros("SqlExistencia",pSAgsSiscom)		+
-	SiscomArgumentosNumeroRegistros("SqlExBodegas",pSAgsSiscom)		+
-	SiscomArgumentosNumeroRegistros("SqlVentas",pSAgsSiscom)		+
-	SiscomArgumentosNumeroRegistros("SqlCompras",pSAgsSiscom)		+
-	SiscomArgumentosNumeroRegistros("SqlTransBodegaExpendio",pSAgsSiscom)	+
-	SiscomArgumentosNumeroRegistros("SqlTransExpendioExpendio",pSAgsSiscom)	+
-	SiscomArgumentosNumeroRegistros("SqlActualizoInventario",pSAgsSiscom)	+
+	SiscomArgumentosNumeroRegistros("SqlExistencia",pSAgsSiscom)			+
+	SiscomArgumentosNumeroRegistros("SqlExBodegas",pSAgsSiscom)			+
+	SiscomArgumentosNumeroRegistros("SqlVentas",pSAgsSiscom)			+
+	SiscomArgumentosNumeroRegistros("SqlCompras",pSAgsSiscom)			+
+	SiscomArgumentosNumeroRegistros("SqlTransBodegaExpendio",pSAgsSiscom)		+
+	SiscomArgumentosNumeroRegistros("SqlTransExpendioExpendio",pSAgsSiscom)		+
+	SiscomArgumentosNumeroRegistros("SqlActualizoInventario",pSAgsSiscom)		+
+	SiscomArgumentosNumeroRegistros("SqlTransferenciaBodegaBodega",pSAgsSiscom)	+
 	2;
 SiscomLog("Ahora se envia");
 if(pSAgsSiscom->LCSiscomPro2Regreso)
-{
 SiscomEnviaRegreso(pSAgsSiscom);
-/*SiscomContenidoProtocolo(pSAgsSiscom->LCSiscomPro2Regreso);*/
-}
 else
 SiscomLog("Noooooooooo, NULO");
 }
@@ -90,7 +103,7 @@ SiscomAnexaRegistroRegreso(
 }
 void ArgumentosRastreaProducto(SArgsSiscom *pSAgsSiscom)
 {
-SiscomAsignaMemoriaArgumentosOperaciones(12,pSAgsSiscom);
+SiscomAsignaMemoriaArgumentosOperaciones(13,pSAgsSiscom);
 SiscomIniciaMemoriaArgumentoOperacion(0,"SqlExistencia",pSAgsSiscom);
 SiscomIniciaMemoriaArgumentoOperacion(1,"SqlExBodegas",pSAgsSiscom);
 SiscomIniciaMemoriaArgumentoOperacion(2,"SqlVentas",pSAgsSiscom);
@@ -102,6 +115,7 @@ SiscomIniciaMemoriaArgumentoOperacion(7,"SqlTotalCompras",pSAgsSiscom);
 SiscomIniciaMemoriaArgumentoOperacion(8,"SqlTotalTransBodExp",pSAgsSiscom);
 SiscomIniciaMemoriaArgumentoOperacion(9,"SqlTotalTransExpExp",pSAgsSiscom);
 SiscomIniciaMemoriaArgumentoOperacion(10,"SqlActualizoInventario",pSAgsSiscom);
+SiscomIniciaMemoriaArgumentoOperacion(11,"SqlTransferenciaBodegaBodega",pSAgsSiscom);
 }
 LCamposSiscomPro2 *ValidaConsultaVacia(const char *pchrPtrArgumento,
 				       SArgsSiscom *pSAgsSiscom)
@@ -168,6 +182,7 @@ void AgregaRegistrosVacios(SArgsSiscom *pSAgsSiscom)
 	ValidaTotalTransferenciaBodegaExpendio(pSAgsSiscom);
 	ValidaTotalTransferenciaExpendioExpendio(pSAgsSiscom);
 	ValidaActualizoInventario(pSAgsSiscom);
+	ValidaTransferenciaBodegaBodega(pSAgsSiscom);
 }
 void ValidaExistenciaParaRastreo(SArgsSiscom *pSAgsSiscom)
 {
@@ -293,7 +308,9 @@ if(!(SiscomArgumentoOperacionPrim("SqlCompras",pSAgsSiscom)))
 		 numfactura,	\
 		 precio,	\
 		 preciosiniva,	\
-		 idcompra",
+		 idcompra,	\
+		 razonsocial,",
+		 "",
 		 "",
 		 "",
 		 "",
@@ -333,7 +350,9 @@ if(!(SiscomArgumentoOperacionPrim("SqlTransBodegaExpendio",pSAgsSiscom)))
 		 fecha,	\
 		 idempleado,	\
 		 cantidad,	\
-		 cveproducto",
+		 cveproducto,	\
+		 razonsocial,",
+		 "",
 		 "",
 		 "",
 		 "",
@@ -352,6 +371,43 @@ if(!(SiscomArgumentoOperacionPrim("SqlTransBodegaExpendio",pSAgsSiscom)))
 
 
 }
+void ValidaTransferenciaBodegaBodega(SArgsSiscom *pSAgsSiscom)
+{
+LCamposSiscomPro2 *lLCSiscomPro2RegPrim=0;
+LCamposSiscomPro2 *lLCSiscomPro2RegAct=0;
+int lintNRegRegreso=0;
+if(!(SiscomArgumentoOperacionPrim("SqlTransferenciaBodegaBodega",pSAgsSiscom)))
+{
+     SiscomAnexaRegistroPro2(
+     		&lLCSiscomPro2RegPrim,
+		&lLCSiscomPro2RegAct,
+		&lintNRegRegreso,
+		"fecha,			\
+		 idbodegaorigen,	\
+		 idbodegadestino,	\
+		 cveproducto,		\
+		 cantidad,		\
+		 bodegaorigen,		\
+		 bodegadestino,		\
+		 ",
+		 "",
+		 "",
+		 "",
+		 "",
+		 "",
+		 "",
+		 "");
+    SiscomAsignaInformacionArgumento("SqlTransferenciaBodegaBodega",
+    				     pSAgsSiscom,
+     				    lLCSiscomPro2RegPrim,
+				    lLCSiscomPro2RegAct,
+				    lintNRegRegreso);
+				     
+}
+
+
+}
+
 void ValidaTransferenciaExpendioExpendio(SArgsSiscom *pSAgsSiscom)
 {
 LCamposSiscomPro2 *lLCSiscomPro2RegPrim=0;
@@ -364,8 +420,8 @@ if(!(SiscomArgumentoOperacionPrim("SqlTransExpendioExpendio",pSAgsSiscom)))
 		&lLCSiscomPro2RegAct,
 		&lintNRegRegreso,
 		"fechahora,	\
-		 idempresaorigen,	\
-		 idempresadestino,	\
+		 destino,	\
+		 origen,	\
 		 cveproducto,	\
 		 cantidad,	\
 		 idempleado,	\
@@ -486,7 +542,7 @@ void ValidaActualizoInventario(SArgsSiscom *pSAgsSiscom)
 LCamposSiscomPro2 *lLCSiscomPro2RegPrim=0;
 LCamposSiscomPro2 *lLCSiscomPro2RegAct=0;
 int lintNRegRegreso=0;
-if(!(SiscomArgumentoOperacionPrim("SqlExistencia",pSAgsSiscom)))
+if(!(SiscomArgumentoOperacionPrim("SqlActualizoInventario",pSAgsSiscom)))
 {
      SiscomAnexaRegistroPro2(
      		&lLCSiscomPro2RegPrim,
@@ -506,7 +562,7 @@ if(!(SiscomArgumentoOperacionPrim("SqlExistencia",pSAgsSiscom)))
 		 "",
 		 "",
 		 "");
-    SiscomAsignaInformacionArgumento("SqlExistencia",
+    SiscomAsignaInformacionArgumento("SqlActualizoInventario",
     				     pSAgsSiscom,
      				    lLCSiscomPro2RegPrim,
 				    lLCSiscomPro2RegAct,
