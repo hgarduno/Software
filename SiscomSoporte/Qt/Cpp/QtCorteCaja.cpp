@@ -33,6 +33,7 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
  EncabezadosGastos(pintFila,pintColumna); 
  EncabezadoPagoTarjeta(pintFila,pintColumna);
  EncabezadoImporteGastos(pintFila,pintColumna);
+ EncabezadoTransferencias(pintFila,pintColumna);
  EncabezadoVentasEfectivo(pintFila,pintColumna);
  FormandoCajaCorte(pintFila,pintColumna);
  FormandoEncabezadosCorte();
@@ -42,14 +43,15 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
 void QtCorteCaja::FormandoCajaCorte(int pintFila,int pintColumna)
 {
  (*zCajasExp) 							<< 
- FormaCajaDinero(pintFila,pintColumna,"Caja")			<<
- FormaCajaDinero(pintFila,pintColumna+4,"Dinero A Caja");
+ FormaCajaDinero(pintFila,pintColumna,"Caja","Principal")	<<
+ FormaCajaDinero(pintFila,pintColumna+4,"Cambio en la caja","Cambio");
 }
 zCaja *QtCorteCaja::FormaCajaDinero(int pintFila,
 				    int pintColumna,
-				   const char *pchrPtrCaja)
+				   const char *pchrPtrCaja,
+				   const char *pchrPtrNombre)
 {
-zCaja *lzCaja=new zCaja(pchrPtrCaja);
+zCaja *lzCaja=new zCaja(pchrPtrCaja,pchrPtrNombre);
 CeldaColor(pintFila,pintColumna+1,"gray",pchrPtrCaja);
 EncabezadosDinero(pintFila,pintColumna,lzCaja);
 LlenaCeldasDinero(pintFila,pintColumna,lzCaja);
@@ -206,14 +208,26 @@ CeldaColor(pintFila+17,pintColumna+1,"white","0.00");
 zCajasExp->EncabezadosImporteGastos(lzEncaSImGasto);
 }
 
+
+
 void QtCorteCaja::EncabezadoVentasEfectivo(int pintFila,int pintColumna)
 {
 zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
 (*lzEncaVenEfec) 							<< 
-new zEncabezadoCaja(pintFila+18,pintColumna,0,"gray","Ventas efectivo") <<
+new zEncabezadoCaja(pintFila+19,pintColumna,0,"white","Importe total que se recibio en caja") <<
+new zEncabezadoCaja(pintFila+19,pintColumna+1,0,"white","0.00");
+zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
+}
+
+void QtCorteCaja::EncabezadoTransferencias(int pintFila,int pintColumna)
+{
+zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
+(*lzEncaVenEfec) 							<< 
+new zEncabezadoCaja(pintFila+18,pintColumna,0,"gray","Transferencias") <<
 new zEncabezadoCaja(pintFila+18,pintColumna+1,0,"gray","0.00");
 zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
 }
+
 void QtCorteCaja::FormandoEncabezadosCorte()
 {
 zEncabezadoCaja *lzEncaCorte;
@@ -249,6 +263,7 @@ zCeldaImporteGastos *QtCorteCaja::CeldaImporteGastos()
   return zCelImGastos;
 }
 void QtCorteCaja::MuestraGastos(zCaja *pzCaja)
+
 {
 zGasto *lzGasto;
 const char *lchrPtrColores[]={"gray","white"};
@@ -259,4 +274,13 @@ for(lzGasto=(zGasto *)pzCaja->Gastos()->Primer(),
     lzGasto=(zGasto *)pzCaja->Gastos()->Siguiente(),
     lintContador++)
    FormaRegistroGasto(lchrPtrColores[lintContador%2],lzGasto);
+}
+void QtCorteCaja::ActualizaCantidadesCambio(zDenominaciones *pzDenominaciones)
+{
+  Cajas()->CajaPorNombre("Cambio")->Dinero()->ActualizaCantidades(pzDenominaciones);
+  Cajas()->CajaPorNombre("Cambio")->Dinero()->ActualizaImportes(pzDenominaciones);
+}
+void QtCorteCaja::ActualizaTotalCajaCambio(const char *pchrPtrTotalCajaCambio)
+{
+  Cajas()->CajaPorNombre("Cambio")->Total(pchrPtrTotalCajaCambio);
 }

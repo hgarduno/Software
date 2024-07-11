@@ -5,6 +5,8 @@
 
 #include <zCaja.h>
 
+#include <string.h>
+
 
 #include <zSiscomDesarrollo4.h>
 zCajas::zCajas()
@@ -63,5 +65,16 @@ void zCajas::EncabezadosVentasEfectivo(zEncabezadosCaja *pzEncaSVenEfe)
 zEncabezadosCaja *zCajas::EncabezadosCorte()
 {
    return zEncaSCorte;
+}
+zCaja *zCajas::CajaPorNombre(const char *pchrPtrNombre)
+{
+ zCaja *lzCaja;
+for(lzCaja=(zCaja *)Primer();lzCaja;lzCaja=(zCaja *)Siguiente())
+if(!strcmp(lzCaja->Nombre(),pchrPtrNombre))
+return lzCaja;
+
+
+return 0;
+   
 }
 	

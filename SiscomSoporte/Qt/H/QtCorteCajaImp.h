@@ -29,6 +29,7 @@ private:
 	void ActualizaTotalGastos();
 
 	void ActualizaGui();
+
 private:
 	zDenominacion *zDenoD;
 	

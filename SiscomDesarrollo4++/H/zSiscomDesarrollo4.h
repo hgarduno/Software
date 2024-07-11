@@ -6,6 +6,8 @@ typedef void (*zSiscomAnalizaArgumentos)(int pintArgc,
 					 char **pchrPtrArgv,
 					 int *pintPtrPuerto,
 					 char *pchrPtrDirIp);
+
+class zSiscomConexion;
 class zSiscomDesarrollo4
 {
 public:
@@ -38,6 +40,16 @@ public:
 			      char *pchrPtrBufferLinea,
 			      char *pchrPtrArchivo);
 	static void CadenaHastaDelimitador(const char *,char ,char *);
+	/* Ciudad de Mexico  
+	 * Miercoles 10 de Julio 2024 
+	 * Objetivo, de este periodo de programacion , agregar la 
+	 * funcionalidad al sistema que me de el control del dinero que 
+	 * entra a cada expendio
+	 *
+	 * Se ocupa y se ocupa la conexion global en todos Lados :)
+	 */
+
+	static zSiscomConexion *Conexion();
 				
 	
 

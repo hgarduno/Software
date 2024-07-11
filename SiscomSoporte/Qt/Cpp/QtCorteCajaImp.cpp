@@ -71,7 +71,10 @@ zDenominacion *lzDeno;
 for(lzDeno=(zDenominacion *)pzDenoS->Primer();
     lzDeno;
     lzDeno=(zDenominacion *)pzDenoS->Siguiente())
+{
+setText(lzDeno->Fila(),lzDeno->Columna()+1,lzDeno->Cantidad());
 setText(lzDeno->Fila(),lzDeno->Columna()+2,lzDeno->Importe());
+}
 }
 void QtCorteCajaImp::ActualizaTotalGui(zCaja *pzCaja)
 {

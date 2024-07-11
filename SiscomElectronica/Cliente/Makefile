@@ -414,7 +414,8 @@ Pantallas_SiscomElectronica2009=VentasPorCaja 				\
 				InventarioBodega4			\
 				TransfiereBodegaBodega			\
 				ComoPago				\
-				PagaConTransferencia
+				PagaConTransferencia			\
+				CambioEnCaja
 
 
 #}}}
@@ -556,6 +557,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zProductosImportados.o						\
 	O/zProductoSiscom.o							\
 	O/zCompraProductoSiscom.o						\
+	O/zCambioCaja.o								\
 	O/zPrecios.o								\
 	O/zProductoPrecio.o							\
 	O/zPreciosExpendio.o							\
@@ -568,6 +570,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zCotizacionesImportacion.o						\
 	O/zProductoCotImp.o							\
 	O/zProductosCotImp.o							\
+	O/zConCuantoPago.o							\
 	O/zDirecciones.o							\
 	O/zComprasImportacion.o							\
 	O/zDevolucion.o								\
@@ -610,6 +613,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zFormaPagoTransferencia.o						\
 	O/zFormaPagoTarjeta.o							\
 	O/zFormaPago.o								\
+	O/zCambiosCaja.o							\
 	O/zClientesSiscom.o							\
 	O/MOC_QtClientePedido.o							\
 	O/MOC_QtPuntosEntrega.o							\

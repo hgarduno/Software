@@ -111,6 +111,15 @@ public:
 	 *
 	 */
 	static zOrdenVenta *OrdenPorId(zSiscomRegistro *);
+
+	/* CDMX 
+	 * Sabado 6 de Julio del 2024 
+	 * Con el objetivo de tener control sobre el dinero que entra a la caja
+	 * se incorpora en el pago con efectivo, el campo con cuanto paga 
+	 */
+
+	const char *ConCuantoPaga();
+	void ConCuantoPaga(const char *);
 private:
 	void ActualizaDatosProductos(zSiscomRegistros *pzSisRegsProdsRespuesta);
 	void ActualizaProducto(zSiscomRegistro *pzSisRegProducto);

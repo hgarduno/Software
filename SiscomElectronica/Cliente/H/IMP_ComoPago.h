@@ -4,6 +4,8 @@
 
 class zOrdenVenta;
 class zFormaPago;
+class zSiscomConexion;
+class zConCuantoPago;
 class QComoPago:public ComoPago
 {
  Q_OBJECT
@@ -28,15 +30,23 @@ public:
 private:
 	zOrdenVenta *zOVenta;
 	FormaDePago FrmPago;
+	zConCuantoPago *zConCPago;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
 	void reject();
 	void Pagando(FormaDePago );
 	zFormaPago *FormaPago();
+	void PagandoEfectivo();
+	int VerificandoConCuantoPago();
+	void VerificoConCuantoPago();
+	zSiscomConexion *Conexion();
+	zConCuantoPago *ConCuantoPago();
 private slots:
 	void SlotAceptar();
 	void SlotComoPago(int);
 	void SlotCancelar();
+	void SlotFocoAAceptar();
+	void SlotCapturandoConCuantoPaga(const QString &);
 };
 #endif

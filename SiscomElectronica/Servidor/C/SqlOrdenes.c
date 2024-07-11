@@ -11,6 +11,21 @@
 #include <SiscomDesarrollo4/H/SiscomFuncionesComunes.h>
 #include <stdio.h>
 #include <string.h>
+
+int SqlPagaConEfectivo(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256],
+     lchrArrSql[256];
+SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+				     "Envio",
+				     lchrArrBuffer,
+				     lchrArrSql,
+				     pSiscomOpePtrDato,
+				     InsertToPagaCon);
+return 0;
+}
+
+
 int SqlFormaPagoTransferencia(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],
@@ -25,7 +40,8 @@ return 0;
 }
 int SqlRegistraOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
-char lchrArrBuffer[256];
+char lchrArrBuffer[512];
+SiscomAsociadosArgumentoLog("SqlOrden","SentenciasSql",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomEnviaRegistrosAlServidorBD("SqlOrden",
 			       lchrArrBuffer,
 			       pSiscomOpePtrDato);
@@ -541,7 +557,7 @@ float lfltCantidad;
 lfltCantidad=SiscomObtenCampoRegistroProLFloat("Cantidad",pSiscomRegProLPtrDato)*
 	     SiscomCampoAsociadoEntradaOperacionFloat("Envio","Juegos",pSiscomOpePtrDato); 
 sprintf(pchrPtrSql,
-	"update existencias set Existencia=Existencia-%f where cveProducto='%s' and idExpendio=%s",
+	"update existencias set Existencia=Existencia-%f where cveProducto='%s' and idExpendio=%s;",
 	lfltCantidad,
 	SiscomObtenCampoRegistroProLChar("Clave",pSiscomRegProLPtrDato),
 	SiscomCampoAsociadoEntradaOperacion("Envio","IdExpendio",pSiscomOpePtrDato));
@@ -555,7 +571,7 @@ float lfltCantidad;
 lfltCantidad=SiscomObtenCampoRegistroProLFloat("cantidad",pSiscomRegProLPtrDato)*
 	     SiscomCampoAsociadoEntradaOperacionFloat("Envio","Juegos",pSiscomOpePtrDato); 
 sprintf(pchrPtrSql,
-	"update existencias set Existencia=Existencia-%f where cveProducto='%s' and idExpendio=%s",
+	"update existencias set Existencia=Existencia-%f where cveProducto='%s' and idExpendio=%s;",
 	lfltCantidad,
 	SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato),
 	SiscomCampoAsociadoEntradaOperacion("Envio","IdExpendio",pSiscomOpePtrDato));
@@ -798,6 +814,17 @@ SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","FormaPago","Telefono",pSisO
 InformacionTransferenciaSeReflejo(pSisOpePtrDato),
 lchrPtrPaso);
 }
+
+void InsertToPagaCon(SiscomOperaciones *pSisOpePtrDato,
+				SiscomRegistroProL *pSisRegProLPtrDato,
+				char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+"insert into PagaCon values(%s,%s);",
+SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("ConCuantoPaga",pSisRegProLPtrDato));
+}
+
 
 int SeAgreganImportes(SiscomOperaciones *pSiscomOpePtrDato)
 {

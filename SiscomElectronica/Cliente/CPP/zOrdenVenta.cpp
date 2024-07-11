@@ -85,7 +85,8 @@ new zSiscomCampo("MaterialAAreaDiseno")					<<
 new zSiscomCampo("DonacionMaterial")					<<
 new zSiscomCampo("SeImprimeTicket",(const unsigned char *)"1")		<<
 new zSiscomCampo("Fecha")						<<
-new zSiscomCampo("Expendio");
+new zSiscomCampo("Expendio")						<<
+new zSiscomCampo("ConCuantoPaga");
 }
 zOrdenVenta::zOrdenVenta()
 {
@@ -111,7 +112,8 @@ new zSiscomCampo("MaterialAAreaDiseno")					<<
 new zSiscomCampo("DonacionMaterial")    				<<
 new zSiscomCampo("SeImprimeTicket",(const unsigned char *)"1")		<<
 new zSiscomCampo("Fecha")						<<
-new zSiscomCampo("Expendio");
+new zSiscomCampo("Expendio")						<<
+new zSiscomCampo("ConCuantoPaga");
 }
 zOrdenVenta::zOrdenVenta(zSiscomRegistro *pzSisRegOrdenVenta)
 {
@@ -137,7 +139,8 @@ new zSiscomCampo("MaterialAAreaDiseno")					<<
 new zSiscomCampo("DonacionMaterial")					<<
 new zSiscomCampo("SeImprimeTicket",(const unsigned char *)"1")		<<
 new zSiscomCampo("Fecha",(*pzSisRegOrdenVenta)["fechahora"])		<<
-new zSiscomCampo("Expendio");
+new zSiscomCampo("Expendio")						<<
+new zSiscomCampo("ConCuantoPaga");
 AsignaOrdenConsultada(pzSisRegOrdenVenta);
 AsignaProductos(pzSisRegOrdenVenta->AsociadosDelCampo("Productos"));
 if(pzSisRegOrdenVenta->AsociadoDelCampo("Cliente"))
@@ -171,7 +174,8 @@ new zSiscomCampo("MaterialAAreaDiseno")							<<
 new zSiscomCampo("DonacionMaterial")							<<
 new zSiscomCampo("SeImprimeTicket",(const unsigned char *)"1")				<<
 new zSiscomCampo("Fecha")								<<
-new zSiscomCampo("Expendio");
+new zSiscomCampo("Expendio")								<<
+new zSiscomCampo("ConCuantoPaga");
 }
 zOrdenVenta::~zOrdenVenta()
 {
@@ -687,6 +691,12 @@ lzOrdenVenta->Cotizacion(new zCotizacion(pzSisRegRespuesta->AsociadoDelCampo("Co
 
 
 return lzOrdenVenta;
-
-
+}
+const char *zOrdenVenta::ConCuantoPaga()
+{
+ return (const char *)(*this)["ConCuantoPaga"];
+}
+void zOrdenVenta::ConCuantoPaga(const char *pchrPtrConCuantoPaga)
+{
+    ActualizaCampo("ConCuantoPaga",(const unsigned char *)pchrPtrConCuantoPaga);
 }

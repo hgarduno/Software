@@ -2,7 +2,8 @@
 CONFIG+=thread debug
 QMAKE=$(QTDIR)/bin/qmake
 CONFIG+=thread
-INCLUDEPATH=H
+INCLUDEPATH=H $(DIRDesarrolloHGE)/SiscomComunicaciones++/H
+	
 
 
 SOURCES=CPP/zSiscomDesarrollo4.cpp 		\

@@ -14,6 +14,7 @@ public:
 	void Actualiza(zSiscomRegistros *pzSisRegsCajas);
 	zCaja *Caja(zCaja *,zSiscomRegistros *);
 	zCaja *Principal();
+	zCaja *CajaPorNombre(const char *pchrPtrNombre);
 	void EncabezadosGastos(zEncabezadosCaja *);
 	void EncabezadosPagoTarjeta(zEncabezadosCaja *);
 	void EncabezadosImporteGastos(zEncabezadosCaja *);

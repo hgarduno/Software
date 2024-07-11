@@ -14,6 +14,8 @@ public:
 		      const char *pchrPtrImporte,
 		      const char *pchrPtrColor);
 
+	zDenominacion(zSiscomRegistro *);
+
 	int Fila();
 	int Columna();
 

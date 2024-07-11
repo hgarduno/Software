@@ -1,6 +1,7 @@
 #ifndef __SQLORDENES_H__
 #define __SQLORDENES_H__
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
+int SqlPagaConEfectivo(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlFormaPagoTransferencia(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlRegistraOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlImporteOrden(SiscomOperaciones *pSiscomOpePtrDato);
@@ -123,6 +124,10 @@ void DeleteVentasModificando(SiscomOperaciones *pSiscomOpePtrDato,
 
 
 void InsertToPagoTransferencia(SiscomOperaciones *pSisOpePtrDato,
+				SiscomRegistroProL *pSisRegProLPtrDato,
+				char *pchrPtrSql);
+
+void InsertToPagaCon(SiscomOperaciones *pSisOpePtrDato,
 				SiscomRegistroProL *pSisRegProLPtrDato,
 				char *pchrPtrSql);
 int SeAgreganImportes(SiscomOperaciones *pSiscomOpePtrDato);

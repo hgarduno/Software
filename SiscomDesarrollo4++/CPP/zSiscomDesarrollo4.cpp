@@ -1,10 +1,15 @@
 #include <zSiscomDesarrollo4.h>
 #include <zSiscomFechaHora.h>
+#include <zSiscomConexion.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 
 
+zSiscomConexion *zSiscomDesarrollo4::Conexion()
+{
+  return (zSiscomConexion *)gzSiscomConexion;
+}
 void zSiscomDesarrollo4::LiberaCadenas(char **pchrPtrCadenas)
 {
 char **lchrPtrPaso=pchrPtrCadenas;

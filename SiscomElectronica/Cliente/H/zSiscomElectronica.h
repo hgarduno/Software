@@ -59,6 +59,9 @@ class zExistenciaBodega;
 class zBodega;
 class zTransfiereBodegaBodega;
 class zClientesSiscom;
+class zConCuantoPago;
+class zCambiosCaja;
+class zCambioCaja;
 
 class zSiscomElectronica:public zSiscomOperaciones 
 {
@@ -267,6 +270,7 @@ public:
 	int ConsultaOrdenesFavoritas(zOrdenesFavoritas *);
 	int EliminaOrdenesFavoritas(zOrdenesFavoritas *);
 	int CalculaCorteCaja(zCajas *);
+	int RegistraCambioCaja(zCajas *);
 
 	int CalculaCambioPago(const char *pchrPtrPago,
 			      const char *pchrPtrImporte,
@@ -289,6 +293,10 @@ public:
 	int ActualizaExistenciaBodega(zExistenciaBodega *);
 	int TransfiereBodegaBodega(zTransfiereBodegaBodega *pzTransfiereBB);
 	int SeReflejoTransferencia(const char *pchrPtrEdo,const char *pchrPtrIdVenta);
+
+	int VerificaConCuantoPago(zConCuantoPago *);
+	int CambiosCaja(zCambiosCaja *);
+	int CambioCaja(zCambioCaja *);
 private:
 	void CambiaNoJuegos(zOrdenVenta *);
 	void NoSePuedeVenderPorNoTenerPrecio(zOrdenVenta *);
@@ -317,6 +325,7 @@ private:
 	zProductoImportado *FormaProductoImportado(zSiscomRegistro *);
 
 	int ObtenProductosSiscomProveedor(zProductosImportados *);
+	int CambiosEnCaja(zCambiosCaja *);
 private:
 	void (zSiscomElectronica::*ErrorCambioDatosOrdenVenta[4])(zOrdenVenta *);
 	void (zSiscomElectronica::*DatosTipoOrden[15])(zSiscomRegistro *,zOrdenVenta *);

@@ -9,16 +9,18 @@ class zGasto;
 class zDenominaciones;
 class zEncabezadosCaja;
 class zGastos;
-
+class zDenominacion;
 class zCaja:public zSiscomRegistro
 {
 public:
-	zCaja(const char *pchrPtrNombre);
+	zCaja(const char *pchrPtrCaja,const char *pchrPtrNombre);
 	void Dinero(zDenominaciones *pzDenoSDinero);
 	void EncabezadosCaja(zEncabezadosCaja *);
 	void Total(const char *);
 	void TotalGastos(const char *);
 	void PagoTarjeta(const char *);
+	void Nombre(const char *);
+	const char *Nombre();
 	const char *Caja();
 	zDenominaciones *Dinero();
 	zEncabezadosCaja *EncabezadosCaja();
@@ -29,6 +31,7 @@ public:
 	const char *PagoTarjeta();
 	void Actualiza(zSiscomRegistro *);
 	friend bool operator==(zCaja &,zCaja &);
+	
 	void Gasto(zGasto *);
 	zGasto *Gasto(int,int);
 	
