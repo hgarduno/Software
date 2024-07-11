@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/PagaConTransferencia.ui'
 **
-** Created: lun abr 1 18:57:56 2024
+** Created: sáb jun 29 15:59:32 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
@@ -10,11 +10,11 @@
 
 #include <qvariant.h>
 #include <qpushbutton.h>
-#include <qlabel.h>
-#include <qlineedit.h>
 #include <qbuttongroup.h>
 #include <qradiobutton.h>
+#include <qlabel.h>
 #include <qtextedit.h>
+#include <qlineedit.h>
 #include <qlayout.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
@@ -32,17 +32,6 @@ PagaConTransferencia::PagaConTransferencia( QWidget* parent, const char* name, b
     if ( !name )
 	setName( "PagaConTransferencia" );
     PagaConTransferenciaLayout = new QGridLayout( this, 1, 1, 11, 6, "PagaConTransferenciaLayout"); 
-
-    layout49 = new QVBoxLayout( 0, 0, 6, "layout49"); 
-
-    layout40 = new QVBoxLayout( 0, 0, 6, "layout40"); 
-
-    textLabel2 = new QLabel( this, "textLabel2" );
-    layout40->addWidget( textLabel2 );
-
-    QLETelefono = new QLineEdit( this, "QLETelefono" );
-    layout40->addWidget( QLETelefono );
-    layout49->addLayout( layout40 );
 
     layout48 = new QHBoxLayout( 0, 0, 6, "layout48"); 
 
@@ -72,7 +61,8 @@ PagaConTransferencia::PagaConTransferencia( QWidget* parent, const char* name, b
     QTEObservaciones = new QTextEdit( this, "QTEObservaciones" );
     layout41->addWidget( QTEObservaciones );
     layout48->addLayout( layout41 );
-    layout49->addLayout( layout48 );
+
+    PagaConTransferenciaLayout->addLayout( layout48, 0, 0 );
 
     layout47 = new QHBoxLayout( 0, 0, 6, "layout47"); 
 
@@ -84,11 +74,26 @@ PagaConTransferencia::PagaConTransferencia( QWidget* parent, const char* name, b
     QPBCancelar = new QPushButton( this, "QPBCancelar" );
     QPBCancelar->setAutoDefault( FALSE );
     layout47->addWidget( QPBCancelar );
-    layout49->addLayout( layout47 );
 
-    PagaConTransferenciaLayout->addLayout( layout49, 0, 0 );
+    PagaConTransferenciaLayout->addLayout( layout47, 2, 0 );
+
+    layout7 = new QHBoxLayout( 0, 0, 6, "layout7"); 
+
+    layout40 = new QVBoxLayout( 0, 0, 6, "layout40"); 
+
+    textLabel2 = new QLabel( this, "textLabel2" );
+    layout40->addWidget( textLabel2 );
+
+    QLETelefono = new QLineEdit( this, "QLETelefono" );
+    QLETelefono->setEnabled( FALSE );
+    layout40->addWidget( QLETelefono );
+    layout7->addLayout( layout40 );
+    spacer1 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout7->addItem( spacer1 );
+
+    PagaConTransferenciaLayout->addLayout( layout7, 1, 0 );
     languageChange();
-    resize( QSize(406, 151).expandedTo(minimumSizeHint()) );
+    resize( QSize(489, 178).expandedTo(minimumSizeHint()) );
     clearWState( WState_Polished );
 }
 
@@ -107,8 +112,6 @@ PagaConTransferencia::~PagaConTransferencia()
 void PagaConTransferencia::languageChange()
 {
     setCaption( tr( "Form3" ) );
-    textLabel2->setText( tr( "Telefono" ) );
-    QLETelefono->setInputMask( tr( "##-####-####; " ) );
     QBGEdoTransferencia->setTitle( tr( "EstadoTransferencia" ) );
     radioButton2->setText( tr( "&No se valido la transferencia" ) );
     radioButton2->setAccel( QKeySequence( tr( "Alt+N" ) ) );
@@ -119,5 +122,7 @@ void PagaConTransferencia::languageChange()
     QPBAceptar->setAccel( QKeySequence( tr( "Alt+A" ) ) );
     QPBCancelar->setText( tr( "&Cancelar" ) );
     QPBCancelar->setAccel( QKeySequence( tr( "Alt+C" ) ) );
+    textLabel2->setText( tr( "Telefono" ) );
+    QLETelefono->setInputMask( tr( "##-####-####; " ) );
 }
 

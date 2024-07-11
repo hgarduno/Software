@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'UI/ClienteAlumno.ui'
 **
-** Created: lun abr 1 18:57:52 2024
+** Created: jue jun 27 21:23:20 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
@@ -14,10 +14,7 @@
 #include <qlineedit.h>
 #include <qbuttongroup.h>
 #include <qradiobutton.h>
-#include <QCtrlEscuelasSE.h>
-#include <QCtrlClientesMayoreo.h>
 #include <qtextedit.h>
-#include <QCtrlOrdenesFavoritas.h>
 #include <qlayout.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
@@ -90,7 +87,7 @@ ClienteAlumno::ClienteAlumno( QWidget* parent, const char* name, bool modal, WFl
     ClienteAlumnoLayout->addLayout( layout5, 1, 0 );
 
     QBGTipoOrden = new QButtonGroup( this, "QBGTipoOrden" );
-    QBGTipoOrden->setEnabled( FALSE );
+    QBGTipoOrden->setEnabled( TRUE );
     QBGTipoOrden->setColumnLayout(0, Qt::Vertical );
     QBGTipoOrden->layout()->setSpacing( 6 );
     QBGTipoOrden->layout()->setMargin( 11 );
@@ -98,26 +95,31 @@ ClienteAlumno::ClienteAlumno( QWidget* parent, const char* name, bool modal, WFl
     QBGTipoOrdenLayout->setAlignment( Qt::AlignTop );
 
     QRBApartado = new QRadioButton( QBGTipoOrden, "QRBApartado" );
+    QRBApartado->setEnabled( FALSE );
     QBGTipoOrden->insert( QRBApartado, 2 );
 
     QBGTipoOrdenLayout->addWidget( QRBApartado, 0, 0 );
 
     QRBCotizacion = new QRadioButton( QBGTipoOrden, "QRBCotizacion" );
+    QRBCotizacion->setEnabled( FALSE );
     QBGTipoOrden->insert( QRBCotizacion, 1 );
 
     QBGTipoOrdenLayout->addWidget( QRBCotizacion, 1, 0 );
 
-    radioButton5 = new QRadioButton( QBGTipoOrden, "radioButton5" );
-    QBGTipoOrden->insert( radioButton5, 100 );
+    QRBVendeOrdenCA = new QRadioButton( QBGTipoOrden, "QRBVendeOrdenCA" );
+    QRBVendeOrdenCA->setEnabled( FALSE );
+    QBGTipoOrden->insert( QRBVendeOrdenCA, 100 );
 
-    QBGTipoOrdenLayout->addWidget( radioButton5, 2, 0 );
+    QBGTipoOrdenLayout->addWidget( QRBVendeOrdenCA, 2, 0 );
 
-    radioButton12 = new QRadioButton( QBGTipoOrden, "radioButton12" );
-    QBGTipoOrden->insert( radioButton12, 109 );
+    QRBModificaC = new QRadioButton( QBGTipoOrden, "QRBModificaC" );
+    QRBModificaC->setEnabled( TRUE );
+    QBGTipoOrden->insert( QRBModificaC, 109 );
 
-    QBGTipoOrdenLayout->addWidget( radioButton12, 3, 0 );
+    QBGTipoOrdenLayout->addWidget( QRBModificaC, 3, 0 );
 
     QPBOrdenActual = new QRadioButton( QBGTipoOrden, "QPBOrdenActual" );
+    QPBOrdenActual->setEnabled( FALSE );
     QBGTipoOrden->insert( QPBOrdenActual, 103 );
 
     QBGTipoOrdenLayout->addWidget( QPBOrdenActual, 4, 0 );
@@ -128,16 +130,19 @@ ClienteAlumno::ClienteAlumno( QWidget* parent, const char* name, bool modal, WFl
     QBGTipoOrdenLayout->addWidget( QRBCierraApartado, 5, 0 );
 
     radioButton4 = new QRadioButton( QBGTipoOrden, "radioButton4" );
+    radioButton4->setEnabled( FALSE );
     QBGTipoOrden->insert( radioButton4, 102 );
 
     QBGTipoOrdenLayout->addWidget( radioButton4, 6, 0 );
 
     radioButton7 = new QRadioButton( QBGTipoOrden, "radioButton7" );
+    radioButton7->setEnabled( FALSE );
     QBGTipoOrden->insert( radioButton7, 104 );
 
     QBGTipoOrdenLayout->addWidget( radioButton7, 7, 0 );
 
     radioButton8 = new QRadioButton( QBGTipoOrden, "radioButton8" );
+    radioButton8->setEnabled( FALSE );
     QBGTipoOrden->insert( radioButton8, 105 );
 
     QBGTipoOrdenLayout->addWidget( radioButton8, 8, 0 );
@@ -148,17 +153,20 @@ ClienteAlumno::ClienteAlumno( QWidget* parent, const char* name, bool modal, WFl
 
     QBGTipoOrdenLayout->addWidget( radioButton8_2, 9, 0 );
 
-    radioButton10 = new QRadioButton( QBGTipoOrden, "radioButton10" );
-    QBGTipoOrden->insert( radioButton10, 107 );
+    QRBMaterilAD = new QRadioButton( QBGTipoOrden, "QRBMaterilAD" );
+    QRBMaterilAD->setEnabled( FALSE );
+    QBGTipoOrden->insert( QRBMaterilAD, 107 );
 
-    QBGTipoOrdenLayout->addWidget( radioButton10, 10, 0 );
+    QBGTipoOrdenLayout->addWidget( QRBMaterilAD, 10, 0 );
 
-    radioButton11 = new QRadioButton( QBGTipoOrden, "radioButton11" );
-    QBGTipoOrden->insert( radioButton11, 108 );
+    QRBDonacion = new QRadioButton( QBGTipoOrden, "QRBDonacion" );
+    QRBDonacion->setEnabled( FALSE );
+    QBGTipoOrden->insert( QRBDonacion, 108 );
 
-    QBGTipoOrdenLayout->addWidget( radioButton11, 11, 0 );
+    QBGTipoOrdenLayout->addWidget( QRBDonacion, 11, 0 );
 
     radioButton13 = new QRadioButton( QBGTipoOrden, "radioButton13" );
+    radioButton13->setEnabled( FALSE );
     QBGTipoOrden->insert( radioButton13, 111 );
 
     QBGTipoOrdenLayout->addWidget( radioButton13, 12, 0 );
@@ -214,8 +222,8 @@ ClienteAlumno::ClienteAlumno( QWidget* parent, const char* name, bool modal, WFl
 
     // tab order
     setTabOrder( QRBApartado, QRBCotizacion );
-    setTabOrder( QRBCotizacion, radioButton5 );
-    setTabOrder( radioButton5, QPBOrdenActual );
+    setTabOrder( QRBCotizacion, QRBVendeOrdenCA );
+    setTabOrder( QRBVendeOrdenCA, QPBOrdenActual );
     setTabOrder( QPBOrdenActual, QRBCierraApartado );
     setTabOrder( QRBCierraApartado, radioButton4 );
     setTabOrder( radioButton4, radioButton7 );
@@ -252,16 +260,16 @@ void ClienteAlumno::languageChange()
     QBGTipoOrden->setTitle( tr( "Tipo de Orden" ) );
     QRBApartado->setText( tr( "Apartado" ) );
     QRBCotizacion->setText( tr( "Cotizacion" ) );
-    radioButton5->setText( tr( "Vende Orden, Cotizacion , Apartado" ) );
-    radioButton12->setText( tr( "Modificar Cotizacion" ) );
+    QRBVendeOrdenCA->setText( tr( "Vende Orden, Cotizacion , Apartado" ) );
+    QRBModificaC->setText( tr( "Modificar Cotizacion" ) );
     QPBOrdenActual->setText( tr( "Orden Actual" ) );
     QRBCierraApartado->setText( tr( "Entrega Apartado" ) );
     radioButton4->setText( tr( "Estados Pedido" ) );
     radioButton7->setText( tr( "Recupera Orden Impresa" ) );
     radioButton8->setText( tr( "Programacion Placas" ) );
     radioButton8_2->setText( tr( "Entrega Placa" ) );
-    radioButton10->setText( tr( "Material Area Diseno" ) );
-    radioButton11->setText( tr( "Donacion" ) );
+    QRBMaterilAD->setText( tr( "Material Area Diseno" ) );
+    QRBDonacion->setText( tr( "Donacion" ) );
     radioButton13->setText( tr( "Registrar Practica" ) );
     textLabel1->setText( tr( "Escuelas" ) );
     textLabel1_3->setText( tr( "Clientes Mayoreo" ) );

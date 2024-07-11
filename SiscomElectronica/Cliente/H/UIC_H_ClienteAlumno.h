@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/ClienteAlumno.ui'
 **
-** Created: lun abr 1 18:57:47 2024
+** Created: jue jun 27 21:23:20 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
@@ -45,16 +45,16 @@ public:
     QButtonGroup* QBGTipoOrden;
     QRadioButton* QRBApartado;
     QRadioButton* QRBCotizacion;
-    QRadioButton* radioButton5;
-    QRadioButton* radioButton12;
+    QRadioButton* QRBVendeOrdenCA;
+    QRadioButton* QRBModificaC;
     QRadioButton* QPBOrdenActual;
     QRadioButton* QRBCierraApartado;
     QRadioButton* radioButton4;
     QRadioButton* radioButton7;
     QRadioButton* radioButton8;
     QRadioButton* radioButton8_2;
-    QRadioButton* radioButton10;
-    QRadioButton* radioButton11;
+    QRadioButton* QRBMaterilAD;
+    QRadioButton* QRBDonacion;
     QRadioButton* radioButton13;
     QLabel* textLabel1;
     QCtrlEscuelasSE* QCtrEscuelas;
