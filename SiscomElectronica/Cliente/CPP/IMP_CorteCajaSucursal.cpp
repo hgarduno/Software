@@ -4,6 +4,9 @@
 #include <zSiscomElectronica.h>
 #include <zSiscomDesarrollo4.h>
 #include <zCambioCaja.h>
+#include <zCorteCajaO.h>
+#include <zCajas.h>
+#include <zCaja.h>
 
 #include <QtCorteCajaImp.h>
 
@@ -58,13 +61,18 @@ connect(QtCCaja,
 connect(QtCCaja,SIGNAL(SignalPagoTarjeta()),SLOT(SlotActualizaCorteCaja()));
 connect(QPBRegCambio,SIGNAL(clicked()),SLOT(SlotRegistraCambio()));
 connect(QPBRealizarC,SIGNAL(clicked()),SLOT(SlotRegistraCorte()));
+connect(QPBActualizar,SIGNAL(clicked()),SLOT(SlotActualiza()));
+}
+void QCorteCajaSucursal::SlotActualiza()
+{
+  RegistrandoCorteDia();
 }
 void QCorteCajaSucursal::SlotRegistraCorte()
 {
-   SeleccionaCambioCaja();   
+	SeleccionaCambioCaja();   
+	RegistrandoCorteDia();
 
-
-   HabilitaDesHabilitaRegistroCambio(false);
+	HabilitaDesHabilitaRegistroCambio(false);
 }
 void QCorteCajaSucursal::SlotRegistraCambio()
 {
@@ -129,4 +137,25 @@ void QCorteCajaSucursal::ActualizaCambioCaja(zCambioCaja *pzCambioC)
 QtCCaja->ActualizaTotalCajaCambio(pzCambioC->Importe());
 QtCCaja->ActualizaCantidadesCambio(pzCambioC->Dinero());
 QtCCaja->ActualizandoGui();
+}
+
+void QCorteCajaSucursal::RegistrosDia()
+{
+zCorteCajaO lzCorteCO(zSiscomDesarrollo4::Conexion(),"RegistraCorteCaja");
+lzCorteCO.RealizaCorte("",&zCCaja);
+}
+zCorteCaja &QCorteCajaSucursal::CorteCaja()
+{
+ return  zCCaja;
+}
+void QCorteCajaSucursal::ImportesDia()
+{
+  QtCCaja->Cajas()->Principal()->Transferencias(CorteCaja().Transferencias());
+  QtCCaja->Cajas()->Principal()->TotalEfectivo(CorteCaja().DineroEntroCaja());
+  QtCCaja->ActualizandoGui();
+}
+void QCorteCajaSucursal::RegistrandoCorteDia()
+{
+  RegistrosDia();
+  ImportesDia();
 }

@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>1026</width>
+            <width>867</width>
             <height>617</height>
         </rect>
     </property>
@@ -59,10 +59,13 @@
                 </widget>
                 <widget class="QPushButton">
                     <property name="name">
-                        <cstring>pushButton3</cstring>
+                        <cstring>QPBActualizar</cstring>
                     </property>
                     <property name="text">
-                        <string>pushButton3</string>
+                        <string>&amp;Actualizador</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
                     </property>
                 </widget>
             </hbox>

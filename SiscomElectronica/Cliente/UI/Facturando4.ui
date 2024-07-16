@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>488</width>
+            <width>566</width>
             <height>459</height>
         </rect>
     </property>
@@ -19,37 +19,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QPushButton" row="3" column="0">
-            <property name="name">
-                <cstring>QPBOrdenesFecha</cstring>
-            </property>
-            <property name="text">
-                <string>Ordenes Por Fecha</string>
-            </property>
-        </widget>
-        <widget class="QPushButton" row="3" column="1">
-            <property name="name">
-                <cstring>QPBDatosFacturacion</cstring>
-            </property>
-            <property name="enabled">
-                <bool>false</bool>
-            </property>
-            <property name="text">
-                <string>Datos Facturacion</string>
-            </property>
-        </widget>
-        <widget class="QPushButton" row="3" column="2">
-            <property name="name">
-                <cstring>QPBRealizaFactura</cstring>
-            </property>
-            <property name="enabled">
-                <bool>false</bool>
-            </property>
-            <property name="text">
-                <string>Realiza Factura</string>
-            </property>
-        </widget>
-        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="3">
+        <widget class="QLayoutWidget" row="1" column="0">
             <property name="name">
                 <cstring>layout2</cstring>
             </property>
@@ -98,7 +68,7 @@
                 </widget>
             </vbox>
         </widget>
-        <widget class="QLayoutWidget" row="2" column="0" rowspan="1" colspan="3">
+        <widget class="QLayoutWidget" row="2" column="0">
             <property name="name">
                 <cstring>layout18</cstring>
             </property>
@@ -243,7 +213,7 @@
                 </widget>
             </hbox>
         </widget>
-        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="3">
+        <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
                 <cstring>layout6</cstring>
             </property>
@@ -281,6 +251,54 @@
                     </property>
                 </widget>
             </vbox>
+        </widget>
+        <widget class="QLayoutWidget" row="3" column="0">
+            <property name="name">
+                <cstring>layout7</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBOrdenesFecha</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Ordenes Por Fecha</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBDatosFacturacion</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Datos Facturacion</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBRealizaFactura</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Realiza Factura</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBCapturaDatos</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Captura Datos</string>
+                    </property>
+                </widget>
+            </hbox>
         </widget>
     </grid>
 </widget>

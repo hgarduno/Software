@@ -11,6 +11,8 @@
 #include <zGasto.h>
 #include <zCeldaPagoTarjeta.h>
 #include <zCeldaImporteGastos.h>
+#include <zCeldaImporteTransferencias.h>
+#include <zCeldaImporteEfectivoCaja.h>
 QtCorteCajaImp::QtCorteCajaImp(QWidget *pQWParent,
 			      const char *pchrPtrName):
 			      QtCorteCaja(pQWParent,pchrPtrName)
@@ -55,6 +57,8 @@ void QtCorteCajaImp::ActualizandoGui()
 {
    ActualizaGui();
    ActualizaTotalGastos();
+   ActualizaImporteTransferencias();
+   ActualizaDineroEntroCaja();
 }
 void QtCorteCajaImp::ActualizaGui()
 {
@@ -125,4 +129,17 @@ void QtCorteCajaImp::ActualizaTotalGastos()
    setText(CeldaImporteGastos()->Fila(),
            CeldaImporteGastos()->Columna(),
            Cajas()->Principal()->TotalGastos()); 
+}
+void QtCorteCajaImp::ActualizaImporteTransferencias()
+{
+setText(CeldaImporteTransferencias()->Fila(),
+	CeldaImporteTransferencias()->Columna(),
+	Cajas()->Principal()->Transferencias());
+
+}
+void QtCorteCajaImp::ActualizaDineroEntroCaja()
+{
+setText(CeldaImporteEfectivoCaja()->Fila(),
+	CeldaImporteEfectivoCaja()->Columna(),
+	Cajas()->Principal()->TotalEfectivo());
 }

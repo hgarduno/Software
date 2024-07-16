@@ -62,6 +62,7 @@ class zClientesSiscom;
 class zConCuantoPago;
 class zCambiosCaja;
 class zCambioCaja;
+class zCorteCaja;
 
 class zSiscomElectronica:public zSiscomOperaciones 
 {
@@ -326,6 +327,7 @@ private:
 
 	int ObtenProductosSiscomProveedor(zProductosImportados *);
 	int CambiosEnCaja(zCambiosCaja *);
+
 private:
 	void (zSiscomElectronica::*ErrorCambioDatosOrdenVenta[4])(zOrdenVenta *);
 	void (zSiscomElectronica::*DatosTipoOrden[15])(zSiscomRegistro *,zOrdenVenta *);

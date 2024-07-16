@@ -42,6 +42,7 @@ private slots:
 	void SlotOrdenesFecha();
 	void SlotDatosFacturacion();
 	void SlotRealizaFactura();
+	void SlotCapturaDatos();
 signals:
 	void SignalTerminar(QWidget *);
 };

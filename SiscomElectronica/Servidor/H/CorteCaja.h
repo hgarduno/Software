@@ -2,6 +2,9 @@
 #define __CORTECAJA_H__
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
 
+void RegistraCorteCaja(int pintSocket,
+                       SiscomRegistroProL *pSiscomRegProLPtrPrim,
+                       SiscomRegistroProL *pSiscomRegProLPtrAct);
 
 void CalculaCorteCaja(int pintSocket,
                              SiscomRegistroProL *pSiscomRegProLPtrPrim,
@@ -31,6 +34,7 @@ int AgregaArgumentoDatosCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int EnviandoCambiosCaja(SiscomOperaciones *pSisOpePtrDato);
 int EnviandoCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int AcondicionandoParaMostrar(SiscomOperaciones *pSisOpePtrDatos);
+int EnviaRegistroCorteCaja(SiscomOperaciones *pSisOpePtrDato);
 
 void MultiplicandoSumandoCajas(SiscomOperaciones *pSisOpePtrDato);
 float MultiplicaSumaCaja(SiscomRegistroProL *pSisRegProLPtrDeno);
@@ -40,5 +44,6 @@ SiscomRegistroProL *CajaDeCambio(SiscomOperaciones *pSisOpePtrDato);
 SiscomRegistroProL *EfectivoCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 
 int YaHayCajaConCambio(SiscomOperaciones *pSisOpPtrDato);
+int ColocaFechaHoyCorteCaja(SiscomOperaciones *pSisOpePtrDato);
 
 #endif

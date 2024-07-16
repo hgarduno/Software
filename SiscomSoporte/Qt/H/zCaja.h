@@ -19,7 +19,9 @@ public:
 	void Total(const char *);
 	void TotalGastos(const char *);
 	void PagoTarjeta(const char *);
+	void Transferencias(const char *);
 	void Nombre(const char *);
+	void TotalEfectivo(const char *);
 	const char *Nombre();
 	const char *Caja();
 	zDenominaciones *Dinero();
@@ -29,6 +31,8 @@ public:
 	const char *Total();
 	const char *TotalGastos();
 	const char *PagoTarjeta();
+	const char *Transferencias();
+	const char *TotalEfectivo();
 	void Actualiza(zSiscomRegistro *);
 	friend bool operator==(zCaja &,zCaja &);
 	

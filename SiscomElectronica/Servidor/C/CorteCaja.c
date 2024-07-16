@@ -13,6 +13,26 @@
 
 #include <string.h>
 
+void RegistraCorteCaja(int pintSocket,
+                       SiscomRegistroProL *pSiscomRegProLPtrPrim,
+                       SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+                           0,
+                           (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+                           (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+                           &lSiscomOpDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(ColocaFechaHoyCorteCaja,&lSiscomProDat);
+SiscomAgregaOperacion(SqlDatosCierreCorteSucursal,&lSiscomProDat);
+SiscomAgregaOperacion(EnviaRegistroCorteCaja,&lSiscomProDat);
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+}
+
 void CalculaCorteCaja(int pintSocket,
                              SiscomRegistroProL *pSiscomRegProLPtrPrim,
                              SiscomRegistroProL *pSiscomRegProLPtrAct)
@@ -96,7 +116,16 @@ SiscomAgregaOperacion(0,&lSiscomProDat);
 SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 }
 
-
+int ColocaFechaHoyCorteCaja(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrFecha[28];
+SiscomObtenFechaHoyCharAAAADDMM(lchrArrFecha);
+SiscomActualizaCampoAsociadoEntrada("Envio",
+				    "Fecha",
+				    lchrArrFecha,
+				    pSisOpePtrDato);
+return 0;
+}
 int RegistrandoCambio(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[128];
@@ -312,5 +341,12 @@ int EnviandoCambioCaja(SiscomOperaciones *pSisOpePtrDatos)
 {
 char lchrArrBuffer[256];
 SiscomEnviaAsociadoRespuestaCliente("CambioCaja",lchrArrBuffer,pSisOpePtrDatos);
+return 0;
+}
+int EnviaRegistroCorteCaja(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[256];
+LogSiscom("");
+SiscomEnviaRegistrosRespuesta(pSisOpePtrDato,lchrArrBuffer);
 return 0;
 }

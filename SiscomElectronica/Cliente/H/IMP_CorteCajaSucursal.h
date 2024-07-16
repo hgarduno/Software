@@ -2,6 +2,7 @@
 #ifndef __IMP_CORTECAJASUCURSAL_H__
 #define __IMP_CORTECAJASUCURSAL_H__
 #include <UIC_H_CorteCajaSucursal.h>
+#include <zCorteCaja.h>
 class SiscomDatCom;
 class zSiscomConexion;
 class zCambioCaja;
@@ -20,6 +21,8 @@ private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;
 	zSiscomConexion *zSisConexion;
+
+	zCorteCaja zCCaja;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
@@ -33,11 +36,16 @@ private:
 	void ActualizaCambioCaja(zCambioCaja *);
 	void HabilitaDesHabilitaControles(bool pbEstado);
 	void HabilitaDesHabilitaRegistroCambio(bool );
+	void RegistrosDia();
+	void RegistrandoCorteDia();
+	zCorteCaja &CorteCaja();
+	void ImportesDia();
 private slots:
 	void SlotCapturoCantidad();
 	void SlotActualizaCorteCaja();
 	void SlotRegistraCambio();
 	void SlotRegistraCorte();
+	void SlotActualiza();
 };
 extern "C" QCorteCajaSucursal *InstanciaCorteCajaSucursal(void *,char **,void *,const char *,int);
 #endif

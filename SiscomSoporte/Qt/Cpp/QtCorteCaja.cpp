@@ -11,6 +11,8 @@
 #include <zGasto.h>
 #include <zCeldaPagoTarjeta.h>
 #include <zCeldaImporteGastos.h>
+#include <zCeldaImporteTransferencias.h>
+#include <zCeldaImporteEfectivoCaja.h>
 
 
 #include <zCajas.h>
@@ -19,7 +21,11 @@
 #include <zEncabezadosCaja.h>
 #include <zCajas.h>
 #include <zGastos.h>
+/*
+#include <zCeldaImporteTransferencias.h>
+#include <zCeldaImporteEfectivoCaja.h>
 
+*/
 QtCorteCaja::QtCorteCaja(QWidget *pQWParent,
 			  const char *pchrPtrName):
 			 QTable(pQWParent,pchrPtrName)
@@ -37,7 +43,10 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
  EncabezadoVentasEfectivo(pintFila,pintColumna);
  FormandoCajaCorte(pintFila,pintColumna);
  FormandoEncabezadosCorte();
+
  PagoTarjeta(pintFila,pintColumna);
+ ImporteTransferencias(pintFila,pintColumna);
+ ImporteEfectivoCaja(pintFila,pintColumna);
  zSiscomQt3::AjustaColumnasTabla(this);
 }
 void QtCorteCaja::FormandoCajaCorte(int pintFila,int pintColumna)
@@ -193,7 +202,6 @@ void QtCorteCaja::EncabezadoPagoTarjeta(int pintFila,int pintColumna)
 void QtCorteCaja::PagoTarjeta(int pintFila,
 				 int pintColumna)
 {
-zCaja *lzCaPrincipal=(zCaja *)(*zCajasExp)[0];
 zCelPaTarjeta=new zCeldaPagoTarjeta(pintFila+16,pintColumna+1,"gray");
 CeldaGris(pintFila+16,pintColumna+1,"0.00");
 }
@@ -207,9 +215,6 @@ zCelImGastos=new zCeldaImporteGastos(pintFila+17,pintColumna+1);
 CeldaColor(pintFila+17,pintColumna+1,"white","0.00");
 zCajasExp->EncabezadosImporteGastos(lzEncaSImGasto);
 }
-
-
-
 void QtCorteCaja::EncabezadoVentasEfectivo(int pintFila,int pintColumna)
 {
 zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
@@ -227,7 +232,18 @@ new zEncabezadoCaja(pintFila+18,pintColumna,0,"gray","Transferencias") <<
 new zEncabezadoCaja(pintFila+18,pintColumna+1,0,"gray","0.00");
 zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
 }
-
+void QtCorteCaja::ImporteEfectivoCaja(int pintFila,
+				      int pintColumna)
+{
+zCelImporteEC=new zCeldaImporteEfectivoCaja(pintFila+19,pintColumna+1);
+CeldaColor(pintFila+19,pintColumna+1,"white","0.00");
+}
+void QtCorteCaja::ImporteTransferencias(int pintFila,
+					int pintColumna)
+{
+zCelImporteT=new zCeldaImporteTransferencias(pintFila+18,pintColumna+1);
+CeldaGris(pintFila+18,pintColumna+1,"0.00");
+}
 void QtCorteCaja::FormandoEncabezadosCorte()
 {
 zEncabezadoCaja *lzEncaCorte;
@@ -262,8 +278,15 @@ zCeldaImporteGastos *QtCorteCaja::CeldaImporteGastos()
 {
   return zCelImGastos;
 }
+zCeldaImporteEfectivoCaja *QtCorteCaja::CeldaImporteEfectivoCaja()
+{
+return zCelImporteEC;
+}
+zCeldaImporteTransferencias *QtCorteCaja::CeldaImporteTransferencias()
+{
+  return zCelImporteT;
+}
 void QtCorteCaja::MuestraGastos(zCaja *pzCaja)
-
 {
 zGasto *lzGasto;
 const char *lchrPtrColores[]={"gray","white"};

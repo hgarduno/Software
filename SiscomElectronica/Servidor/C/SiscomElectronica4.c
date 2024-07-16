@@ -218,6 +218,7 @@ StcSiscomElectronica4 lStcSiscomElectronica4[]=
 			{"RegistraCambioCaja",RegistraCambioCaja},
 			{"CambiosCaja",CambiosCaja},
 			{"ConsultaCambioCaja",ConsultaCambioCaja},
+			{"RegistraCorteCaja",RegistraCorteCaja},
 			{0,0}
 		     };
 const char *lchrPtrFuncion;

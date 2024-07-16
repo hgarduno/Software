@@ -15,6 +15,8 @@ class zCajas;
 class zZonaGasto;
 
 class zDenominaciones;
+class zCeldaImporteTransferencias;
+class zCeldaImporteEfectivoCaja;
 class QtCorteCaja:public QTable
 {
 Q_OBJECT 
@@ -51,6 +53,8 @@ private:
 	void FormandoEncabezadosCorte();
 	zGasto *Gasto(int,int);
 	void PagoTarjeta(int,int);
+	void ImporteTransferencias(int,int);
+	void ImporteEfectivoCaja(int,int);
 	void ImporteGastos(int,int);
 
 	void MuestraGastos(zCaja *);
@@ -59,6 +63,8 @@ private:
 	zCajas *zCajasExp;
 	zCeldaPagoTarjeta *zCelPaTarjeta;
 	zCeldaImporteGastos *zCelImGastos;
+	zCeldaImporteTransferencias *zCelImporteT;
+	zCeldaImporteEfectivoCaja *zCelImporteEC;
 	int intFila;
 	int intColumna;
 
