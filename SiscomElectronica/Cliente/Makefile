@@ -257,6 +257,7 @@ Archivos_QT_Extra_OrdenElectronica=						\
 
 #{{{ Pantallas_SiscomElectronica2009
 Pantallas_SiscomElectronica2009=VentasPorCaja 				\
+				ProductosSimilares			\
 				CorteCaja 				\
 				CapturaDenominacion			\
 				AdministracionCajas			\
@@ -342,7 +343,6 @@ Pantallas_SiscomElectronica2009=VentasPorCaja 				\
 				ManejadorOrden				\
 				ClientePedido				\
 				ClienteAlumno				\
-				ProductosSimilares			\
 				AvisoNoAlcanza4				\
 				RegistroApartado			\
 				CierraApartado				\

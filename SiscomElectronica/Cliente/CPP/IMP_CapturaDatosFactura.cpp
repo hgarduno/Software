@@ -32,6 +32,11 @@ connect(QLEImporte,SIGNAL(returnPressed()),SLOT(SlotFocoAIVA()));
 connect(QLEIVA,SIGNAL(returnPressed()),SLOT(SlotFocoAAceptar()));
 connect(QPBAceptar,SIGNAL(clicke()),SLOT(SlotAceptar()));
 }
+void QCapturaDatosFactura::SlotFocoATotal()
+{
+
+
+}
 void QCapturaDatosFactura::SlotAceptar()
 {
   done(1);

@@ -25,5 +25,6 @@ private slots:
 	void SlotFocoAAceptar();
 	void SlotFocoAIVA();
 	void SlotAceptar();
+	
 };
 #endif
