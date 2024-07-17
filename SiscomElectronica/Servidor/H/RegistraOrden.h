@@ -13,13 +13,25 @@ void PagarApartado(int pintSocket,
 void ActualizaDescripcionCotizacion(int pintSocket,
 		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
 		   SiscomRegistroProL *pSiscomRegProLPtrAct);
+
+
+void VerificaConCuantoPago(int pintSocket,
+		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		   SiscomRegistroProL *pSiscomRegProLPtrAct);
+
+
 int RegistrandoOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int CamposCierraApartadoOtroDia(SiscomOperaciones *);
+int VerificandoConCuantoPago(SiscomOperaciones *);
 
+
+int EsOrdenVentaPagaEfectivo(SiscomOperaciones *);
 int ValidandoFechaPedido(SiscomOperaciones *pSiscomOpePtrDato);
 int SePagoConTransferencia(SiscomOperaciones *pSiscomOpePtrDato);
 SiscomRegistroProL *InformacionTransferencia(SiscomOperaciones *pSiscomOpePtrDato);
 const char *InformacionTransferenciaObservaciones(SiscomOperaciones *pSisOpePtrDato);
 const char *InformacionTransferenciaSeReflejo(SiscomOperaciones *pSisOpePtrDato);
+
+
 #endif

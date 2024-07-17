@@ -44,6 +44,7 @@ SiscomAgregaOperacion(SqlPedidoCliente,&lSiscomProDat);
 SiscomAgregaOperacion(SqlEstadosPedidoCliente,&lSiscomProDat); 
 SiscomAgregaOperacion(SqlDireccionEntrega,&lSiscomProDat); 
 SiscomAgregaOperacion(SePagoConTransferencia,&lSiscomProDat); 
+SiscomAgregaOperacion(EsOrdenVentaPagaEfectivo,&lSiscomProDat);  
 SiscomAgregaOperacion(SqlRegistraOrden,&lSiscomProDat);  
 SiscomAgregaOperacion(RegistrandoOrden,&lSiscomProDat);  
 SiscomAgregaOperacion(0,&lSiscomProDat);
@@ -92,6 +93,27 @@ SiscomAgregaOperacion(RegistrandoOrden,&lSiscomProDat);
 SiscomAgregaOperacion(0,&lSiscomProDat);
 SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 }
+
+void VerificaConCuantoPago(int pintSocket,
+		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		   SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+			   0,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+			   &lSiscomOpDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(VerificandoConCuantoPago,&lSiscomProDat); 
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+
+}
+
+
 int RegistrandoOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256];
@@ -124,7 +146,6 @@ SiscomIdARegistrosAsociadosEntrada("Envio","IdVentaPorEntregaOtroDia",pSiscomOpe
 int ValidandoFechaPedido(SiscomOperaciones *pSiscomOpePtrDato)
 {
 AgregaCampoFechaHora(pSiscomOpePtrDato);
-LogSiscom("");
 return 1;
 }
 
@@ -137,10 +158,6 @@ lSisRegProLPtrTrans=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio"
 									 pSiscomOpePtrDato);
 if(lSisRegProLPtrTrans)
   SqlFormaPagoTransferencia(pSiscomOpePtrDato);
-else
-{
-  LogSiscom("NO Se paga contransferencia");
-}
 return 0;
 }
 const char *InformacionTransferenciaSeReflejo(SiscomOperaciones *pSisOpePtrDato)
@@ -163,4 +180,37 @@ lSisRegProLPtrTrans=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio"
 									 "Transferencia",
 									 pSiscomOpePtrDato);
 return lSisRegProLPtrTrans;
+}
+
+int EsOrdenVentaPagaEfectivo(SiscomOperaciones *pSiscomOpePtrDato)
+{
+if(!EsCotizacion(pSiscomOpePtrDato) && 
+   !SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio",
+						"FormaPago",
+						"Transferencia",
+						pSiscomOpePtrDato))
+SqlPagaConEfectivo(pSiscomOpePtrDato);
+return 0;
+}
+float CampoConCuantoPago(SiscomOperaciones *pSisOpePtrDato,const char *pchrPtrCampo)
+{
+return SiscomCampoAsociadoEntradaOperacionFloat("Envio",pchrPtrCampo,pSisOpePtrDato);
+}
+int VerificandoConCuantoPago(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[128];
+const char *lchrPtrSiAlcanza;
+LogSiscom("");
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
+if(CampoConCuantoPago(pSisOpePtrDato,"ConCuantoPago") >= 
+   CampoConCuantoPago(pSisOpePtrDato,"Importe"))
+  lchrPtrSiAlcanza="1";
+else
+	lchrPtrSiAlcanza="0";
+  SiscomFormaEnviaRegistroRespuesta(pSisOpePtrDato,
+  				    lchrArrBuffer,
+				    "SiAlcanza,Cambio",
+				    lchrPtrSiAlcanza,
+				    "0");
+return 0;
 }

@@ -64,6 +64,10 @@
 #include <zFormaPagoTransferencia.h>
 #include <zFormaPago.h>
 #include <zClientesSiscom.h>
+#include <zConCuantoPago.h>
+#include <zCambiosCaja.h>
+#include <zCambioCaja.h>
+#include <zDenominaciones.h>
 
 #include <string.h> 
 zSiscomElectronica::zSiscomElectronica(zSiscomConexion *pzSiscomConexion,
@@ -2145,7 +2149,6 @@ zSiscomRegistro *lzSisRegRegreso;
 AgregaEnvio((zSiscomRegistros *)pzCajas);
 if((lzSisRegsRegreso=EnviaRecibe()))
   {
-	SiscomRegistrosLog(lzSisRegsRegreso);
 	pzCajas->Actualiza(lzSisRegsRegreso);
         return 1;
   }
@@ -2153,6 +2156,20 @@ if((lzSisRegsRegreso=EnviaRecibe()))
   return 0;
 }
 
+int zSiscomElectronica::RegistraCambioCaja(zCajas *pzCajas)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio((zSiscomRegistros *)pzCajas);
+if((lzSisRegsRegreso=EnviaRecibe()))
+  {
+	SiscomRegistrosLog(lzSisRegsRegreso);
+	pzCajas->Actualiza(lzSisRegsRegreso);
+        return 1;
+  }
+  else
+  return 0;
+}
 
 int zSiscomElectronica::CalculaCambioPago(const char *pchrPtrPago,
 					  const char *pchrPtrImporte,
@@ -2427,5 +2444,48 @@ if((lzSisRegsRegreso=EnviaRecibe()))
 }
 else
 return 0;
+}
+
+
+
+
+int zSiscomElectronica::VerificaConCuantoPago(zConCuantoPago *pzConCuantoPago)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio(pzConCuantoPago);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  lzSisRegRegreso=(*lzSisRegsRegreso)[0];  
+  pzConCuantoPago->SiAlcanza((const char *)(*lzSisRegRegreso)["SiAlcanza"]);
+  return pzConCuantoPago->SiAlcanzaInt();
+}
+else return 0;
+
+}
+
+
+int zSiscomElectronica::CambiosCaja(zCambiosCaja *pzCambiosC)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+AgregaEnvio(zSiscomRegistro().Registro("%s [Todos]"));
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  SiscomRegistrosLog(lzSisRegsRegreso); 
+  pzCambiosC->CambiosCaja(lzSisRegsRegreso);
+  return 1;
+}
+else return 0;
+}
+int zSiscomElectronica::CambioCaja(zCambioCaja *pzCambioC)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+AgregaEnvio(pzCambioC);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  pzCambioC->Dinero(new zDenominaciones(lzSisRegsRegreso));
+  return 1;
+}
+else return 0;
 }
 

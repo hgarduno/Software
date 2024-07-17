@@ -1,6 +1,7 @@
 #include <IMP_Facturando4.h>
 #include <IMP_SeleccionaOrdenFactura.h>
 #include <IMP_DatosFacturacion.h>
+#include <IMP_CapturaDatosFactura.h>
 
 #include <zSiscomElectronica.h>
 
@@ -57,6 +58,11 @@ void QFacturando4::ConectaSlots()
 connect(QPBOrdenesFecha,SIGNAL(clicked()),SLOT(SlotOrdenesFecha()));
 connect(QPBDatosFacturacion,SIGNAL(clicked()),SLOT(SlotDatosFacturacion()));
 connect(QPBRealizaFactura,SIGNAL(clicked()),SLOT(SlotRealizaFactura()));
+connect(QPBCapturaDatos,SIGNAL(clicked()),SLOT(SlotCapturaDatos()));
+}
+void QFacturando4::SlotCapturaDatos()
+{
+QCapturaDatosFactura lQCapturaDatos(&zFacturaD);
 }
 void QFacturando4::SlotRealizaFactura()
 {
@@ -68,8 +74,7 @@ void QFacturando4::SlotDatosFacturacion()
 {
 QDatosFacturacion *lQDatFacturacion=new QDatosFacturacion(SisDatCom,
 							  chrPtrArgumentos,
-							  zClienteC,
-							  parentWidget());
+							  zClienteC);
 if(lQDatFacturacion->Aceptar())
 {
    zClienteC=lQDatFacturacion->Cliente(); 

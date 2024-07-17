@@ -38,6 +38,8 @@ SOURCES+=Cpp/zEncabezadosCaja.cpp
 SOURCES+=Cpp/zGastos.cpp
 SOURCES+=Cpp/zCeldaPagoTarjeta.cpp
 SOURCES+=Cpp/zCeldaImporteGastos.cpp
+SOURCES+=Cpp/zCeldaImporteTransferencias.cpp
+SOURCES+=Cpp/zCeldaImporteEfectivoCaja.cpp
 
 HEADERS=H/QtCorteCaja.h
 HEADERS+=H/QtCorteCajaImp.h

@@ -3,25 +3,37 @@
 #include <zEncabezadoCaja.h>
 #include <zGasto.h>
 #include <zDenominaciones.h>
+#include <zDenominacion.h>
 #include <zEncabezadosCaja.h>
 #include <zGastos.h>
 
 #include <string.h>
-zCaja::zCaja(const char *pchrPtrCaja)
+zCaja::zCaja(const char *pchrPtrCaja,
+	     const char *pchrPtrNombre)
 {
- (*this) 							<<
- new zSiscomCampo("Caja",(const unsigned char *)pchrPtrCaja)	<<
- new zSiscomCampo("Encabezados")				<<
- new zSiscomCampo("Total")					<<
- new zSiscomCampo("TotalGastos")				<<
- new zSiscomCampo("Dinero")					<<
- new zSiscomCampo("Gastos")					<<
- new zSiscomCampo("PagoTarjeta")				<<
- new zSiscomCampo("Transferencias");
+ (*this) 								<<
+ new zSiscomCampo("Caja",(const unsigned char *)pchrPtrCaja)		<<
+ new zSiscomCampo("Nombre",(const unsigned char *)pchrPtrNombre)	<<
+ new zSiscomCampo("Encabezados")					<<
+ new zSiscomCampo("Total")						<<
+ new zSiscomCampo("TotalGastos")					<<
+ new zSiscomCampo("Dinero")						<<
+ new zSiscomCampo("Gastos")						<<
+ new zSiscomCampo("PagoTarjeta")					<<
+ new zSiscomCampo("Transferencias")					<<
+ new zSiscomCampo("TotalEfectivo");
 }
+void zCaja::TotalEfectivo(const char *pchrPtrTotalEfectivo)
+{
+ActualizaCampo("TotalEfectivo",(const unsigned char *)pchrPtrTotalEfectivo);
+}
+void zCaja::Nombre(const char *pchrPtrNombre)
+{
+ ActualizaCampo("Nombre",(const unsigned char *)pchrPtrNombre);
+}
+
 void zCaja::Dinero(zDenominaciones *pzDenoSCaja)
 {
-
    ActualizaCampo("Dinero",pzDenoSCaja);
 }
 
@@ -29,16 +41,20 @@ void zCaja::Total(const char *pchrPtrTotal)
 {
     ActualizaCampo("Total",(const unsigned char *)pchrPtrTotal);
 }
-
 void zCaja::TotalGastos(const char *pchrPtrTotalGastos)
 {
     ActualizaCampo("TotalGastos",(const unsigned char *)pchrPtrTotalGastos);
 }
-
 void zCaja::PagoTarjeta(const char *pchrPtrTotalGastos)
 {
     ActualizaCampo("PagoTarjeta",(const unsigned char *)pchrPtrTotalGastos);
 }
+
+void zCaja::Transferencias(const char *pchrPtrTransferencias)
+{
+    ActualizaCampo("Transferencias",(const unsigned char *)pchrPtrTransferencias);
+}
+
 void zCaja::EncabezadosCaja(zEncabezadosCaja *pzEncaSCaja)
 {
   ActualizaCampo("Encabezados",pzEncaSCaja);
@@ -46,6 +62,14 @@ void zCaja::EncabezadosCaja(zEncabezadosCaja *pzEncaSCaja)
 const char *zCaja::Caja()
 {
    return (const char *)(*this)["Caja"];
+}
+const char *zCaja::TotalEfectivo()
+{
+   return (const char *)(*this)["TotalEfectivo"];
+}
+const char *zCaja::Nombre()
+{
+   return (const char *)(*this)["Nombre"];
 }
 zDenominaciones *zCaja::Dinero()
 {
@@ -70,6 +94,11 @@ const char *zCaja::TotalGastos()
 const char *zCaja::PagoTarjeta()
 {
    return (const char *)(*this)["PagoTarjeta"];
+}
+
+const char *zCaja::Transferencias()
+{
+   return (const char *)(*this)["Transferencias"];
 }
 void zCaja::Actualiza(zSiscomRegistro *pzSisRegCaja)
 {

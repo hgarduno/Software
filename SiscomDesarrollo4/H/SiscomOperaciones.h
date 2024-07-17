@@ -68,6 +68,7 @@ void SiscomAgrupaConsultaSistema(int pintDatosOrdenados,
 				const char *pchrPtrArgSalida,
 				SiscomOperaciones *pSiscomOpePtrDato);
 */
+
 void SiscomEjecutaProcesos(SiscomOperaciones *pSiscomOpePtrDat,
 			   SiscomOperacionErrores pSiscomOpeErrores,
 			   SiscomProcesos *pSiscomProPtrDat);
@@ -117,7 +118,12 @@ void SiscomEnviaConsultaSqlAsignaArgumento2(const char *pchrPtrDirIpSvr,
 					   int pintPuertoSvr,
 					   SiscomOperaciones *pSiscomOpePtrDatos);
 
-
+int SiscomEjecutaConsultaSql(const char *pchrPtrSql,
+			     const char *pchrPtrNmbConsulta,
+			     char *pchrPtrBuffer,
+			     SiscomOperaciones *pSiscomOpePtrDato,
+			     SiscomRegistroProL **,
+			     SiscomRegistroProL **);
 
 void SiscomConsultaSqlAArgumentoOperaciones(const char *pchrPtrSql,
 					    const char *pchrPtrArgumento,

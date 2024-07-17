@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>600</width>
-            <height>480</height>
+            <width>867</width>
+            <height>617</height>
         </rect>
     </property>
     <property name="caption">
@@ -27,29 +27,6 @@
                 <string>Corte Caja</string>
             </property>
         </widget>
-        <widget class="QLayoutWidget" row="2" column="0">
-            <property name="name">
-                <cstring>layout1</cstring>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Estatus Corte Caja</string>
-                    </property>
-                </widget>
-                <widget class="QLineEdit">
-                    <property name="name">
-                        <cstring>lineEdit1</cstring>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
         <widget class="QLayoutWidget" row="3" column="0">
             <property name="name">
                 <cstring>layout2</cstring>
@@ -60,26 +37,35 @@
                 </property>
                 <widget class="QPushButton">
                     <property name="name">
-                        <cstring>pushButton1</cstring>
+                        <cstring>QPBRealizarC</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>true</bool>
                     </property>
                     <property name="text">
-                        <string>Registra Corte</string>
+                        <string>Realizar Corte</string>
                     </property>
                 </widget>
                 <widget class="QPushButton">
                     <property name="name">
-                        <cstring>pushButton2</cstring>
+                        <cstring>QPBRegCambio</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>pushButton2</string>
+                        <string>Registra Cambio</string>
                     </property>
                 </widget>
                 <widget class="QPushButton">
                     <property name="name">
-                        <cstring>pushButton3</cstring>
+                        <cstring>QPBActualizar</cstring>
                     </property>
                     <property name="text">
-                        <string>pushButton3</string>
+                        <string>&amp;Actualizador</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
                     </property>
                 </widget>
             </hbox>
@@ -94,6 +80,56 @@
             <property name="numCols">
                 <number>0</number>
             </property>
+        </widget>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout1</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Estatus Corte Caja</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>lineEdit1</cstring>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>40</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </hbox>
         </widget>
     </grid>
 </widget>

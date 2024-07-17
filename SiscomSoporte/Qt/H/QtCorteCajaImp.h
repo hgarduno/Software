@@ -27,8 +27,11 @@ private:
 	void ActualizaTotalGui(zCaja *);
 	void AgregaGasto(int,int);
 	void ActualizaTotalGastos();
+	void ActualizaDineroEntroCaja();
+	void ActualizaImporteTransferencias();
 
 	void ActualizaGui();
+
 private:
 	zDenominacion *zDenoD;
 	

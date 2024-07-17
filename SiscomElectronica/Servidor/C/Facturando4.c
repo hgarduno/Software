@@ -197,6 +197,7 @@ char lchrArrBuffer[128];
 SiscomRegistroProL *lSiscomRegProLPtrRegreso,
 		   *lSiscomRegProLPtrFactura;
 float lfltImporte,lfltIva;
+
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
 if((lSiscomRegProLPtrRegreso=CalculandoFacturaOrdenes(pSiscomOpePtrDato,&lfltImporte)))
 {
@@ -867,17 +868,12 @@ char lchrArrXML[32000];
 LogSiscom("Realizando la facturacion version 4");
 EncabezadoXML_4(pSiscomOpePtrDato,lchrArrXML);
 EmisorXML_4(pSiscomOpePtrDato,lchrArrXML);
-LogSiscom("");
 ReceptorXML_4(pSiscomOpePtrDato,lchrArrXML);
-LogSiscom("");
 ConceptosXML_4(pSiscomOpePtrDato,lchrArrXML);
-LogSiscom("");
 ImpuestosXML_4(pSiscomOpePtrDato,lchrArrXML);
-LogSiscom("");
 FinalXML_4(pSiscomOpePtrDato,lchrArrXML);
 LogSiscom("EL archivo %x",pFlePtrArchivo);
 fprintf(pFlePtrArchivo,"%s",lchrArrXML);
-LogSiscom("%s",lchrArrXML);
 fflush(pFlePtrArchivo);
 
 }
@@ -1196,7 +1192,18 @@ lfltDecimal=pfltNumero-(int )pfltNumero;
 lintEntero=(int )(lfltDecimal*100);
 sprintf(pchrPtrSalida,"%d.%d",(int )pfltNumero,lintEntero);
 }
-
+float AjustaDecimales(float pfltNumero)
+{
+float lfltDecimal;
+lfltDecimal=pfltNumero-(int )pfltNumero;
+LogSiscom("El importe %f",lfltDecimal);
+if(lfltDecimal>=0.55)
+{
+ pfltNumero+=0.021111;
+}
+LogSiscom("---- %f",pfltNumero);
+return pfltNumero;
+}
 void CalculosVersionFacturacion3_3(SiscomOperaciones *pSiscomOpePtrDato)
 {
 SiscomRegistroProL *lSiscomRegProLPtrProductos,
@@ -1204,6 +1211,7 @@ SiscomRegistroProL *lSiscomRegProLPtrProductos,
 char lchrArrBuffer[128],lchrArrImporteOrden[128];
 float lfltIvaProducto,
 	lfltImporteOrden=0.0,
+	lfltTotalOrden,
 	lfltImporteProducto;
 if((lSiscomRegProLPtrProductos=SiscomRegistroAsociadoEntradaOperacion("Envio",
 								      "Productos",
@@ -1216,6 +1224,7 @@ for(;
 	lSiscomRegProLPtrProductos=lSiscomRegProLPtrProductos->SiscomRegProLPtrSig)
 {
  lfltImporteProducto=SiscomObtenCampoRegistroProLFloat("importe",lSiscomRegProLPtrProductos);
+/* LogSiscom("%f",lfltImporteProducto); */
  /*
  lfltIvaProducto=lfltImporteProducto*0.16;
  */
@@ -1225,11 +1234,15 @@ for(;
  */
  lfltImporteOrden+=lfltImporteProducto;
 }
-/*
+
+lfltImporteOrden=AjustaDecimales(lfltImporteOrden);
 SiscomFloatAChar(lfltImporteOrden,2,lchrArrImporteOrden);
-*/
-lfltImporteOrden*=1.16;
-sprintf(lchrArrImporteOrden,"%.2f",lfltImporteOrden);
+
+
+lfltTotalOrden=lfltImporteOrden*1.16;
+
+LogSiscom("Importe Orden %f  Total Orden %f",lfltImporteOrden,lfltTotalOrden);
+sprintf(lchrArrImporteOrden,"%.2f",lfltTotalOrden);
 SiscomActualizaCampoAsociadoEntrada("Envio","Total",lchrArrImporteOrden,pSiscomOpePtrDato);
 }
 
@@ -1252,7 +1265,7 @@ SiscomArchivoFacturando *lSiscomAFacturandoPtrProceso=gSiscomAFacturandoArrFunci
   	    lchrArrArchivo);
   if((lFlePtrArchivo=fopen(lchrArrArchivo,"w")))
   {
-  	CalculosVersionFacturacion3_3(pSiscomOpePtrDato);
+  	CalculosVersionFacturacion3_3(pSiscomOpePtrDato); 
 	GeneraArchivoDatosFacturacion(lSiscomAFacturandoPtrProceso,
 				      pSiscomOpePtrDato,
 				      lFlePtrArchivo,

@@ -320,6 +320,7 @@ SiscomAnexaRegistroPro(&lSiscomRegProLPtrPrim,
 		       pchrPtrBuffer,
 		       lchrArrNombreConsulta,
 		       (char *)0);
+
 SiscomAnexaRegistrosAlCampo(pchrPtrArgumento,
 			    lSiscomRegProLPtrAct,
 			    pchrPtrBuffer,
@@ -356,10 +357,67 @@ SiscomAsignaRegistrosArgumentoOperaciones(lSiscomRegProLPtrPrimArg,
 }
 }
 
+/*
+int SiscomEjecutaConsultaSql(const char *pchrPtrSql,
+			     const char *pchrPtrNmbConsulta,
+			     char *pchrPtrBuffer,
+			     SiscomOperaciones *pSiscomOpePtrDatos)
+{
+SiscomCampoProL *lSiscomCamProLPtrDato=0,
+		*lSiscomCamProLPtrDatoAct=0,
+	 	*lSiscomCamProLPtrPaso,
+		*lSiscomCamProLPtrCampo=0;
+SiscomRegistroProL *lSiscomRegProLPtrPrim=0,
+		   *lSiscomRegProLPtrAct=0;
+
+char *lchrPtrSql;
+char *lchrPtrEdoConexion;
+SiscomAnexaRegistroPro(&lSiscomRegProLPtrPrim,
+		       &lSiscomRegProLPtrAct,
+		       pchrPtrBuffer,
+		       "BaseDatos,"
+		       "PuertoBaseDatos,"
+		       "Operacion,"
+		       "EstadoOperacion,",
+		       pSiscomOpePtrDatos->chrArrBaseDatos,
+		       pSiscomOpePtrDatos->chrArrPuertoBaseDatos,
+		       "EjecutaConsulta",
+		       (const char *)0);
+
+SiscomNodoCampoPro(pchrPtrNmbConsulta,
+                   pchrPtrSql,
+                   &lSiscomCamProLPtrDato,
+                   &lSiscomCamProLPtrDatoAct);
+SiscomNodoRegistroPro(lSiscomCamProLPtrPaso,
+		      &lSiscomRegProLPtrPrim,
+		      &lSiscomRegProLPtrAct);
 
 
+  SiscomAnexaRegistrosAlCampo(pchrPtrNmbConsulta,
+  			      lSiscomRegProLPtrAct,
+			      pchrPtrBuffer,
+			      "Sql,",
+			      pchrPtrSql);
 
 
+if((pSiscomOpePtrDatos->intSocketAD=SiscomConectateCliente(
+				pSiscomOpePtrDatos->chrArrDirIpSvrAccesoDatos,
+				pSiscomOpePtrDatos->intPuertoSvrAccesoDatos,
+				&lchrPtrEdoConexion))>0)
+{
+SiscomEnviaRegistrosSocket(pSiscomOpePtrDatos->intSocketAD,
+			   pchrPtrBuffer,
+			   lSiscomRegProLPtrPrim);
+SiscomLeeRegistrosSocket(pSiscomOpePtrDatos->intSocketAD,
+			 pchrPtrBuffer,
+			 &pSiscomOpePtrDatos->SiscomRegProLPtrPrimRes,
+			 &pSiscomOpePtrDatos->SiscomRegProLPtrActRes);
+}
+
+
+}
+
+*/
 
 void SiscomConsultaSqlAArgumentoOperaciones(const char *pchrPtrSql,
 					    const char *pchrPtrArgumento,

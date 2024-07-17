@@ -1520,8 +1520,6 @@ SiscomRegistroProL *SiscomBuscaRegistroLista(const char *pchrPtrCampo,
 					     const char *pchrPtrValor,
 					     SiscomRegistroProL *pSiscomRegProLPtrLista)
 {
-SiscomRegistroProL *lSiscomRegProLPtrPrimReg=0,
-		   *lSiscomRegProLPtrActReg=0;
 	for(;
 	    pSiscomRegProLPtrLista;
 	    pSiscomRegProLPtrLista=pSiscomRegProLPtrLista->SiscomRegProLPtrSig)
@@ -1529,16 +1527,7 @@ SiscomRegistroProL *lSiscomRegProLPtrPrimReg=0,
 	   if(!SiscomComparaCadenaCampoRegistroProL(pchrPtrValor,
 	   					   pchrPtrCampo,
 						   pSiscomRegProLPtrLista))
-	   {
-	     LogSiscom("----- Falta aqui algo ");
-	     /*
-	       SiscomAnexaRegistroPro2(&lSiscomRegProLPtrPrimReg,
-	       			       &lSiscomRegProLPtrActReg,
-				       pSiscomRegProLPtrLista);
-
-	       */
-		return lSiscomRegProLPtrPrimReg;
-	   }
+		return pSiscomRegProLPtrLista;
 	}
 return 0;
 }

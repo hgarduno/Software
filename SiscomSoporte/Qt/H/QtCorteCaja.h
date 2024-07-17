@@ -13,6 +13,10 @@ class zCeldaImporteGastos;
 
 class zCajas;
 class zZonaGasto;
+
+class zDenominaciones;
+class zCeldaImporteTransferencias;
+class zCeldaImporteEfectivoCaja;
 class QtCorteCaja:public QTable
 {
 Q_OBJECT 
@@ -26,11 +30,15 @@ public:
 	void AgregaGasto(int,int);
 	zCeldaPagoTarjeta *CeldaPagoTarjeta();
 	zCeldaImporteGastos *CeldaImporteGastos();
+	zCeldaImporteTransferencias *CeldaImporteTransferencias();
+	zCeldaImporteEfectivoCaja *CeldaImporteEfectivoCaja();
+	void ActualizaCantidadesCambio(zDenominaciones *);
+	void ActualizaTotalCajaCambio(const char *);
 private:
 	void CeldaGris(int,int,const QString &);
 	void CeldaColor(int,int,const char *,const QString &);
 	void LlenaCeldasDinero(int pintFila,int pintColumna,zCaja *);
-	zCaja *FormaCajaDinero(int,int,const char *);
+	zCaja *FormaCajaDinero(int,int,const char *,const char *);
 	void FormaEncabezadosCaja(zCaja *);
 	void FormandoCajaCorte(int ,int);
 	void FormaRegistroDenominacion(zDenominacion *);
@@ -39,11 +47,14 @@ private:
 	void EncabezadosDinero(int,int,zCaja *);
 	void EncabezadosGastos(int,int);
 	void EncabezadoPagoTarjeta(int,int);
+	void EncabezadoTransferencias(int,int);
 	void EncabezadoImporteGastos(int,int);
 	void EncabezadoVentasEfectivo(int,int);
 	void FormandoEncabezadosCorte();
 	zGasto *Gasto(int,int);
 	void PagoTarjeta(int,int);
+	void ImporteTransferencias(int,int);
+	void ImporteEfectivoCaja(int,int);
 	void ImporteGastos(int,int);
 
 	void MuestraGastos(zCaja *);
@@ -52,6 +63,8 @@ private:
 	zCajas *zCajasExp;
 	zCeldaPagoTarjeta *zCelPaTarjeta;
 	zCeldaImporteGastos *zCelImGastos;
+	zCeldaImporteTransferencias *zCelImporteT;
+	zCeldaImporteEfectivoCaja *zCelImporteEC;
 	int intFila;
 	int intColumna;
 

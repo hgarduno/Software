@@ -115,7 +115,8 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/SqlSincronizaExpendios.o			\
 			   O/SqlTiendaLinea.o				\
 			   O/SqlBodegas.o				\
-			   O/SqlFormaPago.o
+			   O/SqlFormaPago.o				\
+			   O/SqlCorteCajaSucursal.o
 			   
 Archivos_SiscomElectronicaMemoriaComun=O/SiscomElectronicaMemoriaComun.o			   
 

@@ -23,5 +23,4 @@ bool operator==(zCeldaPagoTarjeta &pzPTarjeta,
 {
 return ((pzPTarjeta.Fila()==pzPTarjeta1.Fila())    &&	
        (pzPTarjeta.Columna()==pzPTarjeta1.Columna()));
-
 }

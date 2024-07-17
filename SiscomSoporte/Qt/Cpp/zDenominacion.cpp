@@ -17,6 +17,14 @@ new zSiscomCampo("Cantidad",(const unsigned char *)pchrPtrCantidad)	<<
 new zSiscomCampo("Importe",(const unsigned char *)pchrPtrImporte)	<<
 new zSiscomCampo("Color",(const unsigned char *)pchrPtrColor);
 }
+zDenominacion::zDenominacion(zSiscomRegistro *pzSisRegDato)
+{
+(*this)									<<
+new zSiscomCampo("Valor",(*pzSisRegDato)["valor"])			<<
+new zSiscomCampo("Cantidad",(*pzSisRegDato)["cantidad"])		<<
+new zSiscomCampo("Importe",(*pzSisRegDato)["importe"])			<<
+new zSiscomCampo("Color");
+}
 int zDenominacion::Fila()
 {
    return intFila;

@@ -5,6 +5,14 @@ zDenominaciones::zDenominaciones()
 {
 
 }
+zDenominaciones::zDenominaciones(zSiscomRegistros *pzDenominaciones)
+{
+zSiscomRegistro *lzSisRegDato;
+for(lzSisRegDato=pzDenominaciones->Primer();
+    lzSisRegDato;
+    lzSisRegDato=pzDenominaciones->Siguiente())
+   Agrega(new zDenominacion(lzSisRegDato));
+}
 zDenominaciones &zDenominaciones::operator<<(zDenominacion *pzDenominacion)
 {
 	Agrega(pzDenominacion);
@@ -53,4 +61,59 @@ if((*pzDeno)==(*lzDeno))
 }
 return 0;
 }
-			
+		
+
+
+void zDenominaciones::ActualizaCantidades(zDenominaciones *pzDenominacionesAct)
+{
+zDenominacion *lzDenominacion;
+
+for(lzDenominacion=(zDenominacion *)Primer();
+     lzDenominacion;
+     lzDenominacion=(zDenominacion *)Siguiente())
+  ActualizaCantidad(lzDenominacion,pzDenominacionesAct);
+}
+void zDenominaciones::ActualizaCantidad(zDenominacion *pzDenominacion,
+					zDenominaciones *pzDenominacionesAct)
+{
+ zDenominacion *lzDenominacion;
+
+ for(lzDenominacion=(zDenominacion *)pzDenominacionesAct->Primer();
+     lzDenominacion;
+     lzDenominacion=(zDenominacion *)pzDenominacionesAct->Siguiente())
+ {
+   if((*lzDenominacion)==(*pzDenominacion))
+   {
+       pzDenominacion->Cantidad(lzDenominacion->Cantidad());
+       break;
+   }
+ }
+}
+
+
+
+void zDenominaciones::ActualizaImportes(zDenominaciones *pzDenominacionesAct)
+{
+zDenominacion *lzDenominacion;
+
+for(lzDenominacion=(zDenominacion *)Primer();
+     lzDenominacion;
+     lzDenominacion=(zDenominacion *)Siguiente())
+  ActualizaImporte(lzDenominacion,pzDenominacionesAct);
+}
+void zDenominaciones::ActualizaImporte(zDenominacion *pzDenominacion,
+					zDenominaciones *pzDenominacionesAct)
+{
+ zDenominacion *lzDenominacion;
+
+ for(lzDenominacion=(zDenominacion *)pzDenominacionesAct->Primer();
+     lzDenominacion;
+     lzDenominacion=(zDenominacion *)pzDenominacionesAct->Siguiente())
+ {
+   if((*lzDenominacion)==(*pzDenominacion))
+   {
+       pzDenominacion->Importe(lzDenominacion->Importe());
+       break;
+   }
+ }
+}
