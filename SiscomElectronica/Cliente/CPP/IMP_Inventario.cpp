@@ -127,6 +127,7 @@ QActualizaInventario lQAInventario(SisDatCom,
 void QInventario::S_SelProducto(ProductoE *pProducto)
 {
 	SiscomPasaFocoControl(QLECantidad);
+	 QLEExistenciaFisica->setText((*pProducto)["Existencia"]);
 	PProducto=pProducto;
 	CapturaExistenciaFisica();
 }

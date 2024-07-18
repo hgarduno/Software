@@ -691,6 +691,43 @@ LogSiscom("%s %s %s",
 	   SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","FormaPago","formapago",pSiscomOpePtrDato),
 	    SiscomCampoAsociadoAsociadoEntradaOperacion("Envio", "MetodoPago","codigo",pSiscomOpePtrDato));
 }
+/*  Siscom Zacatenco
+ * Jueves 18 de Julio  2024 
+ *
+ * Con los caracteres raros en los datos fiscales , con esto cambio el ampersand por &amp; para que 
+ * el formato de XML sea correcto
+ *
+ */
+void CambiaAmpersandCadena(const char *pchrPtrCadena,char *pchrPtrSalida)
+{
+strcpy(pchrPtrSalida,pchrPtrCadena);
+while(*pchrPtrCadena)
+{
+  *pchrPtrSalida=*pchrPtrCadena; 
+   if(*pchrPtrSalida=='&')
+   {
+	strcpy(pchrPtrSalida+1,"amp;");
+	pchrPtrSalida+=4;
+   }
+  pchrPtrCadena++;
+  pchrPtrSalida++;
+}
+*pchrPtrSalida=0;
+}
+void FormateaRFC(const char *pchrPtrRFC,char *pchrPtrRFCSalida)
+{
+
+  CambiaAmpersandCadena(pchrPtrRFC,pchrPtrRFCSalida);
+
+}
+
+void FormateaRazonSocial(const char *pchrPtrRazonSocial,char *pchrPtrRazonSocialSalida)
+{
+
+  CambiaAmpersandCadena(pchrPtrRazonSocial,pchrPtrRazonSocialSalida);
+
+}
+
 /* 
  * Ecatepec Jueves 5 de octubre del 2023 
  *
@@ -715,16 +752,25 @@ SiscomRegistroProL *lSiscomRegProLPtrDato;
 char lchrArrReceptor[512],
 	lchrArrCP[12];
 
+char lchrArrRFC[25],lchrArrRazonSocial[256];
 
 lSiscomRegProLPtrDato=SiscomRegistroAsociadoEntradaOperacion("Envio",
 							     "Cliente",
 							     pSiscomOpePtrDato);
+FormateaRFC(SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Cliente","RFC",pSiscomOpePtrDato),lchrArrRFC);
+FormateaRazonSocial(SiscomAsociadoPrimerCampo("Empresa","RazonSocial",lSiscomRegProLPtrDato),lchrArrRazonSocial);
 
 sprintf(lchrArrCP,"%05d",atoi(SiscomAsociadoPrimerCampo("Direccion","CP",lSiscomRegProLPtrDato)));
 sprintf(lchrArrReceptor,
 	"\n<cfdi:Receptor Rfc=\"%s\" Nombre=\"%s\" DomicilioFiscalReceptor=\"%s\" RegimenFiscalReceptor=\"%s\" UsoCFDI=\"%s\"/>",
+	/*
 	SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Cliente","RFC",pSiscomOpePtrDato),
+	*/
+	lchrArrRFC,
+	/*
 	SiscomAsociadoPrimerCampo("Empresa","RazonSocial",lSiscomRegProLPtrDato),
+	*/
+	lchrArrRazonSocial,
 	lchrArrCP,
 	SiscomAsociadoPrimerCampo("Empresa","RegimenFiscal",lSiscomRegProLPtrDato),
 	SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","UsoFactura","codigo",pSiscomOpePtrDato));

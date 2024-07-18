@@ -109,7 +109,7 @@ void SqlPagaCon(SiscomOperaciones *pSisOpePtrDato,
 {
 sprintf(pchrPtrSql,
 	"					\n\
-	select sum(importe) as importe 		\n\
+	select sum(pagacon) as importe 		\n\
 	from importeorden as a inner join	\n\
 	     pagacon as b using(idventa) 	\n\
 	 where a.fecha::date='%s' and 		\n\
