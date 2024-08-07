@@ -26,7 +26,6 @@ SiscomIniciaDatosOperacion(pintSocket,
                            (SiscomRegistroProL *)pSiscomRegProLPtrAct,
                            &lSiscomOpDat);
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
-SiscomAgregaOperacion(ColocaFechaHoyCorteCaja,&lSiscomProDat);
 SiscomAgregaOperacion(SqlDatosCierreCorteSucursal,&lSiscomProDat);
 SiscomAgregaOperacion(EnviaRegistroCorteCaja,&lSiscomProDat);
 SiscomAgregaOperacion(0,&lSiscomProDat);
@@ -46,6 +45,7 @@ SiscomIniciaDatosOperacion(pintSocket,
                            (SiscomRegistroProL *)pSiscomRegProLPtrAct,
                            &lSiscomOpDat);
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(SqlDatosCierreCorteSucursal,&lSiscomProDat);
 SiscomAgregaOperacion(MultiplicaSumaDenominaciones,&lSiscomProDat);
 SiscomAgregaOperacion(SumaGastosCaja,&lSiscomProDat);
 SiscomAgregaOperacion(EnviandoCalculoCorteCaja,&lSiscomProDat);
@@ -135,10 +135,23 @@ SiscomAsociadosArgumentoLog("SqlCorteCaja",
                            pSisOpePtrDato);
 return 0;
 }
-
-int EnviandoCalculoCorteCaja(SiscomOperaciones *pSisOpePtrDato)
+void AgregaRespuestaImportesCorteEnvio(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[128];
+SiscomCampoProL *lSisCampoProLPtrDato;
+SiscomRegistroProL *lSisRegProLPtrEnvio,
+		   *lSisRegProLPtrRes;
+lSisRegProLPtrEnvio=SiscomObtenRegistrosCampoEntrada("Envio",pSisOpePtrDato);
+lSisCampoProLPtrDato=SiscomUltimoCampoRegistro(lSisRegProLPtrEnvio);
+lSisCampoProLPtrDato->SiscomCamProLPtrSig=pSisOpePtrDato->SiscomRegProLPtrPrimRes->SiscomCamProLPtrDato; 
+lSisRegProLPtrEnvio->SiscomCamProLPtrDato->intNCampos+=pSisOpePtrDato->SiscomRegProLPtrPrimRes->SiscomCamProLPtrDato->intNCampos;
+
+}
+int EnviandoCalculoCorteCaja(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[512];
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
+AgregaRespuestaImportesCorteEnvio(pSisOpePtrDato);
 MultiplicandoSumandoCajas(pSisOpePtrDato);
 SiscomEnviaAsociadoEntradaCliente("Envio",lchrArrBuffer,pSisOpePtrDato);
 return 0;
@@ -170,7 +183,9 @@ void MultiplicandoSumandoCajas(SiscomOperaciones *pSisOpePtrDato)
 float lfltTotal;
 char lchrArrBuffer[128];
 SiscomRegistroProL *lSisRegProLPtrCajas,*lSisRegProLPtrCajas1;
-lSisRegProLPtrCajas1=lSisRegProLPtrCajas=SiscomObtenRegistrosCampoEntrada("Envio",pSisOpePtrDato);
+lSisRegProLPtrCajas1=lSisRegProLPtrCajas=SiscomRegistroAsociadoEntradaOperacion("Envio",
+										"Cajas",
+								          pSisOpePtrDato);
 for(;
     lSisRegProLPtrCajas;
     lSisRegProLPtrCajas=lSisRegProLPtrCajas->SiscomRegProLPtrSig)
@@ -346,7 +361,7 @@ return 0;
 int EnviaRegistroCorteCaja(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[256];
-LogSiscom("");
+SiscomRegistroRegresoLog(lchrArrBuffer,pSisOpePtrDato);
 SiscomEnviaRegistrosRespuesta(pSisOpePtrDato,lchrArrBuffer);
 return 0;
 }

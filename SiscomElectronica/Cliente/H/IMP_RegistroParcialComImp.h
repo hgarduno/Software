@@ -4,21 +4,26 @@
 #include <QtRegistroParcialComImp.h>
 
 class zSiscomConexion;
+class zCompraParcialImportacion;
 class QRegistroParcialComImp:public QtRegistroParcialComImp
 {
  Q_OBJECT
 public:
-	QRegistroParcialComImp(char **,
+	QRegistroParcialComImp(
+		zCompraParcialImportacion *,
 	    QWidget *pQWParent=0,
 	    const char *pchrPtrName=0,
 	    WFlags pWFlags=0);
 	~QRegistroParcialComImp();
 private:
-	char **chrPtrArgumentos;
 	zSiscomConexion *zSisConexion;
+	zCompraParcialImportacion *zCompraParcialI;
 private:
 	void RegistrandoProductos();
+	void IniciaVariables();
 public slots:
 	void SlotRegistroProductos();
+signals:
+	void SignalRegistro();
 };
 #endif

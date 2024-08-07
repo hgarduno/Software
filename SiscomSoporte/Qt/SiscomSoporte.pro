@@ -40,6 +40,8 @@ SOURCES+=Cpp/zCeldaPagoTarjeta.cpp
 SOURCES+=Cpp/zCeldaImporteGastos.cpp
 SOURCES+=Cpp/zCeldaImporteTransferencias.cpp
 SOURCES+=Cpp/zCeldaImporteEfectivoCaja.cpp
+SOURCES+=Cpp/zCeldaCambioDiaAnterior.cpp
+SOURCES+=Cpp/zCeldaVentasTotales.cpp
 
 HEADERS=H/QtCorteCaja.h
 HEADERS+=H/QtCorteCajaImp.h

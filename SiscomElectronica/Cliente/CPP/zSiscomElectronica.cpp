@@ -68,6 +68,8 @@
 #include <zCambiosCaja.h>
 #include <zCambioCaja.h>
 #include <zDenominaciones.h>
+#include <zCompraParcialImportacion.h>
+#include <zCorteCaja.h>
 
 #include <string.h> 
 zSiscomElectronica::zSiscomElectronica(zSiscomConexion *pzSiscomConexion,
@@ -1352,7 +1354,28 @@ zSiscomRegistro *lzSisRegEstado;
    else
    return 0;
 }
-int zSiscomElectronica::RegistroParcialCompraImportacionFaltaronProductos(zCompraImportacion *pzCompraImportacion)
+int zSiscomElectronica::RegistroParcialCompraImportacionFaltaronProductos(zCompraParcialImportacion *pzCompraImportacion)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegEstado;
+   AgregaEnvio(pzCompraImportacion);
+   if(lzSisRegsRegreso=EnviaRecibe())
+   {
+        if((lzSisRegEstado=(*lzSisRegsRegreso)[0]))
+	{
+	   SiscomRegistroLog2(lzSisRegEstado);
+	   return 1;
+	}
+	else
+	return 0;
+   }
+   else
+   return 0;
+
+
+}
+
+int zSiscomElectronica::ActualizaCompraImportacionRegistrada(zCompraImportacion *pzCompraImportacion)
 {
 zSiscomRegistros *lzSisRegsRegreso;
 zSiscomRegistro *lzSisRegEstado;
@@ -2141,7 +2164,7 @@ if((lzSisRegsRegreso=EnviaRecibe()))
   else
   return 0;
 }
-
+/*
 int zSiscomElectronica::CalculaCorteCaja(zCajas *pzCajas)
 {
 zSiscomRegistros *lzSisRegsRegreso;
@@ -2152,6 +2175,23 @@ if((lzSisRegsRegreso=EnviaRecibe()))
 	pzCajas->Actualiza(lzSisRegsRegreso);
         return 1;
   }
+  else
+  return 0;
+}
+*/
+
+int zSiscomElectronica::CalculaCorteCaja(zCorteCaja *pzCorteCaja)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio((zSiscomRegistro *)pzCorteCaja);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+        lzSisRegRegreso=(*lzSisRegsRegreso)[0];
+  	pzCorteCaja->Cajas()->Actualiza(lzSisRegRegreso->AsociadosDelCampo("Cajas"));
+	pzCorteCaja->CorteCaja(lzSisRegRegreso);
+        return 1;
+ }
   else
   return 0;
 }

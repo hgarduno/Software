@@ -31,6 +31,7 @@ private:
 	zOrdenVenta *zOVenta;
 	FormaDePago FrmPago;
 	zConCuantoPago *zConCPago;
+	int intValidoPago;
 private:
 	void ConectaSlots();
 	void IniciaVariables();

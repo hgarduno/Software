@@ -23,6 +23,7 @@
 #include <zProductoImportadoInf.h>
 #include <zEmpresa.h>
 #include <zFacturaImportacion.h>
+#include <zCompraParcialImportacion.h>
 
 #include <qmessagebox.h>
 #include <qlineedit.h>
@@ -132,6 +133,12 @@ connect(QPBCargaCompraAProveedor,SIGNAL(clicked()),SLOT(SlotArchivoCompraProveed
 connect(QPBBodegas,SIGNAL(clicked()),SLOT(SlotBodegas()));
 connect(QPBRegParProductos,SIGNAL(clicked()),SLOT(SlotRegParProductos()));
 
+connect(QPBACompra,SIGNAL(clicked()),SLOT(SlotActualizaCompra()));
+}
+void QComprasImportaciones::SlotActualizaCompra()
+{
+ActualizandoCompra();
+
 }
 void QComprasImportaciones::SlotAgregandoParaRegistroParcial(int pintNProducto,
 							     int,
@@ -148,6 +155,8 @@ void QComprasImportaciones::SlotRegParProductos()
 void QComprasImportaciones::SlotBodegas()
 {
   BodegasSiscom();
+  HabilitaRegistroParcialActualizaCompra(QPBRegParProductos); 
+  HabilitaRegistroParcialActualizaCompra(QPBACompra); 
 }
 void QComprasImportaciones::SlotAOtraCelda(int pintFila,int pintColumna)
 {
@@ -360,6 +369,7 @@ void QComprasImportaciones::IniciaVariables()
   zSiscomQt3::Foco(QCtrProveedores);
   VeSiSePasaElFocoAProducto();
   QLCNCostoGrEnvio->setSmallDecimalPoint(true);
+  zComParcialI=new zCompraParcialImportacion;
 }
 
 void QComprasImportaciones::PesoRegistrado()
@@ -778,9 +788,16 @@ void QComprasImportaciones::RegistrandoParcialmenteCompra()
 {
  if(!QRegParComImp)
  {
-   QRegParComImp=new QRegistroParcialComImp(chrPtrArgumentos,QWParent);
+   zComParcialI->Compra(&zComImportacion); 
+   QRegParComImp=new QRegistroParcialComImp(zComParcialI,QWParent);
    QRegParComImp->CompraImportacion(&zComImportacion);
+   connect(QRegParComImp,SIGNAL(SignalRegistro()),SLOT(SlotRegistroParcialCompra()));
  }
+}
+void QComprasImportaciones::SlotRegistroParcialCompra()
+{
+    delete QRegParComImp;
+    GuardandoCompraImportacion();
 }
 void QComprasImportaciones::AgregandoProductoParaRegistroParcial(zProductoImportado *pzProdImportado)
 {
@@ -790,4 +807,18 @@ void QComprasImportaciones::AsignaGenerales()
 {
    zComImportacion.IdExpendio(*(chrPtrArgumentos+0));
    zComImportacion.IdResponsable(*(chrPtrArgumentos+1));
+}
+void QComprasImportaciones::ActualizandoCompra()
+{
+ EnviaActualizacionCompra();
+}
+void QComprasImportaciones::EnviaActualizacionCompra()
+{
+zSiscomElectronica lzSiscomE(zSiscomDesarrollo4::Conexion(),"ActualizacionCompraRegistrada");
+lzSiscomE.ActualizaCompraImportacionRegistrada(&zComImportacion);
+}
+
+void QComprasImportaciones::HabilitaRegistroParcialActualizaCompra(QPushButton *pQPBBoton)
+{
+  pQPBBoton->setEnabled(SisReg3Bodega ? true : false);
 }

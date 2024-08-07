@@ -4,23 +4,36 @@ zCorteCaja::zCorteCaja()
 {
 (*this) 				<< 
 new zSiscomCampo("IdCorte")		<<
-new zSiscomCampo("Fecha")		<<
+new zSiscomCampo("FechaInicio")		<<
+new zSiscomCampo("FechaFin")		<<
 new zSiscomCampo("Transferencias")	<<
 new zSiscomCampo("Tarjeta")		<<
 new zSiscomCampo("DineroEntroCaja")	<<
 new zSiscomCampo("Gastos")		<<
-new zSiscomCampo("Cambio")		<<
+new zSiscomCampo("CambioDiaAnterior")	<<
 new zSiscomCampo("Cajas")		<<
-new zSiscomCampo("IdEstado");
+new zSiscomCampo("IdEstado")		<<
+new zSiscomCampo("VentasTotales");
+}
+
+void zCorteCaja::Cajas(zCajas *pzCajas)
+{
+ AsociadosAlCampo("Cajas",(zCajas *)pzCajas);
 }
 void zCorteCaja::IdCorte(const char *pchrPtrIdCorte)
 {
 ActualizaCampo("IdCorte",(const unsigned char *)pchrPtrIdCorte);
 }
-void zCorteCaja::Fecha(const char *pchrPtrFecha)
+void zCorteCaja::FechaInicio(const char *pchrPtrFechaInicio)
 {
-ActualizaCampo("Fecha",(const unsigned char *)pchrPtrFecha);
+ActualizaCampo("FechaInicio",(const unsigned char *)pchrPtrFechaInicio);
 }
+
+void zCorteCaja::FechaFin(const char *pchrPtrFechaFin)
+{
+ActualizaCampo("FechaFin",(const unsigned char *)pchrPtrFechaFin);
+}
+
 void zCorteCaja::Transferencias(const char *pchrPtrTransferencias)
 {
 ActualizaCampo("Transferencias",(const unsigned char *)pchrPtrTransferencias);
@@ -42,15 +55,25 @@ void zCorteCaja::IdEstado(const char *pchrPtrIdEstado)
 ActualizaCampo("IdEstado",(const unsigned char *)pchrPtrIdEstado);
 }
 
+void zCorteCaja::CambioDiaAnterior(const char *pchrPtrCambioDiaAnterior)	
+{
+ActualizaCampo("CambioDiaAnterior",(const unsigned char *)pchrPtrCambioDiaAnterior);
+}
+
 void zCorteCaja::CorteCaja(zSiscomRegistro *pzSisRegRegreso)
 {
    ActualizaCampo("DineroEntroCaja",
-   		  pzSisRegRegreso->CampoAsociado("PagaCon","importe"));
+   		  pzSisRegRegreso->CampoAsociado("PagaConP","importe"));
 
    ActualizaCampo("Transferencias",
-   		  pzSisRegRegreso->CampoAsociado("Transferencias","importe"));
+   		  pzSisRegRegreso->CampoAsociado("TransferenciasP","importe"));
+   ActualizaCampo("VentasTotales",
+   		  pzSisRegRegreso->CampoAsociado("VentasTotalesP","importe"));
 }
-
+void zCorteCaja::VentasTotales(const char *pchrPtrVentasT)
+{
+   ActualizaCampo("VentasTotales",(const unsigned char *)pchrPtrVentasT);
+}
 const char *zCorteCaja::DineroEntroCaja()
 {
   return (const char *)Campo("DineroEntroCaja");
@@ -59,4 +82,17 @@ const char *zCorteCaja::DineroEntroCaja()
 const char *zCorteCaja::Transferencias()
 {
   return (const char *)Campo("Transferencias");
+}
+const char *zCorteCaja::VentasTotales()
+{
+   return (const char *)Campo("VentasTotales");
+}
+const char *zCorteCaja::CambioDiaAnterior()
+{
+  return (const char *)Campo("CambioDiaAnterior");
+}
+ 
+zCajas *zCorteCaja::Cajas()
+{
+  return (zCajas *)AsociadosDelCampo("Cajas");
 }

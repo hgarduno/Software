@@ -13,6 +13,8 @@
 #include <zCeldaImporteGastos.h>
 #include <zCeldaImporteTransferencias.h>
 #include <zCeldaImporteEfectivoCaja.h>
+#include <zCeldaCambioDiaAnterior.h>
+#include <zCeldaVentasTotales.h>
 QtCorteCajaImp::QtCorteCajaImp(QWidget *pQWParent,
 			      const char *pchrPtrName):
 			      QtCorteCaja(pQWParent,pchrPtrName)
@@ -28,7 +30,8 @@ void QtCorteCajaImp::SlotCaptura(int pintFila,int pintColumna)
 {
    ActualizandoDenominacion(pintFila,pintColumna); 
    AgregandoGasto(pintFila,pintColumna);
-   ActualizandoImporteGasto(pintFila,pintColumna);
+
+    ActualizandoImporteGasto(pintFila,pintColumna);
    ActualizandoPagoTarjeta(pintFila,pintColumna);
 }
 void QtCorteCajaImp::ActualizandoDenominacion(int pintFila,int pintColumna)
@@ -59,6 +62,8 @@ void QtCorteCajaImp::ActualizandoGui()
    ActualizaTotalGastos();
    ActualizaImporteTransferencias();
    ActualizaDineroEntroCaja();
+   ActualizandoCambioDiaAnterior();
+   ActualizandoVentasTotales();
 }
 void QtCorteCajaImp::ActualizaGui()
 {
@@ -142,4 +147,16 @@ void QtCorteCajaImp::ActualizaDineroEntroCaja()
 setText(CeldaImporteEfectivoCaja()->Fila(),
 	CeldaImporteEfectivoCaja()->Columna(),
 	Cajas()->Principal()->TotalEfectivo());
+}
+void QtCorteCajaImp::ActualizandoCambioDiaAnterior()
+{
+setText(CeldaCambioDiaAnterior()->Fila(),
+	CeldaCambioDiaAnterior()->Columna(),
+	Cajas()->Principal()->CambioDiaAnterior());
+}
+void QtCorteCajaImp::ActualizandoVentasTotales()
+{
+setText(CeldaVentasTotales()->Fila(),
+	CeldaVentasTotales()->Columna(),
+	Cajas()->Principal()->VentasTotales());
 }

@@ -14,6 +14,8 @@ void SiscomAgregaArgumentoInsercionSql2(const char *pchrPtrNombre,
 					char *pchrPtrBuffer,
 					SiscomOperaciones *pSiscomOpePtrDat);
 
+
+
 void SiscomAgregaSentenciasSqlDelAsociado(
 		const char *pchrPtrArgumento,
 		const char *pchrPtrAsociado,
@@ -23,6 +25,15 @@ void SiscomAgregaSentenciasSqlDelAsociado(
 		void (SiscomSql)(SiscomOperaciones *,SiscomRegistroProL *,char *));
 		
 
+void SiscomAgregaSentenciasSqlCampoAsociadoAsociado(
+		const char *pchrPtrArgumento,
+		const char *pchrPtrAsociado,
+		const char *pchrPtrAsociado1,
+		const char *pchrPtrCampo,
+		char *pchrPtrBuffer,
+		char *pchrPtrBufferSql,
+		SiscomOperaciones *pSiscomOperPtrDat,
+		void (SiscomSql)(SiscomOperaciones *,SiscomRegistroProL *,char *));
 
 void SiscomEnviaRegistrosAlServidorBD(const char *pchrPtrArgumento,
 				      char *pchrPtrBuffer,

@@ -1278,6 +1278,7 @@ SiscomRegistroProL *lSiscomRegProLRegreso;
 if((lSiscomRegProLRegreso=SiscomRegistrosAsociadoEntradaOperacion(pchrPtrAsociado,
 							      pSiscomOpPtrDatos)))
 {
+SiscomRegistroProtocoloLog(pchrPtrBuffer,lSiscomRegProLRegreso);
   SiscomEnviaRegistrosSocket(pSiscomOpPtrDatos->intSocket,
   			     pchrPtrBuffer,
 			     lSiscomRegProLRegreso);

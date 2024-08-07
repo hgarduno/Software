@@ -40,12 +40,15 @@ private:
 	void RegistrandoCorteDia();
 	zCorteCaja &CorteCaja();
 	void ImportesDia();
+	void IniciandoFechas();
 private slots:
 	void SlotCapturoCantidad();
 	void SlotActualizaCorteCaja();
 	void SlotRegistraCambio();
 	void SlotRegistraCorte();
 	void SlotActualiza();
+	void SlotFocoAActualiza();
+	void SlotFocoAFFin();
 };
 extern "C" QCorteCajaSucursal *InstanciaCorteCajaSucursal(void *,char **,void *,const char *,int);
 #endif

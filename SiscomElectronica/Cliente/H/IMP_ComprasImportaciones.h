@@ -12,6 +12,8 @@ class zProductoImportadoInf;
 class SiscomRegistro3;
 
 class QRegistroParcialComImp;
+
+class zCompraParcialImportacion;
 class QComprasImportaciones:public ComprasImportaciones
 {
  Q_OBJECT
@@ -44,6 +46,7 @@ private:
 	SiscomRegistro3 *SisReg3Bodega;
 	QRegistroParcialComImp *QRegParComImp;
 	QWidget *QWParent;
+	zCompraParcialImportacion *zComParcialI;
 private:
 
 	zProductoImportado *ProductoImportado(int);
@@ -90,6 +93,7 @@ private:
 	void HabilitandoRegistraCompra();
 	void HabilitandoBodegas();
 	void HabilitaSeleccionaBodega();
+	void HabilitaRegistroParcialActualizaCompra(QPushButton *);
 	void closeEvent(QCloseEvent *);
 	void ProductoImportadoInf(zSiscomRegistro *);
 	void ConsultaProductoImportadoInf(zSiscomRegistro *);
@@ -110,6 +114,8 @@ private:
 	int YaSeleccionoBodega();
         void AgregandoProductoParaRegistroParcial(zProductoImportado *);
 	void AsignaGenerales();
+	void ActualizandoCompra();
+	void EnviaActualizacionCompra();
 private slots:
 
 	void SlotCapturandoNumFactura(const QString &);
@@ -152,6 +158,8 @@ private slots:
 	void SlotBodegas();
 	void SlotRegParProductos();
 	void SlotAgregandoParaRegistroParcial(int,int,int,const QPoint &);
+	void SlotActualizaCompra();
+	void SlotRegistroParcialCompra();
 };
 extern "C" QComprasImportaciones *InstanciaComprasImportaciones(void *,char **,void *,const char *,int);
 #endif

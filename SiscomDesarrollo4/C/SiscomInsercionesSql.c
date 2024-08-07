@@ -94,6 +94,50 @@ else
 LogSiscom("El Argumento %s,NO Existe o esta vacio ",pchrPtrArgumento);
 }
 
+
+void SiscomAgregaSentenciasSqlCampoAsociadoAsociado(
+		const char *pchrPtrArgumento,
+		const char *pchrPtrAsociado,
+		const char *pchrPtrAsociado1,
+		const char *pchrPtrCampo,
+		char *pchrPtrBuffer,
+		char *pchrPtrBufferSql,
+		SiscomOperaciones *pSiscomOperPtrDat,
+		void (SiscomSql)(SiscomOperaciones *,SiscomRegistroProL *,char *))
+{
+SiscomRegistroProL *lSiscomRegProLPtrSqlAct;
+SiscomRegistroProL *lSiscomRegProLPtrAsociado;
+if((lSiscomRegProLPtrSqlAct=SiscomObtenArgumentoActOperaciones(pchrPtrArgumento,
+							   pSiscomOperPtrDat)))
+{
+if((lSiscomRegProLPtrAsociado=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion(
+						pchrPtrAsociado,
+						pchrPtrAsociado1,
+						pchrPtrCampo,
+						pSiscomOperPtrDat)))
+{
+while(lSiscomRegProLPtrAsociado)
+{
+  SiscomSql(pSiscomOperPtrDat,lSiscomRegProLPtrAsociado,pchrPtrBufferSql);
+  SiscomAnexaRegistrosAlCampo(
+  	"SentenciasSql",
+	lSiscomRegProLPtrSqlAct,
+	pchrPtrBuffer,
+	"Sql,"
+	"Estado,",
+	pchrPtrBufferSql,
+	"");
+  lSiscomRegProLPtrAsociado=lSiscomRegProLPtrAsociado->SiscomRegProLPtrSig;
+}
+}
+else
+LogSiscom("El Campo:%s no forma parte del Registro",pchrPtrAsociado);
+}
+else
+LogSiscom("El Argumento %s,NO Existe o esta vacio ",pchrPtrArgumento);
+}
+
+
 /* Lunes 5 de Enero del 2015 
  * Toma el registro actual de pSiscomOpePtrDat->SiscomRegProLPtrActEnt 
  * y busca el campo pchrPtrCampo, para obtener los registros asociados

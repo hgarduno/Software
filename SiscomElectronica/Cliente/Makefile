@@ -415,7 +415,7 @@ Pantallas_SiscomElectronica2009=VentasPorCaja 				\
 				TransfiereBodegaBodega			\
 				ComoPago				\
 				PagaConTransferencia			\
-				CambioEnCaja				\
+				DatosCorteCaja				\
 				CapturaDatosFactura
 
 #}}}
@@ -617,6 +617,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zCorteCajaO.o								\
 	O/zClientesSiscom.o							\
 	O/zCorteCaja.o								\
+	O/zCompraParcialImportacion.o						\
 	O/MOC_QtClientePedido.o							\
 	O/MOC_QtPuntosEntrega.o							\
 	O/MOC_QtListaPuntosEntrega.o						\
