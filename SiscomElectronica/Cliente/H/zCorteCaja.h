@@ -19,6 +19,7 @@ class zCorteCaja:public zSiscomRegistro
 	void IdEstado(const char *pchrPtrTranferencias);	
 	void CambioDiaAnterior(const char *pchrPtrTranferencias);	
 	void VentasTotales(const char *pchrPtrVentasTotales);
+	void EdoCuentaCambio(const char *pchrPtrEdoCuentaCambio);
 
 	void Cajas(zCajas *);
 
@@ -26,6 +27,7 @@ class zCorteCaja:public zSiscomRegistro
 	const char *Transferencias();
 	const char *VentasTotales();
 	const char *CambioDiaAnterior();
+	const char *EdoCuentaCambio();
 
 	zCajas *Cajas();
 };

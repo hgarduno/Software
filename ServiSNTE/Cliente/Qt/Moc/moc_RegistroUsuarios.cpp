@@ -1,7 +1,7 @@
 /****************************************************************************
 ** RegistroUsuarios meta object code from reading C++ file 'RegistroUsuarios.h'
 **
-** Created: Tue Apr 23 17:02:22 2024
+** Created: Thu Aug 15 00:52:17 2024
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

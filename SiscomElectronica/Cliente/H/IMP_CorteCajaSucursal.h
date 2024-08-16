@@ -21,7 +21,6 @@ private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;
 	zSiscomConexion *zSisConexion;
-
 	zCorteCaja zCCaja;
 private:
 	void ConectaSlots();
@@ -44,7 +43,7 @@ private:
 private slots:
 	void SlotCapturoCantidad();
 	void SlotActualizaCorteCaja();
-	void SlotRegistraCambio();
+	void SlotSeleccionaCambio();
 	void SlotRegistraCorte();
 	void SlotActualiza();
 	void SlotFocoAActualiza();

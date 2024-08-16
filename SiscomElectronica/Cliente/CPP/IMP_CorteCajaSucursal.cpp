@@ -10,6 +10,7 @@
 #include <zCorteCajaO.h>
 #include <zCajas.h>
 #include <zCaja.h>
+#include <zCeldaCambioDiaAnterior.h>
 
 #include <QtCorteCajaImp.h>
 
@@ -70,8 +71,8 @@ connect(QtCCaja,
 connect(QtCCaja,
 	SIGNAL(SignalActualizaImporteGasto()),SLOT(SlotActualizaCorteCaja()));
 connect(QtCCaja,SIGNAL(SignalPagoTarjeta()),SLOT(SlotActualizaCorteCaja()));
-connect(QPBRegCambio,SIGNAL(clicked()),SLOT(SlotRegistraCambio()));
-connect(QPBRealizarC,SIGNAL(clicked()),SLOT(SlotRegistraCorte()));
+connect(QPBSCambio,SIGNAL(clicked()),SLOT(SlotSeleccionaCambio()));
+connect(QPBSCambio,SIGNAL(clicked()),SLOT(SlotRegistraCorte()));
 connect(QPBActualizar,SIGNAL(clicked()),SLOT(SlotActualiza()));
 
 connect(QCFInicio,SIGNAL(Signal_EnterA_o()),SLOT(SlotFocoAFFin()));
@@ -97,7 +98,7 @@ void QCorteCajaSucursal::SlotRegistraCorte()
 
 	HabilitaDesHabilitaRegistroCambio(false);
 }
-void QCorteCajaSucursal::SlotRegistraCambio()
+void QCorteCajaSucursal::SlotSeleccionaCambio()
 {
      RegistrandoCambio();
 
@@ -111,7 +112,6 @@ void QCorteCajaSucursal::SlotCapturoCantidad()
 {
    CalculandoCorteCaja();
    ImportesDia();
-
 /*
    QtCCaja->ActualizandoGui();
    HabilitaDesHabilitaRegistroCambio(true);
@@ -164,6 +164,7 @@ void QCorteCajaSucursal::ActualizaCambioCaja(zCambioCaja *pzCambioC)
 QtCCaja->ActualizaTotalCajaCambio(pzCambioC->Importe());
 QtCCaja->ActualizaCantidadesCambio(pzCambioC->Dinero());
 QtCCaja->ActualizaCambioDiaAnterior(pzCambioC->Importe());
+CorteCaja().CambioDiaAnterior(pzCambioC->Importe());
 QtCCaja->ActualizandoGui();
 }
 

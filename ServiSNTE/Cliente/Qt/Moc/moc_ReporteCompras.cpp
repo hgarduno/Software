@@ -1,7 +1,7 @@
 /****************************************************************************
 ** ReporteCompras meta object code from reading C++ file 'ReporteCompras.h'
 **
-** Created: Tue Apr 23 17:02:12 2024
+** Created: Thu Aug 15 00:52:04 2024
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!
