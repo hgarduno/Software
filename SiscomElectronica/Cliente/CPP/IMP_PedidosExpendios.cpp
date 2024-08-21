@@ -81,16 +81,14 @@ connect(QPBTranBodegaExp,SIGNAL(clicked()),SLOT(SlotTranBodegaExpendio()));
 }
 void QPedidosExpendios::SlotTranBodegaExpendio()
 {
-	/*
-	TransfiereBodegaAExpendio();
-	*/
+	CQSPedidosExps.Observaciones(intPedidoSeleccionado,
+				     intProductoSeleccionado,
+				     "De Bodega a Expendio");
 	TransfiriendoBodegaAExpendio();
-	/*
-	ColoreaBlanco();
-	*/
 	Consultando();
 	SlotSeleccionandoPedido(intPedidoSeleccionado,0,0,QPoint());
 	HabilitaTransfiereEInventario(false);
+
 
 }
 void QPedidosExpendios::SlotDesactivaValCantidad()
@@ -127,7 +125,6 @@ void QPedidosExpendios::SlotSeleccionoProducto(int pintProducto,
 					       const QPoint &)
 {
 
-SiscomEscribeLog3Qt("------");
   if(pintProducto!=-1)
   {
     intProductoSeleccionado=pintProducto;
@@ -138,10 +135,6 @@ SiscomEscribeLog3Qt("------");
      	if(ValidaExistencia())
 	{
 	}
-	/*
-	else
-	ColoreaBlanco();
-	*/
     	Consultando();
     	SlotSeleccionandoPedido(intPedidoSeleccionado,0,0,QPoint());
     }
@@ -531,6 +524,9 @@ if(TransfiereBodegaAExpendio(lchrPtrCantidad,
 			     &lzSisRegRegreso)==1)
 {
 QAccionTraspasoBodegaExp lQATBodegaExp(lzSisRegRegreso);
+CQSPedidosExps.Observaciones(intPedidoSeleccionado,
+			     intProductoSeleccionado,
+			     "Bodega Expendio");
    if(lQATBodegaExp.Opcion()==1)
      ExistenciaQueQuedaBodegaAExpendio(lchrPtrCveProducto,lzSisRegRegreso);
 }
@@ -543,7 +539,6 @@ zSiscomRegistro *lzSisRegRegreso;
    				 pchrPtrCveProducto,
 				 &lzSisRegRegreso))
     {
-
 
     }
 }

@@ -49,7 +49,7 @@ int ColocaFechaHoyCorteCaja(SiscomOperaciones *pSisOpePtrDato);
 
 int ContandoCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int AsignaCamposConsultaCorteCaja(SiscomOperaciones *pSisOpePtrDato);
-int ContandoCajaDinero(SiscomOperaciones *pSisOpePtrDato);
+float ContandoCajaDinero(SiscomOperaciones *pSisOpePtrDato);
 
 SiscomRegistroProL *ContandoCajaPrincipalDinero(SiscomOperaciones *pSisOpePtrDato);
 #endif
