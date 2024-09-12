@@ -1,11 +1,7 @@
 /****************************************************************************
 ** QtImpMultiApoyos meta object code from reading C++ file 'QtImpMultiApoyos.h'
 **
-<<<<<<< HEAD
-** Created: Mon Apr 1 17:30:54 2024
-=======
-** Created: Thu Apr 11 21:08:59 2024
->>>>>>> d8559e8a5b2006215346761b79004c9434166dbc
+** Created: Thu Aug 15 00:51:03 2024
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'Qt/Ui/CapturaDatosComplementarios.ui'
 **
-** Created: Tue Apr 23 16:59:56 2024
+** Created: mar jul 16 22:26:43 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

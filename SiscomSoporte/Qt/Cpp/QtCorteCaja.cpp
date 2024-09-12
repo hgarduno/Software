@@ -13,6 +13,8 @@
 #include <zCeldaImporteGastos.h>
 #include <zCeldaImporteTransferencias.h>
 #include <zCeldaImporteEfectivoCaja.h>
+#include <zCeldaCambioDiaAnterior.h>
+#include <zCeldaVentasTotales.h>
 
 
 #include <zCajas.h>
@@ -41,12 +43,16 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
  EncabezadoImporteGastos(pintFila,pintColumna);
  EncabezadoTransferencias(pintFila,pintColumna);
  EncabezadoVentasEfectivo(pintFila,pintColumna);
+ EncabezadoCambioDiaAnterior(pintFila,pintColumna);
+ EncabezadoVentasTotales(pintFila,pintColumna);
  FormandoCajaCorte(pintFila,pintColumna);
  FormandoEncabezadosCorte();
 
  PagoTarjeta(pintFila,pintColumna);
  ImporteTransferencias(pintFila,pintColumna);
  ImporteEfectivoCaja(pintFila,pintColumna);
+ CambioDiaAnterior(pintFila,pintColumna);
+ VentasTotales(pintFila,pintColumna);
  zSiscomQt3::AjustaColumnasTabla(this);
 }
 void QtCorteCaja::FormandoCajaCorte(int pintFila,int pintColumna)
@@ -215,6 +221,16 @@ zCelImGastos=new zCeldaImporteGastos(pintFila+17,pintColumna+1);
 CeldaColor(pintFila+17,pintColumna+1,"white","0.00");
 zCajasExp->EncabezadosImporteGastos(lzEncaSImGasto);
 }
+
+void QtCorteCaja::EncabezadoTransferencias(int pintFila,int pintColumna)
+{
+zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
+(*lzEncaVenEfec) 							<< 
+new zEncabezadoCaja(pintFila+18,pintColumna,0,"gray","Transferencias") <<
+new zEncabezadoCaja(pintFila+18,pintColumna+1,0,"gray","0.00");
+zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
+}
+
 void QtCorteCaja::EncabezadoVentasEfectivo(int pintFila,int pintColumna)
 {
 zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
@@ -223,13 +239,21 @@ new zEncabezadoCaja(pintFila+19,pintColumna,0,"white","Importe total que se reci
 new zEncabezadoCaja(pintFila+19,pintColumna+1,0,"white","0.00");
 zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
 }
-
-void QtCorteCaja::EncabezadoTransferencias(int pintFila,int pintColumna)
+void QtCorteCaja::EncabezadoCambioDiaAnterior(int pintFila,int pintColumna)
 {
 zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
 (*lzEncaVenEfec) 							<< 
-new zEncabezadoCaja(pintFila+18,pintColumna,0,"gray","Transferencias") <<
-new zEncabezadoCaja(pintFila+18,pintColumna+1,0,"gray","0.00");
+new zEncabezadoCaja(pintFila+20,pintColumna,0,"gray","Cambio dia anterior") <<
+new zEncabezadoCaja(pintFila+20,pintColumna+1,0,"gray","0.00");
+zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
+}
+
+void QtCorteCaja::EncabezadoVentasTotales(int pintFila,int pintColumna)
+{
+zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
+(*lzEncaVenEfec) 							<< 
+new zEncabezadoCaja(pintFila+21,pintColumna,0,"white","Ventas Totales") <<
+new zEncabezadoCaja(pintFila+21,pintColumna+1,0,"white","0.00");
 zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
 }
 void QtCorteCaja::ImporteEfectivoCaja(int pintFila,
@@ -243,6 +267,17 @@ void QtCorteCaja::ImporteTransferencias(int pintFila,
 {
 zCelImporteT=new zCeldaImporteTransferencias(pintFila+18,pintColumna+1);
 CeldaGris(pintFila+18,pintColumna+1,"0.00");
+}
+void QtCorteCaja::CambioDiaAnterior(int pintFila,
+				    int pintColumna)
+{
+zCelCambioDA=new zCeldaCambioDiaAnterior(pintFila+20,pintColumna+1);
+CeldaGris(pintFila+20,pintColumna+1,"0.00");
+}
+void QtCorteCaja::VentasTotales(int pintFila,int pintColumna)
+{
+zCelVentasTotales=new zCeldaVentasTotales(pintFila+21,pintColumna+1);
+CeldaColor(pintFila+21,pintColumna+1,"white","0.00");
 }
 void QtCorteCaja::FormandoEncabezadosCorte()
 {
@@ -286,6 +321,14 @@ zCeldaImporteTransferencias *QtCorteCaja::CeldaImporteTransferencias()
 {
   return zCelImporteT;
 }
+zCeldaCambioDiaAnterior *QtCorteCaja::CeldaCambioDiaAnterior()
+{
+  return zCelCambioDA;
+}
+zCeldaVentasTotales *QtCorteCaja::CeldaVentasTotales()
+{
+  return zCelVentasTotales;
+}
 void QtCorteCaja::MuestraGastos(zCaja *pzCaja)
 {
 zGasto *lzGasto;
@@ -306,4 +349,12 @@ void QtCorteCaja::ActualizaCantidadesCambio(zDenominaciones *pzDenominaciones)
 void QtCorteCaja::ActualizaTotalCajaCambio(const char *pchrPtrTotalCajaCambio)
 {
   Cajas()->CajaPorNombre("Cambio")->Total(pchrPtrTotalCajaCambio);
+}
+void QtCorteCaja::ActualizaCambioDiaAnterior(const char *pchrPtrCambioDiaA)
+{
+  Cajas()->Principal()->CambioDiaAnterior(pchrPtrCambioDiaA);  
+}
+void QtCorteCaja::ActualizaVentasTotales(const char *pchrPtrVentasT)
+{
+  Cajas()->Principal()->VentasTotales(pchrPtrVentasT);
 }

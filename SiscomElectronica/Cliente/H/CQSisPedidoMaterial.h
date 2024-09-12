@@ -27,6 +27,7 @@ public:
 	const char *Observaciones(int pintNumeroPedido);
 	void EliminaProducto(int pintNRegistro,int pintProducto);
 	void Cantidad(int pintPedido,int pintProducto,const char *pchrPtrCantidad);
+	void Observaciones(int pintPedido,int pinntProducto,const char *pchrPtrObservaciones);
 	SiscomRegistro3Lst *Productos(int pintPedido);
 };
 

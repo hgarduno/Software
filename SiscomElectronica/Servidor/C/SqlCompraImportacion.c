@@ -6,11 +6,64 @@
 #include <stdlib.h>
 #include <string.h>
 
+int SqlActualizandoCompraRegistrada(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[256],lchrArrSql[256];
+
+SiscomAgregaSentenciasSqlCampoAsociado("SqlCompraImportacion",
+                                        "Envio",
+                                        "Productos",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSisOpePtrDato,
+                                        UpdateDetalleCompraImportacionRegistrada);
+
+SiscomAgregaSentenciasSqlCampoAsociado("SqlCompraImportacion",
+                                        "Envio",
+                                        "Productos",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSisOpePtrDato,
+                                        UpdateExistenciaCompraImportacion);
+
+SiscomAgregaSentenciasSqlCampoAsociado("SqlCompraImportacion",
+                                        "Envio",
+                                        "Productos",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSisOpePtrDato,
+                                        UpdateCompraImportacionPorActualizacion);
+
+SiscomAgregaSentenciasSqlDelAsociado("SqlCompraImportacion",
+                                        "Envio",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSisOpePtrDato,
+                                        UpdateRegistroCompraImportacionPorActualizacion);
+
+SiscomAgregaSentenciasSqlDelAsociado("SqlCompraImportacion",
+                                        "Envio",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSisOpePtrDato,
+                                        UpdateGeneralesCompraImportacion);
+
+SiscomEnviaRegistrosAlServidorBD("SqlCompraImportacion",
+			       lchrArrBuffer,
+			       pSisOpePtrDato);
+return 0;
+}
+int SqlProductosCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato)
+{
+SqlConsultandoProductosCompra(pSiscomOpePtrDato);
+
+return 0;
+}
+
 int SqlGuardaCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128],
 	lchrArrSql[256];
-
 
 SiscomAgregaSentenciasSqlDelAsociado("SqlCompraImportacion",
 				     "Envio",
@@ -131,31 +184,89 @@ int SqlRegistroParcialCompraImportacionFaltaronProductos(SiscomOperaciones *pSis
 {
 char lchrArrBuffer[128],
 	lchrArrSql[256];
-SiscomAgregaSentenciasSqlCampoAsociado("SqlCompraImportacion",
-                                        "Envio",
-                                        "Productos",
-                                        lchrArrBuffer,
-                                        lchrArrSql,
-                                        pSiscomOpePtrDato,
-                                        InsertToProductoCompraImportacion);
 
-SiscomAgregaSentenciasSqlCampoAsociado("SqlCompraImportacion",
+SiscomAgregaSentenciasSqlCampoAsociadoAsociado("SqlCompraImportacion",
                                         "Envio",
+					"Parcial",
                                         "Productos",
                                         lchrArrBuffer,
                                         lchrArrSql,
                                         pSiscomOpePtrDato,
-                                        UpdateExistenciaCompraImportacion);
+                                        InsertToProductoCompraImportacionPorCambio);
+
+SiscomAgregaSentenciasSqlCampoAsociadoAsociado("SqlCompraImportacion",
+                                        "Envio",
+					"Parcial",
+                                        "Productos",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSiscomOpePtrDato,
+                                        UpdateExistenciaCompraImportacionPorCambio);
 
 SiscomAgregaSentenciasSqlDelAsociado("SqlCompraImportacion",
 				     "Envio",
 				     lchrArrBuffer,
 				     lchrArrSql,
 				     pSiscomOpePtrDato,
-				     UpdateRegistroCompraImportacion);
+				     UpdateRegistroCompraImportacionPorCambio);
+
+
+SiscomAgregaSentenciasSqlCampoAsociadoAsociado("SqlCompraImportacion",
+                                        "Envio",
+					"Compra",
+                                        "Productos",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSiscomOpePtrDato,
+                                        UpdateCompraImportacionPorModificacion);
+SiscomAgregaSentenciasSqlCampoAsociado("SqlCompraImportacion",
+                                        "Envio",
+					"Compra",
+                                        lchrArrBuffer,
+                                        lchrArrSql,
+                                        pSiscomOpePtrDato,
+                                        UpdateGeneralesCompraImportacion);
+
 SiscomEnviaRegistrosAlServidorBD("SqlCompraImportacion",
 			       lchrArrBuffer,
 			       pSiscomOpePtrDato);
+
+
+return 0;
+
+}
+
+
+void UpdateCompraImportacionPorModificacion(SiscomOperaciones *pSiscomOpePtrDato,
+			   SiscomRegistroProL *pSiscomRegProLPtrDato,
+			   char *pchrPtrSql)
+{
+
+sprintf(pchrPtrSql,
+	"update compras set precio=%s,preciosiniva=%f,importe=%s,cantidad=cantidad+%s where idcompra=%s and cveproducto='%s';",
+	 SiscomObtenCampoRegistroProLChar("CostoFinalMasCosAdm",pSiscomRegProLPtrDato),
+	 SiscomObtenCampoRegistroProLFloat("CostoFinalMasCosAdm",pSiscomRegProLPtrDato)/1.16,
+	 SiscomObtenCampoRegistroProLChar("CostoPartida",pSiscomRegProLPtrDato),
+	 SiscomObtenCampoRegistroProLChar("Cantidad",pSiscomRegProLPtrDato),
+         SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","IdCompraImportacion",pSiscomOpePtrDato),
+	 SiscomObtenCampoRegistroProLChar("CveProducto",pSiscomRegProLPtrDato));
+
+
+}
+
+void UpdateCompraImportacionPorActualizacion(SiscomOperaciones *pSiscomOpePtrDato,
+			   SiscomRegistroProL *pSiscomRegProLPtrDato,
+			   char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"update compras set precio=%s,preciosiniva=%f,importe=%s,cantidad=cantidad+%s where idcompra=%s and cveproducto='%s';",
+	 SiscomObtenCampoRegistroProLChar("CostoFinalMasCosAdm",pSiscomRegProLPtrDato),
+	 SiscomObtenCampoRegistroProLFloat("CostoFinalMasCosAdm",pSiscomRegProLPtrDato)/1.16,
+	 SiscomObtenCampoRegistroProLChar("CostoPartida",pSiscomRegProLPtrDato),
+	 SiscomObtenCampoRegistroProLChar("Cantidad",pSiscomRegProLPtrDato),
+         SiscomCampoAsociadoEntradaOperacion("Envio","IdCompraImportacion",pSiscomOpePtrDato),
+	 SiscomObtenCampoRegistroProLChar("CveProducto",pSiscomRegProLPtrDato));
+
 
 }
 
@@ -188,6 +299,26 @@ SiscomObtenCampoRegistroProLChar("CostoFinalMasCosAdm",pSiscomRegProLPtrDato),
 SiscomObtenCampoRegistroProLFloat("CostoFinalMasCosAdm",pSiscomRegProLPtrDato)/1.16,
 SiscomCampoAsociadoEntradaOperacion("Envio","IdCompraImportacion",pSiscomOpePtrDato));
 }
+
+void InsertToProductoCompraImportacionPorCambio(SiscomOperaciones *pSiscomOpePtrDato,
+			   SiscomRegistroProL *pSiscomRegProLPtrDato,
+			   char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"insert into Compras values('%s','%s',%s,%s,%s,0,%s,%s,'Contado','%s',%s,%.2f,%s);",
+SiscomCampoAsociadoEntradaOperacion("Envio","Fecha",pSiscomOpePtrDato),
+SiscomObtenCampoRegistroProLChar("CveProducto",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("Cantidad",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("CostoPartida",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("IdProveedor",pSiscomRegProLPtrDato),
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","IdResponsable",pSiscomOpePtrDato),
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","IdExpendio",pSiscomOpePtrDato),
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","NumFactura",pSiscomOpePtrDato),
+SiscomObtenCampoRegistroProLChar("CostoFinalMasCosAdm",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLFloat("CostoFinalMasCosAdm",pSiscomRegProLPtrDato)/1.16,
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","IdCompraImportacion",pSiscomOpePtrDato));
+}
+
 void UpdateExistenciaCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato,
 			   SiscomRegistroProL *pSiscomRegProLPtrDato,
 			   char *pchrPtrSql)
@@ -196,6 +327,17 @@ sprintf(pchrPtrSql,
 "update materialbodega set existencia=existencia+%s where idbodega=%s and cveproducto='%s';",
 SiscomObtenCampoRegistroProLChar("Cantidad",pSiscomRegProLPtrDato),
 SiscomCampoAsociadoEntradaOperacion("Envio","IdBodega",pSiscomOpePtrDato),
+SiscomObtenCampoRegistroProLChar("CveProducto",pSiscomRegProLPtrDato));
+}
+
+void UpdateExistenciaCompraImportacionPorCambio(SiscomOperaciones *pSiscomOpePtrDato,
+			   SiscomRegistroProL *pSiscomRegProLPtrDato,
+			   char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+"update materialbodega set existencia=existencia+%s where idbodega=%s and cveproducto='%s';",
+SiscomObtenCampoRegistroProLChar("Cantidad",pSiscomRegProLPtrDato),
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","IdBodega",pSiscomOpePtrDato),
 SiscomObtenCampoRegistroProLChar("CveProducto",pSiscomRegProLPtrDato));
 }
 
@@ -209,6 +351,41 @@ SiscomObtenCampoRegistroProLChar("ImporteFactura",pSiscomRegProLPtrDato),
 SiscomObtenCampoRegistroProLChar("IdCompraImportacion",pSiscomRegProLPtrDato));
 }
 
+void UpdateRegistroCompraImportacionPorActualizacion(SiscomOperaciones *pSiscomOpePtrDato,
+			   SiscomRegistroProL *pSiscomRegProLPtrDato,
+			   char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+"update RegistroCompra set Importe=%s where IdCompra=%s;",
+SiscomCampoAsociadoEntradaOperacion("Envio","ImporteFactura",pSiscomOpePtrDato),
+SiscomCampoAsociadoEntradaOperacion("Envio","IdCompraImportacion",pSiscomOpePtrDato));
+}
+void UpdateRegistroCompraImportacionPorCambio(SiscomOperaciones *pSiscomOpePtrDato,
+			   SiscomRegistroProL *pSiscomRegProLPtrDato,
+			   char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+"update RegistroCompra set Importe=%s where IdCompra=%s;",
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","ImporteFactura",pSiscomOpePtrDato),
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Compra","IdCompraImportacion",pSiscomOpePtrDato));
+}
+
+void UpdateGeneralesCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato,
+			   SiscomRegistroProL *pSiscomRegProLPtrDato,
+			   char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"update CompraImportacion set NumeroFactura=%s,CostoEnvioDolares=%s,CostoDolar=%s,CostoAdministrativo=%s,numeropartidas=%s,pesocompra=%s,importefactura=%s where IdCompraImportacion=%s",
+SiscomObtenCampoRegistroProLChar("NumFactura",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("CostoEnvio",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("CostoDolar",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("CostoAdministrativo",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("NumPartidas",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("PesoCompra",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("ImporteFactura",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("IdCompraImportacion",pSiscomRegProLPtrDato));
+}
+/*
 void UpdateGeneralesCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato,
 			   SiscomRegistroProL *pSiscomRegProLPtrDato,
 			   char *pchrPtrSql)
@@ -223,6 +400,7 @@ SiscomObtenCampoRegistroProLChar("NumPartidas",pSiscomRegProLPtrDato),
 SiscomObtenCampoRegistroProLChar("IdCompraImportacion",pSiscomRegProLPtrDato));
 
 }
+*/
 void DeleteDescripcionCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato,
 			   SiscomRegistroProL *pSiscomRegProLPtrDato,
 			   char *pchrPtrSql)
@@ -356,6 +534,16 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   lchrArrSql);
 return 0;
 
+}
+void UpdateDetalleCompraImportacionRegistrada(SiscomOperaciones *pSisOpePtrDato,
+					      SiscomRegistroProL *pSisRegProLPtrDatos,
+					      char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"update detallecompraimportacion set cantidad=cantidad+%s where idCompraImportacion=%s and cveproducto='%s'",
+	SiscomObtenCampoRegistroProLChar("Cantidad",pSisRegProLPtrDatos),
+	SiscomCampoAsociadoEntradaOperacion("Envio","IdCompraImportacion",pSisOpePtrDato),
+	SiscomObtenCampoRegistroProLChar("CveProducto",pSisRegProLPtrDatos));
 }
 void SqlFormaConsultaCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato,
 				       char *pchrPtrSqlConsulta)
@@ -604,3 +792,26 @@ LogSiscom("-------------");
 return 0;
 }
 
+
+void SqlFormaCadenaProductosCompraImportacion(SiscomOperaciones *pSisOpePtrDatos,
+				  char *pchrPtrSql)
+{
+char lchrArrBuffer[128];
+
+sprintf(pchrPtrSql,
+	"select *		\n\
+	 from compras 		\n\
+	 where idcompra=%s",
+SiscomCampoAsociadoEntradaOperacion("Envio","IdCompraImportacion",pSisOpePtrDatos));
+
+
+}
+void SqlConsultandoProductosCompra(SiscomOperaciones *pSisOpePtrDatos)
+{
+char lchrArrSql[128],lchrArrBuffer[128];;
+SqlFormaCadenaProductosCompraImportacion(pSisOpePtrDatos,lchrArrSql);
+SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,
+				       "SqlProductosCompraImportacion",
+				       lchrArrBuffer,
+				       pSisOpePtrDatos);
+}

@@ -2,6 +2,10 @@
 #define __COMPRAIMPORTACION_H__
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
 
+
+void ActualizaCompraImportacionRegistrada(int pintSocket,
+			     SiscomRegistroProL *pSiscomRegProLPtrPrim,
+			     SiscomRegistroProL *pSiscomRegProLPtrAct);
 void RegistroParcialCompraImportacionFaltaronProductos(int pintSocket,
 			     SiscomRegistroProL *pSiscomRegProLPtrPrim,
 			     SiscomRegistroProL *pSiscomRegProLPtrAct);
@@ -60,6 +64,9 @@ void PrecioMasCostoEnvio(SiscomRegistroProL *pSisRegProLPtrProducto);
 void CostoFinalPesos(SiscomOperaciones *pSiscomOpePtrDato,SiscomRegistroProL *pSiscomRegProLPtrProducto);
 void PonderacionCostoAdministrativo(SiscomOperaciones *pSiscomOpePtrDato);
 void CostoFinalMasCostoAdministrativo(SiscomOperaciones *pSiscomOpePtrDato,SiscomRegistroProL *);
+
+int AgregaArgumentoProductosCompra(SiscomOperaciones *pSisOpePtrDato);
+
 void CostoPartida(SiscomRegistroProL *pSiscomRegProLPtrProducto);
 int ArgumentoCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato);
 int AgregaIdCompraImportacion(SiscomOperaciones *pSiscomOpePtrDato);
@@ -70,5 +77,10 @@ int AsignaIdCompraImportacionComo(SiscomOperaciones *pSisComOpePtrDato);
 int EnviaCompletaProductosImportacion(SiscomOperaciones *pSisOpePtrDato);
 int FormaCondicionClavesProveedores(SiscomOperaciones *pSisOpePtrDato);
 int CompletandoDatosProductoImportacion(SiscomOperaciones *pSisOpePtrDato);
+int EnviaActualizaCompraImportacionRegistrada(SiscomOperaciones *pSisOpePtrDato);
+
+int ActualizandoCantidadesProductos(SiscomOperaciones *pSisOpePtrDato);
+
+
 void ObtenImporteCompra(SiscomRegistroProL *pSiscomRegProLPtrProductos,SiscomOperaciones *pSiscomOpePtrDato);
 #endif

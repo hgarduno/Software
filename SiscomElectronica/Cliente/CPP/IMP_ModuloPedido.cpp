@@ -165,6 +165,8 @@ if(lQDatPedido.Aceptar())
 }
 void QModuloPedido::Registrar()
 {
+if(!ComoPago())
+{
  RegistraOrden();
  EliminaOrden();
  IniciaOrden();
@@ -173,6 +175,7 @@ void QModuloPedido::Registrar()
  intDatosPedido=0;
  EliminaPedido();
  IniciaVariables();
+ }
 }
 
 void QModuloPedido::RegistraOrden()

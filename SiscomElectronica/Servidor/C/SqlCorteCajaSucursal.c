@@ -112,9 +112,11 @@ sprintf(pchrPtrSql,
 	select sum(pagacon) as importe 		\n\
 	from importeorden as a inner join	\n\
 	     pagacon as b using(idventa) 	\n\
-	 where a.fecha::date='%s' and 		\n\
+	 where a.fecha::date>='%s' and 		\n\
+	       a.fecha::date<='%s' and		\n\
  	pagacon is not null",
-	SiscomCampoAsociadoEntradaOperacion("Envio","Fecha",pSisOpePtrDato));
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSisOpePtrDato));
 }
 
 void SqlTransferenciasRegistradas(SiscomOperaciones *pSisOpePtrDato,
@@ -125,26 +127,48 @@ sprintf(pchrPtrSql,
 select sum(importe) as importe 			\n\
 from	importeorden inner join 		\n\
 	pagotransferencia using(idventa) 	\n\
-where fecha::date='%s'",
-	SiscomCampoAsociadoEntradaOperacion("Envio","Fecha",pSisOpePtrDato));
+where fecha::date>='%s' and 			\n\
+      fecha::date<='%s'",
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSisOpePtrDato));
 }
+
+void SqlTotalVentasCorteCaja(SiscomOperaciones *pSisOpePtrDato,
+			     char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"							\n\
+select sum(importe) as importe					\n\
+from	importeorden left outer join 				\n\
+        pagotransferencia using(idventa) left outer join	\n\
+	apartado using(idventa)					\n\
+where fecha::date>='%s' 	and 				\n\
+	fecha::date<='%s'",
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSisOpePtrDato));
+}
+
 int SqlDatosCierreCorteSucursal(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[512],
 	lchrArrSql[512],
 	lchrArrSqlPagaCon[256],
-	lchrArrSqlTransferencias[256];
+	lchrArrSqlTransferencias[256],
+	lchrArrSqlVentasTotales[256];
+LogSiscom("");
 SqlPagaCon(pSisOpePtrDato,lchrArrSqlPagaCon);
 SqlTransferenciasRegistradas(pSisOpePtrDato,lchrArrSqlTransferencias);
+SqlTotalVentasCorteCaja(pSisOpePtrDato,lchrArrSqlVentasTotales);
 SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSisOpePtrDato,
-		   "PagaCon%"
-		   "Transferencias%",
+		   "PagaConP%"
+		   "TransferenciasP%"
+		   "VentasTotalesP%",
 		   lchrArrSqlPagaCon,
-		   lchrArrSqlTransferencias);
+		   lchrArrSqlTransferencias,
+		   lchrArrSqlVentasTotales);
 return 0;
 }
-
 int SqlCambioCaja(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[512],

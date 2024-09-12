@@ -36,7 +36,8 @@ int EnviandoCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int AcondicionandoParaMostrar(SiscomOperaciones *pSisOpePtrDatos);
 int EnviaRegistroCorteCaja(SiscomOperaciones *pSisOpePtrDato);
 
-void MultiplicandoSumandoCajas(SiscomOperaciones *pSisOpePtrDato);
+int MultiplicandoSumandoCajas(SiscomOperaciones *pSisOpePtrDato);
+int CalculandoCorteCaja(SiscomOperaciones *pSisOpePtrDato);
 float MultiplicaSumaCaja(SiscomRegistroProL *pSisRegProLPtrDeno);
 
 
@@ -46,4 +47,9 @@ SiscomRegistroProL *EfectivoCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int YaHayCajaConCambio(SiscomOperaciones *pSisOpPtrDato);
 int ColocaFechaHoyCorteCaja(SiscomOperaciones *pSisOpePtrDato);
 
+int ContandoCambioCaja(SiscomOperaciones *pSisOpePtrDato);
+int AsignaCamposConsultaCorteCaja(SiscomOperaciones *pSisOpePtrDato);
+float ContandoCajaDinero(SiscomOperaciones *pSisOpePtrDato);
+
+SiscomRegistroProL *ContandoCajaPrincipalDinero(SiscomOperaciones *pSisOpePtrDato);
 #endif

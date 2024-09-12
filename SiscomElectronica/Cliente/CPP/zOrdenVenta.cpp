@@ -686,6 +686,7 @@ zOrdenVenta *zOrdenVenta::OrdenPorId(zSiscomRegistro *pzSisRegRespuesta)
 
 lzOrdenVenta->IdVenta((const char *)pzSisRegRespuesta->CampoAsociado("Cotizacion","idventa"));
 lzOrdenVenta->AsignaProductos(pzSisRegRespuesta->AsociadosDelCampo("Productos"));
+lzOrdenVenta->Cliente(new zClienteSiscom(pzSisRegRespuesta));
 if(pzSisRegRespuesta->AsociadoDelCampo("Cotizacion"))
 lzOrdenVenta->Cotizacion(new zCotizacion(pzSisRegRespuesta->AsociadoDelCampo("Cotizacion")));
 
