@@ -155,6 +155,7 @@ char lchrArrBuffer[512],
 	lchrArrSqlPagaCon[256],
 	lchrArrSqlTransferencias[256],
 	lchrArrSqlVentasTotales[256];
+LogSiscom("");
 SqlPagaCon(pSisOpePtrDato,lchrArrSqlPagaCon);
 SqlTransferenciasRegistradas(pSisOpePtrDato,lchrArrSqlTransferencias);
 SqlTotalVentasCorteCaja(pSisOpePtrDato,lchrArrSqlVentasTotales);

@@ -71,7 +71,7 @@ connect(QtCCaja,
 connect(QtCCaja,
 	SIGNAL(SignalActualizaImporteGasto()),SLOT(SlotActualizaCorteCaja()));
 connect(QtCCaja,SIGNAL(SignalPagoTarjeta()),SLOT(SlotActualizaCorteCaja()));
-connect(QPBSCambio,SIGNAL(clicked()),SLOT(SlotSeleccionaCambio()));
+connect(QPBRegCambio,SIGNAL(clicked()),SLOT(SlotSeleccionaCambio()));
 connect(QPBSCambio,SIGNAL(clicked()),SLOT(SlotRegistraCorte()));
 connect(QPBActualizar,SIGNAL(clicked()),SLOT(SlotActualiza()));
 
@@ -119,7 +119,7 @@ void QCorteCajaSucursal::SlotCapturoCantidad()
 }
 void QCorteCajaSucursal::HabilitaDesHabilitaRegistroCambio(bool pbEstado)
 {
-   QPBRegCambio->setEnabled(pbEstado);
+   //QPBRegCambio->setEnabled(pbEstado);
 }
 void QCorteCajaSucursal::CalculandoCorteCaja()
 {
@@ -136,7 +136,7 @@ lzSisElec.RegistraCambioCaja(QtCCaja->Cajas());
 void QCorteCajaSucursal::RegistrandoCambio()
 {
    RegistraCambio();
-   QPBRegCambio->setEnabled(false);
+   //QPBRegCambio->setEnabled(false);
 }
 void QCorteCajaSucursal::HabilitaDesHabilitaControles(bool pbEstado)
 {
