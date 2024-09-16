@@ -205,7 +205,7 @@
                         <cstring>QPBRegCambio</cstring>
                     </property>
                     <property name="enabled">
-                        <bool>true</bool>
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>Registra Cambio</string>
@@ -218,6 +218,9 @@
                     <property name="name">
                         <cstring>QPBRegistraCorte</cstring>
                     </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
                     <property name="text">
                         <string>Registra Corte</string>
                     </property>
@@ -228,6 +231,9 @@
                 <widget class="QPushButton">
                     <property name="name">
                         <cstring>QPBActualizar</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
                     <property name="text">
                         <string>&amp;Actualizador</string>

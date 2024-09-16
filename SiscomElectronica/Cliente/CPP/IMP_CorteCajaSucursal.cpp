@@ -55,7 +55,6 @@ QtCCaja->setNumCols(15);
 QtCCaja->IniciaControl(1,0);
 IniciandoFechas();
 CorteCaja().Cajas(QtCCaja->Cajas());
-
 }
 void QCorteCajaSucursal::IniciandoFechas()
 {
@@ -71,12 +70,27 @@ connect(QtCCaja,
 connect(QtCCaja,
 	SIGNAL(SignalActualizaImporteGasto()),SLOT(SlotActualizaCorteCaja()));
 connect(QtCCaja,SIGNAL(SignalPagoTarjeta()),SLOT(SlotActualizaCorteCaja()));
-connect(QPBRegCambio,SIGNAL(clicked()),SLOT(SlotSeleccionaCambio()));
-connect(QPBSCambio,SIGNAL(clicked()),SLOT(SlotRegistraCorte()));
+connect(QPBRegCambio,SIGNAL(clicked()),SLOT(SlotRegistraCambio()));
+connect(QPBSCambio,SIGNAL(clicked()),SLOT(SlotSeleccionaCambio()));
 connect(QPBActualizar,SIGNAL(clicked()),SLOT(SlotActualiza()));
 
 connect(QCFInicio,SIGNAL(Signal_EnterA_o()),SLOT(SlotFocoAFFin()));
 connect(QCFFinal,SIGNAL(Signal_EnterA_o()),SLOT(SlotFocoAActualiza()));
+connect(QPBRegistraCorte,SIGNAL(clicked()),SLOT(SlotRegistraCorte()));
+}
+void QCorteCajaSucursal::SlotRegistraCorte()
+{
+RegistraCorte();
+}
+void QCorteCajaSucursal::SlotRegistraCambio()
+{
+ RegistraCambio();
+ HabilitaDesHabilitaRegistroCambio(false);
+
+
+ QPBSCambio->setEnabled(false);
+ QPBRegistraCorte->setEnabled(true);
+ QPBActualizar->setEnabled(true);
 }
 void QCorteCajaSucursal::SlotFocoAFFin()
 {
@@ -91,17 +105,11 @@ void QCorteCajaSucursal::SlotActualiza()
    CalculandoCorteCaja();
   ImportesDia();
 }
-void QCorteCajaSucursal::SlotRegistraCorte()
-{
-	SeleccionaCambioCaja();   
-	RegistrandoCorteDia();
-
-	HabilitaDesHabilitaRegistroCambio(false);
-}
 void QCorteCajaSucursal::SlotSeleccionaCambio()
 {
-     RegistrandoCambio();
-
+	SeleccionaCambioCaja();   
+	CambioDiaAnterior();
+	HabilitaDesHabilitaRegistroCambio(false);
 }
 void QCorteCajaSucursal::SlotActualizaCorteCaja()
 {
@@ -112,14 +120,12 @@ void QCorteCajaSucursal::SlotCapturoCantidad()
 {
    CalculandoCorteCaja();
    ImportesDia();
-/*
+   HabilitaDesHabilitaRegistroCambio(CorteCaja().EdoCuentaCambioInt());
    QtCCaja->ActualizandoGui();
-   HabilitaDesHabilitaRegistroCambio(true);
-*/
 }
 void QCorteCajaSucursal::HabilitaDesHabilitaRegistroCambio(bool pbEstado)
 {
-   //QPBRegCambio->setEnabled(pbEstado);
+   QPBRegCambio->setEnabled(pbEstado);
 }
 void QCorteCajaSucursal::CalculandoCorteCaja()
 {
@@ -168,14 +174,12 @@ CorteCaja().CambioDiaAnterior(pzCambioC->Importe());
 QtCCaja->ActualizandoGui();
 }
 
-void QCorteCajaSucursal::RegistrosDia()
+void QCorteCajaSucursal::CambiosRegistrados()
 {
-/*
-zCorteCajaO lzCorteCO(zSiscomDesarrollo4::Conexion(),"RegistraCorteCaja");
-lzCorteCO.RealizaCorte((const char *)QCFInicio->ObtenFecha(),
+zCorteCajaO lzCorteCO(zSiscomDesarrollo4::Conexion(),"CambiosRegistrados");
+lzCorteCO.CambiosRegistrados((const char *)QCFInicio->ObtenFecha(),
 		       (const char *)QCFFinal->ObtenFecha(),
 		       &zCCaja);
-*/
 }
 zCorteCaja &QCorteCajaSucursal::CorteCaja()
 {
@@ -183,13 +187,22 @@ zCorteCaja &QCorteCajaSucursal::CorteCaja()
 }
 void QCorteCajaSucursal::ImportesDia()
 {
+ SiscomRegistroLog2(&CorteCaja());
   QtCCaja->Cajas()->Principal()->Transferencias(CorteCaja().Transferencias());
   QtCCaja->Cajas()->Principal()->TotalEfectivo(CorteCaja().DineroEntroCaja());
   QtCCaja->Cajas()->Principal()->VentasTotales(CorteCaja().VentasTotales());
+  QtCCaja->Cajas()->Principal()->CalculandoCorte(CorteCaja().CalculandoCorte());
+  QtCCaja->Cajas()->Principal()->TotalGastos(CorteCaja().TotalGastos());
   QtCCaja->ActualizandoGui();
 }
-void QCorteCajaSucursal::RegistrandoCorteDia()
+void QCorteCajaSucursal::CambioDiaAnterior()
 {
-  RegistrosDia();
+  CambiosRegistrados();
   ImportesDia();
+}
+
+void QCorteCajaSucursal::RegistraCorte()
+{
+  zCorteCajaO lzCorteCO(zSiscomDesarrollo4::Conexion(),"RegistraCorteCajaSucursal");
+  lzCorteCO.RegistraCorte(&CorteCaja());
 }

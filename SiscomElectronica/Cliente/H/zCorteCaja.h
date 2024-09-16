@@ -14,11 +14,12 @@ class zCorteCaja:public zSiscomRegistro
 	void Transferencias(const char *pchrPtrTranferencias);	
 	void Tarjeta(const char *pchrPtrTranferencias);	
 	void DineroEntroCaja(const char *pchrPtrTranferencias);	
-	void Gastos(const char *pchrPtrTranferencias);	
 	void Cajas(const char *pchrPtrTranferencias);	
 	void IdEstado(const char *pchrPtrTranferencias);	
 	void CambioDiaAnterior(const char *pchrPtrTranferencias);	
 	void VentasTotales(const char *pchrPtrVentasTotales);
+	void CalculandoCorte(const char *pchrPtrCalculandoCorte);
+	void TotalGastos(const char *pchrPtrTotalGastos);
 	void EdoCuentaCambio(const char *pchrPtrEdoCuentaCambio);
 
 	void Cajas(zCajas *);
@@ -26,8 +27,12 @@ class zCorteCaja:public zSiscomRegistro
 	const char *DineroEntroCaja();
 	const char *Transferencias();
 	const char *VentasTotales();
+	const char *CalculandoCorte();
+	const char *TotalGastos();
 	const char *CambioDiaAnterior();
 	const char *EdoCuentaCambio();
+
+	int EdoCuentaCambioInt();
 
 	zCajas *Cajas();
 };

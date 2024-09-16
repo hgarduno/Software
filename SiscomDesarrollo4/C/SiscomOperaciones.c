@@ -1086,8 +1086,11 @@ float SiscomCampoAsociadoEntradaOperacionFloat(const char *pchrPtrCampoAsociado,
 						 const char *pchrPtrCampo,
 						 SiscomOperaciones *pSiscomOpePtrDatos)
 {
-
- return atof(SiscomCampoAsociadoEntradaOperacion(pchrPtrCampoAsociado,pchrPtrCampo,pSiscomOpePtrDatos)); 
+const char *lchrPtrCampo;
+ if((lchrPtrCampo=SiscomCampoAsociadoEntradaOperacion(pchrPtrCampoAsociado,pchrPtrCampo,pSiscomOpePtrDatos)))
+ return atof(lchrPtrCampo);
+else
+return 0.0;
 
 }
 

@@ -24,6 +24,7 @@ public:
 	void TotalEfectivo(const char *);
 	void CambioDiaAnterior(const char *);
 	void VentasTotales(const char *);
+	void CalculandoCorte(const char *);
 	const char *Nombre();
 	const char *Caja();
 	zDenominaciones *Dinero();
@@ -37,6 +38,7 @@ public:
 	const char *TotalEfectivo();
 	const char *CambioDiaAnterior();
 	const char *VentasTotales();
+	const char *CalculandoCorte();
 	
 	void Actualiza(zSiscomRegistro *);
 	friend bool operator==(zCaja &,zCaja &);

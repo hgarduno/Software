@@ -7,11 +7,17 @@
 int SqlDatosCierreCorteSucursal(SiscomOperaciones *pSisOpePtrDato);
 int SqlEnviaRegistroCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 
+int SqlRegistraCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato);
 int SqlRegistraCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int SqlActualizaCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int SqlCajaConCambio(SiscomOperaciones *pSisOpePtrDato,char *pchrPtrIdCajaCambio);
 int SqlCambiosCaja(SiscomOperaciones *pSisOpePtrDato);
 int SqlCambioCaja(SiscomOperaciones *pSisOpePtrDato);
+
+
+void InsertToCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato,
+			       SiscomRegistroProL *pSisRegProLPtrDato,
+			       char *pchrPtrSql);
 
 void InsertIntoCambioCaja(SiscomOperaciones *pSisOpePtrDato,
                           SiscomRegistroProL *pSisRegProLPtrDato,

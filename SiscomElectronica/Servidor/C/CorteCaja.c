@@ -13,7 +13,30 @@
 
 #include <string.h>
 #include <stdlib.h>
-void RegistraCorteCaja(int pintSocket,
+void RegistraCorteCajaSucursal(int pintSocket,
+                       SiscomRegistroProL *pSiscomRegProLPtrPrim,
+                       SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+                           0,
+                           (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+                           (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+                           &lSiscomOpDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(ArgumentoCorteCaja,&lSiscomProDat);
+SiscomAgregaOperacion(AsignaIdCorteCajaSucursal,&lSiscomProDat);
+SiscomAgregaOperacion(AsignaFechaRegistroCorte,&lSiscomProDat);
+SiscomAgregaOperacion(SqlRegistraCorteCajaSucursal,&lSiscomProDat);
+SiscomAgregaOperacion(SqlEnviaRegistroCambioCaja,&lSiscomProDat);
+SiscomAgregaOperacion(EnviaRegistraCorteCajaSucursal,&lSiscomProDat);
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+
+}
+void CambiosRegistrados(int pintSocket,
                        SiscomRegistroProL *pSiscomRegProLPtrPrim,
                        SiscomRegistroProL *pSiscomRegProLPtrAct)
 {
@@ -27,17 +50,20 @@ SiscomIniciaDatosOperacion(pintSocket,
                            &lSiscomOpDat);
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(SqlDatosCierreCorteSucursal,&lSiscomProDat);
-SiscomAgregaOperacion(EnviaRegistroCorteCaja,&lSiscomProDat);
+SiscomAgregaOperacion(EnviaCambiosRegistrados,&lSiscomProDat);
 SiscomAgregaOperacion(0,&lSiscomProDat);
 SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 }
 
 void CalculaCorteCaja(int pintSocket,
-                             SiscomRegistroProL *pSiscomRegProLPtrPrim,
-                             SiscomRegistroProL *pSiscomRegProLPtrAct)
+                      SiscomRegistroProL *pSiscomRegProLPtrPrim,
+                      SiscomRegistroProL *pSiscomRegProLPtrAct)
 {
 SiscomProcesos *lSiscomProDat=0;
 SiscomOperaciones lSiscomOpDat;
+/*
+SiscomOperacionErrores lSiscomOpErrores{
+*/
 memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
 SiscomIniciaDatosOperacion(pintSocket,
                            0,
@@ -168,18 +194,21 @@ int SumaGastosCaja(SiscomOperaciones *pSisOpePtrDato)
 char lchrArrBuffer[128];
 float lfltTotalGastos;
 SiscomRegistroProL *lSisRegProLPtrGastos;
-LogSiscom("");
-if((lSisRegProLPtrGastos=SiscomRegistrosAsociadosCampoEntrada("Envio",
-							     "Gastos",
-							     pSisOpePtrDato)))
+if((lSisRegProLPtrGastos=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion(
+				"Envio",
+				"Cajas",
+				"Gastos",
+				pSisOpePtrDato)))
+				
 {
 lfltTotalGastos=SiscomObtenSumatoriaRegistros("Importe",lSisRegProLPtrGastos); 
-SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrGastos);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio",
 					 "TotalGastos",
 					 lfltTotalGastos,
 					 pSisOpePtrDato);
 }
+else
+LogSiscom("NO Se registraron gastos");
 return 0;
 }
 int MultiplicandoSumandoCajas(SiscomOperaciones *pSisOpePtrDato)
@@ -187,7 +216,6 @@ int MultiplicandoSumandoCajas(SiscomOperaciones *pSisOpePtrDato)
 float lfltTotal;
 char lchrArrBuffer[128];
 SiscomRegistroProL *lSisRegProLPtrCajas,*lSisRegProLPtrCajas1;
-LogSiscom("");
 lSisRegProLPtrCajas1=lSisRegProLPtrCajas=SiscomRegistroAsociadoEntradaOperacion("Envio",
 										"Cajas",
 								          pSisOpePtrDato);
@@ -219,7 +247,6 @@ int MultiplicaSumaDenominaciones(SiscomOperaciones *pSisOpePtrDato)
 {
 float lfltTotal;
 SiscomRegistroProL *lSisRegProLPtrDeno;
-LogSiscom("");
 lSisRegProLPtrDeno=SiscomRegistrosAsociadosCampoEntrada("Envio",	
 						        "Dinero",
 							pSisOpePtrDato);
@@ -239,10 +266,8 @@ return 0;
 }
 int AgregaArgumentoCajaCambio(SiscomOperaciones *pSisOpePtrDato)
 {
-char lchrArrBuffer[128];
 SiscomRegistroProL *lSisRegProLPtrCajaCambio;
 lSisRegProLPtrCajaCambio=CajaDeCambio(pSisOpePtrDato);
-SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrCajaCambio);
 SiscomAgregaArgumentoOperacion("CajaCambio",
 			       lSisRegProLPtrCajaCambio,
 			       lSisRegProLPtrCajaCambio,
@@ -258,7 +283,6 @@ char lchrArrBuffer[256],
 
 SiscomRegistroProL *lSisRegProLPtrPrim=0,
 		   *lSisRegProLPtrAct=0;
-
 SiscomObtenNumeroUnicoChar(lchrArrIdCambioCaja);
 SiscomObtenFechaHoyCharAAAADDMM(lchrArrFecha);
 
@@ -272,7 +296,6 @@ SiscomAgregaArgumentoOperacion("DCorteCaja",
 			       lSisRegProLPtrPrim,
 			       lSisRegProLPtrAct,
 			       pSisOpePtrDato);
-
 return 0;
 }
 SiscomRegistroProL *CajaDeCambio(SiscomOperaciones *pSisOpePtrDato)
@@ -295,6 +318,7 @@ return SiscomObtenRegistrosCampoProL("Dinero",lSisRegProLPtrCCaja);
 int YaHayCajaConCambio(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrIdCajaCambio[128];
+LogSiscom("");
    if(SqlCajaConCambio(pSisOpePtrDato,lchrArrIdCajaCambio))
    {
 	SiscomActualizaCampoArgumento2("DCorteCaja",
@@ -368,7 +392,7 @@ char lchrArrBuffer[256];
 SiscomEnviaAsociadoRespuestaCliente("CambioCaja",lchrArrBuffer,pSisOpePtrDatos);
 return 0;
 }
-int EnviaRegistroCorteCaja(SiscomOperaciones *pSisOpePtrDato)
+int EnviaCambiosRegistrados(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[256];
 SiscomRegistroRegresoLog(lchrArrBuffer,pSisOpePtrDato);
@@ -404,7 +428,6 @@ int ContandoCambioCaja(SiscomOperaciones *pSisOpePtrDato)
 float lfltCuantoVaCambio,
 	lfltCambioDiaAnterior;
 const char *lchrPtrCambioDiaAnterior;
-LogSiscom("");
 if((lchrPtrCambioDiaAnterior=SiscomCampoAsociadoEntradaOperacion("Envio",
 							       "CambioDiaAnterior",
 							       pSisOpePtrDato)))
@@ -461,28 +484,87 @@ lfltImporte=SiscomObtenCampoRegistroProLFloat("Total",lSisRegProLPtrCajaPriD);
 return lfltImporte;
 }
 
+/*
+ *  Total Ventas ------   100
+ *   58                     X
+ *
+ *  X = 100x58/TotalVentas;
+ *
+ */
+
+float PorcentajeDesvioCorte(float pfltVentasTotales,
+			    float pfltCalculandoCorte)
+{
+return (100.00*pfltCalculandoCorte/pfltVentasTotales);
+
+}
+
 int CalculandoCorteCaja(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[128];
 float lfltEfectivoCajaCalculado,
 	lfltImporte,
 	lfltImporteVentas,
-	lfltTransferencias;
+	lfltTransferencias,
+	lfltCalculandoCorte,
+	lfltTotalGastos,
+	lfltPorcentajeDesvioCorte;
 char *lchrPtrVentasTotalesP,
      *lchrPtrTransferenciasP;
+
 lchrPtrVentasTotalesP=(char *)SiscomCampoAsociadoRespuesta("VentasTotalesP","importe",pSisOpePtrDato);
 lchrPtrTransferenciasP=(char *)SiscomCampoAsociadoRespuesta("TransferenciasP","importe",pSisOpePtrDato);
+if(lchrPtrVentasTotalesP)
 SiscomActualizaCampoAsociadoEntrada("Envio","VentasTotales",lchrPtrVentasTotalesP,pSisOpePtrDato);
+if(lchrPtrTransferenciasP)
 SiscomActualizaCampoAsociadoEntrada("Envio","Transferencias",lchrPtrTransferenciasP,pSisOpePtrDato);
+
 lfltImporte=ContandoCajaDinero(pSisOpePtrDato);
 lfltEfectivoCajaCalculado=CalculandoEfectivoCaja(pSisOpePtrDato); 
+
 lfltImporteVentas=SiscomCampoAsociadoEntradaOperacionFloat("Envio","VentasTotales",pSisOpePtrDato);
 lfltTransferencias=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Transferencias",pSisOpePtrDato);
+lfltTotalGastos=SiscomCampoAsociadoEntradaOperacionFloat("Envio","TotalGastos",pSisOpePtrDato);
+lfltCalculandoCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos)-lfltImporteVentas;
+SiscomActualizaCampoAsociadoEntradaFloat("Envio","CalculandoCorte",lfltCalculandoCorte,pSisOpePtrDato);
+SiscomActualizaCampoAsociadoEntradaFloat("Envio","Billetes",lfltImporte,pSisOpePtrDato);
+lfltPorcentajeDesvioCorte=PorcentajeDesvioCorte(lfltImporteVentas,lfltCalculandoCorte);
 LogSiscom("Calculo de Efectivo en Caja %f",lfltEfectivoCajaCalculado);
 LogSiscom("Importe Ventas              %f",lfltImporteVentas);
 LogSiscom("Total Transferencias        %f",lfltTransferencias);
 LogSiscom("Efectivo Contando           %f",lfltImporte);
-
+LogSiscom("Total Gastos		       %f",lfltTotalGastos);
+LogSiscom("Calculando Corte	       %f",lfltCalculandoCorte);
+LogSiscom("Porcentaje Desvio Corte     %f",lfltPorcentajeDesvioCorte);
 SiscomEnviaAsociadoEntradaCliente("Envio",lchrArrBuffer,pSisOpePtrDato);
+return 0;
+}
+
+
+int RespondeNoSeHaRegistradoCambio(SiscomOperaciones *pSisOpePtrDato)
+{
+LogSiscom("");
+return 0;
+}
+
+int EnviaRegistraCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[256];
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
+}
+
+
+int AsignaIdCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrIdCorteCaja[28];
+SiscomObtenNumeroUnicoChar(lchrArrIdCorteCaja);
+SiscomActualizaCampoAsociadoEntrada("Envio","IdCorte",lchrArrIdCorteCaja,pSisOpePtrDato);
+return 0;
+}
+int AsignaFechaRegistroCorte(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrFecha[28];
+SiscomObtenFechaHoyCharAAAADDMM(lchrArrFecha);
+SiscomActualizaCampoAsociadoEntrada("Envio","Fecha",lchrArrFecha,pSisOpePtrDato);
 return 0;
 }

@@ -15,6 +15,7 @@
 #include <zCeldaImporteEfectivoCaja.h>
 #include <zCeldaCambioDiaAnterior.h>
 #include <zCeldaVentasTotales.h>
+#include <zCeldaCalculandoCorte.h>
 
 
 #include <zCajas.h>
@@ -23,11 +24,8 @@
 #include <zEncabezadosCaja.h>
 #include <zCajas.h>
 #include <zGastos.h>
-/*
-#include <zCeldaImporteTransferencias.h>
-#include <zCeldaImporteEfectivoCaja.h>
 
-*/
+
 QtCorteCaja::QtCorteCaja(QWidget *pQWParent,
 			  const char *pchrPtrName):
 			 QTable(pQWParent,pchrPtrName)
@@ -45,6 +43,7 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
  EncabezadoVentasEfectivo(pintFila,pintColumna);
  EncabezadoCambioDiaAnterior(pintFila,pintColumna);
  EncabezadoVentasTotales(pintFila,pintColumna);
+ EncabezadoCalculandoCorte(pintFila,pintColumna);
  FormandoCajaCorte(pintFila,pintColumna);
  FormandoEncabezadosCorte();
 
@@ -53,6 +52,7 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
  ImporteEfectivoCaja(pintFila,pintColumna);
  CambioDiaAnterior(pintFila,pintColumna);
  VentasTotales(pintFila,pintColumna);
+ CalculandoCorte(pintFila,pintColumna);
  zSiscomQt3::AjustaColumnasTabla(this);
 }
 void QtCorteCaja::FormandoCajaCorte(int pintFila,int pintColumna)
@@ -256,6 +256,16 @@ new zEncabezadoCaja(pintFila+21,pintColumna,0,"white","Ventas Totales") <<
 new zEncabezadoCaja(pintFila+21,pintColumna+1,0,"white","0.00");
 zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
 }
+
+void QtCorteCaja::EncabezadoCalculandoCorte(int pintFila,int pintColumna)
+{
+zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
+(*lzEncaVenEfec) 							<< 
+new zEncabezadoCaja(pintFila+22,pintColumna,0,"gray","Calculando Corte") <<
+new zEncabezadoCaja(pintFila+22,pintColumna+1,0,"gray","0.00");
+zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
+}
+
 void QtCorteCaja::ImporteEfectivoCaja(int pintFila,
 				      int pintColumna)
 {
@@ -278,6 +288,11 @@ void QtCorteCaja::VentasTotales(int pintFila,int pintColumna)
 {
 zCelVentasTotales=new zCeldaVentasTotales(pintFila+21,pintColumna+1);
 CeldaColor(pintFila+21,pintColumna+1,"white","0.00");
+}
+void QtCorteCaja::CalculandoCorte(int pintFila,int pintColumna)
+{
+zCelCalculandoCorte=new zCeldaCalculandoCorte(pintFila+22,pintColumna+1);
+CeldaColor(pintFila+22,pintColumna+1,"gray","0.00");
 }
 void QtCorteCaja::FormandoEncabezadosCorte()
 {
@@ -328,6 +343,10 @@ zCeldaCambioDiaAnterior *QtCorteCaja::CeldaCambioDiaAnterior()
 zCeldaVentasTotales *QtCorteCaja::CeldaVentasTotales()
 {
   return zCelVentasTotales;
+}
+zCeldaCalculandoCorte *QtCorteCaja::CeldaCalculandoCorte()
+{
+  return zCelCalculandoCorte;
 }
 void QtCorteCaja::MuestraGastos(zCaja *pzCaja)
 {

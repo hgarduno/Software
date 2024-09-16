@@ -35,19 +35,21 @@ private:
 	void ActualizaCambioCaja(zCambioCaja *);
 	void HabilitaDesHabilitaControles(bool pbEstado);
 	void HabilitaDesHabilitaRegistroCambio(bool );
-	void RegistrosDia();
-	void RegistrandoCorteDia();
+	void CambiosRegistrados();
+	void CambioDiaAnterior();
 	zCorteCaja &CorteCaja();
 	void ImportesDia();
 	void IniciandoFechas();
+	void RegistraCorte();
 private slots:
 	void SlotCapturoCantidad();
 	void SlotActualizaCorteCaja();
 	void SlotSeleccionaCambio();
-	void SlotRegistraCorte();
 	void SlotActualiza();
 	void SlotFocoAActualiza();
 	void SlotFocoAFFin();
+	void SlotRegistraCambio();
+	void SlotRegistraCorte();
 };
 extern "C" QCorteCajaSucursal *InstanciaCorteCajaSucursal(void *,char **,void *,const char *,int);
 #endif
