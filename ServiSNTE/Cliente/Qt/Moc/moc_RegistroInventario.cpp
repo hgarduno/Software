@@ -1,7 +1,7 @@
 /****************************************************************************
 ** RegistroInventario meta object code from reading C++ file 'RegistroInventario.h'
 **
-** Created: Tue Apr 23 17:02:28 2024
+** Created: Tue Jul 16 22:28:56 2024
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** TransferenciaAlmacen meta object code from reading C++ file 'TransferenciaAlmacen.h'
 **
-** Created: Tue Apr 23 17:01:57 2024
+** Created: Tue Jul 16 22:28:25 2024
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!
