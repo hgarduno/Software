@@ -184,6 +184,14 @@ private:
 	zConexionExpendio *ContinuandoConOtroExpendio();	
 
 	void RegistrandoFaltante();
+	/* Ciudad de Mexico 14 de Agosto 2024 
+	 * Se integra la validacion para ver si se carga la ventana 
+	 * de pago con tarjeta, transferencia etc , para que en el 
+	 * caso de Donacion, material a la area de diseno y cotizacion 
+	 * no se paga , por lo tanto no se debe cargar la ventana de
+	 * como pago
+	 */
+	int  SeCargaComoPago();
 
 protected:
 	void keyPressEvent(QKeyEvent *pQKEvent);

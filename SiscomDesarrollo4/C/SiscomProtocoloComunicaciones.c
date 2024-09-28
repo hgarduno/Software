@@ -551,7 +551,18 @@ lintNCaracteres=strlen(pchrPtrCadena);
 if((lintNBytesEnviados=write(pintSocket,pchrPtrCadena,lintNCaracteres))!=lintNCaracteres)
 LogSiscom("Se Enviaron solo %d bytes de %d",lintNBytesEnviados,lintNCaracteres);
 
-SiscomSocketProtocoloLog("%s",pchrPtrCadena);
+/*  Siscom Zacatenco
+ *  Jueves 25 de Julio 2024
+ *
+ *
+ *
+ * SiscomSocketProtocoloLog("%s",pchrPtrCadena); 
+ * 
+ * Necesito averiguar que hace esta funcion :) :)
+ *
+ */
+
+
 }
 
 int SiscomEnviaIntSocket(int pintSocket,
@@ -591,7 +602,6 @@ SiscomEnviaRegistrosAsociadosSocket(
 		pintSocket,
 		pchrPtrBuffer,
 		(SiscomRegistroProL *)lSiscomCamProLPtrDato->vidPtrSubPrim);
-
 lSiscomCamProLPtrDato=lSiscomCamProLPtrDato->SiscomCamProLPtrSig;
 }
 }
@@ -1587,4 +1597,16 @@ for(;
      pSiscomRegProLPtrDato=pSiscomRegProLPtrDato->SiscomRegProLPtrSig)
    lSiscomRegProLPtrAnt=pSiscomRegProLPtrDato;
 return lSiscomRegProLPtrAnt;
+}
+
+SiscomCampoProL *SiscomUltimoCampoRegistro(SiscomRegistroProL *pSisRegProLPtrDato)
+{
+SiscomCampoProL *lSisCampoProLDato,
+		*lSisCampoProLAnt;
+
+for(lSisCampoProLDato=pSisRegProLPtrDato->SiscomCamProLPtrDato;
+    lSisCampoProLDato;
+    lSisCampoProLDato=lSisCampoProLDato->SiscomCamProLPtrSig)
+  lSisCampoProLAnt=lSisCampoProLDato;
+return lSisCampoProLAnt;
 }

@@ -369,6 +369,16 @@ void SiscomOrdenaRegistroProL(const char *pchrPtrCampo,
 			      SiscomRegistroProL *pSiscomRegProLPtrEntrada,
 			      SiscomRegistroProL **pSiscomRegProLPtrSalPrim,
 			      SiscomRegistroProL **pSiscomRegProLPtrSalAct);
+
+
+/* Siscom Zacatenco 
+ * 24 Julio del 2024
+ * 
+ * No hay una rutina con el ultimo campo  del registro ....
+ *
+ */
+
+SiscomCampoProL *SiscomUltimoCampoRegistro(SiscomRegistroProL *pSisRegProLPtrDato);
 SiscomRegistroProL *SiscomUltimoNodoLista(SiscomRegistroProL *pSiscomRegProLPtrDato);
 
 int SiscomAgregaCampoRegistro2(const char *pchrPtrNmbCampo,

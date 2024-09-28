@@ -12,11 +12,34 @@
 #include <string.h>
 #include <stdlib.h>
 
+void ActualizaCompraImportacionRegistrada(int pintSocket,
+			     SiscomRegistroProL *pSiscomRegProLPtrPrim,
+			     SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+			   0,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+			   &lSiscomOpDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(AgregaArgumentoProductosCompra,&lSiscomProDat);
+SiscomAgregaOperacion(ArgumentoCompraImportacion,&lSiscomProDat);
+SiscomAgregaOperacion(SqlProductosCompraImportacion,&lSiscomProDat);
+SiscomAgregaOperacion(ActualizandoCantidadesProductos,&lSiscomProDat);
+SiscomAgregaOperacion(SqlActualizandoCompraRegistrada,&lSiscomProDat);
+SiscomAgregaOperacion(EnviaActualizaCompraImportacionRegistrada,&lSiscomProDat);
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+}
+
+
 void CompletaProductosImportacion(int pintSocket,
 			     SiscomRegistroProL *pSiscomRegProLPtrPrim,
 			     SiscomRegistroProL *pSiscomRegProLPtrAct)
 {
-
 SiscomProcesos *lSiscomProDat=0;
 SiscomOperaciones lSiscomOpDat;
 memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
@@ -38,7 +61,6 @@ void RegistroParcialCompraImportacionFaltaronProductos(int pintSocket,
 			     SiscomRegistroProL *pSiscomRegProLPtrPrim,
 			     SiscomRegistroProL *pSiscomRegProLPtrAct)
 {
-
 SiscomProcesos *lSiscomProDat=0;
 SiscomOperaciones lSiscomOpDat;
 memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
@@ -547,15 +569,12 @@ if((lSisRegProLPtrProductos=SiscomRegistroAsociadoEntradaOperacion("Envio","Prod
        lSisRegProLPtrProductos&&lSisRegProLPtrProductosRe;
        lSisRegProLPtrProductos=lSisRegProLPtrProductos->SiscomRegProLPtrSig,
        lSisRegProLPtrProductosRe=lSisRegProLPtrProductos->SiscomRegProLPtrSig)
-  {
-  LogSiscom("Nodo Actual %s",SiscomObtenCampoRegistroProLChar("CveProducto",lSisRegProLPtrProductos));
    if(VeSiEstaYaEnLaListaElProducto(lSisRegProLPtrProductos,lSisRegProLPtrProductosRe))
    {
       LogSiscom("\t\t Ya esta");
       lintRegreso=1;
      break;
    }
-  }
 }
 return lintRegreso;
 }
@@ -656,6 +675,16 @@ LogSiscom("Buscando informacion de %s",
       LogSiscom("\tEl Producto no tiene informacion de Siscom");
 
 }
+int AgregaArgumentoProductosCompra(SiscomOperaciones *pSisOpePtrDato)
+{
+ char lchrArrBuffer[128];
+SiscomAgregaArgumentoOperacion("SqlProductosCompraImportacion",
+			       (SiscomRegistroProL *)0,
+			       (SiscomRegistroProL *)0,
+			       pSisOpePtrDato);
+
+return 1;
+}
 int CompletandoDatosProductoImportacion(SiscomOperaciones *pSisOpePtrDato)
 {
 SiscomRegistroProL *lSisRegProLPtrProductos,
@@ -682,5 +711,71 @@ SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
 SiscomAsociadoAsociadoLog("Envio","Productos",lchrArrBuffer,pSisOpePtrDato);
 */
 SiscomEnviaRegistrosEntrada(pSisOpePtrDato,lchrArrBuffer);
+return 0;
+}
+
+int EnviaActualizaCompraImportacionRegistrada(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[256];
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
+/*
+SiscomAsociadoAsociadoLog("Envio","Productos",lchrArrBuffer,pSisOpePtrDato);
+SiscomEnviaRegistrosEntrada(pSisOpePtrDato,lchrArrBuffer);
+*/
+SiscomArgumentoInsercionSqlLog("SqlCompraImportacion",
+				lchrArrBuffer,
+				pSisOpePtrDato);
+return 0;
+}
+SiscomRegistroProL *ObtenProductosCompraImportacion(SiscomOperaciones *pSisOpePtrDato)
+{
+return SiscomRegistroAsociadoEntradaOperacion("Envio","Productos",pSisOpePtrDato);
+}
+SiscomRegistroProL *ObtenProductosBaseCompraImportacion(SiscomOperaciones *pSisOpePtrDato)
+{
+return SiscomObtenArgumentoPrimOperaciones("SqlProductosCompraImportacion",pSisOpePtrDato);
+}
+void CantidadParaActualizarBase(SiscomRegistroProL *pSisRegProLPtrProductosO,
+			        SiscomRegistroProL *pSisRegProLPtrProductosB)
+{
+float lfltCantidadO,
+	lfltCantidadB,
+	lfltDiferencia;
+for(;
+  pSisRegProLPtrProductosB;
+ pSisRegProLPtrProductosB=pSisRegProLPtrProductosB->SiscomRegProLPtrSig)
+ {
+   if(!SiscomComparaCampoRegistrosProL2("CveProducto",
+   				        "cveproducto",
+					pSisRegProLPtrProductosO,
+					pSisRegProLPtrProductosB))
+   {
+
+    
+	lfltDiferencia=SiscomObtenCampoRegistroProLFloat("Cantidad",pSisRegProLPtrProductosO)-
+		       SiscomObtenCampoRegistroProLFloat("cantidad",pSisRegProLPtrProductosB);
+	LogSiscom("Producto %s %f",
+		  SiscomObtenCampoRegistroProLChar("CveProducto",pSisRegProLPtrProductosO),
+		  lfltDiferencia);
+	SiscomActualizaCampoFloatRegistroActual("Cantidad",
+						0,
+						lfltDiferencia,
+						pSisRegProLPtrProductosO);
+
+   }
+}  	
+
+}
+
+int ActualizandoCantidadesProductos(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[128];
+SiscomRegistroProL *lSisRegProLPtrProductosO=ObtenProductosCompraImportacion(pSisOpePtrDato),
+		   *lSisRegProLPtrProductosB=ObtenProductosBaseCompraImportacion(pSisOpePtrDato);
+for(;
+	lSisRegProLPtrProductosO;
+	lSisRegProLPtrProductosO=lSisRegProLPtrProductosO->SiscomRegProLPtrSig)
+CantidadParaActualizarBase(lSisRegProLPtrProductosO,lSisRegProLPtrProductosB);
+
 return 0;
 }

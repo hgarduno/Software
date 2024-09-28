@@ -1,5 +1,8 @@
 #include <CQSisPedidoMaterial.h>
+#include <zSiscomDesarrollo4.h>
+#include <SiscomDesarrollo3Qt++.h>
 #include <string.h>
+
 CQSisPedidoMaterial::CQSisPedidoMaterial(const char *pchrPtrIdExpendio,
 					 const char *pchrPtrIdPedido,
 					 SiscomRegistro3Lst *pSisReg3LstProductos)
@@ -15,8 +18,6 @@ new SiscomCampo3("IdExpendio",pchrPtrIdExpendio) 	<<
 new SiscomCampo3("IdPedido",pchrPtrIdPedido);
 SiscomAgregaRegistro(0,lSisReg3Envio);
 SiscomAgregaRegistros(1,pSisReg3LstProductos);
-
-
 }
 CQSisPedidoMaterial::CQSisPedidoMaterial()
 {
@@ -24,7 +25,6 @@ SiscomAgregaRegistro();
 SiscomAgregaSubRegistro();
 SiscomAgregaSubRegistro();
 SiscomAgregaSubRegistro();
-
 }
 void CQSisPedidoMaterial::Expendio(const char *pchrPtrIdExpendio)
 {
@@ -85,6 +85,18 @@ void CQSisPedidoMaterial::Cantidad(int pintNumeroPedido,
 				 "cantidad",
 				 pchrPtrCantidad);
 }
+void CQSisPedidoMaterial::Observaciones(int pintNumeroPedido,
+				   int pintNumeroProducto,
+				   const char *pchrPtrObservaciones)
+{
+SiscomEscribeLog3Qt("00000");
+ SiscomActualizaCampoSubRegistro(pintNumeroPedido,
+ 				 1,
+				 pintNumeroProducto,
+				 "observaciones",
+				 pchrPtrObservaciones);
+}
+
 const char *CQSisPedidoMaterial::IdProducto(int pintNumeroPedido,
 					     int pintNumeroProducto)
 {

@@ -21,7 +21,6 @@ private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;
 	zSiscomConexion *zSisConexion;
-
 	zCorteCaja zCCaja;
 private:
 	void ConectaSlots();
@@ -36,16 +35,21 @@ private:
 	void ActualizaCambioCaja(zCambioCaja *);
 	void HabilitaDesHabilitaControles(bool pbEstado);
 	void HabilitaDesHabilitaRegistroCambio(bool );
-	void RegistrosDia();
-	void RegistrandoCorteDia();
+	void CambiosRegistrados();
+	void CambioDiaAnterior();
 	zCorteCaja &CorteCaja();
 	void ImportesDia();
+	void IniciandoFechas();
+	void RegistraCorte();
 private slots:
 	void SlotCapturoCantidad();
 	void SlotActualizaCorteCaja();
+	void SlotSeleccionaCambio();
+	void SlotActualiza();
+	void SlotFocoAActualiza();
+	void SlotFocoAFFin();
 	void SlotRegistraCambio();
 	void SlotRegistraCorte();
-	void SlotActualiza();
 };
 extern "C" QCorteCajaSucursal *InstanciaCorteCajaSucursal(void *,char **,void *,const char *,int);
 #endif

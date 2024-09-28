@@ -63,6 +63,7 @@ class zConCuantoPago;
 class zCambiosCaja;
 class zCambioCaja;
 class zCorteCaja;
+class zCompraParcialImportacion;
 
 class zSiscomElectronica:public zSiscomOperaciones 
 {
@@ -185,7 +186,8 @@ public:
 	int ActualizaPesoProducto(zProductoImportado *pzProdImportado);
 	int CalculaProductoImportacion(zCompraImportacion *pzComImportacion,char *);
 	int RegistraCompraImportacion(zCompraImportacion *pzComImportacion);
-	int RegistroParcialCompraImportacionFaltaronProductos(zCompraImportacion *);
+	int RegistroParcialCompraImportacionFaltaronProductos(zCompraParcialImportacion *);
+	int ActualizaCompraImportacionRegistrada(zCompraImportacion *);
 
 	int ProductosImportadosPorFiltro(const char *pchrPtrFiltro,
 					 const char *pchrPtrCantidad,
@@ -270,7 +272,7 @@ public:
 	int RegistraOrdenesFavoritas(zOrdenesFavoritas *);
 	int ConsultaOrdenesFavoritas(zOrdenesFavoritas *);
 	int EliminaOrdenesFavoritas(zOrdenesFavoritas *);
-	int CalculaCorteCaja(zCajas *);
+	int CalculaCorteCaja(zCorteCaja *);
 	int RegistraCambioCaja(zCajas *);
 
 	int CalculaCambioPago(const char *pchrPtrPago,

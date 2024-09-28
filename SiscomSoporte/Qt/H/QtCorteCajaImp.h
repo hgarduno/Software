@@ -21,16 +21,21 @@ private:
 	void ActualizaCantidad(int,int,zDenominacion *);
 	void ActualizandoImporteGasto(int,int);
 	void ActualizandoPagoTarjeta(int,int);
+
+
+
 	void ActualizaImporteGasto(int ,int,zGasto *);
 
 	void ActualizaDineroGui(zDenominaciones *);
 	void ActualizaTotalGui(zCaja *);
 	void AgregaGasto(int,int);
-	void ActualizaTotalGastos();
 	void ActualizaDineroEntroCaja();
 	void ActualizaImporteTransferencias();
-
+	void ActualizaTotalGastos();
 	void ActualizaGui();
+	void ActualizandoCambioDiaAnterior();
+	void ActualizandoVentasTotales();
+	void ActualizandoCalculandoCorte();
 
 private:
 	zDenominacion *zDenoD;

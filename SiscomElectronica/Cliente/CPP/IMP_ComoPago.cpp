@@ -42,7 +42,7 @@ connect(QLEConCuantoPaga,
 }
 void QComoPago::SlotCapturandoConCuantoPaga(const QString &)
 {
-  QPBAceptar->setEnabled(zSiscomQt3::TextoValido(QLEConCuantoPaga));
+  QPBAceptar->setEnabled((intValidoPago && zSiscomQt3::TextoValido(QLEConCuantoPaga)));
 }
 void QComoPago::SlotFocoAAceptar()
 {
@@ -126,7 +126,7 @@ int QComoPago::VerificandoConCuantoPago()
 {
 zSiscomElectronica lzSisEVerificaCCP(Conexion(),"VerificaConCuantoPago");
 zConCPago=ConCuantoPago();
-return lzSisEVerificaCCP.VerificaConCuantoPago(zConCPago);
+return (intValidoPago=lzSisEVerificaCCP.VerificaConCuantoPago(zConCPago));
 }
 zConCuantoPago *QComoPago::ConCuantoPago()
 {
@@ -148,8 +148,9 @@ void QComoPago::VerificoConCuantoPago()
    }
    else
    {
-    
+   	QPBAceptar->setEnabled(true);
+	zSiscomQt3::Foco(QPBAceptar);
 	Orden()->ConCuantoPaga(zSiscomQt3::Texto(QLEConCuantoPaga));
    }
-
+intValidoPago=0;
 } 
