@@ -403,7 +403,6 @@ void QModuloVentas::RegistrandoRapidoCotizacion(const char *pchrPtrModo)
 }
 void QModuloVentas::RegistroRapidoCotizacion()
 {
-  LogSiscom("");
   RegistrandoRapidoCotizacion("Cotizacion");
 }
 void QModuloVentas::RegistroRapidoCotizacionEnvio()

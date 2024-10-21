@@ -108,6 +108,7 @@ void QtOrdenesRegistradas::SlotOrden(int pintFila,
 				    int,
 				    const QPoint &)
 {
+  intOrdenSeleccionada[pintFila]=1;
    MuestraOrden(pintFila);
 }
 void QtOrdenesRegistradas::SlotFocoAConsulta()
@@ -422,6 +423,9 @@ void QtOrdenesRegistradas::TeclasEspeciales(QKeyEvent *pQKETeclas)
    else
    if(pQKETeclas->key()==Qt::Key_C)
    CopiandoPortaPapelesOrden();
+   else
+	if(pQKETeclas->key()==Qt::Key_F12)
+	MarcaOrden();
 
 }
 int QtOrdenesRegistradas::CambiandoExpendio()
@@ -472,6 +476,7 @@ void QtOrdenesRegistradas::CopiandoPortaPapeles()
  zTextoWhatsApp lzTextoW(Orden());
  lzTextoW.CotizacionWhats(&lchrPtrTexto);
   QApplication::clipboard()->setText(lchrPtrTexto); 
+
 }
 void QtOrdenesRegistradas::CopiandoPortaPapelesOrden()
 {
@@ -491,4 +496,10 @@ QApplication::clipboard()->setText(lchrArrOrden);
 zOrdenVenta *QtOrdenesRegistradas::Orden(int pintNOrden)
 {
     return (zOrdenVenta *)(*Ordenes())[pintNOrden];
+}
+
+
+void QtOrdenesRegistradas::MarcaOrden()
+{
+   zSiscomQt3::ColoreaFilas(QTOrdenes,Qt::green,intOrdenSeleccionada);
 }

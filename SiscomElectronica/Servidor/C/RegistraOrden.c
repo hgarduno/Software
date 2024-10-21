@@ -196,18 +196,33 @@ float CampoConCuantoPago(SiscomOperaciones *pSisOpePtrDato,const char *pchrPtrCa
 {
 return SiscomCampoAsociadoEntradaOperacionFloat("Envio",pchrPtrCampo,pSisOpePtrDato);
 }
+const char *TipoOrdenVenta(SiscomOperaciones *pSisOpePtrDato)
+{
+if(CampoConCuantoPago(pSisOpePtrDato,"ConCuantoPago") >= 
+   CampoConCuantoPago(pSisOpePtrDato,"Importe"))
+  return "1";
+else
+  return "0";
+}
+const char *TipoOrdenApartado(SiscomOperaciones *pSisOpePtrDato)
+{
+if(CampoConCuantoPago(pSisOpePtrDato,"ConCuantoPago")>=
+   CampoConCuantoPago(pSisOpePtrDato,"ACuenta"))
+   return "1";
+  else
+   return "0";
+}
 int VerificandoConCuantoPago(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[128];
 const char *lchrPtrSiAlcanza;
-LogSiscom("");
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
-if(CampoConCuantoPago(pSisOpePtrDato,"ConCuantoPago") >= 
-   CampoConCuantoPago(pSisOpePtrDato,"Importe"))
-  lchrPtrSiAlcanza="1";
+if(EsApartado(pSisOpePtrDato))
+  lchrPtrSiAlcanza=TipoOrdenApartado(pSisOpePtrDato);
 else
-	lchrPtrSiAlcanza="0";
-  SiscomFormaEnviaRegistroRespuesta(pSisOpePtrDato,
+ lchrPtrSiAlcanza=TipoOrdenVenta(pSisOpePtrDato);
+
+SiscomFormaEnviaRegistroRespuesta(pSisOpePtrDato,
   				    lchrArrBuffer,
 				    "SiAlcanza,Cambio",
 				    lchrPtrSiAlcanza,

@@ -1,5 +1,6 @@
 #include <QtCapturaDescripcionCotizacion.h>
 
+#include <QCtrlEscuelasSE.h>
 
 #include <zSiscomQt3.h>
 #include <zSiscomDesarrollo4.h>
@@ -10,6 +11,9 @@
 #include <zEscuelas.h>
 #include <zEscuela.h>
 #include <zClienteSiscom.h>
+
+
+
 
 #include <qtextedit.h>
 #include <qlineedit.h>
@@ -35,6 +39,19 @@ QtCapturaDescripcionCotizacion::QtCapturaDescripcionCotizacion(zOrdenVenta *pzOr
 								  intCotizando(0),
 								  intSoloDescripcion(0)
 {
+/* Tepotzotlan 
+ * 20/10/2024  
+ * Poner esto en otro lado aqui fue de a rapido
+ */
+QBGEscuelas->setColumnLayout(0, Qt::Vertical );
+QBGEscuelas->layout()->setSpacing( 6 );
+QBGEscuelas->layout()->setMargin( 11 );
+QBGEscuelasLayout = new QGridLayout( QBGEscuelas->layout() );
+QBGEscuelasLayout->setAlignment( Qt::AlignTop );
+
+QCtrEscuelas->Servidor(zSisConexion);
+QCtrEscuelas->IniciaControl();
+
  ConectaSlots();
 }
 zOrdenVenta *QtCapturaDescripcionCotizacion::Orden()
@@ -87,6 +104,17 @@ connect(QBGEscuelas,SIGNAL(clicked(int)),SLOT(SlotEscuela(int)));
 connect(QTEDescripcion,SIGNAL(doubleClicked(int,int)),SLOT(SlotSoloDescripcion(int,int)));
 connect(QTEDescripcion,SIGNAL(textChanged()),SLOT(SlotCapturandoDescripcion()));
 connect(QLENombre,SIGNAL(returnPressed()),SLOT(SlotCapturaNombre()));
+connect(QCtrEscuelas,SIGNAL(SignalSelecciono(zSiscomRegistro *)),SLOT(SlotEscuela(zSiscomRegistro *)));
+}
+void QtCapturaDescripcionCotizacion::SlotEscuela(zSiscomRegistro *pzSisRegEscuela)
+{
+zEscuela *lzEscuela=new zEscuela(pzSisRegEscuela);
+Orden()->Cliente()->EscuelaCliente(lzEscuela);
+Cotizacion()->Escuela(lzEscuela->Nombre());
+Cotizacion()->DescripcionSinEnvio();
+Descripcion();
+HabilitandoAceptar();
+
 }
 void QtCapturaDescripcionCotizacion::SlotCapturaNombre()
 {
@@ -188,6 +216,8 @@ for(lzEscuela=(zEscuela *)zEscuelasS.Primer(),lintContador=0 ;
      lzEscuela;
      lzEscuela=(zEscuela *)zEscuelasS.Siguiente(),lintContador++)
   QBGEscuelasLayout->addWidget(Escuela(lzEscuela),lintContador,0);
+
+
 }
 QRadioButton *QtCapturaDescripcionCotizacion::Escuela(zEscuela *pzEscuela)
 {
@@ -270,6 +300,11 @@ void QtCapturaDescripcionCotizacion::TeclasEspeciales(QKeyEvent *pQKETeclas)
 	zSiscomQt3::Foco(QLENombre); 
 	if(pQKETeclas->key()==Qt::Key_F11)
 	QBGEscuelas->setFocus();
+	if(pQKETeclas->key()==Qt::Key_F10)
+	QCtrEscuelas->setFocus();
+	if(pQKETeclas->key()==Qt::Key_F9)
+	QLETelefono->setFocus();
+
      }
 
 }

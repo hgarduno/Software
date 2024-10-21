@@ -20,6 +20,7 @@ class zCeldaImporteEfectivoCaja;
 class zCeldaCambioDiaAnterior;
 class zCeldaVentasTotales;
 class zCeldaCalculandoCorte;
+class zCeldaCorteTotal;
 class QtCorteCaja:public QTable
 {
 Q_OBJECT 
@@ -38,6 +39,7 @@ public:
 	zCeldaCambioDiaAnterior *CeldaCambioDiaAnterior();
 	zCeldaVentasTotales *CeldaVentasTotales();
 	zCeldaCalculandoCorte *CeldaCalculandoCorte();
+	zCeldaCorteTotal *CeldaCorteTotal();
 	void ActualizaCantidadesCambio(zDenominaciones *);
 	void ActualizaTotalCajaCambio(const char *);
 	void ActualizaCambioDiaAnterior(const char *);
@@ -61,6 +63,7 @@ private:
 	void EncabezadoCambioDiaAnterior(int pintFila,int pintColumna);
 	void EncabezadoVentasTotales(int pintFila,int pintColumna);
 	void EncabezadoCalculandoCorte(int,int);
+	void EncabezadoCorteTotal(int,int);
 	void FormandoEncabezadosCorte();
 	zGasto *Gasto(int,int);
 	void PagoTarjeta(int,int);
@@ -70,6 +73,8 @@ private:
 	void CambioDiaAnterior(int,int);
 	void VentasTotales(int,int);
 	void CalculandoCorte(int,int);
+	void CorteTotal(int ,int);
+	void Corte(int,int);
 
 	void MuestraGastos(zCaja *);
 private:
@@ -82,6 +87,7 @@ private:
 	zCeldaCambioDiaAnterior *zCelCambioDA;
 	zCeldaVentasTotales *zCelVentasTotales;
 	zCeldaCalculandoCorte *zCelCalculandoCorte;
+	zCeldaCorteTotal *zCelCorteTotal;
 	int intFila;
 	int intColumna;
 

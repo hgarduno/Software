@@ -354,24 +354,40 @@ sprintf(pchrPtrSql,
 			    where idventa=%s)",
 	 SiscomCampoAsociadoEntradaOperacion("Envio","IdOrden",pSiscomOpePtrDato));
 }
+
+void SqlClienteEscuela(SiscomOperaciones *pSiscomOpePtrDato,char *pchrPtrSql)
+{
+
+sprintf(pchrPtrSql,
+	"							\n\
+	 select idescuela,					\n\
+	 	nombre 						\n\
+	 from escuelaorden inner join 				\n\
+	      escuelas using(idescuela)  where idventa=%s",
+	 SiscomCampoAsociadoEntradaOperacion("Envio","IdOrden",pSiscomOpePtrDato));
+}
+
 int SqlConsultaOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],
 	lchrArrSqlImporteOrden[256],
 	lchrArrSqlVentas[256],
 	lchrArrSqlCliente[256],
-	lchrArrSqlCotizacion[256];
+	lchrArrSqlCotizacion[256],
+	lchrArrSqlEscuelaCliente[256];
 SqlConsultaImporteOrden(pSiscomOpePtrDato,lchrArrSqlImporteOrden);
 SqlConsultaVenta(pSiscomOpePtrDato,lchrArrSqlVentas);
 SqlClienteOrdenVendida(pSiscomOpePtrDato,lchrArrSqlCliente);
 SqlInformacionCotizacion(pSiscomOpePtrDato,lchrArrSqlCotizacion);
+SqlClienteEscuela(pSiscomOpePtrDato,lchrArrSqlEscuelaCliente);
 SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			      pSiscomOpePtrDato,
-			      "ImporteOrden%Productos%Cliente%Cotizacion%",
+			      "ImporteOrden%Productos%Cliente%Cotizacion%Escuela%",
 			      lchrArrSqlImporteOrden,
 			      lchrArrSqlVentas,
 			      lchrArrSqlCliente,
-			      lchrArrSqlCotizacion);
+			      lchrArrSqlCotizacion,
+			      lchrArrSqlEscuelaCliente);
 }
 
 

@@ -16,6 +16,7 @@
 #include <zCeldaCambioDiaAnterior.h>
 #include <zCeldaVentasTotales.h>
 #include <zCeldaCalculandoCorte.h>
+#include <zCeldaCorteTotal.h>
 
 
 #include <zCajas.h>
@@ -44,6 +45,8 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
  EncabezadoCambioDiaAnterior(pintFila,pintColumna);
  EncabezadoVentasTotales(pintFila,pintColumna);
  EncabezadoCalculandoCorte(pintFila,pintColumna);
+ EncabezadoCorteTotal(pintFila,pintColumna);
+
  FormandoCajaCorte(pintFila,pintColumna);
  FormandoEncabezadosCorte();
 
@@ -53,6 +56,9 @@ void QtCorteCaja::IniciaControl(int pintFila,int pintColumna)
  CambioDiaAnterior(pintFila,pintColumna);
  VentasTotales(pintFila,pintColumna);
  CalculandoCorte(pintFila,pintColumna);
+ CorteTotal(pintFila,pintColumna);
+
+
  zSiscomQt3::AjustaColumnasTabla(this);
 }
 void QtCorteCaja::FormandoCajaCorte(int pintFila,int pintColumna)
@@ -266,6 +272,15 @@ new zEncabezadoCaja(pintFila+22,pintColumna+1,0,"gray","0.00");
 zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
 }
 
+void QtCorteCaja::EncabezadoCorteTotal(int pintFila,int pintColumna)
+{
+zEncabezadosCaja *lzEncaVenEfec=new zEncabezadosCaja;
+(*lzEncaVenEfec) 							<< 
+new zEncabezadoCaja(pintFila+23,pintColumna,0,"white","Corte Total") <<
+new zEncabezadoCaja(pintFila+23,pintColumna+1,0,"white","0.00");
+zCajasExp->EncabezadosVentasEfectivo(lzEncaVenEfec);
+}
+
 void QtCorteCaja::ImporteEfectivoCaja(int pintFila,
 				      int pintColumna)
 {
@@ -294,6 +309,13 @@ void QtCorteCaja::CalculandoCorte(int pintFila,int pintColumna)
 zCelCalculandoCorte=new zCeldaCalculandoCorte(pintFila+22,pintColumna+1);
 CeldaColor(pintFila+22,pintColumna+1,"gray","0.00");
 }
+
+void QtCorteCaja::CorteTotal(int pintFila,int pintColumna)
+{
+zCelCorteTotal=new zCeldaCorteTotal(pintFila+23,pintColumna+1);
+CeldaColor(pintFila+23,pintColumna+1,"white","0.00");
+}
+
 void QtCorteCaja::FormandoEncabezadosCorte()
 {
 zEncabezadoCaja *lzEncaCorte;
@@ -348,6 +370,11 @@ zCeldaCalculandoCorte *QtCorteCaja::CeldaCalculandoCorte()
 {
   return zCelCalculandoCorte;
 }
+zCeldaCorteTotal *QtCorteCaja::CeldaCorteTotal()
+{
+  return zCelCorteTotal;
+}
+
 void QtCorteCaja::MuestraGastos(zCaja *pzCaja)
 {
 zGasto *lzGasto;
