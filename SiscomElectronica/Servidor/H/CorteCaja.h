@@ -2,7 +2,10 @@
 #define __CORTECAJA_H__
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
 
-void RegistraCorteCaja(int pintSocket,
+void RegistraCorteCajaSucursal(int pintSocket,
+                       SiscomRegistroProL *pSiscomRegProLPtrPrim,
+                       SiscomRegistroProL *pSiscomRegProLPtrAct);
+void CambiosRegistrados(int pintSocket,
                        SiscomRegistroProL *pSiscomRegProLPtrPrim,
                        SiscomRegistroProL *pSiscomRegProLPtrAct);
 
@@ -34,7 +37,7 @@ int AgregaArgumentoDatosCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int EnviandoCambiosCaja(SiscomOperaciones *pSisOpePtrDato);
 int EnviandoCambioCaja(SiscomOperaciones *pSisOpePtrDato);
 int AcondicionandoParaMostrar(SiscomOperaciones *pSisOpePtrDatos);
-int EnviaRegistroCorteCaja(SiscomOperaciones *pSisOpePtrDato);
+int EnviaCambiosRegistrados(SiscomOperaciones *pSisOpePtrDato);
 
 int MultiplicandoSumandoCajas(SiscomOperaciones *pSisOpePtrDato);
 int CalculandoCorteCaja(SiscomOperaciones *pSisOpePtrDato);
@@ -52,4 +55,11 @@ int AsignaCamposConsultaCorteCaja(SiscomOperaciones *pSisOpePtrDato);
 float ContandoCajaDinero(SiscomOperaciones *pSisOpePtrDato);
 
 SiscomRegistroProL *ContandoCajaPrincipalDinero(SiscomOperaciones *pSisOpePtrDato);
+
+
+int EnviaRegistraCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato);
+int AsignaIdCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato);
+int AsignaFechaRegistroCorte(SiscomOperaciones *);
+
+int RespondeNoSeHaRegistradoCambio(SiscomOperaciones *);
 #endif

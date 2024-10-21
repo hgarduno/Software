@@ -26,6 +26,9 @@ public:
 	int Valor();
 	int Editable();
 	const char *Color();
+
+	int FilaInt();
+	int ColumnaInt();
 private:
 	int intFila;
 	int intColumna;

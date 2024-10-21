@@ -683,7 +683,6 @@ zSiscomDesarrollo4::Log(pchrPtrArchivo,pchrPtrFuncion,pintNoLinea,"Error Cliente
 zOrdenVenta *zOrdenVenta::OrdenPorId(zSiscomRegistro *pzSisRegRespuesta)
 {
  zOrdenVenta *lzOrdenVenta=new zOrdenVenta; 
-
 lzOrdenVenta->IdVenta((const char *)pzSisRegRespuesta->CampoAsociado("Cotizacion","idventa"));
 lzOrdenVenta->AsignaProductos(pzSisRegRespuesta->AsociadosDelCampo("Productos"));
 lzOrdenVenta->Cliente(new zClienteSiscom(pzSisRegRespuesta));
@@ -700,4 +699,8 @@ const char *zOrdenVenta::ConCuantoPaga()
 void zOrdenVenta::ConCuantoPaga(const char *pchrPtrConCuantoPaga)
 {
     ActualizaCampo("ConCuantoPaga",(const unsigned char *)pchrPtrConCuantoPaga);
+}
+zApartado *zOrdenVenta::Apartado()
+{
+  return (zApartado *)AsociadoDelCampo("Apartado");
 }

@@ -23,12 +23,20 @@ zCaja::zCaja(const char *pchrPtrCaja,
  new zSiscomCampo("Transferencias")					<<
  new zSiscomCampo("TotalEfectivo")					<<
  new zSiscomCampo("CambioDiaAnterior")					<<
- new zSiscomCampo("VentasTotales");
+ new zSiscomCampo("VentasTotales")					<<
+ new zSiscomCampo("CalculandoCorte")					<<
+ new zSiscomCampo("CorteTotal");
 }
 void zCaja::VentasTotales(const char *pchrPtrCambioDA)
 {
 ActualizaCampo("VentasTotales",(const unsigned char *)pchrPtrCambioDA);
 }
+
+void zCaja::CalculandoCorte(const char *pchrPtrCambioDA)
+{
+ActualizaCampo("CalculandoCorte",(const unsigned char *)pchrPtrCambioDA);
+}
+
 
 void zCaja::CambioDiaAnterior(const char *pchrPtrCambioDA)
 {
@@ -119,6 +127,18 @@ const char *zCaja::VentasTotales()
 {
   return (const char *)(*this)["VentasTotales"];
 }
+
+
+const char *zCaja::CalculandoCorte()
+{
+  return (const char *)(*this)["CalculandoCorte"];
+}
+
+const char *zCaja::CorteTotal()
+{
+  return (const char *)(*this)["CorteTotal"];
+}
+
 
 void zCaja::Actualiza(zSiscomRegistro *pzSisRegCaja)
 {

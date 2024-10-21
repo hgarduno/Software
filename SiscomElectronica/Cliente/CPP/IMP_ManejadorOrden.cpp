@@ -1257,7 +1257,8 @@ int QManejadorOrden::SeCargaComoPago()
 {
   if((Orden()->IdTipoOrdenInt()==1) || 
      (Orden()->IdTipoOrdenInt()==8) ||
-     (Orden()->IdTipoOrdenInt()==9))
+     (Orden()->IdTipoOrdenInt()==9) ||
+     (Orden()->IdTipoOrdenInt()==5))
    return 0;
    else
    return 1;

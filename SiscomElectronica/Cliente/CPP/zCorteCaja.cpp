@@ -6,15 +6,19 @@ zCorteCaja::zCorteCaja()
 new zSiscomCampo("IdCorte")		<<
 new zSiscomCampo("FechaInicio")		<<
 new zSiscomCampo("FechaFin")		<<
+new zSiscomCampo("Fecha")		<<
 new zSiscomCampo("Transferencias")	<<
 new zSiscomCampo("Tarjeta")		<<
 new zSiscomCampo("DineroEntroCaja")	<<
-new zSiscomCampo("Gastos")		<<
+new zSiscomCampo("Billetes")		<<
 new zSiscomCampo("CambioDiaAnterior")	<<
 new zSiscomCampo("Cajas")		<<
 new zSiscomCampo("IdEstado")		<<
 new zSiscomCampo("VentasTotales")	<<
-new zSiscomCampo("EdoCuentaCambio");
+new zSiscomCampo("CalculandoCorte")	<<
+new zSiscomCampo("TotalGastos")		<<
+new zSiscomCampo("EdoCuentaCambio")	<<
+new zSiscomCampo("EdoCorteCaja");
 }
 
 void zCorteCaja::Cajas(zCajas *pzCajas)
@@ -47,10 +51,6 @@ void zCorteCaja::DineroEntroCaja(const char *pchrPtrDineroEntroCaja)
 {
 ActualizaCampo("DineroEntroCaja",(const unsigned char *)pchrPtrDineroEntroCaja);
 }
-void zCorteCaja::Gastos(const char *pchrPtrGastos)	
-{
-ActualizaCampo("Gastos",(const unsigned char *)pchrPtrGastos);
-}
 void zCorteCaja::IdEstado(const char *pchrPtrIdEstado)	
 {
 ActualizaCampo("IdEstado",(const unsigned char *)pchrPtrIdEstado);
@@ -60,28 +60,34 @@ void zCorteCaja::CambioDiaAnterior(const char *pchrPtrCambioDiaAnterior)
 {
 ActualizaCampo("CambioDiaAnterior",(const unsigned char *)pchrPtrCambioDiaAnterior);
 }
-
+void zCorteCaja::EdoCuentaCambio(const char *pchrPtrEdoCuentaCambio)
+{
+ActualizaCampo("EdoCuentaCambio",(const unsigned char *)pchrPtrEdoCuentaCambio);
+}
 void zCorteCaja::CorteCaja(zSiscomRegistro *pzSisRegRegreso)
 {
-   ActualizaCampo("EdoCuentaCambio",
-   		   (*pzSisRegRegreso)["EdoCuentaCambio"]);
-   ActualizaCampo("DineroEntroCaja",
-   		  pzSisRegRegreso->CampoAsociado("PagaConP","importe"));
-
-   ActualizaCampo("Transferencias",
-   		  pzSisRegRegreso->CampoAsociado("TransferenciasP","importe"));
-   ActualizaCampo("VentasTotales",
-   		  pzSisRegRegreso->CampoAsociado("VentasTotalesP","importe"));
+ActualizaCampo("EdoCuentaCambio",(*pzSisRegRegreso)["EdoCuentaCambio"]);
+ActualizaCampo("Transferencias",(*pzSisRegRegreso)["Transferencias"]);
+ActualizaCampo("VentasTotales",(*pzSisRegRegreso)["VentasTotales"]);
+ActualizaCampo("DineroEntroCaja",(*pzSisRegRegreso)["DineroEntroCaja"]);
+ActualizaCampo("CalculandoCorte",(*pzSisRegRegreso)["CalculandoCorte"]);
+ActualizaCampo("TotalGastos",(*pzSisRegRegreso)["TotalGastos"]);
+ActualizaCampo("Billetes",(*pzSisRegRegreso)["Billetes"]);
 }
 void zCorteCaja::VentasTotales(const char *pchrPtrVentasT)
 {
-   ActualizaCampo("VentasTotales",(const unsigned char *)pchrPtrVentasT);
+ActualizaCampo("VentasTotales",(const unsigned char *)pchrPtrVentasT);
 }
-void zCorteCaja::EdoCuentaCambio(const char *pchrPtrEdoCuentaCambio)
+
+void zCorteCaja::CalculandoCorte(const char *pchrPtrVentasT)
 {
-   ActualizaCampo("EdoCuentaCambio",(const unsigned char *)pchrPtrEdoCuentaCambio);
-  
+ActualizaCampo("CalculandoCorte",(const unsigned char *)pchrPtrVentasT);
 }
+void zCorteCaja::TotalGastos(const char *pchrPtrVentasT)
+{
+ActualizaCampo("TotalGastos",(const unsigned char *)pchrPtrVentasT);
+}
+
 const char *zCorteCaja::DineroEntroCaja()
 {
   return (const char *)Campo("DineroEntroCaja");
@@ -95,11 +101,23 @@ const char *zCorteCaja::VentasTotales()
 {
    return (const char *)Campo("VentasTotales");
 }
+const char *zCorteCaja::CalculandoCorte()
+{
+   return (const char *)Campo("CalculandoCorte");
+}
+
+const char *zCorteCaja::TotalGastos()
+{
+   return (const char *)Campo("TotalGastos");
+}
 const char *zCorteCaja::EdoCuentaCambio()
 {
    return (const char *)Campo("EdoCuentaCambio");
 }
-
+int zCorteCaja::EdoCuentaCambioInt()
+{
+  return CampoInt("EdoCuentaCambio");
+}
 const char *zCorteCaja::CambioDiaAnterior()
 {
   return (const char *)Campo("CambioDiaAnterior");

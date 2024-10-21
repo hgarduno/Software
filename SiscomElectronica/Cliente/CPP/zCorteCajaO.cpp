@@ -16,7 +16,7 @@ zCorteCajaO::~zCorteCajaO()
 
 }
 
-int zCorteCajaO::RealizaCorte(const char *pchrPtrFechaIni,
+int zCorteCajaO::CambiosRegistrados(const char *pchrPtrFechaIni,
 			      const char *pchrPtrFechaFin,
 			      zCorteCaja *pzCorteC)
 {
@@ -32,7 +32,26 @@ if((lzSisRegsRegreso=EnviaRecibe()))
   pzCorteC->CorteCaja(lzSisRegRegreso);
   return 1;
 }
-else return 0;
-
-
+else
+return 0;
 }
+
+
+int zCorteCajaO::RegistraCorte(zCorteCaja *pzCorteC)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio(pzCorteC);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  lzSisRegRegreso=(*lzSisRegsRegreso)[0];
+  SiscomRegistroLog2(lzSisRegRegreso);
+  /*
+  pzCorteC->CorteCaja(lzSisRegRegreso);
+  */
+  return 1;
+}
+else
+return 0;
+}
+

@@ -35,6 +35,8 @@ private:
 	void ActualizaGui();
 	void ActualizandoCambioDiaAnterior();
 	void ActualizandoVentasTotales();
+	void ActualizandoCalculandoCorte();
+	void ActualizandoCorteTotal();
 
 private:
 	zDenominacion *zDenoD;

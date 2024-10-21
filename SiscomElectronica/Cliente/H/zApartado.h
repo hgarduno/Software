@@ -9,6 +9,7 @@ public:
 	zApartado(const char *pchrPtrACuenta,
 		  const char *pchrPtrFechaHoraEntrega,
 		  const char *pchrPtrObservaciones);
+	const char *ACuenta();
 };
 
 #endif

@@ -23,7 +23,7 @@ public:
 		    const char *pchrPtrModulo="libSiscomElectronica4.so");
 	~zCorteCajaO();
 public:
-	int RealizaCorte(const char *pchrPtrFechaInicio,
+	int CambiosRegistrados(const char *pchrPtrFechaInicio,
 			 const  char *pchrPtrFechaFin,
 			 zCorteCaja *);
 	int RegistraCorte(zCorteCaja *);

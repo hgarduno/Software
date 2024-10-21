@@ -8,6 +8,7 @@ class zExpendio;
 class QConExpendiosVenta;
 class zSiscomConexion;
 
+
 #define TIPOS_ORDEN 15
 class QtOrdenesRegistradas:public OrdenesRegistradas
 {
@@ -54,6 +55,7 @@ private:
 	char **chrPtrArgumentos;
 	zSiscomConexion *zSisConOExpendio;
 	zSiscomConexion *zSisConexion;
+	int intOrdenSeleccionada[120];
 private:
 	const char *IdVenta();
 	const char *IdCotizacion();
@@ -95,6 +97,8 @@ private:
 
 	 void CopiandoPortaPapeles();
 	 void CopiandoPortaPapelesOrden();
+	 void MarcaOrden();
+
 private slots:
 	void SlotFocoAConsulta();
 	void SlotFocoAFechaFin();

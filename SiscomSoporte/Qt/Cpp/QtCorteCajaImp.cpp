@@ -15,6 +15,8 @@
 #include <zCeldaImporteEfectivoCaja.h>
 #include <zCeldaCambioDiaAnterior.h>
 #include <zCeldaVentasTotales.h>
+#include <zCeldaCalculandoCorte.h>
+#include <zCeldaCorteTotal.h>
 QtCorteCajaImp::QtCorteCajaImp(QWidget *pQWParent,
 			      const char *pchrPtrName):
 			      QtCorteCaja(pQWParent,pchrPtrName)
@@ -64,6 +66,7 @@ void QtCorteCajaImp::ActualizandoGui()
    ActualizaDineroEntroCaja();
    ActualizandoCambioDiaAnterior();
    ActualizandoVentasTotales();
+   ActualizandoCalculandoCorte();
 }
 void QtCorteCajaImp::ActualizaGui()
 {
@@ -159,4 +162,19 @@ void QtCorteCajaImp::ActualizandoVentasTotales()
 setText(CeldaVentasTotales()->Fila(),
 	CeldaVentasTotales()->Columna(),
 	Cajas()->Principal()->VentasTotales());
+}
+
+void QtCorteCajaImp::ActualizandoCalculandoCorte()
+{
+setText(CeldaCalculandoCorte()->Fila(),
+	CeldaCalculandoCorte()->Columna(),
+	Cajas()->Principal()->CalculandoCorte());
+}
+
+
+void QtCorteCajaImp::ActualizandoCorteTotal()
+{
+setText(CeldaCorteTotal()->FilaInt(),
+	CeldaCorteTotal()->ColumnaInt(),
+	Cajas()->Principal()->CorteTotal());
 }

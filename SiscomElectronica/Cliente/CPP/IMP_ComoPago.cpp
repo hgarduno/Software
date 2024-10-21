@@ -11,6 +11,7 @@
 #include <zSiscomDesarrollo4.h>
 #include <zConCuantoPago.h> 
 #include <zSiscomElectronica.h>
+#include <zApartado.h>
 QComoPago::QComoPago(zOrdenVenta *pzOrdenVenta,
 			QWidget *pQWParent,       
 				    const char *pchrPtrName,
@@ -81,8 +82,6 @@ void QComoPago::IniciaVariables()
    Orden()->FormaPago(FormaPago());
    QRBEfectivo->setFocus();
    QLEConCuantoPaga->setText(Orden()->ImporteOrden());
-
-   
 }
 void QComoPago::PagandoEfectivo()
 {
@@ -130,8 +129,13 @@ return (intValidoPago=lzSisEVerificaCCP.VerificaConCuantoPago(zConCPago));
 }
 zConCuantoPago *QComoPago::ConCuantoPago()
 {
- return new zConCuantoPago(zSiscomQt3::Texto(QLEConCuantoPaga),
- 			   Orden()->ImporteOrden());
+zConCuantoPago *lzCCPago;
+ lzCCPago=new zConCuantoPago(zSiscomQt3::Texto(QLEConCuantoPaga),Orden()->ImporteOrden());
+ lzCCPago->IdTipoOrden(Orden()->IdTipoOrden());
+ if(Orden()->Apartado())
+  lzCCPago->ACuenta(Orden()->Apartado()->ACuenta());
+
+return lzCCPago;
 }
 zSiscomConexion *QComoPago::Conexion()
 {

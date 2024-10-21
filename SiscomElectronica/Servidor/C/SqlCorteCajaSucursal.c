@@ -11,6 +11,17 @@
 #include <SiscomInsercionesSql.h>
 #include <ComunSiscomElectronica4.h>
 
+int SqlRegistraCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[256],lchrArrSql[250];
+SiscomAgregaSentenciasSqlDelAsociado("SqlCorteCaja",
+				     "Envio",
+				     lchrArrBuffer,
+				     lchrArrSql,
+				     pSisOpePtrDato,
+				     InsertToCorteCajaSucursal);
+return 0;
+}
 
 int SqlRegistraCambioCaja(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -155,7 +166,6 @@ char lchrArrBuffer[512],
 	lchrArrSqlPagaCon[256],
 	lchrArrSqlTransferencias[256],
 	lchrArrSqlVentasTotales[256];
-LogSiscom("");
 SqlPagaCon(pSisOpePtrDato,lchrArrSqlPagaCon);
 SqlTransferenciasRegistradas(pSisOpePtrDato,lchrArrSqlTransferencias);
 SqlTotalVentasCorteCaja(pSisOpePtrDato,lchrArrSqlVentasTotales);
@@ -210,6 +220,22 @@ sprintf(pchrPtrSql,
 	SiscomCampoArgumentoAct("DCorteCaja","IdCambioCaja",pSisOpePtrDato),
 	SiscomObtenCampoRegistroProLChar("Valor",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("Cantidad",pSisRegProLPtrDato));
+}
+void InsertToCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato,
+			       SiscomRegistroProL *pSisRegProLPtrDato,
+			       char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"insert into CorteCajaSucursal values(%s,'%s',%s,%s,%s,%s,%s,%s,%s);",
+	SiscomObtenCampoRegistroProLChar("IdCorte",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("Fecha",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("Transferencias",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("Tarjeta",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("DineroEntroCaja",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("Billetes",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("TotalGastos",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("CambioDiaAnterior",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("CalculandoCorte",pSisRegProLPtrDato));
 }
 void UpdateCambioCaja(SiscomOperaciones *pSisOpePtrDato,
 			     SiscomRegistroProL *pSisRegProLPtrDato,

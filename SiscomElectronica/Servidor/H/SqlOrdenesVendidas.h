@@ -11,5 +11,6 @@ int SqlConsultaOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlCompletaCotizaciones(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlCompletaPedidos(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlCompletaVentas(SiscomOperaciones *pSiscomOpePtrDato);
+void SqlClienteEscuela(SiscomOperaciones *pSiscomOpePtrDato,char *pchrPtrSql);
 
 #endif

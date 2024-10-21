@@ -331,7 +331,7 @@ if(SiscomCampoArgumentoPrim("Normalizado","Nombre",pSisOpePtrDato) &&
 }
 int BuscaClienteCompleto(SiscomOperaciones *pSiscomOpePtrDato)
 {
-char lchrArrSql[256],
+char lchrArrSql[512],
      lchrArrSqlDirecciones[256],
      lchrArrSqlCorreos[256],
      lchrArrSqlTelefonos[256];
@@ -341,12 +341,26 @@ if(DatosCompletosValidos(pSiscomOpePtrDato))
 {
 FormaRegistroBusquedaCliente(&lSiscomRegProLPtrConsultaPrim,
 			     &lSiscomRegProLPtrConsultaAct);
+/*
 sprintf(lchrArrSql,
 	"select *			\n\
 	 from personanormalizada	\n\
 	 where nombre='%s' and 		\n\
 	       apaterno='%s' and 	\n\
 	       amaterno='%s'",
+*/
+sprintf(lchrArrSql,
+"								\n\
+select a.idpersona,						\n\
+	a.nombre,						\n\
+	a.apaterno,						\n\
+	a.amaterno,						\n\
+	idescuela,						\n\
+	b.nombre as escuela  					\n\
+from personanormalizada as a left outer join 			\n\
+     alumnoescuela using(idpersona) left outer join 		\n\
+     escuelas as b using(idescuela)  				\n\
+where a.nombre='%s' and apaterno='%s' and amaterno='%s'",
 	     SiscomCampoArgumentoPrim("Normalizado","Nombre",pSiscomOpePtrDato),
 	     SiscomCampoArgumentoPrim("Normalizado","APaterno",pSiscomOpePtrDato),
 	     SiscomCampoArgumentoPrim("Normalizado","AMaterno",pSiscomOpePtrDato));

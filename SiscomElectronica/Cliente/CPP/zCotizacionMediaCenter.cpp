@@ -24,7 +24,7 @@ const char *lchrPtrNombre,
 
 lchrPtrNombre=Identificacion(&lchrPtrTelefono);
 sprintf(chrArrCadena,
-	 "00:00\n"
+	 "====== Hora De Envio 00:00\n"
 	 "\n"
          "%s %s\n"
 	 "Entregar en %s\n"
@@ -35,7 +35,7 @@ sprintf(chrArrCadena,
 	 pchrPtrEscuela);
 if(PagaCon())
 sprintf(chrArrCadena,
-	 "00:00\n"
+	 "====== Hora De Envio 00:00\n"
 	 "\n"
          "%s %s\n"
 	 "Entregar en %s\n"
@@ -48,7 +48,7 @@ sprintf(chrArrCadena,
 
 if(PagaCon() && Hora())
 sprintf(chrArrCadena,
-	 "%s\n"
+	 "====== Hora De Envio %s\n"
 	 "\n"
          "%s %s\n"
 	 "Entregar en %s\n"
@@ -71,11 +71,23 @@ const char *lchrPtrNombre;
     return lchrPtrNombre ? lchrPtrNombre : "";
 
 }
+void zCotizacionMediaCenter::DescripcionSinEnvio()
+{
+const char *lchrPtrNombre,
+	   *lchrPtrTelefono;
+
+	  lchrPtrNombre=Identificacion(&lchrPtrTelefono);
+sprintf(chrArrCadena,
+	"Cotizando Whats App (%s) \n"
+	"%s %s",
+       Escuela(),	
+	lchrPtrNombre,
+	lchrPtrTelefono);
+Descripcion(chrArrCadena);
+}
 void zCotizacionMediaCenter::DescripcionMediaCenterEnvio()
 {
-SiscomRegistroLog2(this);
 CadenaCompleta(Escuela() ? Escuela() :"_");
-LogSiscom("%s",chrArrCadena);
 Descripcion(chrArrCadena);
 }
 void zCotizacionMediaCenter::DescripcionMediaCenterCotizacion()

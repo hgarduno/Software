@@ -112,6 +112,7 @@ int lintRegistroPersonales;
     {
 	MuestraDatosComunicacion();
 	zSiscomQt3::Foco(QLEACuenta);
+	QPBRegistraPersonales->setEnabled(false);
     }
 }
 void QRegistroApartado::SlotRegistraCelular()
