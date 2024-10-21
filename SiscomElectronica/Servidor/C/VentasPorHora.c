@@ -3,7 +3,7 @@
 #include <ComunElectronica.h>
 #include <stdlib.h>
 #include <string.h>
-int gintHoraInicio=7;
+int gintHoraInicio=6;
 int gintHoraFin=21;
 StcDatosSemana gStcDatSemana[54];
 

@@ -120,6 +120,7 @@ public:
 
 	const char *ConCuantoPaga();
 	void ConCuantoPaga(const char *);
+	zApartado *Apartado();
 private:
 	void ActualizaDatosProductos(zSiscomRegistros *pzSisRegsProdsRespuesta);
 	void ActualizaProducto(zSiscomRegistro *pzSisRegProducto);

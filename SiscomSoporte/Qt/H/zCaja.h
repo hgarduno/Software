@@ -39,6 +39,7 @@ public:
 	const char *CambioDiaAnterior();
 	const char *VentasTotales();
 	const char *CalculandoCorte();
+	const char *CorteTotal();
 	
 	void Actualiza(zSiscomRegistro *);
 	friend bool operator==(zCaja &,zCaja &);

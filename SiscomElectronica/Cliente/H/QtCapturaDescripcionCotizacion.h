@@ -42,6 +42,8 @@ private:
 	int intCotizando;
 	int intSoloDescripcion;
 	const char *chrPtrModo;
+	QGridLayout *QBGEscuelasLayout;
+
 private:
 	void Descripcion();
 	void Telefono();
@@ -69,6 +71,7 @@ private slots:
 	void SlotFocoAHora();
 	void SlotAceptar();
 	void SlotEscuela(int);
+	void SlotEscuela(zSiscomRegistro *);
 	void SlotSoloDescripcion(int,int);
 	void SlotCapturandoDescripcion();
 	void SlotCapturaNombre();

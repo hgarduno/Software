@@ -9,3 +9,7 @@ zApartado::zApartado(const char *pchrPtrACuenta,
   new zSiscomCampo("FechaHoraE",(const unsigned char *)pchrPtrFechaHoraEntrega)		<<
   new zSiscomCampo("Observaciones",(const unsigned char *)pchrPtrObservaciones);
 }
+const char *zApartado::ACuenta()
+{
+  return (const char *)(*this)["ACuenta"];
+}

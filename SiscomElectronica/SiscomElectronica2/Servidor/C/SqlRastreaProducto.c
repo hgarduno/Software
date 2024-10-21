@@ -52,7 +52,7 @@ sprintf(lchrArrSql,
 	 from ventas 				\n\
 	 where fechahora::date>='%s' and 	\n\
 	       fechahora::date<='%s' and 	\n\
-	       cveproducto='%s' and edoventa in(0,9)	\n\
+	       cveproducto='%s' and edoventa in(0,9,4)	\n\
 	 order by fechahora desc;",
 	SiscomCampoSubRegistroArgs(1,"FechaIni",pSAgsSiscom),
 	SiscomCampoSubRegistroArgs(1,"FechaFin",pSAgsSiscom),
@@ -73,7 +73,8 @@ sprintf(lchrArrSql,
 	 from ventas 				\n\
 	 where fechahora::date>='%s' and 	\n\
 	       fechahora::date<='%s' and 	\n\
-	       cveproducto='%s';",
+	       cveproducto='%s'	     and 	\n\
+	       edoventa in(0,9,4);",
 	SiscomCampoSubRegistroArgs(1,"FechaIni",pSAgsSiscom),
 	SiscomCampoSubRegistroArgs(1,"FechaFin",pSAgsSiscom),
 	SiscomCampoSubRegistroArgs(0,"CveProducto",pSAgsSiscom));

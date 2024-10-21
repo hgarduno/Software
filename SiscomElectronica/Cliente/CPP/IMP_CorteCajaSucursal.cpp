@@ -87,7 +87,6 @@ void QCorteCajaSucursal::SlotRegistraCambio()
  RegistraCambio();
  HabilitaDesHabilitaRegistroCambio(false);
 
-
  QPBSCambio->setEnabled(false);
  QPBRegistraCorte->setEnabled(true);
  QPBActualizar->setEnabled(true);

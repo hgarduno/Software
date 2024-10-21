@@ -101,14 +101,34 @@ return 1;
 else
 return 0;
 }
+zEscuela *zClienteSiscom::Escuela2(zSiscomRegistro *pzSisRegPersona)
+{
+zSiscomRegistro *lzSisRegCliente;
+if(lzSisRegCliente=pzSisRegPersona->AsociadoDelCampo("Escuela"))
+{
+    return new zEscuela(lzSisRegCliente->Campo("idescuela"),
+    			lzSisRegCliente->Campo("nombre"));
+}
+else
+return 0;
+}
 void zClienteSiscom::EscuelaCliente(zSiscomRegistro *pzSisRegPersona)
 {
 zEscuela *lzCliEscuela;
+SiscomRegistroLog2(pzSisRegPersona);
  if(EscuelaValida(pzSisRegPersona))
  {
    lzCliEscuela=new zEscuela(pzSisRegPersona->Campo("idescuela"),
    			     pzSisRegPersona->Campo("escuela")); 
    ActualizaCampo("Escuela",lzCliEscuela);
+ }
+ else
+ {
+   /*
+   LogSiscom("La escuela es no valida ");
+   lzCliEscuela=Escuela2(pzSisRegPersona);
+   */
+   ActualizaCampo("Escuela",Escuela2(pzSisRegPersona));
  }
 }
 void zClienteSiscom::Celular(zSiscomRegistro *pzSisRegPersona)

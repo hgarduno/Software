@@ -71,3 +71,11 @@ const char *zCeldaCorte::Color()
 {
     return (const char *)(*this)["Color"];
 }
+int zCeldaCorte::FilaInt()
+{
+  return intFila;
+}
+int zCeldaCorte::ColumnaInt()
+{
+  return intColumna;
+}

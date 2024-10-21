@@ -7,6 +7,7 @@ class zDireccion;
 class zTelefono;
 class zDirecciones;
 class zTelefonos;
+class zEscuela;
 
 class zClienteSiscom:public zPersona
 {
@@ -29,6 +30,7 @@ public:
 	void Direccion(zDireccion *pzDireccion);
 	void Correo(zCorreo *pzCorreo);
 	const char *Escuela();
+	
 
 	zTelefonos *Telefonos();
 
@@ -37,6 +39,7 @@ public:
 	zDireccion *Direccion();
 	zDirecciones *Direcciones();
 	zSiscomRegistro *EscuelaReg();
+	zEscuela *Escuela2(zSiscomRegistro *);
 	int EsPublicoEnGeneral();
 	void EscuelaCliente(zSiscomRegistro *);
 private:

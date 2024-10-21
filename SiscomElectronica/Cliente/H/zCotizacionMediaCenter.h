@@ -25,6 +25,7 @@ public:
 	void DescripcionMediaCenterCotizacion();
 	void DescripcionMediaCenterEnvio();
 	void DescripcionMediaCenter();
+	void DescripcionSinEnvio();
 
         void CadenaCompleta(const char *);
 	const char *Identificacion(const char **);
