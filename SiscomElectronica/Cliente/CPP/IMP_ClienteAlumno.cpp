@@ -114,7 +114,6 @@ void QClienteAlumno::SlotModificaCotizacion(zOrdenVenta *pzOrdenVenta)
   zOrdVenta->IdVenta(pzOrdenVenta->IdVenta());
   zOrdVenta->AgregandoProductos(pzOrdenVenta->Productos());
   zOrdVenta->Cotizacion(pzOrdenVenta->Cotizacion()); 
-  SiscomRegistroLog2(pzOrdenVenta->Cliente()->EscuelaReg());
   zOrdVenta->Cliente(pzOrdenVenta->Cliente());
   Orden()->IdTipoOrden("1");
   intAceptar=110;

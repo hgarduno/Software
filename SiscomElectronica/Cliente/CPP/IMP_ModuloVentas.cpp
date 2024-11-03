@@ -428,3 +428,13 @@ int QModuloVentas::PorqueSeRegistra()
 
 
 }
+
+void QModuloVentas::ModificaCotizacion()
+{
+QtManejadorOrden::SeleccionandoOrden();
+Orden()->IdVenta(QtManejadorOrden::Orden()->IdVenta());
+Orden()->Cotizacion(QtManejadorOrden::Orden()->Cotizacion());
+Orden()->IdTipoOrden("1");
+Orden()->Cliente(QtManejadorOrden::Orden()->Cliente());
+HabilitaImpresionRegistro();
+}

@@ -103,8 +103,6 @@ void QCtrlProductosSE::ConsultandoProductosSimilares(const char *pchrPtrCriterio
 {
 char lchrArrProducto[128];
 QProductosSimilares lQProdSimilares(pchrPtrCriterio);
-LogSiscom("Buscando algun producto similar  %d ",lQProdSimilares.SiHayAlgunProducto());
-
 
 if(lQProdSimilares.Producto(lchrArrProducto))
     QLEProducto->setText(lchrArrProducto);

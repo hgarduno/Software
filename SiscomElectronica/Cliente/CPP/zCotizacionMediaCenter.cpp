@@ -24,23 +24,23 @@ const char *lchrPtrNombre,
 
 lchrPtrNombre=Identificacion(&lchrPtrTelefono);
 sprintf(chrArrCadena,
-	 "====== Hora De Envio 00:00\n"
+	 "====== Hora De Envio *00:00*\n"
 	 "\n"
-         "%s %s\n"
-	 "Entregar en %s\n"
+         "*%s* *%s*\n"
+	 "Entregar en *%s*\n"
 	 "\n"
-	 "Paga con 000.00",
+	 "Paga con *000.00*",
 	 lchrPtrNombre,
 	 lchrPtrTelefono,
 	 pchrPtrEscuela);
 if(PagaCon())
 sprintf(chrArrCadena,
-	 "====== Hora De Envio 00:00\n"
+	 "====== Hora De Envio *00:00*\n"
 	 "\n"
-         "%s %s\n"
-	 "Entregar en %s\n"
+         "*%s* *%s*\n"
+	 "Entregar en *%s*\n"
 	 "\n"
-	 "Paga con %s",
+	 "Paga con *%s*",
 	 lchrPtrNombre,
 	 lchrPtrTelefono,
 	 pchrPtrEscuela,
@@ -48,12 +48,12 @@ sprintf(chrArrCadena,
 
 if(PagaCon() && Hora())
 sprintf(chrArrCadena,
-	 "====== Hora De Envio %s\n"
+	 "====== Hora De Envio *%s*\n"
 	 "\n"
-         "%s %s\n"
-	 "Entregar en %s\n"
+         "*%s* *%s*\n"
+	 "Entregar en *%s*\n"
 	 "\n"
-	 "Paga con %s",
+	 "Paga con *%s*",
 	 Hora(),
 	 lchrPtrNombre,
 	 lchrPtrTelefono,
@@ -78,9 +78,9 @@ const char *lchrPtrNombre,
 
 	  lchrPtrNombre=Identificacion(&lchrPtrTelefono);
 sprintf(chrArrCadena,
-	"Cotizando Whats App (%s) \n"
+	"Cotizando Whats App %s\n"
 	"%s %s",
-       Escuela(),	
+        Escuela(),	
 	lchrPtrNombre,
 	lchrPtrTelefono);
 Descripcion(chrArrCadena);

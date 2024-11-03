@@ -76,6 +76,7 @@ public:
 	 */
 	virtual void PantallaMasUsada();
 	virtual void Redimensiona();
+	virtual void ModificaCotizacion();
 	void resizeEvent(QResizeEvent *);
 	int ProductosSeleccionados(int *pintPtrProductos);
 	void MenuConUnaSeleccion(int ,const QPoint &pQPPosicion);
@@ -103,6 +104,7 @@ public:
 	void SoloDescripcion(int);
 	void CambiandoAlExpendio(int);
 	int HabilitaImpresionRegistro();
+
 private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;

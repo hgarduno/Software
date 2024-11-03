@@ -26,7 +26,7 @@ QProductosSimilares::QProductosSimilares(const  char *pchrPtrCriterio,
 {
 IniciaVariables();
 ConectaSlots();
-if(zSisRegsProductos->NNodos())
+if(AnalizandoRespuesta())
 exec();
 else
 QMessageBox::information(this,"Aviso Sistema","NO Hay productos con la descripcion");
@@ -99,7 +99,8 @@ void QProductosSimilares::Consulta()
 {
 zSiscomElectronica lzSisElectronica(zSisConexion,"ProductosSE");
 zSisRegsProductos=lzSisElectronica.Productos(chrPtrCriterio);
-intSiHayAlgunProducto=zSisRegsProductos->NNodos();
+LogSiscom("El puntero de regreso %x",zSisRegsProductos);
+intSiHayAlgunProducto=AnalizandoRespuesta();
 }
 void QProductosSimilares::Muestra()
 {
@@ -158,4 +159,9 @@ int QProductosSimilares::Aceptar()
 int QProductosSimilares::SiHayAlgunProducto()
 {
  return intSiHayAlgunProducto;
+}
+
+int QProductosSimilares::AnalizandoRespuesta()
+{
+ return zSisRegsProductos ? 1 : 0;  
 }

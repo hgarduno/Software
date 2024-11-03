@@ -99,8 +99,20 @@ return lzSisRegOrdPendientes;
 
 zSiscomRegistros *zSiscomElectronica::Productos(const char *pchrPtrCriterio)
 {
+zSiscomRegistros *lzSisRegsRespuesta;
+zSiscomRegistro *lzSisRegRespuesta;
 AgregaEnvio(zSiscomRegistro().Registro("%s [Criterio]",pchrPtrCriterio));
-return EnviaRecibe();
+if((lzSisRegsRespuesta=EnviaRecibe()))
+{
+   lzSisRegRespuesta=(*lzSisRegsRespuesta)[0]; 
+   SiscomRegistroLog2(lzSisRegRespuesta);
+   if(lzSisRegRespuesta->EstaElCampoEnElRegistro("Estado"))
+   return 0;
+   else 
+   return lzSisRegsRespuesta;
+}
+else
+return 0;
 }
 
 

@@ -33,6 +33,7 @@ public:
 	void SoloDescripcion(int);
 	void Modo(const char *);
 	const char *Modo();
+	int TelefonoValido(QLineEdit *);
 private:
 	zSiscomConexion *zSisConexion;
 	zOrdenVenta *zOrdVenta;

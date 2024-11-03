@@ -51,16 +51,20 @@ char **lchrPtrLineas,*lchrPtrPaso,**lchrPtrPasito;
 char lchrArrRegreso[1024],lchrArrLinea[128];
 
 lchrPtrPaso=lchrArrRegreso;
+
+
   zSiscomDesarrollo4::CadenasPorSeparador(zOrdVenta->Cotizacion()->Descripcion(),
   					  '\n',
 					  &lchrPtrLineas);
 
 *lchrPtrPaso=0;
 lchrPtrPasito=lchrPtrLineas;
+
   while(*lchrPtrLineas)
   {
-     CadenaConNegritas(*lchrPtrLineas,lchrArrLinea);
-     strcat(lchrPtrPaso,lchrArrLinea);
+     //CadenaConNegritas(*lchrPtrLineas,lchrArrLinea);
+     //strcat(lchrPtrPaso,lchrArrLinea);
+     strcat(lchrPtrPaso,*lchrPtrLineas);
      strcat(lchrPtrPaso,"\n");
    lchrPtrLineas++;
   }
@@ -79,9 +83,9 @@ const char *zTextoWhatsApp::DescripcionCotizacion()
 void zTextoWhatsApp::Cliente(char *pchrPtrCadena)
 {
 sprintf(pchrPtrCadena,
-	"*Siscom Electronica* 		\n"
+	"*Siscom Electronica*		\n"
 	"Fecha: *%s*			\n"
-	"# de Cotizacion *%s*   	\n"
+	"# Cotizacion *%s*   		\n"
 	"%s				\n"
 	"\n\n",
 	zOrdVenta->Fecha(),
