@@ -61,6 +61,8 @@ private:
 
 	int PorqueSeRegistra();
 
+	void ModificaCotizacion();
+
 private slots:
 	void SlotNoSePuedeVender(zProductoCotizar *);
 signals:

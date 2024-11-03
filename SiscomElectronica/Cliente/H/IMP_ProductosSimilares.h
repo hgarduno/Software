@@ -40,6 +40,7 @@ private:
 	void AgregaProductoSeleccionado(zSiscomRegistro *);
 	void ProductosSeleccionados();
 	void Selecciono();
+	int AnalizandoRespuesta();
 private slots:
 	void SlotMostrando(int,int);
 	void SlotAceptar();

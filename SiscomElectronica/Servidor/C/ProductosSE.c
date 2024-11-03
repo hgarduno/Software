@@ -62,6 +62,9 @@ void ProductosSE(int pintSocket,
 {
 SiscomProcesos *lSiscomProDat=0;
 SiscomOperaciones lSiscomOpDat;
+SiscomOperacionErrores lSisOpeError={ 0 ,
+				     NOSeEncontraronProductosSimilares
+				      };
 memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
 SiscomIniciaDatosOperacion(pintSocket,
 			   0,
@@ -72,28 +75,24 @@ SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(SqlProductosSiscomElectronica,&lSiscomProDat);
 SiscomAgregaOperacion(EnviandoProductosSE,&lSiscomProDat);
 SiscomAgregaOperacion(0,&lSiscomProDat);
-SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,lSisOpeError,lSiscomProDat);
 }
 int EnviandoProductosSE(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[512];
 SiscomRegistroProL *lSiscomRegProLPtrRegreso;
-/*
-if(LlegoCriterioBusqueda(pSiscomOpePtrDato))
-{
-   LogSiscom("Se Arma la respuesta para productos Similares");
-   lSiscomRegProLPtrRegreso=ArmaRespuestaProductosSimilares(pSiscomOpePtrDato);
-}
-else
-*/
-LogSiscom("---");
 lSiscomRegProLPtrRegreso=SiscomObtenRegistrosCampoRespuesta("Productos",pSiscomOpePtrDato);
 
 if(lSiscomRegProLPtrRegreso)
+{
 SiscomEnviaRegistrosSocket(pSiscomOpePtrDato->intSocket,
 			  lchrArrBuffer,
 			  lSiscomRegProLPtrRegreso);
+
 return 0;
+}
+else
+return 1;
 }
 
 int EnviandoTiposProductoSE(SiscomOperaciones *pSiscomOpePtrDato)
@@ -163,4 +162,13 @@ for(;
 }
 
 return lSiscomRegProLPtrRegPrim;
+}
+
+int NOSeEncontraronProductosSimilares(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[128];
+   LogSiscom("Se envia respuesta sin productos");
+pSisOpePtrDato->SiscomRegProLPtrPrimRes=0;
+SiscomFormaEnviaRegistroRespuesta(pSisOpePtrDato,lchrArrBuffer,"Estado,","0");
+return 0;
 }

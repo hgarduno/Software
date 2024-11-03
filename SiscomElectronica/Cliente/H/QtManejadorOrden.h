@@ -14,6 +14,8 @@ public:
 	void SeleccionandoOrden();
 	void ComoSePaga();
 
+	zOrdenVenta *Orden();
+
 
 private:
 	QManejadorOrden *QManOrden;
