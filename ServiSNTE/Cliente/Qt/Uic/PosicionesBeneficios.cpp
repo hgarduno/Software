@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file 'Qt/Ui/PosicionesBeneficios.ui'
 **
-** Created: Tue Apr 23 17:00:00 2024
+** Created: mar jul 16 22:26:46 2024
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
