@@ -167,6 +167,8 @@ void QtCapturaDescripcionCotizacion::SlotFocoAPagaCon()
 {
  Telefono();
  zSiscomQt3::Foco(QLEPagaCon);
+  if(TelefonoValido(QLETelefono)) 
+  QCtrEscuelas->setEnabled(true);
 }
 void QtCapturaDescripcionCotizacion::Descripcion()
 {
@@ -329,4 +331,9 @@ void QtCapturaDescripcionCotizacion::LlevandoA(const char *)
 {
 
 
+}
+
+int QtCapturaDescripcionCotizacion::TelefonoValido(QLineEdit *pQLETelefono)
+{
+    return pQLETelefono->text().length()==12 ;
 }

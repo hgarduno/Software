@@ -572,6 +572,7 @@ for(lintContador=NumProductos(),
     lzSisRegProducto=pzSisRegsProductos->Siguiente(),
     lintContador++)
 {
+   SiscomRegistroLog2(lzSisRegProducto);
    lzProdCotizar=new zProductoCotizar(lzSisRegProducto);
    pzOrdenVenta->AgregaProducto(lzProdCotizar);
 }

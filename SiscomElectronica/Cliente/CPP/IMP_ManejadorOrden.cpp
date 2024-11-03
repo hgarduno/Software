@@ -111,6 +111,7 @@ void QManejadorOrden::SlotImprimirPdf()
 void QManejadorOrden::SlotCargaCotizacion()
 {
  QtManejadorOrden::SeleccionandoOrden();
+ intIdConsecutivo=Orden()->NumProductos();
 }
 void QManejadorOrden::SlotExistenciaExpendios()
 {
@@ -240,6 +241,7 @@ void QManejadorOrden::SlotRegistrar()
    Registrar();
    QPBExExpendios->setEnabled(false);
    chrPtrIdOrden=0;
+   intIdConsecutivo=0;
 }
 void QManejadorOrden::SlotNuevaOrden()
 {
@@ -316,7 +318,6 @@ zProductoCotizar *lzProdCotizar=new zProductoCotizar(zSiscomQt3::Texto(QLECantid
 	zOrdCotProducto->Cliente(zOrdVenta->Cliente());
 	zOrdCotProducto->IdTipoOrden(zOrdVenta->IdTipoOrden());
 	lzSiscomE.CotizaOrden(zOrdCotProducto,&zSisRegEdoCotizacion);
-	SiscomRegistroLog2(zSisRegEdoCotizacion);
 	zProdCotizar=zOrdCotProducto->Producto(0);
 	MuestraCotizacionProducto(zOrdCotProducto);
 	SePuedeAnexarProducto(zProdCotizar);
@@ -720,8 +721,8 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 {
    if(pQKETeclas->state()==Qt::AltButton)
    {
-        if(pQKETeclas->key()>=Qt::Key_1 && 
-	   pQKETeclas->key()<=Qt::Key_4 && 
+        if(pQKETeclas->key()>=Qt::Key_0 && 
+	   pQKETeclas->key()<=Qt::Key_5 && 
 	   intSeAbrioOExpendios) 
 	  CambiandoAlExpendio(pQKETeclas->key());
 	else
@@ -734,7 +735,7 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 	}
 	else
 	if(pQKETeclas->key()==Qt::Key_F12)
-		SeImprimeSinTiquet();
+	SeImprimeSinTiquet();
 	else
 	if(pQKETeclas->key()==Qt::Key_F11)
 	 OrdenRapidaEscuelaPrincipal();
@@ -742,9 +743,17 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 	if(pQKETeclas->key()==Qt::Key_F10)
 	 OrdenRapidaOtro();
 	else
+	/*
+	 *  Tepotzotlan Mexico 
+	 *  1 de Noviembre 2024 
+	 *
+	 *  No se que quise hacer con esto ... 
+	 *  por lo pronto lo quito
+	 *  
 	if(pQKETeclas->key()==Qt::Key_F4)
 	PantallaMasUsada();
 	else
+	*/
 	if(pQKETeclas->key()==Qt::Key_F1)
 	{
 	  if(CambiandoExpendio())
@@ -754,15 +763,9 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 	}
 	else
 	if(pQKETeclas->key()==Qt::Key_F2)
-	{
-	LogSiscom("Registro rapido cotizacion");
-	RegistroRapidoCotizacion();
-	}
-	else
-   	if(pQKETeclas->key()==Qt::Key_F3)
 	RegistroRapidoCotizacionEnvio();
-	else
-	if(pQKETeclas->key()==Qt::Key_F5)
+	else 
+	if(pQKETeclas->key()==Qt::Key_F6)
 	 CargaUltimaOrden();
 	 else
 	if(pQKETeclas->key()==Qt::Key_Control)
@@ -784,6 +787,9 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
    	 else
 	 if(pQKETeclas->key()==Qt::Key_P)
 	 QtManejadorOrden::ComoSePaga();
+	 else
+	 if(pQKETeclas->key()==Qt::Key_F11) 
+	 ModificaCotizacion();
 	 else
  	 if(pQKETeclas->key()==Qt::Key_F12)
 	 zSiscomQt3::Foco(QLECantidad);
@@ -1107,8 +1113,7 @@ delete zUbProducto;
 }
 void QManejadorOrden::CambiandoAlExpendio(int pintExpendio)
 {
-int lintExpendioN=pintExpendio-Qt::Key_1;
-zConexionExpendio *lzConExp=QConExpsV->Expendio(lintExpendioN);
+zConexionExpendio *lzConExp=QConExpsV->Expendio(pintExpendio-Qt::Key_0);
 if(lzConExp)
 {
       zOrdVenta->IdExpendio(lzConExp->IdExpendio());
@@ -1120,6 +1125,7 @@ if(lzConExp)
     CambiaColorBotonVenderImprimir(QColor("Red"));
 
 }
+
 }
 void QManejadorOrden::ComunicacionExpendio()
 {
@@ -1283,4 +1289,7 @@ QComoPago lQCPago(Orden());
    else
    return 1;
 }
+}
+void QManejadorOrden::ModificaCotizacion()
+{
 }

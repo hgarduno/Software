@@ -13,7 +13,7 @@ zProductoCotizar::zProductoCotizar(const char *pchrPtrCantidad,
   new zSiscomCampo("Cantidad",(const unsigned char *)pchrPtrCantidad)	<<
   new zSiscomCampo("Precio",(const unsigned char *)pchrPtrPrecioVenta)	<<
   new zSiscomCampo("Importe")						<<
-  new zSiscomCampo("IdConsecutivo")					<<
+  new zSiscomCampo("IdConsecutivo",(const unsigned char *)"-1")		<<
   new zSiscomCampo("SePuedeVender")					<<
   new zSiscomCampo("SePuedeVenderDefProd")				<<
   new zSiscomCampo("PrecioEspecial",(const unsigned char *)"0");

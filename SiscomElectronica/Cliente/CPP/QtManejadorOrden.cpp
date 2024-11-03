@@ -43,3 +43,8 @@ void QtManejadorOrden::FormaPago()
 
 
 }
+
+zOrdenVenta *QtManejadorOrden::Orden()
+{
+  return zOrdVenta;
+}

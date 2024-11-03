@@ -310,6 +310,9 @@ Ctrl+F9   Telefono</string>
                                             <property name="name">
                                                 <cstring>QCtrEscuelas</cstring>
                                             </property>
+                                            <property name="enabled">
+                                                <bool>false</bool>
+                                            </property>
                                         </widget>
                                     </vbox>
                                 </widget>

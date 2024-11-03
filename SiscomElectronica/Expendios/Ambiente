@@ -27,6 +27,32 @@ delete from bodegas ;
 
 SQL
 }
+
+EliminandoBaseExpendio()
+{
+  
+  dropdb $1
+
+}
+################################################ 
+###### Se deben Eliminar las bases de datos 
+##### de los expendio, y volver a registrarlo
+##### esto debido a que la base de datos pudo cambiar 
+#  $1 Nombre_Expendio
+#  $2 IdExpendio
+#  $3 Puerto Acceso datos Expendio
+#  $4 Direccion Ip Matriz
+CreaExpendio()
+{
+CreaExpendios 	-IniciaExpendioNuevo  		\
+		-Base SiscomElectronica 	\
+		-NmbExpendio $1 		\
+		-IdExpendio  $2			\
+		-BaseExpendio $1 		\
+		-Puerto  $3 			\
+		-DirIpMatriz $4 
+
+}
 printf "Preparando ambiente Desarrollo\n"
 printf "Restaurando la ultima base\n "
 

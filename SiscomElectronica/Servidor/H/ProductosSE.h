@@ -5,6 +5,7 @@
 int EnviandoProductosSE(SiscomOperaciones *pSiscomOpePtrDato);
 int EnviandoTiposProductoSE(SiscomOperaciones *pSiscomOpePtrDato);
 int EnviandoDefinicionProductoSE(SiscomOperaciones *pSiscomOpePtrDato);
+int NOSeEncontraronProductosSimilares(SiscomOperaciones *pSiscomOpePtrDato);
 void TiposProductoSE(int pintSocket,
 			SiscomRegistroProL *pSiscomRegProLPtrPrim,
 			SiscomRegistroProL *pSiscomRegProLPtrAct);
