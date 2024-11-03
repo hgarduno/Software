@@ -100,6 +100,7 @@ void QProductosSimilares::Consulta()
 zSiscomElectronica lzSisElectronica(zSisConexion,"ProductosSE");
 zSisRegsProductos=lzSisElectronica.Productos(chrPtrCriterio);
 LogSiscom("El puntero de regreso %x",zSisRegsProductos);
+
 intSiHayAlgunProducto=AnalizandoRespuesta();
 }
 void QProductosSimilares::Muestra()
