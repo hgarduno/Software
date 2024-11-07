@@ -328,10 +328,10 @@ QTOrdenes->setNumRows(zOrdsRegistradas->NNodos());
 {
 /*
  QTOrdenes->setText(lintContador,0,(this->*TipoOrden[lzOrdenVenta->IdTipoOrdenInt()])());
- QTOrdenes->setText(lintContador,1,lzOrdenVenta->Cliente()->Escuela());
  */
- QTOrdenes->setText(lintContador,0,lzOrdenVenta->ImporteOrden());
- QTOrdenes->setText(lintContador,1,(this->*Descripcion[lzOrdenVenta->IdTipoOrdenInt()])(lzOrdenVenta));
+ QTOrdenes->setText(lintContador,0,lzOrdenVenta->Cliente()->Escuela());
+ QTOrdenes->setText(lintContador,1,lzOrdenVenta->ImporteOrden());
+ QTOrdenes->setText(lintContador,2,(this->*Descripcion[lzOrdenVenta->IdTipoOrdenInt()])(lzOrdenVenta));
  }
 
 zSiscomQt3::AjustaColumnasTabla(QTOrdenes);
