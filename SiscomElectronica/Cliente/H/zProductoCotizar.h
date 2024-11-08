@@ -28,6 +28,8 @@ public:
 	void PrecioEspecial(const char *pchrPtrPrecioEspecial);
 
 	void SePuedeVender(const char *pchrPtrSePuedeVender);
+private:
+	const unsigned char *SeTienePrecioEspecial(zSiscomRegistro *);
 };
 
 #endif

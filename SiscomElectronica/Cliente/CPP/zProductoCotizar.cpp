@@ -16,7 +16,7 @@ zProductoCotizar::zProductoCotizar(const char *pchrPtrCantidad,
   new zSiscomCampo("IdConsecutivo",(const unsigned char *)"-1")		<<
   new zSiscomCampo("SePuedeVender")					<<
   new zSiscomCampo("SePuedeVenderDefProd")				<<
-  new zSiscomCampo("PrecioEspecial",(const unsigned char *)"0");
+  new zSiscomCampo("PrecioEspecial",SeTienePrecioEspecial(pzSisRegProducto));
 }
 zProductoCotizar::zProductoCotizar(zSiscomRegistro *pzSisRegistro):
 				zProducto(pzSisRegistro)
@@ -29,7 +29,7 @@ zProductoCotizar::zProductoCotizar(zSiscomRegistro *pzSisRegistro):
   new zSiscomCampo("IdConsecutivo",(*pzSisRegistro)["idconsecutivo"])   <<
   new zSiscomCampo("SePuedeVender")					<<
   new zSiscomCampo("SePuedeVenderDefProd",(const unsigned char *)"1") 	<<
-  new zSiscomCampo("PrecioEspecial",(const unsigned char *)"0");
+  new zSiscomCampo("PrecioEspecial",SeTienePrecioEspecial(pzSisRegistro));
 }
 zProductoCotizar::~zProductoCotizar()
 {
@@ -101,4 +101,14 @@ int zProductoCotizar::EsProductoSiscom()
 void zProductoCotizar::SePuedeVender(const char *pchrPtrSePuedeVender)
 {
     ActualizaCampo("SePuedeVender",(const unsigned char *)pchrPtrSePuedeVender);
+}
+/* Azcapotzalco a 8 de noviembre del 2024
+ *  La loca, me esta corriendo de mi negocio , sera tiempo de buscar 
+ *  de que vivir , a un no lo puedo creer 
+ */
+
+const unsigned char *zProductoCotizar::SeTienePrecioEspecial(zSiscomRegistro *pzSisRegProducto)
+{
+   return pzSisRegProducto &&  
+   	  (*pzSisRegProducto)["precio"] ? (const unsigned char *)"1" :(const unsigned char *)"0" ;
 }
