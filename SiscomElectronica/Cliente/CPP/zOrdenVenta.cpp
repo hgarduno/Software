@@ -532,9 +532,12 @@ for(lzSisRegProducto=pzSisRegsProductos->Primer(),
     lzSisRegProducto=pzSisRegsProductos->Siguiente(),
     lintContador++)
 {
+	/*
     lzProdCotiza=new zProductoCotizar((const char *)(*lzSisRegProducto)["cantidad"],
     				      (const char *)(*lzSisRegProducto)["precio"],
 				      lzSisRegProducto);
+	*/
+    lzProdCotiza=new zProductoCotizar(lzSisRegProducto);
     lzProdCotiza->Importe((const char *)(*lzSisRegProducto)["importe"]);
     lzProdCotiza->IdConsecutivo(lintContador);
     AsociadoAlCampo("Productos",lzProdCotiza);

@@ -6,7 +6,6 @@
 #include <IMP_MenuManejadorOrden.h>
 #include <IMP_NoAlcanzaProducto.h>
 #include <IMP_OrdenesDisponibles.h>
-
 #include <IMP_MuestraExistenciaExpendios.h>
 #include <IMP_Faltantes.h>
 #include <IMP_ComoPago.h>

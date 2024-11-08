@@ -326,10 +326,11 @@ void SqlConsultaVenta(SiscomOperaciones *pSiscomOpePtrDato,
 		      char *pchrPtrSql)
 {
 sprintf(pchrPtrSql,
-	"select *		\n\
-	 from ventas		\n\
-	 where idventa=%s and	\n\
-	 	edoventa=%s",
+	"select *			\n\
+	 from ventas			\n\
+	 where idventa=%s and		\n\
+	 	edoventa=%s		\n\
+	 order by idconsecutivo asc",
 	 SiscomCampoAsociadoEntradaOperacion("Envio","IdOrden",pSiscomOpePtrDato),
 	 SiscomCampoAsociadoEntradaOperacion("Envio","IdTipoOrden",pSiscomOpePtrDato));
 }

@@ -29,6 +29,8 @@ private:
 	 */
 
 	int intPorqueSeRegistra;
+
+	int intSeImprimioTicket;
 private:
 	void ConectaSlots();
 	void Vendiendo();

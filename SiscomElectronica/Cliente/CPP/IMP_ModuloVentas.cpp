@@ -61,7 +61,8 @@ QModuloVentas::QModuloVentas(SiscomDatCom *pSisDatCom,
 					     pchrPtrName,
 					     pWFlags),
 				intVendiendo(0),
-				intPorqueSeRegistra(0)
+				intPorqueSeRegistra(0),
+				intSeImprimioTicket(0)
 {
 TextoBotonRegistro("Vende Orden");
 TextoBotonNuevaOrden("Nueva Orden");
@@ -289,12 +290,15 @@ UltimaOrden();
 EliminaOrdenLista();
 IniciandoOrden();
 ReIniciaInterfaz();
+intSeImprimioTicket=0;
 }
 }
 void QModuloVentas::Imprimir()
 {
 zSiscomElectronica lzSisElectronica(Conexion(),"ImprimeTicketVenta4");
 lzSisElectronica.ImprimeTicketVenta(Orden());
+
+intSeImprimioTicket=1;
 }
 void QModuloVentas::ImprimirPdf()
 {
@@ -309,7 +313,8 @@ void QModuloVentas::closeEvent(QCloseEvent *)
 {
 intPorqueSeRegistra=5;
 if(Orden()->NumProductos()>=1 && 
-   !Orden()->EsCotizacion())
+   !Orden()->EsCotizacion()   &&
+   intSeImprimioTicket)
 {
 Orden()->IdTipoOrden("5");
 Registrar();
