@@ -66,6 +66,7 @@ public:
 	void MuestraCobertura();
 	void MensajeNoHayCobertura();
 	void DireccionCliente();
+	const char *Telefono();
 private:
 	int YaEstaElCliente();
 	void MuestraPuntoEntrega();

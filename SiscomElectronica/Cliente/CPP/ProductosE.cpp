@@ -633,7 +633,6 @@ void QManProductos::S_SeleccionoProducto()
 	if(EsParteLista((const char *)QLECProductos->text()))
 	{
 	 int lintProducto=QCBProductos->currentItem();
-	 LogSiscom("El Numero %d",lintProducto);
 	 ProductoE *lProducto=PProductos.at(lintProducto);
 	 QLEDescripcion->setText(lProducto->SRegistrosPro2["DscProducto"]);
 	emit SignalProducto(lProducto);

@@ -9,7 +9,7 @@
             <x>0</x>
             <y>0</y>
             <width>633</width>
-            <height>606</height>
+            <height>615</height>
         </rect>
     </property>
     <property name="caption">
@@ -298,7 +298,10 @@
                         <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>Consultar</string>
+                        <string>Cons&amp;ultar</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+U</string>
                     </property>
                     <property name="autoDefault">
                         <bool>false</bool>
@@ -312,7 +315,10 @@
                         <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>Aceptar</string>
+                        <string>&amp;Aceptar</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
                     </property>
                     <property name="autoDefault">
                         <bool>false</bool>
@@ -323,7 +329,10 @@
                         <cstring>QPBCancelar</cstring>
                     </property>
                     <property name="text">
-                        <string>Cancelar</string>
+                        <string>&amp;Cancelar</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
                     </property>
                     <property name="autoDefault">
                         <bool>false</bool>

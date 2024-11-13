@@ -14,6 +14,11 @@ public:
 	const char *RazonSocialPrincipal();
 	zExpendio *Expendio(int );
 	zExpendio *Principal();
+	zExpendio *Actual();
+
+
+private:
+	zExpendio *zExActual;
 };
 
 #endif

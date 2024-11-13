@@ -25,6 +25,8 @@ public:
 	void ConsultandoPorRangoFechas();
 	void PonConsultaPorRangoFechas(int pintConsultaPorRangoFechas);
 	zOrdenVenta *Orden();
+
+	int Aceptar();
 private:
 	zSiscomConexion *zSisConexion;
 	zOrdenVenta *zOrdVenta;
@@ -33,7 +35,6 @@ private:
 	int intConsultaPorIdVenta;
 	int intAceptar;
 	int intTipoOrden;
-
 	void (QCotizaciones::*MuestraPorTipoOrden[10])(int ,zOrdenVenta *);
 private:
 	void ConectaSlots();

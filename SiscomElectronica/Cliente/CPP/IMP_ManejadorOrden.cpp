@@ -109,8 +109,11 @@ void QManejadorOrden::SlotImprimirPdf()
 }
 void QManejadorOrden::SlotCargaCotizacion()
 {
- QtManejadorOrden::SeleccionandoOrden();
+ if(QtManejadorOrden::SeleccionandoOrden())
+ {
+ AsignandoOrdenSeleccionada();
  intIdConsecutivo=Orden()->NumProductos();
+ }
 }
 void QManejadorOrden::SlotExistenciaExpendios()
 {
@@ -362,11 +365,7 @@ if(!pzProdCotizar->SePuedeVender())
      lzSisRegProducto;
      lzSisRegProducto=lzSisRegsProducto->Siguiente(),
      lintFila++)
- {
       MuestraProductoKit(lintFila+1,lzSisRegProducto);
-      LogSiscom("El producto se puede vender %s",(*lzSisRegProducto)["sepuedevender"]);
- }
-
 return pzProdCotizar->SePuedeVender();
 }
 int QManejadorOrden::MuestraProducto(int pintNProducto,zProductoCotizar *pzProdCotizar)
@@ -542,7 +541,8 @@ return 0;
 }
 void QManejadorOrden::ReCotizandoOrden()
 {
-LogSiscom("000");
+if(Orden()->NumProductos()>0)
+{
 if(!ReCotizaOrden()) 
 {
 MuestraOrdenCotizada(zOrdVenta);
@@ -550,6 +550,9 @@ HabilitaImpresionRegistro();
 }
 else
 QMessageBox::information(this,"Aviso del Sistema","NOO Se puede mostrar la Orden");
+}
+else
+LogSiscom("Orden sin productos %d",Orden()->NumProductos());
 }
 void QManejadorOrden::IniciaOrden()
 {
@@ -673,7 +676,17 @@ void QManejadorOrden::PantallaMasUsada()
 }
 zSiscomConexion *QManejadorOrden::Conexion()
 {
+/* 
+ * Siscom Lindavista   12 Noviembre 2024
+ * La loca, mas loca , pienso si de verdad hice tan mal las 
+ * cosas 
+ *
+ *
+ * Al momento de registrar la orden se elimina todo , y 
+ * volver con la conexion del expendio ... . ????
+ */
     return Orden()->Expendio();;
+
 }
 void QManejadorOrden::CambiaCantidad(int pintProducto)
 {
@@ -1115,14 +1128,15 @@ void QManejadorOrden::CambiandoAlExpendio(int pintExpendio)
 zConexionExpendio *lzConExp=QConExpsV->Expendio(pintExpendio-Qt::Key_0);
 if(lzConExp)
 {
+
       zOrdVenta->IdExpendio(lzConExp->IdExpendio());
       zOrdVenta->Expendio(lzConExp);
-    ReCotizandoOrden();
-   if(lzConExp==QConExpsV->Expendio(0))
+      TextoEncabezado();
+      ReCotizandoOrden();
+   if((lzConExp==QConExpsV->Expendio(0)))
     CambiaColorBotonVenderImprimir(QCFondoBotones);
     else
     CambiaColorBotonVenderImprimir(QColor("Red"));
-
 }
 
 }
@@ -1148,10 +1162,10 @@ int QManejadorOrden::CambiandoExpendio()
 {
    QConExpsV->Corriendo();
    zOrdVenta->IdExpendio(QConExpsV->IdExpendioActual());
-   zOrdVenta->Expendio(new zConexionExpendio(QConExpsV->Actual()));
+   zOrdVenta->Expendio(QConExpsV->Actual());
    CambiandoColorBotonVenderImprimir();
    ComunicacionExpendio();
-
+   TextoEncabezado();
    return QConExpsV->DejaPrecios();
 }
 const char *QManejadorOrden::IdExpendio()
@@ -1291,4 +1305,17 @@ QComoPago lQCPago(Orden());
 }
 void QManejadorOrden::ModificaCotizacion()
 {
+}
+void QManejadorOrden::AsignandoOrdenSeleccionada()
+{
+  Orden()->AgregandoProductos(QtManejadorOrden::Orden()->Productos());
+  Orden()->IdVenta(QtManejadorOrden::Orden()->IdVenta());
+  Orden()->Cotizacion(QtManejadorOrden::Orden()->Cotizacion());
+  Orden()->NumProductos(QtManejadorOrden::Orden()->NumProductos());
+  HabilitaImpresionRegistro();
+  ReCotizandoOrden();
+}
+zOrdenVenta *QManejadorOrden::LaUltimaOrden()
+{
+  return zOrdVUltima;
 }

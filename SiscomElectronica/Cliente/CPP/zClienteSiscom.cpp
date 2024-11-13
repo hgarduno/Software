@@ -45,7 +45,6 @@ int lintTelefonos;
  else
  if(lintTelefonos==2)
  Celular(new zTelefono(pzSisRegPersona));
-
  ActualizaCampo("RFC",(*pzSisRegPersona)["rfc"]);
 }
 zClienteSiscom::zClienteSiscom(const char *,
@@ -115,7 +114,6 @@ return 0;
 void zClienteSiscom::EscuelaCliente(zSiscomRegistro *pzSisRegPersona)
 {
 zEscuela *lzCliEscuela;
-SiscomRegistroLog2(pzSisRegPersona);
  if(EscuelaValida(pzSisRegPersona))
  {
    lzCliEscuela=new zEscuela(pzSisRegPersona->Campo("idescuela"),
@@ -134,7 +132,6 @@ SiscomRegistroLog2(pzSisRegPersona);
 void zClienteSiscom::Celular(zSiscomRegistro *pzSisRegPersona)
 {
 zTelefono *lzCliEscuela;
-SiscomRegistroLog2(pzSisRegPersona);
  if(TelefonoValido(pzSisRegPersona)) 
  {
    lzCliEscuela=new zTelefono("",pzSisRegPersona->CampoConstChar("telefonos")); 

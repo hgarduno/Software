@@ -229,7 +229,7 @@ void QtClientePedido::MostrandoCliente()
  QLENombre->setText(Orden()->Cliente()->Nombre()); 
  QLEAPaterno->setText(Orden()->Cliente()->APaterno()); 
  QLEAMaterno->setText(Orden()->Cliente()->AMaterno()); 
- QLECelular->setText(Orden()->Cliente()->Celular()->Telefono());
+ QLECelular->setText(Telefono());
  QLENumCliente->setText(Orden()->Cliente()->IdPersona());
  QLEEscuela->setText(Orden()->Cliente()->Escuela());
 }
@@ -704,4 +704,12 @@ void QtClientePedido::DireccionCliente()
 void QtClientePedido::reject()
 {
 
+}
+const char *QtClientePedido::Telefono()
+{
+  if(Orden()->Cliente()->Celular() && 
+     Orden()->Cliente()->Celular()->Telefono())
+   return Orden()->Cliente()->Celular()->Telefono();
+ else
+ return "";
 }

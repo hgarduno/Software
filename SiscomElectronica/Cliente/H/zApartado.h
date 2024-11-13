@@ -9,7 +9,10 @@ public:
 	zApartado(const char *pchrPtrACuenta,
 		  const char *pchrPtrFechaHoraEntrega,
 		  const char *pchrPtrObservaciones);
+	zApartado(zSiscomRegistro *);
 	const char *ACuenta();
+	const char *Observaciones();
+	const char *FechaHoraE();
 };
 
 #endif

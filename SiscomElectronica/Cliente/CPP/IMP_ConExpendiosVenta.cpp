@@ -148,11 +148,11 @@ void QConExpendiosVenta::OtroExpendio(SiscomRegistro3 *pSisReg3Expendio,
   zExActual->DirIp(pSisDatCom->SiscomObtenDireccionIp());
   zExActual->Puerto(pSisDatCom->SiscomObtenPuertoCom());
   zExActual->IdExpendio((*pSisReg3Expendio)["IdExpendio"]);
-  //zExpsSiscom.Agrega(zExActual);
   zExpsSiscom.Agrega(new zConexionExpendio(zExActual));
   LogSiscom("Expendio %s : %s ", 
   	    (*pSisReg3Expendio)["RazonSocial"],
   	    (*pSisReg3Expendio)["IdExpendio"]);
+
 }
 const char *QConExpendiosVenta::DireccionIp()
 {
@@ -183,5 +183,5 @@ zConexionExpendio *QConExpendiosVenta::Expendio(int pintNExpendio)
 }
 zConexionExpendio *QConExpendiosVenta::Actual()
 {
-   return (zConexionExpendio *)zExActual;
+   return (zConexionExpendio *)zExpsSiscom.Actual();
 }

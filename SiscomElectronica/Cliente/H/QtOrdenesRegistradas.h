@@ -63,6 +63,7 @@ private:
 	const char *IdPedido();
 	const char *IdSinAsignar();
 	const char *IdTransferencia();
+	const char *IdApartado();
 
 	 const char *Cotizacion();
          const char *Venta();

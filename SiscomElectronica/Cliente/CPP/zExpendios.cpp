@@ -10,6 +10,8 @@ zExpendios::zExpendios()
 void zExpendios::Agrega(zExpendio *pzExpendio)
 {
   (*this) << pzExpendio;
+
+  zExActual=pzExpendio;
 }
 void zExpendios::Principal(zExpendio *pzExpendio)
 {
@@ -28,4 +30,9 @@ zExpendio *zExpendios::Expendio(int pintNExpendio)
 zExpendio *zExpendios::Principal()
 {
    return (zExpendio *)(*this)[0];
+}
+zExpendio *zExpendios::Actual()
+{
+   return zExActual;
+
 }
