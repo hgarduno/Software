@@ -184,6 +184,7 @@ select a.idexpendio,								\n\
 	a.precio,								\n\
 	a.vendedor,								\n\
 	a.cliente,								\n\
+	a.cliente as idpersona,							\n\
 	11 as edoventa,								\n\
 	a.idproducto,								\n\
 	a.idconsecutivo,							\n\
@@ -219,6 +220,7 @@ else
 sprintf(lchrArrSql,
 	"									\n\
  select a.*,									\n\
+ 	a.cliente as idpersona,							\n\
                c.idtipoproducto,						\n\
                b.importe as importeorden, 					\n\
                d.existencia,							\n\
@@ -438,3 +440,47 @@ int SqlCompletaVentas(SiscomOperaciones *pSiscomOpePtrDato)
 {
 }
 
+int SqlCompletaApartados(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[2048],
+	lchrArrSql[2048];
+sprintf(lchrArrSql,
+	"									\n\
+select a.*,									\n\
+        a.cliente as idpersona,							\n\
+               c.idtipoproducto,						\n\
+               b.importe as importeorden, 					\n\
+               d.existencia,							\n\
+               a.edoventa as idtipoorden,					\n\
+               f.nombre as escuela,						\n\
+               f.idescuela,							\n\
+               h.*,								\n\
+               i.*,								\n\
+	       j.*								\n\
+        from ventas as a  left outer join 					\n\
+             apartado as j using(idventa) left outer join			\n\
+             pagotransferencia as k using(idventa)  left outer join		\n\
+             importeorden as b using(idventa) left outer join			\n\
+             productoportipoproducto as c using(cveproducto) inner join		\n\
+             existencias as d using(cveproducto) inner join			\n\
+             escuelaorden as e using(idventa)    inner join 			\n\
+             escuelas as f using(idescuela)      inner join			\n\
+             ordencliente as g using(idventa)    inner join			\n\
+             personas as h using(idpersona)      left outer join		\n\
+             telefonos as i on (h.idpersona=i.idpersona and 			\n\
+                                i.departamenteo='Celular')			\n\
+            where fechahora::date>='%s' and 					\n\
+               fechahora::date<='%s'  and 					\n\
+               a.edoventa=2							\n\
+        order by a.fechahora desc,						\n\
+                 a.idconsecutivo asc",
+	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
+	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
+
+LogSiscom("%s",lchrArrSql);
+SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,
+				       "SqlApartados",
+				       lchrArrBuffer,
+				       pSiscomOpePtrDato);
+return 0;
+}

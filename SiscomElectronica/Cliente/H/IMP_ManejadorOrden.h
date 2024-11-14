@@ -40,6 +40,7 @@ public:
 	const char *Argumentos(int pintNOrgumento);
 	zExpendio *ExpendioActual();
 	zOrdenVenta *ProductoCotizado();
+	zOrdenVenta *LaUltimaOrden();
 
 	int ComoPago();
 	
@@ -104,6 +105,8 @@ public:
 	void SoloDescripcion(int);
 	void CambiandoAlExpendio(int);
 	int HabilitaImpresionRegistro();
+
+	void AsignandoOrdenSeleccionada();
 
 private:
 	SiscomDatCom *SisDatCom;

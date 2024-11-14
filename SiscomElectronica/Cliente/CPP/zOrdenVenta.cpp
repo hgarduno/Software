@@ -542,6 +542,11 @@ for(lzSisRegProducto=pzSisRegsProductos->Primer(),
     lzProdCotiza->IdConsecutivo(lintContador);
     AsociadoAlCampo("Productos",lzProdCotiza);
 }
+LogSiscom("El numero de productos %d %d",
+	  NumProductos(),
+	  lintContador);
+	  
+NumProductos(lintContador);
 }
 void zOrdenVenta::ProductosALaOrden(zSiscomRegistros *pzSisRegsProductos)
 {
@@ -575,7 +580,6 @@ for(lintContador=NumProductos(),
     lzSisRegProducto=pzSisRegsProductos->Siguiente(),
     lintContador++)
 {
-   SiscomRegistroLog2(lzSisRegProducto);
    lzProdCotizar=new zProductoCotizar(lzSisRegProducto);
    pzOrdenVenta->AgregaProducto(lzProdCotizar);
 }
@@ -686,14 +690,15 @@ zSiscomDesarrollo4::Log(pchrPtrArchivo,pchrPtrFuncion,pintNoLinea,"Error Cliente
 
 zOrdenVenta *zOrdenVenta::OrdenPorId(zSiscomRegistro *pzSisRegRespuesta)
 {
- zOrdenVenta *lzOrdenVenta=new zOrdenVenta; 
+zSiscomRegistro *lzSisRegPersona;
+zOrdenVenta *lzOrdenVenta=new zOrdenVenta; 
 lzOrdenVenta->IdVenta((const char *)pzSisRegRespuesta->CampoAsociado("Cotizacion","idventa"));
 lzOrdenVenta->AsignaProductos(pzSisRegRespuesta->AsociadosDelCampo("Productos"));
-lzOrdenVenta->Cliente(new zClienteSiscom(pzSisRegRespuesta));
+lzSisRegPersona=zOrdenVenta::ClienteARegistroPersona(pzSisRegRespuesta);
+lzOrdenVenta->Cliente(new zClienteSiscom(lzSisRegPersona));
 if(pzSisRegRespuesta->AsociadoDelCampo("Cotizacion"))
 lzOrdenVenta->Cotizacion(new zCotizacion(pzSisRegRespuesta->AsociadoDelCampo("Cotizacion")));
-
-
+lzOrdenVenta->Cliente()->Escuela(pzSisRegRespuesta->AsociadoDelCampo("Escuela"));
 return lzOrdenVenta;
 }
 const char *zOrdenVenta::ConCuantoPaga()
@@ -707,4 +712,14 @@ void zOrdenVenta::ConCuantoPaga(const char *pchrPtrConCuantoPaga)
 zApartado *zOrdenVenta::Apartado()
 {
   return (zApartado *)AsociadoDelCampo("Apartado");
+}
+zSiscomRegistro *zOrdenVenta::ClienteARegistroPersona(zSiscomRegistro *pzSisRegRegreso)
+{
+  if(pzSisRegRegreso->EstaElCampoEnElRegistro("Cliente"))
+  {
+   SiscomRegistroLog2(pzSisRegRegreso->AsociadoDelCampo("Cliente"));
+  return pzSisRegRegreso->AsociadoDelCampo("Cliente");
+  }
+  else
+  return 0;
 }

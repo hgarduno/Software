@@ -25,7 +25,6 @@ SiscomComunicaSrv::SiscomComunicaSrv(SiscomDatCom *pSDatCom):
 					  2,
 					  &chrPtrEdoComunicacion);
  
- SiscomLog("%s",chrPtrEdoComunicacion);
 
 }
 SiscomComunicaSrv::~SiscomComunicaSrv()

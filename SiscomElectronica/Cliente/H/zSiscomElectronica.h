@@ -316,6 +316,7 @@ private:
 	void AsignandoDatosOrden(zSiscomRegistro *pzSisRegCotizacion,
 			         zOrdenVenta *pzOrden);
 	void AsignaDatosCotizacion(zSiscomRegistro *pzSisRegCotizacion,zOrdenVenta *pzOrden);
+	void AsignaDatosApartado(zSiscomRegistro *pzSisRegCotizacion,zOrdenVenta *pzOrden);
 	void AsignaDatosVenta(zSiscomRegistro *pzSisRegCotizacion,zOrdenVenta *);
 	void AsignaDatosCancelacion(zSiscomRegistro *pzSisRegCotizacion,zOrdenVenta *);
 	void AsignaDatosPedido(zSiscomRegistro *,zOrdenVenta *);

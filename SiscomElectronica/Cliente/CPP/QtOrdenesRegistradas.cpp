@@ -22,6 +22,7 @@
 #include <zExpendio.h>
 #include <zFormaPago.h>
 #include <zFormaPagoTransferencia.h>
+#include <zApartado.h>
 
 
 #include <qbuttongroup.h>
@@ -142,6 +143,11 @@ const char *QtOrdenesRegistradas::IdPedido()
   return "4";
 }
 
+const char *QtOrdenesRegistradas::IdApartado()
+{
+  return "2";
+}
+
 const char *QtOrdenesRegistradas::IdTipoOrden()
 {
   return chrPtrIdTipoOrden;
@@ -158,7 +164,7 @@ void QtOrdenesRegistradas::IniciaIdsTiposOrdenes()
 {
 IdsTiposOrden[0]=&QtOrdenesRegistradas::IdVenta;
 IdsTiposOrden[1]=&QtOrdenesRegistradas::IdCotizacion;
-IdsTiposOrden[2]=&QtOrdenesRegistradas::IdSinAsignar;
+IdsTiposOrden[2]=&QtOrdenesRegistradas::IdApartado;
 IdsTiposOrden[3]=&QtOrdenesRegistradas::IdSinAsignar;
 IdsTiposOrden[4]=&QtOrdenesRegistradas::IdPedido;
 IdsTiposOrden[5]=&QtOrdenesRegistradas::IdCircuitoImpreso;
@@ -267,7 +273,21 @@ const char *QtOrdenesRegistradas::DescripcionTransferencia(zOrdenVenta *pzOrdenV
 
 const char *QtOrdenesRegistradas::DescripcionApartado(zOrdenVenta *pzOrdenVenta)
 {
-   return "";    
+char lchrArrCadena[1024];
+
+SiscomRegistroLog2(pzOrdenVenta->Apartado());
+sprintf(lchrArrCadena,
+	"\n%s %s\n\n"
+	"Fecha de Entrega %s\n\n"
+	"ACuenta %s\n\n"
+	"Observaciones :%s",
+	pzOrdenVenta->Cliente()->Nombre(),
+	pzOrdenVenta->Cliente()->APaterno(),
+	pzOrdenVenta->Apartado()->FechaHoraE(),
+	pzOrdenVenta->Apartado()->ACuenta(),
+	pzOrdenVenta->Apartado()->Observaciones());
+
+   return strdup(lchrArrCadena);
 }
 const char *QtOrdenesRegistradas::EntregaDireccionCliente(zOrdenVenta *pzOrdVenta)
 {

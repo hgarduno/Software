@@ -63,6 +63,9 @@ connect(QPBCapturaDatos,SIGNAL(clicked()),SLOT(SlotCapturaDatos()));
 void QFacturando4::SlotCapturaDatos()
 {
 QCapturaDatosFactura lQCapturaDatos(&zFacturaD);
+QLCDNImporte->display(zFacturaD.Importe());
+QLCDNTotal->display(zFacturaD.Total());
+QLCDNIva->display(zFacturaD.Iva());
 }
 void QFacturando4::SlotRealizaFactura()
 {

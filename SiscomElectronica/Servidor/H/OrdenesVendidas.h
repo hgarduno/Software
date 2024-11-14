@@ -13,6 +13,7 @@ typedef int (*InformacionPorTipoOrden)(SiscomRegistroProL *,SiscomOperaciones *)
 
 int InformacionVenta(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
 int InformacionPedido(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
+int InformacionApartado(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
 int InformacionCotizacion(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
 int InformacionCancelacion(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
 int InformacionPagoTransferencia(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
@@ -51,6 +52,7 @@ int EnviandoApartados(SiscomOperaciones *pSiscomOpePtrDato);
 int EnviandoOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoCotizaciones(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoPedidos(SiscomOperaciones *pSiscomOpePtrDato);
+int ArgumentoApartados(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoVentas(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoDatosEscuela(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoCondicionVentas(SiscomOperaciones *pSiscomOpePtrDato);

@@ -95,7 +95,6 @@ SiscomRegistroPro2 lSRegistroPro2;
 		SComunicaSrv->SiscomEnvia(&lSRegistrosPro2,pchrPtrOperacion);
 		SComunicaSrv->SiscomObtenRespuesta();
 	    }
-	    SiscomLog("%s",chrPtrEdoConexion);
 }
 const char *SiscomGeneralOperacionesSrv::EstadoConexion()
 {

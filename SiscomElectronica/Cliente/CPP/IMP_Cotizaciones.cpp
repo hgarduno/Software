@@ -176,7 +176,6 @@ void QCotizaciones::VieneSoloUnaOrden()
   QPBAceptar->setEnabled(true);
   zSiscomQt3::Foco(QPBAceptar);
   }
-
 }
 int QCotizaciones::Consulta()
 {
@@ -282,7 +281,6 @@ int lintContador;
 zOrdVenta=zOrdsVentas->Orden(pintNOrden);
 QLCDNImporte->display(zOrdVenta->ImporteOrden());
 zOrdVenta->NumProductos(zOrdVenta->Productos()->NNodos()); 
-SiscomRegistroLog2(zOrdVenta->Cliente()->EscuelaReg());
 QTProductos->setNumRows(zOrdVenta->Productos()->NNodos());
 for(lintContador=0,
     lzProdOrden=(zProductoCotizar *)zOrdVenta->Productos()->Primer();
@@ -357,3 +355,9 @@ void QCotizaciones::keyPressEvent(QKeyEvent *pQKETeclas)
   LogSiscom("");
 
 }*/
+
+
+int QCotizaciones::Aceptar()
+{
+  return intAceptar;
+}

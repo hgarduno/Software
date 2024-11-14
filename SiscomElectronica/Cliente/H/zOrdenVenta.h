@@ -121,11 +121,21 @@ public:
 	const char *ConCuantoPaga();
 	void ConCuantoPaga(const char *);
 	zApartado *Apartado();
+
+
+	/* Ciudad de Mexico 10 Novimbre 2024 
+	 * En plena crisis con la loca,  ..... no se en que vaya a parar 
+	 * creo que me va a quitar todo lo de Siscom ...
+	 *
+	 */
+
+	static zSiscomRegistro *ClienteARegistroPersona(zSiscomRegistro *);
 private:
 	void ActualizaDatosProductos(zSiscomRegistros *pzSisRegsProdsRespuesta);
 	void ActualizaProducto(zSiscomRegistro *pzSisRegProducto);
 
 	const char *CampoProducto(int pintNProducto,const char *pchrPtrCampo);
+
 
 };
 void ImprimeOrdenVenta(const char *pchrPtrArchivo,

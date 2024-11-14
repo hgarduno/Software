@@ -190,7 +190,6 @@ Personas lPersonas;
 		new SiscomParametroConsulta("EmpleadosExpendio") <<
 		new SiscomParametroConsulta(pchrPtrIdExpendio);
 
-SiscomLog("Buscando los empleados del expendio");
 SiscomGeneralOperacionesSrv lSGenOp(pSisDatCom,
 				    (QPtrList<SiscomInformacion> *)&lSPConsulta);
 		lSGenOp.SiscomEjecutaEnvio("ConsultaPersonas");

@@ -58,7 +58,6 @@ exec();
 
 QClienteAlumno::~QClienteAlumno()
 {
-  LogSiscom("");  
 }
 void QClienteAlumno::IniciaVariables()
 {
@@ -115,6 +114,7 @@ void QClienteAlumno::SlotModificaCotizacion(zOrdenVenta *pzOrdenVenta)
   zOrdVenta->AgregandoProductos(pzOrdenVenta->Productos());
   zOrdVenta->Cotizacion(pzOrdenVenta->Cotizacion()); 
   zOrdVenta->Cliente(pzOrdenVenta->Cliente());
+  Orden()->NumProductos(pzOrdenVenta->NumProductos());
   Orden()->IdTipoOrden("1");
   intAceptar=110;
   zSiscomQt3::Foco(QPBAceptar);
@@ -142,6 +142,7 @@ void QClienteAlumno::SlotOrdenVenta(zOrdenVenta *pzOrdVenta)
  	zOrdVenta=pzOrdVenta;		
 */
 	zOrdVenta->AgregandoProductos(pzOrdVenta->Productos());	
+	zOrdVenta->NumProductos(pzOrdVenta->NumProductos());
 	showExtension(false);
 	intAceptar=100;
 	zSiscomQt3::Foco(QPBAceptar);

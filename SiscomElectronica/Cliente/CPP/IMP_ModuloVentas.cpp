@@ -437,9 +437,10 @@ int QModuloVentas::PorqueSeRegistra()
 void QModuloVentas::ModificaCotizacion()
 {
 QtManejadorOrden::SeleccionandoOrden();
-Orden()->IdVenta(QtManejadorOrden::Orden()->IdVenta());
-Orden()->Cotizacion(QtManejadorOrden::Orden()->Cotizacion());
+AsignandoOrdenSeleccionada();
 Orden()->IdTipoOrden("1");
 Orden()->Cliente(QtManejadorOrden::Orden()->Cliente());
-HabilitaImpresionRegistro();
+ReCotizandoOrden(); 
+HabilitaImpresionRegistro(); 
+QPBRegistrar->setText(TextoTipoOrdenBoton());
 }

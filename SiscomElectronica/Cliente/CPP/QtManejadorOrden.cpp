@@ -14,25 +14,26 @@ QtManejadorOrden::QtManejadorOrden(ManejadorOrden *pManOrden,
 
 }
 
-void QtManejadorOrden::SeleccionandoOrden()
+int QtManejadorOrden::SeleccionandoOrden()
 {
-  SeleccionaOrden();
-  AsignaOrdenCotizacion();
+  return SeleccionaOrden();
 }
 
-void QtManejadorOrden::SeleccionaOrden()
+int QtManejadorOrden::SeleccionaOrden()
 {
 QSeleccionaOrden lQSelOrden(QManOrden->Orden()->Expendio());
 lQSelOrden.exec();
+if(lQSelOrden.Aceptar())
+{
 lQSelOrden.Orden()->Expendio(QManOrden->Orden()->Expendio());
 zOrdVenta=lQSelOrden.Orden();
+return 1;
+}
+else
+return 0;
+
 }
 
-void QtManejadorOrden::AsignaOrdenCotizacion()
-{
-QManOrden->Orden()->AgregandoProductos(zOrdVenta->Productos());
-QManOrden->ReCotizandoOrden();
-}
 void QtManejadorOrden::ComoSePaga()
 {
   FormaPago();

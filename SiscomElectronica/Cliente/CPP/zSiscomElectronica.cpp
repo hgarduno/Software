@@ -70,6 +70,7 @@
 #include <zDenominaciones.h>
 #include <zCompraParcialImportacion.h>
 #include <zCorteCaja.h>
+#include <zApartado.h>
 
 #include <string.h> 
 zSiscomElectronica::zSiscomElectronica(zSiscomConexion *pzSiscomConexion,
@@ -105,7 +106,6 @@ AgregaEnvio(zSiscomRegistro().Registro("%s [Criterio]",pchrPtrCriterio));
 if((lzSisRegsRespuesta=EnviaRecibe()))
 {
    lzSisRegRespuesta=(*lzSisRegsRespuesta)[0]; 
-   SiscomRegistroLog2(lzSisRegRespuesta);
    if(lzSisRegRespuesta->EstaElCampoEnElRegistro("Estado"))
    return 0;
    else 
@@ -275,6 +275,15 @@ zSiscomRegistro *lzSisRegOrden;
    return 0;
 }
 
+void zSiscomElectronica::AsignaDatosApartado(zSiscomRegistro *pzSisRegCotizacion,
+					     zOrdenVenta *pzOrden)
+{
+zSiscomRegistro *lzSisRegCotizacion;
+  if((lzSisRegCotizacion=pzSisRegCotizacion->AsociadoDelCampo("Apartado")))
+  {
+  pzOrden->Apartado(new zApartado(lzSisRegCotizacion));
+  }
+}
 void zSiscomElectronica::AsignaDatosCotizacion(zSiscomRegistro *pzSisRegCotizacion,
 					       zOrdenVenta *pzOrden)
 {
@@ -284,6 +293,7 @@ zSiscomRegistro *lzSisRegCotizacion;
   pzOrden->Cotizacion(new zCotizacion(lzSisRegCotizacion));
   }
 }
+
 void zSiscomElectronica::AsignaDatosVenta(zSiscomRegistro *pzSisRegOrden,
 				          zOrdenVenta *pzOrden)
 {
@@ -328,7 +338,7 @@ void zSiscomElectronica::IniciaAsignandoDatosOrden()
 {
   DatosTipoOrden[0]=&zSiscomElectronica::AsignaDatosVenta;
   DatosTipoOrden[1]=&zSiscomElectronica::AsignaDatosCotizacion;
-  DatosTipoOrden[2]=&zSiscomElectronica::AsignaDatosNoDefinido;
+  DatosTipoOrden[2]=&zSiscomElectronica::AsignaDatosApartado;
   DatosTipoOrden[3]=&zSiscomElectronica::AsignaDatosNoDefinido;
   DatosTipoOrden[4]=&zSiscomElectronica::AsignaDatosPedido;
   DatosTipoOrden[5]=&zSiscomElectronica::AsignaDatosCancelacion;

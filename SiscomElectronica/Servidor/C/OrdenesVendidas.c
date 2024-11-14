@@ -19,7 +19,7 @@
 InformacionPorTipoOrden gInformacionPorTipoOrden[15]={
 			    InformacionVenta,
 			    InformacionCotizacion,
-			    0,
+			    InformacionApartado,
 			    0,
 			    InformacionPedido,
 			    InformacionCancelacion,
@@ -57,6 +57,7 @@ SiscomIniciaDatosOperacion(pintSocket,
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoCotizaciones,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoPedidos,&lSiscomProDat);
+SiscomAgregaOperacion(ArgumentoApartados,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoVentas,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoCondicionVentas,&lSiscomProDat);
 SiscomAgregaOperacion(ComoHagoLaConsultaOrdenes,&lSiscomProDat);  
@@ -305,6 +306,48 @@ for( ;pSiscomRegProLPtrDato;
     AgregaInformacionPedido(pSiscomRegProLPtrDato,lSisRegProLPtrPedidos);
 }
 }
+
+void AgregaInformacionApartado(SiscomRegistroProL *pSisRegProLPtrDato,
+			     SiscomRegistroProL *pSisRegProLPtrPedidos)
+{
+SiscomRegistroProL *lSisRegProLPtrPedidoPrim=0,
+		   *lSisRegProLPtrPedidoAct=0;
+    for(;
+    	pSisRegProLPtrPedidos;
+	pSisRegProLPtrPedidos=pSisRegProLPtrPedidos->SiscomRegProLPtrSig)
+    {
+      if(!SiscomComparaCampoRegistrosProL("idventa",
+      					 pSisRegProLPtrDato,
+					 pSisRegProLPtrPedidos))
+      {
+        SiscomNodoRegistroPro(pSisRegProLPtrPedidos->SiscomCamProLPtrDato,
+			      &lSisRegProLPtrPedidoPrim,
+			      &lSisRegProLPtrPedidoAct);
+	SiscomRegistrosAlCampo("Apartado",
+				lSisRegProLPtrPedidoPrim,
+				lSisRegProLPtrPedidoAct,
+				pSisRegProLPtrDato);
+
+	  LogSiscom("");
+      }
+    }
+
+}
+
+void CompletandoApartado(SiscomRegistroProL *pSiscomRegProLPtrDato,
+		       SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256];
+SiscomRegistroProL *lSisRegProLPtrPedidos;
+lSisRegProLPtrPedidos=SiscomObtenArgumentoPrimOperaciones("SqlApartados",pSiscomOpePtrDato);
+for( ;pSiscomRegProLPtrDato;
+      pSiscomRegProLPtrDato=pSiscomRegProLPtrDato->SiscomRegProLPtrSig)
+{
+    AgregaInformacionApartado(pSiscomRegProLPtrDato,lSisRegProLPtrPedidos);
+}
+}
+
+
 int InformacionVenta(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
 		     SiscomOperaciones *pSiscomOpePtrDatos)
 {
@@ -327,6 +370,12 @@ int InformacionCancelacion(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
   LogSiscom("");
 }
 
+int InformacionApartado(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
+			SiscomOperaciones *pSiscomOpePtrDatos)
+{
+ LogSiscom("0-----0");
+   CompletandoApartado(pSiscomRegProLPtrOrdenes,pSiscomOpePtrDatos);
+}
 
 int InformacionPagoTransferencia(SiscomRegistroProL *pSiscomRegProLOrdenes,
 				 SiscomOperaciones *pSiscomOpePtrDatos)
@@ -373,6 +422,7 @@ SiscomRegistroProL *AgrupaOrdenesVendidas2(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char *lchrPtrCamposRegistroAgrupado[]={"idventa",
 				       "cliente",
+				       "idpersona",
 				       "idtipoorden",
 				       "vendedor",
 				       "fechahora",
@@ -451,6 +501,7 @@ char lchrArrBuffer[128];
 LogSiscom("Enviando la orden vendida");
 SiscomRegistroRegresoLog(lchrArrBuffer,pSiscomOpePtrDato);
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
+return 0;
 }
 int SiVieneIdTipoOrden(SiscomOperaciones *pSiscomOpePtrDato,int *pintPtrIdTipoOrden)
 {
@@ -489,12 +540,15 @@ if(lintSiVieneIdTipoOrden)
   SqlCompletaPedidos(pSiscomOpePtrDato);
   if(lintIdTipoOrden==0)
   SqlCompletaVentas(pSiscomOpePtrDato);
+  if(lintIdTipoOrden==2)
+  SqlCompletaApartados(pSiscomOpePtrDato);
 }
 else
 {
   SqlCompletaCotizaciones(pSiscomOpePtrDato);
   SqlCompletaPedidos(pSiscomOpePtrDato);
   SqlCompletaVentas(pSiscomOpePtrDato);
+  SqlCompletaApartados(pSiscomOpePtrDato);
 }
 return 0;
 }
@@ -531,6 +585,17 @@ SiscomAgregaArgumentoInsercionSql("SqlPedidos",
 				  pSiscomOpePtrDato);
 return 0;
 }
+int ArgumentoApartados(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[128];
+SiscomAgregaArgumentoInsercionSql("SqlApartados",
+				  pSiscomOpePtrDato->chrArrBaseDatos,
+				  pSiscomOpePtrDato->chrArrPuertoBaseDatos,
+				  lchrArrBuffer,
+				  pSiscomOpePtrDato);
+return 0;
+}
+
 int ArgumentoVentas(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];

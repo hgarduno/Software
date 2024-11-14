@@ -11,7 +11,7 @@ class QtManejadorOrden
 public:
 	QtManejadorOrden(ManejadorOrden *pManOrden,
 			 QManejadorOrden *pQManOrden);
-	void SeleccionandoOrden();
+	int SeleccionandoOrden();
 	void ComoSePaga();
 
 	zOrdenVenta *Orden();
@@ -23,8 +23,7 @@ private:
 	zOrdenVenta *zOrdVenta;
 
 private:
-	void AsignaOrdenCotizacion();
-	void SeleccionaOrden();
+	int SeleccionaOrden();
 	void FormaPago();
 };
 

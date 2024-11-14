@@ -210,7 +210,6 @@ lSiscomRegProLPtrProdEntradaRes=lSiscomRegProLPtrProEntrada=SiscomRegistrosAsoci
 								 "Productos",
 								 pSiscomOpePtrDato);
 lSiscomRegProLPtrProdBase=SiscomObtenRegistrosCampoRespuesta("Productos",pSiscomOpePtrDato);
-SiscomRegistroProtocoloLog(lchrArrBuffer,lSiscomRegProLPtrProdBase);
 if(lSiscomRegProLPtrProdBase)
 {
 while(lSiscomRegProLPtrProEntrada)

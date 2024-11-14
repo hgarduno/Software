@@ -118,6 +118,8 @@ int RegistrandoOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256];
 LOGOrden(pSiscomOpePtrDato);
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
+SiscomAsociadoAsociadoLog("Envio","Cliente",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadosArgumentoLog("SqlOrden",
   			    "SentenciasSql",
 			     lchrArrBuffer,
