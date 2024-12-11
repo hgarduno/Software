@@ -731,8 +731,10 @@ lQCDato.ObtenDato(pchrPtrCantidad);
 }
 void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 {
+  LogSiscom("");
    if(pQKETeclas->state()==Qt::AltButton)
    {
+     LogSiscom("Presionando el Alt");
         if(pQKETeclas->key()>=Qt::Key_0 && 
 	   pQKETeclas->key()<=Qt::Key_5 && 
 	   intSeAbrioOExpendios) 
@@ -1303,6 +1305,7 @@ QComoPago lQCPago(Orden());
    return 1;
 }
 }
+
 void QManejadorOrden::ModificaCotizacion()
 {
 }

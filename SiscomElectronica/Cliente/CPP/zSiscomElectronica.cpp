@@ -71,6 +71,8 @@
 #include <zCompraParcialImportacion.h>
 #include <zCorteCaja.h>
 #include <zApartado.h>
+#include <zBodega.h>
+#include <zAbonoAApartado.h>
 
 #include <string.h> 
 zSiscomElectronica::zSiscomElectronica(zSiscomConexion *pzSiscomConexion,
@@ -2550,4 +2552,34 @@ if((lzSisRegsRegreso=EnviaRecibe()))
 }
 else return 0;
 }
+int zSiscomElectronica::ValidaExistenciaBodega(const char *pchrPtrCantidad,
+					       zExistenciaBodega *pzExistenciaB)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+AgregaEnvio(zSiscomRegistro().Registro(pzExistenciaB,
+				       "%s [Cantidad]",
+				       pchrPtrCantidad));
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  SiscomRegistroLog2((*lzSisRegsRegreso)[0]); 
+  return ((*lzSisRegsRegreso)[0])->CampoInt("Estado");
+}
+else
+return 0;
+}
 
+
+int zSiscomElectronica::AbonoAApartado(zAbonoAApartado *pzAbonoAA)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio(pzAbonoAA);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  lzSisRegRegreso=(*lzSisRegsRegreso)[0];  
+  return 1;
+}
+else
+return 0;
+
+}

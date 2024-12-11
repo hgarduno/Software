@@ -17,7 +17,11 @@ void zSiscomRegistro::AgregaCampo(zSiscomCampo *pzSisCampoDato)
 	Agrega(pzSisCampoDato);
 }
 
-
+void zSiscomRegistro::AgregaCamposDelRegistro(zSiscomRegistro *pzSiscomRDato)
+{
+    zSisNodoAct->zSisNodoSig=pzSiscomRDato->zSisNodoPrim; 
+    zSisOperacionesListas::NNodos(NNodos()+pzSiscomRDato->NNodos());
+}
 void zSiscomRegistro::AgregaCampo(const char *pchrPtrCampo,
 				  const unsigned char *pchrPtrDato)
 {
@@ -271,6 +275,59 @@ zSiscomRegistro *lzSisRegistro=new zSiscomRegistro;
         va_end(lzArgumentos);
 return lzSisRegistro;
 }
+
+zSiscomRegistro *zSiscomRegistro::Registro(zSiscomRegistro *pzSiscomRDato,
+					   const char *pchrPtrFormato,
+					       ...)
+{
+char lchrArrNmbCampo[512];
+va_list lzArgumentos;
+const char *lzCadenaFormato=pchrPtrFormato;
+char  lzMen[1024];
+unsigned char *lzParametroChar;
+zSiscomRegistros *lzParametroSiscomRegistros;
+int liPos=0;
+zSiscomRegistro *lzSisRegistro=new zSiscomRegistro;
+        va_start(lzArgumentos,pchrPtrFormato);
+        do
+        {
+                if(*lzCadenaFormato=='%')
+                {
+                        *lzCadenaFormato++;
+                        switch(*lzCadenaFormato)
+                        {
+                          case 's':
+                                lzMen[liPos]=0;
+                                lzParametroChar=va_arg(lzArgumentos,unsigned char *);
+				                lzCadenaFormato++;
+				                lzCadenaFormato=(char *)zSiscomDesarrollo4::CadenaEntreSeparadores(lzCadenaFormato,'[',']',lchrArrNmbCampo);
+				                (*lzSisRegistro) << new zSiscomCampo(lchrArrNmbCampo,lzParametroChar);
+                                liPos=0;
+                          break;
+                          case 'a':
+                                lzMen[liPos]=0;
+                                lzParametroSiscomRegistros=va_arg(lzArgumentos,zSiscomRegistros *);
+				                lzCadenaFormato++;
+				                lzCadenaFormato=(char *)zSiscomDesarrollo4::CadenaEntreSeparadores(lzCadenaFormato,'[',']',lchrArrNmbCampo);
+				                (*lzSisRegistro) << new zSiscomCampo(lchrArrNmbCampo);
+                                AsociadosAlCampo(lchrArrNmbCampo,lzParametroSiscomRegistros);
+                                liPos=0;
+                          break;
+                        }
+                     lzMen[0]=0;
+                }
+                else
+                {
+                        lzMen[liPos]=*lzCadenaFormato;
+                        liPos++;
+                }
+         }while(*lzCadenaFormato++);
+        lzMen[liPos]=0;
+        va_end(lzArgumentos);
+lzSisRegistro->AgregaCamposDelRegistro(pzSiscomRDato);
+return lzSisRegistro;
+}
+
 
 const unsigned char *zSiscomRegistro::CampoAsociado(const char *pchrPtrAsociado,
 						    const char *pchrPtrCampo)

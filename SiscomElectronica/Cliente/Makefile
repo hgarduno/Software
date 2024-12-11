@@ -416,7 +416,8 @@ Pantallas_SiscomElectronica2009=VentasPorCaja 				\
 				ComoPago				\
 				PagaConTransferencia			\
 				DatosCorteCaja				\
-				CapturaDatosFactura
+				CapturaDatosFactura			\
+				AbonoAApartado
 
 #}}}
 
@@ -507,6 +508,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/QtModuloBodegas.o							\
 	O/QtInventarioBodega4.o							\
 	O/QtTransfiereBodegaBodega.o						\
+	O/QtAbonoAApartado.o							\
 	O/IMP_ModuloVentas.o							\
 	O/IMP_ModuloPedido.o							\
 	O/IMP_MenuManejadorOrden.o						\
@@ -618,6 +620,8 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zClientesSiscom.o							\
 	O/zCorteCaja.o								\
 	O/zCompraParcialImportacion.o						\
+	O/zAbonoAApartado.o							\
+	O/zAbonos.o								\
 	O/MOC_QtClientePedido.o							\
 	O/MOC_QtPuntosEntrega.o							\
 	O/MOC_QtListaPuntosEntrega.o						\
@@ -638,7 +642,9 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/MOC_QtCotizaciones.o							\
 	O/MOC_QtModuloBodegas.o							\
 	O/MOC_QtInventarioBodega4.o						\
-	O/MOC_QtTransfiereBodegaBodega.o
+	O/MOC_QtTransfiereBodegaBodega.o					\
+	O/MOC_QtAbonoAApartado.o
+	
 #}}}
 
 #{{{  Modulos Siscom Tiendas

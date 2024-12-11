@@ -39,7 +39,6 @@ connect(QTWOperaciones,SIGNAL(currentChanged(QWidget *)),SLOT(SlotOperacion(QWid
 }
 void QtModuloBodegas::SlotOperacion(QWidget *pQWidget)
 {
-   LogSiscom("-----");
     pQWidget->setFocus();
 }
 void QtModuloBodegas::SlotBodega(zBodega *pzBodega)

@@ -41,19 +41,24 @@ EstaRegistroExpendio()
 OpcionABuscar=RegistroExpendio
 echo $(EstaLaOpcion $*)
 }
-EstaRegistroBodega()
-{
-OpcionABuscar=RegistroBodega
-echo $(EstaLaOpcion $*)
-}
 EstaRegistroBodegaMatriz()
 {
 OpcionABuscar=RegistroBodegaMatriz
 echo $(EstaLaOpcion $*)
 }
+EstaRegistroBodegaMatrizMatriz()
+{
+OpcionABuscar=RegistroBodegaMatrizMatriz
+echo $(EstaLaOpcion $*)
+}
 EstaIdExpendio()
 {
 OpcionABuscar=IdExpendio
+echo $(EstaLaOpcion $*)
+}
+EstaEliminaBodegaExpendio()
+{
+OpcionABuscar=EliminaBodegaExpendio
 echo $(EstaLaOpcion $*)
 }
 ObtenIdExpendio()
@@ -98,10 +103,10 @@ ObtenDirPostgres()
 Parametro=DirPostgres
 echo $(ObtenParametroEntrada $*)
 }
-OpcionesCompletasRegistroBodega()
+OpcionesCompletasRegistroBodegaMatriz()
 {
 
-if [[ $(EstaRegistroBodega $*) == 1 &&
+if [[ $(EstaRegistroBodegaMatriz $*) == 1 &&
       $(EstaIdBodega $*)       == 1 && 
       $(EstaNombre $*)         == 1 &&
       $(EstaBaseMatriz $*)     == 1 ]]
@@ -111,7 +116,18 @@ else
 	echo 0
 fi
 }
-ModoUsoRegistroBodega()
+OpcionesCompletasEliminaBodegaExpendio()
+{
+ if [[ $(EstaEliminaBodegaExpendio $*) == 1 &&
+      $(EstaIdBodega $*)	      == 1  &&
+      $(EstaBaseMatriz $*)           == 1 ]]
+  then 
+  	echo 1 
+  else
+  	echo 0
+  fi
+}
+ModoUsoRegistroBodegaMatriz()
 {
 cat << ModoUso |more
 
@@ -121,7 +137,7 @@ remoto una nueva bodega
 Modo de Uso
 
 
-RegistraBodega  -RegistroBodega 	#Se le indica para realizar el registro de la
+RegistraBodega  -RegistroBodegaMatrizMatriz 	#Se le indica para realizar el registro de la
 				 	#bodega en matriz
 		
 		-IdBodega 		#Identificador consecutivo de la bodega
@@ -132,6 +148,10 @@ RegistraBodega  -RegistroBodega 	#Se le indica para realizar el registro de la
 		-BaseMatriz 	 	#Nombre de la base de datos en la matriz
 		-IdMatriz 
 
+Se pasan estas opciones para registrar en la matriz los datos de la bodega que sera
+		-IdExpendio 
+		-DirIpExpendio 
+
 Las opciones anteriores son necesarias para realizar el registro de la bodega en la matriz.
 
 Ademas se deben agregar las siguientes opciones, para realizar el registro en el expendio
@@ -139,6 +159,25 @@ Ademas se deben agregar las siguientes opciones, para realizar el registro en el
 		-Usuario              
 		-DirIpExpendio         #Direccion Ip del expendio 
 		-BaseExpendio	       #Base de datos del expendio
+
+Comando para eliminar una bodega de la base de datos de la matriz 
+
+RegistroBodegaMatriz -EliminaBodegaExpendio 
+			-IdBodega 
+			-BaseMatriz  
+
+Ejemplo para registrar la Bodega con Id 200, nombre Bodega_Expendio_200 , 
+	en la base de la matriz SiscomElectronica, en el expendio con direccion ip 
+	127.0.0.0 , el usuario hgarduno la base del expendio Expendio_200
+
+RegistraBodega -RegistroBodegaMatriz 			
+		-IdBodega 200 
+		-Nombre Bodega_Expendio_200 
+		-BaseMatriz SiscomElectronica 
+		-DirIpExpendio 127.0.0.1 
+		-IdExpendio 200  
+		-BaseExpendio Expendio_200 
+		-Usuario hgarduno
 
 ModoUso
 
@@ -161,6 +200,8 @@ insert into MaterialBodega select $1,
 
 insert into bodegaexpendio values($4,$1);
 RegMatriz
+
+
 }
 
 OpcionesCompletasRegistroExpendio()
@@ -177,7 +218,6 @@ fi
 ## Base Expendio
 RegistraBodegaEnElExpendio()
 {
-printf "Datos para registro IdBodega (%s) Base Expendio (%s)\n" $1 $2
 cat << BodegaEnElExpendio  | $DirectorioPostgres/bin/psql $2
 insert into Bodegas values($1,'$3');
 insert into materialbodega select $1,
@@ -196,7 +236,6 @@ BodegaEnElExpendio
 
 RegistrandoEnElExpendio()
 {
-echo $*
 ssh $1@$2 ~/bin/RegistraBodega 	-RegistroExpendio 				\
 			     	-IdBodega $3 					\
 				-Nombre $4					\
@@ -210,33 +249,52 @@ ObtenIdMatriz()
 echo 'select idempresa from matriz' |psql $1 -tA
 
 }
+# Revisar para ejecutar en el expendio remoto 
+# $1 IdBodega 
+# $2 Base de datos 
+#
+# Solo para eliminar la bodega de la matriz , en esta fase de 
+# pruebas , se debera integrar la funcionalidad para eliminar 
+# la bodega del expendio tambien :)
+#
+EliminaBodegaExpendio()
+{
+cat << BorraBodega | $DirectorioPostgres/bin/psql $2
+delete from transferenciabodegabodega where idbodegaorigen=$1;
+delete from transferenciabodegabodega where idbodegadestino=$1;
+delete from inventariobodega where idbodega=$1;
+delete from materialbodega where idbodega=$1;
+delete from bodegaexpendio where idbodega=$1;
+delete from bodegas where idbodega=$1;
+BorraBodega
+}
 
-if [ $(OpcionesCompletasRegistroBodega $*) == 1 ]
+if [ $(OpcionesCompletasRegistroBodegaMatriz $*) == 1 ]
 then
       RegistraBodegaMatriz $(ObtenIdBodega $*) 		\
       			   $(ObtenNombre $*) 		\
 			   $(ObtenBaseMatriz $*) 	\
 			   -$(ObtenIdExpendio $*) 
-     if [ $(OpcionesCompletasRegistroExpendio $*) == 1 ]
-     then
-        RegistrandoEnElExpendio $(ObtenUsuario $*) 		\
-      				$(ObtenDirIpExpendio $*) 	\
-     				$(ObtenIdBodega $*)		\
-      				$(ObtenNombre $*)		\
-     				$(ObtenBaseExpendio $*)		\
-				$(ObtenIdExpendio $*)
 
-     fi
-
+         RegistrandoEnElExpendio $(ObtenUsuario $*)  		\
+	 			 $(ObtenDirIpExpendio $*) 	\
+				 $(ObtenIdBodega $*)		\
+				 $(ObtenNombre $*)		\
+				 $(ObtenBaseExpendio $*)	\
+				 $(ObtenIdExpendio $*)
 else
 if [ $(OpcionesCompletasRegistroExpendio $*) == 1 ]
 then
-	printf "Ahora registro en el expendio \n"	
+	printf "Ahora registro en el expendio \n"
 	RegistraBodegaEnElExpendio $(ObtenIdBodega $*) 		\
 				   $(ObtenBaseExpendio $*)	\
 				   $(ObtenNombre $*)
 else
- ModoUsoRegistroBodega 
+if [ $(OpcionesCompletasEliminaBodegaExpendio $*) == 1  ]
+then
+	EliminaBodegaExpendio $(ObtenIdBodega $*) 	\
+			      $(ObtenBaseMatriz $*)
+fi
 fi
 fi
 

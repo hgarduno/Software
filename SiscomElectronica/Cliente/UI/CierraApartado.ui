@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>939</width>
+            <width>916</width>
             <height>290</height>
         </rect>
     </property>
@@ -205,7 +205,7 @@
         </widget>
         <widget class="QLayoutWidget" row="2" column="0" rowspan="1" colspan="3">
             <property name="name">
-                <cstring>layout36</cstring>
+                <cstring>layout29</cstring>
             </property>
             <hbox>
                 <property name="name">
@@ -216,7 +216,27 @@
                         <cstring>QPBConsultar</cstring>
                     </property>
                     <property name="text">
-                        <string>Consultar</string>
+                        <string>Cons&amp;ultar</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+U</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBAAApartado</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>Abono &amp;A Apartado</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
                     </property>
                     <property name="autoDefault">
                         <bool>false</bool>
@@ -230,7 +250,10 @@
                         <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>Pagar Efectivo</string>
+                        <string>&amp;Pagar Apartado</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+P</string>
                     </property>
                     <property name="autoDefault">
                         <bool>false</bool>
@@ -241,7 +264,10 @@
                         <cstring>QPBCancelar</cstring>
                     </property>
                     <property name="text">
-                        <string>Cancelar</string>
+                        <string>&amp;Cancelar</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
                     </property>
                     <property name="autoDefault">
                         <bool>false</bool>

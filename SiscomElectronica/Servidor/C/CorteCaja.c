@@ -508,7 +508,8 @@ float lfltEfectivoCajaCalculado,
 	lfltTransferencias,
 	lfltCalculandoCorte,
 	lfltTotalGastos,
-	lfltPorcentajeDesvioCorte;
+	lfltPorcentajeDesvioCorte,
+	lfltCorte;
 char *lchrPtrVentasTotalesP,
      *lchrPtrTransferenciasP;
 
@@ -526,6 +527,7 @@ lfltImporteVentas=SiscomCampoAsociadoEntradaOperacionFloat("Envio","VentasTotale
 lfltTransferencias=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Transferencias",pSisOpePtrDato);
 lfltTotalGastos=SiscomCampoAsociadoEntradaOperacionFloat("Envio","TotalGastos",pSisOpePtrDato);
 lfltCalculandoCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos)-lfltImporteVentas;
+lfltCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","CalculandoCorte",lfltCalculandoCorte,pSisOpePtrDato);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","Billetes",lfltImporte,pSisOpePtrDato);
 lfltPorcentajeDesvioCorte=PorcentajeDesvioCorte(lfltImporteVentas,lfltCalculandoCorte);
@@ -536,6 +538,7 @@ LogSiscom("Efectivo Contando           %f",lfltImporte);
 LogSiscom("Total Gastos		       %f",lfltTotalGastos);
 LogSiscom("Calculando Corte	       %f",lfltCalculandoCorte);
 LogSiscom("Porcentaje Desvio Corte     %f",lfltPorcentajeDesvioCorte);
+LogSiscom("Corte		       %f",lfltCorte);
 SiscomEnviaAsociadoEntradaCliente("Envio",lchrArrBuffer,pSisOpePtrDato);
 return 0;
 }

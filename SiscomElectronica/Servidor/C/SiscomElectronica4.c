@@ -48,6 +48,7 @@
 #include <SincronizaExpendios.h>
 #include <Bodegas4.h>
 #include <FormaPago.h>
+#include <AbonoAApartado.h>
 typedef struct  siscomElectronica4
 {
   char *chrPtrFuncion;
@@ -221,6 +222,8 @@ StcSiscomElectronica4 lStcSiscomElectronica4[]=
 			{"CambiosRegistrados",CambiosRegistrados},
 			{"ActualizacionCompraRegistrada",ActualizaCompraImportacionRegistrada},
 			{"RegistraCorteCajaSucursal",RegistraCorteCajaSucursal},
+			{"ValidaExistenciaBodega",ValidaExistenciaBodega},
+			{"AbonoAApartado",AbonoAApartado},
 			{0,0}
 		     };
 const char *lchrPtrFuncion;

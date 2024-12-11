@@ -194,8 +194,6 @@ if(lintAceptar==110)  //Modificando una cotizacion
 else
 if(lintAceptar==120) //Cancelo
 {
-   LogSiscom("Se Cancelo");
-   LogSiscom("NO SE HACE Nada");
 }
 else
 if(lintAceptar==109) // Orden Actual

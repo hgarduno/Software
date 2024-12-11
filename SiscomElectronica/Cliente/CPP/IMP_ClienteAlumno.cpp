@@ -149,7 +149,6 @@ void QClienteAlumno::SlotOrdenVenta(zOrdenVenta *pzOrdVenta)
 }
 void QClienteAlumno::SlotCancelarApartado()
 {
-    LogSiscom("Cancelando"); 
 }
 /* Ecatepec 
  * Miercoles 16 de Junio 2021
@@ -201,7 +200,6 @@ void QClienteAlumno::SlotPagar(zSiscomRegistro *pzSisRegApartado)
 }
 void QClienteAlumno::SlotTipoOrden(int pintTipoOrden)
 {
-  LogSiscom("La Opcion %d",pintTipoOrden);
    if(pintTipoOrden==2)
     CapturaDatosApartado();
     else
@@ -347,8 +345,8 @@ void QClienteAlumno::CierraApartado()
 {
 QCApartado=new QCierraApartado(Orden()->Expendio());
 connect(QCApartado,
-	SIGNAL(SignalPagar(zSiscomRegistro *)),
-	SLOT(SlotPagar(zSiscomRegistro *)));
+	SIGNAL(SignalPagar(zOrdenVenta *)),
+	SLOT(SlotPagar(zOrdenVenta *)));
 connect(QCApartado,
 	SIGNAL(SignalCancelar()),
 	SLOT(SlotCancelarApartado()));
@@ -446,7 +444,6 @@ QMaterialAreaDiseno lQMAreaDiseno;
 
 if(lQMAreaDiseno.Aceptar())
 {
-	LogSiscom("");
 	intAceptar=107;
 	intTipoOrden=8;
 	zOrdVenta->IdTipoOrden("8");
@@ -495,7 +492,7 @@ QDatosPractica lQDatosP(Orden()->Expendio(),zSisRegEscuela);
 }
 void QClienteAlumno::HabilitaBotonesOtrosMovimientos(bool pbEstado)
 {
-QRBApartado->setEnabled(pbEstado);
+QRBApartado->setEnabled(pbEstado && (Orden()->NumProductos()>0));
 QRBVendeOrdenCA->setEnabled(pbEstado);
 QPBOrdenActual->setEnabled(pbEstado);
 QRBCierraApartado->setEnabled(pbEstado);

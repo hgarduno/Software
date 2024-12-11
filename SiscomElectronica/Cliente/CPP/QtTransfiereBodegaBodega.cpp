@@ -7,6 +7,8 @@
 #include <zExistenciaBodega.h>
 #include <zExistenciaBodegaOriDes.h>
 
+#include <zSiscomElectronica.h>
+
 #include <QCtrlCmbBodegas4.h>
 #include <QCtrlProductosSE.h>
 
@@ -15,6 +17,9 @@
 #include <qtextedit.h>
 #include <qpushbutton.h>
 #include <qtable.h>
+#include <qmessagebox.h>
+
+#include <zBodega.h>
 QtTransfiereBodegaBodega::QtTransfiereBodegaBodega(QWidget *pQWParent,
 						   const char *pchrPtrName,
 						   WFlags pWFlags):
@@ -79,8 +84,13 @@ void QtTransfiereBodegaBodega::SlotTransfiere()
 }
 void QtTransfiereBodegaBodega::SlotFocoAActualiza()
 {
-   ActivaActualiza();
-    zSiscomQt3::Foco(QPBTransfiere);
+    if(ValidaExistenciaBodegaO(BodegaExistenciaO()))
+    {
+     ActivaActualiza();
+     zSiscomQt3::Foco(QPBTransfiere);
+    }
+    else
+    QMessageBox::information(this,"Aviso Sistema","NO Alcanza la existencia Bodega");
 }
 void QtTransfiereBodegaBodega::SlotProducto(zSiscomRegistro *pzSisRegProducto)
 {
@@ -93,12 +103,14 @@ connect(pQCtrlCmbBodegas,SIGNAL(SignalSelecciono(zBodega *)),pchrPtrSlot);
 }
 void QtTransfiereBodegaBodega::SlotBodegaD(zBodega *pzBodegaD)
 {
-	SeleccionoBodegaDestino(pzBodegaD);
+      MuestraBodega(QLEBodegaD,pzBodegaD);
+      SeleccionoBodegaDestino(pzBodegaD);
       HabilitaProductos();
 }
 void QtTransfiereBodegaBodega::SlotBodegaO(zBodega *pzBodegaO)
 {
       SeleccionoBodegaOrigen(pzBodegaO);
+      MuestraBodega(QLEBodegaO,pzBodegaO);
 }
 
 void QtTransfiereBodegaBodega::SeleccionoBodegaOrigen(zBodega *pzBodegaO)
@@ -262,4 +274,13 @@ QPBTransfiere->setEnabled(pbModal);
 void QtTransfiereBodegaBodega::HabilitaProductos()
 {
     QCtrProductos->setEnabled(zBodegaD && zBodegaO);
+}
+void QtTransfiereBodegaBodega::MuestraBodega(QLineEdit *pQLEBodega,zBodega *pzBodega)
+{
+  pQLEBodega->setText(pzBodega->Bodega());
+}
+
+int QtTransfiereBodegaBodega::ValidaExistenciaBodegaO(zExistenciaBodega *)
+{
+return 0;
 }

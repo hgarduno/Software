@@ -18,7 +18,8 @@ new zSiscomCampo("VentasTotales")	<<
 new zSiscomCampo("CalculandoCorte")	<<
 new zSiscomCampo("TotalGastos")		<<
 new zSiscomCampo("EdoCuentaCambio")	<<
-new zSiscomCampo("EdoCorteCaja");
+new zSiscomCampo("EdoCorteCaja")	<<
+new zSiscomCampo("Corte");
 }
 
 void zCorteCaja::Cajas(zCajas *pzCajas)
@@ -122,7 +123,10 @@ const char *zCorteCaja::CambioDiaAnterior()
 {
   return (const char *)Campo("CambioDiaAnterior");
 }
- 
+const char *zCorteCaja::Corte()
+{
+   return (const char *)Campo("Corte");
+}
 zCajas *zCorteCaja::Cajas()
 {
   return (zCajas *)AsociadosDelCampo("Cajas");

@@ -72,9 +72,12 @@ private slots:
 	zExistenciaBodega *BodegaExistenciaD();
 
 	void HabilitaDesHabilita(bool);
+	void MuestraBodega(QLineEdit *,zBodega *);
+
 public:	
 	virtual	void Transfiere();
 	virtual void Consultando(zExistenciaBodega *);
+	virtual int ValidaExistenciaBodegaO(zExistenciaBodega *);
 };
 
 #endif
