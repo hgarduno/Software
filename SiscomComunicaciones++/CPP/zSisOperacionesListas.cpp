@@ -147,7 +147,7 @@ zSisNodo *zSisOperacionesListas::Anterior()
 }
 zSisNodo *zSisOperacionesListas::Actual()
 {
-  return zSisNodoAct;
+  return zSisNodoAct; 
 }
 zSisOperacionesListas *zSisOperacionesListas::AsignaMemoria(zSisNodo::zSisPtrNodo pzSisPtrNodo)
 {
@@ -159,4 +159,13 @@ lzSisOpListas->zSisNodoPrim=0;
 lzSisOpListas->zSisNodoAnt=0;
 lzSisOpListas->zSisNodoUltimo=0;
 return lzSisOpListas;
+}
+zSisNodo *zSisOperacionesListas::Ultimo()
+{
+   return zSisNodoUltimo;
+}
+
+void zSisOperacionesListas::NNodos(int pintNNodos)
+{
+   intContador=pintNNodos;
 }

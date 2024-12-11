@@ -4,6 +4,8 @@
 #include <zSiscomDesarrollo4.h>
 #include <zSiscomElectronica.h>
 #include <zExistenciaBodega.h>
+
+#include <zSiscomQt3.h>
 QTransfiereBodegaBodega::QTransfiereBodegaBodega(zSiscomConexion *pzSisConexion,
 						 char **pchrPtrArgumentos,
 						 QWidget *pQWParent,
@@ -23,4 +25,9 @@ void QTransfiereBodegaBodega::Consultando(zExistenciaBodega *pzExistenciaB)
 {
 zSiscomElectronica lzSisElectronica(Conexion(),"ExistenciaBodega4");
 lzSisElectronica.ExistenciaBodega(pzExistenciaB);
+}
+int QTransfiereBodegaBodega::ValidaExistenciaBodegaO(zExistenciaBodega *pzExistenciaB)
+{
+zSiscomElectronica lzSiscomE(Conexion(),"ValidaExistenciaBodega");
+return lzSiscomE.ValidaExistenciaBodega(zSiscomQt3::Texto(QLECantidad),pzExistenciaB);
 }

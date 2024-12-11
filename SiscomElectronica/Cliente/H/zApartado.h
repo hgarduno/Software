@@ -13,6 +13,8 @@ public:
 	const char *ACuenta();
 	const char *Observaciones();
 	const char *FechaHoraE();
+	const char *PorPagar();
+
 };
 
 #endif

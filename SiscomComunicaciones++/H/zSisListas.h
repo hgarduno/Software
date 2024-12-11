@@ -10,6 +10,8 @@ public:
 	void Elimina(T *pzTNodo);
 	T *Primer();
 	T *Siguiente();
+	T *Actual();
+	T *Ultimo();
 	T *Nodo(T &pNodo);
 	T *operator[](int pintNNodo);
 	int Nodo(T *pzTNodo);
@@ -50,6 +52,7 @@ T *zSisLista<T>::Primer()
    else
    return 0;
 }
+
 template <class T>
 inline 
 T *zSisLista<T>::Siguiente()
@@ -58,6 +61,16 @@ T *zSisLista<T>::Siguiente()
   lzSisNodo=zSisOperacionesListas::Siguiente();
   return lzSisNodo ? (T *)lzSisNodo->zSisPtrNodoDat : (T *)0;
 }
+
+template <class T>
+inline 
+T *zSisLista<T>::Actual()
+{
+ zSisNodo *lzSisNodo;
+  lzSisNodo=zSisOperacionesListas::Actual();
+  return lzSisNodo ? (T *)lzSisNodo->zSisPtrNodoDat : (T *)0;
+}
+
 template <class T>
 inline
 T *zSisLista<T>::Nodo(T &pNodo)

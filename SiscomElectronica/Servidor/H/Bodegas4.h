@@ -2,6 +2,9 @@
 #define __BODEGAS4_H_
 
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
+void ValidaExistenciaBodega(int pintSocket,
+             SiscomRegistroProL *pSiscomRegProLPtrPrim,
+             SiscomRegistroProL *pSiscomRegProLPtrAct);
 
 void TransfiereBodegaBodega(int pintSocket,
              SiscomRegistroProL *pSiscomRegProLPtrPrim,
@@ -50,4 +53,8 @@ int ObtenPuertoExpendioBodegaD(SiscomOperaciones *pSisOpePtrDato);
 
 
 int PuertoExpendioBodega(SiscomOperaciones *pSisOpePtrDatos);
+
+int EnviaValidacionExistenciaBodega(SiscomOperaciones *pSisOpePtrDato);
+int CantidadVSExistenciaBodega(SiscomOperaciones *pSisOpePtrDato);
+
 #endif

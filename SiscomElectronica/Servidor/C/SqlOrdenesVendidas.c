@@ -444,6 +444,7 @@ int SqlCompletaApartados(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[2048],
 	lchrArrSql[2048];
+/*
 sprintf(lchrArrSql,
 	"									\n\
 select a.*,									\n\
@@ -456,7 +457,8 @@ select a.*,									\n\
                f.idescuela,							\n\
                h.*,								\n\
                i.*,								\n\
-	       j.*								\n\
+	       j.*,								\n\
+	       0 as \"AbonosApartado\"						\n\
         from ventas as a  left outer join 					\n\
              apartado as j using(idventa) left outer join			\n\
              pagotransferencia as k using(idventa)  left outer join		\n\
@@ -476,11 +478,52 @@ select a.*,									\n\
                  a.idconsecutivo asc",
 	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
 	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
-
-LogSiscom("%s",lchrArrSql);
+*/
+sprintf(lchrArrSql,
+	"select * 						\n\
+	 from apartado 						\n\
+	 where idventa in(select distinct idventa 		\n\
+	                  from ventas 				\n\
+			  where fechahora::date>='%s' and 	\n\
+			        fechahora::date<='%s' and 	\n\
+				edoventa=2);",
+	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
+	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
 SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,
 				       "SqlApartados",
 				       lchrArrBuffer,
 				       pSiscomOpePtrDato);
+return 0;
+}
+/* Tepotzotlan Mexico a 18 Noviembre 2024 
+ * Me reconcilie ...... creo ....
+ *
+ * Integro el manejo de abonos al apartado para poder tener el control
+ * de un requerimiento de la profesora Erika secundaria, para que 
+ * la fuente portatil que Fausto diseno no se hiciera prohibitiva para 
+ * los alumnos, pudieran adquirirla en pagos
+ *
+ */
+int SqlAbonosApartados(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[512],lchrArrSql[512];
+
+sprintf(lchrArrSql,
+	"							\n\
+	select *						\n\
+	from abonoapartado					\n\
+	where idventa in(select distinct idventa		\n\
+		 	 from ventas				\n\
+		 	where fechahora::date>='%s' and 	\n\
+		 	      fechahora::date<='%s' and		\n\
+		              edoventa=2 )",
+	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
+	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
+
+SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,
+				       "SqlAbonosApartados",
+				       lchrArrBuffer,
+				       pSiscomOpePtrDato);
+
 return 0;
 }

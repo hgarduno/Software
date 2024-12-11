@@ -99,7 +99,6 @@ zSiscomElectronica lzSisElecOrdenes(Conexion(),"OrdenesVendidas2");
 zOrdsRegistradas=lzSisElecOrdenes.Ordenes2((const char *)QCtrFechaIni->ObtenFecha(),
 					   (const char *)QCtrFechaFin->ObtenFecha(),
 					   QtOrdenesRegistradas::IdTipoOrden());
-
 SiscomRegistrosLog(zOrdsRegistradas);
 }
 void QOrdenesRegistradas::Devuelve()

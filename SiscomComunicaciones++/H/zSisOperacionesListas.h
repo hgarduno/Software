@@ -9,7 +9,9 @@ public:
 		zSisNodo *Siguiente();
 		zSisNodo *Anterior();
 		zSisNodo *Actual();
+		zSisNodo *Ultimo();
 		int NNodos();
+		void NNodos(int pintNNodos);
 		void Libera();
 protected:
 		zSisOperacionesListas();

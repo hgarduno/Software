@@ -64,7 +64,7 @@ class zCambiosCaja;
 class zCambioCaja;
 class zCorteCaja;
 class zCompraParcialImportacion;
-
+class zAbonoAApartado;
 class zSiscomElectronica:public zSiscomOperaciones 
 {
 public:
@@ -300,6 +300,8 @@ public:
 	int VerificaConCuantoPago(zConCuantoPago *);
 	int CambiosCaja(zCambiosCaja *);
 	int CambioCaja(zCambioCaja *);
+	int ValidaExistenciaBodega(const char *,zExistenciaBodega *);
+	int AbonoAApartado(zAbonoAApartado *);
 private:
 	void CambiaNoJuegos(zOrdenVenta *);
 	void NoSePuedeVenderPorNoTenerPrecio(zOrdenVenta *);
@@ -330,6 +332,7 @@ private:
 
 	int ObtenProductosSiscomProveedor(zProductosImportados *);
 	int CambiosEnCaja(zCambiosCaja *);
+
 
 private:
 	void (zSiscomElectronica::*ErrorCambioDatosOrdenVenta[4])(zOrdenVenta *);

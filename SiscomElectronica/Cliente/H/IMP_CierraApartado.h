@@ -6,7 +6,9 @@ class zSiscomConexion;
 
 class zSiscomRegistros;
 class zSiscomRegistro;
+class zOrdenVenta;
 
+class zOrdenes;
 class QCierraApartado:public CierraApartado
 {
  Q_OBJECT
@@ -21,8 +23,8 @@ public:
 	void setFocus();
 private:
 	zSiscomConexion *zSisConexion;
-	zSiscomRegistros *zSisRegsApartados;
-	zSiscomRegistro *zSisRegApartado;
+	zOrdenes *zOrdsRegistradas;
+	zOrdenVenta *zOrden;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
@@ -30,6 +32,10 @@ private:
 	void Consulta();
 	void Muestra();
 	void HabilitaDesHabilitaPagar();
+	void closeEvent(QCloseEvent *);
+	void AbonoAApartado();
+	void MuestraApartado(int,zOrdenVenta *);
+	int ComoPago();
 private slots:
 	void SlotConsulta();
 	void SlotSeleccionaApartado(int,int,int ,const QPoint &);
@@ -37,9 +43,9 @@ private slots:
 	void SlotCancelar();
 	void SlotFocoAFechaFin();
 	void SlotFocoAConsulta();
-	void closeEvent(QCloseEvent *);
+	void SlotAbonoAApartado();
 signals:
-	void SignalPagar(zSiscomRegistro *);
+	void SignalPagar(zOrdenVenta *);
 	void SignalCancelar();
 };
 #endif

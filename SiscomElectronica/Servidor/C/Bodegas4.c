@@ -102,6 +102,27 @@ SiscomAgregaOperacion(EnviaActualizaExistenciaBodega,&lSiscomProDat);
 SiscomAgregaOperacion(0,&lSiscomProDat);
 SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 }
+
+void ValidaExistenciaBodega(int pintSocket,
+             SiscomRegistroProL *pSiscomRegProLPtrPrim,
+             SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+			   0,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+			   &lSiscomOpDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(ArgumentoExistenciaBodega,&lSiscomProDat);
+SiscomAgregaOperacion(SqlExistenciaBodega4,&lSiscomProDat);
+SiscomAgregaOperacion(EnviaValidacionExistenciaBodega,&lSiscomProDat);
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+}
+
 int EnviaActualizaExistenciaBodega(SiscomOperaciones *pSisOpePtrDatos)
 {
 char lchrArrBuffer[256];
@@ -368,4 +389,29 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lchrPtrDirIpExBodO=SiscomObtenCampoRegistroProLChar("IdBodega",lSisRegProLPtrExpendioO)))
     return lchrPtrDirIpExBodO;
 }
+int CantidadVSExistenciaBodega(SiscomOperaciones *pSisOpePtrDato)
+{
+const char *lchrPtrExistencia,
+	   *lchrPtrCantidad;
+float lfltCantidad,lfltExistencia;
+lchrPtrExistencia=SiscomCampoArgumentoAct("ExistenciaBodega",
+					  "existencia",
+					  pSisOpePtrDato);
+lfltExistencia=atof(lchrPtrExistencia);
+lfltCantidad=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Cantidad",pSisOpePtrDato);
 
+if(lfltCantidad<=lfltExistencia)
+return 1;
+else 
+return 0;
+
+}
+int EnviaValidacionExistenciaBodega(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[512];
+if(CantidadVSExistenciaBodega(pSisOpePtrDato))
+   SiscomFormaEnviaRegistroRespuesta(pSisOpePtrDato,lchrArrBuffer,"Estado,","1");
+else
+   SiscomFormaEnviaRegistroRespuesta(pSisOpePtrDato,lchrArrBuffer,"Estado,","0");
+return 0;
+}

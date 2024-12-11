@@ -53,6 +53,7 @@ int EnviandoOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoCotizaciones(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoPedidos(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoApartados(SiscomOperaciones *pSiscomOpePtrDato);
+int ArgumentoAbonosApartados(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoVentas(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoDatosEscuela(SiscomOperaciones *pSiscomOpePtrDato);
 int ArgumentoCondicionVentas(SiscomOperaciones *pSiscomOpePtrDato);
@@ -66,6 +67,7 @@ int ConsultandoDatosPorTipoOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int ComoHagoLaConsultaOrdenes(SiscomOperaciones *pSiscomOpePtrDato);
 SiscomRegistroProL *AgrupaOrdenesVendidas(SiscomOperaciones *pSiscomOpePtrDato);
 SiscomRegistroProL *AgrupaOrdenesVendidas2(SiscomOperaciones *pSiscomOpePtrDato);
+SiscomRegistroProL *AgrupaAbonosApartados(SiscomOperaciones *pSiscomOpePtrDato);
 
 
 

@@ -11,6 +11,7 @@
 #include <zExpendio.h>
 #include <zConexionExpendio.h>
 #include <zFormaPago.h>
+#include <zAbonos.h>
 
 #include <zSiscomCampo.h>
 #include <zSiscomRegistros.h>
@@ -601,6 +602,12 @@ for(lintContador=NumProductos(),
 zOrdenVenta *zOrdenVenta::ConsultaOrdenes2(zSiscomRegistro *pzSisRegOrden)
 {
 zSiscomRegistros *lzSisRegsProductos;
+zAbonos *lzAbonos=new zAbonos;
+/*
+if(pzSisRegOrden->AsociadoDelCampo("Apartado")->AsociadosDelCampo("AbonosApartado"))
+SiscomRegistrosLog(pzSisRegOrden->AsociadoDelCampo("Apartado")->AsociadosDelCampo("AbonosApartado"));
+lzAbonos->Abonos(pzSisRegOrden->AsociadoDelCampo("Apartado")->AsociadosDelCampo("AbonosApartado"));
+*/
 zOrdenVenta *lzOrdenVenta=new zOrdenVenta;
    lzOrdenVenta->ActualizaCampo("IdVenta",(*pzSisRegOrden)["idventa"]);
    lzOrdenVenta->ActualizaCampo("Importe",(*pzSisRegOrden)["importeorden"]);

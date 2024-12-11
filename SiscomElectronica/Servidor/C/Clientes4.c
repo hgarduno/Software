@@ -288,13 +288,11 @@ return 0;
 int EnviaPublicoEnGeneral(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];
-LogSiscom("");
 SiscomEnviaAsociadoRespuestaCliente("PublicoEnGeneral",lchrArrBuffer,pSiscomOpePtrDato);
 }
 int EnviaClientesMayoreo(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];
-LogSiscom("");
 SiscomEnviaAsociadoRespuestaCliente("ClientesMayoreo",lchrArrBuffer,pSiscomOpePtrDato);
 return 0;
 }

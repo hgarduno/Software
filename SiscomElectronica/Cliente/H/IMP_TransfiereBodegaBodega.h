@@ -17,5 +17,6 @@ public:
 private:
 	void Transfiere();
 	void Consultando(zExistenciaBodega *);
+	int ValidaExistenciaBodegaO(zExistenciaBodega *);
 };
 #endif

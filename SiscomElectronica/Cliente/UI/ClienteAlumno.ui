@@ -188,7 +188,10 @@
                         <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>Apartado</string>
+                        <string>&amp;Apartado</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>2</number>
@@ -202,7 +205,10 @@
                         <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>Cotizacion</string>
+                        <string>&amp;Cotizacion</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>1</number>
@@ -216,7 +222,10 @@
                         <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>Vende Orden, Cotizacion , Apartado</string>
+                        <string>Vende O&amp;rden, Cotizacion , Apartado</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+R</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>100</number>
@@ -230,7 +239,10 @@
                         <bool>true</bool>
                     </property>
                     <property name="text">
-                        <string>Modificar Cotizacion</string>
+                        <string>&amp;Modificar Cotizacion</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+M</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>109</number>
@@ -244,7 +256,10 @@
                         <bool>false</bool>
                     </property>
                     <property name="text">
-                        <string>Orden Actual</string>
+                        <string>&amp;Orden Actual</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+O</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>103</number>
@@ -255,7 +270,10 @@
                         <cstring>QRBCierraApartado</cstring>
                     </property>
                     <property name="text">
-                        <string>Entrega Apartado</string>
+                        <string>&amp;Entrega Apartado</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+E</string>
                     </property>
                     <property name="buttonGroupId">
                         <number>101</number>

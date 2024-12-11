@@ -12,6 +12,7 @@ int SqlCompletaCotizaciones(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlCompletaPedidos(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlCompletaVentas(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlCompletaApartados(SiscomOperaciones *pSiscomOpePtrDato);
+int SqlAbonosApartados(SiscomOperaciones *pSiscomOpePtrDato);
 void SqlClienteEscuela(SiscomOperaciones *pSiscomOpePtrDato,char *pchrPtrSql);
 
 #endif

@@ -73,6 +73,7 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/PdfFactura.o				\
 			   O/Bodegas4.o					\
 			   O/FormaPago.o				\
+			   O/AbonoAApartado.o				\
 			   O/SqlSiscomElectronica.o			\
 			   O/SqlValidandoTransferencias.o		\
 			   O/SqlCotizaDispositivos.o			\
@@ -116,7 +117,9 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/SqlTiendaLinea.o				\
 			   O/SqlBodegas.o				\
 			   O/SqlFormaPago.o				\
-			   O/SqlCorteCajaSucursal.o
+			   O/SqlCorteCajaSucursal.o			\
+			   O/SqlAbonoAApartado.o
+
 			   
 Archivos_SiscomElectronicaMemoriaComun=O/SiscomElectronicaMemoriaComun.o			   
 

@@ -11,10 +11,12 @@ class zSiscomRegistro:public zSisLista<zSiscomCampo>
 public:
 	zSiscomRegistro();
 	~zSiscomRegistro();
+	void AgregaCamposDelRegistro(zSiscomRegistro *);
 	void AgregaCampo(zSiscomCampo *);
 	void AgregaCampo(const char *pchrPtrCampo,const unsigned char *pchrPtrDato);
 	void AgregaCampo(const char *pchrPtrCampo,zSiscomRegistro *pzSisRegAsociado);
 	zSiscomRegistro *Registro(const char *pchrPtrFormato,...);
+	zSiscomRegistro *Registro(zSiscomRegistro *,const char *pchrPtrFormato,...);
 	void AsociadosAlCampo(const char *pchrPtrCampo,
 			      zSiscomRegistros *pzSisRegistros);
 	void AsociadoAlCampo(const char *pchrPtrCampo,
