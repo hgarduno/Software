@@ -34,6 +34,7 @@ public:
 	void Modo(const char *);
 	const char *Modo();
 	int TelefonoValido(QLineEdit *);
+	int NombreValido(QLineEdit *);
 private:
 	zSiscomConexion *zSisConexion;
 	zOrdenVenta *zOrdVenta;

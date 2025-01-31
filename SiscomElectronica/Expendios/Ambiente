@@ -23,6 +23,7 @@ cat << SQL |psql SiscomElectronica
 delete from inventariobodega ;
 delete from materialbodega ;
 delete from bodegaaexpendio ;
+delete from transferenciabodegabodega;
 delete from bodegas ;
 
 SQL

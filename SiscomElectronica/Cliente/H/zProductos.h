@@ -10,6 +10,7 @@ public:
 	zProductos();
 	void Agrega(const char *pchrPtrClave);
 	void Agrega(zProducto *pzProducto);
+	void Agrega(zSiscomRegistros *);
 };
 
 #endif

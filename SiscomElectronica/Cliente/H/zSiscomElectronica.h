@@ -65,6 +65,7 @@ class zCambioCaja;
 class zCorteCaja;
 class zCompraParcialImportacion;
 class zAbonoAApartado;
+class zExistenciaVenta;
 class zSiscomElectronica:public zSiscomOperaciones 
 {
 public:
@@ -108,6 +109,8 @@ public:
 				zCorreos *pzCorreos);
 	void ExistenciaExpendios(zProductos *pzProductos,zExistenciaExpendios *pzExExpendios);
 	void ExistenciaExpendios(zSiscomRegistro *,zExistenciaExpendios *pzExExpendios);
+	void ExistenciaExpendios(zExistenciaVenta *);
+	void ExistenciaSiscom(zExistenciaVenta*);
 	int ValidaReCaptura(const char *pchrPtrCaptura1,const char *pchrPtrCaptura2);
 	void ImprimeTicketVenta(zOrdenVenta *);
 	int IdNuevaOrden(char **pchrPtrIdNuevaOrden);

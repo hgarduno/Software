@@ -776,7 +776,7 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 	  intSeAbrioOExpendios=1;
 	}
 	else
-	if(pQKETeclas->key()==Qt::Key_F2)
+	if(pQKETeclas->key()==Qt::Key_F3)
 	RegistroRapidoCotizacionEnvio();
 	else 
 	if(pQKETeclas->key()==Qt::Key_F6)
@@ -1312,7 +1312,6 @@ void QManejadorOrden::ModificaCotizacion()
 void QManejadorOrden::AsignandoOrdenSeleccionada()
 {
   Orden()->AgregandoProductos(QtManejadorOrden::Orden()->Productos());
-  Orden()->IdVenta(QtManejadorOrden::Orden()->IdVenta());
   Orden()->Cotizacion(QtManejadorOrden::Orden()->Cotizacion());
   Orden()->NumProductos(QtManejadorOrden::Orden()->NumProductos());
   HabilitaImpresionRegistro();

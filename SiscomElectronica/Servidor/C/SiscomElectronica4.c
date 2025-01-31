@@ -224,6 +224,8 @@ StcSiscomElectronica4 lStcSiscomElectronica4[]=
 			{"RegistraCorteCajaSucursal",RegistraCorteCajaSucursal},
 			{"ValidaExistenciaBodega",ValidaExistenciaBodega},
 			{"AbonoAApartado",AbonoAApartado},
+			{"ExistenciaSiscom",ExistenciaSiscom},
+			{"ExistenciaSiscomT",ExistenciaSiscomT},
 			{0,0}
 		     };
 const char *lchrPtrFuncion;

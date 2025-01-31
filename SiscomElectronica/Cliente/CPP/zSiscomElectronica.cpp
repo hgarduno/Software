@@ -73,6 +73,7 @@
 #include <zApartado.h>
 #include <zBodega.h>
 #include <zAbonoAApartado.h>
+#include <zExistenciaVenta.h>
 
 #include <string.h> 
 zSiscomElectronica::zSiscomElectronica(zSiscomConexion *pzSiscomConexion,
@@ -610,6 +611,11 @@ void zSiscomElectronica::ExistenciaExpendios(zProductos *pzProductos,
    AgregaEnvio(pzProductos);
    pzExExpendios->Productos(EnviaRecibe());
 }
+void zSiscomElectronica::ExistenciaExpendios(zExistenciaVenta *pzExistenciaV)
+{
+   AgregaEnvio(pzExistenciaV);
+   pzExistenciaV->Productos((zProductos *)EnviaRecibe());
+}
 
 void zSiscomElectronica::ExistenciaExpendios(zSiscomRegistro *pzSisRegProducto,
 					     zExistenciaExpendios *pzExExpendios)
@@ -617,6 +623,28 @@ void zSiscomElectronica::ExistenciaExpendios(zSiscomRegistro *pzSisRegProducto,
   AgregaEnvio(pzSisRegProducto);
   pzExExpendios->Productos(EnviaRecibe());
 }
+/* Siscom Ecatepec 
+ * 14 de enero 2025 
+ * A esta funcion se le pasara como parametro la forma de la consulta
+ * pudiendo seleccionar todos los producto 
+ * o familia 
+ * o algun otro filtro
+ *
+ * El cual se debera integrar como campo en zExistenciaVenta 
+ *
+ */
+void zSiscomElectronica::ExistenciaSiscom(zExistenciaVenta *pzExistenciaV)
+{
+zProductos *lzProductos;
+    AgregaEnvio(pzExistenciaV);
+    lzProductos=(zProductos *)EnviaRecibe();
+    if(lzProductos)
+    pzExistenciaV->Productos(lzProductos);
+    /*
+    SiscomRegistrosLog(lzProductos);
+    */
+}
+
 int zSiscomElectronica::ValidaReCaptura(const char *pchrPtrCaptura1,
 					const char *pchrPtrCaptura2)
 {
