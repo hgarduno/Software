@@ -12,3 +12,9 @@ void zProductos::Agrega(zProducto *pzProducto)
 {
    (*this)	<<  pzProducto;
 }
+
+void zProductos::Agrega(zSiscomRegistros *pzProductos)
+{
+}
+
+

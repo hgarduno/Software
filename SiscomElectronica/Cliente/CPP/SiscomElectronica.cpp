@@ -177,11 +177,19 @@ QExpendiosSE lQExsSiscom;
 }
 void SiscomElectronica::MasGrandeLetra()
 {
-QFont lQFTLetra=QAppPrincipal->font();
+QFont lQFTLetra=this->font();
 int lintTamano=lQFTLetra.pointSize();
  lQFTLetra.setPointSize(++lintTamano);
- QAppPrincipal->setFont(lQFTLetra);
+ this->setFont(lQFTLetra);
 }
+void SiscomElectronica::MasPequenaLetra()
+{
+QFont lQFTLetra=this->font();
+int lintTamano=lQFTLetra.pointSize();
+ lQFTLetra.setPointSize(--lintTamano);
+ this->setFont(lQFTLetra);
+}
+
 void SiscomElectronica::keyPressEvent(QKeyEvent *pQKEvent)
 {
 
@@ -209,8 +217,8 @@ void SiscomElectronica::keyPressEvent(QKeyEvent *pQKEvent)
 	  if(pQKEvent->key()==Qt::Key_Minus)
 	  {
 		SiscomEscribeLog3Qt("Mas chica la letra");
+		MasPequenaLetra();
 	  }
-		
 	}
 }
 void SiscomElectronica::resizeEvent(QResizeEvent *pQResizeEvent)

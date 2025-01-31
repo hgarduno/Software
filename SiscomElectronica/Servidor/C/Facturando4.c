@@ -714,13 +714,38 @@ while(*pchrPtrCadena)
 }
 *pchrPtrSalida=0;
 }
+
+void CambiaCaracterPorCadena(const char *pchrPtrCadena,
+			     char pchrCaracter,
+			     char *pchrPtrSalida)
+{
+strcpy(pchrPtrSalida,pchrPtrCadena);
+while(*pchrPtrCadena)
+{
+  *pchrPtrSalida=*pchrPtrCadena; 
+   if(*pchrPtrSalida==pchrCaracter)
+   {
+	strcpy(pchrPtrSalida+1,pchrPtrCadena);
+	pchrPtrSalida+=4;
+   }
+  pchrPtrCadena++;
+  pchrPtrSalida++;
+}
+*pchrPtrSalida=0;
+}
+
+
 void FormateaRFC(const char *pchrPtrRFC,char *pchrPtrRFCSalida)
 {
 
   CambiaAmpersandCadena(pchrPtrRFC,pchrPtrRFCSalida);
 
 }
+void CambiandoNRazonSocial(const char *pchrPtrRazonSocial,char *pchrPtrRazoSocialSalida)
+{
 
+
+}
 void FormateaRazonSocial(const char *pchrPtrRazonSocial,char *pchrPtrRazonSocialSalida)
 {
 

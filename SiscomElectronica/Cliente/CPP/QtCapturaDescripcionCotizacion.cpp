@@ -198,6 +198,8 @@ void QtCapturaDescripcionCotizacion::Nombre()
   Cotizacion()->Nombre(zSiscomQt3::Texto(QLENombre));
   Cotizacion()->DescripcionMediaCenter();
   Descripcion();
+  if(NombreValido(QLENombre))
+  QCtrEscuelas->setEnabled(true);
 }
 void QtCapturaDescripcionCotizacion::MuestraEscuelasEntrega()
 {
@@ -336,4 +338,8 @@ void QtCapturaDescripcionCotizacion::LlevandoA(const char *)
 int QtCapturaDescripcionCotizacion::TelefonoValido(QLineEdit *pQLETelefono)
 {
     return pQLETelefono->text().length()==12 ;
+}
+int QtCapturaDescripcionCotizacion::NombreValido(QLineEdit *pQLENombre)
+{
+   return pQLENombre->text().length()>=5;
 }

@@ -286,7 +286,6 @@ sprintf(lchrArrCadena,
 	pzOrdenVenta->Apartado()->FechaHoraE(),
 	pzOrdenVenta->Apartado()->ACuenta(),
 	pzOrdenVenta->Apartado()->Observaciones());
-
    return strdup(lchrArrCadena);
 }
 const char *QtOrdenesRegistradas::EntregaDireccionCliente(zOrdenVenta *pzOrdVenta)

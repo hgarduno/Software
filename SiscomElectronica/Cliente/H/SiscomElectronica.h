@@ -35,6 +35,7 @@ protected:
 	void resizeEvent(QResizeEvent *);
 	void PosicionVentana(QWidget *,zXY *);
 	void MasGrandeLetra();
+	void MasPequenaLetra();
 private:
 	Persona *Empleado;
 	EmpresaN *Expendio;

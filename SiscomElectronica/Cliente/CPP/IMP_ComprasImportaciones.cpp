@@ -146,7 +146,6 @@ void QComprasImportaciones::SlotAgregandoParaRegistroParcial(int pintNProducto,
 							     const QPoint &)
 {
   AgregandoProductoParaRegistroParcial(zComImportacion.Producto(pintNProducto));
-
 }
 void QComprasImportaciones::SlotRegParProductos()
 {
@@ -801,6 +800,7 @@ void QComprasImportaciones::SlotRegistroParcialCompra()
 }
 void QComprasImportaciones::AgregandoProductoParaRegistroParcial(zProductoImportado *pzProdImportado)
 {
+    if(QRegParComImp)
     QRegParComImp->AgregandoProducto(pzProdImportado);
 }
 void QComprasImportaciones::AsignaGenerales()
