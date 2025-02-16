@@ -73,7 +73,10 @@ void zCaja::Transferencias(const char *pchrPtrTransferencias)
 {
     ActualizaCampo("Transferencias",(const unsigned char *)pchrPtrTransferencias);
 }
-
+void zCaja::CorteTotal(const char *pchrPtrCorteTotal)
+{
+    ActualizaCampo("CorteTotal",(const unsigned char *)pchrPtrCorteTotal);
+}
 void zCaja::EncabezadosCaja(zEncabezadosCaja *pzEncaSCaja)
 {
   ActualizaCampo("Encabezados",pzEncaSCaja);

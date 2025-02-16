@@ -149,6 +149,7 @@ void QClienteAlumno::SlotOrdenVenta(zOrdenVenta *pzOrdVenta)
 }
 void QClienteAlumno::SlotCancelarApartado()
 {
+ LogSiscom("");
 }
 /* Ecatepec 
  * Miercoles 16 de Junio 2021
@@ -192,9 +193,9 @@ void QClienteAlumno::SlotCotizacion(zCotizacion *pzCotizacion)
    delete QDCotizacion;
    LogSiscom("Tomo la descripcion de la cotizacion ...");
 }
-void QClienteAlumno::SlotPagar(zSiscomRegistro *pzSisRegApartado)
+void QClienteAlumno::SlotPagar(zOrdenVenta *pzOrdenVenta)
 {
-    zSisRegApartado=pzSisRegApartado;
+    zOrdenVApartado=pzOrdenVenta;
     PagarApartado();
     zSiscomQt3::Foco(QPBAceptar);
 }
@@ -356,7 +357,7 @@ QCApartado->exec();
 void QClienteAlumno::PagarApartado()
 {
 zSiscomElectronica lzSisElectronica(Orden()->Expendio(),"PagarApartado");
-lzSisElectronica.CierraApartado(zSisRegApartado);
+lzSisElectronica.CierraApartado(zOrdenVApartado);
 }
 void QClienteAlumno::VendeCotizacion()
 {

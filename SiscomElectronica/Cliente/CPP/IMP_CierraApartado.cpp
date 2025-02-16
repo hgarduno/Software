@@ -83,12 +83,15 @@ void QCierraApartado::SlotPagar()
 /* Falta integrar la forma de pago 
  *
  */
- if(!ComoPago())
+ if(!ComoPago()) 
  {
    QPBPagar->setEnabled(false);
+   SiscomRegistroLog2(zOrden);
   emit SignalPagar(zOrden); 
   Consultando();
  }
+ else
+ LogSiscom("Cancelando forma de pago");
 }
 
 void QCierraApartado::SlotSeleccionaApartado(int pintFila,

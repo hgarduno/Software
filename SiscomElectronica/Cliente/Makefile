@@ -257,6 +257,7 @@ Archivos_QT_Extra_OrdenElectronica=						\
 
 #{{{ Pantallas_SiscomElectronica2009
 Pantallas_SiscomElectronica2009=VentasPorCaja 				\
+				FormaPago				\
 				ProductosSimilares			\
 				CorteCaja 				\
 				CapturaDenominacion			\
@@ -419,7 +420,8 @@ Pantallas_SiscomElectronica2009=VentasPorCaja 				\
 				CapturaDatosFactura			\
 				AbonoAApartado				\
 				ContandoCortes				\
-				ExistenciaSiscom
+				ExistenciaSiscom			\
+				ConsultaCompras
 
 #}}}
 
@@ -513,6 +515,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/QtAbonoAApartado.o							\
 	O/QtContandoCortes.o							\
 	O/QtExistenciaSiscom.o							\
+	O/QtConsultaCompras.o							\
 	O/IMP_ModuloVentas.o							\
 	O/IMP_ModuloPedido.o							\
 	O/IMP_MenuManejadorOrden.o						\
@@ -628,6 +631,8 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zAbonos.o								\
 	O/zExistenciaVenta.o							\
 	O/zExistenciaProducto.o							\
+	O/zCompra.o								\
+	O/zCompras.o								\
 	O/MOC_QtClientePedido.o							\
 	O/MOC_QtPuntosEntrega.o							\
 	O/MOC_QtListaPuntosEntrega.o						\
@@ -651,7 +656,8 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/MOC_QtTransfiereBodegaBodega.o					\
 	O/MOC_QtAbonoAApartado.o						\
 	O/MOC_QtContandoCortes.o						\
-	O/MOC_QtExistenciaSiscom.o
+	O/MOC_QtExistenciaSiscom.o						\
+	O/MOC_QtConsultaCompras.o
 	
 #}}}
 

@@ -48,3 +48,13 @@ const char *zProductoCompra::PrecioTotal()
 {
   return (const char *)(*this)["PrecioTotal"];
 }
+
+zProductoCompra *zProductoCompra::DeCompra(zSiscomRegistro *pzSisRegProducto)
+{
+zProductoCompra *lzProductoC=new zProductoCompra;
+lzProductoC->Clave((const char *)(*pzSisRegProducto)["cveproducto"]);
+lzProductoC->Cantidad((const char *)(*pzSisRegProducto)["cantidad"]);
+lzProductoC->Precio((const char *)(*pzSisRegProducto)["precio"]);
+lzProductoC->PrecioTotal((const char *)(*pzSisRegProducto)["importe"]);
+return lzProductoC;
+}

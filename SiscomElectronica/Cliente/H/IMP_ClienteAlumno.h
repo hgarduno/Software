@@ -51,7 +51,10 @@ private:
 	QCotizaciones *QCotizacion;
 	QSeleccionaOrden *QSelOrden;
 	QRegistroPlaca *QRPlaca;
+	/*
 	zSiscomRegistro *zSisRegApartado;
+	*/
+	zOrdenVenta *zOrdenVApartado;
 	int intMRegApartado;
 
 	int intTipoOrden;
@@ -94,7 +97,7 @@ private slots:
 	void SlotCancelar();
 	void SlotTipoOrden(int pintTipoOrden);
 	void SlotAceptarApartado();
-	void SlotPagar(zSiscomRegistro *pzSisRegApartado);
+	void SlotPagar(zOrdenVenta *);
 	void SlotCotizacion(zCotizacion *pzCotizacion);
 	void SlotOtroMovimiento();
 	void SlotCancelarApartado();

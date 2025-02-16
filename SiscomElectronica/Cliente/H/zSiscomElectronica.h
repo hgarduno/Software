@@ -66,6 +66,7 @@ class zCorteCaja;
 class zCompraParcialImportacion;
 class zAbonoAApartado;
 class zExistenciaVenta;
+class zCompras;
 class zSiscomElectronica:public zSiscomOperaciones 
 {
 public:
@@ -305,6 +306,9 @@ public:
 	int CambioCaja(zCambioCaja *);
 	int ValidaExistenciaBodega(const char *,zExistenciaBodega *);
 	int AbonoAApartado(zAbonoAApartado *);
+	int ConsultaComprasSiscom(const char *pchrPtrFechaIni,
+			  	  const char *pchrPtrFechaFin,
+			  	  zCompras *pzCompras);
 private:
 	void CambiaNoJuegos(zOrdenVenta *);
 	void NoSePuedeVenderPorNoTenerPrecio(zOrdenVenta *);
