@@ -38,4 +38,5 @@ int ObtenIndiceArregloAjustado(const char *pchrPtrUnidad);
 void GenerandoCadenaSqlSinCodigoCapacitores(SArgsSiscom *pSAgsSiscom,
 					    char *pchrPtrSql);
 void FiltraResultados(SArgsSiscom *pSAgsSiscom);
+int ConsultandoCodigoCapacitor(SArgsSiscom *pSAgsSiscom);
 #endif

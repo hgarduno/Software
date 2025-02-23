@@ -2,6 +2,7 @@
 #include <SqlSeguridadCajas.h>
 #include <ComunElectronica2.h>
 #include <ServidorGeneral.h>
+#include <string.h>
 SiscomOperaciones2 *OpCajasYControles()
 {
 SiscomOperaciones2 *lSOpOperaciones2;

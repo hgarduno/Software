@@ -333,7 +333,9 @@ int SiscomLeeSocket(const char *pchrPtrArchivo,
 			int pintSocket,
 			const char *pchrPtrCadena,
 			int pintTamano);
+int RNBuscaMovimientos(PARDEPURACION STRUCTProcesosYDll *pSTRUCTProcesosYDllLis,int pintDato,STRUCTProcesosYDll *pSTRUCTProcesosYDllReg,STRUCTError *pSTRUCTErrorPtrReg);
 
+int SISCOMQuitaEspacios(PARDEPURACION char *pchrPtrCadena);
 #define Write(pintSocket,pchrPtrConsulta,pintTamano)						\
 	SiscomEscribeSocket(__FILE__,__FUNCTION__,__LINE__,pintSocket,pchrPtrConsulta,pintTamano);
 

@@ -149,7 +149,7 @@ int RNADAsignaMemoriaLtaCliente(PARDEPURACION STRUCTCliente ,STRUCTLtaCliente **
 int RNADCreaLtaCliente(PARDEPURACION STRUCTCliente, STRUCTLtaCliente **,STRUCTLtaCliente **);
 int RNADObtenRegistroCliente(PARDEPURACION int ,STRUCTCliente *);
 int RNADGeneraLtaCliente(PARDEPURACION int,int *,STRUCTLtaCliente **);
-//int RNADEnviaClientes(PARDEPURACION int,int,int,STRUCTLtaCliente *);
+int RNADEnviaClientes(PARDEPURACION int,int,int,STRUCTLtaCliente *);
 
 int RNADLlenaStcEstGananciaNDisp(PARDEPURACION char *,char *,char *,STRUCTEstGananciaNDisp *);
 int RNADAsignaMemoriaLtaEstGananciaNDisp(PARDEPURACION STRUCTEstGananciaNDisp,STRUCTLtaEstGananciaNDisp **);
@@ -157,4 +157,7 @@ int RNADCreaLtaEstGananciaNDisp(PARDEPURACION STRUCTEstGananciaNDisp,STRUCTLtaEs
 int RNADObtenRegistroLtaEstGananciaNDisp(PARDEPURACION int,STRUCTEstGananciaNDisp *);
 int RNADGeneraLtaEstGananciaNDisp(PARDEPURACION int,int *,STRUCTLtaEstGananciaNDisp **);
 int RNADEnviaLtaEstGananciaNDisp(PARDEPURACION int,int,int,STRUCTLtaEstGananciaNDisp *);
+int RNADEnviaDatosDelProducto(PARDEPURACION int pintSocketCliente,int pintNRegistros,int pintNCampos,STRUCTLtaProductos *pstcLtaProductosPtrLta,STRUCTError *pstcErrorPtrReg);
+
+int RNADFormaProtocoloEncabezado(PARDEPURACION int pintPipe,STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionReg,STRUCTError *pstcErrorReg);
 #endif

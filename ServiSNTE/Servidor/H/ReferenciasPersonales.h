@@ -10,5 +10,6 @@ int GeneraIdTelefonosReferencia(SiscomOperaciones *pSiscomOpePtrDato);
 int GeneraIdDireccionesReferencia(SiscomOperaciones *pSiscomOpePtrDato);
 int GeneraIdPersonasReferencia(SiscomOperaciones *pSiscomOpePtrDato);
 int GeneraRFCPersonasReferencia(SiscomOperaciones *pSiscomOpePtrDato);
+int ValidaEstadoRegistroReferenciasPersonales(SiscomOperaciones *pSiscomOpePtrDato);
 
 #endif

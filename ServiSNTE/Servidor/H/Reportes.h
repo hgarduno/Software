@@ -32,4 +32,9 @@ int EnviaExistenciasProveedor(SiscomOperaciones *pSiscomOpePtrDat);
 int EnviaStockTienda(SiscomOperaciones *pSiscomOpePtrDat);
 int EnviaDatosCompra(SiscomOperaciones *pSiscomOpePtrDat);
 int EnviaRepProveedores(SiscomOperaciones *pSiscomOpePtrDat);
+
+
+
+void FormaCondicionConsultaListaProductosTienda(SiscomOperaciones *pSiscomOpePtrDatos,
+					 char **pchrPtrCondicion);
 #endif

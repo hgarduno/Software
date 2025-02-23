@@ -1,4 +1,5 @@
 #include <SqlCotizaDispositivos.h>
+#include <ComunElectronica2.h>
 void SqlDefinicionTipoProducto(const char *pchrPtrIdExpendio,
 			       const char *pchrPtrSql,
 			      SArgsSiscom *pSAgsSiscom)

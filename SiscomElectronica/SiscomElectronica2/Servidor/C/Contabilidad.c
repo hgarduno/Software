@@ -2,6 +2,7 @@
 #include <SqlContabilidad.h>
 
 #include <ComunElectronica2.h>
+#include <string.h>
 
 SiscomOperaciones2 *OpEjecutaContabilidad()
 {

@@ -1,6 +1,7 @@
 #include <ProductosNoSincronizados.h>
 #include <ComunElectronica2.h>
 #include <SqlProductosNoSincronizados.h>
+#include <RNProductos.h>
 SiscomOperaciones2 *OPProductosNoSincronizados()
 {
 
@@ -42,7 +43,7 @@ lLCSiscomPro2Expendios=SiscomArgumentoOperacionPrim("SqlExpendiosASincronizar",p
 SiscomImprimeArgumento("SqlProductosASincronizar",pSAgsSiscom);
 SiscomImprimeArgumento("SqlExpendiosASincronizar",pSAgsSiscom);
 */
-RegistrandoProductos(lLCSiscomPro2Productos,lLCSiscomPro2Expendios,0);
+RegistrandoProductos(lLCSiscomPro2Productos,lLCSiscomPro2Expendios,0,0);
 }
 void ArgumentosSincronizacionProductos(SArgsSiscom *pSAgsSiscom)
 {

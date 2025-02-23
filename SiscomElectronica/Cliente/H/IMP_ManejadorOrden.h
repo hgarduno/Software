@@ -108,6 +108,11 @@ public:
 
 	void AsignandoOrdenSeleccionada();
 
+	void Parent(QWidget *);
+
+
+	QWidget *Parent();
+
 private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;
@@ -135,6 +140,8 @@ private:
 	int intSoloDescripcion;
 
 	zProducto *zProdPPFaltante;
+
+	QWidget *QWParent;
 
 private:
 	void ConectaSlots();

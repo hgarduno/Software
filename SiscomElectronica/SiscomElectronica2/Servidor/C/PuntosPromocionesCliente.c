@@ -3,7 +3,7 @@
 #include <ComunElectronica2.h>
 
 #include <stdlib.h>
-
+#include <string.h>
 
 /*
  * Tepotzotlan 1 Agosto 2011 

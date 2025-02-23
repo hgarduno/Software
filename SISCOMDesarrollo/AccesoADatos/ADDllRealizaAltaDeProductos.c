@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ADDllRealizaAltaDeProductos.h>
+#include <ADDllRealizaAltaDeProductosEZS.h>
 #include <dlfcn.h>
 
 int ADDllRealizaAltaVentas(PARDEPURACION int pintSocketCliente,int pintTuberia[],int pintPuerto,char *pchrPtrDirIP)

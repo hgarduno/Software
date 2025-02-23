@@ -1,4 +1,5 @@
 #include <SqlImpresion.h>
+#include <string.h>
 
 void SqlInsertaTicketImpreso(SArgsSiscom *pSAgsSiscom)
 {

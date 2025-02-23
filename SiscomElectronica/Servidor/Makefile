@@ -143,6 +143,7 @@ Include=-IH 									\
 	-I $(DIRDesarrolloHGE)/SISCOMDesarrollo2/H 				\
 	-I$(DIRDesarrolloHGE)/SISCOMDesarrollo2/Servidor/H			\
 	-I$(DirectorioSiscomElectronica)/SiscomElectronica2/Servidor/H 		\
+	-I$(DirectorioSiscomElectronica)					\
 	-I$(DIRDesarrolloHGE)/Sepomex/Servidor/H				\
 	-I$(DIRDesarrolloHGE)/SiscomDesarrollo4/H				\
 	-I$(DIRDesarrolloHGE)							\

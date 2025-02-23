@@ -2,6 +2,7 @@
 #include <SqlOrdenesAFacturar.h>
 #include <ComunElectronica2.h>
 #include <stdlib.h>
+#include <string.h>
 SiscomOperaciones2 *OpOrdenesAFacturar()
 {
 SiscomOperaciones2 *lSOpOperaciones;

@@ -1,4 +1,6 @@
 #include <RNDllConsultasHGE.h>
+#include <RNADFuncionesComunes.h>
+
 int RNDllCNSConsultaClientes(PARDEPURACION int pintSocket,int pintTuberia[],char *pchrArrCadenaFormateada,int pintPuertoAD ,char *pchrPtrDIPSvrAD)
 {
 char lchrArrEncabezado[500],lchrArrTamano[6],lchrArrEncabezado1[500];
@@ -12,7 +14,7 @@ char lchrCaracter='*';
 	       SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%","RNDllCNSConsultaClientes");
 #endif
           RNADLeeCabeceraProtocolo(PDEPURACION pintTuberia[0],lchrArrEncabezado);
-          sprintf(lchrArrTamano,"%05d",strlen(lchrArrEncabezado));
+          sprintf(lchrArrTamano,"%05d",(int )strlen(lchrArrEncabezado));
           sprintf(lchrArrEncabezado1,"%s%s%s",lchrArrTamano,lchrArrEncabezado,pchrArrCadenaFormateada);
           SISCOMConectateServidor(PDEPURACION pintPuertoAD,pchrPtrDIPSvrAD,&lintSocketAD,0);
           Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));
@@ -33,7 +35,7 @@ char lchrCaracter='*';
                SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%","RNDllCNSConsultaClientes");
 #endif
               RNADLeeCabeceraProtocolo(PDEPURACION pintTuberia[0],lchrArrEncabezado);
-              sprintf(lchrArrTamano,"%05d",strlen(lchrArrEncabezado));
+              sprintf(lchrArrTamano,"%05d",(int )strlen(lchrArrEncabezado));
               sprintf(lchrArrEncabezado1,"%s%s%s",lchrArrTamano,lchrArrEncabezado,pchrArrCadenaFormateada);
               SISCOMConectateServidor(PDEPURACION pintPuertoAD,pchrPtrDIPSvrAD,&lintSocketAD,0);
               Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));

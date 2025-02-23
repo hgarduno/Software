@@ -2,6 +2,7 @@
 #include <ComunElectronica2.h>
 #include <SQLEscuelas.h>
 #include <stdlib.h>
+#include <string.h>
 
 SiscomOperaciones2 *OPEscuelas()
 {

@@ -5,6 +5,7 @@
 #include <SiscomInsercionesSql.h>
 #include <SiscomReplicacion.h>
 #include <SiscomDesarrolloMacros.h>
+#include <Transferencias.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

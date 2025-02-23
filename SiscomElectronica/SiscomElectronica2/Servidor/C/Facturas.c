@@ -2,7 +2,7 @@
 #include <ComunElectronica2.h>
 #include <SqlFacturas.h>
 #include <stdlib.h>
-
+#include <string.h>
 SiscomOperaciones2 *OpAnexaFacturasCompras()
 {
 SiscomOperaciones2 *lSOpOperaciones;

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <RNProcesoAtiende.h>
+#include <RNADFuncionesComunes.h>
 #include <signal.h>
 #include <dlfcn.h>
 #include <sys/types.h>
@@ -29,7 +30,7 @@ int main(int pintArgc,char **pchrPtrArgv)
 	RNIdentificaMovimiento(PDEPURACION atoi(lstcDatosDeLaOperacionReg.chrArrMovimiento),lSTRUCTProcesosYDllMemSHM,&lstcProcesosYDllReg,&lSTRUCTErrorReg);
 	RNCopiaDllYFuncion(PDEPURACION lchrArrNombreDllRN,lchrArrNombreFuncionRN,&lstcDatosDeLaOperacionReg);
 	RNCopiaDatosSTRUCTProcesosYDllASTRUCTDatosDeLaOperacion(PDEPURACION lstcProcesosYDllReg,&lstcDatosDeLaOperacionReg);
-	RNADFormaProtocoloEncabezado(PDEPURACION lintTuberia[1],lstcDatosDeLaOperacionReg,lSTRUCTErrorReg);
+	RNADFormaProtocoloEncabezado(PDEPURACION lintTuberia[1],lstcDatosDeLaOperacionReg,&lSTRUCTErrorReg);
 	RNADCargaDllYEjecutaFuncion(PDEPURACION lchrArrNombreDllRN,lchrArrNombreFuncionRN,lintSocketCliente,lintTuberia,lintPuertoSvrAD,lchrArrDirIPSvrAD,&lSTRUCTErrorReg);
 	close(lintSocketCliente);
 }
@@ -46,7 +47,7 @@ void ManejadorSenales(int pintSenal)
 				exit(SIGPIPE);
 		break;
 		case SIGTERM:
-			      printf("*********************************El Proceso %ld Termino*******************\n",getpid());
+			      printf("*********************************El Proceso %ld Termino*******************\n",(long )getpid());
 			      exit(SIGTERM);
 		break;
 

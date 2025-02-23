@@ -377,9 +377,11 @@ for(lSiscomRegProLPtrCamposRegistro=pSiscomRegProLPtrCamposRegistro;
 	LogSiscom("\t%s %s",
 		   SiscomObtenCampoRegistroProLChar("idregistro",lSiscomRegProLPtrCamposRegistro),
 		   SiscomObtenCampoRegistroProLChar("idcampo",lSiscomRegProLPtrCamposRegistro));
+	/*
 	SiscomAnexaRegistroPro2(&lSiscomRegProLPtrRegPosicionesPrim,
 			&lSiscomRegProLPtrRegPosicionesAct,
 			lSiscomRegProLPtrCamposRegistro);
+			*/
    }
 }
 SiscomRegistrosAlCampo("registrocampo",

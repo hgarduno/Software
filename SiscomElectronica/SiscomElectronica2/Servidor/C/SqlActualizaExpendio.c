@@ -1,5 +1,5 @@
 #include <SqlActualizaExpendio.h>
-
+#include <ComunElectronica2.h>
 void SqlProductosRegistradosMatriz(SArgsSiscom *pSAgsSiscom)
 {
 char lchrArrSql[1024];

@@ -13,7 +13,10 @@ char lchrArrBuffer[512],
 	lchrArrSqlCreditos[1024],
 	lchrArrSqlDireccion[1024];
 
+/*
 SqlPersonaPorRFC(pSiscomOpePtrDat,lchrArrSqlPersona);
+
+*/
 SqlCreditosDelCliente(pSiscomOpePtrDat,lchrArrSqlCreditos);
 SqlDireccionCliente(pSiscomOpePtrDat,lchrArrSqlDireccion);
 SiscomConsultasSqlOperaciones(lchrArrBuffer,

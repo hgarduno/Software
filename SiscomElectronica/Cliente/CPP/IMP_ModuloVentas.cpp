@@ -92,7 +92,7 @@ void QModuloVentas::Vendiendo()
 void QModuloVentas::NuevaOrden()
 {
 int lintAceptar;
-QClienteAlumno lQCAlumno(Argumentos(4),Orden());
+QClienteAlumno lQCAlumno(Argumentos(4),Orden(),Parent());
 if(!Orden()->Cliente())
 Orden()->IdTipoOrden(lQCAlumno.IdTipoOrden());
 if((lintAceptar=lQCAlumno.Aceptar())==100) //Vende Cotizacion

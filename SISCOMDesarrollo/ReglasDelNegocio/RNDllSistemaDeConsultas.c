@@ -27,12 +27,12 @@ char lchrArrCadenaEnvio[1024];
 		
 	       SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%","RNDllCNSConsultaClientes");
 #endif
-	       sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,strlen("ADDllCNSClientes"),"ADDllCNSClientes",3,1,strlen(pchrArrCadenaFormateada),pchrArrCadenaFormateada);
+	       sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,(int )strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,(int )strlen("ADDllCNSClientes"),"ADDllCNSClientes",3,1,(int )strlen(pchrArrCadenaFormateada),pchrArrCadenaFormateada);
           RNADLeeCabeceraProtocolo(PDEPURACION pintTuberia[0],lchrArrEncabezado);
-          sprintf(lchrArrTamano,"%05d",strlen(lchrArrEncabezado));
+          sprintf(lchrArrTamano,"%05d",(int )strlen(lchrArrEncabezado));
           sprintf(lchrArrEncabezado1,"%s%s%s",lchrArrTamano,lchrArrEncabezado,lchrArrCadenaEnvio);
           SISCOMConectateServidor(PDEPURACION pintPuertoAD,pchrPtrDIPSvrAD,&lintSocketAD,0);
-          Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));
+          Write(lintSocketAD,lchrArrEncabezado1,(int )strlen(lchrArrEncabezado1));
 	  RNADGeneraLtaCliente(PDEPURACION lintSocketAD,&lintNRegistros,&lstcLtaClientePtrPrim); 
 	  RNADEnviaClientes(PDEPURACION pintSocket,lintNRegistros,3,lstcLtaClientePtrPrim);
 }
@@ -50,10 +50,10 @@ char lchrArrCadenaEnvio[1024];
 
                SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%","RNDllCNSConsultaEstGananciaNDisp");
 #endif
-	       sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,strlen("ADDllCNSEstGananciasNDisp"),"ADDllCNSEstGananciasNDisp",3,1,strlen(pchrArrCadenaFormateada),pchrArrCadenaFormateada);
+	       sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,(int )strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,(int )strlen("ADDllCNSEstGananciasNDisp"),"ADDllCNSEstGananciasNDisp",3,1,(int )strlen(pchrArrCadenaFormateada),pchrArrCadenaFormateada);
 	     
               RNADLeeCabeceraProtocolo(PDEPURACION pintTuberia[0],lchrArrEncabezado);
-              sprintf(lchrArrTamano,"%05d",strlen(lchrArrEncabezado));
+              sprintf(lchrArrTamano,"%05d",(int )strlen(lchrArrEncabezado));
               sprintf(lchrArrEncabezado1,"%s%s%s",lchrArrTamano,lchrArrEncabezado,lchrArrCadenaEnvio);
               SISCOMConectateServidor(PDEPURACION pintPuertoAD,pchrPtrDIPSvrAD,&lintSocketAD,0);
               Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));
@@ -80,12 +80,12 @@ char lchrArrCadenaEnvio1[1024];
        SISCOMImprimeFuncionYArgumentos(pchrPtrTabulador,"%00F%","RNDllCNSConsultaCompras");
 #endif 
       	RNDllCNSEliminaDllYFuncion(PDEPURACION pchrPtrCadenaConsulta,lchrArrCadenaEnvio1); 
-	sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,strlen("ADDllCNSCompras"),"ADDllCNSCompras",3,1,strlen(lchrArrCadenaEnvio1),lchrArrCadenaEnvio1);
+	sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,(int )strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,(int )strlen("ADDllCNSCompras"),"ADDllCNSCompras",3,1,(int )strlen(lchrArrCadenaEnvio1),lchrArrCadenaEnvio1);
 	RNADLeeCabeceraProtocolo(PDEPURACION pintTuberia[0],lchrArrEncabezado);
-	sprintf(lchrArrTamano,"%05d",strlen(lchrArrEncabezado));
+	sprintf(lchrArrTamano,"%05d",(int )strlen(lchrArrEncabezado));
 	sprintf(lchrArrEncabezado1,"%s%s%s",lchrArrTamano,lchrArrEncabezado,lchrArrCadenaEnvio);
 	SISCOMConectateServidor(PDEPURACION pintPuerto,pchrPtrDirIPSvrAD,&lintSocketAD,NULL);
-	Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));
+	Write(lintSocketAD,lchrArrEncabezado1,(int )strlen(lchrArrEncabezado1));
         RNADGeneraListaCompras(PDEPURACION lintSocketAD,&lintNRegistros,&lstcLtaComprasPtrPrim,pstcErrorPtrReg);
 	if(gintFechasCompras)
         RNDllCNSEliminaFechasDuplicadas(PDEPURACION &lstcLtaComprasPtrPrim,&lintNRegistros);
@@ -113,14 +113,14 @@ char lchrArrCadenaEnvio[1024];
 	//Se consultan todos los productos
 	RNDllCNSEliminaDllYFuncion(PDEPURACION pchrPtrCadenaConsulta,lchrArrCadenaEnvio);
 	if(!strcmp("Productos*",lchrArrCadenaEnvio))
-	sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,strlen("ADDllCNSProductos"),"ADDllCNSProductos",3,1,strlen(""),"");
+	sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%04d%04d%04d%s",1,3,1,1,(int )strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,(int )strlen("ADDllCNSProductos"),"ADDllCNSProductos",3,1,(int )strlen(""),"");
 	
 	RNADLeeCabeceraProtocolo(PDEPURACION pintTuberia[0],lchrArrEncabezado);
-	sprintf(lchrArrTamano,"%05d",strlen(lchrArrEncabezado));
+	sprintf(lchrArrTamano,"%05d",(int )strlen(lchrArrEncabezado));
 
 	sprintf(lchrArrEncabezado1,"%s%s%s",lchrArrTamano,lchrArrEncabezado,lchrArrCadenaEnvio);
 	SISCOMConectateServidor(PDEPURACION pintPuerto,pchrPtrDIPSvrAD,&lintSocketAD,NULL);
-	Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));
+	Write(lintSocketAD,lchrArrEncabezado1,(int )strlen(lchrArrEncabezado1));
 	RNADObtenDatosAltaProducto(PDEPURACION lintSocketAD,&lintNRegistros,&lstcLtaProductosPrim,&lstcErrorReg);
 	sprintf(lchrArrEncabezado,"%04d%04d",lintNRegistros,5);
 	Write(pintSocket,lchrArrEncabezado,strlen(lchrArrEncabezado));
@@ -161,10 +161,10 @@ int lintNProductosAC;
 	printf("\n%s",lchrArrCadenaConsulta);
 
        RNDllCNSFormaCamposConsulta(PDEPURACION lchrArrCadenaConsulta,&lintNProductosAC,lchrArrCadenaEnvio1,pstcCantidadYProductoPtrDat,pstcErrorPtrReg);
-	sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%s",1,2+lintNProductosAC,1,1,strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,strlen("ADDllCNSCompras"),"ADDllCNSCompras",lchrArrCadenaEnvio1);
+	sprintf(lchrArrCadenaEnvio,"%04d%04d%04d%04d%04d%s%04d%04d%04d%s%s",1,2+lintNProductosAC,1,1,(int )strlen("libADDllSistemaDeConsultasModificado.so"),"libADDllSistemaDeConsultasModificado.so",2,1,(int )strlen("ADDllCNSCompras"),"ADDllCNSCompras",lchrArrCadenaEnvio1);
 	printf("Consultando %s\n",lchrArrCadenaEnvio);
 	RNADLeeCabeceraProtocolo(PDEPURACION pintTuberia[0],lchrArrEncabezado);
-	sprintf(lchrArrTamano,"%05d",strlen(lchrArrEncabezado));
+	sprintf(lchrArrTamano,"%05d",(int )strlen(lchrArrEncabezado));
 	sprintf(lchrArrEncabezado1,"%s%s%s",lchrArrTamano,lchrArrEncabezado,lchrArrCadenaEnvio);
 	SISCOMConectateServidor(PDEPURACION pintPuerto,pchrPtrDirIPSvrAD,&lintSocketAD,NULL);
 	Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));
@@ -362,7 +362,7 @@ STRUCTLtaCompras *lstcLtaComprasPtrCambio=NULL;
 	   lstcLtaComprasPtrSig=lstcLtaComprasPtrDatos->stcLtaComprasPtrSig;
 	 }
 	 else
-         return ;
+         return 0;
 	   
 		   
 	}	

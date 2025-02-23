@@ -5,4 +5,5 @@
 #include <RNADFuncionesComunes.h>
 int RNDllRealizaAltaCompras(PARDEPURACION int ,int [],int ,char *);
 int RNDllEnviaAltaComprasAD(PARDEPURACION STRUCTLtaCompras *,int *,int,int [],int,char *);
+int RNDllPrecioCompraConIVA(PARDEPURACION STRUCTLtaCompras *pstcLtaComprasPtrPrim);
 #endif 

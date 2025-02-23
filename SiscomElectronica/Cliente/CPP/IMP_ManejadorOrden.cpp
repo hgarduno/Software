@@ -56,7 +56,8 @@ QManejadorOrden::QManejadorOrden(SiscomDatCom *pSisDatCom,
 				intSeAbrioOExpendios(0),
 				intSoloDescripcion(0),
 				zProdPPFaltante(0),
-				QConExpsV(0)
+				QConExpsV(0),
+				QWParent(pQWParent)
 
 {
 IniciaVariables();
@@ -1320,4 +1321,15 @@ void QManejadorOrden::AsignandoOrdenSeleccionada()
 zOrdenVenta *QManejadorOrden::LaUltimaOrden()
 {
   return zOrdVUltima;
+}
+
+
+QWidget *QManejadorOrden::Parent()
+{
+     return QWParent;
+}
+
+void QManejadorOrden::Parent(QWidget *pQWParent)
+{
+       QWParent=pQWParent;
 }

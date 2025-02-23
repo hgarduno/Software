@@ -1,5 +1,6 @@
 #include <SqlIniciaExpendios.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 void SqlInsertaExpendioPublicoEnGeneral(SArgsSiscom *pSAgsSiscom)

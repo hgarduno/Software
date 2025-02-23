@@ -2,6 +2,7 @@
 #include <SqlIniciaExpendios.h>
 #include <ComunElectronica2.h>
 #include <string.h>
+#include <stdlib.h>
 SiscomOperaciones2 *OpIniciaDatosExpendio()
 {
 SiscomOperaciones2 *lSOpOperaciones;

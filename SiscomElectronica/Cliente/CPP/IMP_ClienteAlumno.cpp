@@ -50,6 +50,7 @@ QClienteAlumno::QClienteAlumno(const char *pchrPtrTipoPersona,
 				intSeCapturoDesVenta(0)
 				
 {
+setFont(parentWidget()->font());
 IniciaVariables();
 ConectaSlots();
 VerificandoVendiendo(); 

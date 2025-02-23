@@ -1,5 +1,6 @@
 #include <ManejadorKits.h>
 #include <SqlManejadorKits.h>
+#include <ComunElectronica.h>
 
 SiscomOperaciones2 *OpRegistraProductosTipoProducto()
 {
