@@ -3,6 +3,7 @@
 #include <SQLEmpresas.h>
 #include <SQLPersonas.h>
 #include <ComunSiscomTiendas4.h>
+#include <SiscomFuncionesComunes.h>
 #include <stdlib.h>
 #include <string.h>
 SiscomOperaciones2 *OpEmpresaRegistrada()
@@ -216,7 +217,7 @@ unsigned char *lchrPtrCambia=SiscomCaracteresCambiados();
 LCamposSiscomPro2 *lLCSiscomPro2EmpresaN=0;
 SiscomNormalizaEmpresaPrincipalSR2(lchrPtrCambia,
 		       pSAgsSiscom->LCSiscomPro2SREntrada,
-		       &lLCSiscomPro2EmpresaN);
+		       lLCSiscomPro2EmpresaN);
 SiscomAsignaArgumentoOperacionPrim("EmpresaNormalizada",
 				   lLCSiscomPro2EmpresaN,
 				   pSAgsSiscom);

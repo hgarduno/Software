@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 
 FILE *gPtrFleArchivoLog; 
 int errno;

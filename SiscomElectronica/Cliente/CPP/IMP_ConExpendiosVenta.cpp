@@ -129,6 +129,7 @@ lEExpendio=lQAccSisEle.ExpendioSeleccionado();
 OtroExpendio(lQAccSisEle.ExpendioRegistro3(),lQAccSisEle.Servidor());
 return 0;
 }
+
 }
 const char *QConExpendiosVenta::IdExpendio()
 {

@@ -33,8 +33,6 @@ all:DirectoriosO					\
 
 DirectoriosO:../Servidor2/O
 	
-../Servidor2/O:
-	@mkdir ../Servidor2/O
 Copia:
 	ln -sf $(DIRDesarrolloHGE)/SISCOMSeguridad3/Servidor/RN/H/RNSiscomSeguridad3Prot2.h $(DIRLIBSISCOM2)/H/RNSiscomSeguridad3Prot2.h
 	

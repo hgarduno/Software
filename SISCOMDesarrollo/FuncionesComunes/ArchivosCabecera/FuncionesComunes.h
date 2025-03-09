@@ -333,6 +333,20 @@ int SiscomLeeSocket(const char *pchrPtrArchivo,
 			int pintSocket,
 			const char *pchrPtrCadena,
 			int pintTamano);
+
+
+int SISCOMObtenInfoDelRegistro(int pintSocket,
+			       int *pintPtrNumCampos,
+			       int *pintPtrNumRegistros);
+
+int SISCOMObtenRegistro(int pintSocket,
+			int pintNumCampos,
+			char ***pchrPtrRegistro);
+
+
+int SISCOMObtenDatoDinamicoProcotolo(int pintSocket,
+				     char **pchrPtrDato,
+				     int *pintPtrNDato);
 int RNBuscaMovimientos(PARDEPURACION STRUCTProcesosYDll *pSTRUCTProcesosYDllLis,int pintDato,STRUCTProcesosYDll *pSTRUCTProcesosYDllReg,STRUCTError *pSTRUCTErrorPtrReg);
 
 int SISCOMQuitaEspacios(PARDEPURACION char *pchrPtrCadena);

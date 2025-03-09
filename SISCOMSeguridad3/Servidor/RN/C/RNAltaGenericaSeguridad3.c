@@ -1,4 +1,8 @@
 #include <RNAltaGenericaSeguridad3.h>
+
+void ObtenIdAplicacion(char **pchrPtrRegistro,
+		       char **pchrPtrIdAplicacion);
+
 typedef struct OperacionesGen
 {
 	const char *chrPtrAlta;

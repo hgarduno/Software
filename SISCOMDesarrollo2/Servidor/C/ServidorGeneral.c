@@ -50,7 +50,7 @@ int lintSocket,
 	gPtrFleArchivoLog=stdout;
 	InstalaManejadorDeSenales();  
 	SiscomAnalizaArchivoConfiguracion(pchrPtrArgv[1],
-					  AsignaDatosArchivoAConfiguracion,
+					 (void (*)(SiscomDatosConfiguracion *,void *)) AsignaDatosArchivoAConfiguracion,
 					  (void *)&gSSiscomConfiguracionSvr);
 	AbreArchivoLog();
 	IniciaMemoriaComunServidor();

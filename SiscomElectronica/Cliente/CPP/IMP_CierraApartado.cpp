@@ -29,6 +29,7 @@ QCierraApartado::QCierraApartado(zSiscomConexion *pzSiscomConexion,
 				CierraApartado(pQWParent,pchrPtrName,pbModal,pWFlags),
 				zSisConexion((zSiscomConexion *)pzSiscomConexion)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 }
@@ -80,15 +81,11 @@ if(lQCPago.ComoPague()==QComoPago::Efectivo)
 }
 void QCierraApartado::SlotPagar()
 {
-/* Falta integrar la forma de pago 
- *
- */
  if(!ComoPago()) 
  {
    QPBPagar->setEnabled(false);
-   SiscomRegistroLog2(zOrden);
   emit SignalPagar(zOrden); 
-  Consultando();
+  Consultando(); 
  }
  else
  LogSiscom("Cancelando forma de pago");
@@ -102,9 +99,6 @@ void QCierraApartado::SlotSeleccionaApartado(int pintFila,
    if(pintFila!=-1)
    {
     QTApartados->selectRow(pintFila); 
-    /*
-    zSisRegApartado=(*zSisRegsApartados)[pintFila];
-    */
     zOrden=(zOrdenVenta *)(*zOrdsRegistradas)[pintFila];
     HabilitaDesHabilitaPagar();
     zSiscomQt3::Foco(QPBPagar);
@@ -156,6 +150,7 @@ for(lzOrden=(zOrdenVenta *)zOrdsRegistradas->Primer(),
     lzOrden=(zOrdenVenta *)zOrdsRegistradas->Siguiente(),
     lintContador++)
     MuestraApartado(lintContador,lzOrden);
+zSiscomQt3::AjustaFilasTabla(QTApartados);
 }
 
 void QCierraApartado::setFocus()

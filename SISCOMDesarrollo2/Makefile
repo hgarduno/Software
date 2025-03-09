@@ -36,7 +36,7 @@ Biblioteca2CXX=					\
 		O/SisDatPersonales.o
 
 ArchivosPostgresql=O/POSTGRESQLComunes.o O/POSTGRESQLControlador.o
-Include=-IH -I$(DIRPOSTGRESQL)/include -I$(QTDIR)/include  -I Servidor/H -I $$QtInclude
+Include=-IH -I$(DIRPOSTGRESQL)/include -I$(QTDIR)/include  -I Servidor/H -I $$QtInclude -I SISCOMDesarrollo2
 OpC=$(DEBUG) -c  $(OpCSiscom)
 OpCXX=$(DEBUG) -c -pipe -Wall -W -O2 -D_REENTRANT  -DQT_NO_DEBUG -DQT_THREAD_SUPPORT -DQT_SHARED $(OpCSiscom)
 

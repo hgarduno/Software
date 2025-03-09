@@ -8,7 +8,7 @@ BibliotecasSistemaGeneral=-L. -L$(DIRDesarrolloHGE)/SISCOMDesarrollo2  -lSiscomD
 Bibliotecas=-L$(DIRDesarrolloHGE)/SISCOMDesarrollo2  -lSiscomDesarrollo2
 BibliotecasAccesoDatos=-L$(DIRDesarrolloHGE)/SISCOMDesarrollo2 \
 			 -lSiscomDesarrolloPostgresql
-Include=-IH -I $(DIRDesarrolloHGE)/SISCOMDesarrollo2/H -I$(DIRDesarrolloHGE)/SISCOMDesarrollo2/Servidor/H
+Include=-IH -I $(DIRDesarrolloHGE)/SISCOMDesarrollo2/H -I$(DIRDesarrolloHGE)/SISCOMDesarrollo2/Servidor/H -I$(DIRPOSTGRESQL)/include 
 OpC=-g -c  $(DEBUG) $(OpCSiscom)
 OpShared=-g -shared $(DEBUG) $(OpCSiscom)
 OpBinarios=-g  $(DEBUG) $(OpCSiscom)

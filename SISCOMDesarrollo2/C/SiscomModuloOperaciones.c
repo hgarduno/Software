@@ -1246,7 +1246,7 @@ SiscomAsignaInformacionArgumento(pchrPtrArgSalida,
 				 lLCSiscomPro2ArgAct,
 				 lintNRegArgumento);
 }
-SiscomCopiaAgrupadosAArgumento(const char *pchrPtrArgSalida,
+void SiscomCopiaAgrupadosAArgumento(const char *pchrPtrArgSalida,
 			       LCamposSiscomPro2Agrupados *pLCSiscomPro2AgrDat,
 			       SArgsSiscom *pSAgsSiscom)
 {
@@ -1287,7 +1287,7 @@ int lintContador=0,
     lintNRegistros=0,
     lintNRegRegreso=0;
 char *lchrPtrArgumento,
-	lchrPtrEdoConexion=0;
+	*lchrPtrEdoConexion=0;
 char lchrArrNumCampo[5];
 LCamposSiscomPro2 *lLCSiscomPro2DatSqlEnvioPrim=0,
 		  *lLCSiscomPro2DatSqlEnvioAct=0,

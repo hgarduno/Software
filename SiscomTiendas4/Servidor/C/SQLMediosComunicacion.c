@@ -1,4 +1,6 @@
 #include <SQLMediosComunicacion.h>
+
+#include <ComunSiscomTiendas4.h>
 #include <string.h>
 #include <stdlib.h>
 

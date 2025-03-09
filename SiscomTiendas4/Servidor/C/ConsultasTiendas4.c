@@ -1,6 +1,8 @@
 #include <ConsultasTiendas4.h>
 #include <ComunSiscomTiendas4.h>
 #include <SiscomAplicaciones.h>
+#include <SiscomDirecciones.h>
+#include <SiscomMediosComunicacion.h>
 #include <Familias.h>
 #include <Productos.h>
 #include <Precios.h>
@@ -16,6 +18,8 @@
 #include <Paquetes.h>
 #include <BusquedaProductos.h>
 #include <DatosProductosPorFamilia.h>
+
+#include <Pedidos.h>
 
 
 #include <stdlib.h>

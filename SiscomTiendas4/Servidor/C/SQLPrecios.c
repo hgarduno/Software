@@ -1,4 +1,5 @@
 #include <SQLPrecios.h>
+#include <ComunSiscomTiendas4.h>
 
 void SQLRegistraPrecios(SArgsSiscom *pSAgsSiscom)
 {

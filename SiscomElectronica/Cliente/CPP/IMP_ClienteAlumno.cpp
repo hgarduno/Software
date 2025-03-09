@@ -47,7 +47,8 @@ QClienteAlumno::QClienteAlumno(const char *pchrPtrTipoPersona,
 				intTipoOrden(0),
 				intSeImprimio(0),
 				chrPtrTipoPersona(pchrPtrTipoPersona),
-				intSeCapturoDesVenta(0)
+				intSeCapturoDesVenta(0),
+				QWParent(pQWParent)
 				
 {
 setFont(parentWidget()->font());
@@ -197,6 +198,7 @@ void QClienteAlumno::SlotCotizacion(zCotizacion *pzCotizacion)
 void QClienteAlumno::SlotPagar(zOrdenVenta *pzOrdenVenta)
 {
     zOrdenVApartado=pzOrdenVenta;
+    SiscomRegistroLog2(pzOrdenVenta);
     PagarApartado();
     zSiscomQt3::Foco(QPBAceptar);
 }
@@ -345,7 +347,7 @@ int QClienteAlumno::IdTipoOrdenInt()
 }
 void QClienteAlumno::CierraApartado()
 {
-QCApartado=new QCierraApartado(Orden()->Expendio());
+QCApartado=new QCierraApartado(Orden()->Expendio(),Parent());
 connect(QCApartado,
 	SIGNAL(SignalPagar(zOrdenVenta *)),
 	SLOT(SlotPagar(zOrdenVenta *)));
@@ -501,4 +503,9 @@ QRBCierraApartado->setEnabled(pbEstado);
 QRBMaterilAD->setEnabled(pbEstado);
 QRBDonacion->setEnabled(pbEstado);
 QRBCotizacion->setEnabled(pbEstado);
+}
+
+QWidget *QClienteAlumno::Parent()
+{
+   return QWParent;
 }

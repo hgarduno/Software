@@ -38,6 +38,7 @@ public:
 	void Orden(zOrdenVenta *pzOrdenVenta);
 	int YaSeImprimio();
 	int SePagoImpreso();
+	QWidget *Parent();
 private:
 	zClienteSiscom *zCliSiscom;
 	zSiscomRegistro *zSisRegEscuela;
@@ -61,6 +62,7 @@ private:
 	int intSeImprimio;
 	int intSeCapturoDesVenta;
 	const char *chrPtrTipoPersona;
+	QWidget *QWParent;
 private:
 	void ConectaSlots();
 	void IniciaVariables();

@@ -1,5 +1,6 @@
 #include <EstructurasSISCOM.h>
 #include <string.h>
+#include <stdio.h>
 void LlenaEstructuraDeError(int pintNumError,int pintSiContinua,char *pchrPtrFuncion,char *pchrPtrErrorLogico,STRUCTError *pSTRUCTErrorPtrReg)
 {
 

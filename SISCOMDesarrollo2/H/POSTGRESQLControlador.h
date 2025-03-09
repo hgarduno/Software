@@ -2,7 +2,7 @@
 #define __POSTGRESQLCONTROLADOR_H__
 #include <libpq-fe.h>
 #include <SiscomDesarrollo2.h>
-void ControladorComandosSQL(
+void ControladorComandoSQL(
 		const char *,
 		const char *,
 		LCamposSiscomPro2 *);

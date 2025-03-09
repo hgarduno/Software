@@ -23,6 +23,7 @@ QAccesoSiscomElectronica::QAccesoSiscomElectronica(QApplication *pQAPrincipal,
 				intModificoPerfil(0),
 				intCancelo(0)
 {
+setFont(QWParent->font());
 if(!gPtrFleArchivoLog)
 gPtrFleArchivoLog=stdout;
 if(!gPtrFleArchivoLog3Qt)

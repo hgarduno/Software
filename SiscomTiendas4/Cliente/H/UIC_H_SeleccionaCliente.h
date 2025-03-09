@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/SeleccionaCliente.ui'
 **
-** Created: lun abr 1 19:11:21 2024
+** Created: Thu Feb 27 20:54:29 2025
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/

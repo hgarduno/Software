@@ -1,4 +1,5 @@
 #include <SiscomNormalizacion.h>
+#include <SiscomFuncionesComunes.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

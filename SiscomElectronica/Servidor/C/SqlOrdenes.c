@@ -458,6 +458,9 @@ void InsertToImporteOrden(SiscomOperaciones *pSiscomOpePtrDato,
 			    SiscomRegistroProL *pSiscomRegProLPtrDato,
 			    char *pchrPtrSql)
 {
+char lchrArrBuffer[256];
+
+SiscomAsociadoAsociadoLog("Envio","Apartado",lchrArrBuffer,pSiscomOpePtrDato);
 *pchrPtrSql=0;
 if(EsApartado(pSiscomOpePtrDato))
 {
@@ -702,7 +705,7 @@ void UpdateToVentasCierraApartado(SiscomOperaciones *pSiscomOpePtrDato,
 {
 sprintf(pchrPtrSql,
 	"update ventas set edoventa=0 where idventa=%s",
-	SiscomObtenCampoRegistroProLChar("idventa",pSiscomRegProLPtrDato));
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
 }
 
 void UpdateToVentasCierraApartadoTarjeta(SiscomOperaciones *pSiscomOpePtrDato,
@@ -752,7 +755,7 @@ void UpdateToEstadoApartado(SiscomOperaciones *pSiscomOpePtrDato,
 
 sprintf(pchrPtrSql,
 	"update EstadoApartado set estado=0 where idventa=%s;",
-	SiscomObtenCampoRegistroProLChar("idventa",pSiscomRegProLPtrDato));
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
 
 }
 
@@ -774,7 +777,7 @@ void InsertToImporteOrdenCierreOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
 sprintf(pchrPtrSql,
 	"insert into ImporteOrden values(%s,%s,'%s',0);",
 	SiscomObtenCampoRegistroProLChar("IdVentaPorEntregaOtroDia",pSiscomRegProLPtrDato),
-	SiscomObtenCampoRegistroProLChar("porpagar",pSiscomRegProLPtrDato),
+	SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Apartado","PorPagar",pSiscomOpePtrDato),
 	SiscomObtenCampoRegistroProLChar("FechaHoy",pSiscomRegProLPtrDato));
 }
 void InsertToApartadoEntregadoOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
@@ -783,7 +786,7 @@ void InsertToApartadoEntregadoOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
 {
 sprintf(pchrPtrSql,
 	"insert into ApartadoEntregadoOtroDia values(%s,%s,'%s');",
-	SiscomObtenCampoRegistroProLChar("idventa",pSiscomRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("IdVentaPorEntregaOtroDia",pSiscomRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("FechaHoy",pSiscomRegProLPtrDato));
 
@@ -841,25 +844,24 @@ int SeEntregaOtroDiaElApartado(const char *pchrPtrFechaApartado,
 int FechaEntregaProgramada(SiscomOperaciones *pSiscomOpePtrDato)
 {
 const char *lchrPtrFechaEntrega;
-lchrPtrFechaEntrega=SiscomCampoAsociadoEntradaOperacion("Envio","fechaentrega",pSiscomOpePtrDato);
+lchrPtrFechaEntrega=SiscomCampoAsociadoAsociadoEntradaOperacion("Envio",
+							"Apartado",
+							"FechaHoraE",
+							pSiscomOpePtrDato);
    if(!SiscomEsHoyLaFecha(lchrPtrFechaEntrega))
-   {
-    LogSiscom("Se entrega la fecha programada");
     return 1;
-   }
    else
    return 0;
 }
 int FechaApartadoEntregaHoy(SiscomOperaciones *pSiscomOpePtrDato)
 {
 const char *lchrPtrFechaApartado;
-lchrPtrFechaApartado=SiscomCampoAsociadoEntradaOperacion("Envio","fechahora",pSiscomOpePtrDato);
-
+lchrPtrFechaApartado=SiscomCampoAsociadoAsociadoEntradaOperacion("Envio",
+								"Apartado",
+								"FechaHoraE",
+								pSiscomOpePtrDato);
    if(!SiscomEsHoyLaFecha(lchrPtrFechaApartado))
-   {
-      LogSiscom("Se entrega el mismo dia ");
       return 1;
-   }
    else
     return 0;
 }
@@ -903,6 +905,8 @@ char lchrArrBuffer[256],
 	lchrArrSql[256];
 
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
+
+SiscomAsociadoAsociadoLog("Envio","Apartado",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 				     "Envio",
 				     lchrArrBuffer,

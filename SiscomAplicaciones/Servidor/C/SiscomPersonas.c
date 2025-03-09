@@ -1,7 +1,7 @@
 #include <SiscomPersonas.h>
 #include <SiscomPersonasSQL.h>
 
-
+#include <string.h>
 
 
 void SiscomNormalizaPersona(SArgsSiscom *pSAgsSiscom)

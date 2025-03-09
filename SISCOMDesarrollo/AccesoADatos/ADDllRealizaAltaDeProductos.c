@@ -30,7 +30,6 @@ STRUCTDatosDeLaOperacion lstcDatosDeLaOperacionReg;
 	 printf("%s\n",dlerror());
 	RNADGeneraListaCompras(PDEPURACION pintSocketCliente,&lintNRegistros,&lstcLtaComprasPtrPrim,&lstcErrorReg);
 	POSTGRESQLInsertaCompras(PDEPURACION lstcDatosDeLaOperacionReg,lstcLtaComprasPtrPrim,&lstcLtaComprasPtrPrimError,&lintNRechazados);
-	printf("\nafaffddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd   %d %x\n",lintNRegistros,lstcLtaComprasPtrPrimError);
 	if(lstcLtaComprasPtrPrimError)
         RNADEnviaRegistrosDeCompras(PDEPURACION pintSocketCliente,lintNRechazados,10,lstcLtaComprasPtrPrimError,&lstcErrorReg);
 	else
@@ -71,7 +70,7 @@ int ADDllInsertaDatos(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperac
 	if(!(lvidDll=dlopen("libADDllInsercionesPostgreSQL.so",RTLD_LAZY)))
 	printf("%s\n",dlerror());
 	else
-	InsertaProductos=(int (*)(PARDEPURACION STRUCTDatosDeLaOperacion,STRUCTLtaProductos*,STRUCTError *))dlsym(lvidDll,"POSTGRESQLInsertaProductos");
+	InsertaProductos=(int (*)(PARDEPURACION STRUCTDatosDeLaOperacion,STRUCTLtaProductos*,STRUCTLtaErrorAltaProductos **))dlsym(lvidDll,"POSTGRESQLInsertaProductos");
 	if(!InsertaProductos)
 	printf("%s\n",dlerror());
 	InsertaProductos(PDEPURACION pstcDatosDeLaOperacionPtrReg,pstcLtaProductosPtrReg,pstcLtaErrorAltProductosPtrReg);

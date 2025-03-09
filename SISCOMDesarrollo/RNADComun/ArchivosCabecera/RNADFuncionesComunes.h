@@ -160,4 +160,6 @@ int RNADEnviaLtaEstGananciaNDisp(PARDEPURACION int,int,int,STRUCTLtaEstGananciaN
 int RNADEnviaDatosDelProducto(PARDEPURACION int pintSocketCliente,int pintNRegistros,int pintNCampos,STRUCTLtaProductos *pstcLtaProductosPtrLta,STRUCTError *pstcErrorPtrReg);
 
 int RNADFormaProtocoloEncabezado(PARDEPURACION int pintPipe,STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionReg,STRUCTError *pstcErrorReg);
+
+int RNADObtenDatosDelProducto(PARDEPURACION int pintSocket,STRUCTProductos *pstcProductosPtrReg,STRUCTError *pstcErrorReg);
 #endif

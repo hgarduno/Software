@@ -1,7 +1,8 @@
 #include <FuncionesComunes.h>
-#include <POSTGRESQLControlador.h>
 #include <ADComandosAlta.h>
 
+
+void ControladorComandoSQL(const char *,StcLtaRegComSISCOM *);
 int  ADComandosAlta(int pintSCliente,
 			   int pintTuberia[],
 			   int pintPtoCom,

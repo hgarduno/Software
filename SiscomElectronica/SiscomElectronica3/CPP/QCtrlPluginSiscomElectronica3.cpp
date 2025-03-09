@@ -104,7 +104,7 @@ QStringList QCtrlPluginSiscomElectronica3::keys() const
     "QCtrlExplicacionPromocion"		<<
     "QCtrlOrigenCompra"			<<
     "QCtrlProductosSE"			<<
-    "QCtrlClavesProveedores"			<<
+    "QCtrlClavesProveedores"		<<
     "QCtrlEscuelasSE"			<<
     "QCtrlEstadosImpresosSE" 		<<
     "QCtrlTiposProductoSE"  		<<
@@ -225,7 +225,6 @@ QWidget* QCtrlPluginSiscomElectronica3::create( const QString &key, QWidget* par
 	return new QCtrlBodegas4( parent, name );
     if ( key == "QCtrlCmbBodegas4" )
 	return new QCtrlCmbBodegas4( parent, name );
-
 
     return 0;
 }
