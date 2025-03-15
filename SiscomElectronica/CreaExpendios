@@ -661,7 +661,7 @@ CreaScriptSqlRegistroExpendio()
 
 
 PuertoAD=$(expr "$5" + "1")
-cat << SqlInsertandoExpendio  | psql $1 > /dev/null 2 > /dev/null 
+cat << SqlInsertandoExpendio  | psql $1 > /dev/null 2> /dev/null 
 
 insert into empresas values('$3',-$4,'');
 insert into expendios values(-$4,$5,'$6','$2');

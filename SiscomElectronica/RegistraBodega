@@ -2,7 +2,7 @@
 
 source ~/bin/FuncionesComunesBash 
 
-DirectorioPostgres=/home/postgres/Versiones/12.1.0
+DirectorioPostgres=/home/postgres/Versiones/17.2.0
 
 EstaBaseMatriz()
 {
@@ -192,11 +192,6 @@ RegistraBodegaMatriz()
 echo $*
 cat << RegMatriz  | $DirectorioPostgres/bin/psql $3
 insert into Bodegas values($1,'$2');
-insert into MaterialBodega select $1,
-				         cveproducto,
-					 0,
-					 0
-				  from productos ;
 
 insert into bodegaexpendio values($4,$1);
 RegMatriz

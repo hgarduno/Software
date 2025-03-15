@@ -164,7 +164,7 @@ for(lSisReg3Expendio=lSisReg3LstExpendios->first();
 }
 void QAccesoSiscomElectronica::IniciaVariables()
 {
-char lchrArrArchivo[1024];
+char lchrArrArchivo[256];
  ArchivoServidores(lchrArrArchivo);
  CQSExpendios.LeeArchivo(lchrArrArchivo);
  MuestraTiposExpendios();

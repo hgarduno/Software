@@ -341,29 +341,29 @@ return lchrPtrRegreso[Orden()->IdTipoOrdenInt()];
 }
 void QModuloVentas::TextoEncabezado()
 {
- QString lQStrEncabezado;
 
 
 if(Orden()->Cliente())
-    lQStrEncabezado=QString(Orden()->Expendio()->RazonSocial()) 	+
+    QStrEncabezado=QString(Orden()->Expendio()->RazonSocial()) 	+
     		    "          "					+
 		    Orden()->Cliente()->Escuela()			+
 		    "          "					+
 		    "$"							+
 		    Orden()->ImporteOrden();
 else
-    lQStrEncabezado=QString(Orden()->Expendio()->RazonSocial()) 		+
+    QStrEncabezado=QString(Orden()->Expendio()->RazonSocial()) 		+
     		    "          "					+
 		    "$"							+
 		    Orden()->ImporteOrden();
 if(Orden()->Cotizacion())
 {
    QString lQSLineaUno=QString(Orden()->Cotizacion()->Descripcion());
-    lQStrEncabezado+=QString("       ") 				+
+    QStrEncabezado+=QString("       ") 				+
     		     lQSLineaUno.section('\n',0,0);
 }
-QManejadorOrden::TextoEncabezado((const char *)lQStrEncabezado);
-emit SignalActualizaMenu(lQStrEncabezado);
+QManejadorOrden::TextoEncabezado((const char *)QStrEncabezado);
+emit SignalActualizaMenu(QStrEncabezado);
+
 }
 void QModuloVentas::CopiandoPortapapelesTelemarketing()
 {
@@ -390,7 +390,8 @@ void QModuloVentas::CapturandoDescripcion(const char *pchrPtrModo)
 
 QCapturaDescripcionCotizacion lQCapDscCot(SoloDescripcion(),
 					  pchrPtrModo,Orden(),
-					  Conexion());
+					  Conexion(),
+					  Parent());
 SoloDescripcion(lQCapDscCot.SoloDescripcion());
 QTECliente->setText(Orden()->Cotizacion()->Descripcion());
 }

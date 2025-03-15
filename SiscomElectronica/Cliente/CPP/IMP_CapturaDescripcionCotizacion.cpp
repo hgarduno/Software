@@ -23,6 +23,7 @@ QCapturaDescripcionCotizacion::QCapturaDescripcionCotizacion(
 							       pWFlags),
 				chrPtrModo(pchrPtrModo)
 {
+setFont(pQWParent->font());
 QtCapturaDescripcionCotizacion::SoloDescripcion(pintSoloDescripcion);
 IniciandoCotizacion();
 exec();

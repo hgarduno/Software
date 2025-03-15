@@ -34,6 +34,7 @@ QCotizaciones::QCotizaciones(zSiscomConexion *pzSisConexion,
 				intAceptar(0),
 				intTipoOrden(0)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 }

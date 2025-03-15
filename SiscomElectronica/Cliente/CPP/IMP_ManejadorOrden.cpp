@@ -902,7 +902,7 @@ const char *QManejadorOrden::Argumentos(int pintNArgumento)
 }
 void QManejadorOrden::SeleccionandoOrden()
 {
-QOrdenesDisponibles lQOrdDisponibles(&zOrdsVenta,chrPtrArgumentos);
+QOrdenesDisponibles lQOrdDisponibles(&zOrdsVenta,chrPtrArgumentos,Parent());
 zOrdVenta=lQOrdDisponibles.Orden();
 MuestraOrdenCotizada(zOrdVenta);
 HabilitaImpresionRegistro();

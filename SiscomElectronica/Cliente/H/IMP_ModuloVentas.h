@@ -31,6 +31,8 @@ private:
 	int intPorqueSeRegistra;
 
 	int intSeImprimioTicket;
+
+	QString QStrEncabezado;
 private:
 	void ConectaSlots();
 	void Vendiendo();
