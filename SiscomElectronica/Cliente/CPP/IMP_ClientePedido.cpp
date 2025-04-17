@@ -41,6 +41,7 @@ QClientePedido::QClientePedido(zOrdenVenta *pzOrdVenta,
 			zOrdVenta(pzOrdVenta)
 
 {
+setFont(pQWParent->font());
 IniciaVariables();
 exec();
 }

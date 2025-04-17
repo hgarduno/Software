@@ -364,7 +364,7 @@ lzSisElectronica.CierraApartado(zOrdenVApartado);
 }
 void QClienteAlumno::VendeCotizacion()
 {
-QCotizacion=new QCotizaciones(Orden()->Expendio());
+QCotizacion=new QCotizaciones(Orden()->Expendio(),QWParent);
 connect(QCotizacion,
 	SIGNAL(SignalVendeOrden(zOrdenVenta *)),
 	SLOT(SlotOrdenVenta(zOrdenVenta *)));
@@ -469,7 +469,7 @@ if(lQMDonacionM.Aceptar())
 }
 void QClienteAlumno::ModificaOrden()
 {
-QSelOrden=new QSeleccionaOrden(Orden()->Expendio());
+QSelOrden=new QSeleccionaOrden(Orden()->Expendio(),QWParent);
 connect(QSelOrden,
 	SIGNAL(SignalVendeOrden(zOrdenVenta *)),
 	SLOT(SlotModificaCotizacion(zOrdenVenta *)));

@@ -389,7 +389,8 @@ void QModuloVentas::CapturandoDescripcion(const char *pchrPtrModo)
   ClientePublicoEnGeneral();
 
 QCapturaDescripcionCotizacion lQCapDscCot(SoloDescripcion(),
-					  pchrPtrModo,Orden(),
+					  pchrPtrModo,
+					  Orden(),
 					  Conexion(),
 					  Parent());
 SoloDescripcion(lQCapDscCot.SoloDescripcion());

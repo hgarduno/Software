@@ -31,9 +31,7 @@ private:
 	void RegistraOrden();
 	void Imprimir();
 	void closeEvent(QCloseEvent *);	
-
 	void PedidoDesdeCero(QClientePedido *);
-
 	void EliminaPedido();
 private slots:
 	void SlotDatosPedido();

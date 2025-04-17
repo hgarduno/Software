@@ -68,7 +68,7 @@ void QtCapturaDescripcionCotizacion::IniciaVariables()
 }
 void QtCapturaDescripcionCotizacion::IniciandoSoloDescripcion()
 {
-LogSiscom("Iniciando...... %s",Orden()->Cotizacion()->Descripcion());
+  /* LogSiscom("Iniciando...... %s",Orden()->Cotizacion()->Descripcion()); */
    zCotMedCenter=new zCotizacionMediaCenter(Orden()->Cotizacion());
    Orden()->Cotizacion(zCotMedCenter);
    Cotizacion()->Modo(chrPtrModo);
@@ -79,11 +79,16 @@ LogSiscom("Iniciando...... %s",Orden()->Cotizacion()->Descripcion());
 void QtCapturaDescripcionCotizacion::ComoInicioCotizacion()
 {
    if(SoloDescripcion())
+   {
+   LogSiscom("----- ");
    IniciandoSoloDescripcion();
+   }
    else
    {
+   LogSiscom("Por aca ....");
    zCotMedCenter=(zCotizacionMediaCenter *)Orden()->Cotizacion();
    Muestra();
+   SiscomRegistroLog2(Cotizacion());
    Cotizacion()->DescripcionMediaCenter();
    }
    Descripcion();
