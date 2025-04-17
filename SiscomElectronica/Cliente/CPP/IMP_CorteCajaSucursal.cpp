@@ -192,6 +192,7 @@ void QCorteCajaSucursal::ImportesDia()
   QtCCaja->Cajas()->Principal()->VentasTotales(CorteCaja().VentasTotales());
   QtCCaja->Cajas()->Principal()->CalculandoCorte(CorteCaja().CalculandoCorte());
   QtCCaja->Cajas()->Principal()->TotalGastos(CorteCaja().TotalGastos());
+  QtCCaja->Cajas()->Principal()->CorteTotal(CorteCaja().CorteTotal());
   QtCCaja->ActualizandoGui();
 }
 void QCorteCajaSucursal::CambioDiaAnterior()

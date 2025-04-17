@@ -9,5 +9,8 @@ StcLtaRegComSISCOM *ActualizaAplicacion(int ,const char *,StcLtaRegComSISCOM *,i
 StcLtaRegComSISCOM *RegistraPerfiles(int ,const char *,StcLtaRegComSISCOM *,int *);
 StcLtaRegComSISCOM *RegistraUsuarios(int ,const char *,StcLtaRegComSISCOM *,int *);
 StcLtaRegComSISCOM *RegistraFirmas(int ,const char *,StcLtaRegComSISCOM *,int *);
+
+
+
 #define LOGSeguridad3(...) printf("(%s) (%s) (%d) ",__FILE__,__FUNCTION__,__LINE__) ;printf(__VA_ARGS__);
 #endif

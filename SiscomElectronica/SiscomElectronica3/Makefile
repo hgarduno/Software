@@ -158,10 +158,10 @@ DirectoriosO:
 	-mkdir O
 	-mkdir SO
 Muestra:
-	echo $(Binarios)
-	echo $(Archivos_O_ControlSiscomElectronica3Extra)
-	for X in $(Archivos_O_ControlSiscomElectronica3Extra) \
-	 echo $X 
+	@echo $(Binarios)
+	@echo $(Archivos_O_ControlSiscomElectronica3Extra)
+	@for X in $(Archivos_O_ControlSiscomElectronica3Extra) \
+	@echo $X 
 
 
 

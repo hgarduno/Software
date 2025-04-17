@@ -33,6 +33,10 @@ void QFormaPago::ConectaSlots()
 {
   connect(QPBAceptar,SIGNAL(clicked()),SLOT(SlotAceptar()));
 }
+void QFormaPago::SlotCancelar()
+{
+  
+}
 void QFormaPago::SlotAceptar()
 {
 	done(1);

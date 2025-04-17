@@ -1,5 +1,6 @@
 #include<POSTGRESQLComunes.h>
 #include <POSTGRESQLControlador.h>
+#include <unistd.h>
 void ControladorComandoSQL(const char *pchrPtrBD,
 			   StcLtaRegComSISCOM *pSLRCSisDat)
 {

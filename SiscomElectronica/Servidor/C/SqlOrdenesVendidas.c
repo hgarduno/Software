@@ -222,7 +222,11 @@ sprintf(lchrArrSql,
  select a.*,									\n\
  	a.cliente as idpersona,							\n\
                c.idtipoproducto,						\n\
-               b.importe as importeorden, 					\n\
+               case when a.edoventa=2 						\n\
+	       then l.porpagar 							\n\
+	       else								\n\
+	       b.importe 							\n\
+	       end as importeorden, 						\n\
                d.existencia,							\n\
                a.edoventa as idtipoorden,					\n\
                f.nombre as escuela,						\n\
@@ -234,6 +238,7 @@ sprintf(lchrArrSql,
                k.observaciones							\n\
         from ventas as a  left outer join 					\n\
              cotizacion as j using(idventa) left outer join			\n\
+	     apartado as l using(idventa)   left outer join			\n\
              pagotransferencia as k using(idventa)  left outer join		\n\
              importeorden as b using(idventa) left outer join			\n\
              productoportipoproducto as c using(cveproducto) inner join		\n\

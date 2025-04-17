@@ -1,6 +1,10 @@
 #include <ComunElectronica2.h>
+#include <ComunElectronica.h>
 #include <ServidorGeneral.h>
 #include <string.h>
+#include <stdlib.h>
+#include <SiscomModuloOperaciones.h>
+
 
 void ComunicacionExpendioConsulta(SArgsSiscom *pSAgsSiscom)
 {

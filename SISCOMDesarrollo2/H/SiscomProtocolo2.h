@@ -492,6 +492,7 @@ void SiscomInformacionServidorConRespuesta(
 			LCamposSiscomPro2 **pLCSiscomPro2Reg,
 			int *pintPtrNRespuesta);
 
+void EliminaCaracteresNoValidosCampos(char **pchrPtrCampos);
 /* Tepotzotlan Lunes 16 de Noviembre del 2016 
  * Se agregara una nueva funcion para mostrar el contenido del protocolo
  * de una forma que en el caso de los Registros con un gran numero de 

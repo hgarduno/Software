@@ -1,8 +1,11 @@
 #include <SistemaAccesoDatos.h>
 #include <ServidorGeneral.h>
+#include <POSTGRESQLControlador.h>
+#include <string.h>
 /*
 FILE *gPtrFleArchivoLog;
 */
+
 StcSiscomConfiguracion gSSiscomConfiguracionSvr;
 void AccesoDatos(int pintSocket/*,
 		 StcSiscomConfiguracion pSSiscomConfiguracionSvr,

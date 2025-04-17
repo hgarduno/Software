@@ -1,7 +1,11 @@
 #include <ManejoCapacitores.h>
+#include <SqlManejoCapacitores.h>
 #include <ComunElectronica2.h>
+#include <ComunElectronica.h>
 #include <SiscomModuloOperaciones.h>
 #include <string.h>
+#include <ctype.h>
+
 void ManejoCapacitores(char **pchrPtrEntrada,
 		       char *pchrPtrSql)
 {

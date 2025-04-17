@@ -2,6 +2,7 @@
 #include <ComunSiscomTiendas4.h>
 #include <SQLAsignaAsesor.h>
 #include <SQLVentas.h>
+#include <stdlib.h>
 SiscomOperaciones2 *OAsignaAsesor()
 {
 SiscomOperaciones2 *lSOpOperaciones;
@@ -67,7 +68,7 @@ for(;
     lLCSiscomPro2Ultimo=pLCSiscomPro2Uno;
 }
 lLCSiscomPro2UltimoActual=lLCSiscomPro2Ultimo;
-SiscomAnexaRegistroPro2(lLCSiscomPro2Ultimo,
+SiscomAnexaRegistroPro2(&lLCSiscomPro2Ultimo,
 			&lLCSiscomPro2UltimoActual,
 			&lintNRegistros,
 			"Fin,Registro",

@@ -530,6 +530,7 @@ lfltCalculandoCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos)-lfltImporte
 lfltCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","CalculandoCorte",lfltCalculandoCorte,pSisOpePtrDato);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","Billetes",lfltImporte,pSisOpePtrDato);
+SiscomActualizaCampoAsociadoEntradaFloat("Envio","CorteTotal",lfltCorte,pSisOpePtrDato);
 lfltPorcentajeDesvioCorte=PorcentajeDesvioCorte(lfltImporteVentas,lfltCalculandoCorte);
 LogSiscom("Calculo de Efectivo en Caja %f",lfltEfectivoCajaCalculado);
 LogSiscom("Importe Ventas              %f",lfltImporteVentas);

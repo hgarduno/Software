@@ -1,8 +1,11 @@
 #include <ClienteEnvio.h>
 #include <SiscomDesarrolloMacros.h>
 #include <SiscomProtocoloComunicaciones.h>
+#include <SiscomFuncionesComunes.h>
 #include <SiscomArchivosIni.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 FILE *gPtrFleArchivoLog;
 SiscomError gSiscomErrorSistema;
 int gintSocketProtocoloLog;

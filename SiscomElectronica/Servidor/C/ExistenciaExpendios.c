@@ -139,9 +139,14 @@ for(;
 {
      lchrPtrCampoSistema=SiscomObtenCampoRegistroProLChar(pchrPtrCampoSistema,
      							lSiscomRegProLPtrExpendios);
+    
      lSiscomRegProLPtrConsulta=SiscomRegistrosMaquinaConsulta(lchrPtrCampoSistema,
      							  pchrPtrCampoRespConsulta,
 							  pSiscomOpePtrDato);
+     LogSiscom("Informacion de %s %d Registros(%s)",
+     		lchrPtrCampoSistema,
+		lSiscomRegProLPtrConsulta->intNRegistros,
+		pchrPtrCampoRespConsulta);
      lintNRegistros+=lSiscomRegProLPtrConsulta->intNRegistros;
      if(!lSiscomRegProLPtrRegreso)
       lSiscomRegProLPtrRegreso=lSiscomRegProLPtrConsulta;

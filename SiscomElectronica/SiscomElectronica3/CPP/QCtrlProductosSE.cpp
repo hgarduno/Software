@@ -102,7 +102,7 @@ void QCtrlProductosSE::Consultando()
 void QCtrlProductosSE::ConsultandoProductosSimilares(const char *pchrPtrCriterio)
 {
 char lchrArrProducto[128];
-QProductosSimilares lQProdSimilares(pchrPtrCriterio);
+QProductosSimilares lQProdSimilares(pchrPtrCriterio,parentWidget());
 
 if(lQProdSimilares.Producto(lchrArrProducto))
     QLEProducto->setText(lchrArrProducto);

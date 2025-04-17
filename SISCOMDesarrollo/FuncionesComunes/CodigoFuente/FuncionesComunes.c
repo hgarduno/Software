@@ -15,6 +15,11 @@
 #include <string.h>
 #include <sys/timeb.h>
 #include <stdlib.h>
+#include <sys/wait.h>
+
+#include <sys/socket.h>
+       #include <netinet/in.h>
+       #include <arpa/inet.h>
 /*! \file FuncionesComunes.c
 
 */
@@ -385,7 +390,7 @@ void SISCOMLiberaCharChar2(const char **pchrPtrCadenas)
 {
 int lintContador;
 	for(lintContador=0;pchrPtrCadenas[lintContador];lintContador++)
-	  free(pchrPtrCadenas[lintContador]);
+	  free((void *)pchrPtrCadenas[lintContador]);
     free(pchrPtrCadenas);
 }
 void SISCOMPonFechaEntradaEnFormato(const char *pchrPtrFecha,
@@ -404,7 +409,7 @@ int lintContador;
 		   lchrPtrCadenas[2],
 		   lchrPtrCadenas[1],
 		   lchrPtrCadenas[0]);
-   SISCOMLiberaCharChar2(lchrPtrCadenas);	
+   SISCOMLiberaCharChar2((const char **)lchrPtrCadenas);	
 }
 
 void SISCOMCopiaOtraCadena(int pintNCadena,
@@ -530,7 +535,6 @@ lSLRCSisPtrEnvios=FormaConsultas(pintPtoComAD,
 				 pchrPtrDirIpAD,
 				 lSLRCSisPrim,
 				 &lintNRegistros);
-printf("%x\n",lSLRCSisPtrEnvios);
 SISCOMEnviaInformacionAlSvrAD(pintPtoComAD,
 		              pchrPtrDirIpAD,
 			      pchrPtrUsuario,
@@ -1125,7 +1129,7 @@ sprintf(lchrPtrCadConsulta+lintDesConsulta,
        1,
        1,
        1,
-       strlen(lchrArrModFncYCns),
+       (int )strlen(lchrArrModFncYCns),
        lchrArrModFncYCns);
 Write(*pintPtrSocketSvrRN,lchrPtrCadConsulta,strlen(lchrPtrCadConsulta));
 
@@ -1383,7 +1387,7 @@ char *lchrPtrRegreso;
 }
 int SISCOMFormaDatosProtocoloCHAR(PARDEPURACION char *pchrPtrDato,int pintNDato,int pintNCamposD,int *pintPtrTamano,char *pchrPtrCampo)
 {
-	sprintf(pchrPtrCampo,"%04d%04d%04d%s",pintNDato,pintNCamposD,strlen(pchrPtrDato),pchrPtrDato);
+	sprintf(pchrPtrCampo,"%04d%04d%04d%s",pintNDato,pintNCamposD,(int )strlen(pchrPtrDato),pchrPtrDato);
 	*pintPtrTamano=strlen(pchrPtrCampo);
 }
 
@@ -1482,7 +1486,11 @@ int SISCOMCreaSegmentoSHM(PARDEPURACION unsigned long plngKeySHM,unsigned long p
 	 }	 
 	}
 	else
-	printf("Error al generar el SHMID%ld %x\n",*plngPtrRegSHMID,*pvidPtrMemSHM);	
+	{
+	/*printf("Error al generar el SHMID%ld %x\n",*plngPtrRegSHMID,*pvidPtrMemSHM);	 */
+
+	}
+	
 
 
 }
@@ -1532,7 +1540,7 @@ lchrCadForm0=lchrRespaldo;
 	 if(!strcmp(lchrReg+3,"int"))
 	  printf("[int ]%d,",(int )va_arg(ap,int));
          if(!strcmp(lchrReg+3,"int*"))
-	  printf("[int *] %x,",(int *)va_arg(ap,int));		
+	  printf("[int *] %x,",(unsigned int )va_arg(ap,int));		
 	if(!strcmp(lchrReg+3,"STRUCTProcesosYDll"))
 	  ImprimeSTRUCTProcesosYDll((STRUCTProcesosYDll )va_arg(ap,STRUCTProcesosYDll));	
         strcpy(lchrRespaldo,lchrCadForm1);
@@ -1568,7 +1576,7 @@ int SiscomLeeSocket(const char *pchrPtrArchivo,
 			const char *pchrPtrCadena,
 			int pintTamano)
 {
-read(pintSocket,pchrPtrCadena,pintTamano);
+read(pintSocket,(char *)pchrPtrCadena,pintTamano);
 #ifdef __DEPURASOCKET__
 printf("Read (%s) (%s) (%d) ",pchrPtrArchivo,pchrPtrFuncion,pintNLinea);
 printf("(%s)(%d)\n",pchrPtrCadena,pintTamano);

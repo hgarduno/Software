@@ -43,6 +43,7 @@ QModuloPedido::QModuloPedido(SiscomDatCom *pSisDatCom,
 				zPedSiscom(0),
 				intDatosPedido(0)
 {
+Parent(pQWParent);
 IniciaVariables();
 ConectaSlots();
 }
@@ -71,7 +72,7 @@ QPBRegistrar->setText("Regist&ra Pedido");
 }
 void QModuloPedido::NuevaOrden()
 {
-QClientePedido lQClientePed(Orden(),chrPtrArgumentos);
+QClientePedido lQClientePed(Orden(),chrPtrArgumentos,Parent());
 int lintAceptar;
 lintAceptar=lQClientePed.Aceptar();
 LogSiscom("El tipo de Aceptar %d",lintAceptar);
@@ -156,7 +157,7 @@ QTECliente->setText(QString("Enviando a ") 	+
 
 void QModuloPedido::CapturaDatosPedido()
 {
-QDatosPedido lQDatPedido(Orden());
+QDatosPedido lQDatPedido(Orden(),Parent());
 if(lQDatPedido.Aceptar())
 {
   Orden()->Pedido()->EstadoPedido(new zEstadoPedido("0",0,0,0));

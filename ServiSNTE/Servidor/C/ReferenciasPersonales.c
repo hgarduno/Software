@@ -3,7 +3,7 @@
 #include <SqlReferenciasPersonales.h>
 #include <SiscomDesarrolloMacros.h>
 #include <SiscomMacrosOperaciones.h>
-
+#include <SiscomFuncionesComunes.h>
 #include <string.h>
 void RegistraReferenciasPersonales(int pintSocket,
 	   void *pvidPtrAncla,

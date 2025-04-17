@@ -117,7 +117,6 @@ SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 int RegistrandoOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256];
-LOGOrden(pSiscomOpePtrDato);
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadoAsociadoLog("Envio","Cliente",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadosArgumentoLog("SqlOrden",
@@ -143,6 +142,7 @@ SiscomAgregaCampoAsociadoEntrada("IdVentaPorEntregaOtroDia",0,"Envio",pSiscomOpe
 SiscomAgregaCampoAsociadoEntrada("FechaHoy",0,"Envio",pSiscomOpePtrDato);
 SiscomAsignaFechaHoraAsociadoEntrada("Envio","FechaHoy",pSiscomOpePtrDato);
 SiscomIdARegistrosAsociadosEntrada("Envio","IdVentaPorEntregaOtroDia",pSiscomOpePtrDato);
+return 0;
 }
 
 int ValidandoFechaPedido(SiscomOperaciones *pSiscomOpePtrDato)

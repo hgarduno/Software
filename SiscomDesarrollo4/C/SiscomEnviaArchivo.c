@@ -1,6 +1,6 @@
 #include <SiscomEnviaArchivo.h>
 #include <SiscomDesarrolloMacros.h>
-
+#include <unistd.h>
 
 
 void SiscomEnviaArchivo(int pintSocket,SiscomBloqueArchivoL *pSiscomBloArLPtrDato)

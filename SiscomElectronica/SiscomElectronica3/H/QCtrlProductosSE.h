@@ -25,6 +25,7 @@ public:
 	void setFocus();
 	void IdExpendio(const char *);
 	zSiscomRegistro *Producto(const char *pchrPtrClave);
+
 private:
 	void IniciaVariables();
 	void ConectaSlots();

@@ -31,7 +31,7 @@ class zCorteCaja:public zSiscomRegistro
 	const char *TotalGastos();
 	const char *CambioDiaAnterior();
 	const char *EdoCuentaCambio();
-	const char *Corte();
+	const char *CorteTotal();
 
 	int EdoCuentaCambioInt();
 

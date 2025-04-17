@@ -74,6 +74,7 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/Bodegas4.o					\
 			   O/FormaPago.o				\
 			   O/AbonoAApartado.o				\
+			   O/ComprasSiscom.o				\
 			   O/SqlSiscomElectronica.o			\
 			   O/SqlValidandoTransferencias.o		\
 			   O/SqlCotizaDispositivos.o			\
@@ -118,7 +119,8 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/SqlBodegas.o				\
 			   O/SqlFormaPago.o				\
 			   O/SqlCorteCajaSucursal.o			\
-			   O/SqlAbonoAApartado.o
+			   O/SqlAbonoAApartado.o			\
+			   O/SqlComprasSiscom.o
 
 			   
 Archivos_SiscomElectronicaMemoriaComun=O/SiscomElectronicaMemoriaComun.o			   
@@ -141,6 +143,7 @@ Include=-IH 									\
 	-I $(DIRDesarrolloHGE)/SISCOMDesarrollo2/H 				\
 	-I$(DIRDesarrolloHGE)/SISCOMDesarrollo2/Servidor/H			\
 	-I$(DirectorioSiscomElectronica)/SiscomElectronica2/Servidor/H 		\
+	-I$(DirectorioSiscomElectronica)					\
 	-I$(DIRDesarrolloHGE)/Sepomex/Servidor/H				\
 	-I$(DIRDesarrolloHGE)/SiscomDesarrollo4/H				\
 	-I$(DIRDesarrolloHGE)							\

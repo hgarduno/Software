@@ -40,6 +40,9 @@ public:
 	const char *IdExpendio();
 	 void MarcaCotizacionComoVendida();
 	 zOrdenVenta *Orden(int);
+
+	 void Parent(QWidget *);
+	 QWidget *Parent();
 	
 private slots:
 	void SlotTipoOrden(int);
@@ -56,6 +59,7 @@ private:
 	zSiscomConexion *zSisConOExpendio;
 	zSiscomConexion *zSisConexion;
 	int intOrdenSeleccionada[120];
+	QWidget *QWParent;	
 private:
 	const char *IdVenta();
 	const char *IdCotizacion();

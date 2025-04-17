@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <RNADFuncionesComunes.h>
+#include <RNDllAltaProductos.h>
 void RNDllEjecutaReplicacionProductos(STRUCTLtaProductos *,int ,char *);
 int RNDLLRealizaAltaProductos(PARDEPURACION int pintSocket,int pintTuberia[],int pintPuerto,char *pchrPtrDirIPSAD)
 {

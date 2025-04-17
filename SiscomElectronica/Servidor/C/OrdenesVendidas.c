@@ -324,11 +324,14 @@ void AgregaInformacionApartado(SiscomRegistroProL *pSisRegProLPtrDato,
 			       SiscomRegistroProL *pSisRegProLPtrAbonosA,
 			       SiscomRegistroProL *pSisRegProLPtrPedidos)
 {
+/*
 char lchrArrBuffer[256];
+*/
 SiscomRegistroProL *lSisRegProLPtrPedidoPrim=0,
 		   *lSisRegProLPtrPedidoAct=0;
-
+/*
 SiscomRegistroProtocoloLog(lchrArrBuffer,pSisRegProLPtrPedidos);
+*/
     for(;
     	pSisRegProLPtrPedidos;
 	pSisRegProLPtrPedidos=pSisRegProLPtrPedidos->SiscomRegProLPtrSig)

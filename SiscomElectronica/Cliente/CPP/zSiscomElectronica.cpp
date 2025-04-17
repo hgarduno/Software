@@ -74,6 +74,7 @@
 #include <zBodega.h>
 #include <zAbonoAApartado.h>
 #include <zExistenciaVenta.h>
+#include <zCompras.h>
 
 #include <string.h> 
 zSiscomElectronica::zSiscomElectronica(zSiscomConexion *pzSiscomConexion,
@@ -284,6 +285,7 @@ void zSiscomElectronica::AsignaDatosApartado(zSiscomRegistro *pzSisRegCotizacion
 zSiscomRegistro *lzSisRegCotizacion;
   if((lzSisRegCotizacion=pzSisRegCotizacion->AsociadoDelCampo("Apartado")))
   {
+   SiscomRegistroLog2(lzSisRegCotizacion);
   pzOrden->Apartado(new zApartado(lzSisRegCotizacion));
   }
 }
@@ -640,9 +642,7 @@ zProductos *lzProductos;
     lzProductos=(zProductos *)EnviaRecibe();
     if(lzProductos)
     pzExistenciaV->Productos(lzProductos);
-    /*
     SiscomRegistrosLog(lzProductos);
-    */
 }
 
 int zSiscomElectronica::ValidaReCaptura(const char *pchrPtrCaptura1,
@@ -2610,4 +2610,18 @@ if((lzSisRegsRegreso=EnviaRecibe()))
 else
 return 0;
 
+}
+int zSiscomElectronica::ConsultaComprasSiscom(
+				     const char *pchrPtrFechaIni,
+				     const char *pchrPtrFechaFin,
+				     zCompras *pzCompras)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+AgregaEnvio(zSiscomRegistro().Registro("%s [FechaIni] %s [FechaFin]",
+	 		             pchrPtrFechaIni,
+				     pchrPtrFechaFin));
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+       pzCompras->Compras(lzSisRegsRegreso);
+}
 }

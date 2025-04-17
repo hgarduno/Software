@@ -1,4 +1,5 @@
 #include <SQLClientes.h>
+#include <ComunSiscomTiendas4.h>
 
 void SqlRegistraDirecciones2(SArgsSiscom *pSAgsSiscom)
 {

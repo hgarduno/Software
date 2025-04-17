@@ -109,7 +109,8 @@ Ejecutando()
 
     if [ "$(EstaVentas $*)" == "1" ]
     then
-	nohup $Binario $(BibliotecaSiscomElectronica )  $(ModuloVentas) >> ~/hgarduno.log 
+	#nohup $Binario $(BibliotecaSiscomElectronica )  $(ModuloVentas) >> ~/hgarduno.log 
+	$Binario $(BibliotecaSiscomElectronica )  $(ModuloVentas) 
     else
     if [ "$(EstaPedidos $*)" == "1" ]
     then

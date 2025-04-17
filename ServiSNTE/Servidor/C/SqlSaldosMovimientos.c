@@ -4,6 +4,7 @@
 #include <SiscomReplicacion.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 int SqlSaldosMovimientosMes(SiscomOperaciones *pSiscomOpePtrDato)
 {

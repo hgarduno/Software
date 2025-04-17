@@ -1,6 +1,7 @@
 #include <Proveedores2.h>
 #include <ComunElectronica2.h>
 #include <SqlProveedores.h>
+#include <stdlib.h>
 SiscomOperaciones2 *OpProveedores()
 {
 SiscomOperaciones2 *lSOpOperaciones;

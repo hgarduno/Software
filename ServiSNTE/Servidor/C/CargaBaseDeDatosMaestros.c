@@ -1,4 +1,5 @@
 #include <CargaBaseDeDatosMaestros.h>
+#include <CargaNominaEmpleados.h>
 #include <ComunSiscomServiSNTE.h>
 #include <SiscomDesarrolloMacros.h>
 #include <SiscomMacrosOperaciones.h>
@@ -93,7 +94,7 @@ char lchrArrArchivoSalida[1024];
 const char *lchrPtrNombre=SiscomCampoAsociadoEntradaOperacion("Envio",
 							      "Archivo",
 							      pSiscomOpePtrDat);
-NombreArchivo(lchrPtrNombre,lchrArrArchivoSalida);
+/*NombreArchivo(lchrPtrNombre,lchrArrArchivoSalida); */
 SiscomEscribeArchivoSocket(lchrArrArchivoSalida,pSiscomOpePtrDat->SiscomBloArLArchivo);
 
 
@@ -109,20 +110,21 @@ int ProcesaBaseDeDatos(SiscomOperaciones *pSiscomOpePtrDat)
     const char *lchrPtrNombre=SiscomCampoAsociadoEntradaOperacion("Envio",
 							      "Archivo",
 							      pSiscomOpePtrDat);
-    NombreArchivo(lchrPtrNombre,lchrArrArchivoSalida);
+    /*NombreArchivo(lchrPtrNombre,lchrArrArchivoSalida); */
     LogSiscom("El Archivo a Analizar:%s",lchrArrArchivoSalida);
     LogSiscom("Procesando el archivo");
 
 
 
     AbreArchivoBaseDeDatos(lchrArrArchivoSalida,&lFltPtrArchivo);
-     
+    /* 
     ObtenDatosArchivoMaestros(lFltPtrArchivo,
       		 &lSiscomRegProLPtrMaestrosPrim,
       		 &lSiscomRegProLPtrMaestrosAct);
+		 */
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSiscomRegProLPtrMaestrosPrim);
 
-MuestraMaestros(lSiscomRegProLPtrMaestrosPrim);
+/*MuestraMaestros(lSiscomRegProLPtrMaestrosPrim); */
     //Cerrar archivo.
 }
 

@@ -173,7 +173,6 @@ int ADDllCNSCompras(PARDEPURACION int pintSocketCliente,char ***pchrPtrCadenaCon
     }
     else
     ADDllCNSFormaCadenaCotizacion(PDEPURACION 0,pchrPtrCadenaConsulta[0],lchrArrCadenaConsulta);
-    printf("Se consultaran ha \n%s %d\n",lchrArrCadenaConsulta,strlen(lchrArrCadenaConsulta));
     ADDllConsultaComprasPostgreSQL(PDEPURACION lstcDatosDeLaOperacionDat,lchrArrCadenaConsulta,&lstcLtaComprasPtrPrim,&lintNRegistros,&lintNColumnas,pstcErrorPtrReg);
     RNADEnviaRegistrosDeCompras(PDEPURACION pintSocketCliente,lintNRegistros,10,lstcLtaComprasPtrPrim,pstcErrorPtrReg);
     Write(pintSocketCliente,&lchrFin,1);

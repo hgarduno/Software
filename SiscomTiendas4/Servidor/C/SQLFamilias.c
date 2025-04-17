@@ -1,4 +1,5 @@
 #include <SQLFamilias.h>
+#include <ComunSiscomTiendas4.h>
 void SQLRegistroFamilias(SArgsSiscom *pSAgsSiscom)
 {
 LCamposSiscomPro2 *lLCSiscomPro2Prim,

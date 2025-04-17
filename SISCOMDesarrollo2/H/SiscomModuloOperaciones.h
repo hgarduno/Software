@@ -474,6 +474,9 @@ void SiscomRegistrosTAAsignaRegreso(SArgsSiscom *pSAgsSiscom);
  */
 
 const char *SiscomCadenaInsercionSql(SArgsSiscom *pSAgsSiscom,const char *pchrPtrFormato,...);
+
+void AsignaEstadoInsercion(LCamposSiscomPro2 *pLCSiscomPro2SQL,
+			   LCamposSiscomPro2 *pLCSiscomPro2RegSQL);
 #define SiscomImprimeArgumento(pchrPtrArgumento,pSAgsSiscom)				\
 {											\
 	LCamposSiscomPro2 *lLCSiscomPro2;						\

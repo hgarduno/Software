@@ -753,10 +753,13 @@ SiscomRegistroProL *SiscomRegistrosMaquinaConsulta(const char *pchrPtrDatoConsul
 SiscomRegistroProL *lSiscomRegProLPtrRegreso,
 		   *lSiscomRegProLPtrInformacion;
 const char *lchrPtrCampo;
+LogSiscom("Aqui");
 if(pSiscomOpePtrDato->SiscomRegProLPtrPrimRes)
 {
+LogSiscom("Aqui");
   lSiscomRegProLPtrInformacion=SiscomObtenRegistrosCampoProL(pchrPtrDatoConsultar,
   							     pSiscomOpePtrDato->SiscomRegProLPtrPrimRes);
+LogSiscom("Aqui %x",lSiscomRegProLPtrInformacion);
    if(lSiscomRegProLPtrInformacion)
   lSiscomRegProLPtrRegreso=SiscomObtenRegistrosCampoProL(pchrPtrNombreConsulta,lSiscomRegProLPtrInformacion);
   else

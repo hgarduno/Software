@@ -128,7 +128,7 @@ void SiscomVariablesIniLog(const char *pchrPtrArchivo,
 			 "%s=%s",
 			 pSiscomVILPtrDatos->SiscomVIni.chrArrNombre,
 			 pSiscomVILPtrDatos->SiscomVIni.chrArrDato);
-	pSiscomVILPtrDatos=pSiscomVILPtrDatos->SiscomVIniLPtrSig;
+	pSiscomVILPtrDatos=(const SiscomVariablesIniL *)pSiscomVILPtrDatos->SiscomVIniLPtrSig;
      }
 	
 
@@ -288,7 +288,7 @@ void SiscomSocketProtocolo(const char *pchrPtrArchivo,
 if(gintSocketProtocoloLog) 
 {
  va_list lzArgumentos;
- char *lzCadenaFormato=pzCadenaFormato;
+ char *lzCadenaFormato=(char *)pzCadenaFormato;
  char  lzMen[1024];
  char *lzParametroChar;
  char  lzFechaActual[25];

@@ -1,5 +1,5 @@
 #include <SiscomFirmas.h>
-
+#include <string.h>
 void SiscomVerificaPassword(SArgsSiscom *pSAgsSiscom)
 {
 const char *lchrPtrPassword;

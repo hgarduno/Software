@@ -51,7 +51,7 @@ SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 int ObtenFechaHoy(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrFechaHoy[12];
-SiscomObtenFechaHoyCharAAAADDMM(lchrArrFechaHoy);
+/*SiscomObtenFechaHoyCharAAAADDMM(lchrArrFechaHoy); */
 SiscomAgregaCampoAsociadoEntrada("FechaHoy",lchrArrFechaHoy,"Envio",pSiscomOpePtrDato);
 }
 

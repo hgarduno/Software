@@ -1,4 +1,5 @@
 #include <SiscomLineaComandos.h>
+#include <SiscomFuncionesComunes.h>
 #include <stdlib.h>
 #include <string.h>
 /*
@@ -177,5 +178,5 @@ int lintNOpciones;
 int SiscomEstaLaOpcion(const char *pchrPtrOpcion,
 		       const StcSiscomOpciones *pStcSiscomOpciones)
 {
-  return SiscomObtenOpcion(pStcSiscomOpciones,pchrPtrOpcion);
+  return SiscomObtenOpcion(pStcSiscomOpciones,pchrPtrOpcion) ? 1 : 0;
 }

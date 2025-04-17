@@ -41,7 +41,7 @@ int DllCLIRealizaConsulta(PARDEPURACION char *pchrPtrCadenaConsulta)
 	SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%char*%","DllCLIRealizaConsulta",pchrPtrCadenaConsulta);
 #endif
 		gintI=gintNRegistros=0;
-                sprintf(lchrArrCadenaConsulta,"%04d%04d%04d%04d%04d%s",1,1,1,1,strlen(pchrPtrCadenaConsulta),pchrPtrCadenaConsulta);
+                sprintf(lchrArrCadenaConsulta,"%04d%04d%04d%04d%04d%s",1,1,1,1,(int )strlen(pchrPtrCadenaConsulta),pchrPtrCadenaConsulta);
 	        Write(gintSocketSvr,lchrArrCadenaConsulta,strlen(lchrArrCadenaConsulta));	
 	        for(i=0;i<8;i++)
 		Read(gintSocketSvr,lchrArrCadenaConsulta+i,1);

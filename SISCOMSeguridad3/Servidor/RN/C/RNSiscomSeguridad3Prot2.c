@@ -1,6 +1,7 @@
 #include <RNSiscomSeguridad3Prot2.h>
 #include <ServidorGeneral.h>
 #include <stdlib.h>
+#include <string.h>
 
 StcConsultaSvrSiscom2 gStcCnsSeguridad3Pro2[]={ 
 		{EsConsultaSeguridad3Pro2,FormaConsultaSeguridad3Pro2},
@@ -16,12 +17,12 @@ int EsConsultaValidaFirma(char **pchrPtrEntrada)
 void ValidaPassword(SiscomOperacionesServidor *pSOpServidor)
 {
 const char *lchrPtrAcceso=!strcmp(SiscomObtenDato(pSOpServidor->LCSiscomPro2,"password"),
-				  (char **)pSOpServidor->voidPtrArgumentos[2]) ?
+				  (char *)pSOpServidor->voidPtrArgumentos[2]) ?
 				  "Si" :
 				  "No";
 	SiscomAsignaDatoCampo("acceso",
 			      pSOpServidor->LCSiscomPro2->SCSiscomPro2->intNumCampos,
-			      lchrPtrAcceso,
+			      (char *)lchrPtrAcceso,
 			      pSOpServidor->LCSiscomPro2->SCSiscomPro2);
 
 

@@ -16,6 +16,8 @@ public:
 
 	const char *Precio();
 	const char *PrecioTotal();
+
+	static zProductoCompra *DeCompra(zSiscomRegistro *);
 };
 
 #endif

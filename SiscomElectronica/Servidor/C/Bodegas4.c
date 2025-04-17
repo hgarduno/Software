@@ -194,8 +194,9 @@ int ArgumentoSqlLocal(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[128];
 SiscomAgregaArgumentoInsercionSql("SqlLocal",
-				  ObtenBaseBodegaO(pSisOpePtrDato),
-				  0,
+				  /*ObtenBaseBodegaO(pSisOpePtrDato),*/
+				  pSisOpePtrDato->chrArrBaseDatos,
+				  pSisOpePtrDato->chrArrPuertoBaseDatos,
 				  lchrArrBuffer,
 				  pSisOpePtrDato);
 
@@ -258,11 +259,10 @@ SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDatos);
 SiscomAsociadoAsociadoLog("Envio","BodegaO",lchrArrBuffer,pSisOpePtrDatos);
 SiscomAsociadoAsociadoLog("Envio","BodegaD",lchrArrBuffer,pSisOpePtrDatos);
 
-
+*/
 SiscomArgumentoInsercionSqlLog("SqlBodegaO",lchrArrBuffer,pSisOpePtrDatos);
 SiscomArgumentoInsercionSqlLog("SqlBodegaD",lchrArrBuffer,pSisOpePtrDatos);
-
-*/
+SiscomArgumentoInsercionSqlLog("SqlLocal",lchrArrBuffer,pSisOpePtrDatos);
 }
 
 int ArgumentoExistenciaBodega(SiscomOperaciones *pSisOpPtrDatos)

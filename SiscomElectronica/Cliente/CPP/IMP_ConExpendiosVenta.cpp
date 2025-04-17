@@ -101,7 +101,9 @@ int QConExpendiosVenta::Corriendo()
    else
    {
    MuestraExpendios();
+   /*
    exec();
+   */
    }
 
 
@@ -129,6 +131,7 @@ lEExpendio=lQAccSisEle.ExpendioSeleccionado();
 OtroExpendio(lQAccSisEle.ExpendioRegistro3(),lQAccSisEle.Servidor());
 return 0;
 }
+return 1;
 }
 const char *QConExpendiosVenta::IdExpendio()
 {
@@ -149,10 +152,11 @@ void QConExpendiosVenta::OtroExpendio(SiscomRegistro3 *pSisReg3Expendio,
   zExActual->Puerto(pSisDatCom->SiscomObtenPuertoCom());
   zExActual->IdExpendio((*pSisReg3Expendio)["IdExpendio"]);
   zExpsSiscom.Agrega(new zConexionExpendio(zExActual));
+  /*
   LogSiscom("Expendio %s : %s ", 
   	    (*pSisReg3Expendio)["RazonSocial"],
   	    (*pSisReg3Expendio)["IdExpendio"]);
-
+*/
 }
 const char *QConExpendiosVenta::DireccionIp()
 {

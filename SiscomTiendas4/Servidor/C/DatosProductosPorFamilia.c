@@ -2,6 +2,7 @@
 #include <SqlDatosProductosPorFamilia.h>
 #include <ComunSiscomTiendas4.h>
 #include <stdlib.h>
+#include <string.h>
 SiscomOperaciones2 *ODatosProductosPorFamilia()
 {
 SiscomOperaciones2 *lSOpOperaciones;

@@ -43,7 +43,8 @@ QtOrdenesRegistradas::QtOrdenesRegistradas(zSiscomConexion *pzSisConexion,
 					   chrPtrArgumentos(pchrPtrArgumentos),
 					   OrdenesRegistradas(pQWParent,pchrPtrName,pWFlags),
 					   zOrdVenta(0),
-					   chrPtrIdTipoOrden(0)
+					   chrPtrIdTipoOrden(0),
+					   QWParent(pQWParent)
 {
 /*
 delete QTWDatosOrden;
@@ -419,7 +420,7 @@ zOrdenVenta *QtOrdenesRegistradas::Orden()
 }
 void QtOrdenesRegistradas::CapturandoDescripcionCotizacion()
 {
-QCapturaDescripcionCotizacion lQCapDesCotizacion(1,"Envio",Orden(),Conexion());
+QCapturaDescripcionCotizacion lQCapDesCotizacion(1,"Envio",Orden(),Conexion(),QWParent);
 ActualizaDescripcion();
 Muestra();
 }
@@ -521,4 +522,14 @@ zOrdenVenta *QtOrdenesRegistradas::Orden(int pintNOrden)
 void QtOrdenesRegistradas::MarcaOrden()
 {
    zSiscomQt3::ColoreaFilas(QTOrdenes,Qt::green,intOrdenSeleccionada);
+}
+
+void QtOrdenesRegistradas::Parent(QWidget *pQWParent)
+{
+  QWParent=pQWParent;
+}
+
+QWidget *QtOrdenesRegistradas::Parent()
+{
+   return QWParent;
 }

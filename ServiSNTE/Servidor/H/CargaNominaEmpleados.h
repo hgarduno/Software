@@ -24,4 +24,6 @@ int rfc_regex(char * );
 int subString(char *, const char *, unsigned int, unsigned int );
 void normalizarNombrePropio(char *, char *, char *, char *);
 
+void NombreArchivo(const char *pchrPtrArchivo,
+		   char *pchrPtrArchivoSalida);
 #endif

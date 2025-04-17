@@ -79,7 +79,10 @@ char lchrArrBuffer[1024],
 	lchrArrSqlVentasCliente[1024],
 	lchrArrSqlPersona[1024];
 SqlConsultaVentasCliente(pSiscomOpePtrDat,lchrArrSqlVentasCliente);
+/*
 SqlPersonaPorRFC(pSiscomOpePtrDat,lchrArrSqlPersona);
+
+*/
 SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDat,
 		   "VentasCliente%Cliente%",
@@ -595,6 +598,8 @@ SiscomCampoAsociadoEntradaOperacion("Envio","IdProveedor",pSiscomOpePtrDato),
 SiscomCampoAsociadoEntradaOperacion("Envio","IdProducto",pSiscomOpePtrDato));
 
 
+/*
+
 SiscomConsultasSqlSistema("Servidor",
 			 "siglas",
 			 4,
@@ -605,6 +610,8 @@ SiscomConsultasSqlSistema("Servidor",
 			 pSiscomOpePtrDato,
 			 "ExistenciasProveedor%",
 			 lchrArrSql);
+
+*/
 }
 int SqlStockTienda(SiscomOperaciones *pSiscomOpePtrDato)
 {

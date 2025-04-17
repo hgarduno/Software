@@ -182,5 +182,5 @@ int PreparaDatosCosto(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];
 SiscomRegistroProL *lSisRegProLPtrCosto=SiscomRegistrosAsociadosCampoEntrada("Envio","Costo",pSiscomOpePtrDato);
-SiscomRegistrosLog(lchrArrBuffer,lSisRegProLPtrCosto);
+/*SiscomRegistrosLog(lchrArrBuffer,lSisRegProLPtrCosto); */
 }

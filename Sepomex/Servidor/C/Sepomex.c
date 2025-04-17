@@ -1,5 +1,6 @@
 #include<Sepomex.h>
 #include <SqlSepomex.h>
+#include <string.h>
 StcConsultaSvrSiscom2 gStcCnsSepomex[]={
 			   {EsConsultaEstados,FormaConsultaEstados},
 			   {EsConsultaTAsentamientos,FormaConsultaTAsentamientos},

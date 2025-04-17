@@ -67,6 +67,7 @@ void QtCorteCajaImp::ActualizandoGui()
    ActualizandoCambioDiaAnterior();
    ActualizandoVentasTotales();
    ActualizandoCalculandoCorte();
+   ActualizandoCorteTotal();
 }
 void QtCorteCajaImp::ActualizaGui()
 {

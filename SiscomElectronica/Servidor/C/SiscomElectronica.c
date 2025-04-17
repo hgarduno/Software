@@ -56,7 +56,7 @@
  * #include <CorteCaja.h> *
  *
  */
-
+#include <SiscomElectronica2/Servidor/H/CorteCaja.h>
 #include <SiscomElectronica4.h>
 
 

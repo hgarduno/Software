@@ -22,6 +22,7 @@ QDatosPedido::QDatosPedido(zOrdenVenta *pzOrdVenta,
 				QtDatosPedido(pzOrdVenta,pQWParent,pchrPtrName,pbModal,pWFlags),
 				intAceptar(0)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 exec();
 }

@@ -15,8 +15,6 @@ IniciaCampos();
    ActualizaCampo("Descripcion",(const unsigned char*)pzCotizacion->Descripcion());
 }
 
-
-
 void zCotizacionMediaCenter::CadenaCompleta(const char *pchrPtrEscuela)
 {
 const char *lchrPtrNombre,
@@ -100,6 +98,7 @@ void zCotizacionMediaCenter::DescripcionMediaCenterCotizacion()
 }
 void zCotizacionMediaCenter::DescripcionMediaCenter()
 {
+SiscomRegistroLog2(this);
    if(!CampoVsCadena("Modo","Cotizacion"))
     DescripcionMediaCenterCotizacion();
    else
@@ -168,11 +167,11 @@ const char *zCotizacionMediaCenter::Nombre()
 }
 void zCotizacionMediaCenter::IniciaCampos()
 {
- (*this)			<<
- new zSiscomCampo("Telefono")	<<
- new zSiscomCampo("Hora")	<<
- new zSiscomCampo("PagaCon")	<<
- new zSiscomCampo("Escuela")	<<
- new zSiscomCampo("Modo")	<<
+ (*this)				<<
+ new zSiscomCampo("Telefono")		<<
+ new zSiscomCampo("Hora")		<<
+ new zSiscomCampo("PagaCon")		<<
+ new zSiscomCampo("Escuela")		<<
+ new zSiscomCampo("Modo")		<<
  new zSiscomCampo("Nombre");
 }

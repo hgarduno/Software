@@ -17,6 +17,7 @@ QOrdenesDisponibles::QOrdenesDisponibles(zOrdenes *pzOrdenes,
 				chrPtrArgumentos(pchrPtrArgumentos),
 				zOrdsVenta(pzOrdenes)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 exec();

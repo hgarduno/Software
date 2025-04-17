@@ -10,7 +10,7 @@ export PATH
 
 CosasQueFaltanExpendios()
 {
-cat << SQL | psql SiscomElectronica 
+cat << SQL | psql SiscomElectronica  > /dev/null 2> /dev/null  
 
 insert into expendioabierto select idempresa from expendios ; 
 
@@ -35,6 +35,11 @@ EliminandoBaseExpendio()
   dropdb $1
 
 }
+EliminandoExpendios()
+{
+   EliminandoBaseExpendio Expendio_100
+   EliminandoBaseExpendio Expendio_200
+}
 ################################################ 
 ###### Se deben Eliminar las bases de datos 
 ##### de los expendio, y volver a registrarlo
@@ -54,6 +59,7 @@ CreaExpendios 	-IniciaExpendioNuevo  		\
 		-DirIpMatriz $4 
 
 }
+EliminandoExpendios
 printf "Preparando ambiente Desarrollo\n"
 printf "Restaurando la ultima base\n "
 
@@ -83,9 +89,50 @@ CreaExpendios -RegistroExpendio  		\
 		-PuertoAdExpendio 7546 		\
 		-DirIpAdExpendio 127.0.0.1
 
+printf "Creando El Expendio 100\n" 
+
+CreaExpendios -IniciaExpendioNuevo 		\
+		-Base SiscomElectronica 	\
+		-NmbExpendio Expendio_100 	\
+		-IdExpendio 100 		\
+		-BaseExpendio Expendio_100 	\
+		-Puerto 6546 			\
+		-DirIpMatriz 127.0.0.1
+
+printf "Creando el Expendio 200\n" 
+
+
+CreaExpendios -IniciaExpendioNuevo 		\
+		-Base SiscomElectronica 	\
+		-NmbExpendio Expendio_200 	\
+		-IdExpendio 200 		\
+		-BaseExpendio Expendio_200 	\
+		-Puerto 7546 			\
+		-DirIpMatriz 127.0.0.1
+
 
 CosasQueFaltanExpendios 
 EliminaBodegas 
+
+
+RegistraBodega -RegistroBodegaMatriz 		\
+		-IdBodega 100 			\
+		-Nombre Bodega_Expendio_100 	\
+		-BaseMatriz SiscomElectronica 	\
+		-DirIpExpendio 127.0.0.1 	\
+		-IdExpendio 100 		\
+		-BaseExpendio Expendio_100 	\
+		-Usuario hgarduno
+
+RegistraBodega -RegistroBodegaMatriz 		\
+		-IdBodega 200 			\
+		-Nombre Bodega_Expendio_200 	\
+		-BaseMatriz SiscomElectronica 	\
+		-DirIpExpendio 127.0.0.1 	\
+		-IdExpendio 200 		\
+		-BaseExpendio Expendio_200 	\
+		-Usuario hgarduno
+
 
 
 #echo 'update ambienteactivotimbrado set idambiente=2' |psql SiscomElectronica

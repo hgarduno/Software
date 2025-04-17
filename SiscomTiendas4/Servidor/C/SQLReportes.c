@@ -1,4 +1,5 @@
 #include <SQLReportes.h>
+#include <ComunSiscomTiendas4.h>
 void SQLReporteVentas(SArgsSiscom *pSAgsSiscom)
 {
 char lchrArrSQL[1024];

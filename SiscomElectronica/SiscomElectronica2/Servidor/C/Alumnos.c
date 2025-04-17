@@ -5,6 +5,8 @@
 #include <SiscomAplicaciones.h>
 
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 SiscomOperaciones2 *OpDatosAlumno()
 {
 SiscomOperaciones2 *lSOpOperaciones;

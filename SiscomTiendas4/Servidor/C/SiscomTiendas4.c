@@ -1,6 +1,10 @@
 #include <SiscomTiendas4.h>
 #include <SiscomAplicaciones.h>
 #include <ServidorGeneral.h>
+
+#include <SiscomDirecciones.h>
+
+#include <SiscomMediosComunicacion.h>
 #include <RNSiscomSeguridad3Prot2.h>
 #include <ComunSiscomTiendas4.h>
 #include <sys/types.h>

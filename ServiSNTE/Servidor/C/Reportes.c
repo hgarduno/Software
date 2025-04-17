@@ -773,9 +773,11 @@ void FormaProductoExistenciasTiendas(SiscomRegistroProL *pSiscomRegProLPtrProduc
 				     SiscomRegistroProL **pSiscomRegProLPtrExistenciaProdPrim,
 				     SiscomRegistroProL **pSiscomRegProLPtrExistenciaProdAct)
 {
+/*
   SiscomAnexaRegistroPro2(pSiscomRegProLPtrExistenciaProdPrim,
   			  pSiscomRegProLPtrExistenciaProdAct,
 			  pSiscomRegProLPtrProducto);
+*/
   SiscomAgregaCampoRegistro("DatosExistencia",0,*pSiscomRegProLPtrExistenciaProdAct); 
   LogSiscom("Agregando Productos al regreso");
 }
@@ -784,9 +786,11 @@ void FormaExistenciaTienda(SiscomRegistroProL *pSiscomRegProLPtrMaquina,
 			   SiscomRegistroProL **pSiscomRegProLPtrExisTiendaPrim,
 			   SiscomRegistroProL **pSiscomRegProLPtrExisTiendaAct)
 {
+/*
 SiscomAnexaRegistroPro2(pSiscomRegProLPtrExisTiendaPrim,
 			pSiscomRegProLPtrExisTiendaAct,
 			pSiscomRegProLPtrMaquina);
+*/
 SiscomAgregaCampoRegistro("Existencia",
 			  pSiscomRegProLPtrExistencias ? 
 			  SiscomObtenCampoRegistroProLChar("existencia",pSiscomRegProLPtrExistencias):0,
@@ -850,9 +854,11 @@ float lfltExistencia,
 	lfltCosto;
   if(SiscomObtenCampoRegistroProL("DatosExistencia",pSiscomRegProLPtrProducto))
   {
+  /*
 	SiscomAnexaRegistroPro2(pSiscomRegProLPtrExiProveedorTiendasPrim,
 				pSiscomRegProLPtrExiProveedorTiendasAct,
 				pSiscomRegProLPtrProducto);
+*/
 	lfltStock=SiscomObtenSumatoriaRegistros("stock",pSiscomRegProLPtrExiTiendasPrim);
 	lfltExistencia=SiscomObtenSumatoriaRegistros("existencia",pSiscomRegProLPtrExiTiendasPrim);
 	lfltCosto=lfltStock*SiscomObtenCampoRegistroProLFloat("costoneto",pSiscomRegProLPtrProducto);

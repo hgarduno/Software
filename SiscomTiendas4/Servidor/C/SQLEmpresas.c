@@ -1,5 +1,5 @@
 #include <SQLEmpresas.h>
-
+#include <ComunSiscomTiendas4.h>
 #include <stdlib.h>
 #include <string.h>
 void SQLConsultaEmpresaNormalizada(SArgsSiscom *pSAgsSiscom)

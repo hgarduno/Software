@@ -25,6 +25,7 @@ public:
 	void CambioDiaAnterior(const char *);
 	void VentasTotales(const char *);
 	void CalculandoCorte(const char *);
+	void CorteTotal(const char *);
 	const char *Nombre();
 	const char *Caja();
 	zDenominaciones *Dinero();

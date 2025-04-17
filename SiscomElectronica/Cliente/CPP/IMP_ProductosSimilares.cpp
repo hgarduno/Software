@@ -24,6 +24,7 @@ QProductosSimilares::QProductosSimilares(const  char *pchrPtrCriterio,
 				 intAceptar(0),
 				 intSiHayAlgunProducto(0)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 if(AnalizandoRespuesta())

@@ -9,4 +9,13 @@ char *SqlFormaConsultaPorMes(int pintMes,
 int SqlSaldosMovimientosMes(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlFormaConsultasSaldosMovimientos(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlConceptosSaldosMovimientos(SiscomOperaciones *pSiscomOpePtrDato);
+
+
+void SiscomConsultasSqlServidorPorIdMaquina2A(const char *pchrPtrIdServidor,
+				     SiscomRegistroProL *pSiscomRegProLPtrMemoria,
+				     const char *pchrPtrCampoParaNombres,
+				     const char *pchrPtrCamposSqls,
+				     char *pchrPtrBuffer,
+				     SiscomRegistroProL *pSiscomRegProLPtrSqls,
+				     SiscomOperaciones *pSiscomOpePtrDatos);
 #endif

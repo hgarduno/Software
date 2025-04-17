@@ -23,6 +23,19 @@ StcOperacionesGen gSOpGenericas[]={
 				  };
 			             
 int gintNOpGenericas=12;				
+
+
+
+long ObtenIdAplicacion(int pintPtoComAD,
+		       const char *pchrPtrDirIp,
+			const char *pchrPtrNmbAplicacion);
+
+
+
+void ObtenIdsConsulta(StcLtaRegComSISCOM *pSLRCSisDat,
+		      char **pchrPtrIdAplicacion,
+		      char **pchrPtrIdPantalla,
+		      char **pchrPtrIdPerfil);
 StcLtaRegComSISCOM *ValidaPerfil(int pintPtoComAD,
 				 const char *pchrPtrDirIpSvrAD,
 				 StcLtaRegComSISCOM *pSLRCSisDat,

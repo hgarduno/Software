@@ -1282,6 +1282,9 @@ struct sockaddr_in lSocAddrInCon;
 	     SiscomLog( "SiscomConetateServidor:%s",
 		     strerror(errno));
 	     *pchrPtrEdoConexion=(char *)strerror(errno); 
+	     SiscomLog("Puerto=%d Direccion Ip=%s",
+	     	       pintPtoCom,
+		       pchrPtrDirIpSvr);
 	     return -1;
 	  }
 	   else

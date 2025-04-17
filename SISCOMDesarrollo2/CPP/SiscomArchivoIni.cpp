@@ -8,7 +8,6 @@ LeeArchivo();
 }
 void SiscomArchivoIni::IniciaVariables()
 {
-SiscomEscribeLog3Qt("");
 
 }
 int SiscomArchivoIni::AbreArchivo()

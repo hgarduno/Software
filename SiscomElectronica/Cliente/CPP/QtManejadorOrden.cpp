@@ -21,7 +21,7 @@ int QtManejadorOrden::SeleccionandoOrden()
 
 int QtManejadorOrden::SeleccionaOrden()
 {
-QSeleccionaOrden lQSelOrden(QManOrden->Orden()->Expendio());
+QSeleccionaOrden lQSelOrden(QManOrden->Orden()->Expendio(),QManOrden->Parent());
 lQSelOrden.exec();
 if(lQSelOrden.Aceptar())
 {

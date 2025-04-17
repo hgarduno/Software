@@ -19,7 +19,7 @@ new zSiscomCampo("CalculandoCorte")	<<
 new zSiscomCampo("TotalGastos")		<<
 new zSiscomCampo("EdoCuentaCambio")	<<
 new zSiscomCampo("EdoCorteCaja")	<<
-new zSiscomCampo("Corte");
+new zSiscomCampo("CorteTotal");
 }
 
 void zCorteCaja::Cajas(zCajas *pzCajas)
@@ -73,6 +73,7 @@ ActualizaCampo("VentasTotales",(*pzSisRegRegreso)["VentasTotales"]);
 ActualizaCampo("DineroEntroCaja",(*pzSisRegRegreso)["DineroEntroCaja"]);
 ActualizaCampo("CalculandoCorte",(*pzSisRegRegreso)["CalculandoCorte"]);
 ActualizaCampo("TotalGastos",(*pzSisRegRegreso)["TotalGastos"]);
+ActualizaCampo("CorteTotal",(*pzSisRegRegreso)["CorteTotal"]);
 ActualizaCampo("Billetes",(*pzSisRegRegreso)["Billetes"]);
 }
 void zCorteCaja::VentasTotales(const char *pchrPtrVentasT)
@@ -123,9 +124,9 @@ const char *zCorteCaja::CambioDiaAnterior()
 {
   return (const char *)Campo("CambioDiaAnterior");
 }
-const char *zCorteCaja::Corte()
+const char *zCorteCaja::CorteTotal()
 {
-   return (const char *)Campo("Corte");
+   return (const char *)Campo("CorteTotal");
 }
 zCajas *zCorteCaja::Cajas()
 {
