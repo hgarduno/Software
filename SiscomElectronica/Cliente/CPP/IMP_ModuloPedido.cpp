@@ -168,6 +168,7 @@ void QModuloPedido::Registrar()
 {
 if(!ComoPago())
 {
+ UltimaOrden();
  RegistraOrden();
  EliminaOrden();
  IniciaOrden();

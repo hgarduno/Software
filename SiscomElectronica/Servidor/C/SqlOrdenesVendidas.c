@@ -50,7 +50,7 @@ sprintf(lchrArrSql,
 	     clavesatsiscom as e on a.cveproducto=e.clave 	\n\
 	where fechahora::date>='%s' and 			\n\
 	      fechahora::date<='%s' and				\n\
-	      a.edoventa in(0,4,7)				\n\
+	      a.edoventa in(0,2,4,7)				\n\
 	order by fechahora desc",
 SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
 SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
@@ -82,7 +82,7 @@ sprintf(lchrArrSql,
 	     productos as d using(cveproducto) left outer join	\n\
 	     clavesatsiscom as e on a.cveproducto=e.clave 	\n\
 	where b.idventa=%s and 					\n\
-	      a.edoventa in(0,4,7)				\n\
+	      a.edoventa in(0,2,4,7)				\n\
 	order by fechahora desc",
 SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato));
 SiscomConsultasSqlOperaciones(lchrArrBuffer,

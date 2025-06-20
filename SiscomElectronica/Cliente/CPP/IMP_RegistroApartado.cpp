@@ -110,6 +110,7 @@ int lintRegistroPersonales;
     	ConsultandoSimilares();
     else
     {
+       	MuestraCliente();
 	MuestraDatosComunicacion();
 	zSiscomQt3::Foco(QLEACuenta);
 	QPBRegistraPersonales->setEnabled(false);
@@ -328,7 +329,7 @@ intRegistroPersonales=1;
 
 void QRegistroApartado::MuestraCliente()
 {
-//    QLENumCliente->setText(zCliSiscom->IdPersona());
+    //QLENumCliente->setText(zCliSiscom->IdPersona());
     QLENombre->setText(zCliSiscom->Nombre());
     QLEAPaterno->setText(zCliSiscom->APaterno());
     QLEAMaterno->setText(zCliSiscom->AMaterno());
@@ -372,9 +373,16 @@ int lintRegistro;
 }
 void QRegistroApartado::HabilitandoAceptar()
 {
+int lintValidacionCorreo=1,
+	lintValidacionCelular=1;
+   if(!zCliSiscom->PersonaValida())
+    lintValidacionCorreo=(zCliSiscom->Correo() || !SeCapturoCorreo()) ;
+    if(!zCliSiscom->PersonaValida())
+    lintValidacionCelular=zCliSiscom->Celular()? 1:0;
+    
    QPBAceptar->setEnabled(zCliSiscom->PersonaValida() 			&&
-   			  (zCliSiscom->Correo() || !SeCapturoCorreo() ) &&
-			  zCliSiscom->Celular()      			&&
+   			 lintValidacionCorreo				&&
+			 lintValidacionCelular      			&&
 			  zSiscomQt3::TextoValido(QLEACuenta));
 }
 void QRegistroApartado::ControlesDespuesRegistrarPersonales()

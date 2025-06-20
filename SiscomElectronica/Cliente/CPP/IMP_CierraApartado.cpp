@@ -130,6 +130,7 @@ zOrdsRegistradas=lzSisElecOrdenes.Ordenes2((const char *)QCtrFechaIni->ObtenFech
 void QCierraApartado::MuestraApartado(int pintApartado,
 				      zOrdenVenta *pzOrden)
 {
+LogSiscom("%s",pzOrden->IdVenta());
 QTApartados->setText(pintApartado,0,pzOrden->IdVenta());
 QTApartados->setText(pintApartado,1,pzOrden->Fecha());
 QTApartados->setText(pintApartado,3,pzOrden->Apartado()->FechaHoraE());

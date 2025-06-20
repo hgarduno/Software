@@ -248,10 +248,10 @@ int QClientePedido::BuscandoAElCliente()
 int lintClientesSimilares;
    if((lintClientesSimilares=HayClientesSimilares())==1)
    {
-     SiscomRegistroLog2(UnClienteEncontrado());
-   Orden()->Cliente(UnClienteEncontrado());
-   QtClientePedido::MuestraCliente();
-   return 2;
+     	SiscomRegistroLog2(UnClienteEncontrado());
+   	Orden()->Cliente(UnClienteEncontrado());
+   	QtClientePedido::MuestraCliente();
+   	return 2;
    }
    else
    if(lintClientesSimilares==2)
