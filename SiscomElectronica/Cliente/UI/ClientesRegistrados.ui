@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>963</width>
-            <height>496</height>
+            <width>942</width>
+            <height>636</height>
         </rect>
     </property>
     <property name="caption">
@@ -40,24 +40,15 @@
                         <property name="text">
                             <string>Nombre</string>
                         </property>
-                        <property name="pixmap">
-                            <pixmap></pixmap>
-                        </property>
                     </column>
                     <column>
                         <property name="text">
                             <string>Telefono</string>
                         </property>
-                        <property name="pixmap">
-                            <pixmap></pixmap>
-                        </property>
                     </column>
                     <column>
                         <property name="text">
                             <string>Correo</string>
-                        </property>
-                        <property name="pixmap">
-                            <pixmap></pixmap>
                         </property>
                     </column>
                     <property name="name">

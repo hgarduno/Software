@@ -101,9 +101,7 @@ int QConExpendiosVenta::Corriendo()
    else
    {
    MuestraExpendios();
-   /*
    exec();
-   */
    }
 
 

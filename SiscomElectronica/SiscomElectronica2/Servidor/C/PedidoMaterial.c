@@ -378,18 +378,24 @@ sprintf(pchrPtrTexto,
 	"Fecha %s Hora %02d:%02d:%02d\n"
 	"No De Pedido %s\n"
 	"Expendio:%s\n"
-	"%-11s"
-	"%-13s"
-	"%-9s"
-	"%-7s\n",
+	"%-26s"	/*Clave Producto */
+	"%-5s" /* Cantidad */
+	"%-5s" /*Existencia*/
+	"%-6s" /*Bodega*/
+	"%-4s" /* Estante */
+	"%-3s\n", /* Caja*/
 	lchrArrFecha,
 	lintHora,
 	lintMinuto,
 	lintSegundo,
 	SiscomObtenDato(pSAgsSiscom->LCSiscomPro2Dat,"IdPedido"),
 	SiscomObtenCampoArgumento("SqlImprimePedido","razonsocial",pSAgsSiscom),
-	"Cantidad",
 	"Producto",
+	"Can",
+	"Ex",
+	"Bod",
+	"E",
+	"C",
 	"",
 	"");
 }
@@ -438,19 +444,35 @@ return (lintTamRegistro*SiscomArgumentosNumeroRegistros("SqlImprimePedido",pSAgs
 	      * Siscom Electronica
 	      */
 }
-
+void FormatoSoloEntero(const char *pchrPtrCadena,
+		      char *pchrPtrCadenaS)
+{
+float lfltNumero=atof(pchrPtrCadena);
+sprintf(pchrPtrCadenaS,"%d",(int )lfltNumero);
+}
 void FormaRegistroImpresionPedido(LCamposSiscomPro2 *pLCSiscomPro2Dat,
 			    char *pchrPtrRegistro)
 {
-float lfltCantidad=atof(SiscomObtenDato(pLCSiscomPro2Dat,"Cantidad"));
-char lchrArrCantidad[10];
-sprintf(lchrArrCantidad,"%d",(int )lfltCantidad);
+char lchrArrCantidad[10],
+	lchrArrExistencia[10],
+	lchrArrBodega[10];
+
+/*SiscomContenidoProtocolo(pLCSiscomPro2Dat); */
+
+
+FormatoSoloEntero(SiscomObtenDato(pLCSiscomPro2Dat,"Cantidad"),lchrArrCantidad);
+FormatoSoloEntero(SiscomObtenDato(pLCSiscomPro2Dat,"existencia"),lchrArrExistencia);
+FormatoSoloEntero(SiscomObtenDato(pLCSiscomPro2Dat,"exbodegas"),lchrArrBodega);
+		
+
 sprintf(pchrPtrRegistro,
-	"%-11s%-13s%-9s%-7s\n",
-	lchrArrCantidad,
+	"%-26s%-5s%-5s%-6s%-4s%-3s\n",
 	SiscomObtenDato(pLCSiscomPro2Dat,"CveProducto"),
-	"",
-	"");
+	lchrArrCantidad,
+	lchrArrExistencia,
+	lchrArrBodega,
+	SiscomObtenDato(pLCSiscomPro2Dat,"estante"),
+	SiscomObtenDato(pLCSiscomPro2Dat,"caja"));
 }
 void RegistrosImpresionPedido(SArgsSiscom *pSAgsSiscom,	
 			char *pchrPtrTexto)
@@ -458,7 +480,6 @@ void RegistrosImpresionPedido(SArgsSiscom *pSAgsSiscom,
 char lchrArrRegistro[256];
 LCamposSiscomPro2 *lLCSiscomPro2Dat;
 lLCSiscomPro2Dat=SiscomArgumentoOperacionPrim("SqlImprimePedido",pSAgsSiscom);
-SiscomLog("");
 while(lLCSiscomPro2Dat)
 {
   FormaRegistroImpresionPedido(lLCSiscomPro2Dat,lchrArrRegistro);
@@ -469,7 +490,7 @@ while(lLCSiscomPro2Dat)
 char *TextoImpresionPedido(SArgsSiscom *pSAgsSiscom,
 		     int *pintPtrTamBuffer)
 {
-*pintPtrTamBuffer=TamanoBufferImpresionPedido(pSAgsSiscom);
+*pintPtrTamBuffer=TamanoBufferImpresionPedido(pSAgsSiscom)+512;
 char *lchrPtrImpresion;
 lchrPtrImpresion=(char *)malloc(*pintPtrTamBuffer);
 EncabezadoImprimePedido(pSAgsSiscom,lchrPtrImpresion);

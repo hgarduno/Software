@@ -284,10 +284,7 @@ void zSiscomElectronica::AsignaDatosApartado(zSiscomRegistro *pzSisRegCotizacion
 {
 zSiscomRegistro *lzSisRegCotizacion;
   if((lzSisRegCotizacion=pzSisRegCotizacion->AsociadoDelCampo("Apartado")))
-  {
-   SiscomRegistroLog2(lzSisRegCotizacion);
-  pzOrden->Apartado(new zApartado(lzSisRegCotizacion));
-  }
+   pzOrden->Apartado(new zApartado(lzSisRegCotizacion));
 }
 void zSiscomElectronica::AsignaDatosCotizacion(zSiscomRegistro *pzSisRegCotizacion,
 					       zOrdenVenta *pzOrden)

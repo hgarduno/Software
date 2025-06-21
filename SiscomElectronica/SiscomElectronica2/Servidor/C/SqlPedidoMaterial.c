@@ -58,7 +58,9 @@ SiscomConsultaBaseAsignaArgumento("SqlDetallePedidoExpendio",
 
 void SqlImprimePedido(SArgsSiscom *pSAgsSiscom)
 {
-char lchrArrSql[512];
+char lchrArrSql[1024];
+SiscomLog("-----");
+/*
 sprintf(lchrArrSql,
 	"select a.idexpendio,					\n\
 		b.*,						\n\
@@ -69,6 +71,28 @@ sprintf(lchrArrSql,
 	 where idpedido=%s					\n\
 	 order by idpedido,cveproducto",
 	SiscomCampoDatosEntrada("IdPedido",pSAgsSiscom));
+
+*/
+sprintf(lchrArrSql,
+	"								\n\
+select a.idexpendio,							\n\
+       b.*,								\n\
+        c.razonsocial,							\n\
+	d.existencia,							\n\
+	d.exbodegas,							\n\
+	f.estante,							\n\
+	g.caja								\n\
+from pedidosmaterial as a inner join 					\n\
+     detallepedidomaterial as b using(idpedido) inner join		\n\
+     empresas as c on a.idexpendio=c.idempresa left outer join 		\n\
+     existenciaexpendiobodegas as d using(cveproducto) left outer join 	\n\
+     ubicacionproducto as e using(cveproducto) left outer join		\n\
+     estante as f using(idestante) left outer join 			\n\
+     cajamaterial as g using(idcaja)					\n\
+where idpedido=%s							\n\
+order by idpedido,cveproducto",
+SiscomCampoDatosEntrada("IdPedido",pSAgsSiscom));
+
 SiscomConsultaBaseAsignaArgumento("SqlImprimePedido",
 				   lchrArrSql,
 				   pSAgsSiscom);
