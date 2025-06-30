@@ -2,6 +2,7 @@
 #include <zSiscomConexion.h>
 #include <zSiscomRegistros.h>
 #include <zSiscomTableItem.h>
+#include <zSiscomDesarrollo4.h>
 #include <qcombobox.h>
 #include <qlineedit.h>
 #include <qtextedit.h>
@@ -141,12 +142,12 @@ if(pQTDatos->isRowSelected(lintContador,true))
 }
 }
 
-void zSiscomQt3::SiscomALetra(double lfltDato, char **pchrArrALetraPtr)
+void zSiscomQt3::SiscomALetras(double lfltDato, char **pchrArrALetraPtr)
 {
-    char lchrArrNumeroCompleto[10],
-         lchrArrNumeroALetra[128] = "\0",
-         lchrArrDecimal[12] = "00/100 M.N.",
-         lchrArrEntero[8],
+    char lchrArrNumeroCompleto[15],
+         lchrArrNumeroALetra[256] = "\0",
+         lchrArrDecimal[15] = "00/100 M.N.",
+         lchrArrEntero[16],
          *pchrArrPtr;
     int lintContador;
     sprintf(lchrArrNumeroCompleto, "%.2f", lfltDato);
@@ -158,7 +159,6 @@ void zSiscomQt3::SiscomALetra(double lfltDato, char **pchrArrALetraPtr)
     lchrArrEntero[lintContador]='\0';
     lchrArrDecimal[0]=*(pchrArrPtr+1);
     lchrArrDecimal[1]=*(pchrArrPtr+2);
-
     if(atoi(lchrArrEntero)==0)
     {
         strcat(lchrArrNumeroALetra,"cero ");
@@ -185,7 +185,11 @@ void zSiscomQt3::SiscomALetra(double lfltDato, char **pchrArrALetraPtr)
     }
     strcat(lchrArrNumeroALetra,"pesos ");
     strcat(lchrArrNumeroALetra,lchrArrDecimal);
-    *pchrArrALetraPtr = (char *) malloc(sizeof(char)*strlen(lchrArrNumeroALetra));
+    LogSiscom("Las letras tienen (%d) Caracteres %s",
+    	       strlen(lchrArrNumeroALetra),
+	       lchrArrNumeroALetra);
+
+    *pchrArrALetraPtr = (char *) malloc(strlen(lchrArrNumeroALetra)+25);
     strcpy(*pchrArrALetraPtr,lchrArrNumeroALetra);
 }
 

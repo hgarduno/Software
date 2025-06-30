@@ -1,7 +1,7 @@
 /****************************************************************************
 ** QtImpRegistroCompras meta object code from reading C++ file 'QtImpRegistroCompras.h'
 **
-** Created: Sat Feb 22 23:13:59 2025
+** Created: Tue Jun 24 09:00:07 2025
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

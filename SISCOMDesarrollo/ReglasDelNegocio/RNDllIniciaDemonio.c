@@ -20,7 +20,7 @@ void LeeNombresDeProcesosYCopiaSHM(void *);
 unsigned CuantosProcesosExisten();
 void GeneraArgumentos(int ,char *,int,char *,unsigned long,char ***);
 int IniciaMemSHM(unsigned long *);
-void CargaServidoresDeReplicacion();
+void CargaServidoresDeReplicacion(void *);
 void AlmacenaSHMId(unsigned long);
 int CargaProcesosYDll(int pintSocket,unsigned long plngSHMID,int pintPtoSvrAD,char *pchrPtrDirIPSvrAD,char *pchrPtrBinario,char ***pchrPtrArgs)
 {

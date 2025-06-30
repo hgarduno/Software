@@ -469,6 +469,14 @@ void SiscomFechaLocal(char *pchrPtrFecha);
 void SiscomNormalizaEmpresaPrincipalSR2(unsigned char *pchrPtrCambia,
 					LCamposSiscomPro2ConSubReg *pLCSiscomPro2SRDat,
 					LCamposSiscomPro2 *pLCSiscomPro2Salida);
+
+
+void SiscomAgrupaRegistrosPorCampo(LCamposSiscomPro2 *pLCSiscomPro2Dat,
+				   int pintNRegistros,
+				   const char *pchrPtrNmbCampo,
+				   int pintNRegistroFiltro,
+				   int *pintPtrNRegistros,
+				   LCamposSiscomPro2 **pLCSiscomPro2DatPrim);
 #if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 95)
 #define SiscomLog(...) SiscomMensajesLog2A(__FILE__,__FUNCTION__,__LINE__,__VA_ARGS__)
 #else

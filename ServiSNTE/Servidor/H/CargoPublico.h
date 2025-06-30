@@ -6,4 +6,5 @@
 int EnviaEstadoRegistroCargoPublico(SiscomOperaciones *pSiscomOpePtrDato);
 int AgregaIdCargoPublico(SiscomOperaciones *pSiscomOpePtrDato);
 int ValidaEstadoInsercionCargoPublico(SiscomOperaciones *pSiscomOpePtrDato);
+int ValidaEstadoRegistroCargoPublico(SiscomOperaciones *pSiscomOpePtrDato);
 #endif

@@ -2,6 +2,7 @@
 
 #include <SqlSiscomElectronica.h>
 #include <SqlExistenciaExpendios.h>
+#include <SqlProductosSE.h>
 
 #include <SiscomDesarrolloMacros.h>
 #include <SiscomCamposProtocolo.h>
@@ -140,9 +141,12 @@ for(;
      lchrPtrCampoSistema=SiscomObtenCampoRegistroProLChar(pchrPtrCampoSistema,
      							lSiscomRegProLPtrExpendios);
     
+    LogSiscom("%s %s",lchrPtrCampoSistema,pchrPtrCampoRespConsulta);
+    
      lSiscomRegProLPtrConsulta=SiscomRegistrosMaquinaConsulta(lchrPtrCampoSistema,
      							  pchrPtrCampoRespConsulta,
 							  pSiscomOpePtrDato);
+	
      LogSiscom("Informacion de %s %d Registros(%s)",
      		lchrPtrCampoSistema,
 		lSiscomRegProLPtrConsulta->intNRegistros,
@@ -487,6 +491,17 @@ SiscomAnexaRegistroPro(pSiscomRegProLPtrPrim,
 		       "Existencia,",
 		       (const char *)0);
 }
+void AgregaRegistroVentaExistencia(SiscomRegistroProL **pSisRegProLPtrPrim,
+				   SiscomRegistroProL **pSisRegProLPtrAct)
+{
+char lchrArrBuffer[255];
+SiscomAnexaRegistroPro(pSisRegProLPtrPrim,
+		       pSisRegProLPtrAct,
+		       lchrArrBuffer,
+		       "Existencia,Ventas,",
+		       (const char *)0,
+		       (const char *)0);
+}
 void AgregaRegistroDatosExistencia(SiscomRegistroProL **pSiscomRegProLPtrPrim,
 				   SiscomRegistroProL **pSiscomRegProLPtrAct,
 				   const char *pchrPtrCampo,
@@ -507,7 +522,58 @@ SiscomAnexaRegistroPro(
 	SiscomObtenCampoRegistroProLChar("razonsocial",pSiscomRegProLPtrMaquina));
 
 }
+void AgregaRegistroCeroVenta(SiscomRegistroProL **pSisRegProLPtrPrim,
+			     SiscomRegistroProL **pSisRegProLPtrAct,
+			const char *pchrPtrCveProducto)
+{
+char lchrArrBuffer[256];
+SiscomAnexaRegistroPro(pSisRegProLPtrPrim,
+		       pSisRegProLPtrAct,
+		       lchrArrBuffer,
+		       "totalventas,cveproducto,",
+		       "0",
+		       pchrPtrCveProducto);
+
+}
+
+void AgregaRegistroCeroVExistencia(SiscomRegistroProL **pSisRegProLPtrPrim,
+			     SiscomRegistroProL **pSisRegProLPtrAct,
+			const char *pchrPtrCveProducto)
+{
+char lchrArrBuffer[256];
+SiscomAnexaRegistroPro(pSisRegProLPtrPrim,
+		       pSisRegProLPtrAct,
+		       lchrArrBuffer,
+		       "cveproducto,existenciat,",
+		       pchrPtrCveProducto,
+		       "0");
+
+}
 int EstadoConsultaSistemaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
+				const char *pchrPtrCampo,
+				SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[128];
+SiscomRegistroProL *lSiscomRegProLPtrExistencia;
+const char *lchrPtrIdExpendio;
+lchrPtrIdExpendio=SiscomObtenCampoRegistroProLChar("idempresa",pSiscomRegProLPtrMaquinas);
+
+/*
+lSiscomRegProLPtrExistencia=SiscomRegistrosAsociadosCampo(lchrPtrIdExpendio,
+							  "Existencia",
+							  pSiscomOpePtrDato->SiscomRegProLPtrPrimRes);
+*/
+/*SiscomRegistroProtocoloLog(lchrArrBuffer,lSiscomRegProLPtrExistencia); 
+SiscomRegistroProtocoloLog(lchrArrBuffer,pSiscomOpePtrDato->SiscomRegProLPtrPrimRes); 
+*/
+lSiscomRegProLPtrExistencia=SiscomObtenRegistrosCampoProL(lchrPtrIdExpendio,
+						pSiscomOpePtrDato->SiscomRegProLPtrPrimRes);
+
+SiscomRegistroProtocoloLog(lchrArrBuffer,lSiscomRegProLPtrExistencia);
+return !lSiscomRegProLPtrExistencia;
+}
+
+int EstadoConsultaVentasExistenciaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
 				const char *pchrPtrCampo,
 				SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -587,6 +653,120 @@ SiscomRegistrosAlCampo(pchrPtrCampo,
 
 
 }
+
+int ErrorConexionVentasExistenciaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
+			  const char *pchrPtrCampo,
+			  SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256];
+SiscomRegistroProL *lSiscomRegProLPtrPrimVentas=0,
+		   *lSiscomRegProLPtrActVentas=0,
+		   *lSiscomRegProLPtrPrimExistencia=0,
+		   *lSiscomRegProLPtrActExistencia=0,
+		   *lSiscomRegProLPtrProductos,
+		   *lSiscomRegProLPtrPrimExiVentas=0,
+		   *lSiscomRegProLPtrActExiVentas=0;
+const char *lchrPtrCveProducto;
+LogSiscom("Se proceso consulta con error");
+lSiscomRegProLPtrProductos=SiscomRegistroAsociadoEntradaOperacion("Envio",
+								  "Productos",
+								  pSiscomOpePtrDato);
+
+AgregaRegistroVentaExistencia(&lSiscomRegProLPtrPrimExiVentas,
+			      &lSiscomRegProLPtrActExiVentas);
+
+for(;
+     lSiscomRegProLPtrProductos;
+     lSiscomRegProLPtrProductos=lSiscomRegProLPtrProductos->SiscomRegProLPtrSig)
+{
+  lchrPtrCveProducto=SiscomObtenCampoRegistroProLChar("cveproducto",lSiscomRegProLPtrProductos);
+   AgregaRegistroCeroVenta(&lSiscomRegProLPtrPrimVentas,
+   			   &lSiscomRegProLPtrActVentas,
+			   lchrPtrCveProducto);
+
+   
+   AgregaRegistroCeroVExistencia(&lSiscomRegProLPtrPrimExistencia,
+   			   &lSiscomRegProLPtrActExistencia,
+			   lchrPtrCveProducto);
+
+   			
+}
+SiscomRegistrosAlCampo("Existencia",
+			lSiscomRegProLPtrPrimExistencia,
+			lSiscomRegProLPtrActExistencia,
+			lSiscomRegProLPtrPrimExiVentas);
+
+SiscomRegistrosAlCampo("Ventas",
+			lSiscomRegProLPtrPrimVentas,
+			lSiscomRegProLPtrActVentas,
+			lSiscomRegProLPtrPrimExiVentas);
+
+
+
+SiscomRegistrosAlCampo(pchrPtrCampo,
+		      lSiscomRegProLPtrPrimExiVentas,
+		      lSiscomRegProLPtrActExiVentas,
+		      pSiscomOpePtrDato->SiscomRegProLPtrPrimRes);
+}
+
+SiscomRegistroProL *ProductosRegistradosSiscom(SiscomOperaciones *pSisOpePtrDato)
+{
+SiscomOperaciones lSisOpeDato=*pSisOpePtrDato;
+  SqlProductosSE(&lSisOpeDato);
+
+return SiscomObtenRegistrosCampoRespuesta("Productos",&lSisOpeDato);
+ 
+
+}
+int ErrorConexionVentasExistenciaSiscomT(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
+			  const char *pchrPtrCampo,
+			  SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256];
+SiscomRegistroProL *lSiscomRegProLPtrPrimVentas=0,
+		   *lSiscomRegProLPtrActVentas=0,
+		   *lSiscomRegProLPtrPrimExistencia=0,
+		   *lSiscomRegProLPtrActExistencia=0,
+		   *lSiscomRegProLPtrProductos,
+		   *lSiscomRegProLPtrPrimExiVentas=0,
+		   *lSiscomRegProLPtrActExiVentas=0;
+const char *lchrPtrCveProducto;
+LogSiscom("Se proceso consulta con error");
+lSiscomRegProLPtrProductos=ProductosRegistradosSiscom(pSiscomOpePtrDato);
+
+AgregaRegistroVentaExistencia(&lSiscomRegProLPtrPrimExiVentas,
+			      &lSiscomRegProLPtrActExiVentas);
+
+for(;
+     lSiscomRegProLPtrProductos;
+     lSiscomRegProLPtrProductos=lSiscomRegProLPtrProductos->SiscomRegProLPtrSig)
+{
+  lchrPtrCveProducto=SiscomObtenCampoRegistroProLChar("cveproducto",lSiscomRegProLPtrProductos);
+   AgregaRegistroCeroVenta(&lSiscomRegProLPtrPrimVentas,
+   			   &lSiscomRegProLPtrActVentas,
+			   lchrPtrCveProducto);
+
+   
+   AgregaRegistroCeroVExistencia(&lSiscomRegProLPtrPrimExistencia,
+   			   &lSiscomRegProLPtrActExistencia,
+			   lchrPtrCveProducto);
+
+   			
+}
+SiscomRegistrosAlCampo("Existencia",
+			lSiscomRegProLPtrPrimExistencia,
+			lSiscomRegProLPtrActExistencia,
+			lSiscomRegProLPtrPrimExiVentas);
+SiscomRegistrosAlCampo("Ventas",
+			lSiscomRegProLPtrPrimVentas,
+			lSiscomRegProLPtrActVentas,
+			lSiscomRegProLPtrPrimExiVentas);
+SiscomRegistrosAlCampo(pchrPtrCampo,
+		      lSiscomRegProLPtrPrimExiVentas,
+		      lSiscomRegProLPtrActExiVentas,
+		      pSiscomOpePtrDato->SiscomRegProLPtrPrimRes);
+}
+
 
 
 int ConexionExpendioConsultaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,

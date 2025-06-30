@@ -4,4 +4,5 @@
 #include <SiscomOperaciones.h>
 int EnviaEstadoRegistroCentroTrabajo(SiscomOperaciones *pSiscomOpePtrDato);
 void EnviaRegistroExitosoCentroTrabajo(SiscomOperaciones *pSiscomOpePtrDato);
+int ValidaEstadoRegistroCentroTrabajo(SiscomOperaciones *pSiscomOpePtrDato);
 #endif
