@@ -233,7 +233,7 @@
                         <cstring>QPBActualizar</cstring>
                     </property>
                     <property name="enabled">
-                        <bool>false</bool>
+                        <bool>true</bool>
                     </property>
                     <property name="text">
                         <string>&amp;Actualizador</string>

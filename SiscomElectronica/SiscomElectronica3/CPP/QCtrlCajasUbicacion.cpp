@@ -46,10 +46,6 @@ connect(QCBCajasUbicacion,
 connect(QCBCajasUbicacion,
 	SIGNAL(activated(int)),
 	SLOT(SlotSelecciono(int)));
-connect(QCBCajasUbicacion,
-	SIGNAL(textChanged(const QString &)),
-	SLOT(SlotCambioRFC(const QString &)));
-connect(QLERFC,SIGNAL(returnPressed()),SLOT(SlotCapturoRfc()));
 }
 void QCtrlCajasUbicacion::SlotCapturoRfc()
 {

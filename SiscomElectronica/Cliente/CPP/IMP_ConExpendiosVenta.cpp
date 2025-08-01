@@ -104,6 +104,7 @@ int QConExpendiosVenta::Corriendo()
    exec();
    }
 
+return 0;
 
 }
 int QConExpendiosVenta::SeCambioExpendio()

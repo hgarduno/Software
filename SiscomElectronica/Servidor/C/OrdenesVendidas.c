@@ -195,7 +195,9 @@ char lchrArrBuffer[256];
 SiscomRegistroProL *lSiscomRegProLPtrRegreso;
 
 lSiscomRegProLPtrRegreso=AgrupaOrdenesVendidas2(pSiscomOpePtrDato);
+/*
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSiscomRegProLPtrRegreso);
+*/
 SiscomEnviaRegistrosSocket(pSiscomOpePtrDato->intSocket,
 			  lchrArrBuffer,
 			  lSiscomRegProLPtrRegreso);
@@ -340,7 +342,6 @@ SiscomRegistroProtocoloLog(lchrArrBuffer,pSisRegProLPtrPedidos);
       					 pSisRegProLPtrDato,
 					 pSisRegProLPtrPedidos))
       {
-        LogSiscom("El Apartado %s",SiscomObtenCampoRegistroProLChar("idventa",pSisRegProLPtrPedidos));
         SiscomNodoRegistroPro(pSisRegProLPtrPedidos->SiscomCamProLPtrDato,
 			      &lSisRegProLPtrPedidoPrim,
 			      &lSisRegProLPtrPedidoAct);
@@ -362,7 +363,7 @@ char lchrArrBuffer[256];
 SiscomRegistroProL *lSisRegProLPtrApartados,*lSisRegProLPtrAbonosA;
 lSisRegProLPtrApartados=SiscomObtenArgumentoPrimOperaciones("SqlApartados",pSiscomOpePtrDato);
 lSisRegProLPtrAbonosA=AgrupaAbonosApartados(pSiscomOpePtrDato);
-SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrApartados);
+/*SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrApartados); */
 for( ;pSiscomRegProLPtrDato;
       pSiscomRegProLPtrDato=pSiscomRegProLPtrDato->SiscomRegProLPtrSig)
 AgregaInformacionApartado(pSiscomRegProLPtrDato,lSisRegProLPtrAbonosA,lSisRegProLPtrApartados);

@@ -70,6 +70,8 @@ ConectaSlots();
 TextoEncabezado();
 EliminaBotonesQueNoUso();
 }
+
+
 void QModuloVentas::ConectaSlots()
 {
   connect(this,

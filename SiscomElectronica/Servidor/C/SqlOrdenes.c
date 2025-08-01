@@ -770,6 +770,20 @@ sprintf(pchrPtrSql,
 
 }
 
+void UpdateToImporteOrdenCierreOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
+				       SiscomRegistroProL *pSiscomRegProLPtrDato,
+				       char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"update importeorden set importe=%s ,fecha='%s',edoventa=0 where idventa=%s;",
+SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","Apartado","PorPagar",pSiscomOpePtrDato),
+SiscomObtenCampoRegistroProLChar("FechaHoy",pSiscomRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
+
+
+	       
+
+}
 void InsertToImporteOrdenCierreOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
 					SiscomRegistroProL *pSiscomRegProLPtrDato,
 					char *pchrPtrSql)
@@ -905,14 +919,25 @@ char lchrArrBuffer[256],
 	lchrArrSql[256];
 
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
-
 SiscomAsociadoAsociadoLog("Envio","Apartado",lchrArrBuffer,pSiscomOpePtrDato);
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
+/*
 SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 				     "Envio",
 				     lchrArrBuffer,
 				     lchrArrSql,
 				     pSiscomOpePtrDato,
 				     InsertToImporteOrdenCierreOtroDia);
+
+*/
+
+SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+				     "Envio",
+				     lchrArrBuffer,
+				     lchrArrSql,
+				     pSiscomOpePtrDato,
+				     UpdateToImporteOrdenCierreOtroDia);
+
 SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 				     "Envio",
 				     lchrArrBuffer,

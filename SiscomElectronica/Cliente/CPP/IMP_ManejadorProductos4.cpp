@@ -185,12 +185,11 @@ void QManejadorProductos4::AsignandoCaja()
 {
 zSiscomElectronica lzSisElectronica(zSisConexion,"AsignaCajaProducto");
 lzSisElectronica.AsignaCajaProducto(zSisRegProducto);
+SiscomRegistroLog2(zSisRegProducto);
 }
 void QManejadorProductos4::AsignaCajaAlProducto()
 {
-  if(!SinCaja(zSisRegCaja))
   zSisRegProducto->ActualizaCampo("idcaja",(*zSisRegCaja)["idcaja"]);
-  if(!SinEstante(zSisRegEstante))
   zSisRegProducto->ActualizaCampo("idestante",(*zSisRegEstante)["idestante"]);
 }
 void QManejadorProductos4::MuestraProductos(zProductos *pzProductos)
@@ -213,6 +212,8 @@ int QManejadorProductos4::SinCajaOSinEstante(const char *pchrPtrCampo,
 {
 if(pzSisRegEstante)
  return pzSisRegEstante->CampoInt(pchrPtrCampo)==-1;
+ else
+ return 1;
 }
 int QManejadorProductos4::SinEstante(zSiscomRegistro *pzSisRegEstante)
 {
@@ -225,16 +226,10 @@ int QManejadorProductos4::SinCaja(zSiscomRegistro *pzSisRegEstante)
 
 void QManejadorProductos4::AsignandoEstante(zSiscomRegistro *pzSisRegEstante)
 {
-   if(SinEstante(pzSisRegEstante))
-    zSisRegEstante=0;
-   else
    zSisRegEstante=pzSisRegEstante;
 }
 void QManejadorProductos4::AsignandoCaja(zSiscomRegistro *pzSisRegCaja)
 {
-   if(SinCaja(pzSisRegCaja))
-    zSisRegCaja=0;
-   else
    zSisRegCaja=pzSisRegCaja;
 }
 

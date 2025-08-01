@@ -36,6 +36,7 @@ private:
 	void AbonoAApartado();
 	void MuestraApartado(int,zOrdenVenta *);
 	int ComoPago();
+	int TraeDatosApartado(zOrdenVenta *);
 private slots:
 	void SlotConsulta();
 	void SlotSeleccionaApartado(int,int,int ,const QPoint &);
