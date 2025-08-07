@@ -36,14 +36,9 @@ private:
 	zSiscomRegistros *zSisRegsEstantes;
 	const char *chrPtrIdEscuela;
 private slots:
-	void SlotSeleccionando(int);
 	void SlotSelecciono(int);
-	void SlotSeleccionoRFC();
 
-	void SlotCambioRFC(const QString &);
-	void SlotCapturoRfc();
 signals:
-	void SignalSeleccionando(zSiscomRegistro *);
 	void SignalSelecciono(zSiscomRegistro *);
 
 };

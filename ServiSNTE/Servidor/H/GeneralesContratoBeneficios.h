@@ -5,4 +5,6 @@
 #include <SiscomArchivosIni.h>
 int EnviaEstadoRegistroGeneralesContratoBeneficios(SiscomOperaciones *pSiscomOpePtrDato);
 int ValidaEstadoInsercionGeneralesContratoBeneficios(SiscomOperaciones *pSiscomOpePtrDato);
+int ValidaEstadoRegistroGeneralesContratoBeneficios(SiscomOperaciones *pSiscomOpePtrDato);
+
 #endif

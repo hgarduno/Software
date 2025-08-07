@@ -1,7 +1,7 @@
 /****************************************************************************
 ** QtImpCapturaDatosComplementarios meta object code from reading C++ file 'QtImpCapturaDatosComplementarios.h'
 **
-** Created: Sat Feb 22 23:13:30 2025
+** Created: Tue Jun 24 08:59:37 2025
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

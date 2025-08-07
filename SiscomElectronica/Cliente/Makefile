@@ -87,6 +87,7 @@ Archivos_O_SiscomElectronicaComun=					\
 				  O/MOC_CQSisWidgetPedidoExpendio.o	\
 				  O/MOC_IMP_ModuloVentas.o		\
 				  O/MOC_IMP_ModuloPedido.o		\
+				  O/MOC_IMP_ModuloVentasMayoreo.o	\
 				  O/MOC_IMP_MenuManejadorOrden.o	\
 				  O/MOC_IMP_SeleccionaOrden.o
 #}}				  
@@ -517,6 +518,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/QtExistenciaSiscom.o							\
 	O/QtConsultaCompras.o							\
 	O/IMP_ModuloVentas.o							\
+	O/IMP_ModuloVentasMayoreo.o						\
 	O/IMP_ModuloPedido.o							\
 	O/IMP_MenuManejadorOrden.o						\
 	O/IMP_SeleccionaOrden.o							\

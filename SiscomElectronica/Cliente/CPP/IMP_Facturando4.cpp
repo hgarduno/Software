@@ -119,7 +119,7 @@ void QFacturando4::IniciaVariables()
 void QFacturando4::ImporteLetra()
 {
 char *lchrPtrRegreso=0;
-zSiscomQt3::SiscomALetra(zFacturaD.TotalFloat(),&lchrPtrRegreso);
+zSiscomQt3::SiscomALetras(zFacturaD.TotalFloat(),&lchrPtrRegreso); 
 zFacturaD.TotalLetra(lchrPtrRegreso);
 }
 void QFacturando4::Calculando()

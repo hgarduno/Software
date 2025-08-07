@@ -76,6 +76,11 @@ void InsertToDatosPedido(SiscomOperaciones *pSiscomOpePtrDato,
 void InsertToImporteOrdenCierreOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
 					SiscomRegistroProL *pSiscomRegProLPtrDato,
 					char *pchrPtrSql);
+
+
+void UpdateToImporteOrdenCierreOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
+				       SiscomRegistroProL *pSiscomRegProLPtrDato,
+				       char *pchrPtrSql);
 void InsertToDireccionEntrega(SiscomOperaciones *pSiscomOpePtrDato,
 					SiscomRegistroProL *pSiscomRegProLPtrDato,
 					char *pchrPtrSql);

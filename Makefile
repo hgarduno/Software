@@ -94,7 +94,7 @@ clean:
 	@-cd SISCOMDesarrollo2; make clean
 	@-cd Sepomex; make clean
 	@-cd SISCOMControles2; make clean
-	@-cd SISCOMClasesGenerales; make clean
+	#@-cd SISCOMClasesGenerales; make clean
 	@-cd SISCOMSeguridad3; make clean
 	@-cd SiscomAplicaciones; make clean
 	@-cd SiscomElectronica; make clean

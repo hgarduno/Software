@@ -133,12 +133,15 @@ void QCierraApartado::MuestraApartado(int pintApartado,
 LogSiscom("%s",pzOrden->IdVenta());
 QTApartados->setText(pintApartado,0,pzOrden->IdVenta());
 QTApartados->setText(pintApartado,1,pzOrden->Fecha());
+if(TraeDatosApartado(pzOrden))
+{
 QTApartados->setText(pintApartado,3,pzOrden->Apartado()->FechaHoraE());
 QTApartados->setText(pintApartado,5,QString(pzOrden->Cliente()->Nombre())+
 					    " " 			 +
 					    pzOrden->Cliente()->APaterno());
 QTApartados->setText(pintApartado,6,pzOrden->Apartado()->ACuenta());
 QTApartados->setText(pintApartado,7,pzOrden->Apartado()->PorPagar());
+}
 }
 void QCierraApartado::Muestra()
 {
@@ -172,4 +175,9 @@ void QCierraApartado::AbonoAApartado()
 {
 QAbonoAApartado lQAAApartado(zOrden);
 
+}
+
+int QCierraApartado::TraeDatosApartado(zOrdenVenta *pzOVenta)
+{
+   return pzOVenta->Apartado() ? 1 : 0;
 }

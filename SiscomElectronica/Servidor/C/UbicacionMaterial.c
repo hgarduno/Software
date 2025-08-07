@@ -502,6 +502,7 @@ const char *lchrPtrCampo=SiscomObtenCampoRegistroProLChar(pchrPtrCampo,
 LogSiscom("%s",lchrPtrCampo);
 return lchrPtrCampo && *lchrPtrCampo ? 1 :0;
 
+
 }
 int EstaEstante(SiscomRegistroProL *pSisRegProLPtrProducto)
 {
@@ -519,11 +520,13 @@ int EstaCajaYEstante(SiscomRegistroProL *pSisRegProLPtrProducto)
 
 int EstaEstantePorId(SiscomRegistroProL *pSisRegProLPtrProducto)
 {
- return ElCampoEsValido("idestante",pSisRegProLPtrProducto);
+int lintIdEstante=SiscomObtenCampoRegistroProLInt("idestante",pSisRegProLPtrProducto);
+return !(lintIdEstante==-1);
 }
 int EstaCajaPorId(SiscomRegistroProL *pSisRegProLPtrProducto)
 {
- return ElCampoEsValido("idcaja",pSisRegProLPtrProducto);
+int lintIdCaja=SiscomObtenCampoRegistroProLInt("idcaja",pSisRegProLPtrProducto);
+return !(lintIdCaja==-1);
 }
 int EstaEstanteYCajaPorId(SiscomRegistroProL *pSisRegProLPtrProducto)
 {

@@ -507,7 +507,6 @@ zSiscomRegistro *lzSisRegRegreso,
 	    if(lzSisRegRegreso->CampoInt("Registrado")==2)
 	    {
 	      *pzClisSiscom=new zClientesSiscom(lzSisRegRegreso->AsociadosDelCampo("Clientes"));
-	      SiscomRegistrosLog(*pzClisSiscom);
 	      return 2;
 	    }
 	    else

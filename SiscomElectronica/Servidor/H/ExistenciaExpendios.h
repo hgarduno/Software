@@ -25,12 +25,25 @@ int ErrorConexionExpendio(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
 			  const char *pchrPtrCampoParaNombre,
 			  SiscomOperaciones *pSiscomOpePtrDato);
 
+
+int ErrorConexionVentasExistenciaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
+			  const char *pchrPtrCampo,
+			  SiscomOperaciones *pSiscomOpePtrDato);
+int ErrorConexionVentasExistenciaSiscomT(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
+			  const char *pchrPtrCampo,
+			  SiscomOperaciones *pSiscomOpePtrDato);
 int EstadoConsultaSistemaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
 			  const char *pchrPtrCampoParaNombre,
 			  SiscomOperaciones *pSiscomOpePtrDato);
+
+
 int EstadoConsultaSistemaSiscomT(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
 			  const char *pchrPtrCampoParaNombre,
 			  SiscomOperaciones *pSiscomOpePtrDato);
+
+int EstadoConsultaVentasExistenciaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
+				const char *pchrPtrCampo,
+				SiscomOperaciones *pSiscomOpePtrDato);
 
 int ConexionExpendioConsultaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
 				   const char *pchrPtrCampoParaNombre,

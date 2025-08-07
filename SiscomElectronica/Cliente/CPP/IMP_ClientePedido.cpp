@@ -255,7 +255,10 @@ int lintClientesSimilares;
    }
    else
    if(lintClientesSimilares==2)
+   {
    QtClientePedido::MuestraClientes(zClisSiscom);
+   return 2;
+   }
    else
    return -1;
 }

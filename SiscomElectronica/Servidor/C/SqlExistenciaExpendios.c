@@ -125,17 +125,13 @@ SiscomConsultasSqlSistema("Expendio",
 			   1,
 			   lSiscomRegProLPtrServidores,
 			   ConexionExpendioConsultaSiscom,
-			   ErrorConexionExpendio,
-			   EstadoConsultaSistemaSiscom,
+			   ErrorConexionVentasExistenciaSiscom,
+			   EstadoConsultaVentasExistenciaSiscom,
 			   lchrPtrBuffer,
 			   pSiscomOpePtrDatos,
 			   "Existencia%Ventas%",
 			   lchrPtrSqlExistencia,
 			   lchrPtrSqlVentas);
-/*
-LogSiscom("%s",lchrPtrSqlVentas);
-LogSiscom("%s",lchrPtrSqlExistencia);
-*/
 return 0;
 }
 
@@ -190,14 +186,16 @@ SiscomConsultasSqlSistema("Expendio",
 			   1,
 			   lSiscomRegProLPtrServidores,
 			   ConexionExpendioConsultaSiscom,
-			   ErrorConexionExpendio,
+			   ErrorConexionVentasExistenciaSiscomT,
 			   EstadoConsultaSistemaSiscomT,
 			   lchrPtrBuffer,
 			   pSiscomOpePtrDatos,
 			   "Existencia%Ventas%",
 			   lchrPtrSqlExistencia,
 			   lchrPtrSqlVentas);
+/*
 LogSiscom("%s",lchrPtrSqlVentas);
 LogSiscom("%s",lchrPtrSqlExistencia);
+*/
 return 0;
 }

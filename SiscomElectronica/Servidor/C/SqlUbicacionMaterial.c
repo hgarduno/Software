@@ -130,6 +130,14 @@ sprintf(pchrPtrSql,
 	"insert into UbicacionProducto(cveproducto,idestante) values('%s',%s)",
 	SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("idestante",pSiscomRegProLPtrDato));
+else
+LogSiscom("NO se cumplio nada\n"
+          "EstaEstanteYCajaPorId(%d)\n"
+	  "CajaPorId(%d)\n"
+	  "EstantePorId(%d)",
+	  EstaEstanteYCajaPorId(pSiscomRegProLPtrDato),
+	  EstaCajaPorId(pSiscomRegProLPtrDato),
+	  EstaEstantePorId(pSiscomRegProLPtrDato));
 
 }
 void UpdateUbicacionProducto(SiscomOperaciones *pSiscomOpePtrDato,

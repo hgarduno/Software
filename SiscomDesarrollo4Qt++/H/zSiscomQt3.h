@@ -40,36 +40,27 @@ public:
 				        zSiscomRegistros *pzSisRegistros,
 					zSiscomRegistros *pzSisRegsSeleccionados);
 
-    static void SiscomALetra(double lfltDato,
-            char **pchrArrALetraPtr);
-    static void SiscomALetraSinPesos(double lfltDato,
-            char **pchrArrALetraPtr);
+    static void SiscomALetras(double lfltDato, char **pchrArrALetraPtr);
+    static void SiscomALetraSinPesos(double lfltDato, char **pchrArrALetraPtr);
 
     
-    static void SiscomALetraSinDecimal(double lfltDato,
-            char **pchrArrALetraPtr);
+    static void SiscomALetraSinDecimal(double lfltDato, char **pchrArrALetraPtr);
 
-    static void ALUnidades(char *pchrArrNumeroLetra,
-                char *pchrArrNumero);
+    static void ALUnidades(char *pchrArrNumeroLetra, char *pchrArrNumero);
 
-    static void ALDecenas(char *pchrArrNumeroLetra,
-               char *pchrArrNumero);
+    static void ALDecenas(char *pchrArrNumeroLetra, char *pchrArrNumero);
 
-    static void ALCentenas(char *pchrArrNumeroLetra,
-                char *pchrArrNumero);
+    static void ALCentenas(char *pchrArrNumeroLetra, char *pchrArrNumero);
 
-    static void ALMillares(char *pchrArrNumeroLetra,
-                char *pchrArrNumero);
+    static void ALMillares(char *pchrArrNumeroLetra, char *pchrArrNumero);
 
-    static void ALMillones(char *pchrArrNumeroLetra,
-                char *pchrArrNumero);
+    static void ALMillones(char *pchrArrNumeroLetra, char *pchrArrNumero);
 
    static int LeeTipoLetra(const char *pchrPtrArchivo,QFont *);
    static int GuardaTipoLetra(const char *pchrPtrArchivo,QFont *);
    static void HabilitaPasaFoco(QWidget *pQWControl);
-   static void ColoreaFilas(QTable *pQTDatos,
-   					 const QColor &pQColor,
-					 int *pintPtrFilas);
+   static void ColoreaFilas(QTable *pQTDatos, const QColor &pQColor, int *pintPtrFilas);
+
 };
 
 #endif

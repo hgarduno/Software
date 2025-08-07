@@ -41,41 +41,16 @@ void QCtrlEstantes::IniciaControl()
 void QCtrlEstantes::ConectaSlots()
 {
 connect(QCBEstantes,
-	SIGNAL(highlighted(int)),
-	SLOT(SlotSeleccionando(int)));
-connect(QCBEstantes,
 	SIGNAL(activated(int)),
 	SLOT(SlotSelecciono(int)));
 
 
-connect(QCBEstantes,
-	SIGNAL(textChanged(const QString &)),
-	SLOT(SlotCambioRFC(const QString &)));
 
-connect(QLERFC,SIGNAL(returnPressed()),SLOT(SlotCapturoRfc()));
-}
-void QCtrlEstantes::SlotCapturoRfc()
-{
- LogSiscom("");
-}
-void QCtrlEstantes::SlotCambioRFC(const QString &pQStrRFC)
-{
-
-}
-void QCtrlEstantes::SlotSeleccionoRFC()
-{
-   LogSiscom("El RFC Seleccionado %d",
-   	      QCBEstantes->currentItem());
 }
 void QCtrlEstantes::SlotSelecciono(int pintNProducto)
 {
  if(pintNProducto!=-1)
  emit SignalSelecciono((*zSisRegsEstantes)[pintNProducto]);
-}
-void QCtrlEstantes::SlotSeleccionando(int pintNProducto)
-{
-if(pintNProducto!=-1)
-emit SignalSeleccionando((*zSisRegsEstantes)[pintNProducto]);
 }
 void QCtrlEstantes::ConsultaEstantes()
 {
