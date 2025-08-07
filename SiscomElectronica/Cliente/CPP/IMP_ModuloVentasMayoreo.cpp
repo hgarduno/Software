@@ -1,6 +1,6 @@
 #include <IMP_ModuloVentasMayoreo.h>
 
-
+#include <qpushbutton.h>
 
 QModuloVentasMayoreo *InstanciaModuloVentasMayoreo(void *pSisDatCom,
                  char **pchrPtrArgumentos,
@@ -26,7 +26,23 @@ QModuloVentasMayoreo::QModuloVentasMayoreo(SiscomDatCom *pSisDatCom,
 					     pchrPtrName,
 					     pWFlags)
 {
-TextoBotonRegistro("Vende Orden");
+IniciaVariables();
+}
+void QModuloVentasMayoreo::IniciaVariables()
+{
+
+LogSiscom("Iniciando ....");
+TextoBotonRegistro("Vende Pedido Mayo&reo");
 TextoBotonNuevaOrden("Nueva Orden");
+
+}
+void QModuloVentasMayoreo::NuevaOrden()
+{
+LogSiscom("Modulo mayoreo");
+
 }
 
+void QModuloVentasMayoreo::TextoBotonRegistro(const char *pchrPtrTexto)
+{
+   QPBRegistrar->setText(pchrPtrTexto);
+}

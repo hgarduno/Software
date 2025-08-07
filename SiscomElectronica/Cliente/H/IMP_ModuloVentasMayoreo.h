@@ -12,7 +12,10 @@ Q_OBJECT
 				     QWidget *pQWParent,
 				     const char *pchrPtrName,
 				     WFlags pWFlags);
-
+private:
+	void NuevaOrden();
+	void IniciaVariables();
+	void TextoBotonRegistro(const char *);
 };
 
 
