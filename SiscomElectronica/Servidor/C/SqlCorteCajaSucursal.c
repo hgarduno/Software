@@ -13,7 +13,7 @@
 
 int SqlRegistraCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato)
 {
-char lchrArrBuffer[256],lchrArrSql[250];
+char lchrArrBuffer[256],lchrArrSql[512];
 SiscomAgregaSentenciasSqlDelAsociado("SqlCorteCaja",
 				     "Envio",
 				     lchrArrBuffer,
@@ -226,16 +226,29 @@ void InsertToCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato,
 			       char *pchrPtrSql)
 {
 sprintf(pchrPtrSql,
-	"insert into CorteCajaSucursal values(%s,'%s',%s,%s,%s,%s,%s,%s,%s);",
+	"insert into CorteCajaSucursal(IdCorte,		\n\
+				      Fecha,		\n\
+				      Transferencias,	\n\
+				      Tarjeta,		\n\
+				      DineroEntro,	\n\
+				      Billetes,		\n\
+				      Gastos,		\n\
+				      Cambio,		\n\
+				      Diferencia,	\n\
+				      FechaFin,		\n\
+				      HoraCorte)	\n\
+	values(%s,'%s',%s,%s,%s,%s,%s,%s,%s,'%s','%s');",
 	SiscomObtenCampoRegistroProLChar("IdCorte",pSisRegProLPtrDato),
-	SiscomObtenCampoRegistroProLChar("Fecha",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("FechaInicio",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("Transferencias",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("Tarjeta",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("DineroEntroCaja",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("Billetes",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("TotalGastos",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("CambioDiaAnterior",pSisRegProLPtrDato),
-	SiscomObtenCampoRegistroProLChar("CalculandoCorte",pSisRegProLPtrDato));
+	SiscomObtenCampoRegistroProLChar("CalculandoCorte",pSisRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("FechaFin",pSisRegProLPtrDato),
+	"21:00");
 }
 void UpdateCambioCaja(SiscomOperaciones *pSisOpePtrDato,
 			     SiscomRegistroProL *pSisRegProLPtrDato,

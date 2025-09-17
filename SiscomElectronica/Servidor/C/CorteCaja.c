@@ -28,7 +28,7 @@ SiscomIniciaDatosOperacion(pintSocket,
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoCorteCaja,&lSiscomProDat);
 SiscomAgregaOperacion(AsignaIdCorteCajaSucursal,&lSiscomProDat);
-SiscomAgregaOperacion(AsignaFechaRegistroCorte,&lSiscomProDat);
+/*SiscomAgregaOperacion(AsignaFechaRegistroCorte,&lSiscomProDat); */
 SiscomAgregaOperacion(SqlRegistraCorteCajaSucursal,&lSiscomProDat);
 SiscomAgregaOperacion(SqlEnviaRegistroCambioCaja,&lSiscomProDat);
 SiscomAgregaOperacion(EnviaRegistraCorteCajaSucursal,&lSiscomProDat);
@@ -565,6 +565,7 @@ SiscomObtenNumeroUnicoChar(lchrArrIdCorteCaja);
 SiscomActualizaCampoAsociadoEntrada("Envio","IdCorte",lchrArrIdCorteCaja,pSisOpePtrDato);
 return 0;
 }
+
 int AsignaFechaRegistroCorte(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrFecha[28];

@@ -13,7 +13,9 @@
 
 
 CQSisAplicaciones::CQSisAplicaciones(CSISCOMDatComunicaciones *pCSisDatCom,
-				 QWidget* parent, const char* name, WFlags fl )
+				 QWidget* parent, 
+				 const char* name, 
+				 WFlags fl )
     : Aplicaciones( parent, name, fl ),
        CSisDatCom(pCSisDatCom),
        QSiscomSeguridad3((Aplicaciones *)this,

@@ -2,6 +2,7 @@
 #define __IMP_MANEJADORORDEN_H__
 #include <UIC_H_ManejadorOrden.h>
 #include <QtManejadorOrden.h>
+
 #include <zOrdenVenta.h>
 #include <zOrdenes.h>
 #include <zExpendios.h>
@@ -23,7 +24,7 @@ class zConexionExpendio;
 
 class zProducto;
 
-class QManejadorOrden:public ManejadorOrden,public QtManejadorOrden
+class QManejadorOrden:public ManejadorOrden ,public QtManejadorOrden 
 {
  Q_OBJECT
 public:

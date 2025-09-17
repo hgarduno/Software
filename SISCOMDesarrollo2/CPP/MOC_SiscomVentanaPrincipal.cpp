@@ -1,7 +1,7 @@
 /****************************************************************************
 ** SiscomVentanaPrincipal meta object code from reading C++ file 'SiscomVentanaPrincipal.h'
 **
-** Created: Mon Apr 1 17:42:13 2024
+** Created: Thu Sep 11 19:09:41 2025
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -41,7 +41,8 @@ begin
 	where fechahora::date>=pfechaInicio and 
 	      fechahora::date<=pfechafin    and
 	      idexpendio=pidExpendio        and
-	      cveproducto=pcveproducto;
+	      cveproducto=pcveproducto 	    and 
+	      edoventa in(0,2,4,6,7,11);
 	return ltotventas;
 end;
 $$ language plpgsql;

@@ -91,8 +91,6 @@ sprintf(pchrPtrSql,
 	 SiscomObtenCampoRegistroProLChar("cantidad",pSiscomRegProLPtrDato),
 	 SiscomCampoAsociadoEntradaOperacion("Envio","CantidadAComprar",pSiscomOpePtrDato),
 	 SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato));
-
-
 }
 void UpdateExistenciaProductoSiscom(SiscomOperaciones *pSiscomOpePtrDato,
 			 SiscomRegistroProL *pSiscomRegProLPtrDato,
