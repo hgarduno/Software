@@ -15,6 +15,7 @@
 #include <QtCorteCajaImp.h>
 
 #include <qpushbutton.h>
+#include <qmessagebox.h>
 
 QCorteCajaSucursal *InstanciaCorteCajaSucursal(void *pSisDatCom,
                  char **pchrPtrArgumentos,
@@ -205,4 +206,11 @@ void QCorteCajaSucursal::RegistraCorte()
 {
   zCorteCajaO lzCorteCO(zSiscomDesarrollo4::Conexion(),"RegistraCorteCajaSucursal");
   lzCorteCO.RegistraCorte(&CorteCaja());
+}
+
+void QCorteCajaSucursal::closeEvent(QCloseEvent *pQCEvent)
+{
+   QMessageBox::information(this,"Aviso Sistema","Se cerrara la ventana y no se a registrado...");
+       
+	pQCEvent->accept();
 }

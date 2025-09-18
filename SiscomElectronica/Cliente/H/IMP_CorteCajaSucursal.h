@@ -41,6 +41,8 @@ private:
 	void ImportesDia();
 	void IniciandoFechas();
 	void RegistraCorte();
+
+	void closeEvent(QCloseEvent *);
 private slots:
 	void SlotCapturoCantidad();
 	void SlotActualizaCorteCaja();

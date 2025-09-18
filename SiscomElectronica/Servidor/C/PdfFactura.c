@@ -350,7 +350,7 @@ int lintMitad=pHpdfRealAncho/2;
 pSisHaruTexto->intX=lintMitad-25;
 pSisHaruTexto->intY=pHpdfRealAlto-75;
 pSisHaruTexto->intTamano=6;
-SiscomHaruEscribe(pSisHaruTexto,"Tipo de Comprobante I Factura #1");
+SiscomHaruEscribe(pSisHaruTexto,"Tipo de Comprobante I  PO 145685");
 pSisHaruTexto->intY-=7;
 sprintf(lchrArrLinea,
 	"Fecha de emision %s",

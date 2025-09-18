@@ -6,8 +6,7 @@ all:SiscomDesarrollo4.hgarduno 		\
 	SiscomComunicaciones++.hgarduno	\
 	SiscomDesarrollo4++.hgarduno	\
 	SiscomDesarrollo4Qt++.hgarduno	\
-	SiscomControles.hgarduno	\
-	ServiSNTE.hgarduno
+	SiscomControles.hgarduno
 
 SiscomDesarrollo4++.hgarduno:
 	@(cd SiscomDesarrollo4++ ; $(QTDIR)/bin/qmake SiscomDesarrollo4++.pro ;make)	
