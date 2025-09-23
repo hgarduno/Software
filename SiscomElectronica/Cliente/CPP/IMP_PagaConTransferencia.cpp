@@ -45,9 +45,7 @@ connect(QLETelefono,SIGNAL(returnPressed()),SLOT(SlotFocoAAceptar()));
 connect(QLETelefono,
 	SIGNAL(textChanged(const QString &)),
 	SLOT(SlotCapturandoTelefono(const QString &)));
-connect(QBGEdoTransferencia,SIGNAL(clicked(int)),SLOT(SlotEstadoTransferencia(int)));
-connect(QPBCancelar,SIGNAL(clicked()),SLOT(SlotCancelar()));
-}
+connect(QBGEdoTransferencia,SIGNAL(clicked(int)),SLOT(SlotEstadoTransferencia(int))); connect(QPBCancelar,SIGNAL(clicked()),SLOT(SlotCancelar())); }
 void QPagaConTransferencia::SlotFocoAAceptar()
 {
    Telefono();
@@ -139,9 +137,14 @@ void QPagaConTransferencia::reject()
 }
 int QPagaConTransferencia::SeHabilitaAceptar()
 {
-  return QLETelefono->text().length()>=12 && 
+/*
+  return QLETelefono->text().length()==12 && 
   	intYaFormaPago                    &&
 	Orden()->FormaPago()->Telefono();
+*/
+
+  return QLETelefono->text().length()==12 ;
+
 }
 void QPagaConTransferencia::HabilitandoAceptar()
 {

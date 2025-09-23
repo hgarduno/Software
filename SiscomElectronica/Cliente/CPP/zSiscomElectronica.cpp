@@ -2559,7 +2559,6 @@ zSiscomRegistros *lzSisRegsRegreso;
 AgregaEnvio(zSiscomRegistro().Registro("%s [Todos]"));
 if((lzSisRegsRegreso=EnviaRecibe()))
 {
-  SiscomRegistrosLog(lzSisRegsRegreso); 
   pzCambiosC->CambiosCaja(lzSisRegsRegreso);
   return 1;
 }

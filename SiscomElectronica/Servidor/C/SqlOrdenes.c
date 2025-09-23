@@ -12,6 +12,20 @@
 #include <stdio.h>
 #include <string.h>
 
+int SqlFormaPagoTarjeta(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256],
+     lchrArrSql[256];
+SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+				     "Envio",
+				     lchrArrBuffer,
+				     lchrArrSql,
+				     pSiscomOpePtrDato,
+				     InsertToPagoTarjeta);
+return 0;
+}
+
+
 int SqlPagaConEfectivo(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],
@@ -829,6 +843,21 @@ sprintf(pchrPtrSql,
 SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato),
 SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","FormaPago","Telefono",pSisOpePtrDato),
 InformacionTransferenciaSeReflejo(pSisOpePtrDato),
+lchrPtrPaso);
+}
+
+
+void InsertToPagoTarjeta(SiscomOperaciones *pSisOpePtrDato,
+				SiscomRegistroProL *pSisRegProLPtrDato,
+				char *pchrPtrSql)
+{
+const char *lchrPtrObservaciones,*lchrPtrPaso;
+
+lchrPtrObservaciones=InformacionTarjetaObservaciones(pSisOpePtrDato);
+lchrPtrPaso=lchrPtrObservaciones ? lchrPtrObservaciones : "";
+sprintf(pchrPtrSql,
+"insert into PagoTarjeta values(%s,'%s');",
+SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato),
 lchrPtrPaso);
 }
 

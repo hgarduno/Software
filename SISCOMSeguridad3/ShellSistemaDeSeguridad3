@@ -9,5 +9,5 @@ export 	LD_LIBRARY_PATH		\
 	RutaIconosSiscomSeguridad3
 
 
-#/usr/bin/gdb $DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/B/SistemaDeSeguridad3
-$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/B/SistemaDeSeguridad3
+/usr/bin/gdb $DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/B/SistemaDeSeguridad3
+#$DIRDesarrolloHGE/SISCOMSeguridad3/Cliente/B/SistemaDeSeguridad3

@@ -63,6 +63,7 @@ void QtCorteCajaImp::ActualizandoGui()
    ActualizaGui();
    ActualizaTotalGastos();
    ActualizaImporteTransferencias();
+   ActualizaPagosTarjeta();
    ActualizaDineroEntroCaja();
    ActualizandoCambioDiaAnterior();
    ActualizandoVentasTotales();
@@ -146,6 +147,15 @@ setText(CeldaImporteTransferencias()->Fila(),
 	Cajas()->Principal()->Transferencias());
 
 }
+
+void QtCorteCajaImp::ActualizaPagosTarjeta()
+{
+setText(CeldaPagoTarjeta()->Fila(),
+	CeldaPagoTarjeta()->Columna(),
+	Cajas()->Principal()->PagoTarjeta());
+
+}
+
 void QtCorteCajaImp::ActualizaDineroEntroCaja()
 {
 setText(CeldaImporteEfectivoCaja()->Fila(),

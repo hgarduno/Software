@@ -31,6 +31,7 @@ private:
 	void AgregaGasto(int,int);
 	void ActualizaDineroEntroCaja();
 	void ActualizaImporteTransferencias();
+	void ActualizaPagosTarjeta();
 	void ActualizaTotalGastos();
 	void ActualizaGui();
 	void ActualizandoCambioDiaAnterior();

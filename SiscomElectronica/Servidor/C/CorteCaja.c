@@ -28,7 +28,6 @@ SiscomIniciaDatosOperacion(pintSocket,
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoCorteCaja,&lSiscomProDat);
 SiscomAgregaOperacion(AsignaIdCorteCajaSucursal,&lSiscomProDat);
-/*SiscomAgregaOperacion(AsignaFechaRegistroCorte,&lSiscomProDat); */
 SiscomAgregaOperacion(SqlRegistraCorteCajaSucursal,&lSiscomProDat);
 SiscomAgregaOperacion(SqlEnviaRegistroCambioCaja,&lSiscomProDat);
 SiscomAgregaOperacion(EnviaRegistraCorteCajaSucursal,&lSiscomProDat);
@@ -146,16 +145,6 @@ SiscomAgregaOperacion(0,&lSiscomProDat);
 SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 }
 
-int ColocaFechaHoyCorteCaja(SiscomOperaciones *pSisOpePtrDato)
-{
-char lchrArrFecha[28];
-SiscomObtenFechaHoyCharAAAADDMM(lchrArrFecha);
-SiscomActualizaCampoAsociadoEntrada("Envio",
-				    "Fecha",
-				    lchrArrFecha,
-				    pSisOpePtrDato);
-return 0;
-}
 int RegistrandoCambio(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[128];
@@ -201,6 +190,7 @@ if((lSisRegProLPtrGastos=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion(
 				pSisOpePtrDato)))
 				
 {
+SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrGastos);
 lfltTotalGastos=SiscomObtenSumatoriaRegistros("Importe",lSisRegProLPtrGastos); 
 SiscomActualizaCampoAsociadoEntradaFloat("Envio",
 					 "TotalGastos",
@@ -506,28 +496,34 @@ float lfltEfectivoCajaCalculado,
 	lfltImporte,
 	lfltImporteVentas,
 	lfltTransferencias,
+	lfltPagosTarjeta,
 	lfltCalculandoCorte,
 	lfltTotalGastos,
 	lfltPorcentajeDesvioCorte,
 	lfltCorte;
 char *lchrPtrVentasTotalesP,
-     *lchrPtrTransferenciasP;
+     *lchrPtrTransferenciasP,
+     *lchrPtrPagosTarjetaP;
 
 lchrPtrVentasTotalesP=(char *)SiscomCampoAsociadoRespuesta("VentasTotalesP","importe",pSisOpePtrDato);
 lchrPtrTransferenciasP=(char *)SiscomCampoAsociadoRespuesta("TransferenciasP","importe",pSisOpePtrDato);
+lchrPtrPagosTarjetaP=(char *)SiscomCampoAsociadoRespuesta("PagosTarjetaP","importe",pSisOpePtrDato);
 if(lchrPtrVentasTotalesP)
 SiscomActualizaCampoAsociadoEntrada("Envio","VentasTotales",lchrPtrVentasTotalesP,pSisOpePtrDato);
 if(lchrPtrTransferenciasP)
 SiscomActualizaCampoAsociadoEntrada("Envio","Transferencias",lchrPtrTransferenciasP,pSisOpePtrDato);
+if(lchrPtrPagosTarjetaP)
+SiscomActualizaCampoAsociadoEntrada("Envio","Tarjeta",lchrPtrPagosTarjetaP,pSisOpePtrDato);
 
 lfltImporte=ContandoCajaDinero(pSisOpePtrDato);
 lfltEfectivoCajaCalculado=CalculandoEfectivoCaja(pSisOpePtrDato); 
 
 lfltImporteVentas=SiscomCampoAsociadoEntradaOperacionFloat("Envio","VentasTotales",pSisOpePtrDato);
 lfltTransferencias=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Transferencias",pSisOpePtrDato);
+lfltPagosTarjeta=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Tarjeta",pSisOpePtrDato);
 lfltTotalGastos=SiscomCampoAsociadoEntradaOperacionFloat("Envio","TotalGastos",pSisOpePtrDato);
 lfltCalculandoCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos)-lfltImporteVentas;
-lfltCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos);
+lfltCorte=(lfltImporte+lfltTransferencias+lfltPagosTarjeta+lfltTotalGastos);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","CalculandoCorte",lfltCalculandoCorte,pSisOpePtrDato);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","Billetes",lfltImporte,pSisOpePtrDato);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","CorteTotal",lfltCorte,pSisOpePtrDato);
@@ -535,6 +531,7 @@ lfltPorcentajeDesvioCorte=PorcentajeDesvioCorte(lfltImporteVentas,lfltCalculando
 LogSiscom("Calculo de Efectivo en Caja %f",lfltEfectivoCajaCalculado);
 LogSiscom("Importe Ventas              %f",lfltImporteVentas);
 LogSiscom("Total Transferencias        %f",lfltTransferencias);
+LogSiscom("Pago Tarjeta                %f",lfltPagosTarjeta);
 LogSiscom("Efectivo Contando           %f",lfltImporte);
 LogSiscom("Total Gastos		       %f",lfltTotalGastos);
 LogSiscom("Calculando Corte	       %f",lfltCalculandoCorte);

@@ -69,6 +69,7 @@ void zCorteCaja::CorteCaja(zSiscomRegistro *pzSisRegRegreso)
 {
 ActualizaCampo("EdoCuentaCambio",(*pzSisRegRegreso)["EdoCuentaCambio"]);
 ActualizaCampo("Transferencias",(*pzSisRegRegreso)["Transferencias"]);
+ActualizaCampo("Tarjeta",(*pzSisRegRegreso)["Tarjeta"]);
 ActualizaCampo("VentasTotales",(*pzSisRegRegreso)["VentasTotales"]);
 ActualizaCampo("DineroEntroCaja",(*pzSisRegRegreso)["DineroEntroCaja"]);
 ActualizaCampo("CalculandoCorte",(*pzSisRegRegreso)["CalculandoCorte"]);
@@ -99,6 +100,11 @@ const char *zCorteCaja::Transferencias()
 {
   return (const char *)Campo("Transferencias");
 }
+const char *zCorteCaja::Tarjeta()
+{
+  return (const char *)Campo("Tarjeta");
+}
+
 const char *zCorteCaja::VentasTotales()
 {
    return (const char *)Campo("VentasTotales");

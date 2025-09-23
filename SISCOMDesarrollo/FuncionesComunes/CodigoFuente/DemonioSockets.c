@@ -45,10 +45,16 @@ signal(30,SISCOMInstalaManejadorDeSenales);
 signal(SIGSEGV,SISCOMInstalaManejadorDeSenales);
 signal(SIGTERM,SISCOMInstalaManejadorDeSenales);
 	if( (gintSocketCliente=lintSocketReg=socket(PF_INET,SOCK_STREAM,0) ) ==-1)
+	{
 	printf("Error al crear el socket\n");
+	exit(0);
+	}
 	else
 	if((bind(lintSocketReg,(struct sockaddr *)&lsockaddr_inDir,sizeof(struct sockaddr_in)))==-1)
+	{
 	printf("Error al enlazar el socket\n");
+	exit(0);
+	}
 	else
 	if((listen(lintSocketReg,lintNProcesos))==-1)
 	printf("Error al ponerse a la escucha\n");

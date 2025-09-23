@@ -26,6 +26,7 @@ class zCorteCaja:public zSiscomRegistro
 
 	const char *DineroEntroCaja();
 	const char *Transferencias();
+	const char *Tarjeta();
 	const char *VentasTotales();
 	const char *CalculandoCorte();
 	const char *TotalGastos();

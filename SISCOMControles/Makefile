@@ -96,7 +96,7 @@ QControlFecha.so:$(Archivos_QT_ControlFecha)  \
 
 libSISCOMComunControles.so:$(Archivos_O_SISCOMComunControles)
 	@echo Generando $@
-	@$(CXX) $(OpModulos) -o $@ $(Archivos_O_SISCOMComunControles)  
+	@$(CXX) $(OpModulos) -o $@ $(Archivos_O_SISCOMComunControles)  $(Bibliotecas)
 	
 H/UIC_H_%.h:UI/%.ui
 	@echo UIC $<

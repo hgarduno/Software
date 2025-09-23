@@ -17,6 +17,7 @@ int InformacionApartado(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperacio
 int InformacionCotizacion(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
 int InformacionCancelacion(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
 int InformacionPagoTransferencia(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
+int InformacionPagoTarjeta(SiscomRegistroProL *pSiscomRegProLOrdenes,SiscomOperaciones *pSiscomOpePtrDatos);
 
 void OrdenesVendidas2(int pintSocket,
 		SiscomRegistroProL *pSiscomRegProLPtrPrim,

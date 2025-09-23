@@ -20,7 +20,10 @@ zFormaPagoTransferencia *zFormaPago::Transferencia()
 {
   return (zFormaPagoTransferencia *)AsociadoDelCampo("Transferencia");
 }
-
+zFormaPagoTarjeta *zFormaPago::Tarjeta()
+{
+  return (zFormaPagoTarjeta *)AsociadoDelCampo("Tarjeta");
+} 
 void zFormaPago::Observaciones(const char *pchrPtrObservaciones)
 {
 
@@ -30,6 +33,10 @@ void zFormaPago::Observaciones(const char *pchrPtrObservaciones)
 void zFormaPago::Transferencia(zFormaPagoTransferencia *pzPagoT)
 {
    ActualizaCampo("Transferencia",pzPagoT);
+}
+void zFormaPago::Tarjeta(zFormaPagoTarjeta *pzPagoTarjeta)
+{
+  ActualizaCampo("Tarjeta",pzPagoTarjeta);
 }
 const char *zFormaPago::Telefono()
 {

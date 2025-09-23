@@ -496,7 +496,17 @@ QDatosPractica lQDatosP(Orden()->Expendio(),zSisRegEscuela);
 }
 void QClienteAlumno::HabilitaBotonesOtrosMovimientos(bool pbEstado)
 {
-QRBApartado->setEnabled(pbEstado && (Orden()->NumProductos()>0));
+/*QRBApartado->setEnabled(pbEstado && (Orden()->NumProductos()>0)); */
+/* Viernes 19 de Septiembre del 2025 
+ * por concepto un apartado, puede que no tenga existencia, de un producto 
+ * por lo que la validacion anterior esta demas 
+ *
+ *
+ *
+ * ohhhhhhhhhhhhhhhhh , no es aqui la validacion , o aqui es
+ */
+QRBApartado->setEnabled(pbEstado); 
+
 QRBVendeOrdenCA->setEnabled(pbEstado);
 QPBOrdenActual->setEnabled(pbEstado);
 QRBCierraApartado->setEnabled(pbEstado);

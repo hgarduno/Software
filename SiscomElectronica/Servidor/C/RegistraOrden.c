@@ -44,6 +44,7 @@ SiscomAgregaOperacion(SqlPedidoCliente,&lSiscomProDat);
 SiscomAgregaOperacion(SqlEstadosPedidoCliente,&lSiscomProDat); 
 SiscomAgregaOperacion(SqlDireccionEntrega,&lSiscomProDat); 
 SiscomAgregaOperacion(SePagoConTransferencia,&lSiscomProDat); 
+SiscomAgregaOperacion(SePagoConTarjeta,&lSiscomProDat); 
 SiscomAgregaOperacion(EsOrdenVentaPagaEfectivo,&lSiscomProDat);  
 SiscomAgregaOperacion(SqlRegistraOrden,&lSiscomProDat);  
 SiscomAgregaOperacion(RegistrandoOrden,&lSiscomProDat);  
@@ -162,6 +163,23 @@ if(lSisRegProLPtrTrans)
   SqlFormaPagoTransferencia(pSiscomOpePtrDato);
 return 0;
 }
+int SePagoConTarjeta(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256];
+SiscomRegistroProL *lSisRegProLPtrTrans;
+lSisRegProLPtrTrans=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio",
+									 "FormaPago",
+									 "Tarjeta",
+									 pSiscomOpePtrDato);
+
+if(lSisRegProLPtrTrans)
+{
+LogSiscom("Se pago con tarjeta");
+SqlFormaPagoTarjeta(pSiscomOpePtrDato);
+}
+return 0;
+
+}
 const char *InformacionTransferenciaSeReflejo(SiscomOperaciones *pSisOpePtrDato)
 {
   return SiscomObtenCampoRegistroProLChar("YaSeReflejo",InformacionTransferencia(pSisOpePtrDato));
@@ -175,7 +193,6 @@ const char *InformacionTransferenciaObservaciones(SiscomOperaciones *pSisOpePtrD
 
 SiscomRegistroProL *InformacionTransferencia(SiscomOperaciones *pSiscomOpePtrDato)
 {
-char lchrArrBuffer[128];
 SiscomRegistroProL *lSisRegProLPtrTrans;
 lSisRegProLPtrTrans=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio",
 									 "FormaPago",
@@ -184,13 +201,32 @@ lSisRegProLPtrTrans=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio"
 return lSisRegProLPtrTrans;
 }
 
+SiscomRegistroProL *InformacionTarjeta(SiscomOperaciones *pSiscomOpePtrDato)
+{
+SiscomRegistroProL *lSisRegProLPtrTrans;
+lSisRegProLPtrTrans=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio",
+									 "FormaPago",
+									 "Tarjeta",
+									 pSiscomOpePtrDato);
+return lSisRegProLPtrTrans;
+}
+const char *InformacionTarjetaObservaciones(SiscomOperaciones *pSisOpePtrDato)
+{
+
+return SiscomObtenCampoRegistroProLChar("Observaciones",InformacionTarjeta(pSisOpePtrDato));
+
+}
 int EsOrdenVentaPagaEfectivo(SiscomOperaciones *pSiscomOpePtrDato)
 {
 if(!EsCotizacion(pSiscomOpePtrDato) && 
    !SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio",
 						"FormaPago",
 						"Transferencia",
-						pSiscomOpePtrDato))
+						pSiscomOpePtrDato) &&
+   !SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio",
+   							 "FormaPago",
+							 "Tarjeta",
+							 pSiscomOpePtrDato))
 SqlPagaConEfectivo(pSiscomOpePtrDato);
 return 0;
 }

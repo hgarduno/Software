@@ -161,6 +161,10 @@ const char *QtOrdenesRegistradas::IdTransferencia()
 {
   return "11";
 }
+const char *QtOrdenesRegistradas::IdTarjeta()
+{
+   return "12";
+}
 void QtOrdenesRegistradas::IniciaIdsTiposOrdenes()
 {
 IdsTiposOrden[0]=&QtOrdenesRegistradas::IdVenta;
@@ -175,7 +179,7 @@ IdsTiposOrden[8]=&QtOrdenesRegistradas::IdSinAsignar;
 IdsTiposOrden[9]=&QtOrdenesRegistradas::IdSinAsignar;
 IdsTiposOrden[10]=&QtOrdenesRegistradas::IdSinAsignar;
 IdsTiposOrden[11]=&QtOrdenesRegistradas::IdTransferencia;
-IdsTiposOrden[12]=&QtOrdenesRegistradas::IdSinAsignar;
+IdsTiposOrden[12]=&QtOrdenesRegistradas::IdTarjeta;
 IdsTiposOrden[13]=&QtOrdenesRegistradas::IdSinAsignar;
 IdsTiposOrden[14]=&QtOrdenesRegistradas::IdSinAsignar;
 }
@@ -203,7 +207,7 @@ TipoOrden[8]=&QtOrdenesRegistradas::SinAsignar;
 TipoOrden[9]=&QtOrdenesRegistradas::SinAsignar;
 TipoOrden[10]=&QtOrdenesRegistradas::SinAsignar;
 TipoOrden[11]=&QtOrdenesRegistradas::Transferencia;
-TipoOrden[12]=&QtOrdenesRegistradas::SinAsignar;
+TipoOrden[12]=&QtOrdenesRegistradas::Tarjeta;
 TipoOrden[13]=&QtOrdenesRegistradas::SinAsignar;
 TipoOrden[14]=&QtOrdenesRegistradas::SinAsignar;
 }
@@ -221,7 +225,7 @@ Descripcion[8]=&QtOrdenesRegistradas::DescripcionSinAsignar;
 Descripcion[9]=&QtOrdenesRegistradas::DescripcionSinAsignar;
 Descripcion[10]=&QtOrdenesRegistradas::DescripcionSinAsignar;
 Descripcion[11]=&QtOrdenesRegistradas::DescripcionTransferencia;
-Descripcion[12]=&QtOrdenesRegistradas::DescripcionSinAsignar;
+Descripcion[12]=&QtOrdenesRegistradas::DescripcionTarjeta;
 Descripcion[13]=&QtOrdenesRegistradas::DescripcionSinAsignar;
 Descripcion[14]=&QtOrdenesRegistradas::DescripcionSinAsignar;
 }
@@ -259,6 +263,10 @@ const char *QtOrdenesRegistradas::Transferencia()
 {
     return "Transferencia";
 }
+const char *QtOrdenesRegistradas::Tarjeta()
+{
+    return "Tarjeta";
+}
 const char *QtOrdenesRegistradas::DescripcionCotizacion(zOrdenVenta *pzOrdenVenta)
 {
 return (char *)pzOrdenVenta->Cotizacion()->Descripcion();
@@ -271,7 +279,10 @@ const char *QtOrdenesRegistradas::DescripcionTransferencia(zOrdenVenta *pzOrdenV
 {
     return pzOrdenVenta->FormaPago()->Transferencia()->Observaciones();
 }
-
+const char *QtOrdenesRegistradas::DescripcionTarjeta(zOrdenVenta *pzOrdenV)
+{
+   return "Pago con Tarjeta";
+}
 const char *QtOrdenesRegistradas::DescripcionApartado(zOrdenVenta *pzOrdenVenta)
 {
 char lchrArrCadena[1024];
