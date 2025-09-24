@@ -117,7 +117,7 @@ SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 
 int RegistrandoOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
-char lchrArrBuffer[256];
+char lchrArrBuffer[1024];
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadoAsociadoLog("Envio","Cliente",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadosArgumentoLog("SqlOrden",
