@@ -15,8 +15,10 @@ public:
 	void Observaciones(const char *);
 	void Tarjeta(zFormaPagoTarjeta *);
 	void Transferencia(zFormaPagoTransferencia *);
+	
 
 	zFormaPagoTransferencia *Transferencia();
+	zFormaPagoTarjeta *Tarjeta();
 
 	const char *Telefono();
 	const char *Observaciones();

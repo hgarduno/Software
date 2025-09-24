@@ -1296,9 +1296,10 @@ QComoPago lQCPago(Orden());
    return 0;
    else
    if(lQCPago.ComoPague()==QComoPago::Transferencia)
-   {
      return 0; 
-   }
+   else
+   if(lQCPago.ComoPague()==QComoPago::Tarjeta)
+   return 0;
    else
    if(lQCPago.ComoPague()==QComoPago::Cancelar)
 	return 1;

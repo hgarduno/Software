@@ -68,6 +68,7 @@ private:
 	const char *IdSinAsignar();
 	const char *IdTransferencia();
 	const char *IdApartado();
+	const char *IdTarjeta();
 
 	 const char *Cotizacion();
          const char *Venta();
@@ -76,6 +77,7 @@ private:
 	 const char *SinAsignar();
 	 const char *Apartado();
 	 const char *Transferencia();
+	 const char *Tarjeta();
 
 	 const char *DescripcionCotizacion(zOrdenVenta *);
 	 const char *DescripcionVenta(zOrdenVenta *);
@@ -84,6 +86,7 @@ private:
 	 const char *DescripcionSinAsignar(zOrdenVenta *);
 	 const char *DescripcionCancelacion(zOrdenVenta *);
 	 const char *DescripcionTransferencia(zOrdenVenta *);
+	 const char *DescripcionTarjeta(zOrdenVenta *);
 	
 
 

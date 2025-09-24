@@ -6,6 +6,7 @@ class zOrdenVenta;
 class zFormaPago;
 class zSiscomConexion;
 class zConCuantoPago;
+class zFormaPagoTarjeta;
 class QComoPago:public ComoPago
 {
  Q_OBJECT
@@ -37,12 +38,16 @@ private:
 	void IniciaVariables();
 	void reject();
 	void Pagando(FormaDePago );
+	void PagandoConTarjeta();
 	zFormaPago *FormaPago();
 	void PagandoEfectivo();
 	int VerificandoConCuantoPago();
 	void VerificoConCuantoPago();
 	zSiscomConexion *Conexion();
 	zConCuantoPago *ConCuantoPago();
+	int EsUnApartado();
+	void ControlesApartado();
+	zFormaPagoTarjeta *SePagaConTarjeta();
 private slots:
 	void SlotAceptar();
 	void SlotComoPago(int);

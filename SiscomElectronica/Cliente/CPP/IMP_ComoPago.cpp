@@ -10,6 +10,7 @@
 #include <qmessagebox.h> 
 #include <zSiscomDesarrollo4.h>
 #include <zConCuantoPago.h> 
+#include <zFormaPagoTarjeta.h>
 #include <zSiscomElectronica.h>
 #include <zApartado.h>
 QComoPago::QComoPago(zOrdenVenta *pzOrdenVenta,
@@ -62,14 +63,15 @@ LogSiscom("la forma de pago %d",pintOpcion);
   {
    case 0:
    	PagandoEfectivo();
+   	QLEConCuantoPaga->setReadOnly(false); 
    break;
    case 1:
    	QPBAceptar->setEnabled(false);
    	Pagando(Transferencia);
    break;
    case 2:
-   	QPBAceptar->setEnabled(false);
-   	Pagando(Tarjeta);
+   	QPBAceptar->setEnabled(true);
+   	PagandoConTarjeta();
    break;
    }
 }
@@ -80,8 +82,16 @@ void QComoPago::SlotAceptar()
 void QComoPago::IniciaVariables()
 {
    Orden()->FormaPago(FormaPago());
+   if(!EsUnApartado())
+   {
    QRBEfectivo->setFocus();
    QLEConCuantoPaga->setText(Orden()->ImporteOrden());
+   }
+   else
+   {
+ 	ControlesApartado();
+	QLEConCuantoPaga->setText(Orden()->Apartado()->ACuenta());
+   }
 }
 void QComoPago::PagandoEfectivo()
 {
@@ -101,6 +111,15 @@ void QComoPago::reject()
 {
     FrmPago=Cancelar;
     done(1);
+}
+void QComoPago::PagandoConTarjeta()
+{
+	FrmPago=Tarjeta;
+ 	Orden()->FormaPago()->Transferencia(0);
+	Orden()->FormaPago()->Tarjeta(SePagaConTarjeta());
+ 	QPBAceptar->setEnabled(true);
+	 zSiscomQt3::Foco(QPBAceptar);
+
 }
 void QComoPago::Pagando(QComoPago::FormaDePago pQFPago)
 {
@@ -157,4 +176,25 @@ void QComoPago::VerificoConCuantoPago()
 	Orden()->ConCuantoPaga(zSiscomQt3::Texto(QLEConCuantoPaga));
    }
 intValidoPago=0;
-} 
+}
+void QComoPago::ControlesApartado()
+{
+   QLEConCuantoPaga->setReadOnly(true); 
+}
+int QComoPago::EsUnApartado()
+{
+  if(Orden()->Apartado())
+  {
+	return 1;
+
+  }
+  else
+  {
+	return 0;
+  }
+}
+
+zFormaPagoTarjeta *QComoPago::SePagaConTarjeta()
+{
+   return new zFormaPagoTarjeta;
+}

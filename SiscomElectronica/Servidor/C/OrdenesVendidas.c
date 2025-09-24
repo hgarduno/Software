@@ -29,7 +29,7 @@ InformacionPorTipoOrden gInformacionPorTipoOrden[15]={
 			    0,
 			    0,
 			    InformacionPagoTransferencia,
-			    0,
+			    InformacionPagoTarjeta,
 			    0
 			};
 
@@ -403,8 +403,6 @@ int InformacionPagoTransferencia(SiscomRegistroProL *pSiscomRegProLOrdenes,
 {
 char lchrArrEdoTransferencia[256];
 const char *lchrPtrObs=SiscomObtenCampoRegistroProLChar("observaciones",pSiscomRegProLOrdenes);
-  LogSiscom("Viendo lo del pago con transferencia %s",
-  SiscomObtenCampoRegistroProLChar("idventa",pSiscomRegProLOrdenes));
 if(!lchrPtrObs) 
 {
   if(SiscomObtenCampoRegistroProLInt("sereflejo",pSiscomRegProLOrdenes))
@@ -418,6 +416,10 @@ if(!lchrPtrObs)
  
 }
 SiscomActualizaCampoAsignaMemoria2("observaciones",lchrArrEdoTransferencia,pSiscomRegProLOrdenes);
+}
+int InformacionPagoTarjeta(SiscomRegistroProL *pSiscomRegProLOrdenes,
+			   SiscomOperaciones *pSiscomOpePtrDatos)
+{
 }
 void CompletandoInformacionPorTipoOrden(SiscomRegistroProL *pSiscomRegProLPtrDatos,
 					SiscomOperaciones *pSiscomOpePtrDato)
@@ -708,7 +710,7 @@ void PorFechaYTipoOrden(SiscomOperaciones *pSiscomOpePtrDato,
 		        char *pchrPtrCondicion)
 {
 
-
+/*
 if(strcmp(pchrPtrIdTipoOrden,"11"))
 sprintf(pchrPtrCondicion,
 	"where fechahora::date>='%s' and 	\n\
@@ -723,6 +725,25 @@ sprintf(pchrPtrCondicion,
 	       fechahora::date<='%s'",
 	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
 	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
+
+*/
+
+if(!strcmp(pchrPtrIdTipoOrden,"11") ||
+   !strcmp(pchrPtrIdTipoOrden,"12"))
+sprintf(pchrPtrCondicion,
+	"where fechahora::date>='%s' and 	\n\
+	       fechahora::date<='%s'",
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
+else
+sprintf(pchrPtrCondicion,
+	"where fechahora::date>='%s' and 	\n\
+	       fechahora::date<='%s'  and 	\n\
+	       a.edoventa=%s",
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSiscomOpePtrDato),
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato),
+	pchrPtrIdTipoOrden);
+
 
 }
 void PorFechaOrdenes(SiscomOperaciones *pSiscomOpePtrDato,

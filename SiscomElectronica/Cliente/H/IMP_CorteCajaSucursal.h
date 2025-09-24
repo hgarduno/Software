@@ -22,6 +22,8 @@ private:
 	char **chrPtrArgumentos;
 	zSiscomConexion *zSisConexion;
 	zCorteCaja zCCaja;
+
+	int intRegistroC;
 private:
 	void ConectaSlots();
 	void IniciaVariables();

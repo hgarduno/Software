@@ -1,6 +1,7 @@
 #ifndef __SQLORDENES_H__
 #define __SQLORDENES_H__
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
+int SqlFormaPagoTarjeta(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlPagaConEfectivo(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlFormaPagoTransferencia(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlRegistraOrden(SiscomOperaciones *pSiscomOpePtrDato);
@@ -132,6 +133,9 @@ void InsertToPagoTransferencia(SiscomOperaciones *pSisOpePtrDato,
 				SiscomRegistroProL *pSisRegProLPtrDato,
 				char *pchrPtrSql);
 
+void InsertToPagoTarjeta(SiscomOperaciones *pSisOpePtrDato,
+				SiscomRegistroProL *pSisRegProLPtrDato,
+				char *pchrPtrSql);
 void InsertToPagaCon(SiscomOperaciones *pSisOpePtrDato,
 				SiscomRegistroProL *pSisRegProLPtrDato,
 				char *pchrPtrSql);

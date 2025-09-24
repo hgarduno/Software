@@ -37,7 +37,8 @@ QCorteCajaSucursal::QCorteCajaSucursal(SiscomDatCom *pSisDatCom,
 				CorteCajaSucursal(pQWParent,pchrPtrName,pWFlags),
 				SisDatCom(pSisDatCom),
 				chrPtrArgumentos(pchrPtrArgumentos),
-				zSisConexion((zSiscomConexion *)gzSiscomConexion)
+				zSisConexion((zSiscomConexion *)gzSiscomConexion),
+				intRegistroC(0)
 {
 IniciaVariables();
 ConectaSlots();
@@ -69,8 +70,8 @@ connect(QtCCaja,
 	SIGNAL(SignalCapturoCantidadDenominacion()),
 	SLOT(SlotCapturoCantidad()));
 connect(QtCCaja,
-	SIGNAL(SignalActualizaImporteGasto()),SLOT(SlotActualizaCorteCaja()));
-connect(QtCCaja,SIGNAL(SignalPagoTarjeta()),SLOT(SlotActualizaCorteCaja()));
+	SIGNAL(SignalActualizaImporteGasto()),SLOT(SlotActualiza()));
+connect(QtCCaja,SIGNAL(SignalPagoTarjeta()),SLOT(SlotActualiza()));
 connect(QPBRegCambio,SIGNAL(clicked()),SLOT(SlotRegistraCambio()));
 connect(QPBSCambio,SIGNAL(clicked()),SLOT(SlotSeleccionaCambio()));
 connect(QPBActualizar,SIGNAL(clicked()),SLOT(SlotActualiza()));
@@ -82,13 +83,15 @@ connect(QPBRegistraCorte,SIGNAL(clicked()),SLOT(SlotRegistraCorte()));
 void QCorteCajaSucursal::SlotRegistraCorte()
 {
 RegistraCorte();
+intRegistroC=1;
+ QPBRegistraCorte->setEnabled(false);
 }
 void QCorteCajaSucursal::SlotRegistraCambio()
 {
  RegistraCambio();
  HabilitaDesHabilitaRegistroCambio(false);
 
- QPBSCambio->setEnabled(false);
+/* QPBSCambio->setEnabled(false); */
  QPBRegistraCorte->setEnabled(true);
  QPBActualizar->setEnabled(true);
 }
@@ -142,7 +145,6 @@ lzSisElec.RegistraCambioCaja(QtCCaja->Cajas());
 void QCorteCajaSucursal::RegistrandoCambio()
 {
    RegistraCambio();
-   //QPBRegCambio->setEnabled(false);
 }
 void QCorteCajaSucursal::HabilitaDesHabilitaControles(bool pbEstado)
 {
@@ -189,6 +191,7 @@ void QCorteCajaSucursal::ImportesDia()
 {
  SiscomRegistroLog2(&CorteCaja());
   QtCCaja->Cajas()->Principal()->Transferencias(CorteCaja().Transferencias());
+  QtCCaja->Cajas()->Principal()->PagoTarjeta(CorteCaja().Tarjeta());
   QtCCaja->Cajas()->Principal()->TotalEfectivo(CorteCaja().DineroEntroCaja());
   QtCCaja->Cajas()->Principal()->VentasTotales(CorteCaja().VentasTotales());
   QtCCaja->Cajas()->Principal()->CalculandoCorte(CorteCaja().CalculandoCorte());
@@ -210,7 +213,10 @@ void QCorteCajaSucursal::RegistraCorte()
 
 void QCorteCajaSucursal::closeEvent(QCloseEvent *pQCEvent)
 {
-   QMessageBox::information(this,"Aviso Sistema","Se cerrara la ventana y no se a registrado...");
-       
+   if(!intRegistroC)
+   QMessageBox::information(this,
+   			    "Aviso Sistema",
+			    "No Se Ha Registrado el CORTE");
+    else
 	pQCEvent->accept();
 }

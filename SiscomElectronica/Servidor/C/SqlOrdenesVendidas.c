@@ -171,8 +171,6 @@ lchrPtrIdTipoOrden=SiscomCampoAsociadoEntradaOperacion("Envio","IdTipoOrden",pSi
 
 LogSiscom("Consultando por tipo de Orden %s",lchrPtrIdTipoOrden);
 if(!SiscomComparaCampoAsociadoEntradaCadena("Envio","IdTipoOrden","11",pSiscomOpePtrDato))
-{
-LogSiscom(" Consultando las transferencias");
 sprintf(lchrArrSql,
 	"									\n\
 select a.idexpendio,								\n\
@@ -215,7 +213,47 @@ from pagotransferencia as k inner join 						\n\
 	         a.idconsecutivo asc",
 	lchrPtrCondicionConsulta);
 
-}
+else
+if(!SiscomComparaCampoAsociadoEntradaCadena("Envio","IdTipoOrden","12",pSiscomOpePtrDato))
+sprintf(lchrArrSql,
+	"									\n\
+select a.idexpendio,								\n\
+	a.idventa,								\n\
+	a.fechahora,								\n\
+	a.cveproducto,								\n\
+	a.cantidad,								\n\
+	a.importe,								\n\
+	a.precio,								\n\
+	a.vendedor,								\n\
+	a.cliente,								\n\
+	a.cliente as idpersona,							\n\
+	12 as edoventa,								\n\
+	a.idproducto,								\n\
+	a.idconsecutivo,							\n\
+	c.idtipoproducto,							\n\
+	b.importe as importeorden,						\n\
+	d.existencia,								\n\
+	12 as idtipoorden,							\n\
+	f.nombre as escuela,							\n\
+	f.idescuela,								\n\
+	h.*,									\n\
+	i.*,									\n\
+	k.observaciones								\n\
+from pagotarjeta as k inner join 						\n\
+	ventas as a using(idventa) inner join					\n\
+	importeorden as b using(idventa) left outer join			\n\
+	productoportipoproducto as c using(cveproducto) inner join		\n\
+	existencias as d using(cveproducto) inner join 				\n\
+	escuelaorden as e using(idventa) inner join				\n\
+	escuelas as f   using(idescuela) inner join				\n\
+	ordencliente as g using(idventa) inner join				\n\
+	personas as h using(idpersona)  left outer join				\n\
+	telefonos as i on (h.idpersona=i.idpersona and 				\n\
+	                   i.departamenteo='Celular')				\n\
+	%s									\n\
+	order by a.fechahora desc, 						\n\
+	         a.idconsecutivo asc",
+	lchrPtrCondicionConsulta);
 else
 sprintf(lchrArrSql,
 	"									\n\
@@ -253,7 +291,6 @@ sprintf(lchrArrSql,
         order by a.fechahora desc,						\n\
                  a.idconsecutivo asc",
 	lchrPtrCondicionConsulta);
-LogSiscom("%d",strlen(lchrArrSql));
 SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Ordenes%",
