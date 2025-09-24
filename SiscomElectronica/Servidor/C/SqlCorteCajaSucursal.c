@@ -225,6 +225,7 @@ void InsertToCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato,
 			       SiscomRegistroProL *pSisRegProLPtrDato,
 			       char *pchrPtrSql)
 {
+
 sprintf(pchrPtrSql,
 	"insert into CorteCajaSucursal(IdCorte,		\n\
 				      Fecha,		\n\
@@ -249,6 +250,8 @@ sprintf(pchrPtrSql,
 	SiscomObtenCampoRegistroProLChar("CalculandoCorte",pSisRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("FechaFin",pSisRegProLPtrDato),
 	"21:00");
+
+LogSiscom("----------------------");
 }
 void UpdateCambioCaja(SiscomOperaciones *pSisOpePtrDato,
 			     SiscomRegistroProL *pSisRegProLPtrDato,
