@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Form interface generated from reading ui file 'UI/Ventas.ui'
 **
-** Created: Thu Feb 27 20:54:29 2025
+** Created: Wed Sep 24 15:45:50 2025
 **
 ** WARNING! All changes made in this file will be lost!
 ****************************************************************************/
