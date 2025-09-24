@@ -364,6 +364,8 @@ int lintHora,
 	lintMinuto,
 	lintSegundo;
 
+
+
 SiscomObtenFechaHoyCharAAAADDMM(lchrArrFecha);
 SiscomObtenHoraActual(&lintHora,&lintMinuto,&lintSegundo);
 SiscomPonPrimerRegistroArgumento("SqlImprimePedido",pSAgsSiscom);
