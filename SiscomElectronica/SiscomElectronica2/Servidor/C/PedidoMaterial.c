@@ -45,6 +45,7 @@ lSOpOperaciones=(SiscomOperaciones2 *)malloc(sizeof(SiscomOperaciones2 )*7);
 memset(lSOpOperaciones,0,sizeof(SiscomOperaciones2)*7); 
 SiscomAnexaOperacionAlArreglo2(SiscomLeeEntradaOpSubRegistros,lSOpOperaciones);
 /*SiscomAnexaOperacionAlArreglo2(SiscomComunicacionMatriz,lSOpOperaciones);    */
+SiscomAnexaOperacionAlArreglo2(ComunicacionExpendioConsulta,lSOpOperaciones);   
 SiscomAnexaOperacionAlArreglo2(ArgumentosPedidosExpendios,lSOpOperaciones); 
 SiscomAnexaOperacionAlArreglo2(SqlPedidosExpendios,lSOpOperaciones); 
 SiscomAnexaOperacionAlArreglo2(SqlDetallePedidoExpendio,lSOpOperaciones); 

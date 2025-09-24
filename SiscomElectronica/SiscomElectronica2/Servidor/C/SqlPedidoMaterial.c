@@ -34,6 +34,9 @@ sprintf(lchrArrSql,
 SiscomConsultaBaseAsignaArgumento("SqlPedidosExpendios",
 				   lchrArrSql,
 				   pSAgsSiscom);
+SiscomLog("Consultando el servidor (%s:%d)",
+	pSAgsSiscom->chrArrDirIpAD,
+	pSAgsSiscom->intPtoComAD);
 SiscomLog("%s",lchrArrSql);
 }
 
