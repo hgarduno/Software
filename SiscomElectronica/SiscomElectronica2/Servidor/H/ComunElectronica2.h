@@ -17,7 +17,9 @@
 void ComunicacionExpendioConsulta(SArgsSiscom *);
 void ComunicacionExpendio(const char *pchrPtrIdExpendio,
 			  SArgsSiscom *pSAgsSiscom);
+void SiscomComunicacionExpendioParaPedidos(SArgsSiscom *pSAgsSiscom);
 void SiscomComunicacionMatriz(SArgsSiscom *pSAgsSiscom);
+
 
 /* Esta funcion copiara los datos del servidor
  * de acceso a datos, pero debera contene en el
@@ -39,6 +41,10 @@ void SiscomComunicacionExpendio2(const char *pchrPtrIdExpendio,
 				     char *pchrPtrBaseDatos);
 
 void SiscomDatosComunicacionMatriz(int *pintPtrPtoCom,
+			      char *pchrPtrDirIpSvr,
+			      char *pchrPtrBaseDatos);
+
+void SiscomDatosComunicacionExpendioParaPedidos(int *pintPtrPtoCom,
 			      char *pchrPtrDirIpSvr,
 			      char *pchrPtrBaseDatos);
 

@@ -269,6 +269,7 @@ int AgregaFechaSinHora(SiscomOperaciones *pSiscomOpePtrDato)
 {
 SiscomAgregaCampoAsociadoEntrada("Fecha",0,"Envio",pSiscomOpePtrDato);
 SiscomAsignaFechaAsociadoEntrada("Envio","Fecha",pSiscomOpePtrDato);
+return 0;
 }
 
 int ArgumentoIniciaPedidoExpendio(SiscomOperaciones *pSiscomOpePtrDato)

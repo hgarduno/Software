@@ -69,25 +69,9 @@ CreaExpendios 	-RestauraBaseDatos 			\
 
 	
 CreaExpendios -DejaSoloMatriz -Base SiscomElectronica
-printf "Registrando Expendio_100\n"
 
-CreaExpendios -RegistroExpendio  		\
-		-BaseMatriz SiscomElectronica 	\
-		-BaseExpendio Expendio_100 	\
-		-Expendio Expendio_100 		\
-		-IdExpendio 100 		\
-		-PuertoAdExpendio 6546 		\
-		-DirIpAdExpendio 127.0.0.1
 
-printf "Registrando Expendio_200\n"
 
-CreaExpendios -RegistroExpendio  		\
-		-BaseMatriz SiscomElectronica 	\
-		-BaseExpendio Expendio_200 	\
-		-Expendio Expendio_200 		\
-		-IdExpendio 200 		\
-		-PuertoAdExpendio 7546 		\
-		-DirIpAdExpendio 127.0.0.1
 
 printf "Creando El Expendio 100\n" 
 
@@ -109,6 +93,29 @@ CreaExpendios -IniciaExpendioNuevo 		\
 		-BaseExpendio Expendio_200 	\
 		-Puerto 7546 			\
 		-DirIpMatriz 127.0.0.1
+
+
+
+printf "Registrando Expendio_100\n"
+
+CreaExpendios -RegistroExpendio  		\
+		-BaseMatriz SiscomElectronica 	\
+		-BaseExpendio Expendio_100 	\
+		-Expendio Expendio_100 		\
+		-IdExpendio 100 		\
+		-PuertoAdExpendio 6546 		\
+		-DirIpAdExpendio 127.0.0.1
+
+
+printf "Registrando Expendio_200\n"
+
+CreaExpendios -RegistroExpendio  		\
+		-BaseMatriz SiscomElectronica 	\
+		-BaseExpendio Expendio_200 	\
+		-Expendio Expendio_200 		\
+		-IdExpendio 200 		\
+		-PuertoAdExpendio 7546 		\
+		-DirIpAdExpendio 127.0.0.1
 
 
 CosasQueFaltanExpendios 

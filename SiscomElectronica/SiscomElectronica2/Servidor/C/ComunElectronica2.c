@@ -44,6 +44,15 @@ SiscomDatosComunicacionMatriz(&pSAgsSiscom->intPtoComAD,
 				 lchrArrBase);
 }
 
+void SiscomComunicacionExpendioParaPedidos(SArgsSiscom *pSAgsSiscom)
+{
+char lchrArrBase[25];
+SiscomDatosComunicacionExpendioParaPedidos(&pSAgsSiscom->intPtoComAD,
+			 pSAgsSiscom->chrArrDirIpAD,
+				 lchrArrBase);
+}
+
+
 void ComunicacionExpendioRegistra(SArgsSiscom *pSAgsSiscom)
 {
 ElectronicaComunicacionExpendio(pSAgsSiscom->LCSiscomPro2Dat,
@@ -178,6 +187,7 @@ AsignaEstadoInsercion(pSAgsSiscom->LCSiscomPro2Regreso,
 
 }
 
+
 void SiscomDatosComunicacionMatriz(int *pintPtrPtoCom,
 			      char *pchrPtrDirIpSvr,
 			      char *pchrPtrBaseDatos)
@@ -201,12 +211,40 @@ const char *lchrPtrMatriz;
 			   *pintPtrPtoCom);
 		return ;
 	    }
-	    	
 
 	}
 	SiscomLog("No se encontraron los datos de la matriz ");
 	SiscomLog("Verificar registro en la tabla Matriz");
 }
+void SiscomDatosComunicacionExpendioParaPedidos(int *pintPtrPtoCom,
+			      char *pchrPtrDirIpSvr,
+			      char *pchrPtrBaseDatos)
+{
+LCamposSiscomPro2 *lLCSiscomPro2=*gLCSiscomPro2Memoria; 
+const char *lchrPtrIdExpendioPP;
+	for( ;
+		lLCSiscomPro2;
+		lLCSiscomPro2=lLCSiscomPro2->SCP2PtrSig
+		)
+	{
+	   lchrPtrIdExpendioPP=SiscomObtenDato(lLCSiscomPro2,"pedidos");	
+	    if(*lchrPtrIdExpendioPP)
+	    {
+		*pintPtrPtoCom=atoi(SiscomObtenDato(lLCSiscomPro2,"ptocomad"));
+		strcpy(pchrPtrDirIpSvr,SiscomObtenDato(lLCSiscomPro2,"diripsvrad"));
+		if(pchrPtrBaseDatos)
+		strcpy(pchrPtrBaseDatos,SiscomObtenDato(lLCSiscomPro2,"basedatos"));
+		SiscomLog("La IdExpendioPP:%s:%d",
+			   pchrPtrDirIpSvr,
+			   *pintPtrPtoCom);
+		return ;
+	    }
+
+	}
+	SiscomLog("No se encontraron los datos de la matriz ");
+	SiscomLog("Verificar registro en la tabla IdExpendioPP");
+}
+
 
 void SiscomDatosComunicacionMatriz2(int *pintPtrPtoCom,
 			      char *pchrPtrDirIpSvr,
