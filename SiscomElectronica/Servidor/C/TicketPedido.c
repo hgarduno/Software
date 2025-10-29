@@ -28,6 +28,8 @@ SiscomRegistroProtocoloLog(lchrArrBuffer,DireccionEntregaPedido(pSisOpePtrDato))
 sprintf(pchrPtrDireccion,
 	"Se entrega en: %s",
 	SiscomObtenCampoRegistroProLChar("PuntoEntrega",lSisRegProLPtrPEntrega));
+
+LogSiscom("La direccion de entrega");
 }
 
 
