@@ -429,10 +429,8 @@ return "";
 void AgregaTextoPedido(SiscomOperaciones *pSiscomOpePtrDato,
 			char *pchrPtrTextoPedido)
 {
-char lchrArrBuffer[256],
-	lchrArrDireccion[512];
+char lchrArrDireccion[512];
 const char *lchrPtrObservaciones;
-SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato); 
 FormaTextoDireccionEntrega(pSiscomOpePtrDato,lchrArrDireccion);
 
 lchrPtrObservaciones=SiscomCampoAsociadoAsociadoEntradaOperacion("Envio",
