@@ -14,16 +14,17 @@ LogSiscom("Analizando el punto de entrega");
 lSisRegProLPtrPedido=SiscomRegistroAsociadoEntradaOperacion("Envio",
 							    "Pedido",
 							    pSisOpePtrDato);
+LogSiscom("---");
 lSisRegProLPtrPEntrega=SiscomObtenRegistrosCampoProL("PuntoEntrega",lSisRegProLPtrPedido);
+LogSiscom("---");
 lSisRegProLPtrCliente=SiscomRegistroAsociadoEntradaOperacion("Envio",
 							     "Cliente",
 							     pSisOpePtrDato);
-/*
+LogSiscom("---");
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrPedido);
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrPEntrega);
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrCliente);
 SiscomRegistroProtocoloLog(lchrArrBuffer,DireccionEntregaPedido(pSisOpePtrDato));
-*/
 sprintf(pchrPtrDireccion,
 	"Se entrega en: %s",
 	SiscomObtenCampoRegistroProLChar("PuntoEntrega",lSisRegProLPtrPEntrega));
