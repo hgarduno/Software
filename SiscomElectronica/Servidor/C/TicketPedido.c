@@ -29,7 +29,7 @@ sprintf(pchrPtrDireccion,
 	"Se entrega en: %s",
 	SiscomObtenCampoRegistroProLChar("PuntoEntrega",lSisRegProLPtrPEntrega));
 
-LogSiscom("La direccion de entrega");
+LogSiscom("La direccion de entrega %s",pchrPtrDireccion);
 }
 
 
