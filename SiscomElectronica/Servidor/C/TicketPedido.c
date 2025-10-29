@@ -10,17 +10,13 @@ SiscomRegistroProL *lSisRegProLPtrPedido,
 char lchrArrBuffer[1024];
 *pchrPtrDireccion=0;
 LogSiscom("Analizando el punto de entrega");
-
 lSisRegProLPtrPedido=SiscomRegistroAsociadoEntradaOperacion("Envio",
 							    "Pedido",
 							    pSisOpePtrDato);
-LogSiscom("---");
 lSisRegProLPtrPEntrega=SiscomObtenRegistrosCampoProL("PuntoEntrega",lSisRegProLPtrPedido);
-LogSiscom("---");
 lSisRegProLPtrCliente=SiscomRegistroAsociadoEntradaOperacion("Envio",
 							     "Cliente",
 							     pSisOpePtrDato);
-LogSiscom("---");
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrPedido);
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrPEntrega);
 SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrCliente);
