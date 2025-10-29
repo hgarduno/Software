@@ -1374,6 +1374,13 @@ update expendios set ptocomad=$4 where idempresa=-$3;
 update puertosservidorad4 set puerto=$PuertoAd4 where idempresa=-$3;
 update servidoressiscom4 set puerto=$PuertoAd4 where idempresa=-$3;
 update firmas set idexpendio = -$3 ;
+
+delete from inventariobodega ;
+delete from materialbodega ;
+delete from bodegaaexpendio ;
+delete from transferenciabodegabodega;
+delete from bodegas ;
+
 SQL
 }
 CreaBaseDatosExpendioNuevo()
@@ -1389,6 +1396,8 @@ CreaBaseDatosExpendioNuevo()
   createdb $BaseExpendio > /dev/null 2>>Error.log
   pg_dump $BaseBase |sed s/-1165857915/-$IdExpendio/g |psql $BaseExpendio > /dev/null 2>>Error.log
   ActualizaRegistrosNuevoExpendio $BaseExpendio $NmbExpendio $IdExpendio $Puerto $DirIpMatriz $BaseBase  > /dev/null 2>>Error.log
+
+
 }
 
 CreandoExpendioNuevo()

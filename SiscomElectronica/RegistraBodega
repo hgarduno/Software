@@ -2,7 +2,7 @@
 
 source ~/bin/FuncionesComunesBash 
 
-DirectorioPostgres=/home/postgres/Versiones/17.2.0
+DirectorioPostgres=/home/postgres/Versiones/17.6.0
 
 EstaBaseMatriz()
 {

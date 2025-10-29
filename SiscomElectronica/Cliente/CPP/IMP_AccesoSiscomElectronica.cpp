@@ -257,12 +257,12 @@ else
 }
 void QAccesoSiscomElectronica::reject()
 {
- SiscomLog("Cancelando");
  intCancelo=1;
  done(intCancelo);
 }
 int QAccesoSiscomElectronica::Cancelo()
 {
+SiscomEscribeLog3Qt("Estado de Cancelar %d",intCancelo);
     return intCancelo;
 }
 CQSisExpendiosPorTipo::CQSisExpendiosPorTipo()

@@ -69,6 +69,7 @@ void QConExpendiosVenta::SlotExpendio(int pintNExpendio,
   if(pintNExpendio!=-1)
   {
    zExActual=(zExpendio *)zExpsSiscom[pintNExpendio];
+   zExpsSiscom.Actual((zExpendio *)zExpsSiscom[pintNExpendio]);
    QTExpendios->selectRow(pintNExpendio);  
    QPBAceptar->setEnabled(true);
    FocoAAceptar();
@@ -151,11 +152,6 @@ void QConExpendiosVenta::OtroExpendio(SiscomRegistro3 *pSisReg3Expendio,
   zExActual->Puerto(pSisDatCom->SiscomObtenPuertoCom());
   zExActual->IdExpendio((*pSisReg3Expendio)["IdExpendio"]);
   zExpsSiscom.Agrega(new zConexionExpendio(zExActual));
-  /*
-  LogSiscom("Expendio %s : %s ", 
-  	    (*pSisReg3Expendio)["RazonSocial"],
-  	    (*pSisReg3Expendio)["IdExpendio"]);
-*/
 }
 const char *QConExpendiosVenta::DireccionIp()
 {

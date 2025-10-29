@@ -210,13 +210,22 @@ void QCorteCajaSucursal::RegistraCorte()
   zCorteCajaO lzCorteCO(zSiscomDesarrollo4::Conexion(),"RegistraCorteCajaSucursal");
   lzCorteCO.RegistraCorte(&CorteCaja());
 }
+int QCorteCajaSucursal::OpcionCerrar()
+{
+int lintSeleccion;
 
+lintSeleccion=QMessageBox::question(0,
+				    "Aviso Sistema",
+				    "Se Cierra el corte sin Registrarlo!!!!!!",
+				    QMessageBox::Yes,
+				    QMessageBox::No);
+
+return lintSeleccion;
+}
 void QCorteCajaSucursal::closeEvent(QCloseEvent *pQCEvent)
 {
    if(!intRegistroC)
-   QMessageBox::information(this,
-   			    "Aviso Sistema",
-			    "No Se Ha Registrado el CORTE");
+   OpcionCerrar();
     else
 	pQCEvent->accept();
 }

@@ -66,7 +66,6 @@ printf "Restaurando la ultima base\n "
 CreaExpendios 	-RestauraBaseDatos 			\
 		-Base SiscomElectronica 		\
 	      	-UltimoArchivo -Prefijo Zacatenco
-
 	
 CreaExpendios -DejaSoloMatriz -Base SiscomElectronica
 
@@ -116,6 +115,7 @@ CreaExpendios -RegistroExpendio  		\
 		-IdExpendio 200 		\
 		-PuertoAdExpendio 7546 		\
 		-DirIpAdExpendio 127.0.0.1
+
 
 
 CosasQueFaltanExpendios 

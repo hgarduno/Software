@@ -15,6 +15,7 @@ public:
 	zExpendio *Expendio(int );
 	zExpendio *Principal();
 	zExpendio *Actual();
+	void Actual(zExpendio *);
 
 
 private:

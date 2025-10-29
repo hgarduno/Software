@@ -45,6 +45,7 @@ private:
 	void RegistraCorte();
 
 	void closeEvent(QCloseEvent *);
+	int OpcionCerrar();
 private slots:
 	void SlotCapturoCantidad();
 	void SlotActualizaCorteCaja();

@@ -376,17 +376,34 @@ Reflejada</string>
                 <widget class="QTable">
                     <column>
                         <property name="text">
+                            <string>Fecha</string>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap></pixmap>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
                             <string>Escuela</string>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap></pixmap>
                         </property>
                     </column>
                     <column>
                         <property name="text">
                             <string>Importe</string>
                         </property>
+                        <property name="pixmap">
+                            <pixmap></pixmap>
+                        </property>
                     </column>
                     <column>
                         <property name="text">
                             <string>Descripcion</string>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap></pixmap>
                         </property>
                     </column>
                     <property name="name">
@@ -404,7 +421,7 @@ Reflejada</string>
                         <number>0</number>
                     </property>
                     <property name="numCols">
-                        <number>3</number>
+                        <number>4</number>
                     </property>
                     <property name="readOnly">
                         <bool>true</bool>

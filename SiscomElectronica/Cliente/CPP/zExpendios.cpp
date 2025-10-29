@@ -34,5 +34,9 @@ zExpendio *zExpendios::Principal()
 zExpendio *zExpendios::Actual()
 {
    return zExActual;
+}
 
+void zExpendios::Actual(zExpendio *pzExActual)
+{
+	zExActual=pzExActual;
 }

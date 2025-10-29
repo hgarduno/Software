@@ -732,22 +732,18 @@ lQCDato.ObtenDato(pchrPtrCantidad);
 }
 void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 {
-  LogSiscom("");
    if(pQKETeclas->state()==Qt::AltButton)
    {
-     LogSiscom("Presionando el Alt");
         if(pQKETeclas->key()>=Qt::Key_0 && 
 	   pQKETeclas->key()<=Qt::Key_5 && 
 	   intSeAbrioOExpendios) 
 	  CambiandoAlExpendio(pQKETeclas->key());
 	else
 	if(pQKETeclas->key()==Qt::Key_Tab)
-	{
 	if(zOrdsVenta.HayMasDeUnaOrden())
 	SeleccionandoOrden();
 	else
 	LogSiscom("Solo Es la orden actual ...");
-	}
 	else
 	if(pQKETeclas->key()==Qt::Key_F12)
 	SeImprimeSinTiquet();
@@ -848,7 +844,6 @@ int lintSePuedeVender;
    QNoAlcanzaProducto lQNProducto(pzProdCotizar->DefinicionProducto());
  zSiscomQt3::Foco(QLECantidad);
  }
- LogSiscom("Se puede Vender %d",lintSePuedeVender);
  QPBAnexarOrden->setEnabled((lintSePuedeVender) );
 }
 int QManejadorOrden::ReCotizandoPorEliminacion(zProductoCotizar *pzProdCotizar)
@@ -1012,7 +1007,6 @@ void QManejadorOrden::IdConsecutivo(int pintIdConsecutivo)
 }
 void QManejadorOrden::SeImprimeSinTiquet()
 {
-	   LogSiscom("Se manda a Imprimir Sin Ticket"); 
 	   if(SePuedeHabilitarRegistro())
 	   {
 	     Orden()->SeImprimeTicket("0");
@@ -1163,6 +1157,7 @@ void QManejadorOrden::CambiandoColorBotonVenderImprimir()
 
 int QManejadorOrden::CambiandoExpendio()
 {
+
    QConExpsV->Corriendo();
    zOrdVenta->IdExpendio(QConExpsV->IdExpendioActual());
    zOrdVenta->Expendio(QConExpsV->Actual());
@@ -1252,18 +1247,9 @@ int QManejadorOrden::SoloDescripcion()
 zConexionExpendio *QManejadorOrden::ContinuandoConOtroExpendio()
 {
   if(QConExpsV)
-  {
-	LogSiscom("Sigo conectado a %s (%s:%d)",
-		   QConExpsV->Actual()->RazonSocial(),
-		   QConExpsV->Actual()->DirIp(),
-		   QConExpsV->Actual()->PuertoInt());
 	return QConExpsV->Actual();
-  }
   else
-  {
-	LogSiscom("Al expendio principal");
 	return zConExpendio;
-  }
 }
 
 void QManejadorOrden::RegistrandoFaltante()
