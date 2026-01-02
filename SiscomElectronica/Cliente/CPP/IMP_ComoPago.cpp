@@ -13,6 +13,7 @@
 #include <zFormaPagoTarjeta.h>
 #include <zSiscomElectronica.h>
 #include <zApartado.h>
+#include <zFormaPagoTransferencia.h>
 QComoPago::QComoPago(zOrdenVenta *pzOrdenVenta,
 			QWidget *pQWParent,       
 				    const char *pchrPtrName,
@@ -197,4 +198,28 @@ int QComoPago::EsUnApartado()
 zFormaPagoTarjeta *QComoPago::SePagaConTarjeta()
 {
    return new zFormaPagoTarjeta;
+}
+
+void QComoPago::keyPressEvent(QKeyEvent *pQKETeclas)
+{
+    if(pQKETeclas->state()==Qt::ControlButton)
+    TeclasEspeciales(pQKETeclas);
+
+
+
+}
+void QComoPago::TeclasEspeciales(QKeyEvent *pQKETeclas)
+{
+        if(pQKETeclas->key()==Qt::Key_R)
+	TransferenciaReflejada();
+
+
+}
+void QComoPago::TransferenciaReflejada()
+{
+  LogSiscom("La transferencia ya se refeljo"); 
+  Orden()->FormaPago()->Transferencia(new zFormaPagoTransferencia);
+  Orden()->FormaPago()->Transferencia()->YaSeReflejo("1");
+ FrmPago=Transferencia;
+  done(1);
 }

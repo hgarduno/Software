@@ -94,6 +94,7 @@ void QModuloVentas::Vendiendo()
 void QModuloVentas::NuevaOrden()
 {
 int lintAceptar;
+LogSiscom("Los campos en la orden  %d",Orden()->NNodos());
 QClienteAlumno lQCAlumno(Argumentos(4),Orden(),Parent());
 if(!Orden()->Cliente())
 Orden()->IdTipoOrden(lQCAlumno.IdTipoOrden());
@@ -316,11 +317,13 @@ if(Orden()->NumProductos()>=1 &&
    !Orden()->EsCotizacion()   &&
    intSeImprimioTicket)
 {
+LogSiscom("Se elimino la orden");
 Orden()->IdTipoOrden("5");
 Registrar();
 }
 else
 {
+LogSiscom("???????");
 EliminaOrden();
 IniciaOrden();
 ReIniciaInterfaz();

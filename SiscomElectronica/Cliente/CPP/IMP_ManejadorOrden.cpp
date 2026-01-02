@@ -557,12 +557,15 @@ LogSiscom("Orden sin productos %d",Orden()->NumProductos());
 }
 void QManejadorOrden::IniciaOrden()
 {
+ LogSiscom("");
      zOrdVenta=new zOrdenVenta(0,ContinuandoConOtroExpendio()->IdExpendio());
      zOrdVenta->Expendio(ContinuandoConOtroExpendio());
      zOrdVenta->IdVendedor(chrPtrArgumentos[1]);
      chrPtrIdOrden=0;
      QTOrden->setNumRows(0);
      AgregandoOrden();
+
+     LogSiscom("Los Campos %d",zOrdVenta->NNodos());
 }
 void QManejadorOrden::MuestraDatosCliente()
 {
@@ -875,6 +878,9 @@ void QManejadorOrden::EliminaOrden()
 {
 zOrdenVenta *lzOrdVenta=Orden();
 delete lzOrdVenta;
+
+LogSiscom("El expendio actual %s",
+	  ContinuandoConOtroExpendio()->IdExpendio());
 lzOrdVenta=0;
 QTOrden->setNumRows(0);
 }

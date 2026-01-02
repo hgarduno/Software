@@ -41,6 +41,21 @@ char lchrArrBuffer[256],
 				       lchrArrBuffer,
 				       lchrArrSql,
 				       pSiscomOpePtrDato,
+				       DeletePagaConDevolucion);
+
+
+  SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+  				       "Envio",
+				       lchrArrBuffer,
+				       lchrArrSql,
+				       pSiscomOpePtrDato,
+				       DeleteEscuelaOrdenDevolucion);
+
+  SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+  				       "Envio",
+				       lchrArrBuffer,
+				       lchrArrSql,
+				       pSiscomOpePtrDato,
 				       DeleteImporteOrdenDevolucion);
   SiscomEnviaRegistrosAlServidorBD("SqlOrden",lchrArrBuffer,pSiscomOpePtrDato);
 return 0;
@@ -73,4 +88,25 @@ sprintf(pchrPtrSql,
 	"update existencias set existencia=existencia+%s where cveproducto='%s'",
 	SiscomObtenCampoRegistroProLChar("Cantidad",pSiscomRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("Clave",pSiscomRegProLPtrDato));
+}
+
+
+
+void DeletePagaConDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"delete from pagacon where idventa=%s;",
+	SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato));
+
+}
+
+void DeleteEscuelaOrdenDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"delete from escuelaorden where idventa=%s;",
+	SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato));
 }

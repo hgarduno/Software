@@ -533,11 +533,6 @@ for(lzSisRegProducto=pzSisRegsProductos->Primer(),
     lzSisRegProducto=pzSisRegsProductos->Siguiente(),
     lintContador++)
 {
-	/*
-    lzProdCotiza=new zProductoCotizar((const char *)(*lzSisRegProducto)["cantidad"],
-    				      (const char *)(*lzSisRegProducto)["precio"],
-				      lzSisRegProducto);
-	*/
     lzProdCotiza=new zProductoCotizar(lzSisRegProducto);
     lzProdCotiza->Importe((const char *)(*lzSisRegProducto)["importe"]);
     lzProdCotiza->IdConsecutivo(lintContador);
@@ -590,13 +585,15 @@ void zOrdenVenta::AgregandoProductos(zSiscomRegistros *pzSisRegsProductos)
 zSiscomRegistro *lzSisRegProducto;
 zProductoCotizar *lzProdCotizar;
 int lintContador;
-
 for(lintContador=NumProductos(),
     lzSisRegProducto=pzSisRegsProductos->Primer();
     lzSisRegProducto;
     lzSisRegProducto=pzSisRegsProductos->Siguiente(),
     lintContador++)
+ {
+    lzSisRegProducto->ActualizaCampo("IdConsecutivo",lintContador);
     AgregaProducto((zProductoCotizar *)lzSisRegProducto); 
+ }
 }
 
 zOrdenVenta *zOrdenVenta::ConsultaOrdenes2(zSiscomRegistro *pzSisRegOrden)

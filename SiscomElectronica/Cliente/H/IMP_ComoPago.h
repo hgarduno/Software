@@ -48,6 +48,9 @@ private:
 	int EsUnApartado();
 	void ControlesApartado();
 	zFormaPagoTarjeta *SePagaConTarjeta();
+	void keyPressEvent(QKeyEvent *);
+	void TeclasEspeciales(QKeyEvent *);
+	void TransferenciaReflejada();
 private slots:
 	void SlotAceptar();
 	void SlotComoPago(int);

@@ -12,5 +12,12 @@ void UpdateExistenciaDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
 void DeleteImporteOrdenDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
 				      SiscomRegistroProL *pSiscomRegProLPtrDato,
 				      char *pchrPtrSql);
+
+void DeleteEscuelaOrdenDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql);
+void DeletePagaConDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql);
 #endif
 
