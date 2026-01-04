@@ -1310,6 +1310,8 @@ void QManejadorOrden::AsignandoOrdenSeleccionada()
   Orden()->NumProductos(QtManejadorOrden::Orden()->NumProductos());
   HabilitaImpresionRegistro();
   ReCotizandoOrden();
+
+
 }
 zOrdenVenta *QManejadorOrden::LaUltimaOrden()
 {

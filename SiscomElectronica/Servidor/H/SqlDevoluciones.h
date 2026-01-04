@@ -19,5 +19,11 @@ void DeleteEscuelaOrdenDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
 void DeletePagaConDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
 				      SiscomRegistroProL *pSiscomRegProLPtrDato,
 				      char *pchrPtrSql);
+void DeletePagoTransferenciaDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql);
+void DeletePagoTarjetaDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql);
 #endif
 

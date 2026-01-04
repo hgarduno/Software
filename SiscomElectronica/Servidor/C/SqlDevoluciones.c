@@ -14,6 +14,11 @@ update existencias set existencia=existencia+1.00 where cveproducto='SENSOR-ULTR
 update existencias set existencia=existencia+1.00 where cveproducto='RUEDALOCA' and idexpendio=-1165857915||
 update importeorden set importe=importe-175.00 where idventa=1611962464 ;||
 
+Domingo 4 de Enero 2025 
+
+Falto eliminar el pago con transferencia y pago con tarjeta para el caso 
+de que las ordenes se hayan pagado de forma electronica
+
  *
  */
 
@@ -50,6 +55,21 @@ char lchrArrBuffer[256],
 				       lchrArrSql,
 				       pSiscomOpePtrDato,
 				       DeleteEscuelaOrdenDevolucion);
+
+
+  SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+  				       "Envio",
+				       lchrArrBuffer,
+				       lchrArrSql,
+				       pSiscomOpePtrDato,
+				       DeletePagoTransferenciaDevolucion);
+
+  SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+  				       "Envio",
+				       lchrArrBuffer,
+				       lchrArrSql,
+				       pSiscomOpePtrDato,
+				       DeletePagoTarjetaDevolucion);
 
   SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
   				       "Envio",
@@ -110,3 +130,22 @@ sprintf(pchrPtrSql,
 	"delete from escuelaorden where idventa=%s;",
 	SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato));
 }
+
+
+void DeletePagoTransferenciaDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"delete from pagotransferencia where idventa=%s;",
+	SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato));
+}
+void DeletePagoTarjetaDevolucion(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"delete from pagotarjeta where idventa=%s;",
+	SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato));
+}
+
