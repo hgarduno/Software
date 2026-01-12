@@ -124,9 +124,12 @@ void QClienteAlumno::SlotModificaCotizacion(zOrdenVenta *pzOrdenVenta)
 void QClienteAlumno::SlotClienteMayoreo(zSiscomRegistro *pzSisRegCliente)
 {
         zCliSiscom=new zClienteSiscom(pzSisRegCliente);
+	zCliSiscom->Mayoreo("1");
 	QPBOtrosMovimientos->setEnabled(true);
 	QPBAceptar->setEnabled(true);
 	zSiscomQt3::Foco(QPBAceptar);
+	QCtrEscuelas->setEnabled(false);
+	QCtrClientesMayoreo->setEnabled(false);
 }
 void QClienteAlumno::SlotNuevaOrden()
 {
@@ -169,6 +172,9 @@ void QClienteAlumno::SlotCancelarApartado()
  */
 void QClienteAlumno::SlotOtroMovimiento()
 {
+int lintSeActiva;
+
+
 	QPBOtrosMovimientos->setEnabled(false);
 //	IniciaControlesOtrosMovimientos();
 /* Siscom Zacatenco 
@@ -182,8 +188,10 @@ void QClienteAlumno::SlotOtroMovimiento()
 /*
 	ConectaSlotsOtrosMovimientos();
 */
-	QBGTipoOrden->setEnabled(zCliSiscom && zCliSiscom->Escuela() ? 1 : 0);
-	HabilitaBotonesOtrosMovimientos(zCliSiscom && zCliSiscom->Escuela() ? 1 : 0);
+lintSeActiva=zCliSiscom && (zCliSiscom->MayoreoInt() ||
+			    zCliSiscom->Escuela() ) ;
+	QBGTipoOrden->setEnabled(lintSeActiva  ? 1 : 0);
+	HabilitaBotonesOtrosMovimientos(lintSeActiva ? 1 : 0);
 
 }
 void QClienteAlumno::SlotCotizacion(zCotizacion *pzCotizacion)
@@ -305,7 +313,7 @@ void QClienteAlumno::reject()
 }
 void QClienteAlumno::CapturaDatosApartado()
 {
-QRApartado=new QRegistroApartado();
+QRApartado=new QRegistroApartado(Orden());
 connect(QRApartado,SIGNAL(SignalAceptar()),SLOT(SlotAceptarApartado()));
 connect(QRApartado,SIGNAL(SignalCancelar()),SLOT(SlotCanceloRegistroApartado()));
 HabilitaDesHabilitaAceptarCancelar(false);
@@ -373,7 +381,8 @@ delete QCotizacion;
 }
 void QClienteAlumno::VerificandoEscuela()
 {
-   if(zCliSiscom && zCliSiscom->Escuela())
+   if(zCliSiscom && (zCliSiscom->MayoreoInt() ||
+                     zCliSiscom->Escuela()))
    {
       QCtrEscuelas->setEnabled(false);
       QBGTipoOrden->setEnabled(false);
@@ -385,7 +394,7 @@ void QClienteAlumno::VerificandoEscuela()
 }
 void QClienteAlumno::VerificandoNombre()
 {
-if(zCliSiscom->EsPublicoEnGeneral())
+if(!zCliSiscom->MayoreoInt()&&zCliSiscom->EsPublicoEnGeneral())
 QLECliente->setText(zCliSiscom->Nombre());
 else
 {

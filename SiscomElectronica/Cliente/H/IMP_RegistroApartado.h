@@ -9,11 +9,13 @@ class zSiscomRegistro;
 class zSiscomRegistros;
 class zApartado;
 class zClientesSiscom;
+class zOrdenVenta;
 class QRegistroApartado:public RegistroApartado
 {
  Q_OBJECT
 public:
-	QRegistroApartado(QWidget *pQWParent=0,
+	QRegistroApartado(zOrdenVenta *pzOrden,
+	QWidget *pQWParent=0,
 	    const char *pchrPtrName=0,
 	    bool pbModal=false,
 	    WFlags pWFlags=0);
@@ -23,6 +25,7 @@ public:
 	zApartado *Apartado();
 	void setFocus();
 	void Ejecutando();
+	zOrdenVenta *Orden();
 private:
 	zSiscomConexion *zSisConexion;
 	zClienteSiscom *zCliSiscom;
@@ -36,6 +39,18 @@ private:
 	
 	int intRegistroCelular;
 	int intRegistroCorreo;
+
+	/* Tepotzotlan Mexico 10/01/2026 
+	 * para el seguimiento de los clientes de mayoreo
+	 * Debido que se selecciona al abrir la orden el 
+	 * cliente, para asignar el precio al se le vende al
+	 * cliente de mayoreo, los datos se pasan ya aqui, 
+	 * por lo que la consulta del cliente ya no se hace
+	 * solo se muestran los datos, y se captura los datos
+	 * del apartado fecha de entrega, y con cuanto aparta
+	 */
+
+	zOrdenVenta *zOrden;
 
 private:
 	
@@ -69,6 +84,10 @@ private:
 
 	int SeCapturoCorreo();
 	void reject();
+
+	int EsClienteMayoreo();
+	void MuestraClienteRegistrado();
+	void DatosClienteMayoreo();
 private slots:
 	void SlotAceptar();
 

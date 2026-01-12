@@ -26,7 +26,8 @@ zClienteSiscom::zClienteSiscom(const char *pchrPtrIdPersona,
  new zSiscomCampo("Celular")						<<
  new zSiscomCampo("Correo")						<<
  new zSiscomCampo("Direccion")  					<<
- new zSiscomCampo("RFC");
+ new zSiscomCampo("RFC")						<<
+ new zSiscomCampo("Mayoreo",(const unsigned char *)"0");
 }
 zClienteSiscom::zClienteSiscom(zSiscomRegistro *pzSisRegPersona):
 			zPersona(pzSisRegPersona)
@@ -38,7 +39,8 @@ int lintTelefonos;
  new zSiscomCampo("Celular")						<<
  new zSiscomCampo("Correo")						<<
  new zSiscomCampo("Direccion")						<<
- new zSiscomCampo("RFC");
+ new zSiscomCampo("RFC")						<<
+ new zSiscomCampo("Mayoreo",(const unsigned char *)"0");
  EscuelaCliente(pzSisRegPersona);
  if((lintTelefonos=TraeTelefonosCliente(pzSisRegPersona))==1)
  Telefonos(pzSisRegPersona->AsociadosDelCampo("telefonos"));
@@ -58,7 +60,8 @@ zDirecciones *lzDirecciones;
  new zSiscomCampo("Celular")						<<
  new zSiscomCampo("Correo")						<<
  new zSiscomCampo("Direccion")						<<
- new zSiscomCampo("RFC");
+ new zSiscomCampo("RFC")						<<
+ new zSiscomCampo("Mayoreo",(const unsigned char *)"0");
  EscuelaCliente(pzSisRegPersona);
  if(TraeDireccionesCliente(pzSisRegPersona))
  Direcciones(pzSisRegPersona->AsociadosDelCampo("direcciones"));
@@ -75,7 +78,8 @@ zClienteSiscom::zClienteSiscom()
  new zSiscomCampo("Celular")						<<
  new zSiscomCampo("Correo")						<<
  new zSiscomCampo("Direccion")						<<
- new zSiscomCampo("RFC");
+ new zSiscomCampo("RFC")						<<
+ new zSiscomCampo("Mayoreo",(const unsigned char *)"0");
 }
 void zClienteSiscom::Telefonos(zSiscomRegistros *pzSisRegsTelefonos)
 {
@@ -205,6 +209,18 @@ void zClienteSiscom::RFC(const char *pchrPtrRFC)
 	ActualizaCampo("RFC",(const unsigned char *)pchrPtrRFC);
 }
 
+void zClienteSiscom::Mayoreo(const char *pchrPtrMayoreo)
+{
+	ActualizaCampo("Mayoreo",(const unsigned char *)pchrPtrMayoreo);
+}
+const char *zClienteSiscom::Mayoreo()
+{
+    return (const char *)(*this)["Mayoreo"];
+}
+int zClienteSiscom::MayoreoInt()
+{
+   return CampoInt("Mayoreo");
+}
 int zClienteSiscom::TraeDireccionesCliente(zSiscomRegistro *pzSisRegCliente)
 {
   if(pzSisRegCliente->AsociadosDelCampo("direcciones"))

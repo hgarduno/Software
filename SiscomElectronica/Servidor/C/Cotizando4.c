@@ -714,8 +714,10 @@ const char *lchrPtrSqlIdPersona="select idpersona	\n\
 				 where rfc='GENERAL'";
 const char *lchrPtrTipoPersona;
 SiscomRegistroProL *lSisRegProLPtrCliente;
+char lchrArrBuffer[128];
 if((lSisRegProLPtrCliente=SiscomRegistroAsociadoEntradaOperacion("Envio","Cliente",pSiscomOpePtrDato)))
 {
+SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrCliente);
   if((lchrPtrTipoPersona=SiscomObtenCampoRegistroProLChar("TipoPersona",lSisRegProLPtrCliente)) &&
      (lchrPtrIdPersona=SiscomObtenCampoRegistroProLChar("IdPersona",lSisRegProLPtrCliente)))
   return lchrPtrIdPersona;

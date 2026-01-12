@@ -835,7 +835,8 @@ int QManejadorOrden::SePuedeHabilitarRegistro()
 {
   return zOrdVenta->ProductosCotizados() 	&&
          Orden()->Cliente()		 	&&
-	 Orden()->Cliente()->EscuelaReg()	&&
+	 (Orden()->Cliente()->EscuelaReg()      ||
+	  Orden()->Cliente()->MayoreoInt())	&&
 	 Orden()->SePuedeVender();
 }
 void QManejadorOrden::SePuedeAnexarProducto(zProductoCotizar *pzProdCotizar)

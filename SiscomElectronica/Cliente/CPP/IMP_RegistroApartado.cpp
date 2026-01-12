@@ -9,6 +9,7 @@
 #include <zTelefono.h>
 #include <zCorreo.h>
 #include <zApartado.h>
+#include <zOrdenVenta.h>
 
 #include <zSiscomDesarrollo4.h>
 #include <zSiscomRegistro.h>
@@ -17,12 +18,14 @@
 #include <qpushbutton.h>
 #include <qlineedit.h>
 #include <qmessagebox.h>
-QRegistroApartado::QRegistroApartado(QWidget *pQWParent,       
+QRegistroApartado::QRegistroApartado(zOrdenVenta *pzOrden,
+				    QWidget *pQWParent,       
 				    const char *pchrPtrName,
 				    bool pbModal,
 				    WFlags pWFlags):	      
 				RegistroApartado(pQWParent,pchrPtrName,pbModal,pWFlags),
-				zSisConexion((zSiscomConexion *)gzSiscomConexion)
+				zSisConexion((zSiscomConexion *)gzSiscomConexion),
+				zOrden(pzOrden)
 
 {
 IniciaVariables();
@@ -110,10 +113,13 @@ int lintRegistroPersonales;
     	ConsultandoSimilares();
     else
     {
+    	/*
        	MuestraCliente();
 	MuestraDatosComunicacion();
 	zSiscomQt3::Foco(QLEACuenta);
 	QPBRegistraPersonales->setEnabled(false);
+	*/
+	MuestraClienteRegistrado();
     }
 }
 void QRegistroApartado::SlotRegistraCelular()
@@ -174,7 +180,7 @@ void QRegistroApartado::IniciaVariables()
 {
 QCtrFechaEntrega->ColocaFechaHoy();
 zSiscomQt3::Foco(QLENombre);
-
+DatosClienteMayoreo();
 }
 
 void QRegistroApartado::ValidandoCorreo()
@@ -416,4 +422,32 @@ int QRegistroApartado::SeCapturoCorreo()
 void QRegistroApartado::reject()
 {
   LogSiscom("tratando de cerrar");
+}
+zOrdenVenta *QRegistroApartado::Orden()
+{
+   return zOrden;
+}
+int QRegistroApartado::EsClienteMayoreo()
+{
+   return Orden() && 
+          Orden()->Cliente() && 
+	  Orden()->Cliente()->MayoreoInt();
+}
+
+void QRegistroApartado::DatosClienteMayoreo()
+{
+   if(EsClienteMayoreo())
+   {
+	zCliSiscom=Orden()->Cliente();
+	MuestraClienteRegistrado();
+
+   }
+}
+void QRegistroApartado::MuestraClienteRegistrado()
+{
+
+       	MuestraCliente();
+	MuestraDatosComunicacion();
+	zSiscomQt3::Foco(QLEACuenta);
+	QPBRegistraPersonales->setEnabled(false);
 }

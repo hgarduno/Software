@@ -28,4 +28,7 @@ void InsertToImpresionesTicketTotal(SiscomOperaciones *pSiscomOpePtrDato,
 void InsertToImpresionTicketHistorial(SiscomOperaciones *pSiscomOpePtrDato,
 				      SiscomRegistroProL *pSiscomRegProLPtrDato,
 				      char *pchrPtrSql);
+void InsertToImpresionTicketTotal(SiscomOperaciones *pSiscomOpePtrDato,
+				      SiscomRegistroProL *pSiscomRegProLPtrDato,
+				      char *pchrPtrSql);
 #endif

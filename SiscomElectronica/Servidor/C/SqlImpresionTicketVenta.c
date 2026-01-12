@@ -160,3 +160,4 @@ sprintf(pchrPtrSql,
 	SiscomObtenCampoRegistroProLChar("Precio",pSiscomRegProLPtrDato));
 
 }
+

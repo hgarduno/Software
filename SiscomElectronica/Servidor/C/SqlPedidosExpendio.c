@@ -6,7 +6,8 @@
 
 int SqlTransfiereBodegaExpendioParaPedido(SiscomOperaciones *pSiscomOpePtrDato)
 {
-char lchrArrBuffer[128],lchrArrSql[256];
+char lchrArrBuffer[128],
+     lchrArrSql[256];
 SiscomAgregaSentenciasSqlDelAsociado("SqlIniciaPedidoExpendio",
 				     "Envio",
 				     lchrArrBuffer,

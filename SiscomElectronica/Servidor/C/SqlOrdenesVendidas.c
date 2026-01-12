@@ -255,6 +255,17 @@ from pagotarjeta as k inner join 						\n\
 	         a.idconsecutivo asc",
 	lchrPtrCondicionConsulta);
 else
+/*  Tepotzotlan 10/01/2026 
+ * Con la integracion de los pedidos de clientes de mayoreo 
+ * y al registrar un apartado, como no se asigna escuela 
+ * al hacer el join con los datos de escuela la consulta 
+ * para tener los apartados en este caso, no se regresa 
+ * ningun registro 
+ *
+ * Se debera revisar si las otras condiciones de esta sentencia
+ * requiere cambiar el inner join por left outer como en 
+ * esta condicion
+ */
 sprintf(lchrArrSql,
 	"									\n\
  select a.*,									\n\
@@ -280,10 +291,10 @@ sprintf(lchrArrSql,
              pagotransferencia as k using(idventa)  left outer join		\n\
              importeorden as b using(idventa) left outer join			\n\
              productoportipoproducto as c using(cveproducto) inner join		\n\
-             existencias as d using(cveproducto) inner join			\n\
-             escuelaorden as e using(idventa)    inner join 			\n\
-             escuelas as f using(idescuela)      inner join			\n\
-             ordencliente as g using(idventa)    inner join			\n\
+             existencias as d using(cveproducto) left outer join		\n\
+             escuelaorden as e using(idventa)    left outer join 		\n\
+             escuelas as f using(idescuela)      left outer join		\n\
+             ordencliente as g using(idventa)    left outer join		\n\
              personas as h using(idpersona)      left outer join		\n\
              telefonos as i on (h.idpersona=i.idpersona and 			\n\
                                 i.departamenteo='Celular')			\n\

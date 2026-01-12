@@ -41,6 +41,8 @@ sprintf(lchrPtrSql,
 	      productoportipoproducto as c using(cveproducto) 				\n\
 	 %s",
 	 lchrPtrSqlCondicion);
+
+LogSiscom("La consulta para cotizar productos %s",lchrPtrSql);
 SiscomConsultasSqlOperaciones(lchrPtrBuffer,
 		   pSiscomOpePtrDato,
 		   pchrPtrAsociadoReg,

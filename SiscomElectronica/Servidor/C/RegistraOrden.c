@@ -66,6 +66,8 @@ SiscomIniciaDatosOperacion(pintSocket,
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoOrden,&lSiscomProDat);
 SiscomAgregaOperacion(CamposCierraApartadoOtroDia,&lSiscomProDat);
+SiscomAgregaOperacion(SePagoConTransferencia,&lSiscomProDat); 
+SiscomAgregaOperacion(SePagoConTarjeta,&lSiscomProDat); 
 SiscomAgregaOperacion(SqlCierraApartado,&lSiscomProDat); 
 SiscomAgregaOperacion(SqlRegistraOrden,&lSiscomProDat);
 SiscomAgregaOperacion(RegistrandoOrden,&lSiscomProDat); 
@@ -159,6 +161,7 @@ lSisRegProLPtrTrans=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion("Envio"
 									 "FormaPago",
 									 "Transferencia",
 									 pSiscomOpePtrDato);
+
 if(lSisRegProLPtrTrans)
   SqlFormaPagoTransferencia(pSiscomOpePtrDato);
 return 0;

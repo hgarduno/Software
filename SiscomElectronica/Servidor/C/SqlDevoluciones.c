@@ -1,6 +1,7 @@
 #include <SqlDevoluciones.h>
 #include <SiscomInsercionesSql.h>
 #include <stdio.h> 
+
 /*
  *
  *  delete from ventas where idventa=1611962464 and cveproducto='PROTO-102';||

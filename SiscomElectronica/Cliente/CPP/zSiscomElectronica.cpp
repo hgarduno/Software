@@ -283,6 +283,9 @@ void zSiscomElectronica::AsignaDatosApartado(zSiscomRegistro *pzSisRegCotizacion
 					     zOrdenVenta *pzOrden)
 {
 zSiscomRegistro *lzSisRegCotizacion;
+
+ SiscomRegistroLog2(pzSisRegCotizacion); 
+
   if((lzSisRegCotizacion=pzSisRegCotizacion->AsociadoDelCampo("Apartado")))
    pzOrden->Apartado(new zApartado(lzSisRegCotizacion));
 }
@@ -374,6 +377,7 @@ for(lzSisRegOrden=pzSisRegsOrdenes->Primer();
     lzSisRegOrden=pzSisRegsOrdenes->Siguiente())
 {
     lzOrden=zOrdenVenta().ConsultaOrdenes2(lzSisRegOrden);
+    SiscomRegistroLog2(lzOrden);
     AsignandoDatosOrden(lzSisRegOrden,lzOrden);
     pzOrdenes->Orden(lzOrden);	
 }

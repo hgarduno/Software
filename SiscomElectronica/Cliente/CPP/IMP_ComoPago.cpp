@@ -82,17 +82,15 @@ void QComoPago::SlotAceptar()
 }
 void QComoPago::IniciaVariables()
 {
+   QRBEfectivo->setFocus(); 
    Orden()->FormaPago(FormaPago());
-   if(!EsUnApartado())
-   {
-   QRBEfectivo->setFocus();
-   QLEConCuantoPaga->setText(Orden()->ImporteOrden());
-   }
-   else
+   if(EsUnApartado())
    {
  	ControlesApartado();
-	QLEConCuantoPaga->setText(Orden()->Apartado()->ACuenta());
+	QLEConCuantoPaga->setText(Orden()->Apartado()->PorPagar());
    }
+   else
+   QLEConCuantoPaga->setText(Orden()->ImporteOrden());
 }
 void QComoPago::PagandoEfectivo()
 {

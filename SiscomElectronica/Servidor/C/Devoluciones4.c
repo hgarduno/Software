@@ -19,7 +19,6 @@ void DevolucionOrden(int pintSocket,
 			 SiscomRegistroProL *pSiscomRegProLPtrPrim,
 			 SiscomRegistroProL *pSiscomRegProLPtrAct)
 {
-
 SiscomProcesos *lSiscomProDat=0;
 SiscomOperaciones lSiscomOpDat;
 memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
@@ -34,7 +33,6 @@ SiscomAgregaOperacion(SqlDevolucionOrden,&lSiscomProDat);
 SiscomAgregaOperacion(DevolviendoOrden,&lSiscomProDat);
 SiscomAgregaOperacion(0,&lSiscomProDat);
 SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
-
 }
 
 

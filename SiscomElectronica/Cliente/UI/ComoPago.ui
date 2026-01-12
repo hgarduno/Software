@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>329</width>
-            <height>143</height>
+            <width>357</width>
+            <height>148</height>
         </rect>
     </property>
     <property name="caption">
@@ -50,6 +50,9 @@
                             <property name="name">
                                 <cstring>QLEConCuantoPaga</cstring>
                             </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
                         </widget>
                     </vbox>
                 </widget>
@@ -66,10 +69,10 @@
                                 <cstring>QRBEfectivo</cstring>
                             </property>
                             <property name="text">
-                                <string>Efectivo</string>
+                                <string>&amp;Efectivo</string>
                             </property>
                             <property name="accel">
-                                <string></string>
+                                <string>Alt+E</string>
                             </property>
                             <property name="buttonGroupId">
                                 <number>-1</number>

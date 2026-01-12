@@ -44,7 +44,19 @@ SiscomOperaciones2 *lSOpOperaciones;
 lSOpOperaciones=(SiscomOperaciones2 *)malloc(sizeof(SiscomOperaciones2 )*7);
 memset(lSOpOperaciones,0,sizeof(SiscomOperaciones2)*7); 
 SiscomAnexaOperacionAlArreglo2(SiscomLeeEntradaOpSubRegistros,lSOpOperaciones);
+/*
+ * Siscom Zacatenco 
+ * Lunes 5 de Enero del 2026
+ *
+ * Se busca integrar la posibilidad de que el material que se pide de los expendios
+ * se pueda surtir de otro expendio que no sea la matriz 
+ * 
+ * Ahoria no funcion :( :( :(  :(
+ *
 SiscomAnexaOperacionAlArreglo2(SiscomComunicacionExpendioParaPedidos,lSOpOperaciones);   
+
+*/
+SiscomAnexaOperacionAlArreglo2(SiscomComunicacionMatriz,lSOpOperaciones);
 SiscomAnexaOperacionAlArreglo2(ArgumentosPedidosExpendios,lSOpOperaciones); 
 SiscomAnexaOperacionAlArreglo2(SqlPedidosExpendios,lSOpOperaciones); 
 SiscomAnexaOperacionAlArreglo2(SqlDetallePedidoExpendio,lSOpOperaciones); 

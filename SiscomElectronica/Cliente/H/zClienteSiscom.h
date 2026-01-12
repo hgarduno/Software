@@ -24,12 +24,16 @@ public:
 	const char *IdPersona();
 	const char *RFC();
 	void RFC(const char *pchrPtrRFC);
+	void Mayoreo(const char *pchrPtrMayoreo);
 
 	void Escuela(zSiscomRegistro *pzSisRegEscuela);
 	void Celular(zTelefono *pzTelefono);
 	void Direccion(zDireccion *pzDireccion);
 	void Correo(zCorreo *pzCorreo);
 	const char *Escuela();
+	const char *Mayoreo();
+
+	int MayoreoInt();
 	
 
 	zTelefonos *Telefonos();
