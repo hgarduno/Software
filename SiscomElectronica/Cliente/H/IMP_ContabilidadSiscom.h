@@ -2,6 +2,7 @@
 #define __IMP_CONTABILIDADSISCOM_H__
 #include <QtContabilidadSiscom.h> 
 
+class zSiscomConexion;
 
 class SiscomDatCom;
 
@@ -18,6 +19,9 @@ public:
 private:
 	void ConectaSlots();
 	void IniciaVariables();
+private:
+	void OrdenesPagoElectronico();
+	zSiscomConexion *Conexion();
 };
 
 

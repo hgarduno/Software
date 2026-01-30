@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>463</width>
+            <width>509</width>
             <height>420</height>
         </rect>
     </property>
@@ -53,7 +53,7 @@
                                 </widget>
                                 <widget class="CQControlFecha">
                                     <property name="name">
-                                        <cstring>cQControlFecha3</cstring>
+                                        <cstring>QCtrFechaInicio</cstring>
                                     </property>
                                 </widget>
                             </vbox>
@@ -76,7 +76,7 @@
                                 </widget>
                                 <widget class="CQControlFecha">
                                     <property name="name">
-                                        <cstring>cQControlFecha3_2</cstring>
+                                        <cstring>QCtrFechaFin</cstring>
                                     </property>
                                 </widget>
                             </vbox>
@@ -102,7 +102,7 @@
                 </spacer>
                 <widget class="QPushButton">
                     <property name="name">
-                        <cstring>pushButton12</cstring>
+                        <cstring>QPBOrdsPElectronico</cstring>
                     </property>
                     <property name="minimumSize">
                         <size>

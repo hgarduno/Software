@@ -290,6 +290,7 @@ QCtrProductos->IniciaControl();
 zSiscomQt3::Foco(QLECantidad);
 QCFondoBotones=QPBImprime->paletteBackgroundColor(); 
 QConExpsV=new QConExpendiosVenta(zConExpendio,chrPtrArgumentos);
+QtManejadorOrden::TextoCliente(QTECliente);
 }
 zExpendio *QManejadorOrden::IniciaExpendioActual()
 {
@@ -945,9 +946,26 @@ return !((zOrdVenta->IdTipoOrdenInt()==8 ||
          zOrdVenta->IdTipoOrdenInt()==6 ) &&
 	 zOrdVenta->IdTipoOrdenInt()==1);
 }
+void QManejadorOrden::ConsultaExistenciaExpendios()
+{
+zProductos lzProds;
+zSiscomElectronica lzSisElectronica(zOrdVenta->Expendio(),"ExistenciaExpendios");
+lzProds.Agrega((const char *)(*zSisRegProducto)["cveproducto"]);
+lzSisElectronica.ExistenciaExpendios(&lzProds,&zExExpendios);
+
+}
 void QManejadorOrden::ConsultandoExistenciaExpendios()
 {
-QMuestraExistenciaExpendios lQMExExpendios(zSisRegProducto,parentWidget());
+/* Mixquiahuala 24 de Enero 2026 
+ * Cambio la forma en la que se muestra la consulta de las existencias
+ * de los expendios, para mostrarla en el QTextEdit del Cliente , que no se
+ * usa , y no estar abriendo y cerrando una ventana 
+ */
+
+/*QMuestraExistenciaExpendios lQMExExpendios(zSisRegProducto,parentWidget()); */
+ConsultaExistenciaExpendios();
+QtManejadorOrden::ExistenciaExpendios(&zExExpendios);
+QtManejadorOrden::MuestraExistenciaExpendios();
 }
 void QManejadorOrden::Redimensiona()
 {

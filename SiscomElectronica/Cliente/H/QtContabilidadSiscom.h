@@ -9,6 +9,15 @@ Q_OBJECT
 public:
 	QtContabilidadSiscom(QWidget *,const char *,WFlags );
 	~QtContabilidadSiscom();
+
+	virtual void  OrdenesPagoElectronico();
+private:
+	void ConectaSlots();
+	void IniciaVariables();
+
+private slots:
+	void SlotOrdenesPagoElectronico();
+
 };
 
 

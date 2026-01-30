@@ -1,5 +1,6 @@
 
 
+
 Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/RNVentasElectronica.o 			\
 			   O/RNPersonas.o  				\
@@ -75,6 +76,7 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/FormaPago.o				\
 			   O/AbonoAApartado.o				\
 			   O/ComprasSiscom.o				\
+			   O/Contabilidad.o				\
 			   O/SqlSiscomElectronica.o			\
 			   O/SqlValidandoTransferencias.o		\
 			   O/SqlCotizaDispositivos.o			\
@@ -120,7 +122,8 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/SqlFormaPago.o				\
 			   O/SqlCorteCajaSucursal.o			\
 			   O/SqlAbonoAApartado.o			\
-			   O/SqlComprasSiscom.o
+			   O/SqlComprasSiscom.o				\
+			   O/SqlContabilidad.o
 
 			   
 Archivos_SiscomElectronicaMemoriaComun=O/SiscomElectronicaMemoriaComun.o			   
@@ -154,7 +157,8 @@ OpBinarios=-g  $(DEBUG) $(OpCSiscom)
 
 Binarios= 						\
 	 libSiscomElectronica.so    			\
-	 libSiscomElectronicaMemoriaComun.so
+	 libSiscomElectronicaMemoriaComun.so		\
+	 libSiscomContabilidad.so
 	 	
 
 all:DirectorioO $(Binarios) 

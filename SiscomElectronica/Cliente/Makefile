@@ -526,6 +526,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/IMP_SeleccionaOrden.o							\
 	O/zBodega.o								\
 	O/zSiscomElectronica.o							\
+	O/zSiscomContabilidad.o							\
 	O/zProducto.o								\
 	O/zProductoCotizar.o							\
 	O/zOrdenVenta.o								\

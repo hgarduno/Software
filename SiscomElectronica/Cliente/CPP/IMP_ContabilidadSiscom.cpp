@@ -2,6 +2,10 @@
 #include <IMP_QControlFecha.h> 
 
 
+#include <zSiscomDesarrollo4.h>
+#include <zSiscomConexion.h>
+#include <zSiscomContabilidad.h> 
+
 QContabilidadSiscom *InstanciaContabilidadSiscom(void *pSisDatCom,
                  char **pchrPtrArgumentos,
                  void *pQWParent,
@@ -25,7 +29,6 @@ QContabilidadSiscom::QContabilidadSiscom(SiscomDatCom *pSisDatCom,
 				QtContabilidadSiscom(pQWParent,pchrPtrName,pWFlags)
 {
 IniciaVariables();
-ConectaSlots();
 
 }
 
@@ -36,12 +39,19 @@ QContabilidadSiscom::~QContabilidadSiscom()
 }
 
 
-void QContabilidadSiscom::ConectaSlots()
-{
-
-}
-
 void QContabilidadSiscom::IniciaVariables()
 {
 
 }
+
+void QContabilidadSiscom::OrdenesPagoElectronico()
+{
+zSiscomContabilidad lzSisContabilidad(Conexion(),"OrdenesTransferenciaTarjeta");
+lzSisContabilidad.OrdenesTarjetaTransferencia((const char *)QCtrFechaInicio->ObtenFecha(),
+					      (const char *)QCtrFechaFin->ObtenFecha());
+LogSiscom("");
+}
+zSiscomConexion *QContabilidadSiscom::Conexion()
+{
+  return (zSiscomConexion *)gzSiscomConexion;
+ }

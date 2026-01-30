@@ -2,6 +2,7 @@
 #define __IMP_MANEJADORORDEN_H__
 #include <UIC_H_ManejadorOrden.h>
 #include <QtManejadorOrden.h>
+#include <zExistenciaExpendios.h>
 
 #include <zOrdenVenta.h>
 #include <zOrdenes.h>
@@ -114,6 +115,8 @@ public:
 
 	QWidget *Parent();
 
+	void ConsultaExistenciaExpendios();
+
 private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;
@@ -144,6 +147,7 @@ private:
 
 	QWidget *QWParent;
 
+	 zExistenciaExpendios zExExpendios;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
