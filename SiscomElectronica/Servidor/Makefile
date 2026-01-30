@@ -157,8 +157,7 @@ OpBinarios=-g  $(DEBUG) $(OpCSiscom)
 
 Binarios= 						\
 	 libSiscomElectronica.so    			\
-	 libSiscomElectronicaMemoriaComun.so		\
-	 libSiscomContabilidad.so
+	 libSiscomElectronicaMemoriaComun.so
 	 	
 
 all:DirectorioO $(Binarios) 
