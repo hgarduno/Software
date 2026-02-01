@@ -1,6 +1,7 @@
 #ifndef __IMP_CONTABILIDADSISCOM_H__
 #define __IMP_CONTABILIDADSISCOM_H__
 #include <QtContabilidadSiscom.h> 
+#include <zFactura.h>
 
 class zSiscomConexion;
 
@@ -21,7 +22,12 @@ private:
 	void IniciaVariables();
 private:
 	void OrdenesPagoElectronico();
+	void FacturaPublicoEnGeneralPE();
 	zSiscomConexion *Conexion();
+	const zFactura &Factura();
+
+private:
+	zFactura zFacPublicoGPe;
 };
 
 

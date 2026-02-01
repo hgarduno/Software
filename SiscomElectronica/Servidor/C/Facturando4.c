@@ -826,6 +826,7 @@ SiscomRegistroProL *lSiscomRegProLPtrProductos;
 lSiscomRegProLPtrProductos=SiscomRegistroAsociadoEntradaOperacion("Envio",
 								  "Productos",
 								  pSiscomOpePtrDato);
+
 strcat(pchrPtrXML,"\n<cfdi:Conceptos>");
 
 /*  Ciudad de Mexico a 25 de Agosto del 2023 
@@ -936,7 +937,12 @@ char *lchrArrXML=AsignaMemoriaXML_4(pSiscomOpePtrDato);
 */
 
 char lchrArrXML[32000];
+
+char lchrArrBuffer[256];
+
 LogSiscom("Realizando la facturacion version 4");
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
+SiscomAsociadoAsociadoLog("Envio","Productos",lchrArrBuffer,pSiscomOpePtrDato);
 EncabezadoXML_4(pSiscomOpePtrDato,lchrArrXML);
 EmisorXML_4(pSiscomOpePtrDato,lchrArrXML);
 ReceptorXML_4(pSiscomOpePtrDato,lchrArrXML);
@@ -946,7 +952,6 @@ FinalXML_4(pSiscomOpePtrDato,lchrArrXML);
 LogSiscom("EL archivo %x",pFlePtrArchivo);
 fprintf(pFlePtrArchivo,"%s",lchrArrXML);
 fflush(pFlePtrArchivo);
-
 }
 void FacturandoProductos_3_3(SiscomOperaciones *pSiscomOpePtrDato, FILE *pFlePtrArchivo)
 {

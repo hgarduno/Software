@@ -230,6 +230,7 @@ StcSiscomElectronica4 lStcSiscomElectronica4[]=
 			{"ExistenciaSiscomT",ExistenciaSiscomT},
 			{"ConsultaComprasSiscom",ConsultaComprasSiscom},
 			{"OrdenesTransferenciaTarjeta",OrdenesTransferenciaTarjeta},
+			{"FacturaPublicoEnGeneralPE",FacturaPublicaEnGeneralPE},
 			{0,0}
 		     };
 const char *lchrPtrFuncion;

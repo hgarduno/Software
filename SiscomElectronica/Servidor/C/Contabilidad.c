@@ -19,6 +19,26 @@
 #include <string.h>
 #include <stdlib.h>
 
+void FacturaPublicaEnGeneralPE(int pintSocket,
+			     SiscomRegistroProL *pSiscomRegProLPtrPrim,
+			     SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+			   0,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+			   &lSiscomOpDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(FacturandoPublicoEnGeneralPe,&lSiscomProDat);
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+
+
+
+}
 
 
 void OrdenesTransferenciaTarjeta(int pintSocket,
@@ -35,7 +55,9 @@ SiscomIniciaDatosOperacion(pintSocket,
 			   &lSiscomOpDat);
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(CreaArgumentosExistenciaExpendios,&lSiscomProDat);
+/*
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+*/
 SiscomAgregaOperacion(AgregaCamposExpendioComoPago,&lSiscomProDat);
 SiscomAgregaOperacion(AgregaArgumentoSqlContabilidad,&lSiscomProDat);
 SiscomAgregaOperacion(SqlComunicacionMatrizAArgumento,&lSiscomProDat); 
@@ -141,4 +163,12 @@ int AgregaArgumentoSqlContabilidad(SiscomOperaciones *pSisOpePtrDatos)
 char lchrArrBuffer[256];
 SiscomAgregaArgumentoInsercionSql2("SqlContabilidad",lchrArrBuffer,pSisOpePtrDatos);
 return 0;
+}
+
+int FacturandoPublicoEnGeneralPe(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[256];
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
+SiscomAsociadoAsociadoLog("Envio","Productos",lchrArrBuffer,pSisOpePtrDato);
+
 }

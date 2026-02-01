@@ -2,8 +2,7 @@
 #define __ZSISCOMCONTABILIDAD_H__
 
 #include <zSiscomOperaciones.h>
-
-
+#include <zFactura.h>
 /* Tepotzotlan  Mexico 17 de enero 2026 
  *
  * Se debe revisar en el servidor para poner en una biblioteca
@@ -23,7 +22,8 @@ public:
 
 	void OrdenesTarjetaTransferencia(const char *pchrPtrFechaIni,
 					 const char *pchrPtrFechaFin);
-
+	void FacturaPublicoEnGeneralPE(zFactura *pzFactura);
+private:
 };
 
 

@@ -21,85 +21,85 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>layout36</cstring>
+                <cstring>layout35</cstring>
             </property>
-            <vbox>
+            <hbox>
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>layout35</cstring>
+                        <cstring>layout33</cstring>
                     </property>
-                    <hbox>
+                    <vbox>
                         <property name="name">
                             <cstring>unnamed</cstring>
                         </property>
-                        <widget class="QLayoutWidget">
+                        <widget class="QLabel">
                             <property name="name">
-                                <cstring>layout33</cstring>
+                                <cstring>textLabel2</cstring>
                             </property>
-                            <vbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>textLabel2</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Fecha Inicio</string>
-                                    </property>
-                                </widget>
-                                <widget class="CQControlFecha">
-                                    <property name="name">
-                                        <cstring>QCtrFechaInicio</cstring>
-                                    </property>
-                                </widget>
-                            </vbox>
+                            <property name="text">
+                                <string>Fecha Inicio</string>
+                            </property>
                         </widget>
-                        <widget class="QLayoutWidget">
+                        <widget class="CQControlFecha">
                             <property name="name">
-                                <cstring>layout33_2</cstring>
+                                <cstring>QCtrFechaInicio</cstring>
                             </property>
-                            <vbox>
-                                <property name="name">
-                                    <cstring>unnamed</cstring>
-                                </property>
-                                <widget class="QLabel">
-                                    <property name="name">
-                                        <cstring>textLabel2_2</cstring>
-                                    </property>
-                                    <property name="text">
-                                        <string>Fecha Fin</string>
-                                    </property>
-                                </widget>
-                                <widget class="CQControlFecha">
-                                    <property name="name">
-                                        <cstring>QCtrFechaFin</cstring>
-                                    </property>
-                                </widget>
-                            </vbox>
                         </widget>
-                    </hbox>
+                    </vbox>
                 </widget>
-                <spacer>
+                <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>spacer1</cstring>
+                        <cstring>layout33_2</cstring>
                     </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>40</height>
-                        </size>
-                    </property>
-                </spacer>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>textLabel2_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Fecha Fin</string>
+                            </property>
+                        </widget>
+                        <widget class="CQControlFecha">
+                            <property name="name">
+                                <cstring>QCtrFechaFin</cstring>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <spacer row="1" column="0">
+            <property name="name">
+                <cstring>spacer1</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>300</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLayoutWidget" row="2" column="0">
+            <property name="name">
+                <cstring>layout53</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
                 <widget class="QPushButton">
                     <property name="name">
                         <cstring>QPBOrdsPElectronico</cstring>
@@ -115,7 +115,22 @@
 Electronico</string>
                     </property>
                 </widget>
-            </vbox>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>QPBFacturaPGPE</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>0</width>
+                            <height>40</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string>Factura Publico 
+En General Pago Electronico</string>
+                    </property>
+                </widget>
+            </hbox>
         </widget>
     </grid>
 </widget>

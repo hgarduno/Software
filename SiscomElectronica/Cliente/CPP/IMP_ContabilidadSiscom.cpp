@@ -43,7 +43,12 @@ void QContabilidadSiscom::IniciaVariables()
 {
 
 }
+void QContabilidadSiscom::FacturaPublicoEnGeneralPE()
+{
+zSiscomContabilidad lzSisContabilidad(Conexion(),"FacturaPublicoEnGeneralPE");
+lzSisContabilidad.FacturaPublicoEnGeneralPE((zFactura *)&Factura());
 
+}
 void QContabilidadSiscom::OrdenesPagoElectronico()
 {
 zSiscomContabilidad lzSisContabilidad(Conexion(),"OrdenesTransferenciaTarjeta");
@@ -54,4 +59,8 @@ LogSiscom("");
 zSiscomConexion *QContabilidadSiscom::Conexion()
 {
   return (zSiscomConexion *)gzSiscomConexion;
+ }
+ const zFactura &QContabilidadSiscom::Factura()
+ {
+ return zFacPublicoGPe;
  }
