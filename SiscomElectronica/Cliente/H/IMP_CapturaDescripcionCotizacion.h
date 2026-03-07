@@ -23,6 +23,7 @@ private:
 	const char *chrPtrModo;
 private:
 	void IniciandoCotizacion();
+
 private slots:
 };
 #endif

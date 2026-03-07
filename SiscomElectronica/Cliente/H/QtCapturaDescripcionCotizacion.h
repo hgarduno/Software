@@ -35,6 +35,7 @@ public:
 	const char *Modo();
 	int TelefonoValido(QLineEdit *);
 	int NombreValido(QLineEdit *);
+
 private:
 	zSiscomConexion *zSisConexion;
 	zOrdenVenta *zOrdVenta;
@@ -64,9 +65,11 @@ private:
 	void HabilitaDesHabilitaEscuelas(bool);
 	void TeclasEspeciales(QKeyEvent *);
 	void keyPressEvent(QKeyEvent *pQKEvent);
-
 	void Muestra();
-
+	int CopiandoPortaPapeles(char *pchrPtrCadena);
+	void ClienteSiscomPortaPapeles();
+	void ClienteSiscom(const char *,zClienteSiscom *);
+	void MuestraDatos();
 private slots:
 	void SlotFocoAPagaCon();
 	void SlotFocoAAceptar();

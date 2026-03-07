@@ -103,6 +103,7 @@ for(lzSisRegExpendio=lzSisRegsExpendios->Primer();
    lQSFila+=(const char *)(*lzSisRegExpendio)["precio"];
    lQSFila+="</td>";
 
+
    lQSFila+="<td>";
    lQSFila+=(const char *)(*lzSisRegExpendio)["bodega"];
    lQSFila+="</td>";

@@ -27,6 +27,7 @@ QSeleccionaOrdenFactura::QSeleccionaOrdenFactura(SiscomDatCom *pSisDatCom,
 				chrPtrArgumentos(pchrPtrArgumentos),
 				intAceptar(0)
 {
+setFont(pQWParent->font());
 Conexion((zSiscomConexion *)gzSiscomConexion);
 IniciaVariables();
 ConectaSlots();

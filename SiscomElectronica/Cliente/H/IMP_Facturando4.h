@@ -17,6 +17,7 @@ public:
 	    const char *pchrPtrName=0,
 	    WFlags pWFlags=0);
 	~QFacturando4();
+	QWidget *Parent();
 private:
 	SiscomDatCom *SisDatCom;
 	char **chrPtrArgumentos;
@@ -27,6 +28,7 @@ private:
 	int intPersonaFisica;
 	void closeEvent(QCloseEvent *);
 	int SeLiberaFactura(int pintRegreso);
+	QWidget *QWParent;
 private:
 	void ConectaSlots();
 	void IniciaVariables();

@@ -200,7 +200,9 @@ if((lSiscomRegProLPtrProductos=SiscomRegistroAsociadoEntradaOperacion("Envio",
 								     pSiscomOpePtrDato)))
 {
 lchrPtrCondicion=CondicionExistenciaDefinicionProducto(lSiscomRegProLPtrProductos);
+LogSiscom("0-----0");
 SqlExistenciasDefinicionProducto(lchrPtrCondicion,pSiscomOpePtrDato);
+LogSiscom("0-------0");
 lSiscomRegProLPtrExistencias=SiscomObtenRegistrosCampoRespuesta("ExisDefinicionProd",
 								pSiscomOpePtrDato);
 while(lSiscomRegProLPtrProductos)
@@ -245,7 +247,7 @@ lchrPtrCondicion=strdup("where cveproducto in(");
    sprintf(lchrArrPaso, "'%s',",lchrPtrDato);
    else
    sprintf(lchrArrPaso,"'%s');",lchrPtrDato);
-   lintTamanoBuffer=strlen(lchrPtrCondicion)+strlen(lchrArrPaso)+1;
+   lintTamanoBuffer=strlen(lchrPtrCondicion)+strlen(lchrArrPaso)+2;
    lchrPtrCondicion=realloc((void *)lchrPtrCondicion,lintTamanoBuffer);
    strcat(lchrPtrCondicion,lchrArrPaso);
    pSiscomRegProLPtrDato=pSiscomRegProLPtrDato->SiscomRegProLPtrSig;

@@ -698,6 +698,8 @@ void QManejadorOrden::CambiaCantidad(int pintProducto)
 char lchrArrCantidad[128];
 zProductoCotizar *lzProdCotizar;
 lzProdCotizar=zOrdVenta->ProductoPorIdConsecutivo(pintProducto);
+LogSiscom("------");
+SiscomRegistroLog2(lzProdCotizar);
 if(lzProdCotizar)
 {
 	CapturaCantidad(lzProdCotizar->Cantidad(),lchrArrCantidad);

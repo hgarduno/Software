@@ -87,7 +87,7 @@ sprintf(pchrPtrSql,
 	 SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato));
 if(!SiscomComparaCadenaCampoRegistroProL("Bodega","Origen",pSiscomRegProLPtrDato))
 sprintf(pchrPtrSql,
-	"update MaterialBodega set existencia=existencia-%s*%s where cveproducto='%s';",
+	"update MaterialBodega set existencia=existencia-%s*%s where cveproducto='%s' and idbodega=0;",
 	 SiscomObtenCampoRegistroProLChar("cantidad",pSiscomRegProLPtrDato),
 	 SiscomCampoAsociadoEntradaOperacion("Envio","CantidadAComprar",pSiscomOpePtrDato),
 	 SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato));
@@ -155,7 +155,7 @@ int lintTamBuffer;
 char *lchrPtrBuffer;
 const char *lchrPtrSelect="select * from existenciaexpendiobodegas";
 char *lchrPtrSql;
-lintTamBuffer=strlen(pchrPtrCondicion)+strlen(lchrPtrSelect)+1;
+lintTamBuffer=strlen(pchrPtrCondicion)+strlen(lchrPtrSelect)+18;
 lchrPtrBuffer=malloc(lintTamBuffer);
 lchrPtrSql=malloc(lintTamBuffer);
 sprintf(lchrPtrSql,

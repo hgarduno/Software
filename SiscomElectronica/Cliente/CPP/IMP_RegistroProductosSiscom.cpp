@@ -56,7 +56,6 @@ void QRegistroProductosSiscom::ConectaSlots()
 connect(QCtrProductos,
 	SIGNAL(SignalSelecciono(zSiscomRegistro *)),
 	SLOT(SlotSeleccionoProducto(zSiscomRegistro *)));
-
 connect(QLECantidad,SIGNAL(returnPressed()),SLOT(SlotFocoARegistrar()));
 connect(QLECantidad,SIGNAL(textChanged(const QString &)),SLOT(SlotCapturandoCantidad(const QString &)));
 connect(QPBRegistrar,SIGNAL(clicked()),SLOT(SlotRegistrar()));
@@ -194,7 +193,6 @@ void QRegistroProductosSiscom::HabilitandoBotonRegistro()
       QPBRegistrar->setEnabled(zProdSiscom && 
       			       zSiscomQt3::TextoValido(QLECantidad) &&
 			       !zProdSiscom->NoAlcanza());
- 
 }	
 
 void QRegistroProductosSiscom::AsignandoOrigen(const char *pchrPtrOrigen)

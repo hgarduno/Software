@@ -52,6 +52,7 @@ QDatosFacturacion::QDatosFacturacion(SiscomDatCom *pSisDatCom,
 				zCorreoActivo(0),
 				intEmpresaRegistrada(0)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 exec();
@@ -66,6 +67,7 @@ void QDatosFacturacion::IniciaVariables()
 IniciaControles();
 SeEstaFacturando();
 zSiscomQt3::Foco(QCtrRFCs);
+ 
 }
 void QDatosFacturacion::IniciaControles()
 {

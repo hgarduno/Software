@@ -28,12 +28,10 @@ QtCapturaDescripcionCotizacion::SoloDescripcion(pintSoloDescripcion);
 IniciandoCotizacion();
 exec();
 }
-
 QCapturaDescripcionCotizacion::~QCapturaDescripcionCotizacion()
 {
 
 }
-
 void QCapturaDescripcionCotizacion::IniciandoCotizacion()
 {
    QtCapturaDescripcionCotizacion::Modo(chrPtrModo);

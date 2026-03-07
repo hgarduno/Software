@@ -51,6 +51,7 @@
 #include <AbonoAApartado.h>
 #include <ComprasSiscom.h>
 #include <Contabilidad.h>
+#include <PortaPapeles.h>
 typedef struct  siscomElectronica4
 {
   char *chrPtrFuncion;
@@ -231,6 +232,7 @@ StcSiscomElectronica4 lStcSiscomElectronica4[]=
 			{"ConsultaComprasSiscom",ConsultaComprasSiscom},
 			{"OrdenesTransferenciaTarjeta",OrdenesTransferenciaTarjeta},
 			{"FacturaPublicoEnGeneralPE",FacturaPublicaEnGeneralPE},
+			{"ClienteSiscomPortaPapeles",ClienteSiscomPortaPapeles},
 			{0,0}
 		     };
 const char *lchrPtrFuncion;

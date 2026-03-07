@@ -77,6 +77,7 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/AbonoAApartado.o				\
 			   O/ComprasSiscom.o				\
 			   O/Contabilidad.o				\
+			   O/PortaPapeles.o				\
 			   O/SqlSiscomElectronica.o			\
 			   O/SqlValidandoTransferencias.o		\
 			   O/SqlCotizaDispositivos.o			\
@@ -160,11 +161,9 @@ Binarios= 						\
 	 libSiscomElectronicaMemoriaComun.so
 	 	
 
-all:DirectorioO $(Binarios) 
+all:$(Binarios) 
 
 
-DirectorioO:
-	-mkdir O
 
 libSiscomElectronica.so:$(Archivos_SiscomElectronica) ../SiscomElectronica2/Servidor/libSiscomElectronica2.so
 	@echo Generando $@

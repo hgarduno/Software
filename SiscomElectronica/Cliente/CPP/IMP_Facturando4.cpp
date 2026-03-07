@@ -39,6 +39,7 @@ QFacturando4::QFacturando4(SiscomDatCom *pSisDatCom,
 				    const char *pchrPtrName,
 				    WFlags pWFlags):	      
 				Facturando4(pQWParent,pchrPtrName,pWFlags),
+				QWParent(pQWParent),
 				SisDatCom(pSisDatCom),
 				chrPtrArgumentos(pchrPtrArgumentos),
 				zSisConexion((zSiscomConexion *)gzSiscomConexion),
@@ -77,7 +78,8 @@ void QFacturando4::SlotDatosFacturacion()
 {
 QDatosFacturacion *lQDatFacturacion=new QDatosFacturacion(SisDatCom,
 							  chrPtrArgumentos,
-							  zClienteC);
+							  zClienteC,
+							  Parent());
 if(lQDatFacturacion->Aceptar())
 {
    zClienteC=lQDatFacturacion->Cliente(); 
@@ -92,7 +94,7 @@ if(lQDatFacturacion->Aceptar())
 }
 void QFacturando4::SlotOrdenesFecha()
 {
-QSeleccionaOrdenFactura lQSelOrdFactura(SisDatCom,chrPtrArgumentos);
+QSeleccionaOrdenFactura lQSelOrdFactura(SisDatCom,chrPtrArgumentos,Parent());
 zSiscomRegistro *lzSisRegOrden;
 if((lzSisRegOrden=lQSelOrdFactura.Orden()))
 {
@@ -187,4 +189,8 @@ void QFacturando4::LiberaFacturacion()
 void QFacturando4::closeEvent(QCloseEvent *pQCloseEvent)
 {
   emit SignalTerminar(this);
+}
+QWidget *QFacturando4::Parent()
+{
+    return QWParent;
 }

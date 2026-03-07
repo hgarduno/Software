@@ -599,6 +599,7 @@ SiscomRegistroProL *lSiscomRegProLPtrDefProducto,
 		   *lSiscomRegProLPtrDefBase;
 lSiscomRegProLPtrDefProducto=SiscomObtenRegistrosCampoProL("Productos",pSiscomRegProLPtrProducto);
 AgregaCampoClaveProducto(lSiscomRegProLPtrDefProducto);
+SiscomRegistroProtocoloLog(lchrArrBuffer,pSiscomRegProLPtrProducto);
 if((lSiscomRegProLPtrDefBase=ExistenciaProductosDefinicion(pSiscomOpePtrDato,lSiscomRegProLPtrDefProducto)))
 if(ValidandoExistenciaProductosDefinicion(lSiscomRegProLPtrDefBase,lSiscomRegProLPtrDefProducto))
     SiscomActualizaCampo2("SePuedeVender","1",pSiscomRegProLPtrProducto);

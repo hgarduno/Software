@@ -527,6 +527,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zBodega.o								\
 	O/zSiscomElectronica.o							\
 	O/zSiscomContabilidad.o							\
+	O/zSiscom.PortaPapeles.o						\
 	O/zProducto.o								\
 	O/zProductoCotizar.o							\
 	O/zOrdenVenta.o								\

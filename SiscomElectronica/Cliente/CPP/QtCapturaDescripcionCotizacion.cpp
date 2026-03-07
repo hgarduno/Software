@@ -11,6 +11,8 @@
 #include <zEscuelas.h>
 #include <zEscuela.h>
 #include <zClienteSiscom.h>
+#include <zSiscom.PortaPapeles.h>
+#include <zTelefono.h>
 
 
 
@@ -21,6 +23,8 @@
 #include <qradiobutton.h>
 #include <qbuttongroup.h>
 #include <qlayout.h>
+#include <qapplication.h>
+#include <qclipboard.h>
 
 
 
@@ -313,9 +317,44 @@ void QtCapturaDescripcionCotizacion::TeclasEspeciales(QKeyEvent *pQKETeclas)
 	QCtrEscuelas->setFocus();
 	if(pQKETeclas->key()==Qt::Key_F9)
 	QLETelefono->setFocus();
-
+	if(pQKETeclas->key()==Qt::Key_P)
+	ClienteSiscomPortaPapeles();
      }
 
+}
+int QtCapturaDescripcionCotizacion::CopiandoPortaPapeles(char *pchrPtrCadena)
+{
+QClipboard *lQCliboard=QApplication::clipboard();
+QString lQStrTexto;
+lQStrTexto=lQCliboard->text(QClipboard::Clipboard);
+if(!lQStrTexto.isNull() &&
+   !lQStrTexto.isEmpty())
+{
+strcpy(pchrPtrCadena,(const char *)lQStrTexto);
+return 1;
+}
+else
+return 0;
+
+}
+void QtCapturaDescripcionCotizacion::ClienteSiscomPortaPapeles()
+{
+char lchrArrCadena[256];
+if(CopiandoPortaPapeles(lchrArrCadena))
+{
+ClienteSiscom(lchrArrCadena,Orden()->Cliente());
+MuestraDatos();
+}
+}
+void QtCapturaDescripcionCotizacion::MuestraDatos()
+{
+ QLETelefono->setText(Orden()->Cliente()->Celular()->Telefono());
+}
+void QtCapturaDescripcionCotizacion::ClienteSiscom(const char *pchrPtrCadena,
+						   zClienteSiscom *pzCliSiscom)
+{
+zSiscomPortaPapeles lzSiscomPP(Conexion(),"ClienteSiscomPortaPapeles");
+lzSiscomPP.ClienteSiscom(pchrPtrCadena,pzCliSiscom);
 }
 void QtCapturaDescripcionCotizacion::keyPressEvent(QKeyEvent *pQKETeclas)
 {
@@ -348,3 +387,4 @@ int QtCapturaDescripcionCotizacion::NombreValido(QLineEdit *pQLENombre)
 {
    return pQLENombre->text().length()>=5;
 }
+
