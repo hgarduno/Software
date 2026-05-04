@@ -423,7 +423,8 @@ Pantallas_SiscomElectronica2009=VentasPorCaja 				\
 				ContandoCortes				\
 				ExistenciaSiscom			\
 				ConsultaCompras				\
-				ContabilidadSiscom
+				ContabilidadSiscom			\
+				CuentaCortes
 
 #}}}
 
@@ -519,6 +520,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/QtExistenciaSiscom.o							\
 	O/QtConsultaCompras.o							\
 	O/QtContabilidadSiscom.o						\
+	O/QtCuentaCortesS.o							\
 	O/IMP_ModuloVentas.o							\
 	O/IMP_ModuloVentasMayoreo.o						\
 	O/IMP_ModuloPedido.o							\
@@ -664,7 +666,9 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/MOC_QtContandoCortes.o						\
 	O/MOC_QtExistenciaSiscom.o						\
 	O/MOC_QtConsultaCompras.o						\
-	O/MOC_QtContabilidadSiscom.o
+	O/MOC_QtContabilidadSiscom.o						\
+	O/MOC_QtCuentaCortesS.o
+	
 	
 #}}}
 

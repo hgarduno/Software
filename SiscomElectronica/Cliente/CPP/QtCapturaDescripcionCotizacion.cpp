@@ -327,6 +327,7 @@ int QtCapturaDescripcionCotizacion::CopiandoPortaPapeles(char *pchrPtrCadena)
 QClipboard *lQCliboard=QApplication::clipboard();
 QString lQStrTexto;
 lQStrTexto=lQCliboard->text(QClipboard::Clipboard);
+LogSiscom("Is Null (%d) ",lQStrTexto.isNull());
 if(!lQStrTexto.isNull() &&
    !lQStrTexto.isEmpty())
 {
@@ -344,6 +345,8 @@ if(CopiandoPortaPapeles(lchrArrCadena))
 {
 ClienteSiscom(lchrArrCadena,Orden()->Cliente());
 MuestraDatos();
+if(TelefonoValido(QLETelefono)) 
+QCtrEscuelas->setEnabled(true);
 }
 }
 void QtCapturaDescripcionCotizacion::MuestraDatos()

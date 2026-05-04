@@ -158,11 +158,9 @@ setText(CeldaPagoTarjeta()->Fila(),
 
 void QtCorteCajaImp::ActualizaDineroEntroCaja()
 {
-/*
 setText(CeldaImporteEfectivoCaja()->Fila(),
 	CeldaImporteEfectivoCaja()->Columna(),
 	Cajas()->Principal()->TotalEfectivo());
-*/
 }
 void QtCorteCajaImp::ActualizandoCambioDiaAnterior()
 {
@@ -172,28 +170,22 @@ setText(CeldaCambioDiaAnterior()->Fila(),
 }
 void QtCorteCajaImp::ActualizandoVentasTotales()
 {
-/*
 setText(CeldaVentasTotales()->Fila(),
 	CeldaVentasTotales()->Columna(),
 	Cajas()->Principal()->VentasTotales());
-*/
 }
 
 void QtCorteCajaImp::ActualizandoCalculandoCorte()
 {
-/*
 setText(CeldaCalculandoCorte()->Fila(),
 	CeldaCalculandoCorte()->Columna(),
 	Cajas()->Principal()->CalculandoCorte());
-*/
 }
 
 
 void QtCorteCajaImp::ActualizandoCorteTotal()
 {
-/*
 setText(CeldaCorteTotal()->FilaInt(),
 	CeldaCorteTotal()->ColumnaInt(),
 	Cajas()->Principal()->CorteTotal());
-*/
 }

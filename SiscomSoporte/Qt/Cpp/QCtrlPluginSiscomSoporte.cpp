@@ -6,6 +6,7 @@
 #include <zSiscomDesarrollo4.h>
 
 #include <QtCorteCajaImp.h>
+#include <QtCuentaCortesImp.h>
 
 FILE *gPtrFleArchivoLog3Qt;
 
@@ -57,7 +58,8 @@ QStringList QCtrlPluginSiscomSoporte::keys() const
     QStringList list;
    
     list << 
-    "QtCorteCajaImp";
+    "QtCorteCajaImp"<<
+    "QtCuentaCortesImp";
 
   return list;
 }
@@ -67,10 +69,14 @@ QWidget *QCtrlPluginSiscomSoporte::create(const QString &key,
 {
      if( key == "QtCorteCajaImp")
       return new QtCorteCajaImp(parent,name);
+     if( key == "QtCuentaCortesImp")
+      return new QtCuentaCortesImp(parent,name);
 }
 QString QCtrlPluginSiscomSoporte::group( const QString& feature ) const
 {
      if( feature == "QtCorteCajaImp" ) 
+      return "Siscom Electronica Soporte";
+     if( feature == "QtCuentaCortesImp" ) 
       return "Siscom Electronica Soporte";
 
  return QString::null;
@@ -84,6 +90,8 @@ QString QCtrlPluginSiscomSoporte::includeFile( const QString& feature ) const
 {
 	if(feature=="QtCorteCajaImp")
 	 return "QtCorteCajaImp.h";
+	if(feature=="QtCuentaCortesImp")
+	 return "QtCuentaCortesImp.h";
 return QString::null;
 }
 
@@ -92,6 +100,8 @@ QString QCtrlPluginSiscomSoporte::toolTip( const QString& feature ) const
 
 	if(feature=="QtCorteCajaImp")
 	 return "Corte Caja";
+	if(feature=="QtCuentaCortesImp")
+	 return "Cuenta Cortes";
 
 return QString::null;
 }
@@ -99,6 +109,8 @@ return QString::null;
 QString QCtrlPluginSiscomSoporte::whatsThis( const QString& feature ) const
 {
      if( feature=="QtCorteCajaImp") 
+      return "Siscom Electronica Soporte";
+     if( feature=="QtCuentaCortesImp") 
       return "Siscom Electronica Soporte";
 
 return QString::null;

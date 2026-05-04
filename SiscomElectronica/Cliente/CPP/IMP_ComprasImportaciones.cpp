@@ -539,7 +539,7 @@ char lchrArrMensaje[128];
 if(!ConsultaCompraImportacion(pchrPtrIdCompra,lchrArrMensaje))
 {
 zEmpresaA=zComImportacion.UltimoProveedor();
-HabilitaProveedores();
+HabilitaProveedores(); 
 MuestraCompraImportacion();
 HabilitandoRegistraCompra();
 Calculando();
@@ -627,7 +627,7 @@ void QComprasImportaciones::HabilitandoBodegas()
 }
 void QComprasImportaciones::CargandoCompra()
 {
-QSeleccionaCompraImp lQSelComImp(chrPtrArgumentos);
+QSeleccionaCompraImp lQSelComImp(chrPtrArgumentos,this);
 if(lQSelComImp.Aceptar())
 {
  ConsultandoCompraImportacion(lQSelComImp.CompraImportacion()->IdCompraImportacion()); 
@@ -708,6 +708,8 @@ void QComprasImportaciones::CompraImportacion(zCompraImportacion *pzComImportaci
 }
 void QComprasImportaciones::HabilitandoProveedoresCompra()
 {
+
+   if(zComImportacion.Productos())
    QPBProveedores->setEnabled(zComImportacion.Productos()->NNodos());
 }
 void QComprasImportaciones::MuestraProveedor()

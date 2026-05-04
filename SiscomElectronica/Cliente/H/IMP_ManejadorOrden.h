@@ -24,6 +24,7 @@ class zExpendio;
 class zConexionExpendio;
 
 class zProducto;
+class zFormaPago;
 
 class QManejadorOrden:public ManejadorOrden ,public QtManejadorOrden 
 {
@@ -65,11 +66,11 @@ public:
 	virtual void Registrar();
 	virtual void Imprimir();
 	virtual void ImprimirPdf();
-	virtual void PagoConTarjeta();
 	virtual void OrdenRapidaEscuelaPrincipal();
 	virtual void OrdenRapidaOtro();
 	virtual void CopiandoPortapapelesTelemarketing();
 	virtual void CopiandoPrecioProductoPortapapeles();
+	virtual void CopiandoPortaPapelesTelemarketingConIva();
 	virtual void RegistroRapidoCotizacion();
 	virtual void RegistroRapidoCotizacionEnvio();
 	/* Tepotzotlan Mexico a 12 Enero 2019
@@ -80,6 +81,8 @@ public:
 	virtual void PantallaMasUsada();
 	virtual void Redimensiona();
 	virtual void ModificaCotizacion();
+
+	virtual void RegistraOrdenTransferenciaReflejada();
 	void resizeEvent(QResizeEvent *);
 	int ProductosSeleccionados(int *pintPtrProductos);
 	void MenuConUnaSeleccion(int ,const QPoint &pQPPosicion);
@@ -116,6 +119,11 @@ public:
 	QWidget *Parent();
 
 	void ConsultaExistenciaExpendios();
+	zFormaPago *FormandoFormaPago();
+
+	int SeImprimioTicket();
+	void SeImprimioTicket(int);
+	void RegistraOrden();
 
 private:
 	SiscomDatCom *SisDatCom;
@@ -148,6 +156,8 @@ private:
 	QWidget *QWParent;
 
 	 zExistenciaExpendios zExExpendios;
+
+	 int intSeImprimioTicket;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
@@ -179,7 +189,6 @@ private:
 	void DescuentoProducto(const char *pchrPtrDescuentoProducto);
 	void SeleccionandoOrden();
 	int EsCantidadValida();
-	int SeHabilitaPagoConTarjeta();
 	void ConsultandoExistenciaExpendios();
 	int SeMuestraDefinicionProducto(zProductoCotizar *pzProdCotizar);
 	void TeclasEspeciales(QKeyEvent *pQKEvent);
@@ -209,6 +218,10 @@ private:
 	 * como pago
 	 */
 	int  SeCargaComoPago();
+	void TransferenciaReflejada();
+	void Registrando();
+	void PagoConTarjeta();
+
 
 protected:
 	void keyPressEvent(QKeyEvent *pQKEvent);
@@ -230,7 +243,6 @@ private slots:
 	void SlotDescuentoProducto(const char *pchrPtrDesProducto);
 	void SlotPrecioProducto();
 	void SlotCapturandoCantidad(const QString &);
-	void SlotPagoConTarjeta();
 	void SlotExistenciaExpendios();
 
 	void SlotCargaCotizacion();

@@ -18,6 +18,7 @@ QSeleccionaCompraImp::QSeleccionaCompraImp(char **pchrPtrArgumentos,
 				zSisConexion((zSiscomConexion *)gzSiscomConexion),
 				intAceptar(0)
 {
+setFont(parentWidget()->font());
 IniciaVariables();
 ConectaSlots();
 exec();

@@ -30,8 +30,6 @@ private:
 
 	int intPorqueSeRegistra;
 
-	int intSeImprimioTicket;
-
 	QString QStrEncabezado;
 private:
 	void ConectaSlots();
@@ -44,7 +42,6 @@ private:
 	void Registrar();
 	void Imprimir();
 	void ImprimirPdf();
-	void RegistraOrden();
 	void MuestraProductoEnApartados(zProductoCotizar *);
 	void closeEvent(QCloseEvent *);
 	const char *TextoTipoOrdenBoton();
@@ -55,6 +52,7 @@ private:
 	void VendiendoAlCliente(zClienteSiscom *);
 	void CopiandoPortapapelesTelemarketing();
 	void CopiandoPrecioProductoPortapapeles();
+	void CopiandoPortaPapelesTelemarketingConIva();
 	void AgregaLineaProducto(zProductoCotizar *,char *pchrPtrLinea);
 	void CadenaConNegritas(const char *,char *);
 	void RegistroRapidoCotizacion();
@@ -66,6 +64,7 @@ private:
 	int PorqueSeRegistra();
 
 	void ModificaCotizacion();
+
 
 private slots:
 	void SlotNoSePuedeVender(zProductoCotizar *);

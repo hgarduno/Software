@@ -650,8 +650,8 @@ for(;
 FormaRegistroImpresion(lSiscomRegProLPtrProductos,lfltJuegos,lchrArrRegistro);
 strcat(pchrPtrTexto,lchrArrRegistro);
 if(!NoEsProducto(lSiscomRegProLPtrProductos) && 
-  (!EsCircuitoImpreso(lSiscomRegProLPtrProductos) &&
-   !EsProductoSiscom(lSiscomRegProLPtrProductos)))
+  (!EsCircuitoImpreso(lSiscomRegProLPtrProductos) /*&&
+   !EsProductoSiscom(lSiscomRegProLPtrProductos)*/))
 AgregaImpresionDefinicionProducto(lSiscomRegProLPtrProductos,pchrPtrTexto);
 }
 }

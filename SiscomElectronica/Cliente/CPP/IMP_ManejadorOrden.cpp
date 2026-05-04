@@ -28,6 +28,9 @@
 #include <zCajaMaterial.h>
 #include <zExpendio.h>
 #include <zConexionExpendio.h>
+#include <zFormaPago.h>
+#include <zFormaPagoTransferencia.h>
+#include <zFormaPagoTarjeta.h>
 
 #include <EmpresasN.h>
 #include <SiscomRegistros3.h>
@@ -57,7 +60,8 @@ QManejadorOrden::QManejadorOrden(SiscomDatCom *pSisDatCom,
 				intSoloDescripcion(0),
 				zProdPPFaltante(0),
 				QConExpsV(0),
-				QWParent(pQWParent)
+				QWParent(pQWParent),
+				intSeImprimioTicket(0)
 
 {
 IniciaVariables();
@@ -197,10 +201,6 @@ int lintProductos[512];
    }
     
 }
-void QManejadorOrden::SlotPagoConTarjeta()
-{
- 	PagoConTarjeta();
-}
 void QManejadorOrden::SlotPrecioProducto()
 {
    ReCotizandoOrden(); 
@@ -236,15 +236,20 @@ HabilitaImpresionRegistro();
 }
 void QManejadorOrden::SlotImprimir()
 {
+  SeImprimioTicket(1); 
   Imprimir();
   QPBRegistrar->setEnabled(Orden()->Cliente() && !NoAlcanza());
 }
 void QManejadorOrden::SlotRegistrar()
 {
+  /*
    Registrar();
+   */
+  Registrando();
    QPBExExpendios->setEnabled(false);
    chrPtrIdOrden=0;
    intIdConsecutivo=0;
+   SeImprimioTicket(0);
 }
 void QManejadorOrden::SlotNuevaOrden()
 {
@@ -259,6 +264,7 @@ void QManejadorOrden::SlotAnexarOrden()
   HabilitaImpresionRegistro();
   QPBAnexarOrden->setEnabled(false);
   QCtrProductos->setEnabled(false);
+  QPBRegistrar->setEnabled(false);
 }
 void QManejadorOrden::SlotFocoAProducto()
 {
@@ -653,12 +659,16 @@ void QManejadorOrden::ProductosALaOrden(zSiscomRegistros *pzSisRegsProductos)
 {
 
 }
+void QManejadorOrden::Registrando()
+{
+if(!ComoPago())
+{
+Registrar();
+}
+
+}
 void QManejadorOrden::Registrar()
 {
-}
-void QManejadorOrden::PagoConTarjeta()
-{
-
 }
 void QManejadorOrden::Imprimir()
 {
@@ -711,6 +721,7 @@ void QManejadorOrden::CambiaPrecio(int pintProducto)
 char lchrArrCantidad[128];
 zProductoCotizar *lzProdCotizar;
 lzProdCotizar=zOrdVenta->ProductoPorIdConsecutivo(pintProducto);
+LogSiscom("Cambiando Precio %s",lzProdCotizar->Precio());
 if(lzProdCotizar)
 {
 	CapturaCantidad(lzProdCotizar->Precio(),lchrArrCantidad);
@@ -790,6 +801,8 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
    }
    else
    if(pQKETeclas->state()==Qt::ControlButton)
+   	 if(pQKETeclas->key()==Qt::Key_B)
+	 CopiandoPortaPapelesTelemarketingConIva();
  	 if(pQKETeclas->key()==Qt::Key_C)
 	     CopiandoPortaPapeles();
 	 else
@@ -805,11 +818,14 @@ void QManejadorOrden::TeclasEspeciales(QKeyEvent *pQKETeclas)
 	 if(pQKETeclas->key()==Qt::Key_P)
 	 QtManejadorOrden::ComoSePaga();
 	 else
-	 if(pQKETeclas->key()==Qt::Key_F11) 
-	 ModificaCotizacion();
-	 else
  	 if(pQKETeclas->key()==Qt::Key_F12)
 	 zSiscomQt3::Foco(QLECantidad);
+	 else
+	 if(pQKETeclas->key()==Qt::Key_R)
+	 TransferenciaReflejada();
+	 else
+	 if(pQKETeclas->key()==Qt::Key_T)
+	 PagoConTarjeta();
 }
 void QManejadorOrden::CambiandoDeExpendio(int pintNExpendio)
 {
@@ -942,12 +958,6 @@ int QManejadorOrden::EsCantidadValida()
 { 
    return zSiscomQt3::TextoValido(QLECantidad);
 }
-int QManejadorOrden::SeHabilitaPagoConTarjeta()
-{
-return !((zOrdVenta->IdTipoOrdenInt()==8 ||
-         zOrdVenta->IdTipoOrdenInt()==6 ) &&
-	 zOrdVenta->IdTipoOrdenInt()==1);
-}
 void QManejadorOrden::ConsultaExistenciaExpendios()
 {
 zProductos lzProds;
@@ -1019,6 +1029,7 @@ zProductos lzProductos;
    ReCotizandoOrden();
 
 	 zSiscomQt3::Foco(QLECantidad);
+	 QPBRegistrar->setEnabled(false);
 }
 void QManejadorOrden::AsignaIdOrden(int pintNOrden)
 {
@@ -1040,6 +1051,7 @@ void QManejadorOrden::SeImprimeSinTiquet()
 	     Imprimir(); 
 	     QPBRegistrar->setEnabled(true);
 	     Orden()->SeImprimeTicket("1");
+	     SeImprimioTicket(1);
 	   }
 }
 int QManejadorOrden::NoAlcanza()
@@ -1220,6 +1232,10 @@ void QManejadorOrden::CopiandoPrecioProductoPortapapeles()
 {
 
 }
+void QManejadorOrden::CopiandoPortaPapelesTelemarketingConIva()
+{
+
+}
 void QManejadorOrden::UltimaOrden()
 {
   zOrdVUltima=(zOrdenVenta *)Orden()->DuplicaOrden();
@@ -1304,7 +1320,7 @@ if(!SeCargaComoPago())
 return 0;
 else
 {
-QComoPago lQCPago(Orden());
+QComoPago lQCPago(Orden(),this);
    if(lQCPago.ComoPague()==QComoPago::Efectivo)
    return 0;
    else
@@ -1348,4 +1364,55 @@ QWidget *QManejadorOrden::Parent()
 void QManejadorOrden::Parent(QWidget *pQWParent)
 {
        QWParent=pQWParent;
+}
+
+void QManejadorOrden::TransferenciaReflejada()
+{
+  if(SeImprimioTicket() && 
+    SePuedeHabilitarRegistro())
+  RegistraOrdenTransferenciaReflejada();
+  else
+  LogSiscom("Falta algo para poder vender");
+}
+
+void QManejadorOrden::RegistraOrdenTransferenciaReflejada()
+{
+Orden()->FormaPago(FormandoFormaPago());
+Orden()->FormaPago()->Transferencia(new zFormaPagoTransferencia);
+Orden()->FormaPago()->Transferencia()->YaSeReflejo("1");
+RegistraOrden();
+UltimaOrden();
+EliminaOrdenLista();
+IniciandoOrden();
+ReIniciaInterfaz();
+}
+zFormaPago *QManejadorOrden::FormandoFormaPago()
+{
+  return new zFormaPago;
+}
+
+int QManejadorOrden::SeImprimioTicket()
+{
+   return intSeImprimioTicket;
+}
+
+void QManejadorOrden::SeImprimioTicket(int pintSeImprimioTicket)
+{
+   intSeImprimioTicket=pintSeImprimioTicket;
+}
+void QManejadorOrden::RegistraOrden()
+{
+zSiscomElectronica lzSisElectronica(Conexion(),"RegistraOrden");
+lzSisElectronica.RegistraOrden(Orden());
+}
+void QManejadorOrden::PagoConTarjeta()
+{
+Orden()->FormaPago(FormandoFormaPago());
+Orden()->FormaPago()->Transferencia(0);
+Orden()->FormaPago()->Tarjeta(new zFormaPagoTarjeta);
+RegistraOrden();
+UltimaOrden();
+EliminaOrdenLista();
+IniciandoOrden();
+ReIniciaInterfaz();
 }

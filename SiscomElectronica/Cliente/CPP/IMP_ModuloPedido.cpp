@@ -166,8 +166,6 @@ if(lQDatPedido.Aceptar())
 }
 void QModuloPedido::Registrar()
 {
-if(!ComoPago())
-{
  UltimaOrden();
  RegistraOrden();
  EliminaOrden();
@@ -177,13 +175,6 @@ if(!ComoPago())
  intDatosPedido=0;
  EliminaPedido();
  IniciaVariables();
- }
-}
-
-void QModuloPedido::RegistraOrden()
-{
-zSiscomElectronica lzSisElectronica(Conexion(),"RegistraOrden");
-lzSisElectronica.RegistraOrden(Orden());
 }
 void QModuloPedido::Imprimir()
 {

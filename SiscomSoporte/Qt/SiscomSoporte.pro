@@ -23,6 +23,8 @@ LIBS+=-lqui
 SOURCES+=Cpp/QtCorteCaja.cpp
 SOURCES+=Cpp/QtCorteCajaImp.cpp
 SOURCES+=Cpp/QtImpCaja.cpp
+SOURCES+=Cpp/QtCuentaCortes.cpp
+SOURCES+=Cpp/QtCuentaCortesImp.cpp
 SOURCES+=Cpp/QCtrlPluginSiscomSoporte.cpp
 SOURCES+=Cpp/zControlesCorteCaja.cpp
 SOURCES+=Cpp/zCeldaCorte.cpp
@@ -48,6 +50,8 @@ SOURCES+=Cpp/zCeldaCorteTotal.cpp
 HEADERS=H/QtCorteCaja.h
 HEADERS+=H/QtCorteCajaImp.h
 HEADERS+=H/QtImpCaja.h
+HEADERS+=H/QtCuentaCortes.h
+HEADERS+=H/QtCuentaCortesImp.h
 
 
 

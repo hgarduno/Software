@@ -15,6 +15,8 @@
 #include <zTextoWhatsApp.h>
 #include <zConexionExpendio.h>
 #include <zEscuela.h>
+#include <zFormaPago.h>
+#include <zFormaPagoTransferencia.h>
 
 #include <SiscomRegistros3.h>
 
@@ -61,8 +63,7 @@ QModuloVentas::QModuloVentas(SiscomDatCom *pSisDatCom,
 					     pchrPtrName,
 					     pWFlags),
 				intVendiendo(0),
-				intPorqueSeRegistra(0),
-				intSeImprimioTicket(0)
+				intPorqueSeRegistra(0)
 {
 TextoBotonRegistro("Vende Orden");
 TextoBotonNuevaOrden("Nueva Orden");
@@ -284,38 +285,27 @@ void QModuloVentas::TextoBotonNuevaOrden(const char *pchrPtrTexto)
 }
 void QModuloVentas::Registrar()
 {
-if(!ComoPago())
-{
 RegistraOrden();
 UltimaOrden();
 EliminaOrdenLista();
 IniciandoOrden();
 ReIniciaInterfaz();
-intSeImprimioTicket=0;
-}
 }
 void QModuloVentas::Imprimir()
 {
 zSiscomElectronica lzSisElectronica(Conexion(),"ImprimeTicketVenta4");
 lzSisElectronica.ImprimeTicketVenta(Orden());
-
-intSeImprimioTicket=1;
 }
 void QModuloVentas::ImprimirPdf()
 {
  LogSiscom("");
-}
-void QModuloVentas::RegistraOrden()
-{
-zSiscomElectronica lzSisElectronica(Conexion(),"RegistraOrden");
-lzSisElectronica.RegistraOrden(Orden());
 }
 void QModuloVentas::closeEvent(QCloseEvent *)
 {
 intPorqueSeRegistra=5;
 if(Orden()->NumProductos()>=1 && 
    !Orden()->EsCotizacion()   &&
-   intSeImprimioTicket)
+   SeImprimioTicket())
 {
 LogSiscom("Se elimino la orden");
 Orden()->IdTipoOrden("5");
@@ -368,6 +358,10 @@ if(Orden()->Cotizacion())
 }
 QManejadorOrden::TextoEncabezado((const char *)QStrEncabezado);
 emit SignalActualizaMenu(QStrEncabezado);
+
+}
+void QModuloVentas::CopiandoPortaPapelesTelemarketingConIva()
+{
 
 }
 void QModuloVentas::CopiandoPortapapelesTelemarketing()

@@ -28,7 +28,6 @@ private:
 	void MuestraDatosCliente();
 	void CapturaDatosPedido();
 	void Registrar();
-	void RegistraOrden();
 	void Imprimir();
 	void closeEvent(QCloseEvent *);	
 	void PedidoDesdeCero(QClientePedido *);

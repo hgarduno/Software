@@ -23,6 +23,7 @@ QComoPago::QComoPago(zOrdenVenta *pzOrdenVenta,
 				FrmPago(Cancelar),
 				zOVenta(pzOrdenVenta)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 exec();
