@@ -884,7 +884,7 @@ char lchrArrObservaciones[128];
 
 sprintf(lchrArrObservaciones,
 	"Llenado de Existencia Minima \n"
-	"Productos al %s \n"
+	"Productos al %s%%\n"
 	"%s",
 	SiscomCampoAsociadoEntradaOperacion("Envio","Porcentaje",pSisOpePtrDatos),
 	SiscomCampoAsociadoEntradaOperacion("Envio","Fecha",pSisOpePtrDatos));
