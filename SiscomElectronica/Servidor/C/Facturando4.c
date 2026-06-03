@@ -1319,7 +1319,13 @@ lfltTotalOrden=lfltImporteOrden*1.16;
 
 LogSiscom("Importe Orden %f  Total Orden %f",lfltImporteOrden,lfltTotalOrden);
 sprintf(lchrArrImporteOrden,"%.2f",lfltTotalOrden);
+/* Ciudad de Mexico a 3 de Junio 2026 
+ * Quito esta linea, porque los datos vienen del calculo de las ordenes, con esto 
+ * tambien logro eliminar el error de los decimales
+ *
+ *
 SiscomActualizaCampoAsociadoEntrada("Envio","Total",lchrArrImporteOrden,pSiscomOpePtrDato);
+*/
 }
 
 
@@ -1417,6 +1423,9 @@ int lintRegreso;
   {
      LogSiscom("********************** Facturando %s",
      		SiscomCampoAsociadoEntradaOperacion("Envio","IdFactura",pSiscomOpePtrDato));
+    
+    SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
+
      lintRegreso=SeRealizaInsercionOrdenFacturada(FacturandoEmpresa(pSiscomOpePtrDato));
 
     if(lintRegreso==0 || lintRegreso==2)
