@@ -6,6 +6,7 @@ class zSiscomRegistro;
 class zProductoCotizar:public zProducto
 {
 public:
+	zProductoCotizar();
 	zProductoCotizar(const char *pchrPtrCantidad,
 			 const char *pchrPtrPrecioVenta,
 			 zSiscomRegistro *pzSisRegProducto);

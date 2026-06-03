@@ -75,6 +75,7 @@
 #include <zAbonoAApartado.h>
 #include <zExistenciaVenta.h>
 #include <zCompras.h>
+#include <zPedidoExistenciaM.h>
 
 #include <string.h> 
 zSiscomElectronica::zSiscomElectronica(zSiscomConexion *pzSiscomConexion,
@@ -2623,4 +2624,47 @@ if((lzSisRegsRegreso=EnviaRecibe()))
 {
        pzCompras->Compras(lzSisRegsRegreso);
 }
+}
+
+int zSiscomElectronica::PedidoPorCotizacion(zPedidoPorCotizacion *pzPedidoPC)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio((zSiscomRegistro *)pzPedidoPC);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+/*
+  lzSisRegRegreso=(*lzSisRegsRegreso)[0];  
+*/
+  return 0;
+}
+else 
+return 0;
+}
+
+int zSiscomElectronica::PedidoExistenciaMinima(zPedidoExistenciaM *pzPedidoEM)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio((zSiscomRegistro *)pzPedidoEM);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+ pzPedidoEM->Productos((zProductos *)lzSisRegsRegreso);
+  return 0;
+}
+else 
+return 0;
+}
+
+int zSiscomElectronica::RegistraPedidoExistenciaMinima(zPedidoExistenciaM *pzPedidoEM)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio((zSiscomRegistro *)pzPedidoEM);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  return 0;
+}
+else 
+return 0;
 }

@@ -1,8 +1,10 @@
 #include <ExistenciaExpendios.h>
+#include <PedidoPorCotizacion.h>
 
 #include <SqlSiscomElectronica.h>
 #include <SqlExistenciaExpendios.h>
 #include <SqlProductosSE.h>
+#include <SqlPedidoPorCotizacion.h>
 
 #include <SiscomDesarrolloMacros.h>
 #include <SiscomCamposProtocolo.h>
@@ -10,6 +12,7 @@
 #include <SiscomMacrosOperaciones.h>
 #include <SiscomConfiguracionServidor.h>
 #include <SiscomProtocoloComunicaciones.h>
+#include <SiscomMacrosInsercionesSql.h>
 #include <SiscomReplicacion.h>
 #include <ComunSiscomElectronica4.h>
 
@@ -26,6 +29,51 @@
 #include <fcntl.h>
 #include <errno.h>
 
+
+
+
+void PedidoExistenciaMinima(int pintSocket,
+		SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+			   0,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+			   &lSiscomOpDat);
+SiscomAgregaOperacion(CreaArgumentosExistenciaExpendios,&lSiscomProDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(SqlProductosEnExistenciaMinima,&lSiscomProDat);
+SiscomAgregaOperacion(EjecutandoPedidoExistenciaMinima,&lSiscomProDat);
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+}
+
+void RegistraPedidoExistenciaMinima(int pintSocket,
+		SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+			   0,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+			   &lSiscomOpDat);
+SiscomAgregaOperacion(CreaArgumentosExistenciaExpendios,&lSiscomProDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(ArgumentoPedidoPorCotizacion,&lSiscomProDat);
+SiscomAgregaOperacion(AgregaFechaYIdPedidoPorCotizacion,&lSiscomProDat);
+SiscomAgregaOperacion(AgregaObservacionesPedidoExistenciaMinima,&lSiscomProDat);
+SiscomAgregaOperacion(SqlPedidoPorCotizacion,&lSiscomProDat);
+SiscomAgregaOperacion(EjecutandoRegistraPedidoExistenciaMinima,&lSiscomProDat);
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+}
 
 
 void ExistenciaExpendios(int pintSocket,
@@ -809,4 +857,40 @@ for(;
 }
 strcat(*pchrPtrClausula,")");
 return *pchrPtrClausula;
+}
+
+int EjecutandoPedidoExistenciaMinima(SiscomOperaciones *pSisOpePtrDatos)
+{
+char lchrArrBuffer[1024];
+SiscomEnviaAsociadoRespuestaCliente("ProductosEnMinima",
+                                    lchrArrBuffer,
+                                    pSisOpePtrDatos);
+return 0;
+}
+
+
+int EjecutandoRegistraPedidoExistenciaMinima(SiscomOperaciones *pSisOpePtrDatos)
+{
+char lchrArrBuffer[1024];
+LogSiscom("");
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDatos);
+SiscomAsociadoAsociadoLog("Envio","Productos",lchrArrBuffer,pSisOpePtrDatos);
+SiscomArgumentoInsercionSqlLog("SqlPedidoPC",lchrArrBuffer,pSisOpePtrDatos);
+return 0;
+}
+int AgregaObservacionesPedidoExistenciaMinima(SiscomOperaciones *pSisOpePtrDatos)
+{
+char lchrArrObservaciones[128];
+
+sprintf(lchrArrObservaciones,
+	"Llenado de Existencia Minima \n"
+	"Productos al %s \n"
+	"%s",
+	SiscomCampoAsociadoEntradaOperacion("Envio","Porcentaje",pSisOpePtrDatos),
+	SiscomCampoAsociadoEntradaOperacion("Envio","Fecha",pSisOpePtrDatos));
+SiscomActualizaCampoAsociadoEntrada("Envio",
+				     "Observaciones",
+				     lchrArrObservaciones,
+				     pSisOpePtrDatos);
+return 1;
 }

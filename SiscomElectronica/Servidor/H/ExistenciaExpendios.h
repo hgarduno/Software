@@ -3,6 +3,15 @@
 
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
 
+
+void PedidoExistenciaMinima(int pintSocket,
+		SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		SiscomRegistroProL *pSiscomRegProLPtrAct);
+
+void RegistraPedidoExistenciaMinima(int pintSocket,
+		SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		SiscomRegistroProL *pSiscomRegProLPtrAct);
+
 void ExistenciaExpendios(int pintSocket,
 		SiscomRegistroProL *pSiscomRegProLPtrPrim,
 		SiscomRegistroProL *pSiscomRegProLPtrAct);
@@ -56,12 +65,16 @@ char *ClausulaInProductos(SiscomRegistroProL *pSisRegProLPtrProductos,char **pch
 char *AgregandoUnaCadena(const char *pchrPtrAgrega,char *pchrPtrCadena);
 
 
+int EjecutandoPedidoExistenciaMinima(SiscomOperaciones *pSisOpePtrDatos);
+int EjecutandoRegistraPedidoExistenciaMinima(SiscomOperaciones *pSisOpePtrDatos);
 
 void ExistenciaExpendiosAlLog(const char *pchrPtrArchivo,
 			  const char *pchrPtrFuncion,
 			  int pintLineaN,
 			  SiscomRegistroProL *pSisRegProLPtrDatos);
 
+
+int AgregaObservacionesPedidoExistenciaMinima(SiscomOperaciones *pSisOpePtrDatos);
 
 #define ExistenciaExpendiosLog(pSiscomRegProLPtrDatos) 	\
 ExistenciaExpendiosAlLog(__FILE__,				\

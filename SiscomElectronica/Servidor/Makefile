@@ -78,6 +78,7 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/ComprasSiscom.o				\
 			   O/Contabilidad.o				\
 			   O/PortaPapeles.o				\
+			   O/PedidoPorCotizacion.o			\
 			   O/SqlSiscomElectronica.o			\
 			   O/SqlValidandoTransferencias.o		\
 			   O/SqlCotizaDispositivos.o			\
@@ -124,7 +125,8 @@ Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
 			   O/SqlCorteCajaSucursal.o			\
 			   O/SqlAbonoAApartado.o			\
 			   O/SqlComprasSiscom.o				\
-			   O/SqlContabilidad.o
+			   O/SqlContabilidad.o				\
+			   O/SqlPedidoPorCotizacion.o
 
 			   
 Archivos_SiscomElectronicaMemoriaComun=O/SiscomElectronicaMemoriaComun.o			   

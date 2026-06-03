@@ -675,6 +675,7 @@ SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
 }
 int NOSeEncontroOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
+LogSiscom("Se reconsulta por no encontrar una orden");
 ArgumentoCotizaciones(pSiscomOpePtrDato);
 ArgumentoPedidos(pSiscomOpePtrDato);
 ArgumentoVentas(pSiscomOpePtrDato);

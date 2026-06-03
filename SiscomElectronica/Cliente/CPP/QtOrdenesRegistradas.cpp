@@ -70,6 +70,12 @@ connect(QPBImprimir,SIGNAL(clicked()),SLOT(SlotImprimir()));
 connect(QPBVender,SIGNAL(clicked()),SLOT(SlotVender()));
 connect(QPBDevolucion,SIGNAL(clicked()),SLOT(SlotDevolucion()));
 connect(QPBSeReflejo,SIGNAL(clicked()),SLOT(SlotSeReflejo()));
+connect(QPBPedidoPC,SIGNAL(clicked()),SLOT(SlotPedidoPorCotizacion()));
+connect(QLEFiltro,SIGNAL(returnPressed()),SLOT(SlotConsultaPorFiltro()));
+}
+void QtOrdenesRegistradas::SlotConsultaPorFiltro()
+{
+
 }
 void QtOrdenesRegistradas::SlotSeReflejo()
 {
@@ -99,7 +105,10 @@ void QtOrdenesRegistradas::SlotDevolucion()
 {
 
 }
+void QtOrdenesRegistradas::SlotPedidoPorCotizacion()
+{
 
+}
 void QtOrdenesRegistradas::SlotCambiandoOrden(int pintOrden,
 					     int)
 {
@@ -458,9 +467,60 @@ void QtOrdenesRegistradas::TeclasEspeciales(QKeyEvent *pQKETeclas)
    if(pQKETeclas->key()==Qt::Key_C)
    CopiandoPortaPapelesOrden();
    else
-	if(pQKETeclas->key()==Qt::Key_F12)
-	MarcaOrden();
+   if(pQKETeclas->key()==Qt::Key_F12)
+   MarcaOrden();
+   else
+   if(pQKETeclas->key()==Qt::Key_A)
+   CopiandoPortapapelesParaTabla();
+    
 
+}
+void QtOrdenesRegistradas::CopiandoPortapapelesParaTabla()
+{
+QString lQStrCadena;
+int lintContador;
+lQStrCadena=Orden()->Cotizacion()->Descripcion(); 
+lQStrCadena+="|\n" ;
+
+for(lintContador=0;lintContador<Orden()->NumProductos();lintContador++)
+{
+   lQStrCadena+="|";
+   lQStrCadena+=Orden()->Clave(lintContador);
+   lQStrCadena+="|";
+   
+   lQStrCadena+=Orden()->Cantidad(lintContador);
+   lQStrCadena+="|";
+
+   lQStrCadena+=Orden()->Precio(lintContador);
+   lQStrCadena+="|";
+
+   lQStrCadena+=Orden()->Importe(lintContador);
+   lQStrCadena+="|\n";
+
+}
+
+lQStrCadena+="|";
+lQStrCadena+="|";
+lQStrCadena+="|";
+lQStrCadena+="Importe|";
+lQStrCadena+=Orden()->ImporteOrden(); 
+lQStrCadena+="|\n";
+lQStrCadena+="|";
+lQStrCadena+="|";
+lQStrCadena+="|";
+lQStrCadena+="I.V.A.|";
+lQStrCadena+="0.00"; 
+lQStrCadena+="|\n";
+lQStrCadena+="|";
+lQStrCadena+="|";
+lQStrCadena+="|";
+lQStrCadena+="Total|";
+lQStrCadena+="0.00"; 
+lQStrCadena+="|\n";
+
+LogSiscom("%s",(const char *)lQStrCadena);
+
+QApplication::clipboard()->setText(lQStrCadena);
 }
 int QtOrdenesRegistradas::CambiandoExpendio()
 {

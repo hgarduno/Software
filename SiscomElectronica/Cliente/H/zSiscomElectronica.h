@@ -67,6 +67,8 @@ class zCompraParcialImportacion;
 class zAbonoAApartado;
 class zExistenciaVenta;
 class zCompras;
+class zPedidoPorCotizacion;
+class zPedidoExistenciaM;
 class zSiscomElectronica:public zSiscomOperaciones 
 {
 public:
@@ -309,6 +311,12 @@ public:
 	int ConsultaComprasSiscom(const char *pchrPtrFechaIni,
 			  	  const char *pchrPtrFechaFin,
 			  	  zCompras *pzCompras);
+
+	int PedidoPorCotizacion(zPedidoPorCotizacion *);	
+
+
+	int PedidoExistenciaMinima(zPedidoExistenciaM *);
+	int RegistraPedidoExistenciaMinima(zPedidoExistenciaM *);
 private:
 	void CambiaNoJuegos(zOrdenVenta *);
 	void NoSePuedeVenderPorNoTenerPrecio(zOrdenVenta *);

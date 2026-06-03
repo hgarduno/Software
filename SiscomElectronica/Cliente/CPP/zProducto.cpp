@@ -11,7 +11,16 @@ zProducto::zProducto()
 {
  (*this) 				<< 
  new zSiscomCampo("Clave") 		<<
- new zSiscomCampo("Descripcion");
+ new zSiscomCampo("Descripcion")	<<	
+  new zSiscomCampo("Existencia")	<< 
+  new zSiscomCampo("ExiBodega")	        <<
+  new zSiscomCampo("TipoProducto")	<<
+  new zSiscomCampo("IdProducto")	<<
+  new zSiscomCampo("IdCaja")		<<
+  new zSiscomCampo("Caja")		<<
+  new zSiscomCampo("Estante")		<<
+  new zSiscomCampo("Productos");
+
 }
 zProducto::zProducto(zSiscomRegistro *pzSisRegProducto)
 {

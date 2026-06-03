@@ -116,6 +116,10 @@ private:
 	void AsignaGenerales();
 	void ActualizandoCompra();
 	void EnviaActualizacionCompra();
+
+	void TeclasEspeciales(QKeyEvent *pQKETeclas);
+	void ClavesProveedorPortapapeles();
+	void keyPressEvent(QKeyEvent *pQKETeclas);
 private slots:
 
 	void SlotCapturandoNumFactura(const QString &);

@@ -50,6 +50,8 @@ public:
 	 */
 
 	static zSiscomConexion *Conexion();
+	static const char *IdExpendio(char **);
+	static const char *IdEmpleado(char **);
 				
 	
 

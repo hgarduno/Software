@@ -8,6 +8,7 @@ class zSiscomConexion;
 class zOrdenes;
 class zOrdenVenta;
 class zExpendio;
+class zPedidoPorCotizacion;
 class QOrdenesRegistradas:public QtOrdenesRegistradas
 {
  Q_OBJECT
@@ -23,8 +24,8 @@ private:
 	char **chrPtrArgumentos;
 	zSiscomConexion *zSisConexion;
 	zOrdenes *zOrdsRegistradas;
-
 	zDevolucion zDevOrden;
+	zPedidoPorCotizacion *zPedidoPC;
 private:
 
 	void Consultando();
@@ -38,6 +39,15 @@ private:
 	 void Devuelve(); 
 	 void ActivaBotones(bool pbModal);
 	 void YaSeReflejoTransferencia();
+	 void EnviaPedidoPorCotizacion();
+	 void EnviandoPedidoPorCotizacion();
+
+	 void AsignaPedidoPorCotizacion();
+	 zPedidoPorCotizacion *PedidoPorCotizacion();
+	 void DatosPedidoCotizacion();
+
+	 void ConsultandoPorFiltro();
+	 void ConsultaPorFiltro();
 
 private slots:
 	 void SlotConsulta();
@@ -45,6 +55,8 @@ private slots:
 	void SlotVender();
 	void SlotDevolucion();
 	void SlotSeReflejo();
+	void SlotPedidoPorCotizacion();
+	void SlotConsultaPorFiltro();
 };
 extern "C" QOrdenesRegistradas *InstanciaOrdenesRegistradas(void *,char **,void *,const char *,int);
 #endif

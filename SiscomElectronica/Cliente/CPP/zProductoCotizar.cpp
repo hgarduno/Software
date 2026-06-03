@@ -3,6 +3,17 @@
 #include <zSiscomDesarrollo4.h>
 #include <string.h>
 #include <stdio.h>
+zProductoCotizar::zProductoCotizar()
+{
+  (*this)								<< 
+  new zSiscomCampo("Cantidad")	<<
+  new zSiscomCampo("Precio")	<<
+  new zSiscomCampo("Importe")						<<
+  new zSiscomCampo("IdConsecutivo",(const unsigned char *)"-1")		<<
+  new zSiscomCampo("SePuedeVender")					<<
+  new zSiscomCampo("SePuedeVenderDefProd")				<<
+  new zSiscomCampo("PrecioEspecial");
+}
 zProductoCotizar::zProductoCotizar(const char *pchrPtrCantidad,
 				   const char *pchrPtrPrecioVenta,
 				   zSiscomRegistro *pzSisRegProducto):
@@ -33,7 +44,6 @@ zProductoCotizar::zProductoCotizar(zSiscomRegistro *pzSisRegistro):
 }
 zProductoCotizar::~zProductoCotizar()
 {
-LogSiscom("");
 }
 const char *zProductoCotizar::Cantidad()
 {

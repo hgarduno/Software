@@ -1,6 +1,5 @@
 #ifndef __SISCOMMACROSINSERCIONESSQL_H__
 #define __SISCOMMACROSINSERCIONESSQL_H__
-
 #define SiscomArgumentoInsercionSqlLog(pchrPtrArgumento,	\
 					 pchrPtrBuffer,		\
 					 pSiscomOpePtrDato)	\

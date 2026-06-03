@@ -52,6 +52,7 @@
 #include <ComprasSiscom.h>
 #include <Contabilidad.h>
 #include <PortaPapeles.h>
+#include <PedidoPorCotizacion.h>
 typedef struct  siscomElectronica4
 {
   char *chrPtrFuncion;
@@ -233,6 +234,9 @@ StcSiscomElectronica4 lStcSiscomElectronica4[]=
 			{"OrdenesTransferenciaTarjeta",OrdenesTransferenciaTarjeta},
 			{"FacturaPublicoEnGeneralPE",FacturaPublicaEnGeneralPE},
 			{"ClienteSiscomPortaPapeles",ClienteSiscomPortaPapeles},
+			{"PedidoPorCotizacion",PedidoPorCotizacion},
+			{"PedidoExistenciaMinima",PedidoExistenciaMinima},
+			{"RegistraPedidoExistenciaMinima",RegistraPedidoExistenciaMinima},
 			{0,0}
 		     };
 const char *lchrPtrFuncion;

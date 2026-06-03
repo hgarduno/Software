@@ -242,3 +242,14 @@ void zSiscomDesarrollo4::CadenaHastaDelimitador(const char *pchrPtrCadenaE,
         pchrPtrCadenaE++;
     }
 }
+
+const char *zSiscomDesarrollo4::IdExpendio(char **pchrPtrArgumentos)
+{
+   return *(pchrPtrArgumentos+0);
+}
+
+
+const char *zSiscomDesarrollo4::IdEmpleado(char **pchrPtrArgumentos)
+{
+   return *(pchrPtrArgumentos+1);
+}

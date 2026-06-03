@@ -32,6 +32,8 @@
 #include <qtable.h>
 #include <qmessagebox.h>
 #include <qfiledialog.h>
+#include <qapplication.h>
+#include <qclipboard.h>
 
 QComprasImportaciones *InstanciaComprasImportaciones(void *pSisDatCom,
                  char **pchrPtrArgumentos,
@@ -824,3 +826,34 @@ void QComprasImportaciones::HabilitaRegistroParcialActualizaCompra(QPushButton *
 {
   pQPBBoton->setEnabled(SisReg3Bodega ? true : false);
 }
+
+
+void QComprasImportaciones::TeclasEspeciales(QKeyEvent *pQKETeclas)
+{
+     if(pQKETeclas->state()==Qt::ControlButton)
+     {
+	if(pQKETeclas->key()==Qt::Key_C)
+	ClavesProveedorPortapapeles();
+     }
+}
+void QComprasImportaciones::ClavesProveedorPortapapeles()
+{
+zSiscomRegistro *lzSisRegProducto;
+QString lQStrCadena;
+for(lzSisRegProducto=zComImportacion.Productos()->Primer();
+    lzSisRegProducto;
+    lzSisRegProducto=zComImportacion.Productos()->Siguiente())
+    {
+   lQStrCadena+=(const char *)(*lzSisRegProducto)["CveProveedor"];
+   lQStrCadena+="|";
+   lQStrCadena+=(const char *)(*lzSisRegProducto)["Cantidad"];
+   lQStrCadena+="|\n";
+  }
+
+QApplication::clipboard()->setText(lQStrCadena); 
+}
+void QComprasImportaciones::keyPressEvent(QKeyEvent *pQKETeclas)
+{
+   TeclasEspeciales(pQKETeclas);
+}
+

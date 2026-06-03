@@ -18,10 +18,12 @@
 #include <zProductoCotizar.h>
 #include <zClienteSiscom.h>
 #include <zConexionExpendio.h>
+#include <zPedidoPorCotizacion.h>
 
 #include <qpushbutton.h>
 #include <qtable.h>
 #include <qpushbutton.h>
+#include <qlineedit.h>
 
 QOrdenesRegistradas *InstanciaOrdenesRegistradas(void *pSisDatCom,
                  char **pchrPtrArgumentos,
@@ -62,6 +64,10 @@ QOrdenesRegistradas::~QOrdenesRegistradas()
 {
 
 }
+void QOrdenesRegistradas::SlotPedidoPorCotizacion()
+{
+EnviandoPedidoPorCotizacion();
+}
 void QOrdenesRegistradas::SlotSeReflejo()
 {
   YaSeReflejoTransferencia();
@@ -85,6 +91,26 @@ void QOrdenesRegistradas::SlotVender()
 void QOrdenesRegistradas::SlotConsulta()
 {
     Consultando();
+}
+void QOrdenesRegistradas::SlotConsultaPorFiltro()
+{
+ ConsultandoPorFiltro();
+}
+void QOrdenesRegistradas::ConsultandoPorFiltro()
+{
+ConsultaPorFiltro();
+ QtOrdenesRegistradas::Ordenes(zOrdsRegistradas);
+ QtOrdenesRegistradas::Muestra();
+ MuestraOrden(0);
+
+}
+void QOrdenesRegistradas::ConsultaPorFiltro()
+{
+const char *lchrPtrIdOrden=strdup((const char *)QLEFiltro->text());
+zSiscomElectronica lzSisElectronica(zSisConexion,"ConsultaOrden");
+lzSisElectronica.ConsultaOrden(lchrPtrIdOrden,
+				QtOrdenesRegistradas::IdTipoOrden(),
+					 &zOrdsRegistradas);
 }
 void QOrdenesRegistradas::Consultando()
 {
@@ -126,4 +152,31 @@ void QOrdenesRegistradas::YaSeReflejoTransferencia()
   zSiscomElectronica lzSisElectronica(Conexion(),"YaSeReflejoTransferencia");
   lzSisElectronica.SeReflejoTransferencia("1",
   					  QtOrdenesRegistradas::Orden()->IdVenta());
+}
+
+void QOrdenesRegistradas::EnviaPedidoPorCotizacion()
+{
+zSiscomElectronica lzSisElect(Conexion(),"PedidoPorCotizacion");
+lzSisElect.PedidoPorCotizacion(PedidoPorCotizacion());
+}
+void QOrdenesRegistradas::EnviandoPedidoPorCotizacion()
+{
+AsignaPedidoPorCotizacion();
+DatosPedidoCotizacion();
+EnviaPedidoPorCotizacion();
+}
+
+void QOrdenesRegistradas::AsignaPedidoPorCotizacion()
+{
+ zPedidoPC=new zPedidoPorCotizacion;
+}
+zPedidoPorCotizacion *QOrdenesRegistradas::PedidoPorCotizacion()
+{
+   return zPedidoPC;
+}
+void QOrdenesRegistradas::DatosPedidoCotizacion()
+{
+PedidoPorCotizacion()->IdExpendio(*(chrPtrArgumentos+0));
+PedidoPorCotizacion()->Observaciones(Orden()->Cotizacion()->Descripcion());
+PedidoPorCotizacion()->Productos(Orden()->Productos());
 }

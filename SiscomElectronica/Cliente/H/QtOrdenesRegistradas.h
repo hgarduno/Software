@@ -106,7 +106,7 @@ private:
 	 void CopiandoPortaPapeles();
 	 void CopiandoPortaPapelesOrden();
 	 void MarcaOrden();
-
+	 void CopiandoPortapapelesParaTabla();
 private slots:
 	void SlotFocoAConsulta();
 	void SlotFocoAFechaFin();
@@ -119,5 +119,7 @@ public slots:
 	virtual void SlotVender();
 	virtual void SlotDevolucion();
 	virtual void SlotSeReflejo();
+	virtual void SlotPedidoPorCotizacion();
+	virtual void SlotConsultaPorFiltro();
 };
 #endif

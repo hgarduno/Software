@@ -199,3 +199,42 @@ LogSiscom("%s",lchrPtrSqlExistencia);
 */
 return 0;
 }
+
+void SqlConsultaProductosEnExistenciaMinima(SiscomOperaciones *pSisOpePtrDatos,
+					    char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"							\n\
+select a.cveproducto as \"Clave\",				\n\
+	a.existencia, 						\n\
+	a.eximinima,						\n\
+	round(porcentaje,2) as porcentaje,			\n\
+	b.existencia as exibodega,				\n\
+	a.eximinima-a.existencia as \"Cantidad\",		\n\
+	0 as \"IdProducto\"					\n\
+from existencias as a inner join 				\n\
+	materialbodega as b using(cveproducto),			\n\
+	PorcentaLlenaE(a.existencia,a.eximinima)		\n\
+where eximinima is not null and 				\n\
+	porcentaje < %s  and 					\n\
+	idbodega=0 and 						\n\
+	b.existencia >0 					\n\
+order by porcentaje asc",
+SiscomCampoAsociadoEntradaOperacion("Envio","Porcentaje",pSisOpePtrDatos));
+
+}
+
+
+int SqlProductosEnExistenciaMinima(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[512],
+	lchrArrSql[512];
+SqlConsultaProductosEnExistenciaMinima(pSiscomOpePtrDato,lchrArrSql);
+LogSiscom("%s",lchrArrSql);
+SiscomConsultasSqlOperaciones(lchrArrBuffer,
+		   pSiscomOpePtrDato,
+		   "ProductosEnMinima%",
+		   lchrArrSql);
+LogSiscom(":) :) :) \n%s",lchrArrSql);
+return 0;
+}
