@@ -3,11 +3,13 @@
 #include <zOrdenVenta.h>
 #include <zFormaPago.h>
 #include <zSiscomQt3.h>
+
 #include <qpushbutton.h>
 #include <qbuttongroup.h>
 #include <qlineedit.h>
 #include <qradiobutton.h>
 #include <qmessagebox.h> 
+#include <qlcdnumber.h>
 #include <zSiscomDesarrollo4.h>
 #include <zConCuantoPago.h> 
 #include <zFormaPagoTarjeta.h>
@@ -43,10 +45,38 @@ connect(QLEConCuantoPaga,SIGNAL(returnPressed()),SLOT(SlotFocoAAceptar()));
 connect(QLEConCuantoPaga,
 	SIGNAL(textChanged(const QString &)),
 	SLOT(SlotCapturandoConCuantoPaga(const QString &)));
+
+/* 
+ * Mixquiahuala7 de Junio 2026 
+ * Integrando en la forma de pago, combinar 2 metodos de pago
+ */
+connect(QPBEfectivo,SIGNAL(clicked()),SLOT(SlotCapturaEfectivo()));
+connect(QLECaptura,SIGNAL(returnPressed()),SLOT(SlotCaptura()));
+}
+void QComoPago::SlotCaptura()
+{
+LogSiscom("%d",ComoPagare());
+  switch(ComoPagare())
+  {
+    case Efectivo:
+    	ComoPagareEfectivo();
+    break;
+    case Tarjeta:
+    	ComoPagareTarjeta();
+    break;
+    case Transferencia:
+    	ComoPagareTransferencia();
+    break;
+  }
 }
 void QComoPago::SlotCapturandoConCuantoPaga(const QString &)
 {
   QPBAceptar->setEnabled((intValidoPago && zSiscomQt3::TextoValido(QLEConCuantoPaga)));
+}
+void QComoPago::SlotCapturaEfectivo()
+{
+ zSiscomQt3::Foco(QLECaptura);
+ FrmComoPagare=Efectivo;
 }
 void QComoPago::SlotFocoAAceptar()
 {
@@ -85,6 +115,7 @@ void QComoPago::IniciaVariables()
 {
    QRBEfectivo->setFocus(); 
    Orden()->FormaPago(FormaPago());
+   QLCDNTotal->display(Orden()->ImporteOrden());
    if(EsUnApartado())
    {
  	ControlesApartado();
@@ -106,6 +137,10 @@ zOrdenVenta *QComoPago::Orden()
 QComoPago::FormaDePago QComoPago::ComoPague()
 {
     return FrmPago;
+}
+QComoPago::FormaDePago QComoPago::ComoPagare()
+{
+    return FrmComoPagare;
 }
 void QComoPago::reject()
 {
@@ -204,15 +239,11 @@ void QComoPago::keyPressEvent(QKeyEvent *pQKETeclas)
     if(pQKETeclas->state()==Qt::ControlButton)
     TeclasEspeciales(pQKETeclas);
 
-
-
 }
 void QComoPago::TeclasEspeciales(QKeyEvent *pQKETeclas)
 {
         if(pQKETeclas->key()==Qt::Key_R)
 	TransferenciaReflejada();
-
-
 }
 void QComoPago::TransferenciaReflejada()
 {
@@ -221,4 +252,42 @@ void QComoPago::TransferenciaReflejada()
   Orden()->FormaPago()->Transferencia()->YaSeReflejo("1");
  FrmPago=Transferencia;
   done(1);
+}
+
+void QComoPago::PoniendoEfectivo()
+{
+zSiscomElectronica lzSisComoPago(zSiscomDesarrollo4::Conexion(),"FormandoComoPago");
+Orden()->FormaPago()->Efectivo((const char *)QLECaptura->text());
+Orden()->FormaPago()->Total(Orden()->ImporteOrden());
+lzSisComoPago.FormandoComoPago(Orden()->FormaPago());
+}
+void QComoPago::MuestraComoPagara()
+{
+/*
+ QLETarjeta->setText(Orden()->FormaPago()->PorPagar());
+ QLETransferencia->setText(Orden()->FormaPago()->PorPagar());
+ SiscomRegistroLog2(Orden()->FormaPago());
+ */
+}
+void QComoPago::MostrandoTextoBoton(QPushButton *pQPBBoton,
+				    const char *pchrPtrTexto)
+{
+QString lQStrTexto=pchrPtrTexto;
+lQStrTexto+="\n";
+lQStrTexto+=QLECaptura->text();
+pQPBBoton->setText(lQStrTexto);
+}
+void QComoPago::ComoPagareEfectivo()
+{
+ MostrandoTextoBoton(QPBEfectivo,"Efectivo");
+ PoniendoEfectivo();
+ QLECaptura->setText(Orden()->FormaPago()->PorPagar());
+}
+void QComoPago::ComoPagareTarjeta()
+{
+ MostrandoTextoBoton(QPBTarjeta,"Tarjeta");
+}
+void QComoPago::ComoPagareTransferencia()
+{
+ MostrandoTextoBoton(QPBTransferencia,"Transferencia");
 }

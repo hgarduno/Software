@@ -10,10 +10,12 @@ public:
 	zFormaPagoTransferencia(zSiscomRegistro *);
 	void YaSeReflejo(const char *);
 	void Observaciones(const char *);
+	void Importe(const char *);
 
 	int YaSeReflejoInt();
 
 	const char *Observaciones();
+	const char *Importe();
 };
 
 #endif

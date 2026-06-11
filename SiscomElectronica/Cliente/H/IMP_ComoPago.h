@@ -7,6 +7,8 @@ class zFormaPago;
 class zSiscomConexion;
 class zConCuantoPago;
 class zFormaPagoTarjeta;
+
+class QPushButton;
 class QComoPago:public ComoPago
 {
  Q_OBJECT
@@ -28,9 +30,11 @@ public:
 		Tarjeta=3
 	};
 	FormaDePago ComoPague();
+	FormaDePago ComoPagare();
 private:
 	zOrdenVenta *zOVenta;
 	FormaDePago FrmPago;
+	FormaDePago FrmComoPagare;
 	zConCuantoPago *zConCPago;
 	int intValidoPago;
 private:
@@ -51,11 +55,19 @@ private:
 	void keyPressEvent(QKeyEvent *);
 	void TeclasEspeciales(QKeyEvent *);
 	void TransferenciaReflejada();
+	void PoniendoEfectivo();
+	void MuestraComoPagara();
+	void ComoPagareEfectivo();
+	void ComoPagareTransferencia();
+	void ComoPagareTarjeta();
+	void MostrandoTextoBoton(QPushButton *,const char *);
 private slots:
 	void SlotAceptar();
 	void SlotComoPago(int);
 	void SlotCancelar();
 	void SlotFocoAAceptar();
 	void SlotCapturandoConCuantoPaga(const QString &);
+	void SlotCapturaEfectivo();
+	void SlotCaptura();
 };
 #endif

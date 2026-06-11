@@ -5,7 +5,8 @@ zFormaPagoTransferencia::zFormaPagoTransferencia()
 {
  (*this)					<<
  new zSiscomCampo("YaSeReflejo")		<<
- new zSiscomCampo("Observaciones");
+ new zSiscomCampo("Observaciones")		<<
+ new zSiscomCampo("Importe");
 }
 
 zFormaPagoTransferencia::zFormaPagoTransferencia(zSiscomRegistro *pzSisRegistro)
@@ -22,6 +23,12 @@ void zFormaPagoTransferencia::Observaciones(const char *pchrPtrObservaciones)
 {
  ActualizaCampo("Observaciones",(const unsigned char *)pchrPtrObservaciones);
 }
+
+void zFormaPagoTransferencia::Importe(const char *pchrPtrImporte)
+{
+ ActualizaCampo("Importe",(const unsigned char *)pchrPtrImporte);
+}
+
 int zFormaPagoTransferencia::YaSeReflejoInt()
 {
 return CampoInt("YaSeReflejo");
@@ -30,4 +37,10 @@ return CampoInt("YaSeReflejo");
 const char *zFormaPagoTransferencia::Observaciones()
 {
   return (const char *)Campo("Observaciones");
+}
+
+
+const char *zFormaPagoTransferencia::Importe()
+{
+  return (const char *)Campo("Importe");
 }

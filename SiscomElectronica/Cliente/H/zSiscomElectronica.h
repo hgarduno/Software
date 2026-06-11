@@ -69,6 +69,7 @@ class zExistenciaVenta;
 class zCompras;
 class zPedidoPorCotizacion;
 class zPedidoExistenciaM;
+class zFormaPago;
 class zSiscomElectronica:public zSiscomOperaciones 
 {
 public:
@@ -317,6 +318,8 @@ public:
 
 	int PedidoExistenciaMinima(zPedidoExistenciaM *);
 	int RegistraPedidoExistenciaMinima(zPedidoExistenciaM *);
+
+	int FormandoComoPago(zFormaPago *);
 private:
 	void CambiaNoJuegos(zOrdenVenta *);
 	void NoSePuedeVenderPorNoTenerPrecio(zOrdenVenta *);

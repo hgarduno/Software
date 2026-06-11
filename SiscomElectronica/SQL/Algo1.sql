@@ -1,9 +1,22 @@
-select sum(cantidad) as totalventas,
-	cveproducto
-from ventas
-where fechahora::date>='2024-08-01' and 
-      fechahora::date<='2025-01-31' and
-      edoventa in(0,2,4,6,7,11)		and
-      cveproducto in ('ZAPATAPUNTA-ROJA')
-group by cveproducto
-      			
+select a.nombre   || 
+                ' '      ||
+                a.apaterno ||
+                ' '      ||
+                a.amaterno as completo,
+                a.nombre,
+                a.apaterno,
+                a.amaterno,
+                a.idpersona,
+                ' '      ||
+                ' '      ||
+                ' '      ||
+                ''   as direcciones,
+                '' as telefonos,
+                '' as correos,
+                f.nombre as escuela,
+                f.idescuela 
+from personas as a left outer join  
+     personanormalizada as g using(idpersona) left outer join
+     alumnoescuela as e using(idpersona) left outer join 
+     escuelas as f using(idescuela)
+where g.nombre like '%HERZ%'

@@ -14,6 +14,25 @@
 
 #include <string.h>
 
+void FormandoComoPago(int pintSocket,
+		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		   SiscomRegistroProL *pSiscomRegProLPtrAct)
+{
+SiscomProcesos *lSiscomProDat=0;
+SiscomOperaciones lSiscomOpDat;
+memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+SiscomIniciaDatosOperacion(pintSocket,
+			   0,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
+			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
+			   &lSiscomOpDat);
+SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
+SiscomAgregaOperacion(CalculandoComoPago,&lSiscomProDat);  
+SiscomAgregaOperacion(0,&lSiscomProDat);
+SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
+}
+
+
 void RegistraOrden(int pintSocket,
 		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
 		   SiscomRegistroProL *pSiscomRegProLPtrAct)
@@ -268,5 +287,32 @@ SiscomFormaEnviaRegistroRespuesta(pSisOpePtrDato,
 				    "SiAlcanza,Cambio",
 				    lchrPtrSiAlcanza,
 				    "0");
+return 0;
+}
+void CalculandoPorPagar(SiscomOperaciones *pSisOpePtrDato)
+{
+float lfltTotal,
+	lfltPorPagar,
+	lfltEfectivo;
+
+lfltTotal=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Total",pSisOpePtrDato);
+lfltEfectivo=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Efectivo",pSisOpePtrDato);
+lfltPorPagar=lfltTotal-lfltEfectivo;
+LogSiscom("Por Pagar %f",lfltPorPagar);
+SiscomActualizaCampoAsociadoEntradaFloat("Envio","PorPagar",lfltPorPagar,pSisOpePtrDato);
+}
+void RespondeCalculandoComoPago(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[128];
+SiscomEnviaRegistrosEntrada(pSisOpePtrDato,lchrArrBuffer);
+
+}
+int CalculandoComoPago(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[128];
+LogSiscom("");
+SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
+CalculandoPorPagar(pSisOpePtrDato);
+RespondeCalculandoComoPago(pSisOpePtrDato);
 return 0;
 }

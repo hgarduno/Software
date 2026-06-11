@@ -372,7 +372,7 @@ SiscomHaruEscribe(pSisHaruTexto,lchrArrLinea);
 pSisHaruTexto->intY-=7;
 sprintf(lchrArrLinea,
 	"Metodo de Pago: %s",
-	    SiscomCampoAsociadoAsociadoEntradaOperacion("Envio", "MetodoPago","metodopago",pSisOpePtrDato));
+	    SiscomCampoAsociadoAsociadoEntradaOperacion("Envio", "MetodoPago","codigo",pSisOpePtrDato));
 SiscomHaruEscribe(pSisHaruTexto,lchrArrLinea);
 pSisHaruTexto->intY-=7;
 SiscomHaruEscribe(pSisHaruTexto,"Efectos Fiscales al pago");

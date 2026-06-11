@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>357</width>
-            <height>148</height>
+            <width>673</width>
+            <height>336</height>
         </rect>
     </property>
     <property name="caption">
@@ -19,112 +19,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QButtonGroup" row="0" column="0">
-            <property name="name">
-                <cstring>QBGComoPago</cstring>
-            </property>
-            <property name="title">
-                <string>Como Pago</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLayoutWidget" row="0" column="2">
-                    <property name="name">
-                        <cstring>layout3</cstring>
-                    </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel1</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Con Cuanto Paga</string>
-                            </property>
-                        </widget>
-                        <widget class="QLineEdit">
-                            <property name="name">
-                                <cstring>QLEConCuantoPaga</cstring>
-                            </property>
-                            <property name="readOnly">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                    </vbox>
-                </widget>
-                <widget class="QLayoutWidget" row="0" column="0">
-                    <property name="name">
-                        <cstring>layout4</cstring>
-                    </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QRadioButton">
-                            <property name="name">
-                                <cstring>QRBEfectivo</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Efectivo</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+E</string>
-                            </property>
-                            <property name="buttonGroupId">
-                                <number>-1</number>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton">
-                            <property name="name">
-                                <cstring>QRTransferencia</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Transferencia</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+T</string>
-                            </property>
-                            <property name="buttonGroupId">
-                                <number>-1</number>
-                            </property>
-                        </widget>
-                        <widget class="QRadioButton">
-                            <property name="name">
-                                <cstring>QRTarjeta</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Tar&amp;jeta</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+J</string>
-                            </property>
-                            <property name="buttonGroupId">
-                                <number>-1</number>
-                            </property>
-                        </widget>
-                    </vbox>
-                </widget>
-                <widget class="Line" row="0" column="1">
-                    <property name="name">
-                        <cstring>line1</cstring>
-                    </property>
-                    <property name="frameShape">
-                        <enum>VLine</enum>
-                    </property>
-                    <property name="frameShadow">
-                        <enum>Sunken</enum>
-                    </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QLayoutWidget" row="1" column="0">
+        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="2">
             <property name="name">
                 <cstring>layout43</cstring>
             </property>
@@ -164,6 +59,234 @@
                     </property>
                 </widget>
             </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="1">
+            <property name="name">
+                <cstring>layout26</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1_2_3</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Total A Pagar</string>
+                    </property>
+                </widget>
+                <widget class="QLCDNumber">
+                    <property name="name">
+                        <cstring>QLCDNTotal</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>1</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="numDigits">
+                        <number>10</number>
+                    </property>
+                    <property name="segmentStyle">
+                        <enum>Flat</enum>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QTabWidget" row="0" column="0">
+            <property name="name">
+                <cstring>tabWidget2</cstring>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Forma de Pago</string>
+                </attribute>
+                <grid>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QButtonGroup" row="0" column="0">
+                        <property name="name">
+                            <cstring>QBGComoPago</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Como Pago</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLayoutWidget" row="0" column="0">
+                                <property name="name">
+                                    <cstring>layout4</cstring>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QRadioButton">
+                                        <property name="name">
+                                            <cstring>QRBEfectivo</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Efectivo</string>
+                                        </property>
+                                        <property name="accel">
+                                            <string>Alt+E</string>
+                                        </property>
+                                        <property name="buttonGroupId">
+                                            <number>-1</number>
+                                        </property>
+                                    </widget>
+                                    <widget class="QRadioButton">
+                                        <property name="name">
+                                            <cstring>QRTransferencia</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>&amp;Transferencia</string>
+                                        </property>
+                                        <property name="accel">
+                                            <string>Alt+T</string>
+                                        </property>
+                                        <property name="buttonGroupId">
+                                            <number>-1</number>
+                                        </property>
+                                    </widget>
+                                    <widget class="QRadioButton">
+                                        <property name="name">
+                                            <cstring>QRTarjeta</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Tar&amp;jeta</string>
+                                        </property>
+                                        <property name="accel">
+                                            <string>Alt+J</string>
+                                        </property>
+                                        <property name="buttonGroupId">
+                                            <number>-1</number>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                            <widget class="Line" row="0" column="1">
+                                <property name="name">
+                                    <cstring>line1</cstring>
+                                </property>
+                                <property name="frameShape">
+                                    <enum>VLine</enum>
+                                </property>
+                                <property name="frameShadow">
+                                    <enum>Sunken</enum>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Vertical</enum>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget" row="1" column="0">
+                                <property name="name">
+                                    <cstring>layout3</cstring>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel1</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Con Cuanto Paga</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>QLEConCuantoPaga</cstring>
+                                        </property>
+                                        <property name="readOnly">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                        </grid>
+                    </widget>
+                </grid>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Combina Formas de pago</string>
+                </attribute>
+                <grid>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QPushButton" row="0" column="0">
+                        <property name="name">
+                            <cstring>QPBEfectivo</cstring>
+                        </property>
+                        <property name="minimumSize">
+                            <size>
+                                <width>0</width>
+                                <height>65</height>
+                            </size>
+                        </property>
+                        <property name="text">
+                            <string>Efectivo</string>
+                        </property>
+                    </widget>
+                    <widget class="QPushButton" row="1" column="0">
+                        <property name="name">
+                            <cstring>QPBTarjeta</cstring>
+                        </property>
+                        <property name="minimumSize">
+                            <size>
+                                <width>0</width>
+                                <height>65</height>
+                            </size>
+                        </property>
+                        <property name="text">
+                            <string>Tarjeta</string>
+                        </property>
+                    </widget>
+                    <widget class="QPushButton" row="2" column="0">
+                        <property name="name">
+                            <cstring>QPBTransferencia</cstring>
+                        </property>
+                        <property name="minimumSize">
+                            <size>
+                                <width>0</width>
+                                <height>65</height>
+                            </size>
+                        </property>
+                        <property name="text">
+                            <string>Transferencia</string>
+                        </property>
+                    </widget>
+                    <widget class="QLineEdit" row="3" column="0">
+                        <property name="name">
+                            <cstring>QLECaptura</cstring>
+                        </property>
+                    </widget>
+                </grid>
+            </widget>
         </widget>
     </grid>
 </widget>

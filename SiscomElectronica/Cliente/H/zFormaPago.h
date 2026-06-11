@@ -15,6 +15,9 @@ public:
 	void Observaciones(const char *);
 	void Tarjeta(zFormaPagoTarjeta *);
 	void Transferencia(zFormaPagoTransferencia *);
+	void Efectivo(const char *pchrPtrEfectivo);
+	void Total(const char *);
+	void PorPagar(const char *);
 	
 
 	zFormaPagoTransferencia *Transferencia();
@@ -22,6 +25,10 @@ public:
 
 	const char *Telefono();
 	const char *Observaciones();
+
+	const char *Efectivo();
+	const char *PorPagar();
+	const char *Total();
 
 };
 

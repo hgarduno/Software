@@ -237,6 +237,7 @@ StcSiscomElectronica4 lStcSiscomElectronica4[]=
 			{"PedidoPorCotizacion",PedidoPorCotizacion},
 			{"PedidoExistenciaMinima",PedidoExistenciaMinima},
 			{"RegistraPedidoExistenciaMinima",RegistraPedidoExistenciaMinima},
+			{"FormandoComoPago",FormandoComoPago},
 			{0,0}
 		     };
 const char *lchrPtrFuncion;

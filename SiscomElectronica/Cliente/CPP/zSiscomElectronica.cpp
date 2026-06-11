@@ -2668,3 +2668,19 @@ if((lzSisRegsRegreso=EnviaRecibe()))
 else 
 return 0;
 }
+
+int zSiscomElectronica::FormandoComoPago(zFormaPago *pzFormaPago)
+{
+zSiscomRegistros *lzSisRegsRegreso;
+zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio((zSiscomRegistro *)pzFormaPago);
+if((lzSisRegsRegreso=EnviaRecibe()))
+{
+  lzSisRegRegreso=((*lzSisRegsRegreso)[0])->AsociadoDelCampo("Envio");
+  pzFormaPago->PorPagar((const char *)(*lzSisRegRegreso)["PorPagar"]);
+  return 0;
+}
+else 
+return 0;
+}
+

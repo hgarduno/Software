@@ -2,6 +2,11 @@
 #define __REGISTRAORDEN_H__
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
 
+void FormandoComoPago(int pintSocket,
+		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
+		   SiscomRegistroProL *pSiscomRegProLPtrAct);
+
+
 void RegistraOrden(int pintSocket,
 		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
 		   SiscomRegistroProL *pSiscomRegProLPtrAct);
@@ -26,6 +31,9 @@ int CamposCierraApartadoOtroDia(SiscomOperaciones *);
 int VerificandoConCuantoPago(SiscomOperaciones *);
 
 
+int CalculandoComoPago(SiscomOperaciones *);
+
+
 int EsOrdenVentaPagaEfectivo(SiscomOperaciones *);
 int ValidandoFechaPedido(SiscomOperaciones *pSiscomOpePtrDato);
 int SePagoConTransferencia(SiscomOperaciones *pSiscomOpePtrDato);
@@ -37,4 +45,6 @@ const char *InformacionTransferenciaSeReflejo(SiscomOperaciones *pSisOpePtrDato)
 
 SiscomRegistroProL *InformacionTarjeta(SiscomOperaciones *pSiscomOpePtrDato);
 const char *InformacionTarjetaObservaciones(SiscomOperaciones *pSisOpePtrDato);
+
+
 #endif

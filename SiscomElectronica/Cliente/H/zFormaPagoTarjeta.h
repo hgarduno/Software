@@ -5,6 +5,8 @@ class zFormaPagoTarjeta:public zSiscomRegistro
 {
 public:
 	zFormaPagoTarjeta();
+	void Importe(const char *);
+	const char *Importe();
 
 };
 

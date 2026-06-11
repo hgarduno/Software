@@ -8,7 +8,10 @@ zFormaPago::zFormaPago()
    new zSiscomCampo("Telefono") 	<<
    new zSiscomCampo("Observaciones")	<<
    new zSiscomCampo("Tarjeta")		<<
-   new zSiscomCampo("Transferencia");
+   new zSiscomCampo("Transferencia")	<<
+   new zSiscomCampo("Efectivo")		<<
+   new zSiscomCampo("Total")		<<
+   new zSiscomCampo("PorPagar");
 }
 
 void zFormaPago::Telefono(const char *pchrPtrTelefono)
@@ -26,10 +29,23 @@ zFormaPagoTarjeta *zFormaPago::Tarjeta()
 } 
 void zFormaPago::Observaciones(const char *pchrPtrObservaciones)
 {
-
    ActualizaCampo("Observaciones",(const unsigned char *)pchrPtrObservaciones);
-
 }
+
+void zFormaPago::Efectivo(const char *pchrPtrEfectivo)
+{
+   ActualizaCampo("Efectivo",(const unsigned char *)pchrPtrEfectivo);
+}
+void zFormaPago::PorPagar(const char *pchrPtrPorPagar)
+{
+   ActualizaCampo("PorPagar",(const unsigned char *)pchrPtrPorPagar);
+}
+
+void zFormaPago::Total(const char *pchrPtrTotal)
+{
+   ActualizaCampo("Total",(const unsigned char *)pchrPtrTotal);
+}
+
 void zFormaPago::Transferencia(zFormaPagoTransferencia *pzPagoT)
 {
    ActualizaCampo("Transferencia",pzPagoT);
@@ -46,5 +62,20 @@ const char *zFormaPago::Telefono()
 const char *zFormaPago::Observaciones()
 {
     return (const  char *)Campo("Observaciones");
+}
+
+
+const char *zFormaPago::Efectivo()
+{
+    return (const  char *)Campo("Efectivo");
+}
+const char *zFormaPago::PorPagar()
+{
+    return (const  char *)Campo("PorPagar");
+}
+
+const char *zFormaPago::Total()
+{
+    return (const  char *)Campo("Total");
 }
 
