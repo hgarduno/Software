@@ -27,7 +27,8 @@ QCierraApartado::QCierraApartado(zSiscomConexion *pzSiscomConexion,
 				    bool pbModal,
 				    WFlags pWFlags):	      
 				CierraApartado(pQWParent,pchrPtrName,pbModal,pWFlags),
-				zSisConexion((zSiscomConexion *)pzSiscomConexion)
+				zSisConexion((zSiscomConexion *)pzSiscomConexion),
+				QWParent(pQWParent)
 {
 setFont(pQWParent->font());
 IniciaVariables();
@@ -69,7 +70,7 @@ void QCierraApartado::SlotFocoAFechaFin()
 }
 int QCierraApartado::ComoPago()
 {
-QComoPago lQCPago(zOrden);
+QComoPago lQCPago(zOrden,QWParent);
 if(lQCPago.ComoPague()==QComoPago::Efectivo)
  return 0;
  else

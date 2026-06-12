@@ -25,6 +25,7 @@ private:
 	zSiscomConexion *zSisConexion;
 	zOrdenes *zOrdsRegistradas;
 	zOrdenVenta *zOrden;
+	QWidget *QWParent;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
