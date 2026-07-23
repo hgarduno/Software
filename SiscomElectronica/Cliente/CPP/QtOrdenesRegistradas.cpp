@@ -472,8 +472,16 @@ void QtOrdenesRegistradas::TeclasEspeciales(QKeyEvent *pQKETeclas)
    else
    if(pQKETeclas->key()==Qt::Key_A)
    CopiandoPortapapelesParaTabla();
+   else
+   if(pQKETeclas->key()==Qt::Key_B)
+   CopiandoPortapapelesIdOrden();
     
 
+}
+void QtOrdenesRegistradas::CopiandoPortapapelesIdOrden()
+{
+QString lQStrCadena=Orden()->IdVenta();
+QApplication::clipboard()->setText(lQStrCadena);
 }
 void QtOrdenesRegistradas::CopiandoPortapapelesParaTabla()
 {
@@ -496,7 +504,6 @@ for(lintContador=0;lintContador<Orden()->NumProductos();lintContador++)
 
    lQStrCadena+=Orden()->Importe(lintContador);
    lQStrCadena+="|\n";
-
 }
 
 lQStrCadena+="|";

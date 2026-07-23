@@ -21,6 +21,7 @@ QClientesRegistrados4::QClientesRegistrados4(
 				zClisSiscom(pzClisSiscom),
 				intAceptar(1)
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 exec();

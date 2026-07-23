@@ -269,6 +269,7 @@ HPDF_Destination_SetXYZ(lHpdfDestination,
 			1);
 HPDF_SetOpenAction(pSisHaruPtrTexto->HpdfDocPtrArchivo,lHpdfDestination);
 sprintf(lchrArrLogo,"%s/Imagenes/Logo_normal.png",RutaImagenes());
+LogSiscom("Logo %s",lchrArrLogo);
 if((lHpdfImagen=HPDF_LoadPngImageFromFile(pSisHaruPtrTexto->HpdfDocPtrArchivo,lchrArrLogo)))
 {
 

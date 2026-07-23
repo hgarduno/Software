@@ -27,7 +27,8 @@ public:
 		Cancelar=-1,
 		Efectivo=0,
 		Transferencia=2,
-		Tarjeta=3
+		Tarjeta=3,
+		Combinado=4
 	};
 	FormaDePago ComoPague();
 	FormaDePago ComoPagare();
@@ -56,11 +57,15 @@ private:
 	void TeclasEspeciales(QKeyEvent *);
 	void TransferenciaReflejada();
 	void PoniendoEfectivo();
+	void PoniendoTransferencia();
+	void PoniendoTarjeta();
 	void MuestraComoPagara();
 	void ComoPagareEfectivo();
 	void ComoPagareTransferencia();
 	void ComoPagareTarjeta();
 	void MostrandoTextoBoton(QPushButton *,const char *);
+	void MemoriaTarjeta();
+	void PagoCompleto();
 private slots:
 	void SlotAceptar();
 	void SlotComoPago(int);
@@ -68,6 +73,9 @@ private slots:
 	void SlotFocoAAceptar();
 	void SlotCapturandoConCuantoPaga(const QString &);
 	void SlotCapturaEfectivo();
+	void SlotCapturaTarjeta();
+	void SlotCapturaTransferencia();
 	void SlotCaptura();
+	void SlotFormaPago(QWidget *);
 };
 #endif

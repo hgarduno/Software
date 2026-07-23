@@ -74,15 +74,11 @@ $(DIRDesarrolloHGE)/SiscomElectronica/SiscomElectronica2/Cliente/H/QCtrlEscuelas
 
 
 #all:$(Binarios) Copia
-all:DirectorioO $(Archivos_ControlesSiscomElectronica2)	\
+all:$(Archivos_ControlesSiscomElectronica2)	\
 	Copia					\
 	 $(call DependenciaControles,$(ControlesSiscomElectronica2))	\
 	  SO/libPantallasSiscomElectronica2.so
 	
-
-DirectorioO:
-	-mkdir O
-	-mkdir SO
 
 
 Copia:$(Archivos_H_Controles)

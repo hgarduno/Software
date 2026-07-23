@@ -12,6 +12,57 @@
 #include <stdio.h>
 #include <string.h>
 
+
+int SqlAcuentaApartados(SiscomOperaciones *pSisOpePtrDato)
+{
+char lchrArrBuffer[128],
+	lchrArrSqlTrans[128],
+	lchrArrSqlTarjeta[128],
+	lchrArrSqlEfectivo[128];
+const char *lchrPtrIdVenta;
+lchrPtrIdVenta=SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSisOpePtrDato);
+sprintf(lchrArrSqlTrans,
+	"select * 			\n\
+	 from PagoTransferencia		\n\
+	 where idventa=%s",
+	lchrPtrIdVenta);
+
+
+sprintf(lchrArrSqlTarjeta,
+	"select * 			\n\
+	 from PagoTarjeta		\n\
+	 where idventa=%s",
+	lchrPtrIdVenta);
+
+sprintf(lchrArrSqlEfectivo,
+	"select * 			\n\
+	 from PagaCon \n\
+	 where idventa=%s",
+	lchrPtrIdVenta);
+
+
+SiscomConsultasSqlOperaciones(lchrArrBuffer,
+		   pSisOpePtrDato,
+		   "PagoTransferencia%PagoTarjeta%PagaCon%",
+		   lchrArrSqlTrans,
+		   lchrArrSqlTarjeta,
+		   lchrArrSqlEfectivo);
+return 0;
+}
+int SqlPagoCombinado(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256],
+     lchrArrSql[256];
+SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+				     "Envio",
+				     lchrArrBuffer,
+				     lchrArrSql,
+				     pSiscomOpePtrDato,
+				     InsertToPagoCombinado);
+return 0;
+}
+
+
 int SqlFormaPagoTarjeta(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],
@@ -39,6 +90,19 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 return 0;
 }
 
+int SqlPagApartadoaConEfectivo(SiscomOperaciones *pSiscomOpePtrDato)
+{
+char lchrArrBuffer[256],
+     lchrArrSql[256];
+SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
+				     "Envio",
+				     lchrArrBuffer,
+				     lchrArrSql,
+				     pSiscomOpePtrDato,
+				     UpdatePagaConEntregaApartado);
+return 0;
+}
+
 
 int SqlFormaPagoTransferencia(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -55,7 +119,6 @@ return 0;
 int SqlRegistraOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[512];
-SiscomAsociadosArgumentoLog("SqlOrden","SentenciasSql",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomEnviaRegistrosAlServidorBD("SqlOrden",
 			       lchrArrBuffer,
 			       pSiscomOpePtrDato);
@@ -65,6 +128,7 @@ int SqlMaterialAAreaDiseno(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],
      lchrArrSql[256];
+LogSiscom("");
 if(EsMaterialAAreaDiseno(pSiscomOpePtrDato))
 SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 				     "Envio",
@@ -170,7 +234,6 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 				     lchrArrSql,
 				     pSiscomOpePtrDato,
 				     InsertToEstadoApartado);
-
 }
 return 0;
 }
@@ -284,14 +347,31 @@ if(EsCircuitoImpreso(lSiscomRegProLPtrProductos))
 }
 return 0;
 }
+/*** Siscom Zacatenco
+ * Lunes 29 de Junio del 2029 
+ * Se inicia la revision de la forma de cerrar el apartado 
+ *
+ * Con la integracion de la forma de pago combinada, y con 
+ * las diferencias en los cortes por los pagos de apartados
+ * se debe realizar una revision profunda de este proceso 
+ *
+ */
 int SqlCierraApartado(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],
      lchrArrSql[256];
 if(FechaApartadoEntregaHoy(pSiscomOpePtrDato))
 {
-if(PagoApartadoEfectivo(pSiscomOpePtrDato))
-{
+LogSiscom("Se Pago hoy el apartado");
+/*if(PagoApartadoEfectivo(pSiscomOpePtrDato)) 
+ * Tepotzotlan 1 de Julio 2026
+ * La forma de pago puede ser cualquiera 
+ *
+ * aqui deberia de revisar la condicion cuando el pago 
+ * se combinan metodos de pago
+ *
+ * 
+{*/
 SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 				     "Envio",
 				     lchrArrBuffer,
@@ -310,9 +390,18 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 				     lchrArrSql,
 				     pSiscomOpePtrDato,
 				     UpdateToImporteOrdenCierraApartadoMismoDia);
+if(PagoApartadoEfectivo(pSiscomOpePtrDato))
+SqlPagApartadoaConEfectivo(pSiscomOpePtrDato);
+/*}
+else
+{
+LogSiscom("Se Pago con transferencia");
 }
+*/
 }
 else
+{
+LogSiscom("Se cierra en otra fecha");
 if(FechaEntregaProgramada(pSiscomOpePtrDato))
 {
 SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
@@ -336,8 +425,11 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlOrden",
 }
 else
 CierraApartadoCualquierOtroDia(pSiscomOpePtrDato);
+}
 return 0;
 }
+
+
 int SqlDatosPedido(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],
@@ -387,6 +479,7 @@ int SqlDireccionEntrega(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[512],
      lchrArrSql[512];
+LogSiscom("");
 if(EsPedido(pSiscomOpePtrDato))
   SiscomAgregaSentenciasSqlCampoAsociado("SqlOrden",
   					 "Envio",
@@ -630,6 +723,16 @@ sprintf(pchrPtrSql,
 	SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
 }
 
+void InsertToPagoCombinado(SiscomOperaciones *pSiscomOpePtrDato,
+			    SiscomRegistroProL *pSiscomRegProLPtrDato,
+			    char *pchrPtrSql)
+{
+*pchrPtrSql=0;
+sprintf(pchrPtrSql,
+	"insert into PagoCombinado values(%s);",
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
+}
+
 void InsertToCotizacion(SiscomOperaciones *pSiscomOpePtrDato,
 			    SiscomRegistroProL *pSiscomRegProLPtrDato,
 			    char *pchrPtrSql)
@@ -747,8 +850,8 @@ void UpdateToImporteOrdenCierraApartadoMismoDia(SiscomOperaciones *pSiscomOpePtr
 {
 sprintf(pchrPtrSql,
 	"update importeorden set edoventa=0,importe=importe+%s where idventa=%s",
-	SiscomObtenCampoRegistroProLChar("porpagar",pSiscomRegProLPtrDato),
-	SiscomObtenCampoRegistroProLChar("idventa",pSiscomRegProLPtrDato));
+	InformacionApartadoPorPagar(pSiscomOpePtrDato),
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
 }
 
 void UpdateToImporteOrdenCierraApartadoApartoConTarjeta(SiscomOperaciones *pSiscomOpePtrDato,
@@ -780,7 +883,7 @@ void UpdateToEstadoApartadoADos(SiscomOperaciones *pSiscomOpePtrDato,
 
 sprintf(pchrPtrSql,
 	"update EstadoApartado set estado=2 where idventa=%s;",
-	SiscomObtenCampoRegistroProLChar("idventa",pSiscomRegProLPtrDato));
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
 
 }
 
@@ -796,6 +899,18 @@ SiscomObtenCampoRegistroProLChar("IdVenta",pSiscomRegProLPtrDato));
 
 
 	       
+
+}
+
+
+void UpdatePagaConEntregaApartado(SiscomOperaciones *pSisOpePtrDato,
+				  SiscomRegistroProL *pSisRegProLPtrDato,
+				  char *pchrPtrSql)
+{
+sprintf(pchrPtrSql,
+	"update PagaCon set pagaCon=PagaCon+%s where idventa=%s",
+SiscomObtenCampoRegistroProLChar("ConCuantoPaga",pSisRegProLPtrDato),
+SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato));
 
 }
 void InsertToImporteOrdenCierreOtroDia(SiscomOperaciones *pSiscomOpePtrDato,
@@ -830,35 +945,32 @@ sprintf(pchrPtrSql,
 	SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato));
 }
 
+
 void InsertToPagoTransferencia(SiscomOperaciones *pSisOpePtrDato,
 				SiscomRegistroProL *pSisRegProLPtrDato,
 				char *pchrPtrSql)
 {
-const char *lchrPtrObservaciones,*lchrPtrPaso;
-
-lchrPtrObservaciones=InformacionTransferenciaObservaciones(pSisOpePtrDato);
-lchrPtrPaso=lchrPtrObservaciones ? lchrPtrObservaciones : "";
 sprintf(pchrPtrSql,
-"insert into PagoTransferencia values(%s,'%s',%s,'%s');",
-SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato),
-SiscomCampoAsociadoAsociadoEntradaOperacion("Envio","FormaPago","Telefono",pSisOpePtrDato),
-InformacionTransferenciaSeReflejo(pSisOpePtrDato),
-lchrPtrPaso);
+	"insert into PagoTransferencia values(%s,'%s',%s,'%s',%s);",
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato),
+	InformacionTransferenciaTelefono(pSisOpePtrDato),
+	InformacionTransferenciaSeReflejo(pSisOpePtrDato),
+	InformacionTransferenciaObservaciones(pSisOpePtrDato),
+	InformacionTransferenciaImporte(pSisOpePtrDato));
 }
+
+
 
 
 void InsertToPagoTarjeta(SiscomOperaciones *pSisOpePtrDato,
 				SiscomRegistroProL *pSisRegProLPtrDato,
 				char *pchrPtrSql)
 {
-const char *lchrPtrObservaciones,*lchrPtrPaso;
-
-lchrPtrObservaciones=InformacionTarjetaObservaciones(pSisOpePtrDato);
-lchrPtrPaso=lchrPtrObservaciones ? lchrPtrObservaciones : "";
 sprintf(pchrPtrSql,
-"insert into PagoTarjeta values(%s,'%s');",
-SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato),
-lchrPtrPaso);
+	"insert into PagoTarjeta values(%s,'%s',%s);",
+	SiscomObtenCampoRegistroProLChar("IdVenta",pSisRegProLPtrDato),
+	InformacionTarjetaObservaciones(pSisOpePtrDato),
+	InformacionTarjetaImporte(pSisOpePtrDato));
 }
 
 void InsertToPagaCon(SiscomOperaciones *pSisOpePtrDato,
@@ -876,7 +988,6 @@ int SeAgreganImportes(SiscomOperaciones *pSiscomOpePtrDato)
 {
 return !(EsMaterialAAreaDiseno(pSiscomOpePtrDato) ||
        EsDonacionMaterial(pSiscomOpePtrDato));
-
 }
 
 int SeEntregaOtroDiaElApartado(const char *pchrPtrFechaApartado,
@@ -933,15 +1044,6 @@ const char *FormaPagoOrden(SiscomOperaciones *pSiscomOpePtrDato)
   return SiscomCampoAsociadoEntradaOperacion("Envio","IdTipoOrden",pSiscomOpePtrDato);
 }
 
-
-int PagoApartadoEfectivo(SiscomOperaciones *pSiscomOpePtrDato)
-{
- return !SiscomComparaCampoAsociadoEntradaCadena("Envio","formapago","0",pSiscomOpePtrDato);
-}
-int PagoApartadoTarjeta(SiscomOperaciones *pSiscomOpePtrDato)
-{
- return !SiscomComparaCampoAsociadoEntradaCadena("Envio","formapago","1",pSiscomOpePtrDato);
-}
 void CierraApartadoCualquierOtroDia(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256],

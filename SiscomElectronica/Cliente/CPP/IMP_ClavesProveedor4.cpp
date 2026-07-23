@@ -231,6 +231,7 @@ void QClavesProveedor4::SeleccionandoClave(int pintNClave)
   QPBActualizar->setEnabled(true);
   QCtrProductos->setEnabled(false);
   HabilitaRegistrar();
+  intNProducto=pintNClave;
 }
 void QClavesProveedor4::Actualiza()
 {
@@ -279,4 +280,26 @@ void QClavesProveedor4::ActualizandoClaveRegistrada()
 {
 zSiscomElectronica lzSisElec(zSisConexion,"ActualizaClaveProveedor");
 lzSisElec.ActualizaClaveProveedor4(zClavProveedor);
+}
+
+
+void QClavesProveedor4::keyPressEvent(QKeyEvent *pQKETeclas)
+{
+ TeclasNormales(pQKETeclas);
+}
+
+void QClavesProveedor4::TeclasNormales(QKeyEvent *pQKETeclas)
+{
+if(pQKETeclas->key()==Qt::Key_Delete)
+      EliminaProductos();
+}
+
+void QClavesProveedor4::EliminaProductos()
+{
+ if(QTClaves->isRowSelected(intNProducto))
+ {
+  zClavsProveedor.Elimina(zClavProveedor);
+  MuestraProductos();
+  intNProducto=-1;
+}
 }

@@ -150,7 +150,6 @@ else
 if(lintAceptar==99)  //Apartado
 {
     LogSiscom("---------------------------------");
-    IniciaOrden();   
     Orden()->Cliente(lQCAlumno.Cliente());
     Orden()->Apartado(lQCAlumno.Apartado());
     Orden()->IdTipoOrden(lQCAlumno.IdTipoOrden());

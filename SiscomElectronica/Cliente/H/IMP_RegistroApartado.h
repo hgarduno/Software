@@ -22,7 +22,7 @@ public:
 	~QRegistroApartado();
 	void Escuela(zSiscomRegistro *pzSisRegEscuela);
 	zClienteSiscom *Cliente();
-	zApartado *Apartado();
+	zApartado *MemoriaApartado();
 	void setFocus();
 	void Ejecutando();
 	zOrdenVenta *Orden();

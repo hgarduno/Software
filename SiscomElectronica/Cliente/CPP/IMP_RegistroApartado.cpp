@@ -28,6 +28,7 @@ QRegistroApartado::QRegistroApartado(zOrdenVenta *pzOrden,
 				zOrden(pzOrden)
 
 {
+setFont(pQWParent->font());
 IniciaVariables();
 ConectaSlots();
 }
@@ -308,7 +309,7 @@ zClienteSiscom *QRegistroApartado::Cliente()
       return zCliSiscom;
       
 }
-zApartado *QRegistroApartado::Apartado()
+zApartado *QRegistroApartado::MemoriaApartado()
 {
     return new zApartado(zSiscomQt3::Texto(QLEACuenta),
     			 (const char *)QCtrFechaEntrega->ObtenFechaHora(),
@@ -321,7 +322,7 @@ zSiscomQt3::Foco(QLENombre);
 
 void QRegistroApartado::MuestraClientesSimilares()
 {
-QClientesRegistrados4 lQCRegistrados(zClisSiscom);
+QClientesRegistrados4 lQCRegistrados(zClisSiscom,(QWidget *)parent());
 if(lQCRegistrados.Aceptar())
 {
 zCliSiscom=lQCRegistrados.Cliente();

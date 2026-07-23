@@ -11,7 +11,9 @@ zFormaPago::zFormaPago()
    new zSiscomCampo("Transferencia")	<<
    new zSiscomCampo("Efectivo")		<<
    new zSiscomCampo("Total")		<<
-   new zSiscomCampo("PorPagar");
+   new zSiscomCampo("PorPagar")		<<
+   new zSiscomCampo("Combinada")	<<
+   new zSiscomCampo("PagoCompleto");
 }
 
 void zFormaPago::Telefono(const char *pchrPtrTelefono)
@@ -44,6 +46,16 @@ void zFormaPago::PorPagar(const char *pchrPtrPorPagar)
 void zFormaPago::Total(const char *pchrPtrTotal)
 {
    ActualizaCampo("Total",(const unsigned char *)pchrPtrTotal);
+}
+
+void zFormaPago::PagoCompleto(const char *pchrPtrPagoCompleto)
+{
+   ActualizaCampo("PagoCompleto",(const unsigned char *)pchrPtrPagoCompleto);
+}
+
+void zFormaPago::Combinada(const char *pchrPtrCombinada)
+{
+   ActualizaCampo("Combinada",(const unsigned char *)pchrPtrCombinada);
 }
 
 void zFormaPago::Transferencia(zFormaPagoTransferencia *pzPagoT)
@@ -79,3 +91,17 @@ const char *zFormaPago::Total()
     return (const  char *)Campo("Total");
 }
 
+const char *zFormaPago::PagoCompleto()
+{
+    return (const  char *)Campo("PagoCompleto");
+}
+
+const char *zFormaPago::Combinada()
+{
+    return (const  char *)Campo("Combinada");
+}
+
+int zFormaPago::PagoCompletoInt()
+{
+   return CampoInt("PagoCompleto");
+}

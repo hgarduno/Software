@@ -58,6 +58,7 @@ void QCierraApartado::SlotAbonoAApartado()
 }
 void QCierraApartado::SlotCancelar()
 {
+	done(1);
 	emit SignalCancelar();
 }
 void QCierraApartado::SlotFocoAConsulta()
@@ -102,6 +103,7 @@ void QCierraApartado::SlotSeleccionaApartado(int pintFila,
     QTApartados->selectRow(pintFila); 
     zOrden=(zOrdenVenta *)(*zOrdsRegistradas)[pintFila];
     HabilitaDesHabilitaPagar();
+   Orden()->Apartado()->Estado("0");
     zSiscomQt3::Foco(QPBPagar);
     }
 }
@@ -181,4 +183,8 @@ QAbonoAApartado lQAAApartado(zOrden);
 int QCierraApartado::TraeDatosApartado(zOrdenVenta *pzOVenta)
 {
    return pzOVenta->Apartado() ? 1 : 0;
+}
+zOrdenVenta *QCierraApartado::Orden()
+{
+  return zOrden;
 }

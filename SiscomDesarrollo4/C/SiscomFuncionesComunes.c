@@ -6,6 +6,54 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+
+int SiscomEsExtensionArchivo(const char **pchrPtrExtensiones,const char *pchrPtrExtension)
+{
+int lintContador;
+
+while(*pchrPtrExtensiones)
+{
+  if(!strcmp(*pchrPtrExtensiones,pchrPtrExtension))
+  return 1;
+
+pchrPtrExtensiones++;
+}
+
+return 0;
+}
+
+const char *SiscomExtensionArchivo(const char *pchrPtrArchivo,char *pchrPtrExtension)
+{
+const char *lchrPtrFinal;
+lchrPtrFinal=pchrPtrArchivo+strlen(pchrPtrArchivo)-1;
+while(*lchrPtrFinal!='.')
+ lchrPtrFinal--;
+lchrPtrFinal++;
+strcpy(pchrPtrExtension,pchrPtrArchivo-(pchrPtrArchivo-lchrPtrFinal));
+}
+
+int SiscomCopiaArchivo(const char *pchrPtrOrigen,const char *pchrPtrDestino)
+{
+FILE *lFlePtrArchivoO,
+	*lFlePtrArchivoD;
+char lchrArrBuffer[512];
+size_t lsizeLeidos;
+if(!(lFlePtrArchivoO=fopen(pchrPtrOrigen,"r")))
+return -1;
+else
+if(!(lFlePtrArchivoD=fopen(pchrPtrDestino,"w")))
+return -2;
+else
+while((lsizeLeidos=fread(lchrArrBuffer,1,512,lFlePtrArchivoO))>0)
+  fwrite(lchrArrBuffer,1,512,lFlePtrArchivoD);
+
+fclose(lFlePtrArchivoO);
+fclose(lFlePtrArchivoD);
+
+return 0;
+}
+
+
 void SiscomFechaLocal(char *pchrPtrFecha)
 {
 time_t ltimeRegreso;
@@ -660,12 +708,34 @@ void ALMillones(char *pchrArrNumeroLetra, char *pchrArrNumero)
         ALCentenas(pchrArrNumeroLetra, pchrArrNumero+strlen(lchrArrNumMillones));
     }
 }
+int SiscomQuitaHoraFecha(const char *pchrPtrFecha,char *pchrPtrFechaSinHora)
+{
+const char *lchrPtrFecha=strchr(pchrPtrFecha,' ');
+int lintNCaracteres;
 
+if(lchrPtrFecha)
+{
+  lintNCaracteres=lchrPtrFecha-pchrPtrFecha;
+  strncpy(pchrPtrFechaSinHora,pchrPtrFecha,lintNCaracteres);
+  *(pchrPtrFechaSinHora+lintNCaracteres)=0;
+  return 1;
+}
+else
+return 0;
+
+
+}
 int SiscomEsHoyLaFecha(const char *pchrPtrFecha)
 {
-char lchrArrFechaHoy[25];
+char lchrArrFechaHoy[25],lchrArrFechaSinHora[12];
+
+if(SiscomQuitaHoraFecha(pchrPtrFecha,lchrArrFechaSinHora))
+{
 SiscomObtenFechaHoyCharAAAADDMM(lchrArrFechaHoy);
-return strcmp(lchrArrFechaHoy,pchrPtrFecha);
+return strcmp(lchrArrFechaHoy,lchrArrFechaSinHora);
+}
+else
+return strcmp(pchrPtrFecha,lchrArrFechaHoy);
 }
 
 

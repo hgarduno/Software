@@ -10,10 +10,15 @@ public:
 		  const char *pchrPtrFechaHoraEntrega,
 		  const char *pchrPtrObservaciones);
 	zApartado(zSiscomRegistro *);
+
+	void Estado(const char *pchrPtrEstado);
+
 	const char *ACuenta();
 	const char *Observaciones();
 	const char *FechaHoraE();
 	const char *PorPagar();
+	const char *Estado();
+	int EstadoInt();
 
 };
 

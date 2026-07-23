@@ -133,29 +133,71 @@ sprintf(pchrPtrSql,
 void SqlTransferenciasRegistradas(SiscomOperaciones *pSisOpePtrDato,
 		char *pchrPtrSql)
 {
+/*
 sprintf(pchrPtrSql,
 	"					\n\
-select sum(importe) as importe 			\n\
-from	importeorden inner join 		\n\
-	pagotransferencia using(idventa) 	\n\
+select sum(b.importe) as importe 		\n\
+from	importeorden as a  inner join 		\n\
+	pagotransferencia as b using(idventa) 	\n\
 where fecha::date>='%s' and 			\n\
       fecha::date<='%s'",
 	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
 	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSisOpePtrDato));
+*/
+
+
+sprintf(pchrPtrSql,
+	"							\n\
+select sum(case 						\n\
+	when a.importe != 0					\n\
+	then							\n\
+		a.importe 					\n\
+	else							\n\
+		b.importe					\n\
+	end) as importe						\n\
+from  pagotransferencia as a inner join 			\n\
+	importeorden as b using(idventa) left outer join	\n\
+	pagocombinado as c  using(idventa)			\n\
+where fecha::date>='%s' and 					\n\
+      fecha::date<='%s'",
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSisOpePtrDato));
+
 }
 
 void SqlPagoConTarjetaRegistrados(SiscomOperaciones *pSisOpePtrDato,
 		char *pchrPtrSql)
 {
+/*
 sprintf(pchrPtrSql,
 	"					\n\
-select sum(importe) as importe 			\n\
-from	importeorden inner join 		\n\
-	pagotarjeta using(idventa) 		\n\
+select sum(b.importe) as importe 		\n\
+from	importeorden as a inner join 		\n\
+	pagotarjeta as b using(idventa) 	\n\
 where fecha::date>='%s' and 			\n\
       fecha::date<='%s'",
 	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
 	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSisOpePtrDato));
+*/
+
+
+sprintf(pchrPtrSql,
+	"							\n\
+select sum(case 						\n\
+	when a.importe != 0					\n\
+	then							\n\
+		a.importe 					\n\
+	else							\n\
+		b.importe					\n\
+	end) as importe						\n\
+from  pagotarjeta as a inner join 				\n\
+	importeorden as b using(idventa) left outer join	\n\
+	pagocombinado as c  using(idventa)			\n\
+where fecha::date>='%s' and 					\n\
+      fecha::date<='%s'",
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
+	SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSisOpePtrDato));
+
 }
 
 void SqlTotalVentasCorteCaja(SiscomOperaciones *pSisOpePtrDato,
@@ -163,10 +205,10 @@ void SqlTotalVentasCorteCaja(SiscomOperaciones *pSisOpePtrDato,
 {
 sprintf(pchrPtrSql,
 	"							\n\
-select sum(importe) as importe					\n\
-from	importeorden left outer join 				\n\
-        pagotransferencia using(idventa) left outer join	\n\
-	apartado using(idventa)					\n\
+select sum(a.importe) as importe				\n\
+from	importeorden as a left outer join 			\n\
+        pagotransferencia as b using(idventa) left outer join	\n\
+	apartado as c using(idventa)				\n\
 where fecha::date>='%s' 	and 				\n\
 	fecha::date<='%s'",
 	SiscomCampoAsociadoEntradaOperacion("Envio","FechaInicio",pSisOpePtrDato),
@@ -178,9 +220,9 @@ int SqlDatosCierreCorteSucursal(SiscomOperaciones *pSisOpePtrDato)
 char lchrArrBuffer[512],
 	lchrArrSql[512],
 	lchrArrSqlPagaCon[256],
-	lchrArrSqlTransferencias[256],
+	lchrArrSqlTransferencias[512],
 	lchrArrSqlVentasTotales[256],
-	lchrArrSqlPagosTarjeta[256];
+	lchrArrSqlPagosTarjeta[512];
 SqlPagaCon(pSisOpePtrDato,lchrArrSqlPagaCon);
 SqlTransferenciasRegistradas(pSisOpePtrDato,lchrArrSqlTransferencias);
 SqlTotalVentasCorteCaja(pSisOpePtrDato,lchrArrSqlVentasTotales);

@@ -18,6 +18,8 @@ public:
 	void Efectivo(const char *pchrPtrEfectivo);
 	void Total(const char *);
 	void PorPagar(const char *);
+	void PagoCompleto(const char *);
+	void Combinada(const char *);
 	
 
 	zFormaPagoTransferencia *Transferencia();
@@ -29,6 +31,10 @@ public:
 	const char *Efectivo();
 	const char *PorPagar();
 	const char *Total();
+	const char *PagoCompleto();
+	const char *Combinada();
+
+	int PagoCompletoInt();
 
 };
 

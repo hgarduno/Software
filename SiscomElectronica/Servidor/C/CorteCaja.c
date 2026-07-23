@@ -488,7 +488,6 @@ float PorcentajeDesvioCorte(float pfltVentasTotales,
 return (100.00*pfltCalculandoCorte/pfltVentasTotales);
 
 }
-
 int CalculandoCorteCaja(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[128];
@@ -517,12 +516,11 @@ SiscomActualizaCampoAsociadoEntrada("Envio","Tarjeta",lchrPtrPagosTarjetaP,pSisO
 
 lfltImporte=ContandoCajaDinero(pSisOpePtrDato);
 lfltEfectivoCajaCalculado=CalculandoEfectivoCaja(pSisOpePtrDato); 
-
 lfltImporteVentas=SiscomCampoAsociadoEntradaOperacionFloat("Envio","VentasTotales",pSisOpePtrDato);
 lfltTransferencias=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Transferencias",pSisOpePtrDato);
 lfltPagosTarjeta=SiscomCampoAsociadoEntradaOperacionFloat("Envio","Tarjeta",pSisOpePtrDato);
 lfltTotalGastos=SiscomCampoAsociadoEntradaOperacionFloat("Envio","TotalGastos",pSisOpePtrDato);
-lfltCalculandoCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos)-lfltImporteVentas;
+lfltCalculandoCorte=(lfltImporte+lfltTransferencias+lfltTotalGastos+lfltPagosTarjeta)-lfltImporteVentas;
 lfltCorte=(lfltImporte+lfltTransferencias+lfltPagosTarjeta+lfltTotalGastos);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","CalculandoCorte",lfltCalculandoCorte,pSisOpePtrDato);
 SiscomActualizaCampoAsociadoEntradaFloat("Envio","Billetes",lfltImporte,pSisOpePtrDato);

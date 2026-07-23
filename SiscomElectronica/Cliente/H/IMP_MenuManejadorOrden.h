@@ -13,6 +13,7 @@ public:
 			    QWidget *pQWParent=0,
 			    const char *pchrPtrName=0);
 	void EjecutaMenu();
+	~QMenuManejadorOrden();
 private:
 	QAction *AgregaOpcion(const char *pchrPtrName,
 			  const char *pchrPtrTexto,

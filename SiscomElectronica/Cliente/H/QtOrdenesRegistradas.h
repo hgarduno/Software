@@ -107,6 +107,7 @@ private:
 	 void CopiandoPortaPapelesOrden();
 	 void MarcaOrden();
 	 void CopiandoPortapapelesParaTabla();
+	 void CopiandoPortapapelesIdOrden();
 private slots:
 	void SlotFocoAConsulta();
 	void SlotFocoAFechaFin();

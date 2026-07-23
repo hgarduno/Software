@@ -1,8 +1,12 @@
 #ifndef __SQLORDENES_H__
 #define __SQLORDENES_H__
 #include <SiscomDesarrollo4/H/SiscomOperaciones.h>
+
+int SqlAcuentaApartados(SiscomOperaciones *pSisOpePtrDato);
+int SqlPagoCombinado(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlFormaPagoTarjeta(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlPagaConEfectivo(SiscomOperaciones *pSiscomOpePtrDato);
+int SqlPagApartadoaConEfectivo(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlFormaPagoTransferencia(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlRegistraOrden(SiscomOperaciones *pSiscomOpePtrDato);
 int SqlImporteOrden(SiscomOperaciones *pSiscomOpePtrDato);
@@ -86,6 +90,9 @@ void InsertToDireccionEntrega(SiscomOperaciones *pSiscomOpePtrDato,
 					SiscomRegistroProL *pSiscomRegProLPtrDato,
 					char *pchrPtrSql);
 
+void InsertToPagoCombinado(SiscomOperaciones *pSiscomOpePtrDato,
+			    SiscomRegistroProL *pSiscomRegProLPtrDato,
+			    char *pchrPtrSql);
 void UpdateToVentasCierraApartado(SiscomOperaciones *pSiscomOpePtrDato,
 			    SiscomRegistroProL *pSiscomRegProLPtrDato,
 			    char *pchrPtrSql);
@@ -115,6 +122,9 @@ void UpdateDescripcionCotizacion(SiscomOperaciones *pSisOpePtrDato,
 				  SiscomRegistroProL * pSisRegPrOLPtrDato,
 				  char *pchrPtrSql);
 
+void UpdatePagaConEntregaApartado(SiscomOperaciones *pSisOpePtrDato,
+				  SiscomRegistroProL *pSisRegProLPtrDato,
+				  char *pchrPtrSql);
 void DeleteCotizacionModificando(SiscomOperaciones *pSiscomOpePtrDato,
 			    SiscomRegistroProL *pSiscomRegProLPtrDato,
 			    char *pchrPtrSql);
@@ -136,6 +146,8 @@ void InsertToPagoTransferencia(SiscomOperaciones *pSisOpePtrDato,
 void InsertToPagoTarjeta(SiscomOperaciones *pSisOpePtrDato,
 				SiscomRegistroProL *pSisRegProLPtrDato,
 				char *pchrPtrSql);
+
+
 void InsertToPagaCon(SiscomOperaciones *pSisOpePtrDato,
 				SiscomRegistroProL *pSisRegProLPtrDato,
 				char *pchrPtrSql);
@@ -147,8 +159,6 @@ int FechaEntregaProgramada(SiscomOperaciones *pSiscomOpePtrDato);
 const char *FormaPagoApartado(SiscomOperaciones *pSiscomOpePtrDato);
 const char *FormaPagoOrden(SiscomOperaciones *pSiscomOpePtrDato);
 
-int PagoApartadoEfectivo(SiscomOperaciones *pSiscomOpePtrDato);
-int PagoApartadoTarjeta(SiscomOperaciones *pSiscomOpePtrDato);
 
 void CierraApartadoCualquierOtroDia(SiscomOperaciones *pSiscomOpePtrDato);
 #endif

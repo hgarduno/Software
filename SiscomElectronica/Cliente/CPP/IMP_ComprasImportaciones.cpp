@@ -593,7 +593,8 @@ void QComprasImportaciones::GuardandoCompraImportacion()
 }
 int QComprasImportaciones::YaTieneDescripcionCompra()
 {
-   
+  
+  return  1;
 }
 int QComprasImportaciones::ValidandoParaAnexar()
 {

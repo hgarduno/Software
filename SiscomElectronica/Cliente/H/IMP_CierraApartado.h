@@ -21,6 +21,7 @@ public:
 	    WFlags pWFlags=0);
 	~QCierraApartado();
 	void setFocus();
+	zOrdenVenta *Orden();
 private:
 	zSiscomConexion *zSisConexion;
 	zOrdenes *zOrdsRegistradas;

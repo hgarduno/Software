@@ -1330,6 +1330,12 @@ QComoPago lQCPago(Orden(),this);
    if(lQCPago.ComoPague()==QComoPago::Tarjeta)
    return 0;
    else
+   if(lQCPago.ComoPague()==QComoPago::Combinado)
+   {
+   Orden()->FormaPago()->Combinada("1");
+   return 0;
+   }
+   else
    if(lQCPago.ComoPague()==QComoPago::Cancelar)
 	return 1;
    else

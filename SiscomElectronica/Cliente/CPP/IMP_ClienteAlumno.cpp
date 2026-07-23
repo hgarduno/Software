@@ -264,6 +264,7 @@ done(1);
 void QClienteAlumno::SlotCanceloRegistroApartado()
 {
     HabilitaDesHabilitaAceptarCancelar(true);
+    zSiscomQt3::Foco(QPBCancelar);
  intAceptar=103;
 }
 void QClienteAlumno::SlotEscuela(zSiscomRegistro *pzSisRegEscuela)
@@ -313,13 +314,15 @@ void QClienteAlumno::reject()
 }
 void QClienteAlumno::CapturaDatosApartado()
 {
-QRApartado=new QRegistroApartado(Orden());
+QRApartado=new QRegistroApartado(Orden(),Parent());
 connect(QRApartado,SIGNAL(SignalAceptar()),SLOT(SlotAceptarApartado()));
 connect(QRApartado,SIGNAL(SignalCancelar()),SLOT(SlotCanceloRegistroApartado()));
 HabilitaDesHabilitaAceptarCancelar(false);
 QRApartado->Escuela(zSisRegEscuela);
 QRApartado->Ejecutando();
 intTipoOrden=2;
+Orden()->Apartado(QRApartado->MemoriaApartado());
+Orden()->Apartado()->Estado("2");
 }
 void QClienteAlumno::CapturaDescripcionCotizacion()
 {
@@ -335,7 +338,7 @@ connect(QDCotizacion,
 zApartado *QClienteAlumno::Apartado()
 {
   if(intTipoOrden==2)
-  return QRApartado->Apartado();
+  return Orden()->Apartado();
   else
   return 0;
 }

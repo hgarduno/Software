@@ -225,7 +225,14 @@ return lintSeleccion;
 void QCorteCajaSucursal::closeEvent(QCloseEvent *pQCEvent)
 {
    if(!intRegistroC)
-   OpcionCerrar();
+    switch((OpcionCerrar()))
+    {
+    case QMessageBox::Yes:
+	pQCEvent->accept();
+	break;
+    case QMessageBox::No:
+    break;
+    }
     else
 	pQCEvent->accept();
 }

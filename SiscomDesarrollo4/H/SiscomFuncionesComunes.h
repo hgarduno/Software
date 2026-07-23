@@ -1,6 +1,13 @@
 #ifndef __SISCOMFUNCIONESCOMUNES_H__
 #define __SISCOMFUNCIONESCOMUNES_H__
 #include <stdio.h>
+
+
+int SiscomEsExtensionArchivo(const char **pchrPtrExtensiones,const char *pchrPtrExtension);
+const char *SiscomExtensionArchivo(const char *pchrPtrArchivo,char *pchrPtrExtension);
+
+int SiscomCopiaArchivo(const char *pchrPtrOrigen,const char *pchrPtrDestino);
+
 void SiscomFechaLocal(char *pchrPtrFecha);
 
 int SiscomLeeLineaArchivo(FILE *pFlePtrArchivo,
@@ -106,5 +113,6 @@ void SiscomNumeroCaracterRemplazar(int pintNCaracter,
 
 
 int SiscomEsHoyLaFecha(const char *pchrPtrFecha);
+int SiscomQuitaHoraFecha(const char *pchrPtrFecha,char *pchrPtrFechaSinHora);
 
 #endif

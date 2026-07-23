@@ -129,10 +129,8 @@ Binarios= 					\
 
 	 	
 
-all:DirectorioO $(Binarios) 
+all:$(Binarios) 
 
-DirectorioO:
-	-mkdir O
 libSiscomElectronica2.so:$(Archivos_SiscomElectronica2)
 	@echo Generando $@
 	@$(GCC) $(OpShared) -o $@ $(Archivos_SiscomElectronica2) $(Bibliotecas)

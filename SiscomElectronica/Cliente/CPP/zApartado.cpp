@@ -9,7 +9,8 @@ zApartado::zApartado(const char *pchrPtrACuenta,
   new zSiscomCampo("FechaHoraE",(const unsigned char *)pchrPtrFechaHoraEntrega)		<<
   new zSiscomCampo("PorPagar")								<<
   new zSiscomCampo("Observaciones",(const unsigned char *)pchrPtrObservaciones)		<<
-  new zSiscomCampo("Abonos");
+  new zSiscomCampo("Abonos")								<<
+  new zSiscomCampo("Estado");
   
 }
 
@@ -19,9 +20,13 @@ zApartado::zApartado(zSiscomRegistro *pzSisRegApartado)
   new zSiscomCampo("ACuenta",(*pzSisRegApartado)["acuenta"]) 		<<
   new zSiscomCampo("FechaHoraE",(*pzSisRegApartado)["fechaentrega"])	<<
   new zSiscomCampo("PorPagar",(*pzSisRegApartado)["porpagar"])		<<
-  new zSiscomCampo("Observaciones",(*pzSisRegApartado)["observaciones"]);
+  new zSiscomCampo("Observaciones",(*pzSisRegApartado)["observaciones"]) <<
+  new zSiscomCampo("Estado");;
 }
-
+void zApartado::Estado(const char *pchrPtrEstado)
+{
+   ActualizaCampo("Estado",(const unsigned char *)pchrPtrEstado);
+}
 const char *zApartado::ACuenta()
 {
   return (const char *)(*this)["ACuenta"];
@@ -40,4 +45,13 @@ const char *zApartado::FechaHoraE()
 const char *zApartado::PorPagar()
 {
   return (const char *)(*this)["PorPagar"];
+}
+
+const char *zApartado::Estado()
+{
+  return (const char *)(*this)["Estado"];
+}
+int zApartado::EstadoInt()
+{
+ return CampoInt("Estado"); 
 }

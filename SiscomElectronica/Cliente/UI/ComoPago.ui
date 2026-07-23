@@ -107,7 +107,7 @@
         </widget>
         <widget class="QTabWidget" row="0" column="0">
             <property name="name">
-                <cstring>tabWidget2</cstring>
+                <cstring>QTWComoPago</cstring>
             </property>
             <widget class="QWidget">
                 <property name="name">
@@ -283,6 +283,9 @@
                     <widget class="QLineEdit" row="3" column="0">
                         <property name="name">
                             <cstring>QLECaptura</cstring>
+                        </property>
+                        <property name="enabled">
+                            <bool>false</bool>
                         </property>
                     </widget>
                 </grid>

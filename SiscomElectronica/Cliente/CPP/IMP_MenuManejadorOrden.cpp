@@ -11,9 +11,13 @@ QMenuManejadorOrden::QMenuManejadorOrden(zProductoCotizar *pzProdCotizar,
 				   QPopupMenu(pQWParent,pchrPtrName),
 				   zProdCotizar(pzProdCotizar)
 {
-
+setFont(parentWidget()->font());
 IniciaOpciones();
 popup(pQPoint);
+}
+QMenuManejadorOrden::~QMenuManejadorOrden()
+{
+
 }
 void QMenuManejadorOrden::EjecutaMenu()
 {
@@ -53,8 +57,11 @@ char lchrArrCabecera[128];
 void QMenuManejadorOrden::SlotPrecioProducto()
 {
  CapturaCantidad(chrArrPrecioProducto);
+ LogSiscom("Ya la cantidad");
  zProdCotizar->Precio(chrArrPrecioProducto);
+ LogSiscom("Se Asigna al precio");
  zProdCotizar->PrecioEspecial("1");
+ LogSiscom("Se asigna precio especial");
  emit SignalPrecioProducto();
 
 }

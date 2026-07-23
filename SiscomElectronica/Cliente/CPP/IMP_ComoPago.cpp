@@ -10,6 +10,7 @@
 #include <qradiobutton.h>
 #include <qmessagebox.h> 
 #include <qlcdnumber.h>
+#include <qtabwidget.h>
 #include <zSiscomDesarrollo4.h>
 #include <zConCuantoPago.h> 
 #include <zFormaPagoTarjeta.h>
@@ -46,16 +47,25 @@ connect(QLEConCuantoPaga,
 	SIGNAL(textChanged(const QString &)),
 	SLOT(SlotCapturandoConCuantoPaga(const QString &)));
 
+connect(QTWComoPago,SIGNAL(currentChanged(QWidget *)),SLOT(SlotFormaPago(QWidget *)));
+
 /* 
  * Mixquiahuala7 de Junio 2026 
  * Integrando en la forma de pago, combinar 2 metodos de pago
  */
 connect(QPBEfectivo,SIGNAL(clicked()),SLOT(SlotCapturaEfectivo()));
+connect(QPBTarjeta,SIGNAL(clicked()),SLOT(SlotCapturaTarjeta()));
+connect(QPBTransferencia,SIGNAL(clicked()),SLOT(SlotCapturaTransferencia()));
+
 connect(QLECaptura,SIGNAL(returnPressed()),SLOT(SlotCaptura()));
+}
+void QComoPago::SlotFormaPago(QWidget *)
+{
+
 }
 void QComoPago::SlotCaptura()
 {
-LogSiscom("%d",ComoPagare());
+QLECaptura->setEnabled(false);
   switch(ComoPagare())
   {
     case Efectivo:
@@ -68,6 +78,7 @@ LogSiscom("%d",ComoPagare());
     	ComoPagareTransferencia();
     break;
   }
+  PagoCompleto();
 }
 void QComoPago::SlotCapturandoConCuantoPaga(const QString &)
 {
@@ -75,9 +86,25 @@ void QComoPago::SlotCapturandoConCuantoPaga(const QString &)
 }
 void QComoPago::SlotCapturaEfectivo()
 {
+ QLECaptura->setEnabled(true);
  zSiscomQt3::Foco(QLECaptura);
  FrmComoPagare=Efectivo;
 }
+
+void QComoPago::SlotCapturaTarjeta()
+{
+ QLECaptura->setEnabled(true);
+ zSiscomQt3::Foco(QLECaptura);
+ FrmComoPagare=Tarjeta;
+}
+
+void QComoPago::SlotCapturaTransferencia()
+{
+ QLECaptura->setEnabled(true);
+ zSiscomQt3::Foco(QLECaptura);
+ FrmComoPagare=Transferencia;
+}
+
 void QComoPago::SlotFocoAAceptar()
 {
 	zSiscomQt3::Foco(QPBAceptar);
@@ -119,7 +146,11 @@ void QComoPago::IniciaVariables()
    if(EsUnApartado())
    {
  	ControlesApartado();
+	if(!Orden()->Apartado()->EstadoInt())
 	QLEConCuantoPaga->setText(Orden()->Apartado()->PorPagar());
+	else
+	QLEConCuantoPaga->setText(Orden()->Apartado()->ACuenta());
+
    }
    else
    QLEConCuantoPaga->setText(Orden()->ImporteOrden());
@@ -260,6 +291,29 @@ zSiscomElectronica lzSisComoPago(zSiscomDesarrollo4::Conexion(),"FormandoComoPag
 Orden()->FormaPago()->Efectivo((const char *)QLECaptura->text());
 Orden()->FormaPago()->Total(Orden()->ImporteOrden());
 lzSisComoPago.FormandoComoPago(Orden()->FormaPago());
+FrmPago=Combinado;
+}
+void QComoPago::PoniendoTransferencia()
+{
+zSiscomElectronica lzSisComoPago(zSiscomDesarrollo4::Conexion(),"FormandoComoPago");
+Orden()->FormaPago()->Transferencia()->Importe((const char *)QLECaptura->text());
+Orden()->FormaPago()->Total(Orden()->ImporteOrden());
+lzSisComoPago.FormandoComoPago(Orden()->FormaPago());
+FrmPago=Combinado;
+}
+void QComoPago::MemoriaTarjeta()
+{
+zFormaPagoTarjeta *lzFpTarjeta=new zFormaPagoTarjeta;
+Orden()->FormaPago()->Tarjeta(lzFpTarjeta);
+}
+void QComoPago::PoniendoTarjeta()
+{
+zSiscomElectronica lzSisComoPago(zSiscomDesarrollo4::Conexion(),"FormandoComoPago");
+MemoriaTarjeta();
+Orden()->FormaPago()->Tarjeta()->Importe((const char *)QLECaptura->text());
+Orden()->FormaPago()->Total(Orden()->ImporteOrden());
+lzSisComoPago.FormandoComoPago(Orden()->FormaPago());
+FrmPago=Combinado;
 }
 void QComoPago::MuestraComoPagara()
 {
@@ -282,12 +336,27 @@ void QComoPago::ComoPagareEfectivo()
  MostrandoTextoBoton(QPBEfectivo,"Efectivo");
  PoniendoEfectivo();
  QLECaptura->setText(Orden()->FormaPago()->PorPagar());
+ Orden()->ConCuantoPaga(Orden()->FormaPago()->Efectivo());
 }
 void QComoPago::ComoPagareTarjeta()
 {
  MostrandoTextoBoton(QPBTarjeta,"Tarjeta");
+ PoniendoTarjeta();
+ QLECaptura->setText(Orden()->FormaPago()->PorPagar());
 }
 void QComoPago::ComoPagareTransferencia()
 {
  MostrandoTextoBoton(QPBTransferencia,"Transferencia");
+ PoniendoTransferencia();
+ QLECaptura->setText(Orden()->FormaPago()->PorPagar());
+}
+void QComoPago::PagoCompleto()
+{
+int lintPagoCompleto;
+lintPagoCompleto=Orden()->FormaPago()->PagoCompletoInt();
+ if(lintPagoCompleto)
+ {
+  QPBAceptar->setEnabled(lintPagoCompleto);
+  zSiscomQt3::Foco(QPBAceptar);
+ }
 }

@@ -27,6 +27,8 @@ private:
 	zClaveProveedor *zClavProveedor;
 
 	int intActualizando;
+
+	int intNProducto;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
@@ -54,6 +56,10 @@ private:
 	void ActualizaDatosClaveProveedor();
 	void ActualizaClaveRegistrada();
 	void NoEstaLaClaveProveedor();
+
+	void keyPressEvent(QKeyEvent *pQKETeclas);
+	void TeclasNormales(QKeyEvent *pQKETeclas);
+	void EliminaProductos();
 
 private slots:
 	void SlotProducto(zSiscomRegistro *);

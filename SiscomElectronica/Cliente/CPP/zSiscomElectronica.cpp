@@ -2677,6 +2677,7 @@ AgregaEnvio((zSiscomRegistro *)pzFormaPago);
 if((lzSisRegsRegreso=EnviaRecibe()))
 {
   lzSisRegRegreso=((*lzSisRegsRegreso)[0])->AsociadoDelCampo("Envio");
+  pzFormaPago->PagoCompleto((const char *)(*lzSisRegRegreso)["PagoCompleto"]);
   pzFormaPago->PorPagar((const char *)(*lzSisRegRegreso)["PorPagar"]);
   return 0;
 }
