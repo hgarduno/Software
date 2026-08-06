@@ -1,0 +1,68 @@
+
+OpEnlace+=$(OpCSiscom)
+
+
+Include=-I $(QTDIR)/include
+Include+= -I.
+Include+=-I H 
+Include+=-I $(SISCOM_LIB_DIR)/Include 
+Include+=-I $(DIRLIBSISCOM2)/H 
+Include+=-I ../SiscomElectronica3/H 
+Include+=-I SiscomElectronica2/Cliente/H 
+Include+=-I $(DIRDesarrolloHGE)/SiscomComunicaciones++/H 
+Include+=-I $(DIRDesarrolloHGE)/SiscomDesarrollo4++/H   
+Include+=-I $(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++/H
+Include+=-I $(DIRDesarrolloHGE)/SiscomSoporte/Qt/H
+
+Bibliotecas=-L $(QTDIR)/lib
+Biblotecas+=-L $(QTDIR)/plugins/designer
+Biblotecas+=-L $(SISCOM_LIB_DIR)
+Bibliotecas+=-L $(DIRLIBSISCOM2)
+Bibliotecas+=-L $(DIRDesarrolloHGE)/SiscomComunicaciones++
+Bibliotecas+=-L $(DIRDesarrolloHGE)/SiscomDesarrollo4++
+Bibliotecas+=-l SiscomComunicaciones++
+Bibliotecas+=-l SiscomDesarrollo3Qt++
+Bibliotecas+=-l SiscomDesarrollo2
+Bibliotecas+=-l:libSiscomComunicaciones++.so.1.0.0
+Bibliotecas+=-l SiscomDesarrollo4++
+Bibliotecas+=-l qt-mt
+
+Os_CapturaInventario=O/RegistraInventario.o  
+Os_CapturaInventario+=O/ManInventario.o
+Os_CapturaInventario+=O/ProductosE.o
+Os_CapturaInventario+=O/Familias.o
+Os_CapturaInventario+=O/Unidades.o
+Os_CapturaInventario+=O/ComprasE.o
+Os_CapturaInventario+=O/CQSisInventarioBodega.o
+
+
+
+Os_CapturaInventario+=../SiscomElectronica3/O/CQSis3QtOperaciones.o
+
+
+Os_CapturaInventario+=O/MOC_ProductosE.o
+Os_CapturaInventario+=O/MOC_Familias.o
+Os_CapturaInventario+=O/MOC_Unidades.o
+
+Os_CapturaInventario+=O/ZProductosInventario.o
+Os_CapturaInventario+=O/ZConfiguracionInventario.o
+Os_CapturaInventario+=O/ZConexion.o
+Os_CapturaInventario+=O/ZInventarioExpendio.o
+Os_CapturaInventario+=O/ZInventarioBodega.o
+
+all:RegistraInventario
+
+
+RegistraInventario:$(Os_CapturaInventario)
+	@printf "\t%s\n"  $@
+	@g++ $(OpEnlace) -o $@ $(Os_CapturaInventario)  $(Bibliotecas)
+
+O/%.o:CPP/%.cpp
+	@printf "Compilando %s\n"  $<
+	@g++ -c $< -o $@ $(Include)
+
+SiscomElectronica3/O/%.o:../SiscomElectronica3/CPP/%.cpp
+	@printf "Compilando %s\n"  $<
+	@g++ -c $< -o $@ $(Include)
+
+
