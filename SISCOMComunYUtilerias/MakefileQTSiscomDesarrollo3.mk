@@ -119,7 +119,7 @@ $(QTDIR)/plugins/designer/libControl$(1).so:$$(call ArchivosQTControl,$(1))	\
 					    $$(Archivos_O_Control$(1)Extra)	\
 					    $$(Archivos_ControlesExtra)		
 	@echo Generando $$@
-	@$$(CXX) $$(OpModulos) -o $$@			\
+	$$(CXX) $$(OpModulos) -o $$@			\
 		 $$(call ArchivosOControl,$(1))		\
 		 $$(Archivos_ControlesExtra)		\
 		 $$(Archivos_O_Control$(1)Extra)	\

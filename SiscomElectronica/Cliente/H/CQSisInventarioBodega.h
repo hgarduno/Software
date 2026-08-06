@@ -9,6 +9,13 @@ public:
 			      const char *pchrPtrCantidad,
 			      SiscomRegistro3 *pSisReg3Bodega,
 			      SiscomRegistro3 *pSisRegProdBodega);
+
+	CQSisInventarioBodega(const char *pchrPtrIdExpendio,
+			      const char *pchrPtrIdEmpleado,
+			      const char *pchrPtrCantidad,
+			      const char *pchrPtrCveProducto,
+			      const char *pchrPtrExistencia,
+			      const char *pchrPtrIdBodega);
 			      
 
 };

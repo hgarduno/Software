@@ -117,6 +117,10 @@ SiscomRegistro3Lst::SiscomRegistro3Lst()
 {
 
 }
+void SiscomRegistro3Lst::Agrega(SiscomRegistro3 *pSisReg3Dato)
+{
+   append(pSisReg3Dato);
+}
 SiscomRegistro3Lst::~SiscomRegistro3Lst()
 {
 

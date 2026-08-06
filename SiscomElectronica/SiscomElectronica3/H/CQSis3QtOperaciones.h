@@ -83,6 +83,7 @@ public:
 	void TransfiereMaterialBodegaExpendio(SiscomRegistro3Lst *pSisReg3LstTrans,
 					      SiscomRegistro3Lst *pSisReg3LstRegreso);
 	void InventarioBodegaSiscom(SiscomRegistro3 *pSisReg3ProdInvBod);
+	void InventarioBodegaSiscom(SiscomRegistro3Lst *pSisReg3ProdInvBod);
 	void Clientes(const char *pchrPtrIdExpendio,
 		      SiscomRegistro3Lst *pSisReg3LstClientes);
 	void RegistraClienteFisica(SiscomRegistro3 *pSisReg3Cliente);

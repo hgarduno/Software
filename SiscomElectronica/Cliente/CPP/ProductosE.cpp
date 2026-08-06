@@ -281,6 +281,10 @@ ProductoE *lProducto;
 	  append(lProducto);
 	  return *this;
 }
+void ProductosE::Anexa(ProductoE *pProductoE)
+{
+  append(pProductoE);
+}
 ConsultaProductosE::ConsultaProductosE()
 {
 

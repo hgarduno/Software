@@ -122,6 +122,10 @@ public:
 
 	const SiscomRegistro3Lst &SiscomEliminaRegistros(const QMemArray<int> &pQMARegistros);
 
+	void Agrega(SiscomRegistro3 *);
+
+	
+
 };
 
 class SiscomRegistro3LstLst:public QPtrList<SiscomRegistro3Lst>

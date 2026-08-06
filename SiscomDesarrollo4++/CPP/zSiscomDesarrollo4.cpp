@@ -253,3 +253,21 @@ const char *zSiscomDesarrollo4::IdEmpleado(char **pchrPtrArgumentos)
 {
    return *(pchrPtrArgumentos+1);
 }
+
+void zSiscomDesarrollo4::ImprimeCadenas(const char *pchrPtrArchivo,
+					const char *pchrPtrFuncion,
+					int pintNLinea,
+					char **pchrPtrCadenas)
+{
+int lintContador=0;
+	while(*pchrPtrCadenas)
+	{
+	  fprintf(gPtrFleArchivoLog,
+	  	  "%d (%s)\n",
+		  lintContador,
+		  *pchrPtrCadenas);
+	    pchrPtrCadenas++;
+	    lintContador++;
+
+	}
+}

@@ -53,7 +53,11 @@ public:
 	static const char *IdExpendio(char **);
 	static const char *IdEmpleado(char **);
 				
-	
+
+	static void ImprimeCadenas(const char *pchrPtrArchivo,
+				  const char *pchrPtrFuncion,
+				  int pintNLinea,
+				  char **);
 
 };
 
@@ -65,5 +69,6 @@ extern void *gzSiscomConexion;
 #define LogSiscom(...) 								\
 	zSiscomDesarrollo4::Log(__FILE__,__FUNCTION__,__LINE__,(char *)__VA_ARGS__)
 
-
+#define LogSiscomCadenas(pchrPtrCadenas)\
+	zSiscomDesarrollo4::ImprimeCadenas(__FILE__,__FUNCTION__,__LINE__,pchrPtrCadenas)
 #endif

@@ -110,9 +110,12 @@ void SiscomMuestraOpciones(const char *pchrPtrArchivo,
 			   int pintNoLinea,
 			   const StcSiscomOpciones *pStcSiscomOpciones)
 {
+const char *lchrPtrComando;
 
 while(pStcSiscomOpciones->chrPtrNmbComando)
 {
+lchrPtrComando=pStcSiscomOpciones->chrPtrComando  ? 
+		pStcSiscomOpciones->chrPtrComando : "";
 SiscomMensajesLog4(pchrPtrArchivo,
 		    pchrPtrFuncion,
 		    pintNoLinea,

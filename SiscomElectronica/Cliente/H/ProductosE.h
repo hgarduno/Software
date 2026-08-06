@@ -75,6 +75,7 @@ public:
 	ProductosE &operator+=(ProductosE &);
 	ProductoE *operator[](int);
 
+	void Anexa(ProductoE *);
 };
 
 class ConsultaProductosE

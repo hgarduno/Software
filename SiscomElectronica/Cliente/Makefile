@@ -868,7 +868,7 @@ SO/libSISCOMTiendas3.so:$(Archivos_O_libSISCOMTiendas3)
 SISCOMTiendas3:$(Archivos_QT_SISCOMTiendas3) \
 		$(Archivos_O_SISCOMTiendas3)
 	@echo Creando $@
-	@$(CXX) $(OpEnlace) -o $@ 			\
+	$(CXX) $(OpEnlace) -o $@ 			\
 	$(Archivos_O_SISCOMTiendas3) 			\
 	$(BibliotecasTiendas3) 				\
 	$(BibliotecasDesarrollo)

@@ -14,3 +14,20 @@ pSisReg3Bodega->Campo3("idbodega")			<<
 pSisReg3ProdBodega->Campo3("cveproducto")		<<
 pSisReg3ProdBodega->Campo3("existencia");
 }
+
+CQSisInventarioBodega::CQSisInventarioBodega(const char *pchrPtrIdExpendio,
+					     const char *pchrPtrIdEmpleado,
+					     const char *pchrPtrCantidad,
+					     const char *pchrPtrCveProducto,
+					     const char *pchrPtrExistencia,
+					     const char *pchrPtrIdBodega)
+{
+(*this)							<<
+new SiscomCampo3("IdExpendio",pchrPtrIdExpendio)	<<
+new SiscomCampo3("IdEmpleado",pchrPtrIdEmpleado)	<<
+new SiscomCampo3("Cantidad",pchrPtrCantidad)		<<
+new SiscomCampo3("cveproducto",pchrPtrCveProducto)	<<
+new SiscomCampo3("existencia",pchrPtrExistencia)	<<
+new SiscomCampo3("idbodega",pchrPtrIdBodega);
+}
+

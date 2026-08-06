@@ -92,7 +92,7 @@ SiscomArchivoDirectorio lSiscomArchivoDirectorio;
 				    pLNArchivoPrim,
 				    pLNArchivoActual);
 	    else
-	     if(/*strstr(lchrArrArchivo,pchrPtrCadenaNombre) && */
+	     if(strstr(lchrArrArchivo,pchrPtrCadenaNombre) ||
 	        strstr(lchrArrArchivo,pchrPtrExtension))
 	     {
 	     SiscomObtenNombreArchivo(lchrArrArchivo); 

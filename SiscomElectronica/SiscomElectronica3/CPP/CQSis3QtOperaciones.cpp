@@ -194,6 +194,20 @@ SiscomEnvia("InventarioBodega",&lSisReg3LstEnvioRespuesta,&lSisReg3LstRegreso);
 SiscomRegistro3LstContenido(&lSisReg3LstEnvioRespuesta);
 SiscomRegistro3LstContenido(&lSisReg3LstRegreso); 
 }
+/*  Mixquiahuala Sabado 1 de agosto 2026 
+ *  Con el registro del inventario en la hoja de calculo , se debera
+ *  agregar una funcion que envie la lista completa de productos, no 
+ *  solo un registro ....
+ */
+void CQSis3QtOperaciones::InventarioBodegaSiscom(SiscomRegistro3Lst *pSisReg3ProdInvBod)
+{
+SiscomRegistro3Lst lSisReg3LstRegreso;
+SiscomEnvia("InventarioBodega",pSisReg3ProdInvBod,&lSisReg3LstRegreso); 
+/*
+SiscomRegistro3LstContenido(&lSisReg3LstEnvioRespuesta);
+SiscomRegistro3LstContenido(&lSisReg3LstRegreso); 
+*/
+}
 
 
 void CQSis3QtOperaciones::Clientes(const char *pchrPtrIdExpendio,
