@@ -10,7 +10,11 @@
 #define LogSiscom(...) SiscomMensajesLog4(__FILE__,__FUNCTION__,__LINE__,##args)
 #endif
 
-#define LogSiscomCadena(pchrPtrCadena) 									\
+#define LogSiscomSeLeeContenidoArchivoConfiguracionEscribe(pintEscribe,...) 			\
+if(pintSeEscribe)						\
+SiscomMensajesLog4(__FILE__,__FUNCTION__,__LINE__,__VA_ARGS__) 
+
+#define LogSiscomCadena(pchrPtrCadena) 	\
 	SiscomMensajesLog4(__FILE__,__FUNCTION__,__LINE__,"%s (%x)",pchrPtrCadena,pchrPtrCadena)
 
 

@@ -124,6 +124,7 @@ public:
 	int SeImprimioTicket();
 	void SeImprimioTicket(int);
 	void RegistraOrden();
+	void ConectaSlots();
 
 private:
 	SiscomDatCom *SisDatCom;
@@ -151,7 +152,6 @@ private:
 
 	int intSoloDescripcion;
 
-	zProducto *zProdPPFaltante;
 
 	QWidget *QWParent;
 
@@ -159,7 +159,6 @@ private:
 
 	 int intSeImprimioTicket;
 private:
-	void ConectaSlots();
 	void IniciaVariables();
 	void MuestraPuntoVenta();
 	void CargaArchivoHtmlPuntoVenta();
@@ -209,7 +208,6 @@ private:
 
 	zConexionExpendio *ContinuandoConOtroExpendio();	
 
-	void RegistrandoFaltante();
 	/* Ciudad de Mexico 14 de Agosto 2024 
 	 * Se integra la validacion para ver si se carga la ventana 
 	 * de pago con tarjeta, transferencia etc , para que en el 
@@ -248,7 +246,6 @@ private slots:
 	void SlotCargaCotizacion();
 
 	void SlotImprimirPdf();
-	void SlotFaltante();
 	void SlotProductoNoValido(zProducto *);
 
 signals:

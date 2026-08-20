@@ -96,17 +96,18 @@ OpCompilacion=-g -c  $(DEBUG) $(OpCSiscom) -DQT_THREAD_SUPPORT
 OpEnlace+=$(OpCSiscom)
 
 #{{{   Includes 
-Include=-I $(QTDIR)/include  					\
-	-I. 							\
-	-I H 							\
-	-I $(SISCOM_LIB_DIR)/Include  				\
-	-I $(DIRLIBSISCOM2)/H					\
-	-I ../SiscomElectronica3/H				\
-	-I SiscomElectronica2/Cliente/H				\
-	-I $$QtInclude						\
-	-I $(DIRDesarrolloHGE)/SiscomComunicaciones++/H 	\
-	-I $(DIRDesarrolloHGE)/SiscomDesarrollo4++/H		\
-	-I $(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++/H		\
+Include=-I $(QTDIR)/include  						\
+	-I. 								\
+	-I H 								\
+	-I $(SISCOM_LIB_DIR)/Include  					\
+	-I $(DIRLIBSISCOM2)/H						\
+	-I ../SiscomElectronica3/H					\
+	-I SiscomElectronica2/Cliente/H					\
+	-I $(DirectorioSiscomElectronica)/Cliente/Codigo.Gemini/H	\
+	-I $$QtInclude							\
+	-I $(DIRDesarrolloHGE)/SiscomComunicaciones++/H 		\
+	-I $(DIRDesarrolloHGE)/SiscomDesarrollo4++/H			\
+	-I $(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++/H			\
 	-I $(DIRDesarrolloHGE)/SiscomSoporte/Qt/H
 
 
@@ -645,6 +646,7 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/zCompras.o								\
 	O/zPedidoPorCotizacion.o						\
 	O/zPedidoExistenciaM.o							\
+	O/QtModuloVentasGemini.o						\
 	O/MOC_QtClientePedido.o							\
 	O/MOC_QtPuntosEntrega.o							\
 	O/MOC_QtListaPuntosEntrega.o						\
@@ -672,7 +674,8 @@ Archivos_O_PantallasSiscomElectronica2009=					\
 	O/MOC_QtConsultaCompras.o						\
 	O/MOC_QtContabilidadSiscom.o						\
 	O/MOC_QtCuentaCortesS.o							\
-	O/MOC_QtExistencias.o
+	O/MOC_QtExistencias.o							\
+	O/MOC_QtModuloVentasGemini.o
 	
 	
 #}}}
@@ -894,19 +897,21 @@ SO/libSiscomElectronicaComun.so:$(Archivos_QT_SiscomElectronicaComun) \
 SO/libPantallasSiscomElectronica2009.so:$(Archivos_QT_PantallasSiscomElectronica2009) \
 					$(Archivos_O_PantallasSiscomElectronica2009)
 	@echo 'Generando $@'
-	@$(CXX) $(OpModulos) -o $@				\
-		$(Archivos_O_PantallasSiscomElectronica2009)	\
-		$(Bibliotecas)					\
-		-L ../SiscomElectronica3/SO 			\
-		-L $(DIRDesarrolloHGE)/SiscomComunicaciones++	\
-		-L $(DIRDesarrolloHGE)/SiscomDesarrollo4++	\
-		-L $(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++	\
-		-lPantallasSiscomElectronica3			\
-		-lOrdenElectronica				\
-		-lReportesVentas				\
-		-lSiscomComunicaciones++			\
-		-lSiscomDesarrollo4++				\
-		-lSiscomDesarrollo4Qt++
+	@$(CXX) $(OpModulos) -o $@					\
+		$(Archivos_O_PantallasSiscomElectronica2009)		\
+		$(Bibliotecas)						\
+		-L ../SiscomElectronica3/SO 				\
+		-L $(DIRDesarrolloHGE)/SiscomComunicaciones++		\
+		-L $(DIRDesarrolloHGE)/SiscomDesarrollo4++		\
+		-L $(DIRDesarrolloHGE)/SiscomDesarrollo4Qt++		\
+		-L $(DirectorioSiscomElectronica)/Cliente/Codigo.Gemini	 \
+		-lPantallasSiscomElectronica3				\
+		-lOrdenElectronica					\
+		-lReportesVentas					\
+		-lSiscomComunicaciones++				\
+		-lSiscomDesarrollo4++					\
+		-lSiscomDesarrollo4Qt++					\
+		-lSiscomElectronicaGemini
 
 		
 

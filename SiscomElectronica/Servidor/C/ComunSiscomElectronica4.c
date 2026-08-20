@@ -340,13 +340,14 @@ SiscomRegistroProL *lSisRegProLPtrProductos;
 lchrPtrIdVenta=SiscomCampoAsociadoEntradaOperacion("Envio","IdVenta",pSiscomOpePtrDato);
 lchrPtrIdTipoOrden=SiscomCampoAsociadoEntradaOperacion("Envio","IdTipoOrden",pSiscomOpePtrDato);
 sprintf(lchrArrLinea,
-	"%-15s%-12s%-12s%-12s%-22s%-10s%-13s%-13s",
+	"%-15s%-12s%-12s%-12s%-22s%-10s%-13s%-13s%-13s",
 	"Punto de venta",
 	"IdOrden",
 	"IdTipoOrden",
 	"Consecutivo",
 	"Producto",
 	"Cantidad",
+	"Existencia",
 	"Precio",
 	"Se Puede Vender");
 
@@ -359,13 +360,14 @@ for(;
      lSisRegProLPtrProductos=lSisRegProLPtrProductos->SiscomRegProLPtrSig)
 {
 sprintf(lchrArrLinea,
-	"%-15s%-12s%-12s%-12s%-22s%-10s%-13s%-13s",
+	"%-15s%-12s%-12s%-12s%-22s%-10s%-13s%-13s%-13s",
 	gchrArrDirIpCliente,
 	lchrPtrIdVenta,
 	lchrPtrIdTipoOrden,
 	SiscomObtenCampoRegistroProLChar("IdConsecutivo",lSisRegProLPtrProductos),
 	SiscomObtenCampoRegistroProLChar("Clave",lSisRegProLPtrProductos),
 	SiscomObtenCampoRegistroProLChar("Cantidad",lSisRegProLPtrProductos),
+	SiscomObtenCampoRegistroProLChar("Existencia",lSisRegProLPtrProductos),
 	SiscomObtenCampoRegistroProLChar("Precio",lSisRegProLPtrProductos),
 	SiscomObtenCampoRegistroProLChar("SePuedeVender",lSisRegProLPtrProductos));
 SiscomMensajesLog4(pchrPtrArchivo,pchrPtrFuncion,pintNLinea,"%s",lchrArrLinea);

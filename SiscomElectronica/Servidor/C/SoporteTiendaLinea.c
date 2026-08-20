@@ -10,13 +10,13 @@ char lchrArrCadena[512];
 SiscomMensajesLog4(pchrPtrArchivo,
 		   pchrPtrFuncion,
 		   pintNoLinea,
-	"{OrdenId}						%s\n"
+	"{OrdenId}				%s\n"
 	"{OrdenRastreo} 			%s\n"
 	"{OrdenFecha} 				%s\n"
 	"{OrdenDescuentoPorcentaje} 		%s\n"
 	"{OrdenPrecioEspecial} 			%s\n"
 	"{ClienteId} 				%s\n"
-	"{ClienteNombre}				%s\n"
+	"{ClienteNombre}			%s\n"
 	"{ClienteApellido}			%s\n"
 	"{ClienteCelular}			%s\n"
 	"{DireccionCalle}			%s\n"

@@ -16,7 +16,6 @@ QFaltantes::QFaltantes(zProductoCotizar *pzProductoCot,
 {
 IniciaVariables();
 ConectaSlots();
-SiscomRegistroLog2(Producto());
 exec();
 }
 

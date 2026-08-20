@@ -7,7 +7,6 @@
 #include <IMP_NoAlcanzaProducto.h>
 #include <IMP_OrdenesDisponibles.h>
 #include <IMP_MuestraExistenciaExpendios.h>
-#include <IMP_Faltantes.h>
 #include <IMP_ComoPago.h>
 #include <QCtrlProductosSE.h>
 
@@ -58,7 +57,6 @@ QManejadorOrden::QManejadorOrden(SiscomDatCom *pSisDatCom,
 				chrPtrIdOrden(0),
 				intSeAbrioOExpendios(0),
 				intSoloDescripcion(0),
-				zProdPPFaltante(0),
 				QConExpsV(0),
 				QWParent(pQWParent),
 				intSeImprimioTicket(0)
@@ -97,16 +95,9 @@ connect(QLECantidad,
 	SLOT(SlotCapturandoCantidad(const QString &)));
 connect(QPBExExpendios,SIGNAL(clicked()),SLOT(SlotExistenciaExpendios()));
 connect(QPBCargaCotizacion,SIGNAL(clicked()),SLOT(SlotCargaCotizacion()));
-connect(QPBFaltante,SIGNAL(clicked()),SLOT(SlotFaltante()));
 }
 void QManejadorOrden::SlotProductoNoValido(zProducto *pzProducto)
 {
-    zProdPPFaltante=pzProducto;  
-   SiscomRegistroLog2(zProdPPFaltante);
-}
-void QManejadorOrden::SlotFaltante()
-{
-RegistrandoFaltante();
 }
 void QManejadorOrden::SlotImprimirPdf()
 {
@@ -1295,15 +1286,6 @@ zConexionExpendio *QManejadorOrden::ContinuandoConOtroExpendio()
 	return zConExpendio;
 }
 
-void QManejadorOrden::RegistrandoFaltante()
-{
-zProductoCotizar *lzProdCotizar;
-if(zProdPPFaltante)
-   lzProdCotizar=(zProductoCotizar *)zProdPPFaltante;
-else
-   lzProdCotizar=zProdCotizar;
-QFaltantes lQFaltantes(lzProdCotizar,chrPtrArgumentos);
-}
 int QManejadorOrden::SeCargaComoPago()
 {
   if((Orden()->IdTipoOrdenInt()==1) || 

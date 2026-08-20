@@ -5,7 +5,38 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <errno.h>
 
+void SiscomArchivoParaConfiguracion(const char *pchrPtrArchivo,
+				    char *pchrPtrContenido)
+{
+FILE *lFlePtrArchivo;
+char lchrArrLinea[128],
+	lchrArrPaso[128];
+int lintNLineas=0,
+	lintRegreso;
+if((lFlePtrArchivo=fopen(pchrPtrArchivo,"r")))
+{
+   while(SiscomLeeLineaArchivo(lFlePtrArchivo,lchrArrLinea)==10)
+   {
+	if(lchrArrLinea[0]!='#') 
+	{
+	   if(!lintNLineas)
+	   sprintf(lchrArrPaso,"%s",lchrArrLinea);
+	   else
+	   sprintf(lchrArrPaso,"%s\n",lchrArrLinea);
+	   strcat(pchrPtrContenido,lchrArrPaso);
+	   lintNLineas++;
+	}
+
+   }
+if(!lintNLineas)
+ strcpy(pchrPtrContenido,lchrArrLinea);
+}
+else
+LogSiscom("NO Se encontro el archivo %s",pchrPtrArchivo);
+fclose(lFlePtrArchivo);
+}
 
 int SiscomEsExtensionArchivo(const char **pchrPtrExtensiones,const char *pchrPtrExtension)
 {
@@ -39,10 +70,16 @@ FILE *lFlePtrArchivoO,
 char lchrArrBuffer[512];
 size_t lsizeLeidos;
 if(!(lFlePtrArchivoO=fopen(pchrPtrOrigen,"r")))
+{
+LogSiscom("%s",strerror(errno));
 return -1;
+}
 else
 if(!(lFlePtrArchivoD=fopen(pchrPtrDestino,"w")))
+{
+LogSiscom("%s",strerror(errno));
 return -2;
+}
 else
 while((lsizeLeidos=fread(lchrArrBuffer,1,512,lFlePtrArchivoO))>0)
   fwrite(lchrArrBuffer,1,512,lFlePtrArchivoD);

@@ -73,13 +73,16 @@ int SiscomAgregaCampoRegistro2(const char *pchrPtrNmbCampo,
 			 const char *pchrPtrDato,
 			 SiscomRegistroProL *pSiscomRegProLPtrDato)
 {
-SiscomCampoProL *lSiscomCamProLPtrPrim=0,
-		*lSiscomCamProLPtrAct=0;
+SiscomCampoProL *lSiscomCamProLPtrPrim=pSiscomRegProLPtrDato->SiscomCamProLPtrDato,
+		*lSiscomCamProLPtrAct;
+lSiscomCamProLPtrAct=pSiscomRegProLPtrDato->SiscomCamProLPtrDato->SiscomCamProLPtrActual;
 SiscomNodoCampoPro(pchrPtrNmbCampo,
 		   pchrPtrDato,
 		   &lSiscomCamProLPtrPrim,
 		   &lSiscomCamProLPtrAct);
+/*
 pSiscomRegProLPtrDato->SiscomCamProLPtrDato=lSiscomCamProLPtrPrim;
+*/
 }
 
 /* Lunes 30 de Abril del 2012

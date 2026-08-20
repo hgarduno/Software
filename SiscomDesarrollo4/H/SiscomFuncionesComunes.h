@@ -3,6 +3,9 @@
 #include <stdio.h>
 
 
+void SiscomArchivoParaConfiguracion(const char *pchrPtrArchivo,
+				    char *pchrPtrContenido);
+
 int SiscomEsExtensionArchivo(const char **pchrPtrExtensiones,const char *pchrPtrExtension);
 const char *SiscomExtensionArchivo(const char *pchrPtrArchivo,char *pchrPtrExtension);
 
