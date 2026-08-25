@@ -618,8 +618,8 @@ void SePuedeVender(SiscomOperaciones *pSiscomOpePtrDato,
 char lchrArrBuffer[512];
 int lintTipoProducto;
 const char *lchrPtrTipoProducto;
-
 lchrPtrTipoProducto=SiscomObtenCampoRegistroProLChar("TipoProducto",pSiscomRegProLPtrProducto);
+LogSiscom("%s",lchrPtrTipoProducto);
 if(SePuedeVenderProducto4(pSiscomOpePtrDato,pSiscomRegProLPtrProdBase,pSiscomRegProLPtrProducto))
 {
   if(lchrPtrTipoProducto)

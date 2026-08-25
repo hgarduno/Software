@@ -155,7 +155,8 @@ TipoLetra()
 
 
 LD_LIBRARY_PATH=$QTDIR/lib
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Cliente/SO
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DirectorioSiscomElectronica/Cliente/SO
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DirectorioSiscomElectronica/Cliente/Codigo.Gemini
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:SiscomElectronica3/SO/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QTDIR/plugins/designer
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomComunicaciones++
@@ -163,7 +164,7 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomDesarrollo4++
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SiscomDesarrollo4Qt++
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRDesarrolloHGE/SISCOMDesarrollo2
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:SiscomElectronica2/Servidor
+#LD_LIBRARY_PATH=$LD_LIBRARY_PATH:SiscomElectronica2/Servidor
 export LD_LIBRARY_PATH
 # MuestraLdLibraryPath 
 

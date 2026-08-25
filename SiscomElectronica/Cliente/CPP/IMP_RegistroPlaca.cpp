@@ -38,7 +38,9 @@ QRegistroPlaca::QRegistroPlaca(zSiscomConexion *pzSiscomConexion,
 				 intPuedeCerrarVentana(0),
 				 intRegistrando(0)
 {
-/*IniciaVariables(); */
+setFont(parentWidget()->font());
+IniciaVariables(); 
+
 ConectaSlots();
 }
 
@@ -339,19 +341,20 @@ void QRegistroPlaca::Orden(zOrdenVenta *pzOrden)
 void QRegistroPlaca::MuestraProductos()
 {
 if(zOrdVenta && zOrdVenta->Productos())
-zSiscomQt3::RegistrosAlCombo(QCBProductos,"Clave",zOrdVenta->Productos());
-}
+zSiscomQt3::RegistrosAlCombo(QCBProductos,"Clave",zOrdVenta->Productos()); }
 int QRegistroPlaca::RegistraImpreso()
 {
  zSiscomElectronica lzSisElectronica(zSisConexion,"RegistraCircuitoImpreso");
  lzSisElectronica.RegistraImpreso(zCirImpreso);
  intNImpresosRegistrados++;
  QLCDNNImpRegistrados->display(intNImpresosRegistrados);
+ return 1;
 }
 int QRegistroPlaca::RegistrandoImpreso()
 {
     RegistraImpreso();
     ConsultandoImpresosPendientes();
+return 1;
 }
 zCircuitoImpreso *QRegistroPlaca::FormaCircuitoImpreso(zOrdenVenta *pzOrdVenta)
 {

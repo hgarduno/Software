@@ -1,7 +1,7 @@
 /****************************************************************************
 ** zSiscomVentana meta object code from reading C++ file 'zSiscomVentana.h'
 **
-** Created: Thu Sep 11 19:12:20 2025
+** Created: Mon Aug 24 14:19:13 2026
 **      by: The Qt MOC ($Id: qt/moc_yacc.cpp   3.3.8   edited Feb 2 14:59 $)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -186,7 +186,8 @@ int QRegistroProductosSiscom::EsProductoPracticaEtc()
 {
    return zProdSiscom->TipoProductoInt()==1 ||
           zProdSiscom->TipoProductoInt()==2 ||
-	  zProdSiscom->TipoProductoInt()==3 ;
+	  zProdSiscom->TipoProductoInt()==3 ||
+	  zProdSiscom->TipoProductoInt()==4;
 }
 void QRegistroProductosSiscom::HabilitandoBotonRegistro()
 {

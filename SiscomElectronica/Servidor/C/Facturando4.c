@@ -1629,6 +1629,7 @@ LogSiscom("Correos ");
 SiscomAsociadoRespuestaLog("Correos",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
 }
+
 int ReEnviandoFactura(SiscomOperaciones *pSiscomOpePtrDato)
 {
 FILE *lFlePtrRegresoPhp;
@@ -1650,7 +1651,6 @@ const char *lchrPtrDescripcion=SiscomCampoAsociadoAsociadoEntradaOperacion("Envi
 									   "cveproducto",
 									   pSiscomOpePtrDato);
 strcpy(lchrArrDescripcion,lchrPtrDescripcion);
-
 }
 
 void ReemplazandoCaracteresNoValidos(SiscomRegistroProL *pSiscomRegProLPtrProducto)

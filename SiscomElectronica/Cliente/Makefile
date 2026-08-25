@@ -21,20 +21,23 @@ Archivos_O_libSISCOMTiendas3=O/SISCOMVentanaPrincipal3.o \
 			  O/MOC_SISCOMVentanaPrincipal3.o 
 
 
-BibliotecasTiendas3=-L SO 				\
-		    -L $(QTDIR)/plugins/designer	\
-		    -L ../SiscomElectronica3/SO		\
-		    -lFirmaTiendas 			\
-		    -lAccesoSiscomElectronica		\
-		    -lSelExpendios 			\
-		    -lCapturaRangoFechas 		\
-		    -lSiscomElectronicaComun 		\
-		    -lCapturaDato 			\
-		    -lFirmateExpendio 			\
-		    -lSISCOMTiendas3			\
-		    -lControlFechaDesarrollo2		\
-		    -lPantallasSiscomElectronica2009	\
-		    -lPantallasSiscomElectronica3 
+BibliotecasTiendas3=	-L SO 									\
+		    	-L $(QTDIR)/plugins/designer						\
+		    	-L ../SiscomElectronica3/SO						\
+			-L $(DirectorioSiscomElectronica)/Cliente/Codigo.Gemini	 		\
+		    	-lFirmaTiendas 								\
+		    	-lAccesoSiscomElectronica						\
+		    	-lSelExpendios 								\
+		    	-lCapturaRangoFechas 							\
+		    	-lSiscomElectronicaComun 						\
+		    	-lCapturaDato 								\
+		    	-lFirmateExpendio 							\
+		    	-lSISCOMTiendas3							\
+		    	-lControlFechaDesarrollo2						\
+		    	-lPantallasSiscomElectronica2009					\
+		    	-lPantallasSiscomElectronica3 						\
+			-lSiscomElectronicaGemini
+
 Archivos_O_PruebasGrafica=O/PruebasGrafica.o
 BibliotecasPruebasGrafica=-LSO -L$(QTDIR)/lib -lqt-mt -lSiscomElectronicaComun -lCapturaDato
 #{{Archivos_O_SiscomElectronicaComun=					

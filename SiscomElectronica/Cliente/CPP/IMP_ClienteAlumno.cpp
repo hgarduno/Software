@@ -78,6 +78,7 @@ ConectaSlotsOtrosMovimientos();
 }
 void QClienteAlumno::IniciaControlesOtrosMovimientos()
 {
+ radioButton8->setEnabled(true); 
 }
 void QClienteAlumno::ConectaSlotsOtrosMovimientos()
 {
@@ -176,7 +177,7 @@ int lintSeActiva;
 
 
 	QPBOtrosMovimientos->setEnabled(false);
-//	IniciaControlesOtrosMovimientos();
+	IniciaControlesOtrosMovimientos();
 /* Siscom Zacatenco 
  * Jueves 23 Mayo del 2024 
  *
@@ -437,7 +438,7 @@ void QClienteAlumno::HabilitaDesHabilitaAceptarCancelar(bool pbHabilita)
 }
 void QClienteAlumno::RegistrandoPlaca()
 {
-   QRPlaca=new QRegistroPlaca(Orden()->Expendio());
+   QRPlaca=new QRegistroPlaca(Orden()->Expendio(),this);
   zOrdVenta->IdTipoOrden("6"); 
   QRPlaca->Orden(zOrdVenta);
   QRPlaca->Escuela(zSisRegEscuela); 

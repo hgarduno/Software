@@ -103,6 +103,7 @@ int QManejadorImpresos::Consultando()
 {
 Consulta();
 Muestra();
+return 1;
 }
 int QManejadorImpresos::Consulta()
 {
@@ -112,6 +113,7 @@ lzSisElectronica.CircuitosImpresosPorEstadoFecha(
 			(const char *)QCtrFechaFin->ObtenFecha(),
 			zSisRegEdoImpresos,
 			&zSisRegsEdoFecha);
+return 1;
 }
 void QManejadorImpresos::Muestra()
 {
@@ -131,4 +133,5 @@ int QManejadorImpresos::Actualizando()
 zSiscomElectronica lzSisElectronica(zSisConexion,"CircuitoImpresoActualizaEdo");
 lzSisElectronica.CircuitoImpresoActualizaEstado(zSisRegEdoImpresos,
 						zSisRegImpreso);
+return 1;
 }
