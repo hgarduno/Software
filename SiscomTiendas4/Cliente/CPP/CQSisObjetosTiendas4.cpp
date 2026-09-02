@@ -88,6 +88,7 @@ CQSisCliente *ObjetosTiendas4::Cliente(SiscomRegistrosPro2 *pSRegistrosPro2)
 		     	(*pSRegistrosPro2)["identificador"],
 		     	(*pSRegistrosPro2)["razonsocial"]),
 		      Contacto(pSRegistrosPro2));
+return 0;
 }
 CQSisRepVenta *ObjetosTiendas4::ReporteVenta(SiscomRegistrosPro2 *pSRegistrosPro2)
 {

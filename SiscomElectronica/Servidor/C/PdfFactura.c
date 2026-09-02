@@ -234,10 +234,12 @@ LogSiscom("No se pudo iniciar el documento Pdf");
 else
 {
 LogSiscom("Se inicio Haru PDF");
+return 0;
 }
 
 HPDF_SetCompressionMode (pSisHaruPtrTexto->HpdfDocPtrArchivo, HPDF_COMP_ALL);
 pSisHaruPtrTexto->HpdfPagePtrPagina=HPDF_AddPage(pSisHaruPtrTexto->HpdfDocPtrArchivo);
+return 0;
 }
 const char *RutaImagenes()
 {
@@ -556,6 +558,7 @@ while(lintContando<lintNCaracteres)
 }
 
 
+return 0;
 }
 int DatosTimbradoPdf(HPDF_REAL pHpdfRealAlto,
 		     HPDF_REAL pHpdfRealAncho,
@@ -605,6 +608,7 @@ MuestraSelloPdf(pSisHaruTexto,"SelloCFDI",pSisOpePtrDato);
 pSisHaruTexto->intY-=7;
 MuestraSelloPdf(pSisHaruTexto,"SelloSAT",pSisOpePtrDato);
 
+return 0;
 }
 int FormandoPaginasFacturaPdf(HPDF_REAL pHpdfRealAlto,
 			      HPDF_REAL pHpdfRealAncho,
@@ -674,6 +678,7 @@ ImporteIvaTotalesPdf(pSisHaruTexto,lintXImporte,pSisOpePtrDato);
 DatosTimbradoPdf(pHpdfRealAlto,pHpdfRealAncho,pSisHaruTexto,pSisOpePtrDato);
 lintNVeces++;
 }
+return 0;
 } 
 
 int PdfFacturaSiscomElectronica(SiscomOperaciones *pSisOpePtrDato)
@@ -699,4 +704,5 @@ FormandoPaginasFacturaPdf(lHpdfRealAlto,
 
 HPDF_SaveToFile(lSisHaruTextoD->HpdfDocPtrArchivo,lchrArrArchivoPdf);
 HPDF_Free(lSisHaruTextoD->HpdfDocPtrArchivo);
+return 0;
 }

@@ -96,6 +96,7 @@ int lintContador,
 	     return lintContador;
 	   }
 
+return 1;
 }
 void QEmpleadosExpendio::ConsultaUsuariosSeguridad3()
 {

@@ -29,4 +29,5 @@ int lintI;
 	else
 	ADDllRealizaConsulta(PDEPURACION pintSocketCliente,lchrPtrCadenaRegreso,&lstcErrorReg);	
 	dlclose(lvidPtrCargaDll);
+return 0;
 }

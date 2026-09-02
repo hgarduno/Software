@@ -19,6 +19,7 @@ STRUCTError lstcErrorReg;
 
  RNADGeneraListaVentas(PDEPURACION pintSocketCliente, &lintNRegistros, &lstcLtaVentasPtrPrim, &lstcErrorReg);
  RNDllEnviaAltaVentasAD(PDEPURACION lstcLtaVentasPtrPrim, lintNRegistros, pintTuberia, pintPuerto, pchrPtrDirIP);
+return 0;
 }
 
 int RNDllEnviaAltaVentasAD(PARDEPURACION STRUCTLtaVentas *pstcLtaVentasPtrDat,int pintNRegistros,int pintTuberia[],int pintPuerto,char *pchrPtrDirIP)
@@ -44,6 +45,7 @@ int lintTamEncabezado;
  Write(lintSocketClienteAD, lchrArrEncabezado1, lintTamEncabezado);
  RNADEnviaRegistrosDeVentas(PDEPURACION lintSocketClienteAD, pintNRegistros, 7, pstcLtaVentasPtrDat, &lstcErrorReg);
  RNDllEjecutaReplicacionAltaVentas(pstcLtaVentasPtrDat,lchrArrEncabezado1,pintNRegistros);
+return 0;
 }
 void RNDllEjecutaReplicacionAltaVentas(STRUCTLtaVentas *pstcLtaVentasPtrDat,char *pchrPtrEncabezado,int pintNRegistros)
 {

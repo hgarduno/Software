@@ -67,6 +67,7 @@ const char *lchrPtrUnidad;
 SiscomLog("Analizando:%s",lchrPtrValor);
 lchrPtrUnidad=ObtenValorCapacitor(lchrPtrValor,pchrPtrValor);
 ObtenUnidad(lchrPtrUnidad,pchrPtrUnidad);
+return 0;			
 }
 const char *CondicionUnidadesNanos(SArgsSiscom *pSAgsSiscom)
 {
@@ -268,6 +269,7 @@ while(pLCSiscomPro2Dat)
 pLCSiscomPro2Dat=pLCSiscomPro2Dat->SCP2PtrSig;
 }
 */
+return 0;
 }
 void FiltraResultados(SArgsSiscom *pSAgsSiscom)
 {

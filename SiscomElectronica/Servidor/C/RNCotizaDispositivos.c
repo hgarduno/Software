@@ -754,6 +754,7 @@ const char *lchrPtrRFC=SiscomObtenDato(pLCSiscomPro2Dat,"RFC");
 	 return 0;
 
 
+return 0;			
 }
 /* Lunes 17 de septiembre del 2012 
  * Se agrega la asignacion de un descuento por producto y orden en la caja

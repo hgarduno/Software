@@ -21,6 +21,7 @@ int ADDllConexionBDYCopiaSHM(PARDEPURACION unsigned long *plngPtrRegSHMID)
 		   exit(1);
 		}
 	memcpy(lvidPtrConexion,lPGconnPtrConexion,sizeof(lPGconnPtrConexion));	
+return 0;
 }
 int ADDllGeneraArgumentos(PARDEPURACION int pintSocket,unsigned long plngSHMID,char *pchrPtrBinario,char ***pchrPtrArgs)
 {
@@ -28,4 +29,5 @@ int ADDllGeneraArgumentos(PARDEPURACION int pintSocket,unsigned long plngSHMID,c
 	strcpy((*pchrPtrArgs)[0],pchrPtrBinario);
 	sprintf((*pchrPtrArgs)[1],"-A%d",pintSocket);
 	sprintf((*pchrPtrArgs)[2],"-B%ld",plngSHMID);
+return 0;
 }

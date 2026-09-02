@@ -93,4 +93,5 @@ SiscomEnviaRegistrosSocket(pSisOpePtrDato->intSocket,
 			   lchrArrBuffer,
 			   lSisRegProLPtrCompras);
 
+return 0;
 }

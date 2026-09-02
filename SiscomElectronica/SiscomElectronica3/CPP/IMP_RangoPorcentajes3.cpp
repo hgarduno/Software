@@ -65,4 +65,5 @@ int QRangoPorcentajes3::OpcionSeleccionada(char *pchrPtrPEBajo,
 {
 strcpy(pchrPtrPEBajo,chrArrPBajo);
 strcpy(pchrPtrPEAlto,chrArrPAlto);
+return 0;			
 }

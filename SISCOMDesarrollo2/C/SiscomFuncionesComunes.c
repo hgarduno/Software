@@ -945,6 +945,7 @@ stctm=localtime(&regTime);
 *pintPtrDia=stctm->tm_mday;
 *pintPtrMes=stctm->tm_mon+1;
 *pintPtrAno=stctm->tm_year+1900;
+return 0;			
 }
 void SiscomObtenFechaHoy(char *pchrPtrFecha)
 {

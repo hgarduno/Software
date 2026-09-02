@@ -23,6 +23,7 @@ STRUCTDatosDeLaOperacion lstcOperacion;
                                                                    
 
 
+return 0;
 }
 
 int DllCLIRealizaConsulta(PARDEPURACION char *pchrPtrCadenaConsulta)
@@ -48,6 +49,7 @@ int DllCLIRealizaConsulta(PARDEPURACION char *pchrPtrCadenaConsulta)
 		lchrArrCadenaConsulta[4]=0;
 		gintNRegistros=atoi(lchrArrCadenaConsulta);
 		printf("\nLos registros en el cliente %d",gintNRegistros);
+return 0;
 }
 int DllCLIObtenDatosDelProducto(PARDEPURACION char *pchrPtrCveProducto,char *pchrPtrCveProveedor,char *pchrPtrDescripcion,char *pchrPtrFamilia,char *pchrPtrCantidad)
 {
@@ -64,6 +66,7 @@ strcpy(pchrPtrFamilia,lstcProductosReg.chrArrNomDelProducto);
 strcpy(pchrPtrDescripcion,lstcProductosReg.chrArrDescProd);
 strcpy(pchrPtrCantidad,lstcProductosReg.chrArrCantidad);
 gintI++;
+return 0;
 }	
 int DllCLIObtenRegistrosDeCotizacion(PARDEPURACION char *pchrPtrCveProducto,char *pchrPtrCantidad,char *pchrPtrCostoUnitario,char *pchrPtrCostoTotal,char *pchrPtrImporteTotal,char *pchrPtrPMayoreo,char *pchrPtrExistencia)
 {
@@ -83,6 +86,7 @@ strcpy(pchrPtrPMayoreo,lstcCotizacionReg.chrArrPMayoreo);
 strcpy(pchrPtrExistencia,lstcCotizacionReg.chrArrExistencia);
 printf("\nRegistro De Cotizacion%s %s %s %s %s ",lstcCotizacionReg.chrArrCveProducto,lstcCotizacionReg.chrArrImporteTotal,lstcCotizacionReg.chrArrPMayoreo,lstcCotizacionReg.chrArrCostoTotal,lstcCotizacionReg.chrArrCantidad);	
 gintI++;
+return 0;
 }
 int DllCLIObtenRegistroDeClientes(PARDEPURACION char *pchrPtrCveCliente,char *pchrPtrNmbCliente,char *pchrPtrDireccionCliente)
 {
@@ -98,6 +102,7 @@ printf("Enviando los dato al cliente\n\n");
 	    strcpy(pchrPtrDireccionCliente,lstcClienteReg.chrArrDirCliente);
 	    gintI++;
 
+return 0;
 }
 int DllCLIEsElUltimoRegistro(PARDEPURACION int pintPar)
 {
@@ -107,6 +112,7 @@ int DllCLIEsElUltimoRegistro(PARDEPURACION int pintPar)
 	SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%","DllCLIEsElUltimoRegistro");
 #endif
 	return gintI<gintNRegistros ? 1 :0;
+return 0;
 }
 int DllCLIObtenRegistroCompras(PARDEPURACION char *pchrPtrFechaCompra,char *pchrPtrCveProducto,char *pchrPtrCveVendedor,char *pchrPtrCveProveedor,char *pchrPtrPVenta,char *pchrPtrPCompra,char *pchrPtrCantidad,char *pchrPtrFormaDePago,char *pchrPtrPMayoreo)
 {
@@ -128,6 +134,7 @@ STRUCTError lstcErrorReg;
         strcpy(pchrPtrFormaDePago,lstcComprasReg.chrArrFormaDePago);
 	strcpy(pchrPtrPMayoreo,lstcComprasReg.chrArrPMayoreo);
 gintI++;
+return 0;
 }
 int DllCLIObtenRegistroEstGananciaNDisp(PARDEPURACION char *pchrPtrCveProducto,char *pchrPtrNoDispositivos,char *pchrPtrGanancia)
 {
@@ -143,4 +150,5 @@ STRUCTError lstcErrorReg;
 	    strcpy(pchrPtrNoDispositivos,lstcEstGananciaNDispReg.chrArrNoDispositivos);
 	    strcpy(pchrPtrGanancia,lstcEstGananciaNDispReg.chrArrGanancia);
 gintI++;	    
+return 0;
 }

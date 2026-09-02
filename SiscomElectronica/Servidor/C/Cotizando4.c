@@ -91,6 +91,7 @@ LogSiscom("Se Inicia la Orden ****** %s   **** ",lchrArrIdOrden);
 SiscomEnviaRegistrosSocket(pSiscomOpePtrDato->intSocket,
 			   lchrArrBuffer,
 			   lSiscomRegProLPtrRegPrim);
+return 0;			
 }
 int ValidandoNoJuegos(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -104,6 +105,7 @@ return 0;
 else
 if(lintNoJuegos<=0)
 return 1;
+return 0;			
 }
 int ValidandoDatosCotizacion(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -440,6 +442,7 @@ lchrPtrProducto=SiscomObtenCampoRegistroProLChar("Clave",pSiscomRegProLPtrProduc
     SePuedeVender(pSiscomOpePtrDato,pSiscomRegProLPtrProdBase,pSiscomRegProLPtrProductos);
     return lfltImporte;
  }
+return 0.0;			
 }
 
 int ArgumentoDefinicionProducto(SiscomOperaciones *pSiscomOpePtrDato)
@@ -570,6 +573,7 @@ float lfltCantidad,
 	    return lfltExistencia>=lfltCantidad;
        }
   }
+return 0;			
 }
 int ValidandoExistenciaProductosDefinicion(SiscomRegistroProL *pSiscomRegProLPtrDefBase,
 					   SiscomRegistroProL *pSiscomRegProLPtrDefProducto)

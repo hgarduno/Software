@@ -528,16 +528,19 @@ lQStrCadena+="|\n";
 LogSiscom("%s",(const char *)lQStrCadena);
 
 QApplication::clipboard()->setText(lQStrCadena);
+
 }
 int QtOrdenesRegistradas::CambiandoExpendio()
 {
        CambiaExpendio();
        MuestraExpendio();
+       return 1;
 }
 int QtOrdenesRegistradas::CambiaExpendio()
 {
    QConExpsV->Corriendo();
    ConexionExpendio();
+   return 1;
 }
 void QtOrdenesRegistradas::ConexionExpendio()
 {

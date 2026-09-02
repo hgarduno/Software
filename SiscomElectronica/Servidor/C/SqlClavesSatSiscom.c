@@ -16,6 +16,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "ClaveSat%",
 		   lchrArrSql);
+return 0;
 }
 int SqlRegistraClaveSatSiscom(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -30,6 +31,7 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlClaveSat",
 SiscomEnviaRegistrosAlServidorBD("SqlClaveSat",
                                lchrArrBuffer,
                                pSiscomOpePtrDato);
+return 0;
 }
 
 void InsertToClaveSatSiscom(SiscomOperaciones *pSiscomOpePtrDato,

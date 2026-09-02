@@ -80,6 +80,8 @@ if(lQCPago.ComoPague()==QComoPago::Efectivo)
  else
  if(lQCPago.ComoPague()==QComoPago::Cancelar)
   return 1;
+
+  return 1;
 }
 void QCierraApartado::SlotPagar()
 {

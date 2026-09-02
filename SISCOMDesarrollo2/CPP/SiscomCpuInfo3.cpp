@@ -292,6 +292,8 @@ SiscomEscribeLog3Qt("Parametro Nulo:%s NumParametro=%d Cpu=%d",
 		pchrPtrNmbParametro,
 		lintNumParametro,
 		intCpuNum);
+
+return 0;
 }
 int SiscomCpuInfo::ObtenNumeroParametro(const char *pchrPtrNmbParametro)
 {

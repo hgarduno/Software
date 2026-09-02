@@ -13,6 +13,7 @@ int RNDllCNSEliminaDllYFuncion(PARDEPURACION char *pchrPtrCadenaConsulta,char *p
 	strcpy(pchrPtrSalida,pchrPtrCadenaConsulta);
 	
 
+return 0;
 }
 int RNDllCNSConsultaClientes(PARDEPURACION int pintSocket,int pintTuberia[],char *pchrArrCadenaFormateada,int pintPuertoAD ,char *pchrPtrDIPSvrAD,STRUCTError *pstcErrorPtrReg)
 {
@@ -35,6 +36,7 @@ char lchrArrCadenaEnvio[1024];
           Write(lintSocketAD,lchrArrEncabezado1,(int )strlen(lchrArrEncabezado1));
 	  RNADGeneraLtaCliente(PDEPURACION lintSocketAD,&lintNRegistros,&lstcLtaClientePtrPrim); 
 	  RNADEnviaClientes(PDEPURACION pintSocket,lintNRegistros,3,lstcLtaClientePtrPrim);
+return 0;
 }
 
 int RNDllCNSConsultaEstGananciaNDisp(PARDEPURACION int pintSocket,int pintTuberia[],char *pchrArrCadenaFormateada,int pintPuertoAD ,char *pchrPtrDIPSvrAD,STRUCTError *pstcErrorReg)
@@ -60,6 +62,7 @@ char lchrArrCadenaEnvio[1024];
 	      RNADGeneraLtaEstGananciaNDisp(PDEPURACION lintSocketAD,&lintNRegistros,&lstcLtaEstGananciaNDispPtrPrim);
 	      RNADEnviaLtaEstGananciaNDisp(PDEPURACION pintSocket,lintNRegistros,3,lstcLtaEstGananciaNDispPtrPrim);
 
+return 0;
 }
 
 
@@ -94,6 +97,7 @@ char lchrArrCadenaEnvio1[1024];
 	close(lintSocketAD);
 	close(pintSocket);
 		
+return 0;
 }
 
 int RNDllCNSConsultaProductos(PARDEPURACION int pintSocket,int pintTuberia[],char *pchrPtrCadenaConsulta,int pintPuerto,char *pchrPtrDIPSvrAD,STRUCTError *pstcErrorPtrReg)
@@ -138,6 +142,7 @@ char lchrArrCadenaEnvio[1024];
 	  lstcLtaProductosPrim=lstcLtaProductosPrim->stcLtaProductosSig;
 	  Write(pintSocket,lchrArrEncabezado,strlen(lchrArrEncabezado));
 	}
+return 0;
 }
 int RNDllCNSCotizaOrden(PARDEPURACION int pintSocket,int pintTuberia[],char *pchrPtrCadenaConsulta,int pintPuerto,char *pchrPtrDirIPSvrAD,STRUCTError *pstcErrorPtrReg)
 {
@@ -173,6 +178,7 @@ int lintNProductosAC;
 	RNDllCNSEnviaCotizacion(PDEPURACION pintSocket,lstcLtaComprasPtrPrimSalida,pstcCantidadYProductoPtrDat,lintNRegistros,pstcErrorPtrReg);
 	Write(pintSocket,&lchrCaracter,1);
 
+return 0;
 }
 int RNDllCNSEnviaCotizacion(PARDEPURACION int pintSocketCliente,STRUCTLtaCompras *pstcLtaComprasPtrPrim,STRUCTCantidadYProducto *pstcCantidadYProductoPtrDat,int pintNRegistros,STRUCTError *pstcErrorPtrReg)
 {
@@ -198,6 +204,7 @@ int lintJ;
 	 pstcLtaComprasPtrPrim=pstcLtaComprasPtrPrim->stcLtaComprasPtrSig;
        }
         RNADEnviaCotizacion(PDEPURACION pintSocketCliente,pintNRegistros,6,lstcLtaCotizacionPtrPrim,pstcErrorPtrReg);
+return 0;
 }
 int RNDllCNSFormaCamposConsulta(PARDEPURACION char *pchrPtrCadena,int *pintPtrNCampos,char *pchrPtrCadenaFormato,STRUCTCantidadYProducto *pstcCantidadYProductoReg,STRUCTError *pstcErrorReg)
 {
@@ -250,6 +257,7 @@ int RNDllCNSFormaCamposConsulta(PARDEPURACION char *pchrPtrCadena,int *pintPtrNC
 	sprintf(lchrArrRespaldo,"%s",pchrPtrCadenaFormato);
 	sprintf(pchrPtrCadenaFormato,"%s%s",lchrArrCadena,lchrArrRespaldo);
 	*/
+return 0;
 }
 int RNDllCNSObtenCantidad(PARDEPURACION char *pchrPtrCadena,STRUCTCantidadYProducto *pstcCantidadYProductoReg)
 {
@@ -284,6 +292,7 @@ int RNDllCNSObtenCantidad(PARDEPURACION char *pchrPtrCadena,STRUCTCantidadYProdu
 			strcpy(pstcCantidadYProductoReg->chrArrCveProducto,pchrPtrCadena);
 		}
 	printf("\n\n%s  %d\n",pstcCantidadYProductoReg->chrArrCveProducto, pstcCantidadYProductoReg->intCantidad);	
+return 0;
 }
 int SISCOMQuitaComa(PARDEPURACION char *pchrPtrEntrada,char *pchrPtrSalida)
 {
@@ -297,6 +306,7 @@ int SISCOMQuitaComa(PARDEPURACION char *pchrPtrEntrada,char *pchrPtrSalida)
 	else
 	strcpy(pchrPtrSalida,pchrPtrEntrada);
 
+return 0;
 }
 int RNDllCNSEliminaFechasDuplicadas(PARDEPURACION STRUCTLtaCompras **pstcLtaComprasPtrPrim,int *pintPtrRegN)
 {
@@ -331,6 +341,7 @@ int RNDllCNSEliminaFechasDuplicadas(PARDEPURACION STRUCTLtaCompras **pstcLtaComp
 	*pintPtrRegN=*pintPtrRegN-lintCuantos;
 	*pstcLtaComprasPtrPrim=lstcLtaComprasPtrPivotePrim;
 	printf("\nSe enviaran %d",*pintPtrRegN);
+return 0;
 }
 int RNDllEliminaClavesDuplicadas(STRUCTLtaCompras **pstcLtaComprasPtrPrimDatos,int *pintNRegistros)
 {
@@ -367,6 +378,7 @@ STRUCTLtaCompras *lstcLtaComprasPtrCambio=NULL;
 		   
 	}	
 
+return 0;
 }
 int RNDllCNSObtenPrecios(PARDEPURACION STRUCTLtaCompras *pstcLtaComprasPtrPrim,STRUCTLtaCompras **pstcLtaComprasPtrPrimSalida,int *pintNRegistros,STRUCTError *pstcErrorPtrReg)
 {
@@ -478,4 +490,5 @@ int lintReasigna=1;
 #else       
        printf("\nNada");
 #endif 	 
+return 0;
 }

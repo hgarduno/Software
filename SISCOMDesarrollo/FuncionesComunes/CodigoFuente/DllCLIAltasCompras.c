@@ -18,6 +18,7 @@ STRUCTDatosDeLaOperacion lstcOperacion;
         strcpy(lstcOperacion.chrArrNomDll,"libRNDllAltaCompras.so");
         strcpy(lstcOperacion.chrArrNomFuncion,"RNDllRealizaAltaCompras");
         RNADFormaProtocoloEncabezado(PDEPURACION gintSocketCliente,lstcOperacion,NULL);
+return 0;
 }
 int DllCLIAnexaDatosDeCompra(PARDEPURACION char *pchrPtrCveProducto,char *pchrPtrCveProveedor,char *pchrPtrPVenta,char *pchrPtrPCompra,
 		                     char *pchrPtrCveVendedor,char *pchrPtrCantidad,char *pchrPtrFechaCompra,char *pchrPtrFormaDePago,char *pchrPtrPMayoreo)
@@ -31,6 +32,7 @@ STRUCTError lstcErrorReg;
 	 RNADLlenaCompras(PDEPURACION pchrPtrCveProducto,pchrPtrCveProveedor,pchrPtrPVenta,pchrPtrPCompra,pchrPtrCveVendedor,pchrPtrCantidad,pchrPtrFechaCompra,pchrPtrFormaDePago,pchrPtrPMayoreo,"",&lstcComprasDat);
 	RNADCreaListaDeCompras(PDEPURACION lstcComprasDat,&gstcLtaComprasPtrPrim,&gstcLtaComprasPtrDat,&lstcErrorReg);	
 gintNRegistros++;	 
+return 0;
 }
 int DllCLIEnviaDatosDeCompraSvr(PARDEPURACION int pintAlgo)
 {
@@ -44,4 +46,5 @@ STRUCTError lstcErrorReg;
 	 RNADEnviaRegistrosDeCompras(PDEPURACION gintSocketCliente,gintNRegistros,8,gstcLtaComprasPtrPrim,&lstcErrorReg);
 	 RNADGeneraListaCompras(PDEPURACION gintSocketCliente,&gintNRegistros,&gstcLtaComprasPtrPrim,&lstcErrorReg);
 	 close(gintSocketCliente);
+return 0;
 }

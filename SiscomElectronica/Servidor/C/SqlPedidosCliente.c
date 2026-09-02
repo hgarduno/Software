@@ -39,6 +39,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "EstadosPedidosCliente%",
 		   lchrArrSql);
+return 0;
 }
 
 

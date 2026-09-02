@@ -45,6 +45,7 @@ for( ;
      pSiscomRegProLPtrDato;
      pSiscomRegProLPtrDato=SiscomSiguienteNodoRegistroProL(pSiscomRegProLPtrDato))
    SiscomAgregaCampoRegistro(pchrPtrNmbCampo,pchrPtrDato,pSiscomRegProLPtrDato);
+ return 0;
 }
 /* 29 de diciembre del 2014
  * Para hacer que la intefaz grafica solo envie los 
@@ -65,6 +66,7 @@ SiscomNodoCampoPro(pchrPtrNmbCampo,
 		   pchrPtrDato,
 		   &pSiscomRegProLPtrDato->SiscomCamProLPtrDato,
 		   &pSiscomRegProLPtrDato->SiscomCamProLPtrDato->SiscomCamProLPtrActual);
+return 0;
 }
 /* Sabado 13 de Agosto 2016 
  * Inicia con un nodo vacio para los campos 
@@ -83,6 +85,7 @@ SiscomNodoCampoPro(pchrPtrNmbCampo,
 /*
 pSiscomRegProLPtrDato->SiscomCamProLPtrDato=lSiscomCamProLPtrPrim;
 */
+return 0;
 }
 
 /* Lunes 30 de Abril del 2012
@@ -109,6 +112,8 @@ if((*pSiscomCamProLPtrDat=(SiscomCampoProL *)malloc(sizeof(SiscomCampoProL))))
 }
 else
 LogSiscom("Error al asignar memoria");
+
+return 0;
 }
 int SiscomMemoriaNodoCampoPro(const char *pchrPtrNmbCampo,
 			  const char *pchrPtrDato,
@@ -125,8 +130,10 @@ if((*pSiscomCamProLPtrDat=(SiscomCampoProL *)malloc(sizeof(SiscomCampoProL))))
  (*pSiscomCamProLPtrDat)->SiscomCamProLPtrAnt=0;
  (*pSiscomCamProLPtrDat)->vidPtrSubPrim=0;
  (*pSiscomCamProLPtrDat)->vidPtrSubAct=0;
+return 0;
 }
 
+return 0;
 }
 int SiscomNodoCampoPro2(const char *pchrPtrNmbCampo,
 			const char *pchrPtrDato,
@@ -149,6 +156,8 @@ else
 }
 (*pSiscomCamProLPtrPrim)->intNCampos++;
 (*pSiscomCamProLPtrPrim)->SiscomCamProLPtrActual=*pSiscomCamProLPtrAct;
+
+return 0;
 }
 int SiscomNodoCampoPro(const char *pchrPtrNmbCampo,
 			   const char *pchrPtrDato,
@@ -172,6 +181,8 @@ else
 }
 (*pSiscomCamProLPtrPrim)->intNCampos++;
 (*pSiscomCamProLPtrPrim)->SiscomCamProLPtrActual=*pSiscomCamProLPtrAct;
+
+return 0;
 }
 
 SiscomCampoProL *SiscomFormaRegistro(char **pchrPtrCampos,
@@ -197,6 +208,7 @@ SiscomNodoCampoPro(pchrPtrNmbCampo,
 		      pchrPtrDato,
 		      pSiscomCamProLPtrPrim,
 		      pSiscomCamProLPtrAct);
+return 0;
 }
 
 int SiscomMemoriaRegistroPro(const SiscomCampoProL *pSiscomCamProLPtrDat,
@@ -209,6 +221,7 @@ if((*pSiscomRegProLPtrDat=(SiscomRegistroProL *)malloc(sizeof(SiscomRegistroProL
 (*pSiscomRegProLPtrDat)->SiscomRegProLPtrSig=0;
 (*pSiscomRegProLPtrDat)->SiscomRegProLPtrAnt=0;
 }
+return 0;
 }
 
 int SiscomNodoRegistroPro(const SiscomCampoProL *pSiscomCamProLPtrDat,
@@ -229,6 +242,8 @@ else
 (*pSiscomRegProLPtrAct)=(*pSiscomRegProLPtrAct)->SiscomRegProLPtrSig;
 }
 (*pSiscomRegProLPtrPrim)->intNRegistros++;
+
+return 0;
 }
 
 /* Miercoles 25 de Abril del 2012 
@@ -286,6 +301,8 @@ SiscomNodoRegistroPro(lSiscomCamProLPtrPaso,
 		      pSiscomRegProLPtrPrim,
 		      pSiscomRegProLPtrAct);
 va_end(lvaListInfo);
+
+return 0;
 }
 /*
 int SiscomAnexaRegistroPro2(SiscomRegistroProL **pSiscomRegProLPtrPrim,
@@ -307,6 +324,7 @@ int SiscomAnexaRegistroPro3(SiscomRegistroProL **pSiscomRegProLPtrPrim,
 SiscomNodoRegistroPro(0,
 		      pSiscomRegProLPtrPrim,
 		      pSiscomRegProLPtrAct);
+return 0;
 }
 
 /* Miercoles 25 de Abril 2012 
@@ -426,6 +444,8 @@ if((lSiscomCamProLPtrCampo=SiscomObtenCampoRegistroProL(pchrPtrNmbCampo,
 }
 else
 LogSiscom("NO se encontro el campo %s",pchrPtrNmbCampo);
+
+return 0;
 }
 int SiscomAnexaRegistrosAlCampo(const char *pchrPtrNmbCampo,
 				SiscomRegistroProL *pSiscomRegProLPtrDat,
@@ -453,6 +473,7 @@ SiscomNodoRegistroPro(
 	lSiscomCamProLPtrPaso,
 	(SiscomRegistroProL **)&lSiscomCamProLPtrCampo->vidPtrSubPrim,
 	(SiscomRegistroProL **)&lSiscomCamProLPtrCampo->vidPtrSubAct);
+return 0;
 }
 SiscomRegistroProL *SiscomObtenRegistrosCampoProL(
 			const char *pchrPtrNmbCampo,
@@ -520,6 +541,7 @@ int SiscomEnviaRegistrosSocket(int pintSocket,
     pSiscomRegProLPtrDat=pSiscomRegProLPtrDat->SiscomRegProLPtrSig;
   }
   SiscomEnviaCadenaSocket(pintSocket,"00000");
+ return 0;
 }
 /* Miercoles 16 de mayo del 2012
  * Al momento de enviar los registros se identifco que las rutinas 
@@ -544,6 +566,7 @@ int SiscomEnviaRegistrosSocketSinFinal(int pintSocket,
     
     pSiscomRegProLPtrDat=pSiscomRegProLPtrDat->SiscomRegProLPtrSig;
   }
+ return 0;
 }
 int SiscomEnviaCadenaSocket(int pintSocket,
 			    const char *pchrPtrCadena)
@@ -566,6 +589,7 @@ LogSiscom("Se Enviaron solo %d bytes de %d",lintNBytesEnviados,lintNCaracteres);
  */
 
 
+return 0;
 }
 
 int SiscomEnviaIntSocket(int pintSocket,
@@ -577,6 +601,7 @@ char lchrArrPaso[20];
 sprintf(lchrArrPaso,"%%0%dd",pintCerosIzquierda);
 sprintf(lchrArrEnvio,lchrArrPaso,pintEnvio);
 SiscomEnviaCadenaSocket(pintSocket,lchrArrEnvio);
+return 0;
 }
 
 int SiscomEnviaRegistroSocket(int pintSocket,
@@ -607,6 +632,8 @@ SiscomEnviaRegistrosAsociadosSocket(
 		(SiscomRegistroProL *)lSiscomCamProLPtrDato->vidPtrSubPrim);
 lSiscomCamProLPtrDato=lSiscomCamProLPtrDato->SiscomCamProLPtrSig;
 }
+
+return 0;
 }
 
 int SiscomEnviaRegistrosAsociadosSocket(
@@ -625,6 +652,7 @@ int SiscomEnviaRegistrosAsociadosSocket(
   }
   else
     SiscomEnviaCadenaSocket(pintSocket,"0");
+ return 0;
 }
 int SiscomLeeCaracteresSocket(int pintSocket,
 			      int pintNCaracteres,
@@ -645,6 +673,8 @@ int lintContador;
   read(pintSocket,pchrPtrBuffer+lintContador,1);
  SiscomSocketProtocoloLog("%s",pchrPtrBuffer); 
  *(pchrPtrBuffer+lintContador)=0;
+
+ return 0;
 }
 int SiscomLeeCaracteresSocketInt(int pintSocket,
 				 int pintNCaracteres,
@@ -665,6 +695,7 @@ int SiscomLeeCampoDatoSocket(int pintSocket,
     *pchrPtrCampo=strdup(pchrPtrBuffer);
     else
     *pchrPtrCampo=0;
+ return 0;
 }
 int SiscomLeeInformacionCampoSocket(int pintSocket,
 			    char *pchrPtrBuffer)
@@ -678,6 +709,7 @@ SiscomLeeCaracteresSocket(pintSocket,
 			  pchrPtrBuffer);
 else
 *pchrPtrBuffer=0;
+return 0;
 }
 int SiscomLeeRegistrosAsociadosSocket(
 		int pintSocket,
@@ -702,6 +734,7 @@ pSiscomCamProLPtrAct->vidPtrSubAct=(void *)lSiscomRegProLPtrAct;
 SiscomLeeCaracteresSocket(pintSocket,5,pchrPtrBuffer);
 SiscomSocketProtocoloLog("Se leyeron los registros asociados");
 }
+return 0;
 }
 				      
 int SiscomLeeRegistroSocket(int pintSocket,
@@ -729,6 +762,7 @@ SiscomLeeRegistrosAsociadosSocket(pintSocket,
 			    pchrPtrBuffer,
 			    lSiscomCamProLPtrAct);
 }
+return 0;
 }
 int SiscomLeeRegistrosSocket(int pintSocket,
 			     char *pchrPtrBuffer,
@@ -788,6 +822,7 @@ struct sockaddr_in lSocAddrInCon;
 	   return lintSocket;
 
 	}
+return 0;
 }
 
 int SiscomConectateClienteNoBloqueante(const char *pchrPtrDirIpSvr,
@@ -1612,4 +1647,6 @@ for(lSisCampoProLDato=pSisRegProLPtrDato->SiscomCamProLPtrDato;
     lSisCampoProLDato=lSisCampoProLDato->SiscomCamProLPtrSig)
   lSisCampoProLAnt=lSisCampoProLDato;
 return lSisCampoProLAnt;
+
+return 0;
 }

@@ -32,7 +32,7 @@ int RNADLeeDatosDeLaOperacion(PARDEPURACION int pintSocket,STRUCTDatosDeLaOperac
         SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%000STRUCTDatosDeLaOperacion%","",*pstcDatosDeLaOperacion);
 #endif	
 SISCOMLiberaCharPtr(PDEPURACION lintNRegistros,lintNColumnas,lchrDatosProtocolo);	
-			
+return 0;			
 }
 int RNADCargaDllYEjecutaFuncion(PARDEPURACION char *pchrPtrNomDll,char *pchrPtrFuncion,int pintSocket,int pintTuberia[],int pintPuertoSAD,char *pchrPtrDirIPSAD,STRUCTError *stcErrorPtrReg)
 {
@@ -46,6 +46,7 @@ int RNADCargaDllYEjecutaFuncion(PARDEPURACION char *pchrPtrNomDll,char *pchrPtrF
 		 printf("dlsym *%s*\n*%s*\n",dlerror(),pchrPtrFuncion);
 	         SISCOMEjecutaMovimiento(PDEPURACION pintSocket,pintTuberia,pintPuertoSAD,pchrPtrDirIPSAD);
 		 lintRegreso=dlclose(lvidDll);
+return 0;			
 }
 int RNADFormaCadenaConsultaYConsultaSVR(PARDEPURACION int pintPuertoAD,char *pchrPtrDirIPAD,char *pchrPtrUsuario,char *pchrPtrPassword,char *pchrPtrDllAD,char *pchrPtrNmbFuncion,char *pchrPtrConsulta,int *pintSocketAD)
 {
@@ -73,6 +74,7 @@ sprintf(lchrArrConsulta,"%s%s",lchrArrEncabezado,lchrArrCadenaEnvio);
 SISCOMConectateServidor(PDEPURACION pintPuertoAD,pchrPtrDirIPAD,&lintSocketAD,0);
 Write(lintSocketAD,lchrArrConsulta,strlen(lchrArrConsulta));
 *pintSocketAD=lintSocketAD;
+return 0;			
 }
 int RNADFormaCadenaYRealizaAltaSVR(PARDEPURACION int pintPuertoAD,char *pchrPtrDirIPAD,char *pchrPtrUsuario,char *pchrPtrPassword,char *pchrPtrNombDll,char *pchrPtrNombFuncion,char *pchrPtrMovimiento,int  *pintPtrSocketSVR)
 {
@@ -84,6 +86,7 @@ Write(lintSocketAD,lchrArrEncabezado,strlen(lchrArrEncabezado));
 *pintPtrSocketSVR=lintSocketAD;
 
 
+return 0;			
 }
 int RNADFormaCadenaEncabezado(PARDEPURACION char *pchrPtrUsuario,char *pchrPtrPassword,char *pchrPtrNombDll,char *pchrPtrNombFuncion,char *pchrPtrMovimiento,char *pchrPtrEncabezado)
 {
@@ -105,6 +108,7 @@ char lchrArrTamano[6];
 
 
 
+return 0;			
 }
 int RNADFormaProtocoloEncabezado(PARDEPURACION int pintPipe,STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionReg,STRUCTError *pstcErrorReg)
 {
@@ -128,6 +132,7 @@ int RNADFormaProtocoloEncabezado(PARDEPURACION int pintPipe,STRUCTDatosDeLaOpera
 	sprintf(lchrArrTamano,"%05d",llngTamano);
 	strncpy(lchrArrCadena,lchrArrTamano,5);
 	Write(pintPipe,lchrArrCadena,strlen(lchrArrCadena));
+return 0;			
 }
 int RNADObtenDatosAltaProducto(PARDEPURACION int pintSocket,int *pintPtrNRegistros,STRUCTLtaProductos **pstcLtaProductosReg,STRUCTError *pstcErrorReg)
 {
@@ -163,6 +168,7 @@ int RNADObtenDatosAltaProducto(PARDEPURACION int pintSocket,int *pintPtrNRegistr
 		
 	}
 	*pstcLtaProductosReg=lstcLtaProductosPtrPrim;
+return 0;			
 }
 int RNADAsignaMemoriaLtaProducto(PARDEPURACION STRUCTLtaProductos **pstcLtaProductosPtrReg,STRUCTProductos pstcProductosDat,STRUCTError *pstcErrorPtrReg)
 {
@@ -181,6 +187,7 @@ int RNADAsignaMemoriaLtaProducto(PARDEPURACION STRUCTLtaProductos **pstcLtaProdu
 	}
 
 
+return 0;			
 }
 int RNADCreaListaDatosDelProducto(PARDEPURACION STRUCTProductos pstcProductosDat,STRUCTLtaProductos **pstcLtaProductosPtrPrim,
 				  STRUCTLtaProductos **pstcLtaProductosPtrDat,STRUCTError *pstcErrorReg)
@@ -199,6 +206,7 @@ STRUCTLtaProductos *lstcLtaProductosPtrReg=NULL;
 		(*pstcLtaProductosPtrDat)=(*pstcLtaProductosPtrDat)->stcLtaProductosSig;
 	}	
 
+return 0;			
 
 }
 int RNADObtenDatosDelProducto(PARDEPURACION int pintSocket,STRUCTProductos *pstcProductosPtrReg,STRUCTError *pstcErrorReg)
@@ -216,6 +224,7 @@ int RNADObtenDatosDelProducto(PARDEPURACION int pintSocket,STRUCTProductos *pstc
         // SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%0inSTRUCTProductos%","RNADObtenDatosDelProducto",*pstcProductosPtrReg);
 	
 #endif
+return 0;			
 }
 int RNADFormaCadenaDatosDeLaOperacion(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionDat,char *pchrPtrCadena,STRUCTError *pstcErrorPtrReg)
 {
@@ -228,6 +237,7 @@ int RNADFormaCadenaDatosDeLaOperacion(PARDEPURACION STRUCTDatosDeLaOperacion pst
 	SISCOMFormaDatosProtocoloCHAR(PDEPURACION pstcDatosDeLaOperacionDat.chrArrPassword,3,1,&lintTamano,pchrPtrCadena+lintPos);lintPos+=lintTamano;
 	SISCOMFormaDatosProtocoloCHAR(PDEPURACION pstcDatosDeLaOperacionDat.chrArrNomDll,4,1,&lintTamano,pchrPtrCadena+lintPos);lintPos+=lintTamano;
 	SISCOMFormaDatosProtocoloCHAR(PDEPURACION pstcDatosDeLaOperacionDat.chrArrNomFuncion,5,1,&lintTamano,pchrPtrCadena+lintPos);lintPos+=lintTamano;
+return 0;			
 }
 int RNADCopiaDatosDelProducto(PARDEPURACION char *pchrPtrCvePrd,char *pchrPtrNmbPrd,char *pchrPtrCvePrv,char *pchrPtrDscPrd,STRUCTProductos *pstcProductosPtrReg)
 {
@@ -243,6 +253,7 @@ int RNADCopiaDatosDelProducto(PARDEPURACION char *pchrPtrCvePrd,char *pchrPtrNmb
 	strcpy(pstcProductosPtrReg->chrArrDescProd,pchrPtrDscPrd);
 	pstcProductosPtrReg->chrArrCantidad[0]=0;
 	
+return 0;			
 }
 int RNADEnviaDatosDelProducto(PARDEPURACION int pintSocketCliente,int pintNRegistros,int pintNCampos,STRUCTLtaProductos *pstcLtaProductosPtrLta,STRUCTError *pstcErrorPtrReg)
 {
@@ -267,6 +278,7 @@ int RNADEnviaDatosDelProducto(PARDEPURACION int pintSocketCliente,int pintNRegis
 	 lintPos=0;
 	 pstcLtaProductosPtrLta=pstcLtaProductosPtrLta->stcLtaProductosSig;
 	}
+return 0;			
 }
 int RNADFormaCadenaAltaProductos(PARDEPURACION STRUCTLtaProductos *pstcLtaProductosPtrLta,int pintNRegistros,char *pchrPtrCadena,STRUCTError *pstcErrorPtrReg)
 {
@@ -287,6 +299,7 @@ while(pstcLtaProductosPtrLta)
          pstcLtaProductosPtrLta=pstcLtaProductosPtrLta->stcLtaProductosSig;
 	 printf("\n\nLa cadena de productos %s\n",pchrPtrCadena);
  }
+return 0;			
 }
 int RNADFormaCadenaProtocoloXRegistroProducto(PARDEPURACION STRUCTProductos pstcProductosDat,char *pchrPtrCadena,STRUCTError *stcErrorPtrReg)
 {
@@ -307,6 +320,7 @@ int RNADFormaCadenaProtocoloXRegistroProducto(PARDEPURACION STRUCTProductos pstc
 	 lintPos+=lintTam;
 	 printf("\n\nLa cadena de productos %s\n",pchrPtrCadena);
 	 
+return 0;			
 }
 int RNADImprimeSTRUCTDatosDeLaOperacion(STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionDat)
 {
@@ -318,11 +332,13 @@ int RNADImprimeSTRUCTDatosDeLaOperacion(STRUCTDatosDeLaOperacion pstcDatosDeLaOp
     printf("chrArrNomDll=%s,",pstcDatosDeLaOperacionDat.chrArrNomDll);
     printf("chrArrNomFuncion=%s}",pstcDatosDeLaOperacionDat.chrArrNomFuncion);
 
+return 0;			
 }
 int RNADImprimeSTRUCTProductosPtr(STRUCTProductos *pstcProductos)
 {
 	printf("[STRUCTProductos*]%x,",pstcProductos);
 
+return 0;			
 }
 int RNADImprimeSTRUCTProductos(STRUCTProductos pstcProductos)
 {
@@ -331,12 +347,14 @@ int RNADImprimeSTRUCTProductos(STRUCTProductos pstcProductos)
     printf("chrArrNomDelProducto=%s,\n", pstcProductos.chrArrNomDelProducto);
     printf("chrArrClaveProv=%s,\n",pstcProductos.chrArrClaveProv);
     printf("chrArrDescProd=%s\n}\n", pstcProductos.chrArrDescProd);
+return 0;			
 }
 int RNADImprimeSTRUCTLtaProductosPtr(STRUCTLtaProductos *pstcLtaProductos)
 {
     printf("[STRUCTLtaProductos]\n{\n");
     RNADImprimeSTRUCTProductos(pstcLtaProductos->stcProductosDat);
     printf("stcLtaProductosSig=%x\n}\n",pstcLtaProductos->stcLtaProductosSig);
+return 0;			
 }
 int RNADLeeCabeceraProtocolo(PARDEPURACION int pintSocket,char *pchrPtrCadena)
 {
@@ -350,6 +368,7 @@ char lchrArrCadena[6];
 #ifdef DEBUG
         SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%0inchar*%","RNADLeeCabeceraProtocolo",pchrPtrCadena);
 #endif	
+return 0;			
 }
 int RNADAnexaErrorALaLista(PARDEPURACION STRUCTLtaErrorAltaProductos **pstcLtaErrorAltaProductosPtrDat,
 		           STRUCTLtaErrorAltaProductos **pstcLtaErrorAltaProductosPtrPrim,
@@ -363,6 +382,7 @@ int RNADAnexaErrorALaLista(PARDEPURACION STRUCTLtaErrorAltaProductos **pstcLtaEr
    else
    RNADAsignaMemoriaErrorAltaProductos(PDEPURACION &((*pstcLtaErrorAltaProductosPtrDat)->stcLtaErrorAltaProductosSig),pstcErrorDat,pstcProductosDat);
 
+return 0;			
 }
 int RNADAsignaMemoriaErrorAltaProductos(PARDEPURACION STRUCTLtaErrorAltaProductos **pstcLtaErrorAltaProductosPtrDat,
 				        STRUCTError pstcErrorDat,STRUCTProductos pstcProductosDat)
@@ -374,6 +394,7 @@ int RNADAsignaMemoriaErrorAltaProductos(PARDEPURACION STRUCTLtaErrorAltaProducto
 		(*pstcLtaErrorAltaProductosPtrDat)->stcLtaErrorAltaProductosSig=NULL;
 
 	}
+return 0;			
 }
 int RNADAsignaMemoriaCompras(PARDEPURACION STRUCTCompras pstcComprasDat,STRUCTLtaCompras **pstcLtaComprasPtrReg,STRUCTError *pstcErrorPtrReg)
 {
@@ -388,11 +409,13 @@ int RNADAsignaMemoriaCompras(PARDEPURACION STRUCTCompras pstcComprasDat,STRUCTLt
 		(*pstcLtaComprasPtrReg)->stcLtaComprasPtrSig=NULL;
 	}	
 	else;
+return 0;			
 }
 int RNADAsignaMemoriaCharPtr(PARDEPURACION char **pchrPtrMemoria,int pintTamano,STRUCTError *pstcErrorPtrReg)
 {
 
 
+return 0;			
 }
 int RNADCreaListaDeCompras(PARDEPURACION STRUCTCompras pstcComprasDat,STRUCTLtaCompras **pstcLtaComprasPtrRegPrim,STRUCTLtaCompras **pstcLtaComprasPtrRegDat,STRUCTError *pstcErrorPtrReg)
 {
@@ -409,6 +432,7 @@ STRUCTLtaCompras *lstcLtaComprasPtrDat=NULL;
 	(*pstcLtaComprasPtrRegDat)->stcLtaComprasPtrSig=lstcLtaComprasPtrDat;
 	(*pstcLtaComprasPtrRegDat)=(*pstcLtaComprasPtrRegDat)->stcLtaComprasPtrSig;
 	}
+return 0;			
 }
 int RNADFormaCadenaCompras(PARDEPURACION STRUCTLtaCompras *pstcLtaComprasPtrReg,char **pchrPtrCadenaReg,STRUCTError *pstcErrorPtrReg)
 {
@@ -422,6 +446,7 @@ lintPos=strlen(*pchrPtrCadenaReg);
 		SISCOMFormaDatosProtocoloCHAR(PDEPURACION pstc.chrArrClaveProd,1,1,&lintTam,pchrPtrCadena+lintPos);		
 		
 	}*/
+return 0;			
 }
 
 int RNADEnviaRegistrosDeCompras(PARDEPURACION int pintSocketCliente,int pintNRegistros,int pintNCampos,STRUCTLtaCompras *pstcLtaComprasPtrDat,STRUCTError *pstcErrorPtrReg)
@@ -466,6 +491,7 @@ int i;
 	}
     }
 
+return 0;			
 }
 int RNADRegistroVacioCompras(PARDEPURACION int pintSocketCliente)
 {
@@ -499,6 +525,7 @@ int lintTam,lintPos=0;
 printf("No se que pasa %s\n",lchrArrCadena);
 			
 
+return 0;			
 
 }
 int RNADLlenaCompras(PARDEPURACION char *pchrPtrCveProducto,char *pchrPtrCveProveedor,char *pchrPtrPVenta,char *pchrPtrPCompra,
@@ -518,6 +545,7 @@ int RNADLlenaCompras(PARDEPURACION char *pchrPtrCveProducto,char *pchrPtrCveProv
 	strcpy(pstcComprasPtrReg->chrArrFormaDePago,pchrPtrFormaDePago);
 	strcpy(pstcComprasPtrReg->chrArrPMayoreo,pchrPtrPMayoreo);	
 	strcpy(pstcComprasPtrReg->chrArrExistencia,pchrPtrExistencia);
+return 0;			
 }
 int RNADObtenRegistroDeCompras(PARDEPURACION int pintSocketCliente,STRUCTCompras *pstcComprasPtrReg,STRUCTError *pstcErrorPtrReg)
 {
@@ -538,6 +566,7 @@ int RNADObtenRegistroDeCompras(PARDEPURACION int pintSocketCliente,STRUCTCompras
 					pstcComprasPtrReg->chrArrCveProveedor,pstcComprasPtrReg->chrArrFormaDePago,
 					pstcComprasPtrReg->chrArrPMayoreo,pstcComprasPtrReg->chrArrExistencia);
 #endif	
+return 0;			
 }
 int RNADGeneraListaCompras(PARDEPURACION int pintSocketCliente,int *pintPtrNRegistros,STRUCTLtaCompras **pstcLtaComprasPtrPrim,STRUCTError *pstcErrorPtrReg)
 {
@@ -557,6 +586,7 @@ int lintI;
                  RNADCreaListaDeCompras(PDEPURACION lstcComprasReg,pstcLtaComprasPtrPrim,&lstcLtaComprasPtrDat,pstcErrorPtrReg);
 		}	
 		
+return 0;			
 }
 int RNADAsignaMemoriaLtaCotizacion(PARDEPURACION STRUCTCotizacion pstcCotizacionDat,STRUCTLtaCotizacion **pstcLtaCotizacionPtrReg,STRUCTError *pstcErrorPtrReg)
 {
@@ -568,6 +598,7 @@ int RNADAsignaMemoriaLtaCotizacion(PARDEPURACION STRUCTCotizacion pstcCotizacion
            (*pstcLtaCotizacionPtrReg)->stcCotizacionDat=pstcCotizacionDat;
 	   (*pstcLtaCotizacionPtrReg)->stcLtaCotizacionPtrSig=NULL;
 	}	
+return 0;			
 }
 int RNADCreaListaCotizacion(PARDEPURACION STRUCTCotizacion pstcCotizacionDat,STRUCTLtaCotizacion **pstcLtaCotizacionPtrPrim,STRUCTLtaCotizacion **pstcLtaCotizacionPtrDat,STRUCTError *pstcErrorPtrReg)
 {
@@ -584,6 +615,7 @@ STRUCTLtaCotizacion *lstcLtaCotizacionPtrReg;
 	   	   *pstcLtaCotizacionPtrDat = (*pstcLtaCotizacionPtrDat)->stcLtaCotizacionPtrSig;
 	
 		}
+return 0;			
 }
 int RNADEnviaCotizacion(PARDEPURACION int pintSocket,int pintNRegistros,int pintNCampos,STRUCTLtaCotizacion *pstcLtaCotizacionPtrReg,STRUCTError *pstcErrorPtrReg)
 {
@@ -615,6 +647,7 @@ int lintPos=0,lintTam=0;
 		 pstcLtaCotizacionPtrReg=pstcLtaCotizacionPtrReg->stcLtaCotizacionPtrSig;
 
 		}		
+return 0;			
 }
 int RNADGeneraListaCotizacion(PARDEPURACION int pintSocketCliente,int *pintPtrNRegistros,STRUCTLtaCotizacion **pstcLtaCotizacionPtrPrim,STRUCTError *pstcErrorPtrReg)
 {
@@ -634,6 +667,7 @@ STRUCTLtaCotizacion *lstcLtaCotizacionPtrReg=NULL;
                         RNADCreaListaCotizacion(PDEPURACION lstcCotizacionDat,pstcLtaCotizacionPtrPrim,&lstcLtaCotizacionPtrReg,pstcErrorPtrReg);
 		}
 
+return 0;			
 }
 int RNADLlenaCotizacion(PARDEPURACION STRUCTCompras pstcComprasDat,STRUCTCantidadYProducto pstcCantidadYProductoDat,STRUCTCotizacion *pstcCotizacionPtrReg,float *pfltPtrCostoTotal,STRUCTError *pstcErrorPtrReg)
 {
@@ -653,6 +687,7 @@ float lfltPMayoreo;
 		sprintf(pstcCotizacionPtrReg->chrArrPMayoreo,"%.3f",lfltPMayoreo);
 		strcpy(pstcCotizacionPtrReg->chrArrExistencia,pstcComprasDat.chrArrExistencia);
 	
+return 0;			
 }
 int RNADObtenRegistroCotizacion(PARDEPURACION int pintSocketCliente,STRUCTCotizacion *pstcCotizacionPtrReg,STRUCTError *pstcErrorReg)
 {
@@ -671,6 +706,7 @@ int RNADObtenRegistroCotizacion(PARDEPURACION int pintSocketCliente,STRUCTCotiza
 
 	printf("\n%s %s",pstcCotizacionPtrReg->chrArrCveProducto,pstcCotizacionPtrReg->chrArrCantidad);
 
+return 0;			
 }
 int RNFormaCadenaTipoDePrecio(char *pchrPtrPCantidad,char *pchrPtrCSalida)
 {
@@ -691,6 +727,7 @@ int RNFormaCadenaTipoDePrecio(char *pchrPtrPCantidad,char *pchrPtrCSalida)
 	}
        strcat(pchrPtrCSalida,pchrPtrPCantidad+lintSuma);
        strcat(pchrPtrCSalida,";m");
+return 0;			
 }
 int RNADFechasDelPrecio(PARDEPURACION char *pchrPtrFechaHoy,char *pchrPtrFechaMesAnterior)
 {
@@ -714,6 +751,7 @@ lintAno=stctm->tm_year+1900-1;
 sprintf(pchrPtrFechaMesAnterior,"%d.%d.%d",lintAno,stctm->tm_mday,lintMes);
 
 
+return 0;			
 }
 int RNADLlenaCliente(PARDEPURACION char *pchrPtrCveCliente,char *pchrPtrNombre,char *pchrPtrDireccion,STRUCTCliente *pstcClientePtrDat)
 {
@@ -723,6 +761,7 @@ int RNADLlenaCliente(PARDEPURACION char *pchrPtrCveCliente,char *pchrPtrNombre,c
 		strcpy(pstcClientePtrDat->chrArrCveCliente,pchrPtrCveCliente);
 		strcpy(pstcClientePtrDat->chrArrNmbCliente,pchrPtrNombre);
 		strcpy(pstcClientePtrDat->chrArrDirCliente,pchrPtrDireccion);
+return 0;			
 }
 int RNADAsignaMemoriaLtaCliente(PARDEPURACION STRUCTCliente pstcClienteDat,STRUCTLtaCliente **pstcLtaClientePtrDat)
 {
@@ -736,6 +775,7 @@ int RNADAsignaMemoriaLtaCliente(PARDEPURACION STRUCTCliente pstcClienteDat,STRUC
 		}	
 		else
 		fprintf(stdout,"Error al asignar memoria para la LtaCliente\n");
+return 0;			
 }
 int RNADCreaLtaCliente(PARDEPURACION STRUCTCliente pstcClienteDat, STRUCTLtaCliente **pstcLtaClientePtrPrim,STRUCTLtaCliente **pstcLtaClientePtrUlt)
 {
@@ -753,6 +793,7 @@ STRUCTLtaCliente *lstcLtaClientePtrReg=NULL;
 	  (*pstcLtaClientePtrUlt)->stcLtaClienteSig=NULL;
 
 	}	
+return 0;			
 }
 int RNADObtenRegistroCliente(PARDEPURACION int pintSocketCliente,STRUCTCliente *pstcClientePtrReg)
 {
@@ -762,6 +803,7 @@ int RNADObtenRegistroCliente(PARDEPURACION int pintSocketCliente,STRUCTCliente *
 	SISCOMObtenDatoProtocoloCHAR(PDEPURACION pintSocketCliente,pstcClientePtrReg->chrArrCveCliente,NULL);	
 	SISCOMObtenDatoProtocoloCHAR(PDEPURACION pintSocketCliente,pstcClientePtrReg->chrArrNmbCliente,NULL);	
 	SISCOMObtenDatoProtocoloCHAR(PDEPURACION pintSocketCliente,pstcClientePtrReg->chrArrDirCliente,NULL);	
+return 0;			
 }
 int RNADGeneraLtaCliente(PARDEPURACION int pintSocketCliente,int *pintPtrNRegistros,STRUCTLtaCliente **pstcLtaClientePtrPrim)
 {
@@ -783,6 +825,7 @@ STRUCTCliente lstcClienteReg;
 
 										
 			
+return 0;			
 }
 int RNADEnviaClientes(PARDEPURACION int pintSocket,int pintNRegistros,int pintNCampos,STRUCTLtaCliente *pstcLtaClientePtrReg)
 {
@@ -808,6 +851,7 @@ lintTamCad=strlen(lchrArrCadenita);
          lintPos=lintTam=0;
          pstcLtaClientePtrReg=pstcLtaClientePtrReg->stcLtaClienteSig;
  	}
+return 0;			
 }
 
 int RNADLlenaStcEstGananciaNDisp(PARDEPURACION char *pchrPtrCveProducto,char *pchrPtrNoDispositivos,char *pchrPtrGanancia,STRUCTEstGananciaNDisp *pstcEstGananciaNDispPtrReg)
@@ -818,6 +862,7 @@ int RNADLlenaStcEstGananciaNDisp(PARDEPURACION char *pchrPtrCveProducto,char *pc
 	strcpy(pstcEstGananciaNDispPtrReg->chrArrCveProducto,pchrPtrCveProducto);
 	strcpy(pstcEstGananciaNDispPtrReg->chrArrNoDispositivos,pchrPtrNoDispositivos);
 	strcpy(pstcEstGananciaNDispPtrReg->chrArrGanancia,pchrPtrGanancia);	
+return 0;			
 }
 int RNADAsignaMemoriaLtaEstGananciaNDisp(PARDEPURACION STRUCTEstGananciaNDisp pstcEstGananciaNDispDat,STRUCTLtaEstGananciaNDisp **pstcLtaEstGananciaNDispPtrReg)
 {
@@ -832,6 +877,7 @@ int RNADAsignaMemoriaLtaEstGananciaNDisp(PARDEPURACION STRUCTEstGananciaNDisp ps
 		else
 			printf("\nSe genero un error al asigna la memoria\n");
 		
+return 0;			
 }
 int RNADCreaLtaEstGananciaNDisp(PARDEPURACION STRUCTEstGananciaNDisp pstcEstGananciaNDispDat,STRUCTLtaEstGananciaNDisp **pstcLtaEstGananciaNDispPtrPrim,STRUCTLtaEstGananciaNDisp **pstcLtaEstGananciaNDispPtrUlt)
 {
@@ -849,6 +895,7 @@ STRUCTLtaEstGananciaNDisp *lstcLtaEstGananciaNDispPtrReg=NULL;
 		(*pstcLtaEstGananciaNDispPtrUlt)->stcLtaEstGananciaNDispSig=NULL;
 	 }	 
 		
+return 0;			
 }
 int RNADObtenRegistroLtaEstGananciaNDisp(PARDEPURACION int pintSocketCliente,STRUCTEstGananciaNDisp *pstcEstGananciaNDispPtrReg)
 {
@@ -858,6 +905,7 @@ int RNADObtenRegistroLtaEstGananciaNDisp(PARDEPURACION int pintSocketCliente,STR
 	SISCOMObtenDatoProtocoloCHAR(PDEPURACION pintSocketCliente,pstcEstGananciaNDispPtrReg->chrArrCveProducto,NULL);	
 	SISCOMObtenDatoProtocoloCHAR(PDEPURACION pintSocketCliente,pstcEstGananciaNDispPtrReg->chrArrNoDispositivos,NULL);	
 	SISCOMObtenDatoProtocoloCHAR(PDEPURACION pintSocketCliente,pstcEstGananciaNDispPtrReg->chrArrGanancia,NULL);	
+return 0;			
 }
 int RNADGeneraLtaEstGananciaNDisp(PARDEPURACION int pintSocketCliente,int *pintPtrNRegistros,STRUCTLtaEstGananciaNDisp **pstcLtaEstGananciaNDispPtrPrim)
 {
@@ -876,6 +924,7 @@ STRUCTEstGananciaNDisp lstcEstGananciaNDispDat;
          RNADObtenRegistroLtaEstGananciaNDisp(PDEPURACION pintSocketCliente,&lstcEstGananciaNDispDat);
          RNADCreaLtaEstGananciaNDisp(PDEPURACION lstcEstGananciaNDispDat,pstcLtaEstGananciaNDispPtrPrim,&lstcLtaEstGananciaNDispPtrReg);
        }
+return 0;			
 }
 int RNADEnviaLtaEstGananciaNDisp(PARDEPURACION int pintSocket,int pintNRegistros,int pintNCampos,STRUCTLtaEstGananciaNDisp *pstcLtaEstGananciaNDispPtrDat)
 {
@@ -900,6 +949,7 @@ int lintTamCad;
                 lintPos=lintTam=0;
                 pstcLtaEstGananciaNDispPtrDat=pstcLtaEstGananciaNDispPtrDat->stcLtaEstGananciaNDispSig;
                }
+return 0;			
 }
 int RNADObtenDllConsultaYFuncion(PARDEPURACION char *pchrPtrCadenaRegreso,char *pchrPtrNmbDllAEjecutar,char *pchrPtrNmbFuncion)
 {
@@ -914,4 +964,5 @@ int lintI;
 	pchrPtrNmbFuncion[lintI]=0;
 
 
+return 0;			
 }

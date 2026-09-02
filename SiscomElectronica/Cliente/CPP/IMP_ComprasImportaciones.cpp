@@ -580,6 +580,8 @@ const char *QComprasImportaciones::FormaSignalCambiandoDato(const char *pchrPtrD
 {
 char lchrArrSenal[120];
 sprintf(lchrArrSenal, "%s",SIGNAL(textChanged(const QString &)));
+
+return 0;
 }
 void QComprasImportaciones::GuardaCompraImportacion()
 {

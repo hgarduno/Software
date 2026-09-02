@@ -47,4 +47,5 @@ SiscomConsultasSqlOperaciones(lchrPtrBuffer,
 		   pSiscomOpePtrDato,
 		   pchrPtrAsociadoReg,
 		   lchrPtrSql);
+return 0;
 }

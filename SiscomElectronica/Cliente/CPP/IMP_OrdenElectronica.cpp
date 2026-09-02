@@ -733,7 +733,7 @@ intModificaOrdenPorCajaCentral=pintModificaOrden;
 }
 const char *QOrdenElectronica::ImporteTotal()
 {
-  (*PProductos.at(PProductos.count()-1))["Importe"];
+  return (*PProductos.at(PProductos.count()-1))["Importe"];
 }
 const char *QOrdenElectronica::IdCaja()
 {

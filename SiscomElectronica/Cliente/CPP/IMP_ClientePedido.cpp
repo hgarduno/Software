@@ -190,6 +190,8 @@ int lintRegistroCliente;
     ControlesClienteRegistrado();
     return 0;
   }
+
+  return 1;
 }
 int QClientePedido::RegistrandoCelular()
 {
@@ -230,6 +232,8 @@ const char *QClientePedido::IdTipoOrden()
 }
 int QClientePedido::MuestraClientesSimilares()
 {
+
+return 0;
 }
 
 void QClientePedido::ObtenDireccionEscuela()

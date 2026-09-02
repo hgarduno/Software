@@ -68,6 +68,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   "PedidoExpendio%DetallePedidoExpendio%",
 		   lchrArrSqlPedidoExpendioHoy,
 		   lchrArrSqlDetallePedidoExpendio);
+return 0;
 }
 int SqlServidoresSiscom(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -100,6 +101,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			      pSiscomOpePtrDato,
 			      "Servidores%",
 			      lchrArrSql);
+return 0;
 
 }
 int SqlExistenciaExpendioBodegaProducto(SiscomOperaciones *pSisOpePtrDato)
@@ -118,6 +120,7 @@ SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,
 					lchrArrBuffer,
 					pSisOpePtrDato);
 
+return 0;
 }
 void SqlConsultaPedidoExpendioHoy(SiscomOperaciones *pSiscomOpePtrDato,
 				  char *pchrPtrSql)
@@ -163,6 +166,7 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlIniciaPedidoExpendio",
                                      InsertToPedidosMaterial);
 
 SiscomEnviaRegistrosAlServidorBD("SqlIniciaPedidoExpendio",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 int SqlEliminaProductoPedido(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -176,6 +180,7 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlIniciaPedidoExpendio",
                                      DeleteFromDetallePedidoMaterial);
 
 SiscomEnviaRegistrosAlServidorBD("SqlIniciaPedidoExpendio",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 int SqlActualizaProductoPedido(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -189,6 +194,7 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlIniciaPedidoExpendio",
                                      UpdateFromDetallePedidoMaterial);
 
 SiscomEnviaRegistrosAlServidorBD("SqlIniciaPedidoExpendio",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 int SqlActualizaObservacionesPedido(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -202,6 +208,7 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlIniciaPedidoExpendio",
                                      UpdateFromPedidosMaterialObservaciones);
 
 SiscomEnviaRegistrosAlServidorBD("SqlIniciaPedidoExpendio",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 
 int SqlProductoAPedidoExpendio(SiscomOperaciones *pSiscomOpePtrDato)
@@ -215,11 +222,13 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlIniciaPedidoExpendio",
                                      pSiscomOpePtrDato,
                                      InsertToDetallePedidoMaterial);
 SiscomEnviaRegistrosAlServidorBD("SqlIniciaPedidoExpendio",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 int SqlEstadoPedidoExpendioProducto(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];
 SiscomEnviaRegistrosAlServidorBD("SqlEstadoPedidoExpendioProducto",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 int SqlRegistraPedido(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -257,6 +266,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlEstadoPedidoExpendioProducto",
                                      InsertToEstadoPedidoExpendioProducto);
 
 
+return 0;
 }
 int SqlEnviaPedidoMatriz(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -268,6 +278,7 @@ char lchrArrBuffer[1024];
 			     0,
 			     pSiscomOpePtrDato);
 
+return 0;
 }
 void InsertToPedidosMaterial(SiscomOperaciones *pSiscomOpePtrDato,
                       SiscomRegistroProL *pSiscomRegProLPtrDato,

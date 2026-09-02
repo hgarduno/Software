@@ -16,6 +16,8 @@ int SiscomAsignaMemoriaNodoArreglo(const char *pchrPtrNombre,
    (*pSiscomVALPtrNodo)->SiscomVIAPtrSig=0;
 
  }
+
+ return 0;
 }
 
 int SiscomNodoVariableArregloIni(const char *pchrPtrNombre,
@@ -34,6 +36,7 @@ else
   (*pSiscomVIALPtrAct)->SiscomVIAPtrSig=lSiscomVIALPtrDato;
   (*pSiscomVIALPtrAct)=(*pSiscomVIALPtrAct)->SiscomVIAPtrSig;
 }
+return 0;
 }
 				 
 int SiscomVarIniAsignaMemoriaNodo(const SiscomVariableIni *pSiscomVIniPtrDato,
@@ -330,6 +333,9 @@ if((lFlePtrArchivo=fopen(pchrPtrArchivo,"r")))
 }
 else
 return SiscomGeneraError(2,"Error al abrir el archivo");
+
+
+return 0;
 }
 
 
@@ -388,6 +394,7 @@ return atoi(lSiscomVarIniRegreso.chrArrDato);
 else
 LogSiscom("No se encontro la variable:%s",pchrPtrNombre);
 
+return 0;
 }
 
 int SiscomVariableIniAChar(const char *pchrPtrNombre,
@@ -708,4 +715,6 @@ for(lintContador=0;
     lSisVarsIniDatosPaso++)
 *((*pchrPtrVariables)+lintContador)=strdup(lSisVarsIniDatosPaso->chrArrDato);
 *((*pchrPtrVariables)+lintContador)=0;
+
+return 0;
 }

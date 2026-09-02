@@ -364,6 +364,7 @@ return !QLECalle->text().isNull() 	 &&
        SepAsen;
 
 */
+return 0;			
 }
 
 void QSisSepomex::GeneraSenalDireccion()

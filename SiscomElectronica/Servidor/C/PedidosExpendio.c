@@ -246,6 +246,7 @@ SiscomAsociadosArgumentoLog("SqlIniciaPedidoExpendio",
                               "SentenciasSql",
                               lchrArrBuffer,
                               pSiscomOpePtrDato);
+return 0;
 }
 int EnviandoProductoPedidoExpendio(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -254,6 +255,7 @@ SiscomAsociadosArgumentoLog("SqlIniciaPedidoExpendio",
                               "SentenciasSql",
                               lchrArrBuffer,
                               pSiscomOpePtrDato);
+return 0;
 }
 
 int EnviaRegistroPedido(SiscomOperaciones *pSiscomOpePtrDato)
@@ -263,6 +265,7 @@ SiscomAsociadosArgumentoLog("SqlIniciaPedidoExpendio",
                               "SentenciasSql",
                               lchrArrBuffer,
                               pSiscomOpePtrDato);
+return 0;
 }
 
 int AgregaFechaSinHora(SiscomOperaciones *pSiscomOpePtrDato)

@@ -49,6 +49,7 @@ for(lintI=0;lintI<*pintPtrNRegistros;lintI++)
  PQexec(conexion,"end");
  PQclear(resultado);
  PQfinish(conexion);
+return 0;
 }
 																//                                                                    
 int ADDllConsultaClientesPostgreSQL(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionDat,char *pchrPtrConsulta,STRUCTLtaCliente **pstcLtaClientePtrPrim,int *pintPtrNRegistros,int *pintPtrNColumnas,STRUCTError *pstcErrorPtrReg)
@@ -87,6 +88,7 @@ PQclear(resultado);
 	PQclear(resultado);
 	PQfinish(conexion);
 
+return 0;
 }
 int ADDllConsultaComprasPostgreSQL(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionDat,char *pchrPtrConsulta,STRUCTLtaCompras **pstcLtaComprasPtrPrim,int *pintPtrNRegistros,int *pintPtrNColumnas,STRUCTError *pstcErrorPtrReg)
 {
@@ -137,6 +139,7 @@ PQclear(resultado);
 	PQexec(conexion,"end");
 	PQclear(resultado);
 	PQfinish(conexion);
+return 0;
 }
 int ADDllConsultasPostgreSQL(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionDat,char *pchrPtrConsulta,STRUCTLtaProductos **pstcLtaProductosPtrReg,int *pintNRegistros,int *pintNColumnas,STRUCTError *pstcErrorPtrReg)
 {
@@ -199,6 +202,7 @@ PQexec(conexion,"fetch all in con");
 	PQfinish(conexion);
 
 	*pstcLtaProductosPtrReg=ltaproductosprim;
+return 0;
 }
 /*
 int ADDllConsultasPostgreSQL(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionDat,STRUCTLtaProductos **pstcLtaProductosPtrReg,int *pintNRegistros,int *pintNColumnas,STRUCTError *pstcErrorPtrReg)

@@ -15,6 +15,7 @@ int DllCLIEliminaAnterior(PARDEPURACION int Algo)
 {
 	gstcLtaVentasPtrPrim=gstcLtaVentasPtrDat=NULL;
 
+return 0;
 }
 int DllCLIConectateSvrSISCOMAltaVentas(PARDEPURACION int pintPto, char *pchrPtrDirIP, char *pchrPtrUsuario, char *pchrPtrPassword, int pintMovimiento)
 {
@@ -31,6 +32,7 @@ STRUCTDatosDeLaOperacion lstcOperacion;
         strcpy(lstcOperacion.chrArrNomDll, "libRNDllAltaVentas.so");
         strcpy(lstcOperacion.chrArrNomFuncion, "RNDllRealizaAltaVentas");
         RNADFormaProtocoloEncabezado(PDEPURACION gintSocketCliente, lstcOperacion, NULL);
+return 0;
 }
 
 int DllCLIAnexaDatosDeVenta(PARDEPURACION  char *pchrPtrFechaVenta, char *pchrPtrCveVenta, char *pchrPtrCveProducto, char *pchrPtrCantidad, char *pchrPtrCveCliente, char *pchrPtrPUnitario, char *pchrPtrPTotal,char *pchrPtrNOrden)
@@ -46,6 +48,7 @@ STRUCTError lstcErrorReg;
  RNADLlenaVentas(PDEPURACION pchrPtrFechaVenta, pchrPtrCveVenta, pchrPtrCveProducto, pchrPtrCantidad, pchrPtrCveCliente, pchrPtrPUnitario, pchrPtrPTotal,pchrPtrNOrden, &lstcVentasDat);
  RNADCreaListaDeVentas(PDEPURACION lstcVentasDat, &gstcLtaVentasPtrPrim, &gstcLtaVentasPtrDat, &lstcErrorReg);
  gintNRegistros++;
+return 0;
 }
 
 int DllCLIEnviaDatosDeVentaSvr(PARDEPURACION int pintAlgo)
@@ -58,4 +61,5 @@ STRUCTError lstcErrorReg;
 
 	 RNADEnviaRegistrosDeVentas(PDEPURACION gintSocketCliente, gintNRegistros, 7, gstcLtaVentasPtrPrim, &lstcErrorReg);
 	 close(gintSocketCliente);
+return 0;
 }

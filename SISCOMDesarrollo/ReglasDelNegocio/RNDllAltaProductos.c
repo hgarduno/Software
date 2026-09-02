@@ -18,6 +18,7 @@ int RNDLLRealizaAltaProductos(PARDEPURACION int pintSocket,int pintTuberia[],int
 	RNDllUneEncabezadoYProductos(PDEPURACION pintTuberia[0],lchrArrCadena,lchrArrCadenaProtocolo,&lstcErrorReg);	
 	RNDllEnviaDatosAlServidorAD(PDEPURACION pintPuerto,pchrPtrDirIPSAD,lstcLtaProductosPtrReg,lintNRegistros,lchrArrCadenaProtocolo,&lstcErrorReg);
 	Write(pintSocket,&a,1);
+return 0;
 }
 int RNDllUneEncabezadoYProductos(PARDEPURACION int pintTuberia,char *pchrPtrCadProductos,char *pchrPtrRegreso,STRUCTError *pstcErrorPtrReg)
 {
@@ -30,6 +31,7 @@ int RNDllUneEncabezadoYProductos(PARDEPURACION int pintTuberia,char *pchrPtrCadP
 	lintTamano=atoi(lchrArrTamano);	
 	Read(pintTuberia,lchrArrCadena,lintTamano);
 	sprintf(pchrPtrRegreso,"%05d%s%s",lintTamano,lchrArrCadena,pchrPtrCadProductos);
+return 0;
 }
 int RNDllEnviaDatosAlServidorAD(PARDEPURACION int pintPuerto,char *pchrPtrDirIPSAD,STRUCTLtaProductos *pstcLtaProductosPtrDat,int pintNRegistros,char *pchrPtrEncabezado,STRUCTError *pstcErrorPtrReg)
 {
@@ -40,6 +42,7 @@ int RNDllEnviaDatosAlServidorAD(PARDEPURACION int pintPuerto,char *pchrPtrDirIPS
 	RNADEnviaDatosDelProducto(PDEPURACION lintSocketClienteAD,pintNRegistros,5,pstcLtaProductosPtrDat,NULL);
 	Read(lintSocketClienteAD,&a,1);
 	RNDllEjecutaReplicacionProductos(pstcLtaProductosPtrDat,pintNRegistros,pchrPtrEncabezado);
+return 0;
 }
 void RNDllEjecutaReplicacionProductos(STRUCTLtaProductos *pstcLtaProductosPtrDat,int pintNRegistros,char *pchrPtrEncabezado)
 {

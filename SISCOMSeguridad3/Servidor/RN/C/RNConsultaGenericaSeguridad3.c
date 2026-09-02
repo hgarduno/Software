@@ -833,6 +833,7 @@ int lintContador;
 								   pSLRCSisDat,
 								   pintPtrNRegistros);
 
+return 0;			
 }
 StcLtaRegComSISCOM *EjecutaConsulta(int pintPtoComAD,
 				    const char *pchrPtrDirIpSvrAD,
@@ -857,5 +858,6 @@ int RNConsultaGenerica(int pintSCliente,
 						       "libADConsultaGenericaSeguridad3.so",
 						       "ADConsultas",
 						       EjecutaConsulta);
+return 0;			
 }
 

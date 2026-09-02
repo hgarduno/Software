@@ -285,13 +285,18 @@ int CQUsuario::operator==(char **pchrPtrDatUsuario)
 {
 
 
+return 0;			
 }
+/*
 CQUsuario CQUsuario::operator=(CQUsuario pCQUsuario)
 {
+ return CQUsuario ;
 }
+ */
 int CQUsuario::operator==(QStringList )
 {
 
+return 0;			
 }
 void CQUsuario::PonFirma(const char *pchrPtrFirma)
 {
@@ -317,6 +322,7 @@ void CQUsuarios::AnexaUsuario(CQUsuario *pCQUsuario)
 CQUsuario *CQUsuarios::operator[](long plngIdUsuario)
 {
 
+return 0;			
 }
 
 CQUsuario *CQUsuarios::operator[](int pintNumUsuario)
@@ -324,6 +330,7 @@ CQUsuario *CQUsuarios::operator[](int pintNumUsuario)
 CQUsuario *lCQURegreso;
 	printf("Obteniendo el usuario %d\n",pintNumUsuario);
 	return (lCQURegreso=QPLUsuarios.at(pintNumUsuario)) ?  lCQURegreso : 0;
+return 0;			
 }
 int CQOperacionesUsuario::RegistraUsuario(const char *pchrPtrAplicacion,
 					   CQUsuario *pCQUsuario)

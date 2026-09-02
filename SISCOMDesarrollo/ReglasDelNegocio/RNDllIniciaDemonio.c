@@ -27,6 +27,7 @@ int CargaProcesosYDll(int pintSocket,unsigned long plngSHMID,int pintPtoSvrAD,ch
 AsignaMemoriaParaArgumentos(pchrPtrArgs,8);
 GeneraArgumentos(pintSocket,pchrPtrBinario,pintPtoSvrAD,pchrPtrDirIPSvrAD,plngSHMID,pchrPtrArgs);
 
+return 0;
 }
 void CargaServidoresDeReplicacion(void *pvidPtrMemoria)
 {
@@ -66,6 +67,7 @@ void *lvidSHMDatos;
 *plngPtrReg=CreaMemoriaCompartida(&lvidSHMDatos,CuantosProcesosExisten());
 LeeNombresDeProcesosYCopiaSHM(lvidSHMDatos);
 CargaServidoresDeReplicacion(lvidSHMDatos);
+return 0;
 }
 void AlmacenaSHMID(unsigned long punslngSHMId)
 {

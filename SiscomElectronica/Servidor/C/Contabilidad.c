@@ -171,4 +171,5 @@ char lchrArrBuffer[256];
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
 SiscomAsociadoAsociadoLog("Envio","Productos",lchrArrBuffer,pSisOpePtrDato);
 
+return 0;
 }

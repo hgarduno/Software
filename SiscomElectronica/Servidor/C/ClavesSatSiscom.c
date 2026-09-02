@@ -63,6 +63,7 @@ SiscomAsociadosArgumentoLog("SqlClaveSat",
                             "SentenciasSql",
                             lchrArrBuffer,
                             pSiscomOpePtrDato);
+return 0;
 }
 
 

@@ -26,6 +26,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDatos,
 		   "Productos%",
 		   lchrArrSql);
+return 0;
 }
 int SqlExistenciaExpendioOrigenDestino(SiscomRegistroProL *pSisRegProLPtrExpendios,
 				       SiscomOperaciones *pSiscomOpePtrDatos)
@@ -53,6 +54,7 @@ SiscomConsultasSqlSistema("Expendio",
 			   pSiscomOpePtrDatos,
 			   "Existencia%",
 			   lchrArrSql);
+return 0;
 }
 int SqlRegistraTransferenciaExpendioOrigen(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -79,6 +81,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlExpendioOrigen",
 				       lchrArrBufferSql,
 				       pSiscomOpePtrDato,
 				       UpdateToExistencias);
+return 0;
 }
 int SqlRegistraTransferenciaExpendioDestino(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -104,6 +107,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlExpendioDestino",
 				       lchrArrBufferSql,
 				       pSiscomOpePtrDato,
 				       UpdateToExistenciasDestino);
+return 0;
 }
 void InsertIntoTransferencia(SiscomOperaciones *pSiscomOpePtrDato,
 			          SiscomRegistroProL *pSiscomRegProLPtrDatos,

@@ -401,12 +401,14 @@ int GeneraIdPersona4(SiscomOperaciones *pSiscomOpePtrDato)
 {
 if(EsPersonaFisica(pSiscomOpePtrDato))
 SiscomIdAsociadosCampoEntrada("Envio","Persona","IdPersona",pSiscomOpePtrDato);
+return 0;			
 }
 
 int GeneraIdEmpresa4(SiscomOperaciones *pSiscomOpePtrDato)
 {
 if(!EsPersonaFisica(pSiscomOpePtrDato))
 SiscomIdAsociadosCampoEntrada("Envio","Empresa","IdEmpresa",pSiscomOpePtrDato);
+return 0;			
 }
 
 int RegistraCliente4(SiscomOperaciones *pSiscomOpePtrDato)
@@ -436,6 +438,7 @@ SiscomAnexaRegistroPro(&pSiscomOpePtrDato->SiscomRegProLPtrPrimRes,
 			 lchrPtrIdEmpresa);
   SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
 
+return 0;			
 }
 int EsPersonaFisica(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -444,6 +447,7 @@ if((lSiscomRegProLPtrDato=SiscomRegistroAsociadoEntradaOperacion("Envio","Client
   return SiscomObtenRegistrosCampoProL("Persona",lSiscomRegProLPtrDato) ? 1 :0;
 if((lSiscomRegProLPtrDato=SiscomRegistroAsociadoEntradaOperacion("Envio","Persona",pSiscomOpePtrDato)))
  return lSiscomRegProLPtrDato ? 1 : 0;
+return 0;			
 }
 void FormaNombreArchivoFactura(SiscomOperaciones *pSiscomOpePtrDato,
 			       char *pchrPtrArchivo)
@@ -920,6 +924,7 @@ if((lSisRegProLPtrProductos=SiscomRegistroAsociadoEntradaOperacion("Envio","Prod
   LogSiscom("El tamano del buffer %d",lintTamano);
   return lchrPtrRegreso;
 }
+return 0;			
 }
 
 void FacturandoGeneraXML_4_0(SiscomOperaciones *pSiscomOpePtrDato,FILE *pFlePtrArchivo)
@@ -1001,6 +1006,7 @@ const char *lchrPtrRegreso;
 	return 1;
 	else
 	return 0;
+return 0;			
 }
 int EsErrorEnvioCorreo(const char *pchrPtrLinea,char *pchrPtrError)
 {
@@ -1075,6 +1081,7 @@ char **lchrPtrCadenas;
 				    "Envio",
 				    pSiscomOpePtrDato);
  }
+return 0;			
 }
 int MuestraEstadoEjecucionPhp(FILE *pFlePtrComando,SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -1246,6 +1253,7 @@ FILE *lFlePtrArchivo;
   }
   else 
   return 100; /* Error al abrir el archivo */
+return 0;			
 }
 void GeneraArchivoDatosFacturacion(SiscomArchivoFacturando *pSiscomAFacturandoPtrDato,
 				   SiscomOperaciones *pSiscomOpePtrDato,
@@ -1393,6 +1401,7 @@ SiscomAnexaRegistroPro(&pSiscomOpePtrDato->SiscomRegProLPtrPrimRes,
 		       "0",
 		       "Generacion de Factura,y envio Exitoso");
   SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
+return 0;			
 }
 void EnviaRegresoConErrorFacturacion(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -1409,6 +1418,7 @@ int SeRealizaInsercionOrdenFacturada(int pintRegreso)
     else
     if(pintRegreso==2)  /*No Se pudo enviar el correo */
      return 2;
+return 0;			
 }
 int RealizandoFactura(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -1447,6 +1457,7 @@ int lintRegreso;
   EnviaRegresoConErrorFacturacion(pSiscomOpePtrDato);
 
   SiscomRegistroRegresoLog(lchrArrBuffer,pSiscomOpePtrDato);
+return 0;			
 }
 SiscomRegistroProL *FormaRespuestaClienteRegistrado(
 					   int pintPersonaFisica,
@@ -1549,6 +1560,7 @@ if((lSiscomRegProLPtrCliente=SiscomObtenRegistrosCampoRespuesta("SqlPersona",pSi
 else
 return 0;
 
+return 0;			
 }
 int RfcRegistradoMoral(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -1568,6 +1580,7 @@ if((lSiscomRegProLPtrCliente=SiscomObtenRegistrosCampoRespuesta("SqlPersona",pSi
 else
 return 0;
 
+return 0;			
 }
 
 int ValidandoRfcRegistrado(SiscomOperaciones *pSiscomOpePtrDato)
@@ -1589,6 +1602,7 @@ int ValidandoRfcRegistrado(SiscomOperaciones *pSiscomOpePtrDato)
     EnviaRfcNoRegistrado(pSiscomOpePtrDato);
    }
   }
+return 0;			
 }
 
 int AgregandoCorreoCliente(SiscomOperaciones *pSiscomOpePtrDato)
@@ -1606,17 +1620,20 @@ SiscomAnexaRegistroPro(&lSiscomRegProLPtrRegresoPrim,
 SiscomEnviaRegistrosSocket(pSiscomOpePtrDato->intSocket,
 			   lchrArrBuffer,
 			   lSiscomRegProLPtrRegresoPrim);
+return 0;			
 }
 
 int AsignaIdFactura(SiscomOperaciones *pSiscomOpePtrDato)
 {
 SiscomIdARegistrosAsociadosEntrada("Envio","IdFactura",pSiscomOpePtrDato);
+return 0;			
 }
 
 int AgregaFecha(SiscomOperaciones *pSiscomOpePtrDato)
 {
 SiscomAgregaCampoAsociadoEntrada("Fecha",0,"Envio",pSiscomOpePtrDato);
 SiscomAsignaFechaHoraAsociadoEntrada("Envio","Fecha",pSiscomOpePtrDato);
+return 0;			
 }
 
 
@@ -1628,6 +1645,7 @@ SiscomAsociadoRespuestaLog("Empresa",lchrArrBuffer,pSiscomOpePtrDato);
 LogSiscom("Correos ");
 SiscomAsociadoRespuestaLog("Correos",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
+return 0;			
 }
 
 int ReEnviandoFactura(SiscomOperaciones *pSiscomOpePtrDato)
@@ -1641,6 +1659,7 @@ if((lFlePtrRegresoPhp=LanzaScriptPhpReEnvio(pSiscomOpePtrDato)))
   pclose(lFlePtrRegresoPhp);
 
 }
+return 0;			
 }
 
 void IdentificandoCaracteresEspeciales(SiscomOperaciones *pSiscomOpePtrDato)
@@ -1698,5 +1717,6 @@ return 0;
 int FormaArchivoPdfFactura4_0(SiscomOperaciones *pSisOpePtrDatos)
 {
 PdfFacturaSiscomElectronica(pSisOpePtrDatos);
+return 0;			
 }
 

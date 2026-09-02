@@ -263,6 +263,7 @@ SiscomAsociadoAsociadoLog("Envio","BodegaD",lchrArrBuffer,pSisOpePtrDatos);
 SiscomArgumentoInsercionSqlLog("SqlBodegaO",lchrArrBuffer,pSisOpePtrDatos);
 SiscomArgumentoInsercionSqlLog("SqlBodegaD",lchrArrBuffer,pSisOpePtrDatos);
 SiscomArgumentoInsercionSqlLog("SqlLocal",lchrArrBuffer,pSisOpePtrDatos);
+return 0;
 }
 
 int ArgumentoExistenciaBodega(SiscomOperaciones *pSisOpPtrDatos)
@@ -288,6 +289,7 @@ if((lSisRegProLPtrExpendioO=SiscomRegistrosCampoAsociadoAsociadoEntradaOperacion
 */
     return lSisRegProLPtrExpendioO; 
 }
+return 0;
 }
 
 SiscomRegistroProL *RegistroBodega(const char *pchrPtrOrgDes,
@@ -304,6 +306,7 @@ if((lSisRegProLPtrExpendioO=SiscomRegistroAsociadoEntradaOperacion("Envio",
 */
     return lSisRegProLPtrExpendioO; 
 }
+return 0;
 }
 const char *ObtenDirIpExpendioBodegaO(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -314,6 +317,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lchrPtrDirIpExBodO=SiscomObtenCampoRegistroProLChar("DirIp",lSisRegProLPtrExpendioO)))
     return lchrPtrDirIpExBodO;
 	
+return 0;
 }
 
 int ObtenPuertoExpendioBodegaO(SiscomOperaciones *pSisOpePtrDato)
@@ -324,6 +328,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lSisRegProLPtrExpendioO=RegistroExpendioBodega("BodegaO",pSisOpePtrDato)))
  if((lintPuerto=SiscomObtenCampoRegistroProLInt("Puerto",lSisRegProLPtrExpendioO)))
     return lintPuerto;
+return 0;
 }
 
 const char *ObtenBaseBodegaO(SiscomOperaciones *pSisOpePtrDato)
@@ -335,6 +340,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lchrPtrDirIpExBodO=SiscomObtenCampoRegistroProLChar("Base",lSisRegProLPtrExpendioO)))
     return lchrPtrDirIpExBodO;
 	
+return 0;
 }
 
 const char *ObtenIdBodegaO(SiscomOperaciones *pSisOpePtrDato)
@@ -347,6 +353,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
     return lchrPtrDirIpExBodO;
 	
 
+return 0;
 }
 
 const char *ObtenDirIpExpendioBodegaD(SiscomOperaciones *pSisOpePtrDato)
@@ -358,6 +365,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lchrPtrDirIpExBodO=SiscomObtenCampoRegistroProLChar("DirIp",lSisRegProLPtrExpendioO)))
     return lchrPtrDirIpExBodO;
 	
+return 0;
 }
 int ObtenPuertoExpendioBodegaD(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -367,6 +375,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lSisRegProLPtrExpendioO=RegistroExpendioBodega("BodegaD",pSisOpePtrDato)))
  if((lintPuerto=SiscomObtenCampoRegistroProLInt("Puerto",lSisRegProLPtrExpendioO)))
     return lintPuerto;
+return 0;
 }
 
 
@@ -379,6 +388,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lchrPtrDirIpExBodO=SiscomObtenCampoRegistroProLChar("Base",lSisRegProLPtrExpendioO)))
     return lchrPtrDirIpExBodO;
 	
+return 0;
 }
 
 const char *ObtenIdBodegaD(SiscomOperaciones *pSisOpePtrDato)
@@ -388,6 +398,7 @@ SiscomRegistroProL *lSisRegProLPtrExpendioO;
  if((lSisRegProLPtrExpendioO=RegistroBodega("BodegaD",pSisOpePtrDato)))
  if((lchrPtrDirIpExBodO=SiscomObtenCampoRegistroProLChar("IdBodega",lSisRegProLPtrExpendioO)))
     return lchrPtrDirIpExBodO;
+return 0;
 }
 int CantidadVSExistenciaBodega(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -405,6 +416,7 @@ return 1;
 else 
 return 0;
 
+return 0;
 }
 int EnviaValidacionExistenciaBodega(SiscomOperaciones *pSisOpePtrDato)
 {

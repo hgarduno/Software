@@ -295,6 +295,8 @@ QPopupMenu *SISCOMVentanaPrincipal::ObtenMenuDestino(const char *pchrPtrNombre)
 		 return QPMAplicacion;
 		if(!strcmp(pchrPtrNombre,"QPMEstadisticas"))
 		 return QPMEstadisticas;
+
+return 0;
 }
 Persona *SISCOMVentanaPrincipal::ObtenEmpleado()
 {

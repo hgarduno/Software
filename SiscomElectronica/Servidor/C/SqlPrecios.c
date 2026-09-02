@@ -12,6 +12,7 @@ int SqlPreciosExpendios(SiscomOperaciones *pSiscomOpePtrDato)
 {
 SqlPreciosExpendioOrigen(pSiscomOpePtrDato); 
 SqlPreciosExpendioDestino(pSiscomOpePtrDato);  
+return 0;
 }
 void SqlConsultaPreciosExpendio(SiscomOperaciones *pSiscomOpePtrDato,char *pchrPtrSql)
 {
@@ -35,6 +36,7 @@ if(!SqlConsultaPreciosPorExpendio(lchrPtrIdExpendio,"PreciosOrigen",lchrArrSqlPr
 {
 }
 
+return 0;
 }
 
 int SqlPreciosExpendioDestino(SiscomOperaciones *pSiscomOpePtrDato)
@@ -53,6 +55,7 @@ if(SqlConsultaPreciosPorExpendio(lchrPtrIdExpendio,
 
 }
 
+return 0;
 }
 
 int SqlConsultaPreciosPorExpendio(const char *pchrPtrIdExpendio,
@@ -81,6 +84,7 @@ sprintf(lchrArrSalida,"%s%%",pchrPtrSalida);
  }
 
 
+return 0;
 }
 void SqlActualizaciondoPrecio(SiscomOperaciones *pSisOpePtrDato,char *pchrPtrSql)
 {
@@ -135,4 +139,5 @@ for(;
 			 pSisOpePtrDato);
 }
 }
+return 0;
 }

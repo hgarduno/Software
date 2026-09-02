@@ -108,6 +108,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Productos%",
 		   lchrArrSql);
+return 0;
 }
 int SqlProductosSE(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -132,6 +133,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Productos%",
 		   lchrArrSql);
+return 0;
 }
 int SqlDefinicionProducto(SiscomRegistroProL *pSiscomRegProLPtrProducto,
 			  SiscomOperaciones *pSiscomOpePtrDato)
@@ -185,4 +187,5 @@ SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,
 				       "SqlDefinicionProducto",
 				        lchrArrBuffer,
 					pSiscomOpePtrDato);
+return 0;
 }

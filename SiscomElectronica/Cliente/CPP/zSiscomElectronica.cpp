@@ -2624,6 +2624,8 @@ if((lzSisRegsRegreso=EnviaRecibe()))
 {
        pzCompras->Compras(lzSisRegsRegreso);
 }
+
+return 0;
 }
 
 int zSiscomElectronica::PedidoPorCotizacion(zPedidoPorCotizacion *pzPedidoPC)
@@ -2653,6 +2655,8 @@ if((lzSisRegsRegreso=EnviaRecibe()))
   return 0;
 }
 else 
+return 0;
+
 return 0;
 }
 

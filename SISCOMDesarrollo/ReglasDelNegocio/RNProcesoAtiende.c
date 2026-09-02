@@ -63,6 +63,7 @@ SISCOMImprimeFuncionYArgumentos(pchrPtrTabulador,"%00F%0INSTRUCTProcesosYDll%0IN
 	strcpy(pstcDatosDeLaOperacionPtrReg->chrArrNomDll,pstcProcesosYDllDat.chrArrNombreProceso);
 	strcpy(pstcDatosDeLaOperacionPtrReg->chrArrNomFuncion,pstcProcesosYDllDat.chrArrNombreDll);
 
+return 0;
 }
 int RNCopiaDllYFuncion(PARDEPURACION char *pchrPtrNomDll,char *pchrPtrNomFuncion,STRUCTDatosDeLaOperacion *pstcDatosDeLaOperacionPtrReg)
 {
@@ -73,6 +74,7 @@ SISCOMImprimeFuncionYArgumentos(pchrPtrTabulador,"%00F%0INchar*%0inchar*%","RNCo
 	strcpy(pchrPtrNomDll,pstcDatosDeLaOperacionPtrReg->chrArrNomDll);
 	strcpy(pchrPtrNomFuncion,pstcDatosDeLaOperacionPtrReg->chrArrNomFuncion);
 
+return 0;
 }
 int RNLeeParametrosAtiende(PARDEPURACION int pintArgc,char **pchrPtrArgv,int *pintSocketCliente,unsigned long *pusnlngSHMID,int *pintPuerto,char *pchrPtrDirIPSvr,STRUCTError *pSTRUCTErrorPtrReg)
 {
@@ -99,11 +101,13 @@ int lchrCaracter;
 
 	}
 
+return 0;
 }
 int RNMemoriaSHM(PARDEPURACION unsigned long pusnlngSHM,STRUCTProcesosYDll **pSTRUCTProcesosYDllPtrReg,STRUCTError *pSTRUCTErrorPtrReg)
 {
 	if((*pSTRUCTProcesosYDllPtrReg=(STRUCTProcesosYDll *)shmat(pusnlngSHM,0,0))==(void *)-1)
 	printf("Error al pegar la memoria SHM idshm=%ld\n",pusnlngSHM);
+return 0;
 }
 int RNIdentificaMovimiento(PARDEPURACION int pintMovimiento,STRUCTProcesosYDll *pSHMReg,STRUCTProcesosYDll *pstcProcesosYDllPtrReg,STRUCTError *pSTRUCTErrorPtrReg)
 {
@@ -114,6 +118,7 @@ int RNIdentificaMovimiento(PARDEPURACION int pintMovimiento,STRUCTProcesosYDll *
 	RNBuscaMovimientos(PDEPURACION pSHMReg,pintMovimiento,&lSTRUCTProcesosYDllDat,pSTRUCTErrorPtrReg);
 	if(lSTRUCTProcesosYDllDat.lngTipoDeMovimiento)
 		*pstcProcesosYDllPtrReg=lSTRUCTProcesosYDllDat;
+return 0;
 }
 int RNBuscaMovimientos(PARDEPURACION STRUCTProcesosYDll *pSTRUCTProcesosYDllLis,int pintDato,STRUCTProcesosYDll *pSTRUCTProcesosYDllReg,STRUCTError *pSTRUCTErrorPtrReg)
 {
@@ -125,4 +130,5 @@ int RNBuscaMovimientos(PARDEPURACION STRUCTProcesosYDll *pSTRUCTProcesosYDllLis,
 		break;
 		}
 	}while(pSTRUCTProcesosYDllLis++);
+return 0;
 }

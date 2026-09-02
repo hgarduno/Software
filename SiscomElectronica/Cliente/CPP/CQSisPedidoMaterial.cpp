@@ -224,6 +224,7 @@ SiscomEnvia("PedidosPendientesPorEnviarAMatriz",
 	    "%s [FechaInicio] %s[FechaFin]",
 	    pchrPtrFechaInicio,
 	    pchrPtrFechaFin);
+return 0;
 }
 int CQSisPedidoMaterialOp::DetallePedidoPendientePorEnviarAMatriz(const char *pchrPtrIdPedido,
 							    SiscomRegistro3Lst *pSisReg3LstRegreso)
@@ -232,6 +233,7 @@ SiscomEnvia("DetallePedidoPendientePorEnviarAMatriz",
 	    pSisReg3LstRegreso,
 	    "%s [IdPedido] ",
 	    pchrPtrIdPedido);
+return 0;
 }
 int CQSisPedidoMaterialOp::EnviaPedidoPendientePorEnviarAMatriz(SiscomRegistro3 *pSisReg3Pedido)
 {
@@ -239,4 +241,5 @@ SiscomRegistro3Lst lSisReg3LstRegreso;
 SiscomEnvia("EnviaPedidoPendientePorEnviarAMatriz",
 	     pSisReg3Pedido,
 	     &lSisReg3LstRegreso);
+return 0;
 }

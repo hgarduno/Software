@@ -28,5 +28,6 @@ StcLtaRegComSISCOM *lSLRCSisPrim=0,
 	SISCOMEnviaRespuestaAlCliente(pintSCliente,
 				      lSLRCSisPResR,
 				      lintNRegistrosR);
+return 0;			
 }
 

@@ -34,6 +34,7 @@ lPGconnConexion=POSTGRESQLConectate(PDEPURACION &lstcErrorReg);
 	}
 PQfinish(lPGconnConexion);
 *pstcLtaErrorAltaProductosPtrReg=lstcLtaErrorAltaProductosPtrPrim;
+return 0;
 }
 int POSTGRESQLInsertaCompras(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionDat,STRUCTLtaCompras *pstcLtaComprasPtrPrim,STRUCTLtaCompras **pstcLtaComprasPtrRegPrim,int *pintPtrNRechazados)
 {
@@ -75,6 +76,7 @@ lPGconnConexion=POSTGRESQLConectate(PDEPURACION pstcErrorPtrReg);
 			}
 PQfinish(lPGconnConexion);
 *pstcLtaComprasPtrRegPrim=lstcLtaComprasPtrPrim;
+return 0;
 }
 int POSTGRESQLActualizaInventarioXCompras(PARDEPURACION PGconn *pPGconn,STRUCTCompras pstcComprasDat,STRUCTError *pstcErrorPtrReg)
 {
@@ -104,4 +106,5 @@ const char *lchrPtrRegreso;
 	        }
 
 		
+return 0;
 }

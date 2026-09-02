@@ -7,6 +7,7 @@ int ADDllRealizaAltaVentas(PARDEPURACION int pintSocketCliente,int pintTuberia[]
 {
 	ADDllRealizaAltaVentasEZS(PDEPURACION pintSocketCliente,pintTuberia,pintPuerto,pchrPtrDirIP);
 
+return 0;
 }
 int ADDllRealizaAltaCompras(PARDEPURACION int pintSocketCliente,int pintTuberia[],int pintPuerto,char *pchrPtrDirIP)
 {
@@ -38,6 +39,7 @@ STRUCTDatosDeLaOperacion lstcDatosDeLaOperacionReg;
 	 RNADRegistroVacioCompras(PDEPURACION pintSocketCliente);	
 	}
 	
+return 0;
 }
 int ADDllRealizaAltaDeProductos(PARDEPURACION int pintSocketCliente,int pintTuberia[],int pintPuerto,char *pchrPtrDirIp)
 {
@@ -56,6 +58,7 @@ RNADObtenDatosAltaProducto(PDEPURACION pintSocketCliente,&lintNRegistros,&lstcLt
 //RNADLeeDatosDeLaOperacion(PDEPURACION pintTuberia[0],&lstcDatosDeLaOperacionReg,&lstcErrorReg);
 ADDllInsertaDatos(PDEPURACION lstcDatosDeLaOperacionReg,lstcLtaProductosPtrReg,&lstcLtaErrorAltProductosReg);
 Write(pintSocketCliente,&a,1);
+return 0;
 }
 int ADDllInsertaDatos(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperacionPtrReg,STRUCTLtaProductos *pstcLtaProductosPtrReg,STRUCTLtaErrorAltaProductos **pstcLtaErrorAltProductosPtrReg)
 {
@@ -74,4 +77,5 @@ int ADDllInsertaDatos(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLaOperac
 	if(!InsertaProductos)
 	printf("%s\n",dlerror());
 	InsertaProductos(PDEPURACION pstcDatosDeLaOperacionPtrReg,pstcLtaProductosPtrReg,pstcLtaErrorAltProductosPtrReg);
+return 0;
 }

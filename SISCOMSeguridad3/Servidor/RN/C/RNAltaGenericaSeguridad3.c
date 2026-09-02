@@ -856,7 +856,7 @@ int lintContador;
 							       pchrPtrSvrAD,
 								pSLRCSisDat,
 								   pintPtrNRegistros);
-
+return 0;
 }
 StcLtaRegComSISCOM *EjecutaAlta(int pintPtoComAD,
 				    const char *pchrPtrDirIpSvrAD,
@@ -883,5 +883,6 @@ int RNAltaGenerica(int pintSCliente,
 						       "libADAltaGenericaSeguridad3.so",
                                       			"ADComandosAlta",
 						       EjecutaAlta);
+return 0;			
 }
 

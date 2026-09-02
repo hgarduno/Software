@@ -20,6 +20,7 @@ char lchrCaracter='*';
           Write(lintSocketAD,lchrArrEncabezado1,strlen(lchrArrEncabezado1));
 	  RNADGeneraLtaCliente(PDEPURACION lintSocketAD,&lintNRegistros,&lstcLtaClientePtrPrim); 
 	  RNADEnviaClientes(PDEPURACION pintSocket,lintNRegistros,3,lstcLtaClientePtrPrim);
+return 0;
 }
 
 int RNDllCNSConsultaEstGananciaNDisp(PARDEPURACION int pintSocket,int pintTuberia[],char *pchrArrCadenaFormateada,int pintPuertoAD ,char *pchrPtrDIPSvrAD)
@@ -42,4 +43,5 @@ char lchrCaracter='*';
 	      RNADGeneraLtaEstGananciaNDisp(PDEPURACION lintSocketAD,&lintNRegistros,&lstcLtaEstGananciaNDispPtrPrim);
 	      RNADEnviaLtaEstGananciaNDisp(PDEPURACION pintSocket,lintNRegistros,3,lstcLtaEstGananciaNDispPtrPrim);
 
+return 0;
 }

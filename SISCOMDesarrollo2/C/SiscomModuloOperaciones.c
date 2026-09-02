@@ -130,6 +130,7 @@ if((lSOpOperaciones=(SiscomOperaciones2 *)malloc(sizeof(SiscomOperaciones2 )*(pi
 
 }
 
+return 0;
 }
 
 void SiscomOperaciones2Ejecuta(SiscomOperaciones2 *pSOperaciones2,
@@ -379,6 +380,7 @@ int lintContador;
 	  return ((pSAgsSiscom->SArgOperacion)+lintContador)->intNumRegistros;
 	}
 
+return 0;			
 }
 void SiscomAsignaArgumentoNumeroRegistros(const char *pchrPtrArgumento,
 					  int pintNumRegistros,

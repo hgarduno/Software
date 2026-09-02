@@ -13,6 +13,7 @@ int RNADAsignaMemoriaVentas(PARDEPURACION STRUCTVentas pstcVentasDat, STRUCTLtaV
      (*pstcLtaVentasPtrReg)->stcLtaVentasPtrSig = NULL;
     }
 
+return 0;			
 }
 
 int RNADGeneraListaVentas(PARDEPURACION int pintSocketCliente,int *pintPtrNRegistros,STRUCTLtaVentas **pstcLtaVentasPtrPrim,STRUCTError *pstcErrorPtrReg)
@@ -32,6 +33,7 @@ int RNADGeneraListaVentas(PARDEPURACION int pintSocketCliente,int *pintPtrNRegis
       RNADObtenRegistroDeVentas(PDEPURACION pintSocketCliente, &lstcVentasReg, pstcErrorPtrReg);
       RNADCreaListaDeVentas(PDEPURACION lstcVentasReg, pstcLtaVentasPtrPrim, &lstcLtaVentasPtrDat, pstcErrorPtrReg);
      }
+return 0;			
 }
 
 int RNADCreaListaDeVentas(PARDEPURACION STRUCTVentas pstcVentasDat, STRUCTLtaVentas **pstcLtaVentasPtrRegPrim, STRUCTLtaVentas **pstcLtaVentasPtrRegDat, STRUCTError *pstcErrorPtrReg)
@@ -49,11 +51,13 @@ STRUCTLtaVentas *lstcLtaVentasPtrDat=NULL;
 	    (*pstcLtaVentasPtrRegDat)->stcLtaVentasPtrSig = lstcLtaVentasPtrDat;
 	    (*pstcLtaVentasPtrRegDat) = (*pstcLtaVentasPtrRegDat)->stcLtaVentasPtrSig;
 	   }
+return 0;			
 }
 
 int RNADFormaCadenaVentas(PARDEPURACION STRUCTLtaVentas *pstcLtaVentasPtrReg, char **pchrPtrCadenaReg, STRUCTError *pstcErrorPtrReg)
 {
 
+return 0;			
 }
 
 int RNADLlenaVentas(PARDEPURACION char *pchrPtrFechaVenta, char *pchrPtrCveVenta, char *pchrPtrCveProducto, char *pchrPtrCantidad, char *pchrPtrCveCliente, char *pchrPtrPUnitario, char *pchrPtrPTotal,char *pchrPtrNOrden, STRUCTVentas *pstcVentasPtrReg)
@@ -71,6 +75,7 @@ int RNADLlenaVentas(PARDEPURACION char *pchrPtrFechaVenta, char *pchrPtrCveVenta
 	strcpy(pstcVentasPtrReg->chrArrPTotal, pchrPtrPTotal);
 	strcpy(pstcVentasPtrReg->chrArrNOrden, pchrPtrNOrden);
 
+return 0;			
 }
 
 int RNADEnviaRegistrosDeVentas(PARDEPURACION int pintSocketCliente, int pintNRegistros, int pintNCampos, STRUCTLtaVentas *pstcLtaVentasPtrDat, STRUCTError *pstcErrorPtrReg)
@@ -109,6 +114,7 @@ int i;
 	pstcLtaVentasPtrDat = pstcLtaVentasPtrDat->stcLtaVentasPtrSig;
        }
 
+return 0;			
 }
 
 int RNADObtenRegistroDeVentas(PARDEPURACION int pintSocketCliente, STRUCTVentas *pstcVentasPtrReg, STRUCTError *pstcErrorPtrReg)
@@ -127,4 +133,5 @@ SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%000char*%000char*%000char*%000
 	       	pstcVentasPtrReg->chrArrFechaVenta, pstcVentasPtrReg->chrArrCveVenta, pstcVentasPtrReg->chrArrCveProducto,
 		pstcVentasPtrReg->chrArrCantidad, pstcVentasPtrReg->chrArrCveCliente, pstcVentasPtrReg->chrArrPUnitario,pstcVentasPtrReg->chrArrNOrden);
 #endif
+return 0;			
 }

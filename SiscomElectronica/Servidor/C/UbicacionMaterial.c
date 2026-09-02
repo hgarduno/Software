@@ -146,6 +146,7 @@ int lintTamEstante=pchrPtrUbicacion-pchrPtrCadenaUbicacion;
  strncpy(pchrPtrEstante,pchrPtrCadenaUbicacion,lintTamEstante);
  *(pchrPtrEstante+lintTamEstante)=0;
  SiscomEliminaEspaciosFinal(pchrPtrEstante);
+return 0;
 }
 void ObtenCaja(const char *pchrPtrUbicacion,
 	       char *pchrPtrCaja)
@@ -456,6 +457,7 @@ return 0;
 int EnviandoRegistroCajaMaterial(SiscomOperaciones *pSiscomOpePtrDato)
 {
  LogSiscom("");
+return 0;
 }
 
 

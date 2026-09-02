@@ -144,6 +144,7 @@ int EnviaCircuitosImpresosPendientes(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[1024];
 SiscomEnviaAsociadoRespuestaCliente("ImpresosRegistrados",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 
 int ArgumentoRegistroCircuitoImpreso(SiscomOperaciones *pSiscomOpePtrDato)

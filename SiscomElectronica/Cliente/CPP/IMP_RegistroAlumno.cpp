@@ -195,6 +195,7 @@ if(lQARegistrado.InscribirCliente())
  SiscomContenidoRegistro3(SisReg3IdCliente);
 }
 }
+return 1;
 }
 
 SiscomRegistro3 *QRegistroAlumno::AlumnoParaValidar()

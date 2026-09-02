@@ -118,6 +118,7 @@ SiscomFormaEnviaRegistroRespuesta(pSiscomOpePtrDato,
 				  SiscomCampoAsociadoEntradaOperacion("Envio",
 				  				      "IdCotizacion",
 								      pSiscomOpePtrDato));
+return 0;
 }
 
 int ConsultaCotizacionImportacion(SiscomOperaciones *pSiscomOpePtrDato)
@@ -125,6 +126,7 @@ int ConsultaCotizacionImportacion(SiscomOperaciones *pSiscomOpePtrDato)
 char lchrArrBuffer[128];
 LogSiscom("Consultando La cotizacion");
 SiscomEnviaAsociadoRespuestaCliente("CotizacionImportacion",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 
 

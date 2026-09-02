@@ -44,6 +44,7 @@ ArchivoTransferenciaExpendioAExpendio(pSiscomOpePtrDato,lchrArrArchivo);
 FormaTextoImprimiendoOtrosExpendios(pSiscomOpePtrDato,&lchrPtrTextoImpresion);
 EscribiendoArchivoTicketTransferencia(lchrArrArchivo,lchrPtrTextoImpresion);
 EjecutaComandoImpresion4(pSiscomOpePtrDato,lchrArrArchivo);
+return 0;
 }
 void EscribiendoArchivoTicketTransferencia(const char *pchrPtrArchivo,
 					   char *pchrPtrTextoImpresion)

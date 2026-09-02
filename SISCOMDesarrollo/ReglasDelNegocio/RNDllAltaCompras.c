@@ -24,6 +24,7 @@ STRUCTError lstcErrorReg;
 		 else
 		 Write(pintSocketCliente,&lchrCaracter,1);
 
+return 0;
 }
 int RNDllPrecioCompraConIVA(PARDEPURACION STRUCTLtaCompras *pstcLtaComprasPtrPrim)
 {
@@ -40,6 +41,7 @@ char *lchrPtrRegreso;
 	 }
 	 lstcLtaComprasPtrDat=lstcLtaComprasPtrDat->stcLtaComprasPtrSig; 
 	} 
+return 0;
 }
 int  RNDllEnviaAltaComprasAD(PARDEPURACION STRUCTLtaCompras *pstcLtaComprasPtrDat,int *pintPtrSocketAD,int pintNRegistros,int pintTuberia[],int pintPuerto,char *pchrPtrDirIP)
 {
@@ -62,4 +64,5 @@ int lintTamEncabezado;
     Write(lintSocketClienteAD,lchrArrEncabezado1,lintTamEncabezado);
     RNADEnviaRegistrosDeCompras(PDEPURACION lintSocketClienteAD,pintNRegistros,10,pstcLtaComprasPtrDat,&lstcErrorReg);
     *pintPtrSocketAD=lintSocketClienteAD;
+return 0;
 }

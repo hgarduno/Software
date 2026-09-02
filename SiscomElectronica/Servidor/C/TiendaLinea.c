@@ -63,6 +63,7 @@ SiscomAgregaArgumentoOperacion("OrdenesTiendaLinea",
 int OrdenesTiendaLinea(SiscomOperaciones *pSisOpePtrDato)
 {
  AgrupaOrdenesProductosTiendaLinea(pSisOpePtrDato);
+return 0;
 }
 void AgregaOrdenesTiendaLinea(SiscomRegistroProL *pSisRegProLPtrOrdenes,
 			      SiscomOperaciones *pSisOpePtrDato)

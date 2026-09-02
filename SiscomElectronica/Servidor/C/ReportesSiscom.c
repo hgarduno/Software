@@ -110,10 +110,12 @@ SiscomFormaEnviaRegistroRespuesta(pSiscomOpePtrDato,
 				 "1",
 				 "Reporte Sin Datos");
 }
+return 0;
 }
 int EnviaVentasSiscom(SiscomOperaciones *pSiscomOpePtrDato)
 {
 LogSiscom("-----");
+return 0;
 }
 int EnviaCierreDia(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -122,9 +124,11 @@ SiscomAsociadoRespuestaLog("VentasEfectivo",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadoRespuestaLog("VentasPedidos",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadoRespuestaLog("TotalCaja",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
+return 0;
 }
 int AsignaReporteCierre(SiscomOperaciones *pSiscomOpePtrDato)
 {
+return 0;
 }
 
 

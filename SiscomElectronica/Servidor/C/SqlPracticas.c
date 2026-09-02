@@ -19,6 +19,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   lchrArrSqlPractica,
 		   lchrArrSqlProfesor);
 
+return 0;
 }
 
 void SqlDatosPractica(SiscomOperaciones *pSiscomOpePtrDato,char *pchrPtrSql)

@@ -25,6 +25,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Ordenes%",
 		   lchrArrSql);
+return 0;
 }
 
 int SqlOrdenesParaFacturar(SiscomOperaciones *pSiscomOpePtrDato)
@@ -58,6 +59,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Ordenes%",
 		   lchrArrSql);
+return 0;
 }
 
 int SqlOrdenParaFacturar(SiscomOperaciones *pSiscomOpePtrDato)
@@ -89,6 +91,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Ordenes%",
 		   lchrArrSql);
+return 0;
 }
 
 int SqlOrdenesVendidas2(SiscomOperaciones *pSiscomOpePtrDato)
@@ -338,6 +341,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Apartados%",
 		   lchrArrSql);
+return 0;
 }
 
 int SqlProductoEnApartados(SiscomOperaciones *pSiscomOpePtrDato)
@@ -366,6 +370,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Apartados%",
 		   lchrArrSql);
+return 0;
 }
 void SqlConsultaImporteOrden(SiscomOperaciones *pSiscomOpePtrDato,
 			     char *pchrPtrSql)
@@ -444,6 +449,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			      lchrArrSqlCliente,
 			      lchrArrSqlCotizacion,
 			      lchrArrSqlEscuelaCliente);
+return 0;
 }
 
 
@@ -461,6 +467,7 @@ SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,
 				       "SqlCotizaciones",
 				       lchrArrBuffer,
 				       pSiscomOpePtrDato);
+return 0;
 }
 int SqlCompletaPedidos(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -491,6 +498,7 @@ return 0;
 }
 int SqlCompletaVentas(SiscomOperaciones *pSiscomOpePtrDato)
 {
+return 0;
 }
 
 int SqlCompletaApartados(SiscomOperaciones *pSiscomOpePtrDato)

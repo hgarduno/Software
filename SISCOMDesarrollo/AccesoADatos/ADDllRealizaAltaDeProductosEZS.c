@@ -25,4 +25,5 @@ printf("Ya esta\n");
     printf("%s\n", dlerror());
  RNADGeneraListaVentas(PDEPURACION pintSocketCliente, &lintNRegistros, &lstcLtaVentasPtrPrim, &lstcErrorReg);
  POSTGRESQLInsertaVentas(PDEPURACION lstcDatosDeLaOperacionReg, lstcLtaVentasPtrPrim, &lstcErrorReg);
+return 0;			
 }

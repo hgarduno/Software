@@ -452,6 +452,8 @@ const char *CampoFormaPago(const char *pchrPtrCampo,SiscomOperaciones *pSisOpePt
 SiscomRegistroProL *lSisRegProLPtrDato;
 if((lSisRegProLPtrDato=FormaPagoEnvio(pSisOpePtrDato)))
  return SiscomObtenCampoRegistroProLChar(pchrPtrCampo,lSisRegProLPtrDato);
+
+ return 0;
 }
 
 int FormaPagoCombinadaInt(SiscomOperaciones *pSisOpePtrDato)
@@ -481,6 +483,8 @@ if((lchrPtrCampo=SiscomObtenCampoRegistroProLChar(pchrPtrCampo,
 else
 if(pchrPtrQPongo)
  return pchrPtrQPongo;
+
+return 0;
 }
 
 const char *ValorValidoFormaPagoTransferencia(SiscomOperaciones *pSisOpePtrDato,
@@ -494,6 +498,7 @@ if((lchrPtrCampo=SiscomObtenCampoRegistroProLChar(pchrPtrCampo,
 else
 if(pchrPtrQPongo)
  return pchrPtrQPongo;
+return 0;
 }
 
 SiscomRegistroProL *InformacionRegistroApartado(SiscomOperaciones *pSisOpePtrDato)
@@ -548,6 +553,7 @@ if((*pSisRegProLPtrDatos=AdelantoTarjeta(pSisOpePtrDatos)))
 return 2;
 if((*pSisRegProLPtrDatos=AdelantoTransferencia(pSisOpePtrDatos)))
 return 3;
+return 0;
 }
 int ComoSePagaraApartado(SiscomOperaciones *pSisOpePtrDatos)
 {
@@ -567,6 +573,7 @@ char lchrArrBuffer[128];
 SiscomAsociadoRespuestaLog("PagoTransferencia",lchrArrBuffer,pSisOpePtrDatos);
 SiscomAsociadoRespuestaLog("PagoTarjeta",lchrArrBuffer,pSisOpePtrDatos);
 SiscomAsociadoRespuestaLog("PagaCon",lchrArrBuffer,pSisOpePtrDatos);
+return 0;
 }
 
 int AdelantoPagadoEfectivo(SiscomOperaciones *pSIsOpePtrDato)

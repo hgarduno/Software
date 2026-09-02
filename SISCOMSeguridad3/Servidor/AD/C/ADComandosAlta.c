@@ -23,4 +23,5 @@ StcLtaRegComSISCOM *lSLRCSisPrim=0,
 				&lSLRCSisPrim);
 	ControladorComandoSQL(lchrPtrBaseDatos,
 			      lSLRCSisPrim);
+return 0;			
 }

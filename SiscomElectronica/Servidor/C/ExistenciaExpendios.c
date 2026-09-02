@@ -368,6 +368,7 @@ SiscomRegistroProL *lSiscomRegProLPtrProducto;
    else
    LogSiscom("El Producto (%s) No tiene registros en Existencias");
 
+return 0;			
 }
 
 void GenerandoRespuestaVentasExistencias(SiscomRegistroProL *pSiscomRegProLPtrVentas,
@@ -700,6 +701,7 @@ SiscomRegistrosAlCampo(pchrPtrCampo,
 
 
 
+return 0;			
 }
 
 int ErrorConexionVentasExistenciaSiscom(SiscomRegistroProL *pSiscomRegProLPtrMaquinas,
@@ -755,6 +757,7 @@ SiscomRegistrosAlCampo(pchrPtrCampo,
 		      lSiscomRegProLPtrPrimExiVentas,
 		      lSiscomRegProLPtrActExiVentas,
 		      pSiscomOpePtrDato->SiscomRegProLPtrPrimRes);
+return 0;			
 }
 
 SiscomRegistroProL *ProductosRegistradosSiscom(SiscomOperaciones *pSisOpePtrDato)
@@ -813,6 +816,7 @@ SiscomRegistrosAlCampo(pchrPtrCampo,
 		      lSiscomRegProLPtrPrimExiVentas,
 		      lSiscomRegProLPtrActExiVentas,
 		      pSiscomOpePtrDato->SiscomRegProLPtrPrimRes);
+return 0;			
 }
 
 

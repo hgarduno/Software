@@ -298,6 +298,7 @@ char lchrArrHoraInicio[25],lchrArrHoraFin[25];
   zSiscomQt3::Foco(QPBConsultar);
   return ConsultaHoraEntrega(lchrArrHoraInicio,lchrArrHoraFin);
  }
+return 0;
 }
 int QtAdministradorPedidos::CapturandoHoraEntrega(char *pchrPtrHoraInicio,
 						   char *pchrPtrHoraFin)

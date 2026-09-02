@@ -291,12 +291,15 @@ return new CQSisCliente(
 	SiscomDesarrollo3Qt::ObtenInformacionDelEdit(QLERFC),
 	chrPtrArgumentos[0],
 	"");
+else
 if(intTipoPersona==1)
 return new CQSisCliente(
 	SiscomDesarrollo3Qt::ObtenInformacionDelEdit(QLERazonSocial),
 	SiscomDesarrollo3Qt::ObtenInformacionDelEdit(QLERFC),
 	"",
 	chrPtrArgumentos[0]);
+else
+return 0;
 }
 void QCapturaClientes::Direccion(CQSisCliente *pCQSisPtrCliente)
 {

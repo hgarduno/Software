@@ -41,6 +41,7 @@ int ADCopiaDatosDeLaOperacionALaTuberia(PARDEPURACION int lintTuberia,STRUCTDato
 	Write(lintTuberia,lchrArrCadena,strlen(lchrArrCadena));
 	 
 
+return 0;
 }
 int ADLeeArgumentosProcesosAtiendeCliente(PARDEPURACION int pintArgc,char **pchrPtrArgv,int *pintPtrSocket,STRUCTError *pstcErrorPtrReg)
 {
@@ -59,6 +60,7 @@ int lchrCaracter;
 
 	}
 
+return 0;
 }
 
 void ManejadorSenales(int pintSenal)

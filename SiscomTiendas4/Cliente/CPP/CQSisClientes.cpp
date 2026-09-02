@@ -97,6 +97,7 @@ CQSisLstCliente &CQSisLstCliente::operator<<(CQSisCliente *pCQSCliente)
 int CQSisLstCliente::operator==(const char *pchrPtrIdCliente)
 {
 
+return 0;
 }
 CQSisCliente *CQSisLstCliente::operator[](const char *pchrPtrIdCliente)
 {

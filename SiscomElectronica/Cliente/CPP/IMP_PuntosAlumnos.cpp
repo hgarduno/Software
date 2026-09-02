@@ -223,6 +223,7 @@ return 0;
 }
 
 MuestraValidacionPSeleccion();
+return 1;
 }
 void QPuntosAlumnos::MuestraValidacionPSeleccion()
 {

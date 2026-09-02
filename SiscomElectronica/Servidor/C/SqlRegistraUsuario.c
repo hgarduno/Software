@@ -29,6 +29,7 @@ SiscomReplicaMaquinasSistema("Servidor",
 			     pSiscomOpePtrDato->SiscomRegProLPtrPrimRes,
 			     0,
 			     pSiscomOpePtrDato);
+return 0;
 }
 
 int SqlRegistraSeguridad3(SiscomOperaciones *pSiscomOpePtrDato)
@@ -55,6 +56,7 @@ SiscomReplicaMaquinasSistema("Servidor",
 			     pSiscomOpePtrDato->SiscomRegProLPtrPrimRes,
 			     0,
 			     pSiscomOpePtrDato);
+return 0;
 }
 
 void SqlDatosAplicacion(SiscomOperaciones *pSiscomOpePtrDato)

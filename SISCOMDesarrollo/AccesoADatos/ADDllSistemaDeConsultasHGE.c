@@ -25,6 +25,7 @@ ADDllConsultaClientesPostgreSQL(PDEPURACION lstcDatosDeLaOperacionDat,pchrPtrCon
 RNADEnviaClientes(PDEPURACION pintSocketCliente,lintNRegistros,lintNColumnas,lstcLtaClienteReg);
 dlclose(lvidRegresoDll);
 //close(pintSocketCliente);
+return 0;
 }
 int ADDllCNSEstGananciasNDisp(PARDEPURACION int pintSocketCliente,char *pchrPtrConsulta)
 {
@@ -49,4 +50,5 @@ ADDllConsultaEstGananciaNDispositivosPostgreSQL(PDEPURACION lstcDatosDeLaOperaci
 RNADEnviaLtaEstGananciaNDisp(PDEPURACION pintSocketCliente,lintNRegistros,lintNColumnas,lstcLtaEstGananciaNDispPtrUlt);
 dlclose(lvidRegresoDll);
 close(pintSocketCliente);
+return 0;
 }

@@ -16,6 +16,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   "EstadosImpresos%",
 		   lchrArrSql);
 
+return 0;
 }
 /* Tepotzotlan Mexico 
  * Miercoles 26 de Julio del 2017
@@ -118,6 +119,7 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlCircuitoImpreso",
 				     UpdateToUltimoEstado);
 
 SiscomEnviaRegistrosAlServidorBD("SqlCircuitoImpreso",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 
 int SqlRegistraCircuitoImpreso(SiscomOperaciones *pSiscomOpePtrDato)

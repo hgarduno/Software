@@ -61,6 +61,7 @@ while(*lchrPtrFinal!='.')
  lchrPtrFinal--;
 lchrPtrFinal++;
 strcpy(pchrPtrExtension,pchrPtrArchivo-(pchrPtrArchivo-lchrPtrFinal));
+return pchrPtrExtension;
 }
 
 int SiscomCopiaArchivo(const char *pchrPtrOrigen,const char *pchrPtrDestino)
@@ -68,17 +69,18 @@ int SiscomCopiaArchivo(const char *pchrPtrOrigen,const char *pchrPtrDestino)
 FILE *lFlePtrArchivoO,
 	*lFlePtrArchivoD;
 char lchrArrBuffer[512];
+int lintRegreso=0;
 size_t lsizeLeidos;
 if(!(lFlePtrArchivoO=fopen(pchrPtrOrigen,"r")))
 {
-LogSiscom("%s",strerror(errno));
-return -1;
+LogSiscom("(%s) %s",pchrPtrOrigen,strerror(errno));
+lintRegreso=-1;
 }
 else
 if(!(lFlePtrArchivoD=fopen(pchrPtrDestino,"w")))
 {
-LogSiscom("%s",strerror(errno));
-return -2;
+LogSiscom("(%s) %s",pchrPtrDestino,strerror(errno));
+lintRegreso=-2;
 }
 else
 while((lsizeLeidos=fread(lchrArrBuffer,1,512,lFlePtrArchivoO))>0)
@@ -86,8 +88,7 @@ while((lsizeLeidos=fread(lchrArrBuffer,1,512,lFlePtrArchivoO))>0)
 
 fclose(lFlePtrArchivoO);
 fclose(lFlePtrArchivoD);
-
-return 0;
+return lintRegreso;
 }
 
 
@@ -358,6 +359,8 @@ stctm=localtime(&lregTime);
 *pintPtrDia=stctm->tm_mday;
 *pintPtrMes=stctm->tm_mon+1;
 *pintPtrAno=stctm->tm_year+1900;
+
+return 0;
 }
 
 

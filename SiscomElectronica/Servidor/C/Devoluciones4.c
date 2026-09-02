@@ -41,4 +41,5 @@ int DevolviendoOrden(SiscomOperaciones *pSiscomOpePtrDatos)
 char lchrArrBuffer[256];
  LogSiscom("Devolviendo la orden ");
  SiscomAsociadosArgumentoLog("SqlOrden","SentenciasSql",lchrArrBuffer,pSiscomOpePtrDatos);
+return 0;
 }

@@ -21,5 +21,6 @@ int ImprimeSTRUCTProcesosYDll(STRUCTProcesosYDll pstcSTRUCTProcesosYDllDat)
 	printf("{chrArrNombreProceso=%s,\n",pstcSTRUCTProcesosYDllDat.chrArrNombreProceso);
 	printf("chrArrNombreDll=%s,\n",pstcSTRUCTProcesosYDllDat.chrArrNombreDll);
 	printf("lngTipoDeMovimiento=%ld\n}\n",pstcSTRUCTProcesosYDllDat.lngTipoDeMovimiento);
+return 0;
 
 }

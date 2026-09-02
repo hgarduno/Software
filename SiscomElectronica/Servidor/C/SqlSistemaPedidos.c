@@ -12,4 +12,5 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "OrdenesPendientes%",
 		   lchrArrSql);
+return 0;
 }

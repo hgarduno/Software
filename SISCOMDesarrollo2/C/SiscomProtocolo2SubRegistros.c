@@ -453,4 +453,5 @@ int lintContador;
      						 pLCSiscomPro2SRDat,
 						 pchrPtrCampo));
  (*pchrPtrArgumentos)[pintNRegistros]=0;
+return 0;			
 }

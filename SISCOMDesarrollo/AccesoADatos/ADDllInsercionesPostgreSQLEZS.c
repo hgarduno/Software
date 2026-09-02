@@ -35,6 +35,7 @@ int POSTGRESQLInsertaVentas(PARDEPURACION STRUCTDatosDeLaOperacion pstcDatosDeLa
 	pstcLtaVentasPtrPrim = pstcLtaVentasPtrPrim->stcLtaVentasPtrSig;
        }
  PQfinish(lPGconnConexion);
+return 0;			
 }
 
 int POSTGRESQLActualizaInventarioXVentas(PARDEPURACION PGconn *pPGconn, STRUCTVentas pstcVentasDat, STRUCTError *pstcErrorPtrReg)
@@ -59,6 +60,7 @@ int POSTGRESQLActualizaInventarioXVentas(PARDEPURACION PGconn *pPGconn, STRUCTVe
 			       pstcVentasDat.chrArrCveProducto, pstcVentasDat.chrArrCantidad, "4");
      POSTGRESQLEjecutaFuncion(PDEPURACION pPGconn,&lPGresult,lchrArrCadenaSQL,pstcErrorPtrReg);
     }*/
+return 0;			
 }
 int POSTGRESQLActualizaOrden(PARDEPURACION PGconn *pPGconn,STRUCTVentas pstcVentasDat,STRUCTError *pstcErrorPtrReg)
 {
@@ -80,4 +82,5 @@ int POSTGRESQLActualizaOrden(PARDEPURACION PGconn *pPGconn,STRUCTVentas pstcVent
 #endif
  	lPGresult = PQexec(pPGconn, lchrArrCadenaSQL);
 	POSTGRESQLEvaluaEstatus(PDEPURACION pPGconn,lPGresult,pstcErrorPtrReg);
+return 0;			
 }

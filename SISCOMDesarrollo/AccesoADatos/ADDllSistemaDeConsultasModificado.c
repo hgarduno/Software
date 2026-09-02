@@ -26,6 +26,7 @@ ADDllConsultaClientesPostgreSQL(PDEPURACION lstcDatosDeLaOperacionDat,pchrPtrCon
 RNADEnviaClientes(PDEPURACION pintSocketCliente,lintNRegistros,lintNColumnas,lstcLtaClienteReg);
 dlclose(lvidRegresoDll);
 //close(pintSocketCliente);
+return 0;
 }
 int ADDllCNSEstGananciasNDisp(PARDEPURACION int pintSocketCliente,char ***pchrPtrConsulta,STRUCTError *pstcErrorPtrReg)
 {
@@ -50,6 +51,7 @@ ADDllConsultaEstGananciaNDispositivosPostgreSQL(PDEPURACION lstcDatosDeLaOperaci
 RNADEnviaLtaEstGananciaNDisp(PDEPURACION pintSocketCliente,lintNRegistros,lintNColumnas,lstcLtaEstGananciaNDispPtrUlt);
 dlclose(lvidRegresoDll);
 close(pintSocketCliente);
+return 0;
 }
 int ADDllCNSFormaCadenaConsultaCompras(PARDEPURACION char *pchrPtrFecha,char *pchrPtrCadenaConsulta)
 {
@@ -59,6 +61,7 @@ int ADDllCNSFormaCadenaConsultaCompras(PARDEPURACION char *pchrPtrFecha,char *pc
         strcat(PDEPURACION "\t");
         SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%000char*%","ADDllCNSFormaCadenaConsultaCompras",pchrPtrCadenaConsulta);
 #endif
+return 0;
 }
 int ADDllCNSFormaCadenaCotizacion(PARDEPURACION int pintNProductos,char **pchrPtrEntrada,char *pchrPtrSalida)
 {
@@ -84,6 +87,7 @@ printf("****((((((((((((( %s\n",pchrPtrSalida);
         strcat(PDEPURACION "\t");
         SISCOMImprimeFuncionYArgumentos(PDEPURACION "%00F%000char*%","ADDllCNSFormaCadenaCotizacion",pchrPtrSalida);
 #endif
+return 0;
 }
 int ADDllCNSFormaCadenaConsulta(PARDEPURACION int pintNProductos,char **pchrPtrProductos,char *pchrPtrRegreso)
 {
@@ -102,6 +106,7 @@ sprintf(pchrPtrRegreso,"%s","and (");
 	
 lintPos=strlen(pchrPtrRegreso);
 strcpy(pchrPtrRegreso+lintPos-2,")");
+return 0;
 }
 int ADDllCNSProductos(PARDEPURACION int pintSocketCliente,char ***pchrPtrConsulta,STRUCTError *pstcErrorPtrReg)
 {
@@ -135,6 +140,7 @@ int ADDllCNSProductos(PARDEPURACION int pintSocketCliente,char ***pchrPtrConsult
 	dlclose(lvidRegresoDll);	
 Write(pintSocketCliente,&lchrFin,1);
 close(pintSocketCliente);	
+return 0;
 }
 int ADDllCNSCompras(PARDEPURACION int pintSocketCliente,char ***pchrPtrCadenaConsulta,STRUCTError *pstcErrorPtrReg)
 {
@@ -178,4 +184,5 @@ int ADDllCNSCompras(PARDEPURACION int pintSocketCliente,char ***pchrPtrCadenaCon
     Write(pintSocketCliente,&lchrFin,1);
 	dlclose(lvidRegresoDll);	
 //close(pintSocketCliente);    	
+return 0;
 }

@@ -66,6 +66,7 @@ LogSiscom("NO Hay Conexion al servidor");
 }
 else
 LogSiscom("Si se conecto");
+return 0;
 }
 int SqlExpendiosSiscom(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -77,6 +78,7 @@ sprintf(lchrArrSql,
 	     puertosservidorad4 as b using(idempresa) ");
 SiscomConsultaSqlAArgumentoOperaciones(lchrArrSql,"Expendios",lchrArrBuffer,pSiscomOpePtrDato);
 LogSiscom("%s",lchrArrSql);
+return 0;
 }
 
 int SqlCierraDia(SiscomOperaciones *pSiscomOpePtrDato)
@@ -110,11 +112,13 @@ if(SiscomConsultasSqlServidorPorIdMaquina3(
 else
 LogSiscom("Se conecto");
 
+return 0;
 }
 
 int SqlVentasSiscom(SiscomOperaciones *pSiscomOpePtrDato)
 {
 LogSiscom("");
+return 0;
 }
 void SqlMaterialEscuela(SiscomOperaciones *pSiscomOpePtrDato,
 		      	char *pchrPtrSqlMaterialEscuela)
@@ -292,5 +296,6 @@ if(!SiscomComparaCadenaCampoRegistroProL(pchrPtrIdServidor,"idempresa",lSiscomRe
 }
 else
 return 1;
+return 0;
 }
 

@@ -55,6 +55,7 @@ SiscomActualizaCampoAsociadoEntrada("Envio",
 				    lchrArrCondicion,
 				    pSisOpePtrDato);
 }
+return 0;			
 }
 int AgregaCampoCondicionConsultaUnosExpendios(const char *pchrPtrEnvio,
 					      SiscomOperaciones *pSisOpePtrDato)
@@ -80,6 +81,7 @@ SiscomAsignaRegistrosArgumentoOperaciones(lSisRegProLPtrExpendios,
 					  "Expendios",
 					  pSisOpePtrDato);
 }
+return 0;			
 }
 int ArgumentoConsultaUnosExpendios(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -246,6 +248,7 @@ write(pSiscomOpePtrDato->intSocket,
 	"Conectando desde del Servidor SISCOM :) OK",
 	43);
 */
+return 0;			
 }
 
 

@@ -42,6 +42,7 @@ char lchrArrBuffer[256];
  				  lchrArrBuffer,
 				  pSiscomOpePtrDato);
 
+return 0;
 }
 int SqlRegistraFacturaFisica(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -54,6 +55,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlRegistroFactura",
 					lchrArrBufferSql,
 					pSiscomOpePtrDato,
 					InsertToFacturadoFisica);
+return 0;
 }
 int SqlRegistraFacturaMoral(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -66,6 +68,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlRegistroFactura",
 					lchrArrBufferSql,
 					pSiscomOpePtrDato,
 					InsertToFacturadoMoral);
+return 0;
 }
 
 
@@ -80,6 +83,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlRegistroFactura",
 					lchrArrBufferSql,
 					pSiscomOpePtrDato,
 					InsertToOrdenesFacturadas);
+return 0;
 }
 int SqlRegistraAlumnoEscuela4(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -107,6 +111,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlCliente",
 					pSiscomOpePtrDato,
 					InsertToCorreoAlumno);
 
+return 0;
 }
 int SqlRegistraCelularAlumno(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -120,6 +125,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlCliente",
 					pSiscomOpePtrDato,
 					InsertToCelularAlumno);
 
+return 0;
 }
 int SqlRegistraDireccionAlumno(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -139,6 +145,7 @@ SiscomAgregaSentenciasSqlCampoAsociado("SqlCliente",
 					lchrArrBufferSql,
 					pSiscomOpePtrDato,
 					InsertToEntreCallesAlumno);
+return 0;
 }
 int SqlRegistraClientePersona(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -369,6 +376,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			     "SqlDirecciones%",
 			     lchrArrSql);
 LogSiscom("%s",lchrArrSql);
+return 0;
 }
 
 int SqlDireccionesPersonaEnvioIdPersona(SiscomOperaciones *pSisOpePtrDato)
@@ -401,6 +409,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			     pSiscomOpePtrDato,
 			     "SqlPersona%",
 			     lchrArrSql);
+return 0;
 }
 int SqlBuscandoClienteRegistrado(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -413,6 +422,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			     pSiscomOpePtrDato,
 			     "SqlPersona%",
 			     lchrPtrSql);
+return 0;
 }
 
 int SqlClienteEmpresaRegistrado4(SiscomOperaciones *pSiscomOpePtrDato)
@@ -423,6 +433,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			     pSiscomOpePtrDato,
 			     "SqlPersona%",
 			     lchrArrSql);
+return 0;
 }
 
 int SqlDatosFisicaRegistrada(SiscomRegistroProL *pSiscomRegProLPtrPersona,
@@ -442,6 +453,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		lchrArrDirecciones,
 		lchrArrTelefonos,
 		lchrArrCorreos);
+return 0;
 }
 int SqlDatosMoralRegistrada(SiscomRegistroProL *pSiscomRegProLPtrPersona,
 			    SiscomOperaciones *pSiscomOpePtrDato)
@@ -460,6 +472,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		lchrArrDirecciones,
 		lchrArrTelefonos,
 		lchrArrCorreos);
+return 0;
 }
 
 void SqlAmbienteFacturacion(SiscomOperaciones *pSiscomOpePtrDato,
@@ -484,6 +497,7 @@ int SqlAmbienteActivoTimbrado(SiscomOperaciones *pSiscomOpePtrDato,
 {
 sprintf(pchrPtrSql,
 	"select * from ambienteactivotimbrado inner join ambientetimbrado using(idambiente);");
+return 0;
 }
 int SqlAmbienteFacturacionPhp(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -500,6 +514,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			      lchrArrSqlAmbiente,
 			      lchrArrSqlCorreo,
 			      lchrArrAmbienteActivoTimbrado);
+return 0;
 }
 int SqlClientePublicoEnGeneral(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -514,6 +529,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			      "PublicoEnGeneral%",
 			      lchrArrSql);
 
+return 0;
 }
 
 int SqlClientesMayoreo(SiscomOperaciones *pSiscomOpePtrDato)
@@ -798,4 +814,5 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			      "Empresa%Correos%",
 			      lchrArrSqlEmpresa,
 			      lchrArrSqlCorreos);
+return 0;
 }

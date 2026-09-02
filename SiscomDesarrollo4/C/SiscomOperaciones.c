@@ -825,6 +825,8 @@ if((lSiscomArgDato=SiscomObtenArgumento(pchrPtrArgumento,pSiscomArgumentos)))
 return lSiscomArgDato->SiscomRegProLPtrAct;
 else
 LogSiscom("No se encontro el argumento:%s",pchrPtrArgumento);
+
+return 0;
 }
 
 SiscomRegistroProL *SiscomObtenArgumentoPrimOperaciones(
@@ -979,6 +981,7 @@ else
 {
 return 0;
 }
+return 0;
 }
 
 int SiscomCampoAsociadoAsociadoInt(const char *pchrPtrCampoAsociado,
@@ -1021,7 +1024,7 @@ else
 return 0;
 }
 
-
+return 0;
 }
 
 
@@ -1047,6 +1050,7 @@ else
 {
 return 0;
 }
+return 0;
 }
 
 
@@ -1072,6 +1076,7 @@ else
 {
 return 0;
 }
+return 0;
 }
 
 
@@ -1210,6 +1215,7 @@ if((lSiscomRegProLPtrArgumento=SiscomObtenArgumentoPrimOperaciones(pchrPtrArgume
  return SiscomObtenCampoRegistroProLChar(pchrPtrCampo,lSiscomRegProLPtrRegistro);
 
 }
+return 0;
 }
 
 const char *SiscomObtenCampoArgumento4(const char *pchrPtrArgumento,
@@ -1299,6 +1305,7 @@ int SiscomEnviaRegistrosRespuesta(SiscomOperaciones *pSiscomOpePtrDatos,char *pc
   			     pchrPtrBuffer,
 			     pSiscomOpePtrDatos->SiscomRegProLPtrPrimRes);
 
+return 0;
 }
 
 int SiscomEnviaRegistrosEntrada(SiscomOperaciones *pSiscomOpePtrDatos,char *pchrPtrBuffer)
@@ -1308,6 +1315,7 @@ int SiscomEnviaRegistrosEntrada(SiscomOperaciones *pSiscomOpePtrDatos,char *pchr
   			     pchrPtrBuffer,
 			     pSiscomOpePtrDatos->SiscomRegProLPtrPrimEnt);
 
+return 0;
 }
 
 int SiscomFormaEnviaRegistroRespuesta(SiscomOperaciones *pSiscomOpePtrDatos,
@@ -1334,6 +1342,7 @@ SiscomNodoRegistroPro(lSiscomCamProLPtrPaso,
 		      &pSiscomOpePtrDatos->SiscomRegProLPtrActRes);
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDatos,pchrPtrBuffer);
 
+return 0;
 }
 
 SiscomRegistroProL *SiscomRegistrosCampoO(const char *pchrPtrCampo,SiscomOperaciones *pSiscomOpPtrDatos)
@@ -1725,11 +1734,13 @@ int SiscomAnexaRegistroRespuesta(SiscomOperaciones *pSiscomOpePtrDatos)
    pSiscomOpePtrDatos->SiscomRegProLPtrActRes=0;
    SiscomAnexaRegistroPro3(&pSiscomOpePtrDatos->SiscomRegProLPtrPrimRes,
    			   &pSiscomOpePtrDatos->SiscomRegProLPtrActRes);
+return 0;
 }
 int SiscomAnexaRegistroEntrada(SiscomOperaciones *pSiscomOpePtrDatos)
 {
    SiscomAnexaRegistroPro3(&pSiscomOpePtrDatos->SiscomRegProLPtrPrimEnt,
    			   &pSiscomOpePtrDatos->SiscomRegProLPtrActEnt);
+return 0;
 }
 
 int SiscomActualizaCampoRespuesta(const char *pchrPtrCampo,
@@ -1739,6 +1750,7 @@ int SiscomActualizaCampoRespuesta(const char *pchrPtrCampo,
 SiscomActualizaCampoAsignaMemoria2(pchrPtrCampo,
 				   pchrPtrDato,
 				   pSiscomOpePtrDatos->SiscomRegProLPtrActRes);
+return 0;
 }
 
 int SiscomActualizaCampoRespuestaFloat(const char *pchrPtrCampo,
@@ -1750,6 +1762,7 @@ SiscomActualizaCampoFloatRegistro(pchrPtrCampo,
 				  pchrPtrFormato,
 				  pfltValor,
 				  pSiscomOpePtrDatos->SiscomRegProLPtrActRes);
+return 0;
 }
 int SiscomActualizaCampoEntrada(const char *pchrPtrCampo,
 				  char *pchrPtrDato,
@@ -1758,6 +1771,7 @@ int SiscomActualizaCampoEntrada(const char *pchrPtrCampo,
 SiscomActualizaCampoAsignaMemoria2(pchrPtrCampo,
 				   pchrPtrDato,
 				   pSiscomOpePtrDatos->SiscomRegProLPtrActEnt);
+return 0;
 }
 int SiscomActualizaCampoEntradaFloat(const char *pchrPtrCampo,
 				     const char *pchrPtrFormato,
@@ -1768,6 +1782,7 @@ SiscomActualizaCampoFloatRegistro(pchrPtrCampo,
 				  pchrPtrFormato,
 				  pfltValor,
 				  pSiscomOpePtrDatos->SiscomRegProLPtrActEnt);
+return 0;
 }
 
 /* Domingo 14 de Agosto del 2016 
@@ -1791,6 +1806,7 @@ else
    return -1;
 }
 
+return 0;
 }
 
 int SiscomNoRegistrosAsociado(const char *pchrPtrCampo,				
@@ -1810,6 +1826,7 @@ LogSiscom("NO Se Encontro el Campo %s Con Asociado %s",pchrPtrCampo,pchrPtrAsoci
 return -1;
 }
 
+return 0;
 }
 
 int SiscomMultiplicaCamposACampoEntrada(const char *pchrPtrAsociado,
@@ -1830,6 +1847,7 @@ if((lSisRegProLPtrRegsAsociado=SiscomObtenRegistrosCampoEntrada(pchrPtrAsociado,
 			       lSisRegProLPtrRegsAsociado);
 else
 LogSiscom("NO Se encontro el campo %s ",pchrPtrAsociado);
+return 0;
 }
 
 void SiscomArgumentoAPrimerActual(const char *pchrPtrArgumento,SiscomOperaciones *pSisOpePtrDatos)

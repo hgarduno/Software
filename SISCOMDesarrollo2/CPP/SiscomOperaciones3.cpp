@@ -956,6 +956,7 @@ int lintTamRes;
 LeeDato(pchrPtrCadena,4,&lintTamRes);
 	*pchrPtrNmbRespuesta=(char *)malloc(lintTamRes+1);
 	LeeDato(pchrPtrCadena+4,lintTamRes,*pchrPtrNmbRespuesta);
+return 0;
 }
 void SiscomOperaciones3::ObtenNombreRespuesta(char **pchrPtrNmbRespuesta)
 {

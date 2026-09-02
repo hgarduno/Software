@@ -373,29 +373,34 @@ AgregaInformacionApartado(pSiscomRegProLPtrDato,lSisRegProLPtrAbonosA,lSisRegPro
 int InformacionVenta(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
 		     SiscomOperaciones *pSiscomOpePtrDatos)
 {
+return 0;			
 }
 int InformacionPedido(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
 		      SiscomOperaciones *pSiscomOpePtrDatos)
 {
 CompletandoPedido(pSiscomRegProLPtrOrdenes,pSiscomOpePtrDatos);
+return 0;			
 }
 
 int InformacionCotizacion(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
 		      SiscomOperaciones *pSiscomOpePtrDatos)
 {
   CompletandoCotizacion(pSiscomRegProLPtrOrdenes,pSiscomOpePtrDatos);
+return 0;			
 }
 
 int InformacionCancelacion(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
 		     SiscomOperaciones *pSiscomOpePtrDatos)
 {
   LogSiscom("");
+return 0;			
 }
 
 int InformacionApartado(SiscomRegistroProL *pSiscomRegProLPtrOrdenes,
 			SiscomOperaciones *pSiscomOpePtrDatos)
 {
    CompletandoApartado(pSiscomRegProLPtrOrdenes,pSiscomOpePtrDatos);
+return 0;			
 }
 
 int InformacionPagoTransferencia(SiscomRegistroProL *pSiscomRegProLOrdenes,
@@ -414,12 +419,15 @@ if(!lchrPtrObs)
 		SiscomObtenCampoRegistroProLChar("telefonotra",pSiscomRegProLOrdenes));
   }
  
+return 0;			
 }
 SiscomActualizaCampoAsignaMemoria2("observaciones",lchrArrEdoTransferencia,pSiscomRegProLOrdenes);
+return 0;			
 }
 int InformacionPagoTarjeta(SiscomRegistroProL *pSiscomRegProLOrdenes,
 			   SiscomOperaciones *pSiscomOpePtrDatos)
 {
+return 0;			
 }
 void CompletandoInformacionPorTipoOrden(SiscomRegistroProL *pSiscomRegProLPtrDatos,
 					SiscomOperaciones *pSiscomOpePtrDato)
@@ -553,6 +561,7 @@ if((lchrPtrIdTipoOrden=SiscomCampoAsociadoEntradaOperacion("Envio",
 else 
 return 0;
 
+return 0;			
 }
 int ConsultandoDatosPorTipoOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -601,6 +610,7 @@ lintIdTipoOrden=SiscomCampoAsociadoEntradaOperacionInt("Envio",
   if(lintIdTipoOrden==1)
   SqlCompletaCotizaciones(pSiscomOpePtrDato);
 
+return 0;			
 }
 
 int ArgumentoCotizaciones(SiscomOperaciones *pSiscomOpePtrDato)
@@ -792,6 +802,7 @@ int SiscomAccionAEjecutarPorCondicion(const char *pchrPtrAsociado,
  *
  */
 
+return 0;			
 
 }
 
@@ -838,6 +849,7 @@ for(; lStcConsOrdenes->chrPtrTipoConsulta;lStcConsOrdenes++)
     if(!strcmp(lchrPtrComoConsulto,lStcConsOrdenes->chrPtrTipoConsulta))
      lStcConsOrdenes->Consulta(pSiscomOpePtrDato);
 }
+return 0;			
 
 }
 
@@ -852,6 +864,7 @@ else
   return 0;
 }
 
+return 0;			
 }
 
 
@@ -887,6 +900,7 @@ sprintf(lchrArrCondicion,
 	 SiscomCampoAsociadoEntradaOperacion("Envio","IdOrden",pSiscomOpePtrDato));
 
 ActualizaArgumentoCondicion(lchrArrCondicion,pSiscomOpePtrDato);
+return 0;			
 }
 int CondicionConsultaPorRangoFechas(SiscomOperaciones *pSiscomOpePtrDato,
 				    int pintSiTipoOrden,
@@ -933,6 +947,7 @@ sprintf(lchrArrCondicion,
 	 SiscomCampoAsociadoEntradaOperacion("Envio","FechaFin",pSiscomOpePtrDato));
 
 ActualizaArgumentoCondicion(lchrArrCondicion,pSiscomOpePtrDato);
+return 0;			
 }
 
 

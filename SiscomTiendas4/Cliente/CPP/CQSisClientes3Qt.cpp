@@ -86,4 +86,5 @@ lintRegreso=1;
 
 pCQSisCliente3Qt->SiscomActualizaCampo("IdPersona",lSReg3LstRegreso["IdPersona"]);
 
+return 0;
 }

@@ -20,6 +20,7 @@ STRUCTDatosDeLaOperacion lstcOperacion;
 	strcpy(lstcOperacion.chrArrNomFuncion,"RNDLLRealizaAltaProductos");	
 	RNADFormaProtocoloEncabezado(PDEPURACION gintSocketSvr,lstcOperacion,NULL);
 
+return 0;
 }
 int CLIEnviaDatosAltaSVR()
 {
@@ -30,6 +31,7 @@ char pchrPtrTabulador[100];
 //RNADFormaCadenaAltaProductos(PDEPURACION  gstcLtaProductosListaPrim,lintNRegistros,lchrArrCadena,NULL);
 //Write(gintSocketSvr,lchrArrCadena,strlen(lchrArrCadena));
 RNADEnviaDatosDelProducto(PDEPURACION gintSocketSvr,lintNRegistros,5,gstcLtaProductosListaPrim,NULL);
+return 0;
 }
 int CLIIntroduceDatosProductos(PARDEPURACION char *pchrPtrCvePrd,char *pchrPtrCvePrv,char *pchrPtrDscCta,char *pchrPtrFamilia)
 {
@@ -50,6 +52,7 @@ RNADCopiaDatosDelProducto(PDEPURACION pchrPtrCvePrd,pchrPtrDscCta,pchrPtrCvePrv,
 	 gstcLtaProductosListaDat=gstcLtaProductosListaDat->stcLtaProductosSig;
 	}
 	lintNRegistros++;
+return 0;
 }
 
 

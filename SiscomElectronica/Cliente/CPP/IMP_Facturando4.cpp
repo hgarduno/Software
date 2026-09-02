@@ -114,6 +114,8 @@ int QFacturando4::SeLiberaFactura(int pintRegreso)
     else
     if(pintRegreso==1) /* Algo paso .... */
     return 1;
+
+   return 1;
 }
 void QFacturando4::IniciaVariables()
 {

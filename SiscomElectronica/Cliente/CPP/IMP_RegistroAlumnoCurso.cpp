@@ -374,6 +374,8 @@ if(lQARegistrado.InscribirCliente())
 }
 else
 return 0;
+
+return 0;
 }
 int QRegistroAlumnoCurso::MostrandoMensajeValidacionCamposMinimos(
 				const char *pchrPtrValidacion,

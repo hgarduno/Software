@@ -1167,6 +1167,7 @@ QSiscomConsultaAplicacion::QSiscomConsultaAplicacion(CSISCOMDatComunicaciones *p
 QSiscomPantallaBD *QSiscomConsultaAplicacion::operator[](long plngIdPantalla)
 {
 
+return 0;
 }
 QSiscomPantallaBD *QSiscomConsultaAplicacion::operator[](int pintNumPantalla)
 {

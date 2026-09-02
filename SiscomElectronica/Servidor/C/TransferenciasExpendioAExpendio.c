@@ -229,6 +229,7 @@ return 1;
 else
 if(!lSisRegProLPtrExistenciaD)
 return 2;
+return 0;
 }
 int ObteniendoExistenciaExpendioOrigenDestino(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -282,6 +283,7 @@ if(lfltExistenciaOrigen>0.0 &&
    				       &lSisRegProLPtrRegAct,
 				       lchrPtrEstado);
  SiscomEnviaRegistrosSocket(pSisOpePtrDato->intSocket,lchrArrBuffer,lSisRegProLPtrRegPrim); 
+return 0;
 }
 void ObtenIdsExpendios(SiscomOperaciones *pSisOpPtrDato,
 		       const char **pchrPtrIdExpendioO,
@@ -323,6 +325,7 @@ SiscomReplicaMaquinaPorCampo("idempresa",
 			     0,
 			     pSisOpePtrDato);
 }
+return 0;
 }
 
 int CreaArgumentoExpendioDestino(SiscomOperaciones *pSiscomOpePtrDato)
@@ -345,6 +348,7 @@ SiscomAgregaArgumentoInsercionSql("SqlExpendioDestino",
 				  0,
 				  lchrArrBuffer,
 				  pSiscomOpePtrDato);
+return 0;
 }
 int CreaArgumentoExpendioOrigen(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -366,6 +370,7 @@ SiscomAgregaArgumentoInsercionSql("SqlExpendioOrigen",
 				  lchrPtrPuertoDB,
 				  lchrArrBuffer,
 				  pSiscomOpePtrDato);
+return 0;
 }
 
 int AgregaIdTransferencia(SiscomOperaciones *pSisOpePtrDato)
@@ -373,11 +378,13 @@ int AgregaIdTransferencia(SiscomOperaciones *pSisOpePtrDato)
 int lintContador;
 SiscomAgregaCampoAsociadoEntrada("IdTransferencia",0,"Envio",pSisOpePtrDato);
 SiscomIdARegistrosAsociadosEntrada("Envio","IdTransferencia",pSisOpePtrDato);
+return 0;
 }
 
 int AsignaFechaHoyProductosOtrosExpendios(SiscomOperaciones *pSiscomOpePtrDato)
 {
 SiscomAsignaFechaAsociadoEntrada("Envio","Fecha",pSiscomOpePtrDato);
+return 0;
 }
 
 int ProductosTransferenciaOtrosExpendios(SiscomOperaciones *pSisOpePtrDato)
@@ -387,6 +394,7 @@ SiscomAsociadoRespuestaLog("Productos",lchrArrBuffer,pSisOpePtrDato);
 SiscomEnviaAsociadoRespuestaCliente("Productos",
 				    lchrArrBuffer,
 				    pSisOpePtrDato);
+return 0;
 }
 
 int ConexionExpendioTransferencia(SiscomRegistroProL *pSisRegProLPtrMemoria,
@@ -398,6 +406,7 @@ LogSiscom("Conectando a %s:%s",
 	  SiscomObtenCampoRegistroProLChar("puerto",pSisRegProLPtrMemoria));
 
 
+return 0;
 }
 int ErrorConexionExpendioTransferencia(
 			  SiscomRegistroProL *pSiscomRegProLPtrMemoria,
@@ -409,6 +418,7 @@ LogSiscom("Error Al Conectarse  %s:%s",
 	  SiscomObtenCampoRegistroProLChar("dirip",pSiscomRegProLPtrMemoria),
 	  SiscomObtenCampoRegistroProLChar("puerto",pSiscomRegProLPtrMemoria));
 	  
+return 0;
 }
 
 int MensajeConexionExpendioTransferencia(SiscomRegistroProL *pSisRegProLPtrMemoria,

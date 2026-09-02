@@ -13,6 +13,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 		   pSiscomOpePtrDato,
 		   "Escuelas%",
 		   lchrArrSql);
+return 0;
 }
 
 int SqlEntregaEscuela(SiscomOperaciones *pSiscomOpePtrDato)

@@ -176,7 +176,7 @@ return 0;
 }
 float RealizaSumatoriaGastosCaja(SiscomRegistroProL *pSisRegProLPtrGastos)
 {
-
+return 0.0;
 }
 int SumaGastosCaja(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -304,6 +304,7 @@ SiscomRegistroProL *lSisRegProLPtrCCaja;
 
 if((lSisRegProLPtrCCaja=CajaDeCambio(pSisOpePtrDato)))
 return SiscomObtenRegistrosCampoProL("Dinero",lSisRegProLPtrCCaja);
+return 0;
 }
 int YaHayCajaConCambio(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -320,6 +321,7 @@ LogSiscom("");
    }
    else
 	SqlRegistraCambioCaja(pSisOpePtrDato);
+return 0;
 }
 
 int EnviandoCambiosCaja(SiscomOperaciones *pSisOpePtrDatos)
@@ -412,6 +414,7 @@ float CuantoVaEnCambio(SiscomOperaciones *pSisOpePtrDato)
 SiscomRegistroProL *lSisRegProLPtrCajaCambio;
 if((lSisRegProLPtrCajaCambio=CajaCambio(pSisOpePtrDato)))
 return SiscomObtenCampoRegistroProLFloat("Total",lSisRegProLPtrCajaCambio);
+return 0.0;
 }
 int ContandoCambioCaja(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -550,6 +553,7 @@ int EnviaRegistraCorteCajaSucursal(SiscomOperaciones *pSisOpePtrDato)
 {
 char lchrArrBuffer[256];
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSisOpePtrDato);
+return 0;
 }
 
 

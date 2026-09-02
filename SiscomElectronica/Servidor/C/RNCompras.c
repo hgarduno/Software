@@ -490,6 +490,7 @@ SiscomAnexaRegistroPro2(pLCSiscomPro2DatPrim,
 			pintPtrNRegistros,
 			"ComandoSQL",
 			lchrArrSql);
+return 0;			
 }
 
 void SqlInsertBodegaAExpendioTransferencia(

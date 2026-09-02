@@ -86,6 +86,7 @@ SiscomReplicacionEnvioServidor("Matriz",
 				   pchrPtrBuffer,
 				   pSiscomOpAccionErrorRep,
 				   pSiscomOpPtrDat);
+return 0;
 }
 int SiscomReplicaServidorExpendios(const char *pchrPtrArgumentoEnvio,
 			       char *pchrPtrBuffer,
@@ -97,6 +98,7 @@ SiscomReplicacionEnvioServidor("Expendio",
 				pchrPtrBuffer,
 				pSiscomOpAccionErrorRep,
 				pSiscomOpPtrDat);
+return 0;
 }
 
 int SiscomReplicaMaquinaLocal(const char *pchrPtrArgumentoEnvio,
@@ -148,6 +150,7 @@ return 0;
 }
 else
 return 0;
+return 0;
 }
 
 int SiscomErrorOperacionBase(SiscomOperaciones *pSiscomOpePtrDato)
@@ -161,6 +164,7 @@ else
 LogSiscom("No se encontro el Campo \"EstadoOperacion\"");
 return 0;
 }
+return 0;
 }
 
 int SiscomReplicaMaquinasSistema(const char *pchrPtrTipoEquipo,
@@ -206,6 +210,7 @@ LogSiscom("No se pudo conecta a %s:%d",
 
 }
 
+return 0;
 }
 int SiscomServidorPorIdMaquina(const char *pchrPtrIdMaquina,
 			       SiscomRegistroProL *pSiscomRegProLPtrMemoria,
@@ -302,6 +307,7 @@ return 0;
 }
 }
 }
+return 0;
 }
 
 int SiscomReplicaMaquinaPorCampo(const char *pchrPtrNmbCampo,
@@ -350,6 +356,7 @@ return 0;
 }
 }
 }
+return 0;
 }
 void SiscomConsultasSqlServidorPorIdMaquina(const char *pchrPtrIdServidor,
 				     SiscomRegistroProL *pSiscomRegProLPtrMemoria,
@@ -505,6 +512,7 @@ return 1;
 
 
 
+return 0;
 }
 
 
@@ -743,6 +751,7 @@ else
 lSiscomRegProLPtrRegresoPrim=lSiscomRegProLPtrRegresoAct=0;
 }
 }
+return 0;
 }
 
 
@@ -764,6 +773,7 @@ if(pSiscomOpePtrDato->SiscomRegProLPtrPrimRes)
 
   return lSiscomRegProLPtrRegreso;
 }
+return 0;
 }
 
 const char *SiscomCampoServidorPorId(const char *pchrPtrCampoRegreso,
@@ -792,4 +802,5 @@ if(!SiscomComparaCadenaCampoRegistroProL(pchrPtrValorCampo,pchrPtrCampo,lSisRegP
 }
 return 0;
 }
+return 0;
 }

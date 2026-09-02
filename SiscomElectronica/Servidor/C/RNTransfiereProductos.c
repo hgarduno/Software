@@ -468,6 +468,7 @@ int VerificaLaCantidadVsExistencia(LCamposSiscomPro2 *pLCSiscomPro2Producto,
 	   else
 	   return 0;
 	}
+return 0;			
 }
 int ValidaLaExistencia(SArgsSiscom *pSAgsSiscom)
 {

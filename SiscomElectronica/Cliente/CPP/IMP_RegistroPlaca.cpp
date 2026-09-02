@@ -246,6 +246,7 @@ if(lintRegistro==2)
 	return -1;
 }
 
+return 0;
 }
 int QRegistroPlaca::RegistraCliente()
 {

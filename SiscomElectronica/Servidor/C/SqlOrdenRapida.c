@@ -17,6 +17,7 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			     "Escuela%PublicoEnGeneral%",
 			     lchrArrSqlEscuela,
 			     lchrArrSqlPublico);
+return 0;
 }
 void SqlFormaPublicoEnGeneral(char *pchrPtrSqlConsulta)
 {
@@ -41,4 +42,5 @@ SiscomConsultasSqlOperaciones(lchrArrBuffer,
 			     "Escuela%PublicoEnGeneral%",
 			     lchrArrSqlEscuela,
 			     lchrArrSqlPublico);
+return 0;
 }

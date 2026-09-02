@@ -33,4 +33,5 @@ void *lvidPtrRegresoDll;
 	RNDllRealizaConsulta(PDEPURACION pintSocket,pintTuberia,lchrPtrCadenaRegreso[0][0],pintPuertoAD,pchrPtrDIPSvrAD,pstcErrorPtrReg);	
  	dlclose(lvidPtrRegresoDll);	
 	
+return 0;
 }

@@ -49,6 +49,7 @@ SiscomAgregaSentenciasSqlDelAsociado("SqlPesoProducto",
 SiscomEnviaRegistrosAlServidorBD("SqlPesoProducto",
 			       lchrArrBuffer,
 			       pSiscomOpePtrDato);
+return 0;
 }
 
 void InsertToPesoProducto(SiscomOperaciones *pSiscomOpePtrDato,

@@ -112,6 +112,7 @@ float ExistenciaExBoProductoSiscom(SiscomRegistroProL *pSisRegProLPtrProducto,
   else
   if(!SiscomComparaCadenaCampoRegistroProL("Expendio","Origen",pSisRegProLPtrProducto))
      return SiscomObtenCampoRegistroProLFloat("existencia",pSisRegProLPtrExistencia); 
+return 0.0;
 }
 /* CDMX Lunes 27 abril 2020 
  * En medio de la pandemia de Coronavirus COVID-19
@@ -154,6 +155,7 @@ while(pSisRegProLPtrExistencias)
    }
   pSisRegProLPtrExistencias=pSisRegProLPtrExistencias->SiscomRegProLPtrSig; 
  }
+return 0;
 }
 void AgregaRegistroNoAlcanza(SiscomRegistroProL *pSisRegProLPtrProducto,
 			     float pfltCantidadParaComprar,
@@ -260,6 +262,7 @@ int NoSeRegistraNoAlcanza(SiscomOperaciones *pSiscomOpePtrDato)
 char lchrArrBuffer[256];
  LogSiscom("Se Contesta con error porque no alcanza");
  SiscomEnviaAsociadoEntradaCliente("Envio",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 
 const char *HayRegistroProductoSiscomHoy(SiscomOperaciones *pSiscomOpePtrDato)

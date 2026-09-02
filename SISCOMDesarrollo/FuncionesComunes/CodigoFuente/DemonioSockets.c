@@ -128,6 +128,7 @@ int lintI=0;
 		
 gintNProcesos++;
 
+return 0;
 }
 int SISCOMLeeArgumentosDemonioSockets(int pintArgc,char **pchrPtrArgv,int *pintPtrPuerto,char *pchrPtrProceso,
 					int *pintPtrNProceso,char *pchrPtrNomDLL,char *pchrPtrFunciones,char *pchrPtrIniciaSHM,int *pintPtrPtoAD,char *pchrPtrDirIPSvrAD,STRUCTError *pSTRUCTErrorPtrReg)
@@ -198,6 +199,7 @@ int (*SISCOMFuncion)(int,unsigned long,int ,char *,char *,char ***);
 	SISCOMFuncion(pintSocket,plngSHMID,pintPuertoAD,pchrPtrDirIPSvrAD,pchrPtrBinario,pchrPtrRegArgs);
 	dlclose(lvidDll);
 	
+return 0;
 }
 int SISCOMIniciaSHM(unsigned long *pusnlngIDSHM,char *pchrPtrDll,char *pchrPtrFuncion)
 {
@@ -210,6 +212,7 @@ int (*SISCOMIniciaMemSHM)(unsigned long *);
 	printf("La funcion %s no existe en la Dll \n",pchrPtrFuncion);
 	SISCOMIniciaMemSHM(pusnlngIDSHM);
 	dlclose(lvidDll);
+return 0;
 }
 int SISCOMCreaArgumentosSinDLL(char *pchrPtrBinario,int pintPto,int pintPtoSvrAD,char *pchrPtrDirIPSvrAD,char ***pchrPtrArgs)
 {
@@ -234,6 +237,7 @@ char *lchrPtrRegreso;
 	 
 	} 
 
+return 0;
 }
 void SISCOMInstalaManejadorDeSenales(int pintSenal)
 {
@@ -289,4 +293,5 @@ printf("\n\t[IniArgs], es el nombre de la funcion que formara los argumentos del
 printf("\n\t[IniSHM], es el nombre de la funcion que iniciara los segmentos de memoria compartida, esta funcion se ejecuta");
 printf("\n\t          al inicio del proceso\n");
 
+return 0;
 }

@@ -73,6 +73,7 @@ SiscomAsociadosArgumentoLog("SqlProductosASincronizar",
 			    pSisOpePtrDato);
 */
 LogSiscom("Si termino");
+return 0;
 }
 int ProductosASincronizarExpendio(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -82,6 +83,7 @@ SiscomAsignaRegistrosArgumentoOperaciones(lSisRegProLPtrProdsASi,
 					  lSisRegProLPtrProdsASi,
 					  "ProductosASincronizar",
 					  pSisOpePtrDato);
+return 0;
 }
 int EstaElProductoEnElExpendio(SiscomRegistroProL *pSisRegProLPtrProdsMatriz,
 			       SiscomRegistroProL *pSisRegProLPtrProdsExpendio)
@@ -137,6 +139,7 @@ SiscomAgregaArgumentoOperacion("ProductosMatriz",
 				(SiscomRegistroProL *)0,
 				(SiscomRegistroProL *)0,
 				pSiscomOpePtrDato);
+return 0;
 }
 
 int ArgumentoBodegasExpendio(SiscomOperaciones *pSiscomOpePtrDato)
@@ -145,6 +148,7 @@ SiscomAgregaArgumentoOperacion("BodegasExpendio",
 				(SiscomRegistroProL *)0,
 				(SiscomRegistroProL *)0,
 				pSiscomOpePtrDato);
+return 0;
 }
 
 int ArgumentoProductosExpendio(SiscomOperaciones *pSiscomOpePtrDato)
@@ -153,6 +157,7 @@ SiscomAgregaArgumentoOperacion("ProductosExpendio",
 				(SiscomRegistroProL *)0,
 				(SiscomRegistroProL *)0,
 				pSiscomOpePtrDato);
+return 0;
 }
 
 int ArgumentoProductosASincronizar(SiscomOperaciones *pSiscomOpePtrDato)
@@ -161,6 +166,7 @@ SiscomAgregaArgumentoOperacion("ProductosASincronizar",
 				(SiscomRegistroProL *)0,
 				(SiscomRegistroProL *)0,
 				pSiscomOpePtrDato);
+return 0;
 }
 
 int ArgumentoSqlProductosASincronizar(SiscomOperaciones *pSiscomOpePtrDato)

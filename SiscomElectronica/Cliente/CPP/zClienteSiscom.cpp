@@ -95,6 +95,8 @@ AsociadosAlCampo("Direccion",lzDirecciones);
 }
 int zClienteSiscom::TelefonoValido(zSiscomRegistro *pzSisRegPersona)
 {
+
+return 0;
 }
 int zClienteSiscom::EscuelaValida(zSiscomRegistro *pzSisRegPersona)
 {

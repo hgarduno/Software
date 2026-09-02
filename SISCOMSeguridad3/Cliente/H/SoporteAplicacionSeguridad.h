@@ -82,7 +82,9 @@ class CQUsuario
 		long ObtenIdAplicacion();
 		int operator==(char **);
 		int operator==(QStringList );
+		/*
 		CQUsuario operator=(CQUsuario);
+		*/
 	private:
 		const char *chrPtrNombre;
 		const char *chrPtrAPaterno;

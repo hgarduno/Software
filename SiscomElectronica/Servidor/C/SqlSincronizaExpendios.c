@@ -161,6 +161,7 @@ if((lSisRegProLPtrSqlPrim=SiscomObtenArgumentoActOperaciones("SqlProductosASincr
 
 return lSisRegProLPtrSqlPrim;
 }
+return 0;
 }
 void AgregaInsercionProducto(SiscomRegistroProL *pSisRegProLPtrProducto,
 			     SiscomRegistroProL *pSisRegProLPtrSql)
@@ -269,6 +270,7 @@ lchrPtrIdExpendio=SiscomCampoArgumentoPrim("Expendios","idempresa",pSisOpePtrDat
 }
 MostrandoLasSentencias(lSisRegProLPtrSql); 
 
+return 0;
 }
 int SqlInsertaProductoExpendioSincroniza(SiscomOperaciones *pSisOpePtrDato)
 {
@@ -288,6 +290,7 @@ SiscomEnviaRegistrosBD(lchrPtrDirIp,
 			"SqlProductosASincronizar",
 			lchrArrBuffer,
 			pSisOpePtrDato);
+return 0;
 }
 
 /*

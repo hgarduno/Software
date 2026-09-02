@@ -289,6 +289,7 @@ int EnviaPublicoEnGeneral(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[128];
 SiscomEnviaAsociadoRespuestaCliente("PublicoEnGeneral",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;			
 }
 int EnviaClientesMayoreo(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -325,7 +326,8 @@ if(SiscomCampoArgumentoPrim("Normalizado","Nombre",pSisOpePtrDato) &&
    SiscomCampoArgumentoPrim("Normalizado","APaterno",pSisOpePtrDato) &&
    SiscomCampoArgumentoPrim("Normalizado","AMaterno",pSisOpePtrDato))
   return 1;
-
+  else
+return 0;			
 }
 int BuscaClienteCompleto(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -776,12 +778,14 @@ int ElClienteYaSeRegistro(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256];
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
+return 0;
 }
 int NombreNoCoincide(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256];
 SiscomEnviaRegistrosRespuesta(pSiscomOpePtrDato,lchrArrBuffer);
 
+return 0;
 }
 int BuscandoAUnClienteEnLaBase(SiscomOperaciones *pSiscomOpePtrDato)
 {
@@ -812,6 +816,7 @@ int EnviaDireccionEscuela(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[256];
 SiscomEnviaAsociadoRespuestaCliente("SqlDirecciones",lchrArrBuffer,pSiscomOpePtrDato);
+return 0;
 }
 
 

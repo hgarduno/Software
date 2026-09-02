@@ -149,6 +149,7 @@ int CargaArchivoIni(char **pchrPtrArgv)
    				"LogServidor",
 				"SocketProtocolo",
 				&gSiscomDatIni);
+return 0;
 }
 
 int SiscomServidorComunicaciones(int pintPtoCom)
@@ -182,6 +183,7 @@ char lchrArrDirIpCliente[25];
       close(lintSocketCliente);
       }
   }
+return 0;
 }
 void AlmacenaPidServidor()
 {

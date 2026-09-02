@@ -134,6 +134,7 @@ int lintNRegistros=1;
 				       lSLRCSisPrim,
 				       pSLRCSisRegreso,
 				       pintPtrNRegistros);
+return 0;
 }
 
 
@@ -504,6 +505,7 @@ int lintNRegistros=0;
 				       lSLRCSisComPriInfo,
 				       pSLRCSisRegreso,
 				       pintPtrNRegistros);
+return 0;
 }
 
 int SISCOMEjecutaConsultaSvrSiscomYEnviaAlClienteConRespuestaConstruida(int pintSCliente,
@@ -554,6 +556,7 @@ lSLRCSisPResFormateados=ConstruyeRespuesta(pintPtoComAD,
 SISCOMEnviaRespuestaAlCliente(pintSCliente,
 			      lSLRCSisPResFormateados,
 		              lintNRegResFormateados);
+return 0;
 }
 int SISCOMEjecutaConsultaSvrSiscomYEnviaAlClienteSinEnvioAD(int pintSCliente,
 							    int pintPtoComAD,
@@ -584,6 +587,7 @@ SISCOMEnviaRespuestaAlCliente(pintSCliente,
 
 
 
+return 0;
 }
 int SISCOMEjecutaConsultaSvrSiscomYEnviaAlCliente2(int pintSCliente,
 				   int pintPtoComAD,
@@ -625,6 +629,7 @@ SISCOMEnviaInformacionAlSvrAD(pintPtoComAD,
 SISCOMEnviaRespuestaAlCliente(pintSCliente,
 			      lSLRCSisPResR,
 		              lintNRegRes);
+return 0;
 }
 
 int SISCOMEjecutaConsultaSvrSiscomYEnviaAlCliente(int pintSCliente,
@@ -664,6 +669,7 @@ SISCOMEnviaInformacionAlSvrAD(pintPtoComAD,
 SISCOMEnviaRespuestaAlCliente(pintSCliente,
 			      lSLRCSisPResR,
 		              lintNRegRes);
+return 0;
 }
 			
 long SISCOMObtenNumeroUnico()
@@ -928,6 +934,7 @@ int lintPos=0,lintTam=0;
 						  (*pchrPtrCadEnvio)+lintPos);
 		    lintPos+=lintTam;
 		}
+return 0;
 }
 int SISCOMEnviaRespuestaAlCliente(int pintSCliente,
 				  StcLtaRegComSISCOM *pSLRCSISCOMPtrPrimInf,
@@ -955,6 +962,7 @@ int lintNumCampos;
 	    lSLRCSISCOMPtrDat=lSLRCSISCOMPtrDat->LSRCSISCOMPtrSig;
 	}
 
+return 0;
 }
 int SISCOMEnviaInfAlServidor(char **pchrPtrDatosCom,
 			      int pintNumRegistros,
@@ -997,6 +1005,7 @@ Write(*pintPtrSocketSvrRN,lchrPtrCadConsulta,strlen(lchrPtrCadConsulta));
 	    
 	    lSLRCSISCOMPtrDat=lSLRCSISCOMPtrDat->LSRCSISCOMPtrSig;
 	}
+return 0;
 }
 
 int SISCOMObtenTamanoBufferCadEnvio(char **pchrPtrRegistro,
@@ -1008,6 +1017,7 @@ int lintSumTam=0;
 	  lintSumTam+=strlen(pchrPtrRegistro[lintContador])+13; 
 	 *pintPtrNumCampos=lintContador;
 	 return lintSumTam;
+return 0;
 }
 void SISCOMFormaCadenaEnvioXRegistro(char **pchrPtrRegistro,
 				     char **pchrPtrCadEnvio,
@@ -1054,6 +1064,7 @@ lchrArrCadNumCampos[0]=lchrArrCadNumRegistros[0]=0;
 	SISCOMLeeDatos(pintSocket,5,lchrArrCadNumCampos,0);
 	*pintPtrNumCampos=atoi(lchrArrCadNumCampos);
 	*pintPtrNumRegistros=atoi(lchrArrCadNumRegistros);
+return 0;
 }
 int SISCOMObtenRegistro(int pintSocket,
 			int pintNumCampos,
@@ -1066,6 +1077,7 @@ int lintContador;
 			   		    &(*pchrPtrRegistro)[lintContador],
 					    0);
 	(*pchrPtrRegistro)[lintContador]=0;
+return 0;
 }
 void SISCOMFormaDatosProtocoloInfoUsuario(char *pchrPtrUsuario,
 		                          char *pchrPtrPassword,
@@ -1133,6 +1145,7 @@ sprintf(lchrPtrCadConsulta+lintDesConsulta,
        lchrArrModFncYCns);
 Write(*pintPtrSocketSvrRN,lchrPtrCadConsulta,strlen(lchrPtrCadConsulta));
 
+return 0;
 }
 void SISCOMCambiaExtension(char *pchrPtrExtActual,
 			   char *pchrPtrNvaExtension,
@@ -1203,6 +1216,7 @@ int SISCOMConcatenaSiEsNecesario(PARDEPURACION char *pchrPtrCadenaOrigen,char *p
 	else
 	   strcpy(pchrPtrCadenaOrigen,pchrPtrCadenaQueSeSuma);
 
+return 0;
 }
 int SISCOMValidaSoloNumeros(PARDEPURACION char *pchrPtrCadena,char *pchrPtrCadenaError)
 {
@@ -1309,6 +1323,7 @@ printf("SISCOMObtenFechaHoyINT:%d-%d-%d:%d:%d:%d\n",
 	stctm->tm_hour,
 	stctm->tm_min,
 	stctm->tm_sec);
+return 0;
 }
 int SISCOMFechaDelPrecio(PARDEPURACION char *pchrPtrFechaHoy)
 {
@@ -1317,6 +1332,7 @@ struct tm *stctm;
 regTime=time(NULL);
 stctm=gmtime(&regTime);
 sprintf(pchrPtrFechaHoy,"%d.%d.%d",stctm->tm_mday,stctm->tm_mon+1,stctm->tm_year+1900);
+return 0;
 
 }
 int SISCOMConectateServidor(PARDEPURACION int pintPto,char *pchrPtrDirIP,int *pintSocket,STRUCTError *pSTRUCTErrorPtrReg)
@@ -1343,6 +1359,7 @@ pSTRUCTErrorPtrReg->intNumError=0;
 
 if(pSTRUCTErrorPtrReg)
 return SeDetectoError(*pSTRUCTErrorPtrReg);
+return 0;
 }
 int SISCOMObtenNombreDelBinario(PARDEPURACION char *pchrPtrNombreConRuta,char *pchrPtrNombreBinario)
 {
@@ -1354,6 +1371,7 @@ int SISCOMObtenNombreDelBinario(PARDEPURACION char *pchrPtrNombreConRuta,char *p
 		while(pchrPtrNombreConRuta[lintPosBin--]!='/');
 		strcpy(pchrPtrNombreBinario,pchrPtrNombreConRuta+lintPosBin+1);
 	}
+return 0;
 }
 int SISCOMLeeDatos(PARDEPURACION int pintSocket,int pintNDatos,char *pchrPtrRegreso,int pintSinEspacios)
 {
@@ -1364,6 +1382,7 @@ int SISCOMLeeDatos(PARDEPURACION int pintSocket,int pintNDatos,char *pchrPtrRegr
 	pchrPtrRegreso[pintNDatos]=0;
 	if(pintSinEspacios)
 	 SISCOMQuitaEspacios(pchrPtrRegreso);
+return 0;
 }
 int SISCOMCargaDllYBuscaFuncion(PARDEPURACION char *pchrPtrNombreDll,char *pchrPtrFunciones,void **pvidPtrFuncion)
 {
@@ -1377,6 +1396,7 @@ int SISCOMCargaDllYBuscaFuncion(PARDEPURACION char *pchrPtrNombreDll,char *pchrP
 	if(!(*pvidPtrFuncion=dlsym(lvidDll,pchrPtrFunciones)))
 	printf("La funcion %s no existe en la DLL\n",pchrPtrFunciones);
 	dlclose(lvidDll);
+return 0;
 }
 int SISCOMQuitaEspacios(PARDEPURACION char *pchrPtrCadena)
 {
@@ -1384,25 +1404,30 @@ char *lchrPtrRegreso;
 	if((lchrPtrRegreso=(char *)strstr(pchrPtrCadena," ")))
 	   pchrPtrCadena[lchrPtrRegreso-pchrPtrCadena]=0;	
 
+return 0;
 }
 int SISCOMFormaDatosProtocoloCHAR(PARDEPURACION char *pchrPtrDato,int pintNDato,int pintNCamposD,int *pintPtrTamano,char *pchrPtrCampo)
 {
 	sprintf(pchrPtrCampo,"%04d%04d%04d%s",pintNDato,pintNCamposD,(int )strlen(pchrPtrDato),pchrPtrDato);
 	*pintPtrTamano=strlen(pchrPtrCampo);
+return 0;
 }
 
 int SISCOMFormaDatosProtocoloINT(PARDEPURACION int pintDato,int pintNDato,int *pintPtrTamano,char *pchrPtrCampo)
 {
 	sprintf(pchrPtrCampo,"%04d%04d%05d",pintNDato,5,pintDato);
 	*pintPtrTamano=strlen(pchrPtrCampo);
+return 0;
 }
 
 int SISCOMFormaDatosProtocoloFLOAT(PARDEPURACION float pfltDato,int pintNDato,int *pintPtrTamano,char *pchrPtrCampo)
 {
+return 0;
 }
 int SISCOMFormaDatosProtocoloLONG(PARDEPURACION long plngDato,int pintNDato,int *pintPtrTamano,char *pchrPtrCampo)
 {
 
+return 0;
 }
 int SISCOMObtenDatoDinamicoProcotolo(int pintSocket,
 				     char **pchrPtrDato,
@@ -1420,6 +1445,7 @@ int SISCOMObtenDatoDinamicoProcotolo(int pintSocket,
 	SISCOMLeeDatos(pintSocket,lintTamano,*pchrPtrDato,0);
 
 
+return 0;
 
 }
 int SISCOMObtenDatoProtocoloCHAR(PARDEPURACION int pintSocket,char *pchrPtrDato,int *pintPtrNDato)
@@ -1434,6 +1460,7 @@ int SISCOMObtenDatoProtocoloCHAR(PARDEPURACION int pintSocket,char *pchrPtrDato,
 	lintTamano=atoi(lchrArrDato);
 	SISCOMLeeDatos(PDEPURACION pintSocket,lintTamano,pchrPtrDato,0);
 
+return 0;
 }	
 int SISCOMLiberaCharPtr(PARDEPURACION int pintNRegistros,int pintNColumnas,char ***pchrPtrCadena)
 {
@@ -1445,6 +1472,7 @@ int lintI,lintJ;
 	 free(pchrPtrCadena[lintI]);
 	}
 	free(pchrPtrCadena);
+return 0;
 }
 int SISCOMObtenInformacionDelProtocolo(PARDEPURACION int pintSocket,int *pintNRegistros,int *pintNColumnas,char ****pchrPtrDatos,STRUCTError *pstcErrorPtrReg)
 {
@@ -1460,7 +1488,7 @@ int SISCOMObtenInformacionDelProtocolo(PARDEPURACION int pintSocket,int *pintNRe
 	Read(pintSocket,lchrArrCadena,4);
 	lchrArrCadena[4]=0;
 	*pintNRegistros=lintNRegistros=atoi(lchrArrCadena);
-	Read(pintSocket,lchrArrCadena,4);
+Read(pintSocket,lchrArrCadena,4);
 	*pintNColumnas=lintNColumnas=atoi(lchrArrCadena);
 	*pchrPtrDatos=(char ***)malloc(sizeof(char **)*(lintNRegistros));
 	for(lintI=0;lintI<lintNRegistros;lintI++)
@@ -1474,6 +1502,7 @@ int SISCOMObtenInformacionDelProtocolo(PARDEPURACION int pintSocket,int *pintNRe
 	  }
 	}
 	(*pchrPtrDatos)[lintI]=0;
+return 0;
 }
 int SISCOMCreaSegmentoSHM(PARDEPURACION unsigned long plngKeySHM,unsigned long plngTamano,unsigned long *plngPtrRegSHMID,void **pvidPtrMemSHM,STRUCTError *pstcErrorPtrReg)
 {
@@ -1493,6 +1522,7 @@ int SISCOMCreaSegmentoSHM(PARDEPURACION unsigned long plngKeySHM,unsigned long p
 	
 
 
+return 0;
 }
 int SISCOMAsignaMemoriaARGS(PARDEPURACION int pintMax,int pintN,char ***pchrPtrArgv)
 {
@@ -1501,6 +1531,7 @@ int lintI;
 	*pchrPtrArgv=(char **)malloc(sizeof(char *)*pintN);
 	for(lintI=0;lintI<pintN;lintI++)
 	(*pchrPtrArgv)[lintI]=(char *)malloc(pintMax);
+return 0;
 }
 int SISCOMImprimeFuncionYArgumentos(char *pchrPtrTabuladores,char *pchrPtrFormato,...)
 {
@@ -1548,6 +1579,7 @@ lchrCadForm0=lchrRespaldo;
     }
   printf("\b)");
   va_end(ap);
+return 0;
 }
 
 
@@ -1566,6 +1598,7 @@ printf("(%s)(%d)\n",pchrPtrCadena,pintTamano);
 #endif
 write(pintSocket,pchrPtrCadena,pintTamano);
 
+return 0;
 }
 
 
@@ -1581,6 +1614,7 @@ read(pintSocket,(char *)pchrPtrCadena,pintTamano);
 printf("Read (%s) (%s) (%d) ",pchrPtrArchivo,pchrPtrFuncion,pintNLinea);
 printf("(%s)(%d)\n",pchrPtrCadena,pintTamano);
 #endif
+return 0;
 }
 
 

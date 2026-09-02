@@ -236,6 +236,7 @@ else
 if(!strcmp(pchrPtrEdoConexion,"Expendio Sin Conexion"))
 return 2;
 
+return 0;
 }
 /* Ciudad de Mexico a 29 de Septiembre del 2016 
  * Regresa: 

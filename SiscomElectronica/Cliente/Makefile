@@ -95,7 +95,7 @@ Archivos_O_SiscomElectronicaComun=					\
 				  O/MOC_IMP_SeleccionaOrden.o
 #}}				  
 Archivos_QT_SiscomElectronicaComun=CPP/MOC_MenuOrdenElectronica.cpp 
-OpCompilacion=-g -c  $(DEBUG) $(OpCSiscom) -DQT_THREAD_SUPPORT 
+OpCompilacion=-g -c  $(DEBUG) $(OpCSiscom) -DQT_THREAD_SUPPORT -Werror=return-type
 OpEnlace+=$(OpCSiscom)
 
 #{{{   Includes 

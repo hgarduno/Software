@@ -760,6 +760,7 @@ char lchrArrPaso[7];
 int lintTamano;
 	SiscomLeeInformacion1(pintSocket,6,lchrArrPaso);
 	*pintPtrNRegistros=atoi(lchrArrPaso);
+return 0;			
 }
 int SiscomLeeOperacion(int pintSocket,
 		  char **pchrPtrOperacion)
@@ -1291,6 +1292,7 @@ struct sockaddr_in lSocAddrInCon;
 	   return lintSocket;
 	}
 
+return 0;			
 }
 const char *SiscomObtenDatoDelRegistro(SCampoSiscomPro2 *pSCSiscomPro2,
 				       const char *pchrPtrNmbCampo,
