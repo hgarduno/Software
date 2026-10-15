@@ -8,6 +8,7 @@
 #include <zSiscomQt3.h>
 #include <zSiscomCampo.h>
 #include <zProductos.h>
+#include <zBodega.h>
 
 #include <qtextedit.h>
 #include <qlineedit.h>
@@ -17,6 +18,7 @@
 #include <QCtrlProductosSE.h>
 #include <QCtrlCajasUbicacion.h>
 #include <QCtrlEstantes.h>
+#include <QCtrlCmbBodegas4.h>
 
 #include <zSiscomElectronica.h>
 
@@ -57,9 +59,9 @@ QCtrProductos->Servidor(zSisConexion);
 QCtrEstantes->Servidor(zSisConexion);
 QCtrCajas->Servidor(zSisConexion);
 QCtrProductos->IniciaControl();
-QCtrCajas->IniciaControl();
-QCtrEstantes->IniciaControl();
-zSiscomQt3::Foco(QCtrProductos);
+zSiscomQt3::Foco(QCtrBodegas);
+QCtrBodegas->Servidor(zSisConexion);
+QCtrBodegas->IniciaControl();
 }
 void QManejadorProductos4::ConectaSlots()
 {
@@ -83,6 +85,19 @@ connect(QPBAsigCajaDeDescripcion,SIGNAL(clicked()),SLOT(SlotAsignaCajaDeDescripc
 connect(QTUbicacion,
 	SIGNAL(clicked(int,int,int,const QPoint &)),
 	SLOT(SlotProducto(int,int,int,const QPoint &)));
+
+connect(QCtrBodegas,
+	SIGNAL(SignalSelecciono(zBodega *)),
+	SLOT(SlotBodega(zBodega *)));
+}
+void QManejadorProductos4::SlotBodega(zBodega *pzBodega)
+{
+  zBodegaS=pzBodega;
+  zSiscomQt3::Foco(QCtrProductos);
+QCtrCajas->IdBodega(Bodega()->IdBodegaConstChar());
+QCtrEstantes->IdBodega(Bodega()->IdBodegaConstChar());
+QCtrCajas->IniciaControl();
+QCtrEstantes->IniciaControl();
 }
 void QManejadorProductos4::SlotProducto(int pintNProducto,
 				        int,
@@ -191,6 +206,7 @@ void QManejadorProductos4::AsignaCajaAlProducto()
 {
   zSisRegProducto->ActualizaCampo("idcaja",(*zSisRegCaja)["idcaja"]);
   zSisRegProducto->ActualizaCampo("idestante",(*zSisRegEstante)["idestante"]);
+  zSisRegProducto->ActualizaCampo("idbodega",Bodega()->IdBodega());
 }
 void QManejadorProductos4::MuestraProductos(zProductos *pzProductos)
 {
@@ -278,4 +294,8 @@ QTUbicacion->setText(lintFilaAct,1,(const char *)(*lzSisRegProducto)["estante"])
 QTUbicacion->setText(lintFilaAct,2,(const char *)(*lzSisRegProducto)["caja"]);
 }
 zSiscomQt3::AjustaColumnasTabla(QTUbicacion);
+}
+zBodega *QManejadorProductos4::Bodega()
+{
+  return  zBodegaS;
 }

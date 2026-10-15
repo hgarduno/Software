@@ -1,22 +1,26 @@
 
 
 
-Archivos_SiscomElectronica=O/SiscomElectronica.o 			\
-			   O/RNVentasElectronica.o 			\
-			   O/RNPersonas.o  				\
-			   O/RNProductos.o 				\
-			   O/RNCotizaDispositivos.o 			\
-			   O/RNEscuelas.o 				\
-			   O/RNMaterias.o 				\
-			   O/RNPracticas.o 				\
-			   O/RNEmpresas.o 				\
-			   O/RNEmpleadosExpendio.o 			\
-			   O/RNValidaFirma.o  				\
-			   O/RNDatosClienteF.o 				\
-			   O/RNInventario.o  				\
-			   O/RNCompras.o  				\
-			   O/RNFamilias.o 				\
-			   O/RNUnidades.o 				\
+Archivos_SiscomElectronica=O/mongoose.o						\
+			   Codigo.Gemini/O/GeminiMongoose.o			\
+			   Codigo.Gemini/O/GeminiSoporteSiscomDesarrollo4.o 	\
+			   Codigo.Gemini/O/GeminiPedidoWeb.o 			\
+			   O/SiscomElectronica.o 				\
+			   O/RNVentasElectronica.o 				\
+			   O/RNPersonas.o  					\
+			   O/RNProductos.o 					\
+			   O/RNCotizaDispositivos.o 				\
+			   O/RNEscuelas.o 					\
+			   O/RNMaterias.o 					\
+			   O/RNPracticas.o 					\
+			   O/RNEmpresas.o 					\
+			   O/RNEmpleadosExpendio.o 				\
+			   O/RNValidaFirma.o  					\
+			   O/RNDatosClienteF.o 					\
+			   O/RNInventario.o  					\
+			   O/RNCompras.o  					\
+			   O/RNFamilias.o 					\
+			   O/RNUnidades.o 					\
 			   O/RNReportesVentas.o 			\
 			   O/RNTipoPrecios.o 				\
 			   O/RNTransfiereProductos.o 			\
@@ -142,7 +146,11 @@ Bibliotecas=-L$(DIRLIBSISCOM2)  			\
 		-lSiscomElectronica2			\
 		-lSiscomDesarrollo4			\
 		-lSiscomOperaciones			\
-		-lhpdf
+		-lhpdf					\
+		-lssl 					\
+		-lcrypto				\
+		-lcurl					\
+		-ljson-c
 
 BibliotecasMemoriaComun=-L$(DIRLIBSISCOM2) -lSiscomDesarrollo2 
 Include=-IH 									\
@@ -150,10 +158,12 @@ Include=-IH 									\
 	-I$(DIRDesarrolloHGE)/SISCOMDesarrollo2/Servidor/H			\
 	-I$(DirectorioSiscomElectronica)/SiscomElectronica2/Servidor/H 		\
 	-I$(DirectorioSiscomElectronica)					\
+	-I$(DirectorioSiscomElectronica)/Servidor/Codigo.Gemini/H		\
 	-I$(DIRDesarrolloHGE)/Sepomex/Servidor/H				\
 	-I$(DIRDesarrolloHGE)/SiscomDesarrollo4/H				\
 	-I$(DIRDesarrolloHGE)							\
-	-I$(DirLibHaru)/include
+	-I$(DirLibHaru)/include	
+
 OpC=-g -c  $(DEBUG) $(OpCSiscom)
 OpShared=-g -shared $(DEBUG) $(OpCSiscom)
 OpBinarios=-g  $(DEBUG) $(OpCSiscom)
@@ -179,6 +189,9 @@ O/%.o:C/%.c
 	@echo Compilando $<
 	@$(GCC) $(OpC) -o $@ $< $(Include) 
 
+Codigo.Gemini/O/%.o:Codigo.Gemini/C/%.c
+	@echo Compilando $<
+	@$(GCC) $(OpC) -o $@ $< $(Include) 
 clean:
 	-rm $(Binarios)
 	-rm O/*.o

@@ -8,6 +8,7 @@ class zSiscomRegistro;
 class zSiscomRegistros;
 class zProductos;
 class zProductos;
+class zBodega;
 class QManejadorProductos4:public ManejadorProductos4
 {
  Q_OBJECT
@@ -27,6 +28,7 @@ private:
 	zSiscomRegistro *zSisRegCaja;
 	zSiscomRegistro *zSisRegEstante;
 	zProductos *zProdsSeleccionados;
+	zBodega *zBodegaS;
 private:
 	void ConectaSlots();
 	void IniciaVariables();
@@ -50,6 +52,7 @@ private:
 	void SeleccionoProducto();
 	zSiscomRegistro *ProductoComoConsultaBase(zSiscomRegistro *);
 	void MuestraProductoActualizado();
+	zBodega *Bodega();
 private slots:
 	void SlotProducto(zSiscomRegistro *);
 	void SlotSeleccionados(zProductos *);
@@ -59,6 +62,7 @@ private slots:
 	void SlotAsignaCajaDeDescripcion();
 	void SlotEstante(zSiscomRegistro *);
 	void SlotProducto(int,int,int,const QPoint &);
+	void SlotBodega(zBodega *);
 };
 extern "C" QManejadorProductos4 *InstanciaManejadorProductos4(void *,char **,void *,const char *,int);
 #endif

@@ -68,7 +68,8 @@ sprintf(lchrArrSql,
 	       estante,								\n\
 	       idestante,							\n\
 	       idcaja,								\n\
-	       g.nombre								\n\
+	       g.nombre,							\n\
+	       d.idbodega							\n\
 	from productos as a inner join 						\n\
 	     existenciaexpendiobodegas as b using(cveproducto) inner join	\n\
 	     precios as c using(cveproducto) left outer join			\n\
@@ -90,7 +91,8 @@ sprintf(lchrArrSql,
 		estante,							\n\
 		idestante,							\n\
 		idcaja,								\n\
-		g.nombre							\n\
+		g.nombre,							\n\
+		d.idbodega							\n\
 	from productos as a inner join 						\n\
 		existenciaexpendiobodegas as b using(cveproducto) inner join	\n\
 	        precios as c using(cveproducto) left outer join			\n\
@@ -122,7 +124,8 @@ sprintf(lchrArrSql,
 		d.idcaja,							\n\
 		d.caja,								\n\
 		e.estante,							\n\
-		e.idestante							\n\
+		e.idestante,							\n\
+		c.idbodega							\n\
 	from productos as a left outer join 					\n\
 	     productoportipoproducto as b using(cveproducto) left outer join	\n\
 	     UbicacionProducto as c using(cveproducto) left outer join 		\n\

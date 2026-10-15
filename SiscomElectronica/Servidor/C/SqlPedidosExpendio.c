@@ -75,25 +75,28 @@ int SqlServidoresSiscom(SiscomOperaciones *pSiscomOpePtrDato)
 char lchrArrBuffer[1024],
 	lchrArrSql[1024];
 sprintf(lchrArrSql,
-	"								\n\
-select idempresa as idmaquina,						\n\
-	diripsvrad as dirip,						\n\
-	b.puerto,							\n\
-	basedatos,							\n\
-	'Servidor' as tipoequipo					\n\
-from expendios as a inner join 						\n\
-     servidoressiscom4 as b using(idempresa) 				\n\
-where idempresa != (select idempresa from matriz)			\n\
-union 									\n\
-select idempresa as idmaquina,						\n\
-	diripsvrad as dirip,						\n\
-	b.puerto,							\n\
-	basedatos,							\n\
-	'Matriz' as tipoequipo						\n\
-from matriz as a inner join 						\n\
-	servidoressiscom4 as b using(idempresa) inner join 		\n\
-	expendios as c using(idempresa)					\n\
+	"							\n\
+select idempresa as idmaquina,					\n\
+        diripsvrad as dirip,					\n\
+        b.puerto,						\n\
+        basedatos,						\n\
+        'Servidor' as tipoequipo				\n\
+from expendios as a inner join 					\n\
+     servidoressiscom4 as b using(idempresa) inner join		\n\
+     expendioabierto using(idempresa)				\n\
+where idempresa != (select idempresa from matriz)		\n\
+union								\n\
+select idempresa as idmaquina,					\n\
+        diripsvrad as dirip,					\n\
+        b.puerto,						\n\
+        basedatos,						\n\
+        'Matriz' as tipoequipo					\n\
+from matriz as a inner join 					\n\
+        servidoressiscom4 as b using(idempresa) inner join	\n\
+        expendios as c using(idempresa) inner join		\n\
+        expendioabierto using(idempresa)			\n\
 order by idmaquina");
+
 	
 
 

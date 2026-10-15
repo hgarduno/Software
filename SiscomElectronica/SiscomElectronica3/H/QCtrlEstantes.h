@@ -20,7 +20,7 @@ public:
 	void IniciaControl();
 	QLineEdit *RFC();
 	void setFocus();
-	void IdEscuela(const char *);
+	void IdBodega(const char *);
 	void ReConsultando();
 private:
 	void IniciaVariables();
@@ -28,13 +28,14 @@ private:
 	void Consultando();
 	void ConsultaEstantes();
 	void MuestraEstantes();
+	const char *IdBodega();
 private:
 	QComboBox *QCBEstantes;
 	QHBoxLayout *QHBLayout;
 	QLineEdit *QLERFC;
 	zSiscomConexion *zSisConexion;
 	zSiscomRegistros *zSisRegsEstantes;
-	const char *chrPtrIdEscuela;
+	const char *chrPtrIdBodega;
 private slots:
 	void SlotSelecciono(int);
 

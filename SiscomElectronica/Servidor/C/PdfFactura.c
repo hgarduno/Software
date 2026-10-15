@@ -221,7 +221,7 @@ int lintY;
 
      pSisRegProLPtrDatos=pSisRegProLPtrDatos->SiscomRegProLPtrSig;
   }
-return 0;
+return (SiscomRegistroProL *)0;
 }
 
 int IniciandoArchivoPdf(SiscomHaruTexto *pSisHaruPtrTexto)
@@ -229,11 +229,11 @@ int IniciandoArchivoPdf(SiscomHaruTexto *pSisHaruPtrTexto)
 pSisHaruPtrTexto->HpdfDocPtrArchivo=HPDF_New(error_handler,0);
 if(!pSisHaruPtrTexto->HpdfDocPtrArchivo)
 {
-LogSiscom("No se pudo iniciar el documento Pdf");
+LogSiscom("No se pudo iniciar el documento Pdf ");
 }
 else
 {
-LogSiscom("Se inicio Haru PDF");
+LogSiscom("Se inicio Haru PDF(%x) ",pSisHaruPtrTexto->HpdfDocPtrArchivo);
 return 0;
 }
 
@@ -628,7 +628,6 @@ lSisRegProLPtrProductos=SiscomRegistroAsociadoEntradaOperacion("Envio","Producto
 else
 lSisRegProLPtrProductos=pSisRegProLPtrUltimoProducto;
 FormaPaginaPdf(pHpdfRealAlto, pHpdfRealAncho, pSisHaruTexto, "Pagina 1");
-
  pSisHaruTexto->intX=150;
  pSisHaruTexto->intY=pHpdfRealAlto-45;
  pSisHaruTexto->chrPtrTipoLetra="Helvetica";
@@ -655,6 +654,7 @@ DatosComprobantePdf(pHpdfRealAlto,
 		    pSisHaruTexto,
 		    pSisOpePtrDato);
 
+SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrProductos);
 
 if((lSisRegProLPtrUltimoProducto=FormaTablaProductosPdf(pHpdfRealAlto,
 		    pHpdfRealAncho,
@@ -670,7 +670,6 @@ if((lSisRegProLPtrUltimoProducto=FormaTablaProductosPdf(pHpdfRealAlto,
 			       pSisHaruTexto,
 			       lSisRegProLPtrUltimoProducto,
 			       pSisOpePtrDato);
- 
  }
  if(!lintNVeces)
  {
@@ -691,11 +690,10 @@ SiscomHaruTexto lSisHaruTexto,
 NombreArchivoFacturacion_4_0(pSisOpePtrDato,".pdf",lchrArrArchivoPdf);
 LogSiscom("%s",lchrArrArchivoPdf);
 IniciandoArchivoPdf(lSisHaruTextoD);
-lHpdfRealAlto=HPDF_Page_GetHeight(lSisHaruTextoD->HpdfPagePtrPagina);
-lHpdfRealAncho=HPDF_Page_GetWidth(lSisHaruTextoD->HpdfPagePtrPagina);
-/*
+lSisHaruTextoD->HpdfPagePtrPagina=HPDF_AddPage(lSisHaruTextoD->HpdfDocPtrArchivo);
+lHpdfRealAlto=HPDF_Page_GetHeight(lSisHaruTextoD->HpdfPagePtrPagina); 
+lHpdfRealAncho=HPDF_Page_GetWidth(lSisHaruTextoD->HpdfPagePtrPagina); 
 HPDF_Page_SetLineWidth(lSisHaruTextoD->HpdfPagePtrPagina,1);
-*/
 FormandoPaginasFacturaPdf(lHpdfRealAlto,
 			  lHpdfRealAncho,
 			  lSisHaruTextoD,

@@ -17,15 +17,13 @@ OpBinarios=-g -rdynamic $(DEBUG) $(OpCSiscom)
 Binarios= \
 	 ServidorGeneral 
 
-all:DirectorioO $(Binarios) 
+all:$(Binarios) 
 
 ServidorGeneral:$(ArchivosServidorGeneral)
 	$(GCC) $(OpBinarios) -o ServidorGeneral $(ArchivosServidorGeneral) $(BibliotecasSistemaGeneral)
 O/%.o:C/%.c
 	$(GCC) $(OpC) -o $@ $< $(Include) 
 
-DirectorioO:
-	-mkdir O
 clean:
 	-rm $(Binarios)
 	-rm O/*.o

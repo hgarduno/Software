@@ -177,7 +177,8 @@ int SiscomReplicaMaquinasSistema(const char *pchrPtrTipoEquipo,
 char lchrArrBuffer[256];
 SiscomRegistroProL *lSisRegProLPtrMaquinas;
 int lintPuerto;
-const char *lchrPtrDirIp;
+const char *lchrPtrDirIp,
+	*lchrPtrBaseDatos;
 lSisRegProLPtrMaquinas=SiscomObtenRegistrosCampoProL("Servidores",pSiscomRegProLPtrMemoria);
 for(;
     lSisRegProLPtrMaquinas;
@@ -187,7 +188,9 @@ if(!SiscomComparaCadenaCampoRegistroProL(pchrPtrTipoEquipo,"tipoequipo",lSisRegP
 {
   lintPuerto=SiscomObtenCampoRegistroProLInt("puerto",lSisRegProLPtrMaquinas);
   lchrPtrDirIp=SiscomObtenCampoRegistroProLChar("dirip",lSisRegProLPtrMaquinas);
-if(SiscomEnviaRegistrosBD(lchrPtrDirIp,
+  lchrPtrBaseDatos=SiscomObtenCampoRegistroProLChar("basedatos",lSisRegProLPtrMaquinas);
+if(SiscomEnviaRegistrosBaseDatos(lchrPtrBaseDatos,
+				lchrPtrDirIp,
 			  lintPuerto,
 			  pchrPtrArgumentoEnvio,
 			  pchrPtrBuffer,

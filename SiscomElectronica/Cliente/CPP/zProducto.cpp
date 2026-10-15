@@ -17,9 +17,11 @@ zProducto::zProducto()
   new zSiscomCampo("TipoProducto")	<<
   new zSiscomCampo("IdProducto")	<<
   new zSiscomCampo("IdCaja")		<<
+  new zSiscomCampo("IdBodega")		<<
   new zSiscomCampo("Caja")		<<
   new zSiscomCampo("Estante")		<<
-  new zSiscomCampo("Productos");
+  new zSiscomCampo("Productos")		<<
+  new zSiscomCampo("Ubicacion");
 
 }
 zProducto::zProducto(zSiscomRegistro *pzSisRegProducto)
@@ -32,9 +34,11 @@ zProducto::zProducto(zSiscomRegistro *pzSisRegProducto)
   new zSiscomCampo("TipoProducto",(*pzSisRegProducto)["idtipoproducto"])	<<
   new zSiscomCampo("IdProducto",(*pzSisRegProducto)["idproducto"])		<<
   new zSiscomCampo("IdCaja",(*pzSisRegProducto)["idcaja"])			<<
+  new zSiscomCampo("IdBodega",(*pzSisRegProducto)["idbodega"])			<<
   new zSiscomCampo("Caja",(*pzSisRegProducto)["caja"])				<<
   new zSiscomCampo("Estante",(*pzSisRegProducto)["estante"])			<<
-  new zSiscomCampo("Productos");
+  new zSiscomCampo("Productos")							<<
+  new zSiscomCampo("Ubicacion");
 }
 
 void zProducto::Clave(const char *pchrPtrClave)

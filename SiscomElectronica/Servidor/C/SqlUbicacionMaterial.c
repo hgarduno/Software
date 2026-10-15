@@ -12,11 +12,14 @@ char lchrArrBuffer[512],
 sprintf(lchrArrSql,
 	"select -1 as idestante,			\n\
 	        'Sin Estante' as estante,		\n\
-		''					\n\
+		'',					\n\
+		0 as idbodega				\n\
 	  union						\n\
 	  select *					\n\
 	  from estante					\n\
-	  order by idestante asc");
+	  where idbodega=%s				\n\
+	  order by idestante asc",
+	  SiscomCampoAsociadoEntradaOperacion("Envio","IdBodega",pSiscomOpePtrDato));
 SiscomConsultasSqlOperaciones(lchrArrBuffer,
                    pSiscomOpePtrDato,
                    "Estantes%",
@@ -30,11 +33,14 @@ char lchrArrBuffer[512],
 sprintf(lchrArrSql,
 	"select -1 as idcaja,			\n\
 	        'Sin Caja' as caja,		\n\
-		''				\n\
+		'',				\n\
+		0 as idbodega			\n\
 	union					\n\
 	 select * 				\n\
 	  from cajamaterial			\n\
-	  order by idcaja asc");
+	  where idbodega=%s			\n\
+	  order by idcaja asc",
+	  SiscomCampoAsociadoEntradaOperacion("Envio","IdBodega",pSiscomOpePtrDato));
 SiscomConsultasSqlOperaciones(lchrArrBuffer,
                    pSiscomOpePtrDato,
                    "CajaMaterial%",
@@ -105,8 +111,9 @@ void DeleteFromUbicacionProductoOp(SiscomOperaciones *pSiscomOpePtrDato,
 		      char *pchrPtrSql)
 {
 sprintf(pchrPtrSql,
-	"delete from UbicacionProducto where cveproducto='%s';",
-	SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato));
+	"delete from UbicacionProducto where cveproducto='%s' and idbodega=%s;",
+	SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("idbodega",pSiscomRegProLPtrDato));
 }
 void InsertToUbicacionProductoOp(SiscomOperaciones *pSiscomOpePtrDato,
 		      SiscomRegistroProL *pSiscomRegProLPtrDato,
@@ -114,22 +121,25 @@ void InsertToUbicacionProductoOp(SiscomOperaciones *pSiscomOpePtrDato,
 {
 if(EstaEstanteYCajaPorId(pSiscomRegProLPtrDato))
 sprintf(pchrPtrSql,
-	"insert into UbicacionProducto values('%s',%s,%s);",
+	"insert into UbicacionProducto values('%s',%s,%s,%s);",
 	SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato),
 	SiscomObtenCampoRegistroProLChar("idestante",pSiscomRegProLPtrDato),
-	SiscomObtenCampoRegistroProLChar("idcaja",pSiscomRegProLPtrDato));
+	SiscomObtenCampoRegistroProLChar("idcaja",pSiscomRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("idbodega",pSiscomRegProLPtrDato));
 else
 if(EstaCajaPorId(pSiscomRegProLPtrDato))
 sprintf(pchrPtrSql,
-	"insert into UbicacionProducto(cveproducto,idcaja) values('%s',%s)",
+	"insert into UbicacionProducto(cveproducto,idcaja,idbodega) values('%s',%s,%s)",
 	SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato),
-	SiscomObtenCampoRegistroProLChar("idcaja",pSiscomRegProLPtrDato));
+	SiscomObtenCampoRegistroProLChar("idcaja",pSiscomRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("idbodega",pSiscomRegProLPtrDato));
 else
 if(EstaEstantePorId(pSiscomRegProLPtrDato))
 sprintf(pchrPtrSql,
-	"insert into UbicacionProducto(cveproducto,idestante) values('%s',%s)",
+	"insert into UbicacionProducto(cveproducto,idestante,idbodega) values('%s',%s,%s)",
 	SiscomObtenCampoRegistroProLChar("cveproducto",pSiscomRegProLPtrDato),
-	SiscomObtenCampoRegistroProLChar("idestante",pSiscomRegProLPtrDato));
+	SiscomObtenCampoRegistroProLChar("idestante",pSiscomRegProLPtrDato),
+	SiscomObtenCampoRegistroProLChar("idbodega",pSiscomRegProLPtrDato));
 else
 LogSiscom("NO se cumplio nada\n"
           "EstaEstanteYCajaPorId(%d)\n"

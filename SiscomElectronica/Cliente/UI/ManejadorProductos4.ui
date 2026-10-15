@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>796</width>
+            <width>910</width>
             <height>399</height>
         </rect>
     </property>
@@ -19,227 +19,7 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="3">
-            <property name="name">
-                <cstring>layout1</cstring>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Productos</string>
-                    </property>
-                </widget>
-                <widget class="QCtrlProductosSE">
-                    <property name="name">
-                        <cstring>QCtrProductos</cstring>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QLayoutWidget" row="2" column="0" rowspan="1" colspan="7">
-            <property name="name">
-                <cstring>layout6</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout3</cstring>
-                    </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel3</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Productos</string>
-                            </property>
-                        </widget>
-                        <widget class="QTable">
-                            <column>
-                                <property name="text">
-                                    <string>Producto</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Estante</string>
-                                </property>
-                            </column>
-                            <column>
-                                <property name="text">
-                                    <string>Caja</string>
-                                </property>
-                            </column>
-                            <property name="name">
-                                <cstring>QTUbicacion</cstring>
-                            </property>
-                            <property name="numRows">
-                                <number>0</number>
-                            </property>
-                            <property name="numCols">
-                                <number>3</number>
-                            </property>
-                            <property name="readOnly">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                    </vbox>
-                </widget>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout2</cstring>
-                    </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Descripcion</string>
-                            </property>
-                        </widget>
-                        <widget class="QTextEdit">
-                            <property name="name">
-                                <cstring>QTEDescripcion</cstring>
-                            </property>
-                            <property name="readOnly">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                    </vbox>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="1" column="0" rowspan="1" colspan="7">
-            <property name="name">
-                <cstring>layout11</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout9</cstring>
-                    </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel2_2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Producto</string>
-                            </property>
-                        </widget>
-                        <widget class="QLineEdit">
-                            <property name="name">
-                                <cstring>QLECveProducto</cstring>
-                            </property>
-                            <property name="readOnly">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                    </vbox>
-                </widget>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout9_2</cstring>
-                    </property>
-                    <vbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QLabel">
-                            <property name="name">
-                                <cstring>textLabel2_2_2</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Ubicacion</string>
-                            </property>
-                        </widget>
-                        <widget class="QLineEdit">
-                            <property name="name">
-                                <cstring>QLECaja</cstring>
-                            </property>
-                            <property name="readOnly">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                    </vbox>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget" row="0" column="5" rowspan="1" colspan="2">
-            <property name="name">
-                <cstring>layout5</cstring>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel1_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Caja</string>
-                    </property>
-                </widget>
-                <widget class="QCtrlCajasUbicacion">
-                    <property name="name">
-                        <cstring>QCtrCajas</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>false</bool>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QLayoutWidget" row="0" column="3" rowspan="1" colspan="2">
-            <property name="name">
-                <cstring>layout10</cstring>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel1_3</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Estantes</string>
-                    </property>
-                </widget>
-                <widget class="QCtrlEstantes">
-                    <property name="name">
-                        <cstring>QCtrEstantes</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>false</bool>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QPushButton" row="3" column="0">
+        <widget class="QPushButton" row="1" column="0">
             <property name="name">
                 <cstring>QPBAsignarUbicacion</cstring>
             </property>
@@ -250,7 +30,7 @@
                 <string>Asignar Ubicacion</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="3" column="4">
+        <widget class="QPushButton" row="1" column="3">
             <property name="name">
                 <cstring>QPBAsigCajaDeDescripcion</cstring>
             </property>
@@ -264,7 +44,7 @@
                 <string>Solo para probar</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="3" column="6">
+        <widget class="QPushButton" row="1" column="5">
             <property name="name">
                 <cstring>QPBRegistrarCaja</cstring>
             </property>
@@ -272,7 +52,7 @@
                 <string>Registrar Caja</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="3" column="5">
+        <widget class="QPushButton" row="1" column="4">
             <property name="name">
                 <cstring>QPBRegistrarCaja_2</cstring>
             </property>
@@ -280,7 +60,7 @@
                 <string>Registrar Estante</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="3" column="1">
+        <widget class="QPushButton" row="1" column="1">
             <property name="name">
                 <cstring>pushButton5</cstring>
             </property>
@@ -291,7 +71,7 @@
                 <string>Productos Ubicacion</string>
             </property>
         </widget>
-        <widget class="QPushButton" row="3" column="2" rowspan="1" colspan="2">
+        <widget class="QPushButton" row="1" column="2">
             <property name="name">
                 <cstring>pushButton5_2</cstring>
             </property>
@@ -302,12 +82,276 @@
                 <string>Productos Por Caja</string>
             </property>
         </widget>
+        <widget class="QLayoutWidget" row="0" column="0" rowspan="1" colspan="6">
+            <property name="name">
+                <cstring>layout17</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout15</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout14</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel1_4</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Bodegas</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCtrlCmbBodegas4">
+                                    <property name="name">
+                                        <cstring>QCtrBodegas</cstring>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout1</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel1</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Productos</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCtrlProductosSE">
+                                    <property name="name">
+                                        <cstring>QCtrProductos</cstring>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout10</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel1_3</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Estantes</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCtrlEstantes">
+                                    <property name="name">
+                                        <cstring>QCtrEstantes</cstring>
+                                    </property>
+                                    <property name="enabled">
+                                        <bool>false</bool>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout5</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel1_2</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Caja</string>
+                                    </property>
+                                </widget>
+                                <widget class="QCtrlCajasUbicacion">
+                                    <property name="name">
+                                        <cstring>QCtrCajas</cstring>
+                                    </property>
+                                    <property name="enabled">
+                                        <bool>false</bool>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout11</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout9</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel2_2</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Producto</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit">
+                                    <property name="name">
+                                        <cstring>QLECveProducto</cstring>
+                                    </property>
+                                    <property name="readOnly">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout9_2</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel2_2_2</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Ubicacion</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit">
+                                    <property name="name">
+                                        <cstring>QLECaja</cstring>
+                                    </property>
+                                    <property name="readOnly">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout6</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout3</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel3</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Productos</string>
+                                    </property>
+                                </widget>
+                                <widget class="QTable">
+                                    <column>
+                                        <property name="text">
+                                            <string>Producto</string>
+                                        </property>
+                                    </column>
+                                    <column>
+                                        <property name="text">
+                                            <string>Estante</string>
+                                        </property>
+                                    </column>
+                                    <column>
+                                        <property name="text">
+                                            <string>Caja</string>
+                                        </property>
+                                    </column>
+                                    <property name="name">
+                                        <cstring>QTUbicacion</cstring>
+                                    </property>
+                                    <property name="numRows">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="numCols">
+                                        <number>3</number>
+                                    </property>
+                                    <property name="readOnly">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout2</cstring>
+                            </property>
+                            <vbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>textLabel2</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Descripcion</string>
+                                    </property>
+                                </widget>
+                                <widget class="QTextEdit">
+                                    <property name="name">
+                                        <cstring>QTEDescripcion</cstring>
+                                    </property>
+                                    <property name="readOnly">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                            </vbox>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
     </grid>
 </widget>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
+    <includehint>QCtrlCmbBodegas4.h</includehint>
     <includehint>QCtrlProductosSE.h</includehint>
-    <includehint>QCtrlCajasUbicacion.h</includehint>
     <includehint>QCtrlEstantes.h</includehint>
+    <includehint>QCtrlCajasUbicacion.h</includehint>
 </includehints>
 </UI>

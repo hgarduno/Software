@@ -27,6 +27,16 @@ const char *zBodega::Bodega()
 {
    return (const char *)(*this)["Bodega"];
 }
+const unsigned char *zBodega::IdBodega()
+{
+   return (*this)["IdBodega"];
+}
+
+const char *zBodega::IdBodegaConstChar()
+{
+   return (const char *)(*this)["IdBodega"];
+}
+
 zExpendio *zBodega::Expendio()
 {
   return (zExpendio *)AsociadoDelCampo("Expendio");

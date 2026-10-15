@@ -3,6 +3,7 @@
 #include <ImpresionTicketVenta.h>
 
 #include <SqlOrdenes.h>
+#include <SqlPedidosExpendio.h>
 
 #include <SiscomDesarrolloMacros.h>
 #include <SiscomMacrosOperaciones.h>
@@ -12,6 +13,8 @@
 #include <SiscomInsercionesSql.h>
 #include <ComunSiscomElectronica4.h>
 
+
+#include <GeminiPedidoWeb.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -53,6 +56,7 @@ void RegistraOrden(int pintSocket,
 		   SiscomRegistroProL *pSiscomRegProLPtrPrim,
 		   SiscomRegistroProL *pSiscomRegProLPtrAct)
 {
+char lchrArrBuffer[256];
 SiscomProcesos *lSiscomProDat=0;
 SiscomOperaciones lSiscomOpDat;
 SiscomOperacionErrores lSisOpErrValExi={0,
@@ -60,11 +64,15 @@ SiscomOperacionErrores lSisOpErrValExi={0,
                                         0};
 
 memset(&lSiscomOpDat,0,sizeof(SiscomOperaciones));
+
+
 SiscomIniciaDatosOperacion(pintSocket,
 			   0,
 			   (SiscomRegistroProL *)pSiscomRegProLPtrPrim,
 			   (SiscomRegistroProL *)pSiscomRegProLPtrAct,
 			   &lSiscomOpDat);
+
+SiscomRegistroProtocoloLog(lchrArrBuffer,pSiscomRegProLPtrPrim);
 SiscomAgregaOperacion(AccesoDatosSiscomElectronica4,&lSiscomProDat);
 SiscomAgregaOperacion(ValidandoFechaPedido,&lSiscomProDat);
 SiscomAgregaOperacion(ArgumentoOrden,&lSiscomProDat);
@@ -86,6 +94,7 @@ SiscomAgregaOperacion(SePagoCombinado,&lSiscomProDat);
 SiscomAgregaOperacion(SePagoConTransferencia,&lSiscomProDat); 
 SiscomAgregaOperacion(SePagoConTarjeta,&lSiscomProDat); 
 SiscomAgregaOperacion(EsOrdenVentaPagaEfectivo,&lSiscomProDat);  
+SiscomAgregaOperacion(SqlServidoresSiscom,&lSiscomProDat);  
 SiscomAgregaOperacion(SqlRegistraOrden,&lSiscomProDat);  
 SiscomAgregaOperacion(RegistrandoOrden,&lSiscomProDat);  
 SiscomAgregaOperacion(0,&lSiscomProDat);
@@ -162,12 +171,21 @@ SiscomEjecutaProcesos(&lSiscomOpDat,0,lSiscomProDat);
 int RegistrandoOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[1024];
+SiscomRegistroProL *lSisRegProLPtrOrden; 
+SiscomRegistroProL *lSisRegProLPtrPruebas ;
+
+lSisRegProLPtrOrden=SiscomObtenRegistrosCampoEntrada("Envio",pSiscomOpePtrDato);
 SiscomAsociadoEntradaLog("Envio",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadoAsociadoLog("Envio","Cliente",lchrArrBuffer,pSiscomOpePtrDato);
 SiscomAsociadosArgumentoLog("SqlOrden",
   			    "SentenciasSql",
 			     lchrArrBuffer,
 			   pSiscomOpePtrDato);
+GeminiSiscomParaPromptLog(lSisRegProLPtrOrden);
+
+lSisRegProLPtrPruebas=GeminiOrdenVentaSiscom();
+SiscomRegistroProtocoloLog(lchrArrBuffer,lSisRegProLPtrPruebas);
+
 return 0;
 }
 

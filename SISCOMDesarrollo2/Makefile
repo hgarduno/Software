@@ -91,10 +91,8 @@ Controles_SiscomDesarrollo3Qt=Siscom3Nombres
 Archivos_O_SiscomDesarrollo3QtControles=O/QtPluginSiscomControlesVersion3.o
 
 
-all:DirectorioO $(Binarios) ServidorSiscom
+all:$(Binarios) ServidorSiscom
 
-DirectorioO:
-	-mkdir O
 des:
 	echo $(Binarios)
 

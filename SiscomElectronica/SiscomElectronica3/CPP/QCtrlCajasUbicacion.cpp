@@ -36,6 +36,7 @@ void QCtrlCajasUbicacion::Servidor(zSiscomConexion *pzSiscomConexion)
 } 
 void QCtrlCajasUbicacion::IniciaControl()
 {
+ QCBCajasUbicacion->clear();
    Consultando();
 }
 void QCtrlCajasUbicacion::ConectaSlots()
@@ -73,7 +74,7 @@ emit SignalSeleccionando((*zSisRegsCajasUbicacion)[pintNProducto]);
 void QCtrlCajasUbicacion::ConsultaCajasUbicacion()
 {
 zSiscomElectronica lzSisElectronica(zSisConexion,"CajasMaterial");
-zSisRegsCajasUbicacion=lzSisElectronica.CajasMaterial(); 
+zSisRegsCajasUbicacion=lzSisElectronica.CajasMaterial(IdBodega()); 
 }
 void QCtrlCajasUbicacion::MuestraCajasUbicacion()
 {
@@ -92,12 +93,16 @@ void QCtrlCajasUbicacion::Consultando()
  ConsultaCajasUbicacion();
  MuestraCajasUbicacion();
 }
-void QCtrlCajasUbicacion::IdEscuela(const char *pchrPtrIdEscuela)
+void QCtrlCajasUbicacion::IdBodega(const char *pchrPtrIdBodega)
 {
-    chrPtrIdEscuela=pchrPtrIdEscuela;
+    chrPtrIdBodega=pchrPtrIdBodega;
 }
 void QCtrlCajasUbicacion::ReConsultando()
 {
  QCBCajasUbicacion->clear();
  Consultando();
+}
+const char *QCtrlCajasUbicacion::IdBodega()
+{
+  return chrPtrIdBodega;
 }

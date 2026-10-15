@@ -1,3 +1,5 @@
+
+#include <mongoose.h>
 #include <SiscomElectronica.h>
 #include <ServidorGeneral.h>
 #include <Consultas.h>
@@ -47,6 +49,7 @@
 #include <AnalisisOrdenCompra.h>
 #include <ManejadorKits.h>
 #include <ProductosFaltantes.h>
+#include <GeminiMongoose.h>
 /*
  *  Ciudad de Mexico a 30 de Julio del 2021 
  *  En medio del Covid , seguimos ...
@@ -60,7 +63,10 @@
 #include <SiscomElectronica4.h>
 
 
+
 #include <ProgramacionPlacas.h>
+
+/*
 void Principal(int pintSocket)
 {
 SSiscomOperaciones *lSSiscomOp=0;
@@ -108,6 +114,67 @@ SArgsSiscom lSArgsSiscomDat;
 	if(lintVersionProtocolo==4)
 	SiscomProtocoloVersion4(pintSocket);
 }
+
+
+*/
+
+
+
+void Principal(int pintSocket)
+{
+
+SSiscomOperaciones *lSSiscomOp=0;
+int lintContador;
+char *lchrPtrOperacion=0;
+int lintNRegistros;
+int lintVersionProtocolo;
+SSiscomOperaciones2 *lSOpPtrOperaciones=0;
+SiscomOperaciones2 *lSOpPtrSistema;
+SArgsSiscom lSArgsSiscomDat;
+if(GeminiEsPeticionWeb(pintSocket))
+GeminiProcesaClienteWeb(pintSocket);
+else
+{
+	memset(&lSArgsSiscomDat,0,sizeof(SArgsSiscom));
+	OperacionesSistemaGeneral(&lSSiscomOp);
+	if((lintVersionProtocolo=SiscomVersionProtocolo(pintSocket))==2)   
+	{
+	SiscomLeeNumeroRegistros(pintSocket,
+				 &lintNRegistros);	
+	SiscomLeeOperacion(pintSocket,
+                           &lchrPtrOperacion);
+	SiscomLog("La Operacion (%s)",lchrPtrOperacion);
+	for(lintContador=0;
+            lintContador<lSSiscomOp->intNumOperaciones;
+            lintContador++)
+        if(!strcmp((lSSiscomOp+lintContador)->chrPtrOperacion,
+                   lchrPtrOperacion))
+        {
+             (lSSiscomOp+lintContador)->Operacion(pintSocket,lintNRegistros);
+             return ;
+        }
+	AsignaOperacionesVersion2(pintSocket,
+				  lintNRegistros,
+				  &lSOpPtrOperaciones,
+				  &lSArgsSiscomDat);
+	ManejadorErrores(&lSArgsSiscomDat);
+	SiscomLog("(%s)",lchrPtrOperacion);
+	lSOpPtrSistema=SiscomOperaciones2CualEjecuta(
+				lchrPtrOperacion,
+				lSOpPtrOperaciones,
+				SiscomErrorOperacion2,
+				&lSArgsSiscomDat);
+
+	SiscomOperaciones2Ejecuta(lSOpPtrSistema,
+				  &lSArgsSiscomDat);
+	}
+	else
+	if(lintVersionProtocolo==4)
+	SiscomProtocoloVersion4(pintSocket);
+
+}
+}
+
 
 void AsignaOperacionesVersion2(int pintSocket,
 			       int pintNRegistros,

@@ -45,6 +45,28 @@ int SiscomEnviaRegistrosBD(const char *pchrPtrDirIp,
 			    char *pchrPtrBuffer,
 			    SiscomOperaciones *pSiscomOpPtrDat);
 
+/*Tepotzotlan Mexico
+ * 2026-09-05 
+ * En el sistema de replicacion que nunca se ha usado ,
+ * enviar informacion a las maquinas de los expendios de 
+ * Siscom implica enviar a configuraciones con nombres de
+ * base de datos en  cada maquina
+ *
+ * Esta funcion es una modificacion de  
+ *
+ * SiscomEnviaRegistrosBD  y se agrega el nombre de la base de 
+ * datos en el servidor al que se envia la informacion
+ *
+ * Para modificar SiscomReplicaMaquinasSistema 
+ *
+ */
+int SiscomEnviaRegistrosBaseDatos(const char *pchrPtrBaseDatos,
+			    const char *pchrPtrDirIp,
+			    int pintPuerto,
+			    const char *pchrPtrArgumento,
+			    char *pchrPtrBuffer,
+			    SiscomOperaciones *pSiscomOpPtrDat);
+
 void SiscomEnviaRegistrosAlServidorBD2(SiscomRegistroProL *pSisRegProLPtrDat,
 				      char *pchrPtrBuffer,
 				      SiscomOperaciones *pSiscomOpPtrDat);

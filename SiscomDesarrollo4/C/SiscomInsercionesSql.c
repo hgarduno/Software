@@ -367,6 +367,48 @@ close(lintSocket);
 return lintRegreso;
 }
 
+int SiscomEnviaRegistrosBaseDatos(const char *pchrPtrBaseDatos,
+			    const char *pchrPtrDirIp,
+			    int pintPuerto,
+			    const char *pchrPtrArgumento,
+			    char *pchrPtrBuffer,
+			    SiscomOperaciones *pSiscomOpPtrDat)
+{
+int lintSocket;
+char *lchrPtrEdoConexion=0;
+int lintRegreso=0;
+SiscomRegistroProL *lSiscomRegProLEnvio;
+if((lintSocket=SiscomConectateClienteNoBloqueante(
+			pchrPtrDirIp,	
+			pintPuerto,
+			5,
+			&lchrPtrEdoConexion))>0)
+{
+  if((lSiscomRegProLEnvio=SiscomObtenArgumentoPrimOperaciones(pchrPtrArgumento,pSiscomOpPtrDat)))
+ {
+ 	SiscomActualizaCampo2("BaseDatos",pchrPtrBaseDatos,lSiscomRegProLEnvio);
+			       
+	SiscomEnviaRegistrosSocket(lintSocket,
+			   pchrPtrBuffer,
+			   lSiscomRegProLEnvio);
+	SiscomLeeRegistrosSocket(lintSocket,
+                         pchrPtrBuffer,
+			 &pSiscomOpPtrDat->SiscomRegProLPtrPrimRes,
+			 &pSiscomOpPtrDat->SiscomRegProLPtrActRes);
+       lintRegreso=1;
+ }
+  else
+  LogSiscom("No se encontro el argumento:%s",pchrPtrArgumento);
+}
+else
+LogSiscom("NO se pudo conectar al servidor %s:%d",
+	  pchrPtrDirIp,
+	  pintPuerto);
+close(lintSocket);
+return lintRegreso;
+
+
+}
 
 void SiscomRegistroEnvioBaseDatos(const char *pchrPtrBaseDatos,
 				  const char *pchrPtrPuertoBase,

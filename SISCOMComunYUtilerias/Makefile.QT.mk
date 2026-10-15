@@ -18,7 +18,7 @@ FuncionArchivosQTSinUIObj=$(call FormaNombreAQT,$(1),h,Obj,$(1),moc.o,$(2))  \
 define FuncionCompilaBibInterfaz
 $(1)/libInterfaz$(2)$(3).so:$$(Archivos$(3)) $$(ArchivosQT$(3)SinUI) $$(ArchivosQT$(3)SinUIObj) $$(ArchivosOExtra$(3)) $$(DepBibliotecas$(3))
 	@echo G++ [LD] libInterfaz$(2)$(3).so
-	@$(GPP) $(OpM) -o $(1)/libInterfaz$(2)$(3).so $(ArchivosQT$(3)O) $(ArchivosQT$(3)SinUIObj) $(ArchivosOExtra$(3)) $(Bibliotecas) $(Bibliotecas$(3))
+	$(GPP) $(OpM) -o $(1)/libInterfaz$(2)$(3).so $(ArchivosQT$(3)O) $(ArchivosQT$(3)SinUIObj) $(ArchivosOExtra$(3)) $(Bibliotecas) $(Bibliotecas$(3))
 endef
 
 define FuncionCreaCompilacionBibInterfaz
@@ -33,7 +33,7 @@ endef
 Include=-I $(QTDIR)/include -I $(SISCOM_LIB_DIR)/Include $(DIRLIBSISCOM2)/H
 BibliotecasQT=-L $(QTDIR)/lib -lqt-mt -L$(SISCOM_LIB_DIR) -lSISCOMDesarrollo++ -L$(SISCOM_LIB_DIR) -lSISCOMDesarrolloQ++
 OpC=-g -c  
-OpM=-shared $(DEBUG)
+OpM=-shared $(DEBUG)  -Wl,--allow-shlib-undefined
 
 
 Obj/%.o:Fuentes/%.cpp

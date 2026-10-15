@@ -20,8 +20,10 @@ public:
 	void IniciaControl();
 	QLineEdit *RFC();
 	void setFocus();
-	void IdEscuela(const char *);
+	void IdBodega(const char *);
 	void ReConsultando();
+
+	const char *IdBodega();
 private:
 	void IniciaVariables();
 	void ConectaSlots();
@@ -34,7 +36,7 @@ private:
 	QLineEdit *QLERFC;
 	zSiscomConexion *zSisConexion;
 	zSiscomRegistros *zSisRegsCajasUbicacion;
-	const char *chrPtrIdEscuela;
+	const char *chrPtrIdBodega;
 private slots:
 	void SlotSeleccionando(int);
 	void SlotSelecciono(int);

@@ -36,6 +36,7 @@ void QCtrlEstantes::Servidor(zSiscomConexion *pzSiscomConexion)
 } 
 void QCtrlEstantes::IniciaControl()
 {
+ QCBEstantes->clear();
    Consultando();
 }
 void QCtrlEstantes::ConectaSlots()
@@ -55,7 +56,7 @@ void QCtrlEstantes::SlotSelecciono(int pintNProducto)
 void QCtrlEstantes::ConsultaEstantes()
 {
 zSiscomElectronica lzSisElectronica(zSisConexion,"Estantes");
-zSisRegsEstantes=lzSisElectronica.Estantes(); 
+zSisRegsEstantes=lzSisElectronica.Estantes(IdBodega()); 
 }
 void QCtrlEstantes::MuestraEstantes()
 {
@@ -74,12 +75,16 @@ void QCtrlEstantes::Consultando()
  ConsultaEstantes();
  MuestraEstantes();
 }
-void QCtrlEstantes::IdEscuela(const char *pchrPtrIdEscuela)
+void QCtrlEstantes::IdBodega(const char *pchrPtrIdBodega)
 {
-    chrPtrIdEscuela=pchrPtrIdEscuela;
+    chrPtrIdBodega=pchrPtrIdBodega;
 }
 void QCtrlEstantes::ReConsultando()
 {
  QCBEstantes->clear();
  Consultando();
+}
+const char *QCtrlEstantes::IdBodega()
+{
+	return chrPtrIdBodega;
 }

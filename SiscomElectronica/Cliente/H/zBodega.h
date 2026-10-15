@@ -12,7 +12,10 @@ public:
 	zBodega(zSiscomRegistro *);
 	void Expendio(zExpendio *);
 	const char *Bodega();
+	const unsigned  char *IdBodega();
+	const char *IdBodegaConstChar();
 	zExpendio *Expendio();
+
 
 };
 

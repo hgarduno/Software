@@ -89,4 +89,5 @@ int AdelantoPagadoEfectivo(SiscomOperaciones *pSIsOpePtrDato);
 int PagandoCierreConEfectivo(SiscomOperaciones *pSisOpePtrDato);
 
 
+
 #endif

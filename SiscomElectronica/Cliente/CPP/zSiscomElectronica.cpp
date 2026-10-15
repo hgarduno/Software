@@ -2076,10 +2076,12 @@ if((lzSisRegsRegreso=EnviaRecibe()))
   return 0;
 }
 
-zSiscomRegistros *zSiscomElectronica::CajasMaterial()
+zSiscomRegistros *zSiscomElectronica::CajasMaterial(const char *pchrPtrIdBodega)
 {
 zSiscomRegistros *lzSisRegsRegreso;
 zSiscomRegistro *lzSisRegRegreso;
+
+AgregaEnvio(zSiscomRegistro().Registro("%s [IdBodega] ",pchrPtrIdBodega));
 if((lzSisRegsRegreso=EnviaRecibe()))
   {
 	return lzSisRegsRegreso;
@@ -2087,10 +2089,11 @@ if((lzSisRegsRegreso=EnviaRecibe()))
   else
   return 0;
 }
-zSiscomRegistros *zSiscomElectronica::Estantes()
+zSiscomRegistros *zSiscomElectronica::Estantes(const char *pchrPtrIdBodega)
 {
 zSiscomRegistros *lzSisRegsRegreso;
 zSiscomRegistro *lzSisRegRegreso;
+AgregaEnvio(zSiscomRegistro().Registro("%s [IdBodega] ",pchrPtrIdBodega));
 if((lzSisRegsRegreso=EnviaRecibe()))
   {
 	return lzSisRegsRegreso;

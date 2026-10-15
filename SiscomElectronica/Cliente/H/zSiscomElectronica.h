@@ -268,8 +268,8 @@ public:
 
 	int CalculaPesoImporteTotal(zProductoCompraImportacion *pzProdComImp);
 	zSiscomRegistros *Materias(const char *pchrPtrIdEscuela);
-	zSiscomRegistros *CajasMaterial();
-	zSiscomRegistros *Estantes();
+	zSiscomRegistros *CajasMaterial(const char *pchrPtrIdBodega);
+	zSiscomRegistros *Estantes(const char *pchrPtrIdBodega);
 	int RegistraCajaMaterial(zCajaMaterial *);
 	int AsignaCajaProducto(zSiscomRegistro *);
 	int UbicacionDeLaDescripcion();

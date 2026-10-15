@@ -7,6 +7,7 @@
 #include <SiscomDesarrolloMacros.h>
 #include <SiscomMacrosOperaciones.h>
 #include <SiscomInsercionesSql.h>
+#include <SiscomReplicacion.h>
 
 #include <SiscomDesarrollo4/H/SiscomFuncionesComunes.h>
 #include <stdio.h>
@@ -119,9 +120,32 @@ return 0;
 int SqlRegistraOrden(SiscomOperaciones *pSiscomOpePtrDato)
 {
 char lchrArrBuffer[512];
+/*
+ *  Revisar porque se registra en todas menos en la maquina local 
+if(EsCotizacion(pSiscomOpePtrDato))
+{
+ LogSiscom("Se registra una cotizacion");
+ LogSiscom("Registramos en todo Siscom ");
+ SiscomAsociadoRespuestaLog("Servidores",
+ 			     lchrArrBuffer,
+			     pSiscomOpePtrDato);
+ SiscomArgumentoLog("SqlOrden",
+ 		    lchrArrBuffer,
+		    pSiscomOpePtrDato);
+ SiscomReplicaMaquinasSistema("Servidor",
+                             "SqlOrden",
+                             lchrArrBuffer,
+                             pSiscomOpePtrDato->SiscomRegProLPtrPrimRes,
+                             0,
+                             pSiscomOpePtrDato);
+
+}
+else
+*/
 SiscomEnviaRegistrosAlServidorBD("SqlOrden",
 			       lchrArrBuffer,
 			       pSiscomOpePtrDato);
+
 return 0;
 }
 int SqlMaterialAAreaDiseno(SiscomOperaciones *pSiscomOpePtrDato)
